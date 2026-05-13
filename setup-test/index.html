@@ -4,370 +4,486 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>SETUP TEST — Nouméa</title>
-<meta name="description" content="Studio digital à Nouméa, Nouvelle-Calédonie. Création de sites web, identité visuelle, marketing digital. Audit gratuit.">
+<meta name="description" content="Studio digital à Nouméa, Nouvelle-Calédonie. SETUP TEST vous accompagne avec créativité et excellence technologique.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@400;500;600&family=Manrope:wght@700&display=swap">
 <style>
 :root{
---cp:#1a2744;
---cs:#ffd500;
---ca:#3ecf8e;
---ct:#222;
---cb:#fff;
---cm:#0f1a30;
+--cp:#FFD700;
+--cs:#1A2849;
+--ca:#FFD700;
+--cb:#F8F9FA;
+--ct:#222222;
+--cw:#ffffff;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:"Nunito",system-ui,sans-serif;color:var(--ct);background:var(--cb);overflow-x:hidden}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ct);background:var(--cw);overflow-x:hidden}
 img{max-width:100%;height:auto;display:block}
 a{text-decoration:none;color:inherit}
 
 /* BANDEAU PROMO */
-.promo{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;display:flex;align-items:center;justify-content:center}
-.promo a{font-family:"Manrope","Nunito",system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;letter-spacing:.3px;line-height:44px;text-align:center;display:block;width:100%}
-.promo a:hover{opacity:.85}
+#bp{
+position:fixed;top:0;left:0;width:100%;height:44px;
+background:#ffd500;z-index:1001;
+font-family:"Manrope","Plus Jakarta Sans",system-ui,sans-serif;
+font-weight:700;font-size:14px;line-height:44px;
+letter-spacing:.3px;text-align:center
+}
+#bp a{color:#4375ff;opacity:1;transition:opacity .2s}
+#bp a:hover{opacity:.85}
 
 /* HEADER */
-.hdr{position:fixed;top:44px;left:0;width:100%;height:64px;background:var(--cm);z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 32px;border-bottom:2px solid rgba(255,213,0,.15)}
-.hdr-logo{font-weight:900;font-size:22px;color:var(--cs);letter-spacing:1px}
-.hdr-logo span{color:#fff}
-.hdr-nav{display:flex;gap:28px;align-items:center}
-.hdr-nav a{color:#fff;font-size:14px;font-weight:600;letter-spacing:.3px;transition:color .2s}
-.hdr-nav a:hover,.hdr-nav a.active{color:var(--cs)}
-.hdr-cta{background:var(--cs);color:var(--cp);font-weight:800;font-size:14px;padding:10px 22px;border-radius:6px;transition:transform .2s,box-shadow .2s;display:inline-block}
-.hdr-cta:hover{transform:scale(1.05);box-shadow:0 4px 18px rgba(255,213,0,.35)}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
-.hamburger span{display:block;width:24px;height:2px;background:#fff;transition:transform .3s,opacity .3s}
-.mob-nav{display:none;position:fixed;top:108px;left:0;width:100%;background:var(--cm);z-index:999;flex-direction:column;padding:16px 24px 24px;gap:16px;border-bottom:2px solid rgba(255,213,0,.2)}
-.mob-nav a{color:#fff;font-size:16px;font-weight:700;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08)}
-.mob-nav .hdr-cta{margin-top:8px;text-align:center;border-radius:6px;padding:14px}
+.hdr{
+position:fixed;top:44px;left:0;width:100%;
+background:rgba(26,40,73,.97);backdrop-filter:blur(8px);
+z-index:1000;height:64px;display:flex;align-items:center;
+border-bottom:2px solid var(--cp)
+}
+.hdr-in{
+width:100%;max-width:1200px;margin:0 auto;
+padding:0 24px;display:flex;align-items:center;justify-content:space-between
+}
+.logo{
+font-family:'Barlow Condensed',sans-serif;font-weight:900;
+font-size:26px;color:var(--cw);letter-spacing:1px
+}
+.logo span{color:var(--cp)}
+nav{display:flex;gap:28px;align-items:center}
+nav a{
+font-size:14px;font-weight:500;color:rgba(255,255,255,.8);
+transition:color .2s;letter-spacing:.3px
+}
+nav a:hover{color:var(--cp)}
+.hdr-cta{
+background:var(--cp);color:var(--cs);
+font-weight:700;font-size:14px;padding:10px 20px;
+border-radius:6px;transition:transform .2s,box-shadow .2s;
+white-space:nowrap
+}
+.hdr-cta:hover{transform:scale(1.04);box-shadow:0 4px 16px rgba(255,215,0,.4)}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.hbg span{width:24px;height:2px;background:var(--cw);border-radius:2px;transition:transform .3s}
+.mnav{
+display:none;position:fixed;top:108px;left:0;width:100%;
+background:var(--cs);padding:24px 16px;flex-direction:column;gap:0;z-index:999
+}
+.mnav a{
+display:block;padding:14px 0;font-size:16px;color:var(--cw);
+border-bottom:1px solid rgba(255,255,255,.08);font-weight:500
+}
+.mnav .hdr-cta{margin-top:16px;text-align:center;border-radius:8px;padding:14px;font-size:16px}
+.mnav.open{display:flex}
 
 /* HERO */
-.hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:flex-start;padding:0 0 0 6vw;background:url('https://i.ibb.co/hJr3rT8J/SETUP-TEST-0.jpg') center center/cover no-repeat;margin-top:108px}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(10,18,40,.92) 45%,rgba(10,18,40,.4) 100%)}
-.hero-content{position:relative;z-index:2;max-width:620px}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--cs);color:var(--cp);font-weight:800;font-size:13px;padding:6px 16px;border-radius:20px;margin-bottom:24px;letter-spacing:.4px}
-.hero-badge::before{content:"✦";font-size:10px}
-.h1{font-size:clamp(38px,6vw,72px);font-weight:900;color:#fff;line-height:1.05;margin-bottom:20px}
-.h1 em{color:var(--cs);font-style:normal;display:block}
-.hero-sub{font-size:clamp(15px,2vw,18px);color:rgba(255,255,255,.82);font-weight:600;line-height:1.6;margin-bottom:36px;max-width:480px}
-.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
-.b-prim{background:var(--cs);color:var(--cp);font-weight:800;font-size:16px;padding:14px 32px;border-radius:8px;transition:transform .2s,box-shadow .2s;display:inline-block}
-.b-prim:hover{transform:scale(1.05);box-shadow:0 6px 24px rgba(255,213,0,.4)}
-.b-sec{background:transparent;border:2px solid rgba(255,255,255,.5);color:#fff;font-weight:700;font-size:15px;padding:13px 28px;border-radius:8px;transition:border-color .2s,background .2s}
-.b-sec:hover{border-color:var(--cs);background:rgba(255,213,0,.08)}
-.scroll-ind{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.7}
-.scroll-ind span{color:#fff;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase}
-.scroll-arrow{width:24px;height:24px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg);animation:bounce .8s ease-in-out infinite alternate}
-@keyframes bounce{from{transform:rotate(45deg) translate(-3px,-3px)}to{transform:rotate(45deg) translate(3px,3px)}}
+.hero{
+position:relative;min-height:100vh;display:flex;align-items:center;
+background:url('https://i.ibb.co/3yKXsDgM/SETUP-TEST-0.jpg') center/cover no-repeat;
+padding-top:108px
+}
+.hero-ov{
+position:absolute;inset:0;
+background:linear-gradient(135deg,rgba(26,40,73,.92) 0%,rgba(26,40,73,.70) 60%,rgba(26,40,73,.40) 100%)
+}
+.hero-in{
+position:relative;z-index:2;max-width:1200px;margin:0 auto;
+padding:0 24px;display:flex;flex-direction:column;gap:24px
+}
+.badge{
+display:inline-flex;align-items:center;gap:8px;
+background:var(--cp);color:var(--cs);
+font-family:'Barlow Condensed',sans-serif;font-weight:700;
+font-size:15px;padding:8px 18px;border-radius:100px;
+width:fit-content;letter-spacing:.5px
+}
+.badge::before{content:"★";font-size:16px}
+.h1{
+font-family:'Barlow Condensed',sans-serif;font-weight:900;
+font-size:clamp(48px,8vw,96px);color:var(--cw);
+line-height:.95;letter-spacing:-1px;max-width:800px
+}
+.h1 em{color:var(--cp);font-style:normal}
+.hero-sub{
+font-size:clamp(16px,2vw,20px);color:rgba(255,255,255,.85);
+max-width:540px;line-height:1.6;font-weight:400
+}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
+.b-primary{
+background:var(--cp);color:var(--cs);font-weight:700;
+font-size:16px;padding:16px 32px;border-radius:8px;
+border:none;cursor:pointer;transition:transform .2s,box-shadow .2s;
+font-family:'Inter',sans-serif;min-height:48px;display:inline-flex;align-items:center
+}
+.b-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,215,0,.45)}
+.b-outline{
+background:transparent;color:var(--cw);font-weight:600;
+font-size:16px;padding:16px 32px;border-radius:8px;
+border:2px solid rgba(255,255,255,.5);cursor:pointer;
+transition:border-color .2s,color .2s;min-height:48px;
+display:inline-flex;align-items:center;font-family:'Inter',sans-serif
+}
+.b-outline:hover{border-color:var(--cp);color:var(--cp)}
+.scroll-ind{
+display:flex;flex-direction:column;align-items:center;gap:8px;
+color:rgba(255,255,255,.5);font-size:12px;letter-spacing:1px;
+animation:bob 2s infinite
+}
+.scroll-ind svg{width:24px;height:24px;stroke:rgba(255,255,255,.5)}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* HERO CLIP */
+.hero::after{
+content:'';position:absolute;bottom:-1px;left:0;width:100%;height:80px;
+background:var(--cw);clip-path:polygon(0 100%,100% 100%,100% 0);z-index:1
+}
 
 /* STATS */
-.stats{background:var(--cp);padding:64px 32px;clip-path:polygon(0 10%,100% 0,100% 90%,0 100%)}
-.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
-.stat-item{padding:16px}
-.stat-num{font-size:clamp(40px,5vw,64px);font-weight:900;color:var(--cs);line-height:1;display:block}
-.stat-label{color:rgba(255,255,255,.75);font-size:14px;font-weight:600;margin-top:8px;letter-spacing:.3px;display:block}
-.stat-num.counting{transition:opacity .3s}
+.stats{
+background:var(--cs);padding:72px 24px;position:relative
+}
+.stats::after{
+content:'';position:absolute;bottom:-1px;left:0;width:100%;height:60px;
+background:var(--cb);clip-path:polygon(0 100%,100% 100%,100% 0)
+}
+.stats-in{
+max-width:1200px;margin:0 auto;
+display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center
+}
+.stat-item{display:flex;flex-direction:column;gap:8px;align-items:center}
+.stat-n{
+font-family:'Barlow Condensed',sans-serif;font-weight:900;
+font-size:clamp(48px,6vw,72px);color:var(--cp);line-height:1
+}
+.stat-l{font-size:15px;color:rgba(255,255,255,.75);font-weight:500;letter-spacing:.3px}
+.stat-sep{width:1px;background:rgba(255,255,255,.12);height:auto}
 
 /* RESPONSIVE */
 @media(max-width:900px){
-.hdr-nav,.hdr-cta{display:none}
-.hamburger{display:flex}
-.stats-inner{grid-template-columns:repeat(2,1fr)}
+.stats-in{grid-template-columns:repeat(2,1fr)}
+.stat-sep{display:none}
+nav,#hdr-nav-cta{display:none}
+.hbg{display:flex}
 }
 @media(max-width:480px){
-.hdr{padding:0 16px}
-.promo a{font-size:13px;line-height:40px;padding:0 12px}
-.promo{height:40px}
-.hero{margin-top:104px;padding:0 16px}
-.hero-btns{flex-direction:column}
-.b-prim,.b-sec{width:100%;text-align:center;min-height:48px;display:flex;align-items:center;justify-content:center}
-.stats{padding:80px 16px;clip-path:polygon(0 6%,100% 0,100% 94%,0 100%)}
-.stats-inner{grid-template-columns:repeat(2,1fr);gap:16px}
-.stat-item{padding:8px}
+#bp{height:40px;line-height:40px;font-size:13px}
+.hdr{top:40px}
+.mnav{top:104px}
+.hero{padding-top:104px}
+.hero-ctas{flex-direction:column}
+.hero-ctas .b-primary,.hero-ctas .b-outline{width:100%;justify-content:center}
+.stats{padding:56px 16px}
+.stats-in{grid-template-columns:repeat(2,1fr);gap:24px}
 }
 </style>
 </head>
 <body>
 
 <!-- BANDEAU PROMO -->
-<div class="promo">
-  <a href="https://officeplus.pipedrive.com/scheduler/xKlBQqc1/call" target="_blank" rel="noopener">Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.</a>
+<div id="bp">
+  <a href="https://officeplus.pipedrive.com/scheduler/xKlBQqc1/call" target="_blank" rel="noopener">
+    Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.
+  </a>
 </div>
 
 <!-- HEADER -->
-<header class="hdr" id="top">
-  <div class="hdr-logo">SETUP<span>&nbsp;TEST</span></div>
-  <nav class="hdr-nav">
-    <a href="#services">Services</a>
-    <a href="#processus">Processus</a>
-    <a href="#galerie">Réalisations</a>
-    <a href="#avis">Avis</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <a href="tel:242438" class="hdr-cta">📞 24 24 38</a>
-  <div class="hamburger" id="ham" role="button" aria-label="Menu">
-    <span></span><span></span><span></span>
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="logo" href="#"><span>SETUP</span> TEST</a>
+    <nav id="hdr-nav">
+      <a href="#services">Services</a>
+      <a href="#processus">Processus</a>
+      <a href="#galerie">Réalisations</a>
+      <a href="#avis">Avis</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a id="hdr-nav-cta" class="hdr-cta" href="tel:242438">📞 24 24 38</a>
+    <button class="hbg" id="hbg" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
-<nav class="mob-nav" id="mobnav">
-  <a href="#services" class="mob-link">Services</a>
-  <a href="#processus" class="mob-link">Processus</a>
-  <a href="#galerie" class="mob-link">Réalisations</a>
-  <a href="#avis" class="mob-link">Avis</a>
-  <a href="#contact" class="mob-link">Contact</a>
-  <a href="tel:242438" class="hdr-cta">📞 24 24 38</a>
+
+<!-- MENU MOBILE -->
+<nav class="mnav" id="mnav">
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#processus" onclick="closeMenu()">Processus</a>
+  <a href="#galerie" onclick="closeMenu()">Réalisations</a>
+  <a href="#avis" onclick="closeMenu()">Avis</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <a class="hdr-cta" href="tel:242438">📞 24 24 38</a>
 </nav>
 
 <!-- HERO -->
-<section class="hero" id="hero">
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-badge">Audit gratuit</div>
-    <h1 class="h1">Votre studio digital<em>à Nouméa.</em></h1>
-    <p class="hero-sub">SETUP TEST conçoit des sites web, des identités visuelles et des stratégies digitales adaptées aux entreprises de Nouvelle-Calédonie.</p>
-    <div class="hero-btns">
-      <a href="#contact" class="b-prim">Démarrer un projet</a>
-      <a href="#services" class="b-sec">Nos services</a>
+<section class="hero" id="accueil">
+  <div class="hero-ov"></div>
+  <div class="hero-in">
+    <div class="badge">Devis gratuit</div>
+    <h1 class="h1">Votre studio<br><em>digital</em><br>à Nouméa</h1>
+    <p class="hero-sub">SETUP TEST conçoit des expériences digitales percutantes pour les entreprises calédoniennes — créativité, performance et résultats concrets.</p>
+    <div class="hero-ctas">
+      <a class="b-primary" href="#contact">Demander un devis</a>
+      <a class="b-outline" href="#services">Découvrir nos services</a>
     </div>
-  </div>
-  <div class="scroll-ind">
-    <span>Découvrir</span>
-    <div class="scroll-arrow"></div>
+    <div class="scroll-ind">
+      <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+      <span>EXPLORER</span>
+    </div>
   </div>
 </section>
 
 <!-- STATS -->
 <section class="stats" id="stats">
-  <div class="stats-inner">
+  <div class="stats-in">
     <div class="stat-item">
-      <span class="stat-num" data-target="80">0</span>
-      <span class="stat-label">Projets livrés</span>
+      <span class="stat-n" data-target="25">0</span>
+      <span class="stat-l">Avis Google ⭐</span>
     </div>
     <div class="stat-item">
-      <span class="stat-num" data-target="60">0</span>
-      <span class="stat-label">Clients en Nouvelle-Calédonie</span>
+      <span class="stat-n" data-target="5">0</span>
+      <span class="stat-l">Note / 5 parfaite</span>
     </div>
     <div class="stat-item">
-      <span class="stat-num" data-target="5">0</span>
-      <span class="stat-label">Années d'expertise locale</span>
+      <span class="stat-n" data-target="100">0</span>
+      <span class="stat-l">% satisfaction client</span>
     </div>
     <div class="stat-item">
-      <span class="stat-num" data-target="100">0</span>
-      <span class="stat-label">% satisfaction client</span>
+      <span class="stat-n" data-target="7">0</span>
+      <span class="stat-l">Ans d'expérience locale</span>
     </div>
   </div>
 </section>
 
 <script>
-(function(){
-var ham=document.getElementById('ham'),nav=document.getElementById('mobnav'),open=false;
-ham.addEventListener('click',function(){
-open=!open;
-nav.style.display=open?'flex':'none';
-ham.children[0].style.transform=open?'rotate(45deg) translate(5px,5px)':'';
-ham.children[1].style.opacity=open?'0':'1';
-ham.children[2].style.transform=open?'rotate(-45deg) translate(5px,-5px)':'';
-});
-document.querySelectorAll('.mob-link').forEach(function(l){l.addEventListener('click',function(){open=false;nav.style.display='none';ham.children[0].style.transform='';ham.children[1].style.opacity='1';ham.children[2].style.transform='';});});
-var nums=document.querySelectorAll('.stat-num[data-target]'),done=false;
-function count(){if(done)return;var r=document.querySelector('.stats').getBoundingClientRect();if(r.top<window.innerHeight*.9){done=true;nums.forEach(function(el){var t=+el.dataset.target,d=1200,s=60,step=t/(d/s);var c=0;var iv=setInterval(function(){c+=step;if(c>=t){c=t;clearInterval(iv);}el.textContent=Math.round(c)+(el.dataset.target==='100'?'%':'+');},s);});}}
-window.addEventListener('scroll',count);count();
-var links=document.querySelectorAll('.hdr-nav a');
-window.addEventListener('scroll',function(){var pos=window.scrollY+120;links.forEach(function(l){var sec=document.querySelector(l.getAttribute('href'));if(sec){var top=sec.offsetTop,bot=top+sec.offsetHeight;l.classList.toggle('active',pos>=top&&pos<bot);}});});
-})();
+var hbg=document.getElementById('hbg'),mnav=document.getElementById('mnav');
+function closeMenu(){mnav.classList.remove('open')}
+hbg.addEventListener('click',function(){mnav.classList.toggle('open')});
+
+var nums=document.querySelectorAll('[data-target]'),started=false;
+function animNums(){
+  if(started)return;
+  nums.forEach(function(el){
+    var target=+el.dataset.target,dur=1400,step=16,steps=dur/step,inc=target/steps,cur=0;
+    var t=setInterval(function(){
+      cur=Math.min(cur+inc,target);
+      el.textContent=cur>=10?Math.round(cur):cur.toFixed(cur<5?1:0);
+      if(cur>=target)clearInterval(t);
+    },step);
+  });
+  started=true;
+}
+var obs=new IntersectionObserver(function(entries){
+  if(entries[0].isIntersecting)animNums();
+},{threshold:.3});
+obs.observe(document.querySelector('.stats'));
 </script>
 <style>
-.s{padding:80px 32px}
-.s-dark{background:var(--cp);color:#fff}
-.s-light{background:#f7f8fc}
-.s-white{background:#fff}
-.sec-title{font-size:clamp(28px,4vw,44px);font-weight:900;line-height:1.1;margin-bottom:12px}
-.sec-sub{font-size:16px;font-weight:600;opacity:.7;margin-bottom:48px;max-width:560px}
-.tag{display:inline-block;background:var(--ca);color:#fff;font-size:12px;font-weight:800;padding:4px 12px;border-radius:20px;letter-spacing:.5px;margin-bottom:16px}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1100px;margin:0 auto}
-.card{background:#fff;border-radius:14px;padding:36px 28px;transition:transform .25s,box-shadow .25s;border:2px solid transparent}
-.card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(26,39,68,.12);border-color:var(--cs)}
-.card-ico{width:56px;height:56px;background:var(--cp);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;transition:transform .25s}
-.card:hover .card-ico{transform:rotate(15deg)}
-.card-ico svg{width:28px;height:28px}
-.card h3{font-size:18px;font-weight:800;color:var(--cp);margin-bottom:10px}
-.card p{font-size:14px;line-height:1.6;color:#555;margin-bottom:20px}
-.b-link{color:var(--cp);font-weight:800;font-size:14px;border-bottom:2px solid var(--cs);padding-bottom:2px;transition:color .2s}
-.b-link:hover{color:var(--cs)}
-.metier-wrap{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-.metier-img{border-radius:18px;overflow:hidden;position:relative}
-.metier-img img{width:100%;height:340px;object-fit:cover;transition:transform .4s}
-.metier-img:hover img{transform:scale(1.04)}
-.metier-text h2{font-size:clamp(26px,3.5vw,40px);font-weight:900;color:var(--cp);margin-bottom:16px;line-height:1.15}
-.metier-text p{font-size:15px;line-height:1.7;color:#444;margin-bottom:28px}
-.check-list{list-style:none;display:flex;flex-direction:column;gap:12px}
-.check-list li{display:flex;align-items:flex-start;gap:12px;font-size:15px;font-weight:600;color:var(--ct)}
-.check-list li::before{content:"✓";background:var(--ca);color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;flex-shrink:0;margin-top:1px}
-.gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:960px;margin:0 auto}
-.gal-item{border-radius:12px;overflow:hidden;cursor:pointer;position:relative}
-.gal-item img{width:100%;height:240px;object-fit:cover;transition:transform .35s,opacity .35s}
-.gal-item:hover img{transform:scale(1.06);opacity:.9}
-.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center}
-.lightbox.open{display:flex}
-.lb-img{max-width:90vw;max-height:85vh;border-radius:10px;object-fit:contain}
-.lb-close{position:absolute;top:24px;right:32px;color:#fff;font-size:36px;cursor:pointer;font-weight:300;line-height:1;opacity:.8;transition:opacity .2s}
-.lb-close:hover{opacity:1}
-.form-wrap{max-width:620px;margin:0 auto}
-.form-wrap h2{font-size:clamp(26px,3.5vw,40px);font-weight:900;color:var(--cp);margin-bottom:12px}
-.form-wrap .sec-sub{margin-bottom:32px}
-.f-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.f-full{grid-column:1/-1}
-.f-field{display:flex;flex-direction:column;gap:6px}
-.f-field label{font-size:13px;font-weight:700;color:var(--cp);letter-spacing:.3px}
-.f-field input,.f-field textarea{border:2px solid #e0e4ef;border-radius:8px;padding:12px 16px;font-size:15px;font-family:inherit;color:var(--ct);background:#fff;transition:border-color .2s;outline:none}
-.f-field input:focus,.f-field textarea:focus{border-color:var(--cs)}
-.f-field textarea{resize:vertical;min-height:120px}
-.f-err{font-size:12px;color:#e74c3c;display:none}
-.f-field.error input,.f-field.error textarea{border-color:#e74c3c}
-.f-field.error .f-err{display:block}
-.b-submit{width:100%;background:var(--cs);color:var(--cp);font-weight:900;font-size:17px;padding:16px;border:none;border-radius:8px;cursor:pointer;transition:transform .2s,box-shadow .2s;margin-top:8px;font-family:inherit;min-height:52px}
-.b-submit:hover{transform:scale(1.03);box-shadow:0 6px 24px rgba(255,213,0,.4)}
-.f-success{display:none;background:var(--ca);color:#fff;padding:20px 24px;border-radius:10px;font-weight:700;font-size:16px;text-align:center;margin-top:20px}
-.social-sec{background:var(--cp);padding:80px 32px}
-.social-inner{max-width:1100px;margin:0 auto;text-align:center}
-.rating-big{font-size:clamp(56px,8vw,96px);font-weight:900;color:var(--cs);line-height:1}
-.stars{font-size:28px;letter-spacing:4px;margin:8px 0 4px;color:var(--cs)}
-.rating-label{color:rgba(255,255,255,.75);font-size:15px;font-weight:600;margin-bottom:48px}
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px}
-.testi-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:28px 24px;text-align:left;transition:background .25s}
-.testi-card:hover{background:rgba(255,255,255,.12)}
-.testi-stars{color:var(--cs);font-size:16px;letter-spacing:2px;margin-bottom:12px}
-.testi-text{color:rgba(255,255,255,.85);font-size:14px;line-height:1.65;margin-bottom:16px}
-.testi-name{color:#fff;font-weight:800;font-size:14px}
-.testi-role{color:rgba(255,255,255,.5);font-size:12px}
-.badges{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-.badge{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);border:1px solid rgba(62,207,142,.35);border-radius:30px;padding:10px 20px;animation:pulse-badge 3s ease-in-out infinite}
-.badge span{color:#fff;font-size:13px;font-weight:700}
-@keyframes pulse-badge{0%,100%{box-shadow:0 0 0 0 rgba(62,207,142,.3)}50%{box-shadow:0 0 0 6px rgba(62,207,142,0)}}
-.footer{background:var(--cm);padding:56px 32px 28px;color:rgba(255,255,255,.75)}
-.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;margin-bottom:40px}
-.ft-brand{font-size:22px;font-weight:900;color:var(--cs);margin-bottom:12px}
-.ft-brand span{color:#fff}
-.ft-desc{font-size:14px;line-height:1.65;margin-bottom:20px}
-.ft-social{display:flex;gap:12px}
-.ft-social a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:rgba(255,255,255,.08);border-radius:8px;transition:background .2s}
-.ft-social a:hover{background:var(--cs)}
-.ft-social a:hover svg{fill:var(--cp)}
-.ft-social svg{width:20px;height:20px;fill:#fff;transition:fill .2s}
-.ft-col h4{font-size:14px;font-weight:800;color:#fff;letter-spacing:.5px;text-transform:uppercase;margin-bottom:16px}
-.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-.ft-col ul li a{color:rgba(255,255,255,.65);font-size:14px;transition:color .2s}
-.ft-col ul li a:hover{color:var(--cs)}
-.ft-contact p{font-size:14px;line-height:1.8;color:rgba(255,255,255,.65)}
-.ft-contact a{color:var(--cs);font-weight:700}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:gap}
-.footer-bottom p{font-size:13px;color:rgba(255,255,255,.45)}
-.footer-bottom a{color:var(--ca);font-weight:700}
+.s{padding:96px 24px;position:relative}
+.s-dark{background:var(--cs)}
+.s-light{background:var(--cb)}
+.s-white{background:var(--cw)}
+.s-in{max-width:1200px;margin:0 auto}
+.h2{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(36px,5vw,64px);line-height:1;letter-spacing:-1px}
+.h2-light{color:var(--cw)}
+.h2-dark{color:var(--cs)}
+.h2 em{color:var(--cp);font-style:normal}
+.tag{display:inline-block;background:var(--cp);color:var(--cs);font-weight:700;font-size:12px;padding:4px 14px;border-radius:100px;letter-spacing:1px;margin-bottom:16px;font-family:'Barlow Condensed',sans-serif}
+.tag-outline{background:transparent;border:2px solid var(--cp);color:var(--cp)}
+.lead{font-size:18px;color:rgba(255,255,255,.75);max-width:560px;line-height:1.7;margin-top:16px}
+.lead-dark{color:#555}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:56px}
+.c{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:36px 28px;transition:transform .25s,box-shadow .25s}
+.c:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(0,0,0,.25)}
+.c-light{background:var(--cw);border:1px solid #e8e8e8;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.c-light:hover{box-shadow:0 12px 32px rgba(26,40,73,.12)}
+.c-ico{width:56px;height:56px;background:var(--cp);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.c-ico svg{width:28px;height:28px;stroke:var(--cs);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.c-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;color:var(--cw);margin-bottom:10px}
+.c-title-dark{color:var(--cs)}
+.c-desc{font-size:14px;color:rgba(255,255,255,.7);line-height:1.6}
+.c-desc-dark{color:#555}
+.c-link{display:inline-flex;align-items:center;gap:6px;margin-top:20px;font-weight:600;font-size:13px;color:var(--cp);letter-spacing:.3px}
+.c-link svg{width:16px;height:16px;stroke:var(--cp);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
+.c:hover .c-link svg{transform:translateX(4px)}
+.clip-top::before{content:'';position:absolute;top:-1px;left:0;width:100%;height:60px;background:var(--cb);clip-path:polygon(0 0,100% 0,100% 100%);z-index:1}
+.clip-btm::after{content:'';position:absolute;bottom:-1px;left:0;width:100%;height:60px;background:var(--cw);clip-path:polygon(0 100%,100% 100%,100% 0);z-index:1}
+.metier-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:56px}
+.metier-img{border-radius:20px;overflow:hidden;position:relative}
+.metier-img img{width:100%;height:420px;object-fit:cover;display:block}
+.metier-img::after{content:'';position:absolute;inset:0;border-radius:20px;border:3px solid var(--cp)}
+.metier-txt{display:flex;flex-direction:column;gap:20px}
+.h3{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(28px,3.5vw,42px);color:var(--cs);line-height:1.05}
+.check-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:8px}
+.check-list li{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:#444;line-height:1.5}
+.check-list li::before{content:'';min-width:22px;height:22px;background:var(--cp);border-radius:50%;display:flex;align-items:center;justify-content:center;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%231A2849' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;margin-top:2px}
+.galerie-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:48px}
+.gal-item{border-radius:12px;overflow:hidden;cursor:pointer;position:relative;aspect-ratio:1}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-item::after{content:'🔍';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:28px;background:rgba(26,40,73,.5);opacity:0;transition:opacity .3s}
+.gal-item:hover::after{opacity:1}
+.lb{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;display:none;align-items:center;justify-content:center}
+.lb.open{display:flex}
+.lb img{max-width:90vw;max-height:88vh;border-radius:12px;object-fit:contain}
+.lb-close{position:absolute;top:24px;right:32px;color:#fff;font-size:40px;cursor:pointer;line-height:1;background:none;border:none}
+.form-wrap{max-width:680px;margin:48px auto 0}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.f-group{display:flex;flex-direction:column;gap:8px}
+.f-group.full{grid-column:1/-1}
+.f-group label{font-size:13px;font-weight:600;color:var(--cs);letter-spacing:.3px}
+.f-group input,.f-group textarea,.f-group select{
+width:100%;padding:14px 16px;border:2px solid #e0e0e0;border-radius:10px;
+font-size:15px;font-family:'Inter',sans-serif;color:var(--ct);
+background:var(--cw);transition:border-color .2s;outline:none
+}
+.f-group input:focus,.f-group textarea:focus,.f-group select:focus{border-color:var(--cp)}
+.f-group textarea{min-height:120px;resize:vertical}
+.f-err{font-size:12px;color:#e53e3e;display:none;margin-top:2px}
+.f-err.show{display:block}
+.f-success{background:#e8f5e9;border:2px solid #4caf50;border-radius:12px;padding:20px;text-align:center;font-weight:600;color:#2e7d32;margin-top:24px;display:none}
+.f-success.show{display:block}
+.avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.av-c{background:var(--cw);border-radius:16px;padding:28px;box-shadow:0 2px 16px rgba(0,0,0,.07);display:flex;flex-direction:column;gap:12px}
+.av-stars{color:var(--cp);font-size:20px;letter-spacing:2px}
+.av-text{font-size:14px;color:#555;line-height:1.65;font-style:italic}
+.av-name{font-weight:700;font-size:14px;color:var(--cs)}
+.google-badge{display:inline-flex;align-items:center;gap:16px;background:var(--cw);border-radius:16px;padding:20px 32px;box-shadow:0 4px 20px rgba(0,0,0,.1);margin:0 auto 48px;width:fit-content}
+.gb-score{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:56px;color:var(--cs);line-height:1}
+.gb-right{display:flex;flex-direction:column;gap:4px}
+.gb-stars{color:#FFD700;font-size:22px;letter-spacing:3px}
+.gb-count{font-size:13px;color:#888;font-weight:500}
+.badges-row{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:48px}
+.bdg{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:100px;padding:10px 20px;font-size:13px;color:var(--cw);font-weight:600;letter-spacing:.3px}
+.bdg svg{width:18px;height:18px;stroke:var(--cp);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.s-avis{background:var(--cs);padding:96px 24px;text-align:center;position:relative}
+.s-avis::after{content:'';position:absolute;bottom:-1px;left:0;width:100%;height:60px;background:var(--cw);clip-path:polygon(0 100%,100% 100%,100% 0);z-index:1}
+.footer{background:var(--cs);border-top:3px solid var(--cp);padding:64px 24px 32px}
+.footer-in{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px}
+.ft-logo{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:28px;color:var(--cw);margin-bottom:12px}
+.ft-logo span{color:var(--cp)}
+.ft-desc{font-size:14px;color:rgba(255,255,255,.65);line-height:1.7;max-width:280px}
+.ft-h{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:18px;color:var(--cw);margin-bottom:16px;letter-spacing:.5px}
+.ft-links{display:flex;flex-direction:column;gap:10px}
+.ft-links a{font-size:14px;color:rgba(255,255,255,.65);transition:color .2s}
+.ft-links a:hover{color:var(--cp)}
+.ft-socials{display:flex;gap:12px;margin-top:20px}
+.ft-soc{width:40px;height:40px;background:rgba(255,255,255,.08);border-radius:8px;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.ft-soc:hover{background:var(--cp)}
+.ft-soc:hover svg{stroke:var(--cs)}
+.ft-soc svg{width:20px;height:20px;stroke:rgba(255,255,255,.7);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:stroke .2s}
+.ft-bottom{max-width:1200px;margin:48px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ft-copy{font-size:13px;color:rgba(255,255,255,.45)}
+.ft-credit{font-size:13px;color:rgba(255,255,255,.45)}
+.ft-credit a{color:var(--cp);font-weight:600}
+.cta-section{background:var(--cp);padding:96px 24px;text-align:center;clip-path:polygon(0 40px,100% 0,100% calc(100% - 40px),0 100%)}
+.cta-section .h2{color:var(--cs)}
+.cta-section .lead{color:rgba(26,40,73,.8);margin:16px auto 0}
+.b-dark{background:var(--cs);color:var(--cw);font-weight:700;font-size:16px;padding:16px 36px;border-radius:8px;border:none;cursor:pointer;transition:transform .2s,box-shadow .2s;font-family:'Inter',sans-serif;min-height:48px;display:inline-flex;align-items:center;margin-top:32px}
+.b-dark:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(26,40,73,.35)}
 @media(max-width:900px){
-.grid3{grid-template-columns:repeat(2,1fr)}
-.metier-wrap{grid-template-columns:1fr;gap:36px}
-.testi-grid{grid-template-columns:1fr 1fr}
-.footer-inner{grid-template-columns:1fr 1fr}
+.grid3{grid-template-columns:1fr}
+.metier-grid{grid-template-columns:1fr;gap:36px}
+.galerie-grid{grid-template-columns:repeat(2,1fr)}
+.avis-grid{grid-template-columns:1fr}
+.form-grid{grid-template-columns:1fr}
+.footer-in{grid-template-columns:1fr;gap:36px}
+.ft-bottom{flex-direction:column;text-align:center}
 }
 @media(max-width:480px){
-.s{padding:64px 16px}
-.grid3{grid-template-columns:1fr}
-.gallery-grid{grid-template-columns:1fr}
-.f-grid{grid-template-columns:1fr}
-.testi-grid{grid-template-columns:1fr}
-.footer-inner{grid-template-columns:1fr}
-.footer-bottom{flex-direction:column;gap:8px;text-align:center}
-.social-sec{padding:64px 16px}
-.badges{flex-direction:column;align-items:center}
+.s{padding:72px 16px}
+.galerie-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+.google-badge{flex-direction:column;text-align:center;gap:8px}
+.badges-row{gap:10px}
+.cta-section{clip-path:polygon(0 20px,100% 0,100% calc(100% - 20px),0 100%)}
+.b-dark{width:100%;justify-content:center}
+.ft-bottom{gap:8px}
 }
 </style>
 
 <!-- SERVICES -->
-<section class="s s-light" id="services">
-  <div style="max-width:1100px;margin:0 auto">
-    <div class="tag">NOS SERVICES</div>
-    <h2 class="sec-title">Ce que nous créons<br>pour votre entreprise</h2>
-    <p class="sec-sub">Des solutions digitales concrètes, pensées pour le marché calédonien.</p>
+<section class="s s-dark" id="services">
+  <div class="s-in">
+    <div class="tag tag-outline">Nos services</div>
+    <h2 class="h2 h2-light">Ce qu'on fait<br><em>vraiment bien</em></h2>
+    <p class="lead">De la stratégie à la mise en ligne, SETUP TEST pilote votre présence digitale de A à Z — avec méthode, créativité et résultats mesurables.</p>
     <div class="grid3">
-      <div class="card">
-        <div class="card-ico">
-          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="22" height="16" rx="2" stroke="#ffd500" stroke-width="2"/><path d="M9 21l2-4h6l2 4" stroke="#ffd500" stroke-width="2" stroke-linecap="round"/><path d="M3 9h22" stroke="#ffd500" stroke-width="2"/></svg>
+      <div class="c">
+        <div class="c-ico">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         </div>
-        <h3>Création de site web</h3>
-        <p>Sites vitrines, e-commerce et landing pages optimisés pour convertir vos visiteurs en clients.</p>
-        <a href="#contact" class="b-link">Demander un devis →</a>
+        <div class="c-title">Sites web & landing pages</div>
+        <div class="c-desc">Des sites performants, rapides et esthétiques qui convertissent vos visiteurs en clients — conçus pour les entreprises calédoniennes.</div>
+        <a class="c-link" href="#contact">Demander un devis <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
-      <div class="card">
-        <div class="card-ico">
-          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="9" stroke="#ffd500" stroke-width="2"/><path d="M14 9v5l3 3" stroke="#ffd500" stroke-width="2" stroke-linecap="round"/><path d="M6 6l2 2M20 6l2-2M6 22l2-2M20 22l2 2" stroke="#3ecf8e" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <div class="c">
+        <div class="c-ico">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
         </div>
-        <h3>Identité visuelle</h3>
-        <p>Logo, charte graphique et supports de communication qui reflètent l'âme de votre marque.</p>
-        <a href="#contact" class="b-link">Démarrer →</a>
+        <div class="c-title">Design & identité visuelle</div>
+        <div class="c-desc">Logo, charte graphique, supports de communication — une identité forte qui marque les esprits et distingue votre marque localement.</div>
+        <a class="c-link" href="#contact">Demander un devis <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
-      <div class="card">
-        <div class="card-ico">
-          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 20l6-6 4 4 6-8 4 3" stroke="#ffd500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="4" width="22" height="18" rx="2" stroke="#ffd500" stroke-width="2"/></svg>
+      <div class="c">
+        <div class="c-ico">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         </div>
-        <h3>Marketing digital</h3>
-        <p>Stratégie réseaux sociaux, campagnes publicitaires et référencement pour gagner en visibilité locale.</p>
-        <a href="#contact" class="b-link">En savoir plus →</a>
+        <div class="c-title">Référencement & visibilité</div>
+        <div class="c-desc">Optimisation SEO, Google My Business, campagnes locales — soyez trouvés par vos clients à Nouméa avant vos concurrents.</div>
+        <a class="c-link" href="#contact">Demander un devis <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
-      <div class="card">
-        <div class="card-ico">
-          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 4C8.48 4 4 8.48 4 14s4.48 10 10 10 10-4.48 10-10S19.52 4 14 4z" stroke="#ffd500" stroke-width="2"/><path d="M4 14h20M14 4a15.23 15.23 0 010 20M14 4a15.23 15.23 0 000 20" stroke="#ffd500" stroke-width="2"/></svg>
+      <div class="c">
+        <div class="c-ico">
+          <svg viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
         </div>
-        <h3>Audit & conseil digital</h3>
-        <p>Analyse de votre présence en ligne et recommandations concrètes pour accélérer votre croissance.</p>
-        <a href="#contact" class="b-link">Audit gratuit →</a>
+        <div class="c-title">Réseaux sociaux & contenu</div>
+        <div class="c-desc">Stratégie éditoriale, création de contenus, animation des communautés — votre présence sociale devient un vrai levier de croissance.</div>
+        <a class="c-link" href="#contact">Demander un devis <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
-      <div class="card">
-        <div class="card-ico">
-          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="3" width="18" height="22" rx="2" stroke="#ffd500" stroke-width="2"/><path d="M9 8h10M9 12h10M9 16h6" stroke="#ffd500" stroke-width="2" stroke-linecap="round"/></svg>
+      <div class="c">
+        <div class="c-ico">
+          <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
         </div>
-        <h3>Rédaction & contenu</h3>
-        <p>Textes web, articles de blog et contenus engageants adaptés à votre audience calédonienne.</p>
-        <a href="#contact" class="b-link">Parlons contenu →</a>
+        <div class="c-title">Applications & solutions web</div>
+        <div class="c-desc">Outils métier sur mesure, interfaces intuitives, automatisation — des solutions digitales qui simplifient votre quotidien professionnel.</div>
+        <a class="c-link" href="#contact">Demander un devis <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
-      <div class="card">
-        <div class="card-ico">
-          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 4l2.5 5 5.5.8-4 3.9.9 5.5L14 16.5l-4.9 2.7.9-5.5-4-3.9 5.5-.8L14 4z" stroke="#ffd500" stroke-width="2" stroke-linejoin="round"/></svg>
+      <div class="c">
+        <div class="c-ico">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
         </div>
-        <h3>Maintenance & support</h3>
-        <p>Suivi technique, mises à jour régulières et assistance réactive pour garder votre site performant.</p>
-        <a href="#contact" class="b-link">Nous contacter →</a>
+        <div class="c-title">Accompagnement & conseil</div>
+        <div class="c-desc">Audit digital, formation, suivi personnalisé — un partenaire de confiance qui pense votre stratégie sur le long terme, à vos côtés.</div>
+        <a class="c-link" href="#contact">Demander un devis <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- PROCESSUS -->
-<section class="s s-dark" id="processus">
-  <div style="max-width:1100px;margin:0 auto;text-align:center">
-    <div class="tag">COMMENT ÇA MARCHE</div>
-    <h2 class="sec-title" style="color:#fff">De l'idée au lancement,<br><em style="color:var(--cs);font-style:normal">un processus clair et transparent</em></h2>
-    <p class="sec-sub" style="margin:0 auto 56px;opacity:.7;color:#fff">Quatre étapes structurées pour transformer votre vision en réalité digitale.</p>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1000px;margin:0 auto">
-      <div class="card" style="background:rgba(255,255,255,.06);border-color:rgba(255,213,0,.2);text-align:left">
-        <div style="font-size:42px;font-weight:900;color:var(--cs);line-height:1;margin-bottom:16px">01</div>
-        <h3 style="color:#fff;margin-bottom:10px">Découverte</h3>
-        <p style="color:rgba(255,255,255,.65)">On écoute votre projet, vos objectifs et votre marché pour cerner exactement ce dont vous avez besoin.</p>
+<section class="s s-light" id="processus">
+  <div class="s-in">
+    <div class="tag">Notre méthode</div>
+    <h2 class="h2 h2-dark">Un processus <em>clair</em><br>de A à Z</h2>
+    <p class="lead lead-dark" style="color:#555;margin-top:16px">Chaque projet suit une approche structurée en 4 étapes — pour des livrables sans surprise et une collaboration fluide.</p>
+    <div class="grid3" style="grid-template-columns:repeat(4,1fr);margin-top:48px">
+      <div class="c c-light" style="text-align:center">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:48px;color:var(--cp);line-height:1">01</div>
+        <div class="c-title c-title-dark" style="margin-top:12px">Appel découverte</div>
+        <div class="c-desc c-desc-dark">On écoute vos besoins, vos objectifs et votre contexte pour construire ensemble la meilleure solution digitale.</div>
       </div>
-      <div class="card" style="background:rgba(255,255,255,.06);border-color:rgba(255,213,0,.2);text-align:left">
-        <div style="font-size:42px;font-weight:900;color:var(--cs);line-height:1;margin-bottom:16px">02</div>
-        <h3 style="color:#fff;margin-bottom:10px">Design</h3>
-        <p style="color:rgba(255,255,255,.65)">Maquettes et prototypes validés ensemble avant de passer à l'étape technique — zéro mauvaise surprise.</p>
+      <div class="c c-light" style="text-align:center">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:48px;color:var(--cp);line-height:1">02</div>
+        <div class="c-title c-title-dark" style="margin-top:12px">Proposition & devis</div>
+        <div class="c-desc c-desc-dark">Nous rédigeons une proposition claire, détaillée et chiffrée — adaptée à votre budget et à votre calendrier réel.</div>
       </div>
-      <div class="card" style="background:rgba(255,255,255,.06);border-color:rgba(255,213,0,.2);text-align:left">
-        <div style="font-size:42px;font-weight:900;color:var(--cs);line-height:1;margin-bottom:16px">03</div>
-        <h3 style="color:#fff;margin-bottom:10px">Développement</h3>
-        <p style="color:rgba(255,255,255,.65)">Intégration soignée, optimisation mobile et performance garantis pour une expérience utilisateur irréprochable.</p>
+      <div class="c c-light" style="text-align:center">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:48px;color:var(--cp);line-height:1">03</div>
+        <div class="c-title c-title-dark" style="margin-top:12px">Conception & création</div>
+        <div class="c-desc c-desc-dark">Notre équipe conçoit, développe et teste votre projet avec rigueur — vous validez chaque étape clé en toute transparence.</div>
       </div>
-      <div class="card" style="background:rgba(255,255,255,.06);border-color:rgba(255,213,0,.2);text-align:left">
-        <div style="font-size:42px;font-weight:900;color:var(--cs);line-height:1;margin-bottom:16px">04</div>
-        <h3 style="color:#fff;margin-bottom:10px">Lancement</h3>
-        <p style="color:rgba(255,255,255,.65)">Mise en ligne, formation et suivi post-lancement pour que votre présence digitale démarre fort dès le premier jour.</p>
+      <div class="c c-light" style="text-align:center">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:48px;color:var(--cp);line-height:1">04</div>
+        <div class="c-title c-title-dark" style="margin-top:12px">Livraison & suivi</div>
+        <div class="c-desc c-desc-dark">Mise en ligne, formation, support post-lancement — on reste présents bien après la remise des clés de votre projet.</div>
       </div>
     </div>
   </div>
@@ -375,108 +491,116 @@ window.addEventListener('scroll',function(){var pos=window.scrollY+120;links.for
 
 <!-- SECTION MÉTIER -->
 <section class="s s-white" id="metier">
-  <div class="metier-wrap">
-    <div class="metier-img">
-      <img src="https://i.ibb.co/WvjrNMPf/SETUP-TEST-1.jpg" alt="Studio SETUP TEST en action à Nouméa" loading="lazy">
+  <div class="s-in">
+    <div class="tag">Qui nous sommes</div>
+    <div class="metier-grid">
+      <div class="metier-img">
+        <img src="https://i.ibb.co/W4n1zFQT/SETUP-TEST-1.jpg" alt="Studio digital SETUP TEST Nouméa" loading="lazy">
+      </div>
+      <div class="metier-txt">
+        <h2 class="h2 h2-dark">Le studio digital<br><em>de référence</em><br>à Nouméa</h2>
+        <p style="font-size:16px;color:#555;line-height:1.75">SETUP TEST est né d'une conviction simple : les entreprises calédoniennes méritent des outils digitaux à la hauteur de leur ambition. On travaille avec des PME locales, des commerçants, des artisans et des institutions — pour transformer leur présence en ligne en véritable moteur de croissance.</p>
+        <ul class="check-list">
+          <li>Équipe locale, disponible et réactive — basée à Nouméa</li>
+          <li>Livrables clairs, délais tenus, tarifs transparents</li>
+          <li>Technologie moderne adaptée aux connexions calédoniennes</li>
+          <li>Accompagnement sur le long terme, pas une prestation unique</li>
+        </ul>
+        <a class="b-primary" href="#contact" style="width:fit-content;margin-top:8px">Parlez-nous de votre projet</a>
+      </div>
     </div>
-    <div class="metier-text">
-      <div class="tag">NOTRE EXPERTISE</div>
-      <h2>Un studio digital ancré en Nouvelle-Calédonie</h2>
-      <p>Chez SETUP TEST, nous accompagnons les PME et TPE de Nouméa dans leur transformation digitale depuis plusieurs années. Nous connaissons le marché local, ses spécificités et ses opportunités — et nous créons des solutions qui fonctionnent vraiment ici.</p>
-      <ul class="check-list">
-        <li>Équipe locale disponible et réactive</li>
-        <li>Solutions adaptées au contexte insulaire</li>
-        <li>Accompagnement de A à Z, sans jargon</li>
-        <li>Résultats mesurables et transparence totale</li>
-      </ul>
-    </div>
-  </div>
-  <div class="metier-wrap" style="margin-top:64px">
-    <div class="metier-text">
-      <div class="tag">POURQUOI SETUP</div>
-      <h2>Votre croissance digitale,<br>notre priorité</h2>
-      <p>Nous ne livrons pas de sites web génériques. Chaque projet est pensé sur-mesure, avec une attention particulière portée à l'expérience utilisateur et à la conversion. Votre succès est notre meilleure référence.</p>
-      <ul class="check-list">
-        <li>Sites performants sur mobile et desktop</li>
-        <li>Référencement local optimisé (SEO)</li>
-        <li>Designs distinctifs qui marquent les esprits</li>
-        <li>Support technique inclus après livraison</li>
-      </ul>
-    </div>
-    <div class="metier-img">
-      <img src="https://i.ibb.co/wZwvNPny/SETUP-TEST-3.jpg" alt="Projet digital SETUP TEST Nouméa" loading="lazy">
+    <div class="metier-grid" style="margin-top:80px">
+      <div class="metier-txt">
+        <h3 class="h3">Innovation locale,<br>impact <span style="color:var(--cp)">concret</span></h3>
+        <p style="font-size:16px;color:#555;line-height:1.75;margin-top:12px">Chaque projet que nous livrons est pensé pour fonctionner dans les conditions réelles du marché calédonien — bande passante, usages mobiles, codes culturels locaux. Pas de solutions copiées-collées depuis la métropole : du sur-mesure, point.</p>
+        <ul class="check-list">
+          <li>Sites optimisés pour connexions mobiles et dégroupage local</li>
+          <li>Design pensé pour les usages réels de vos clients calédoniens</li>
+          <li>Stratégies digitales ancrées dans le tissu économique local</li>
+          <li>Devis gratuit et sans engagement, réponse sous 24h</li>
+        </ul>
+      </div>
+      <div class="metier-img">
+        <img src="https://i.ibb.co/bMfpBnvb/SETUP-TEST-2.jpg" alt="Réalisations SETUP TEST Nouméa" loading="lazy">
+      </div>
     </div>
   </div>
 </section>
 
 <!-- GALERIE -->
 <section class="s s-light" id="galerie">
-  <div style="max-width:960px;margin:0 auto;text-align:center">
-    <div class="tag">RÉALISATIONS</div>
-    <h2 class="sec-title">Nos projets parlent<br>d'eux-mêmes</h2>
-    <p class="sec-sub" style="margin:0 auto 40px">Quelques créations issues de notre studio à Nouméa.</p>
-    <div class="gallery-grid">
-      <div class="gal-item" data-src="https://i.ibb.co/hJr3rT8J/SETUP-TEST-0.jpg">
-        <img src="https://i.ibb.co/hJr3rT8J/SETUP-TEST-0.jpg" alt="Projet SETUP TEST 1" loading="lazy">
+  <div class="s-in">
+    <div class="tag">Nos réalisations</div>
+    <h2 class="h2 h2-dark">Le travail<br>parle <em>lui-même</em></h2>
+    <div class="galerie-grid">
+      <div class="gal-item" onclick="openLb('https://i.ibb.co/3yKXsDgM/SETUP-TEST-0.jpg')">
+        <img src="https://i.ibb.co/3yKXsDgM/SETUP-TEST-0.jpg" alt="Réalisation SETUP TEST 1" loading="lazy">
       </div>
-      <div class="gal-item" data-src="https://i.ibb.co/WvjrNMPf/SETUP-TEST-1.jpg">
-        <img src="https://i.ibb.co/WvjrNMPf/SETUP-TEST-1.jpg" alt="Projet SETUP TEST 2" loading="lazy">
+      <div class="gal-item" onclick="openLb('https://i.ibb.co/W4n1zFQT/SETUP-TEST-1.jpg')">
+        <img src="https://i.ibb.co/W4n1zFQT/SETUP-TEST-1.jpg" alt="Réalisation SETUP TEST 2" loading="lazy">
       </div>
-      <div class="gal-item" data-src="https://i.ibb.co/WqrLvNw/SETUP-TEST-2.jpg">
-        <img src="https://i.ibb.co/WqrLvNw/SETUP-TEST-2.jpg" alt="Projet SETUP TEST 3" loading="lazy">
+      <div class="gal-item" onclick="openLb('https://i.ibb.co/bMfpBnvb/SETUP-TEST-2.jpg')">
+        <img src="https://i.ibb.co/bMfpBnvb/SETUP-TEST-2.jpg" alt="Réalisation SETUP TEST 3" loading="lazy">
       </div>
-      <div class="gal-item" data-src="https://i.ibb.co/wZwvNPny/SETUP-TEST-3.jpg">
-        <img src="https://i.ibb.co/wZwvNPny/SETUP-TEST-3.jpg" alt="Projet SETUP TEST 4" loading="lazy">
+      <div class="gal-item" onclick="openLb('https://i.ibb.co/M59qs03g/SETUP-TEST-3.jpg')">
+        <img src="https://i.ibb.co/M59qs03g/SETUP-TEST-3.jpg" alt="Réalisation SETUP TEST 4" loading="lazy">
       </div>
     </div>
   </div>
 </section>
 
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lb" role="dialog" aria-modal="true">
-  <span class="lb-close" id="lb-close" aria-label="Fermer">&times;</span>
-  <img class="lb-img" id="lb-img" src="" alt="Aperçu projet">
+<div class="lb" id="lb" onclick="closeLb()">
+  <button class="lb-close" onclick="closeLb()">×</button>
+  <img id="lb-img" src="" alt="Agrandissement photo">
 </div>
 
 <!-- PREUVE SOCIALE -->
-<section class="social-sec" id="avis">
-  <div class="social-inner">
-    <div class="tag">AVIS CLIENTS</div>
-    <div class="rating-big">5/5</div>
-    <div class="stars">★★★★★</div>
-    <p class="rating-label">Basé sur 25 avis Google vérifiés</p>
-    <div class="testi-grid">
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Équipe professionnelle et à l'écoute. Notre site a été livré dans les délais avec un rendu qui dépasse nos attentes. Je recommande sans hésiter."</p>
-        <div class="testi-name">Marie T.</div>
-        <div class="testi-role">Gérante, commerce à Nouméa</div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"SETUP a su comprendre notre secteur et proposer une identité visuelle moderne qui nous ressemble vraiment. Un vrai partenaire digital de confiance."</p>
-        <div class="testi-name">Jean-Luc M.</div>
-        <div class="testi-role">Directeur, PME calédonienne</div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"De la réactivité, de la pédagogie et un résultat impeccable. Notre visibilité en ligne a clairement progressé depuis la refonte de notre site."</p>
-        <div class="testi-name">Sophie K.</div>
-        <div class="testi-role">Responsable marketing, Nouméa</div>
+<section class="s-avis" id="avis">
+  <div class="s-in">
+    <div class="tag">Avis clients</div>
+    <h2 class="h2 h2-light" style="margin-bottom:32px">Ils nous font <em>confiance</em></h2>
+    <div class="google-badge">
+      <div class="gb-score">5,0</div>
+      <div class="gb-right">
+        <div class="gb-stars">★★★★★</div>
+        <div style="font-weight:700;font-size:15px;color:var(--cs)">Note Google</div>
+        <div class="gb-count">Basé sur 25 avis vérifiés</div>
       </div>
     </div>
-    <div class="badges">
-      <div class="badge">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L10 14.4l-4.8 2.5.9-5.4L2.2 7.7l5.4-.8L10 2z" fill="#3ecf8e"/></svg>
-        <span>Note 5/5 Google</span>
+    <div class="avis-grid">
+      <div class="av-c">
+        <div class="av-stars">★★★★★</div>
+        <div class="av-text">"Une équipe à l'écoute, réactive et vraiment professionnelle. Notre site a été livré dans les délais et exactement comme on le souhaitait. Je recommande sans hésiter."</div>
+        <div class="av-name">Marie T. — Gérante, Nouméa</div>
       </div>
-      <div class="badge">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="#3ecf8e" stroke-width="2"/><path d="M7 10l2 2 4-4" stroke="#3ecf8e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span>Studio basé à Nouméa</span>
+      <div class="av-c">
+        <div class="av-stars">★★★★★</div>
+        <div class="av-text">"Excellent travail sur notre identité visuelle et notre site web. Le rendu est moderne, rapide et nos clients nous le disent souvent. Un vrai plus pour notre activité."</div>
+        <div class="av-name">Jean-Pierre K. — Artisan, Nouméa</div>
       </div>
-      <div class="badge">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="3" stroke="#3ecf8e" stroke-width="2"/><path d="M7 10l2 2 4-4" stroke="#3ecf8e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span>Audit gratuit offert</span>
+      <div class="av-c">
+        <div class="av-stars">★★★★★</div>
+        <div class="av-text">"SETUP TEST comprend les enjeux locaux. Pas besoin de tout expliquer depuis zéro, ils connaissent le marché calédonien et ça change tout dans la qualité du résultat final."</div>
+        <div class="av-name">Sandra M. — Directrice commerciale, NC</div>
+      </div>
+    </div>
+    <div class="badges-row">
+      <div class="bdg">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Studio certifié local
+      </div>
+      <div class="bdg">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Réponse sous 24h
+      </div>
+      <div class="bdg">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        Devis gratuit & sans engagement
+      </div>
+      <div class="bdg">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        25 clients satisfaits
       </div>
     </div>
   </div>
@@ -484,114 +608,129 @@ window.addEventListener('scroll',function(){var pos=window.scrollY+120;links.for
 
 <!-- FORMULAIRE -->
 <section class="s s-white" id="contact">
-  <div class="form-wrap">
-    <div class="tag">CONTACT</div>
-    <h2>Démarrons votre projet ensemble</h2>
-    <p class="sec-sub">Répondez en moins de 24h — basés au 7 rue Fleming, Nouméa.</p>
-    <form id="cform" action="#" novalidate>
-      <div class="f-grid">
-        <div class="f-field">
-          <label for="fname">Nom complet</label>
-          <input type="text" id="fname" name="nom" placeholder="Votre nom" autocomplete="name">
-          <span class="f-err">Ce champ est requis.</span>
+  <div class="s-in" style="text-align:center">
+    <div class="tag">Contact</div>
+    <h2 class="h2 h2-dark">Parlons de<br><em>votre projet</em></h2>
+    <p class="lead lead-dark" style="margin:16px auto 0;text-align:center">Devis gratuit, réponse sous 24h. On est basés à Nouméa et on adore les bons projets.</p>
+    <div class="form-wrap">
+      <form id="cform" action="#" novalidate>
+        <div class="form-grid">
+          <div class="f-group">
+            <label for="fname">Nom complet *</label>
+            <input type="text" id="fname" name="nom" placeholder="Jean Dupont" autocomplete="name">
+            <span class="f-err" id="err-nom">Veuillez entrer votre nom.</span>
+          </div>
+          <div class="f-group">
+            <label for="femail">Email *</label>
+            <input type="email" id="femail" name="email" placeholder="jean@exemple.nc" autocomplete="email">
+            <span class="f-err" id="err-email">Email invalide ou manquant.</span>
+          </div>
+          <div class="f-group">
+            <label for="ftel">Téléphone</label>
+            <input type="tel" id="ftel" name="telephone" placeholder="24 24 38" autocomplete="tel">
+          </div>
+          <div class="f-group">
+            <label for="fservice">Service souhaité</label>
+            <select id="fservice" name="service">
+              <option value="">— Choisir un service —</option>
+              <option>Site web & landing page</option>
+              <option>Design & identité visuelle</option>
+              <option>Référencement & visibilité</option>
+              <option>Réseaux sociaux & contenu</option>
+              <option>Application & solution web</option>
+              <option>Accompagnement & conseil</option>
+            </select>
+          </div>
+          <div class="f-group full">
+            <label for="fmsg">Votre message *</label>
+            <textarea id="fmsg" name="message" placeholder="Décrivez votre projet, vos objectifs, votre calendrier..."></textarea>
+            <span class="f-err" id="err-msg">Merci d'écrire un message.</span>
+          </div>
         </div>
-        <div class="f-field">
-          <label for="femail">Adresse email</label>
-          <input type="email" id="femail" name="email" placeholder="votre@email.com" autocomplete="email">
-          <span class="f-err">Email invalide.</span>
+        <button type="submit" class="b-primary" style="width:100%;justify-content:center;margin-top:8px;font-size:17px">
+          Envoyer ma demande →
+        </button>
+        <div class="f-success" id="fsuccess">
+          ✅ Message envoyé avec succès ! Notre équipe vous contacte sous 24h.
         </div>
-        <div class="f-field">
-          <label for="ftel">Téléphone</label>
-          <input type="tel" id="ftel" name="telephone" placeholder="XX XX XX" autocomplete="tel">
-          <span class="f-err">Ce champ est requis.</span>
-        </div>
-        <div class="f-field f-full">
-          <label for="fmsg">Votre message</label>
-          <textarea id="fmsg" name="message" placeholder="Décrivez votre projet en quelques mots…"></textarea>
-          <span class="f-err">Ce champ est requis.</span>
-        </div>
-      </div>
-      <button type="submit" class="b-submit" id="fsub">Envoyer ma demande →</button>
-      <div class="f-success" id="fsuccess">✓ Message envoyé ! Nous vous recontactons sous 24h.</div>
-    </form>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section">
+  <div class="s-in">
+    <h2 class="h2" style="color:var(--cs)">Prêt à faire<br>décoller votre activité ?</h2>
+    <p class="lead" style="color:rgba(26,40,73,.75);margin:16px auto 0;max-width:480px">Un appel suffit pour démarrer. Devis gratuit, sans engagement, 100% local.</p>
+    <a class="b-dark" href="tel:242438">📞 Appeler le 24 24 38</a>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer class="footer">
-  <div class="footer-inner">
+  <div class="footer-in">
     <div>
-      <div class="ft-brand">SETUP<span> TEST</span></div>
-      <p class="ft-desc">Studio digital à Nouméa, Nouvelle-Calédonie. Création web, identité visuelle et stratégie digitale pour les entreprises locales.</p>
-      <div class="ft-social">
-        <a href="https://www.facebook.com/setupnc/" target="_blank" rel="noopener" aria-label="Facebook SETUP NC">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      <div class="ft-logo"><span>SETUP</span> TEST</div>
+      <p class="ft-desc">Studio digital à Nouméa — sites web, design, référencement et stratégie digitale pour les entreprises de Nouvelle-Calédonie.</p>
+      <div class="ft-socials">
+        <a class="ft-soc" href="https://www.facebook.com/setupnc/" target="_blank" rel="noopener" aria-label="Facebook SETUP TEST">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
         </a>
       </div>
     </div>
-    <div class="ft-col">
-      <h4>Services</h4>
-      <ul>
-        <li><a href="#services">Création de site web</a></li>
-        <li><a href="#services">Identité visuelle</a></li>
-        <li><a href="#services">Marketing digital</a></li>
-        <li><a href="#services">Audit & conseil</a></li>
-      </ul>
+    <div>
+      <div class="ft-h">Services</div>
+      <div class="ft-links">
+        <a href="#services">Sites web & landing pages</a>
+        <a href="#services">Design & identité visuelle</a>
+        <a href="#services">Référencement SEO</a>
+        <a href="#services">Réseaux sociaux</a>
+        <a href="#services">Applications web</a>
+      </div>
     </div>
-    <div class="ft-col ft-contact">
-      <h4>Nous trouver</h4>
-      <p>7 rue Fleming<br>Nouméa, Nouvelle-Calédonie</p>
-      <p style="margin-top:12px">📞 <a href="tel:242438">24 24 38</a></p>
+    <div>
+      <div class="ft-h">Contact</div>
+      <div class="ft-links">
+        <a href="tel:242438">📞 24 24 38</a>
+        <a href="#contact">Formulaire de contact</a>
+        <span style="color:rgba(255,255,255,.55);font-size:14px">7 rue Fleming<br>Nouméa, Nouvelle-Calédonie</span>
+      </div>
     </div>
   </div>
-  <div class="footer-bottom">
-    <p>© 2026 SETUP TEST. Tous droits réservés.</p>
-    <p>Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a> · setup.nc</p>
+  <div class="ft-bottom">
+    <div class="ft-copy">© 2026 SETUP TEST. Tous droits réservés.</div>
+    <div class="ft-credit">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a> · setup.nc</div>
   </div>
 </footer>
 
 <script>
-(function(){
-document.querySelectorAll('.gal-item').forEach(function(el){
-el.addEventListener('click',function(){
-var lb=document.getElementById('lb'),img=document.getElementById('lb-img');
-img.src=el.dataset.src;
-lb.classList.add('open');
-document.body.style.overflow='hidden';
-});
-});
-function closeLb(){
-var lb=document.getElementById('lb');
-lb.classList.remove('open');
-document.getElementById('lb-img').src='';
-document.body.style.overflow='';
-}
-document.getElementById('lb-close').addEventListener('click',closeLb);
-document.getElementById('lb').addEventListener('click',function(e){if(e.target===this)closeLb();});
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
-var form=document.getElementById('cform');
-form.addEventListener('submit',function(e){
+function openLb(src){var l=document.getElementById('lb');document.getElementById('lb-img').src=src;l.classList.add('open');document.body.style.overflow='hidden'}
+function closeLb(){document.getElementById('lb').classList.remove('open');document.body.style.overflow=''}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
+
+var cf=document.getElementById('cform');
+cf.addEventListener('submit',function(e){
 e.preventDefault();
 var ok=true;
-[['fname',function(v){return v.trim().length>1}],
-['femail',function(v){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)}],
-['ftel',function(v){return v.trim().length>4}],
-['fmsg',function(v){return v.trim().length>3}]].forEach(function(pair){
-var field=document.getElementById(pair[0]);
-var valid=pair[1](field.value);
-field.closest('.f-field').classList.toggle('error',!valid);
-if(!valid)ok=false;
-});
+var nom=document.getElementById('fname').value.trim();
+var email=document.getElementById('femail').value.trim();
+var msg=document.getElementById('fmsg').value.trim();
+var en=document.getElementById('err-nom');
+var ee=document.getElementById('err-email');
+var em=document.getElementById('err-msg');
+en.classList.remove('show');ee.classList.remove('show');em.classList.remove('show');
+if(!nom){en.classList.add('show');ok=false}
+if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ee.classList.add('show');ok=false}
+if(!msg){em.classList.add('show');ok=false}
 if(!ok)return;
-var btn=document.getElementById('fsub');
-btn.textContent='Envoi en cours…';
-btn.disabled=true;
+var btn=cf.querySelector('button[type=submit]');
+btn.textContent='Envoi en cours…';btn.disabled=true;
 setTimeout(function(){
-form.style.display='none';
-document.getElementById('fsuccess').style.display='block';
-},1000);
+document.getElementById('fsuccess').classList.add('show');
+btn.textContent='Envoyer ma demande →';btn.disabled=false;cf.reset();
+},900);
 });
-})();
 </script>
 </body>
 </html>
