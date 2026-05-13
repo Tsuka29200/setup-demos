@@ -1,1 +1,328 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Activer votre site — Setup NC</title>
+<meta name="description" content="Activez votre site web personnalisé pour 4 900 XPF/mois. Sans frais d'installation. Hébergement, mises à jour, support inclus.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#4375ff;--yellow:#ffd500;--dark:#0d1f3c;--bg:#f5f5f0;--text:#1a1a1a;--muted:#5a5a5a}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',-apple-system,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+.btn{display:inline-block;background:var(--yellow);color:var(--blue);font-weight:800;padding:18px 36px;font-size:15px;letter-spacing:0.4px;text-transform:uppercase;cursor:pointer;border:none;transition:transform .2s,box-shadow .2s;text-align:center}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(67,117,255,.25)}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-outline{background:transparent;color:var(--blue);border:2px solid var(--blue)}
+.btn-outline:hover{background:var(--blue);color:#fff}
 
+/* HEADER */
+header{padding:20px 0;background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:100}
+.header-inner{display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:800;color:var(--blue);font-size:18px;letter-spacing:1.5px;text-transform:uppercase}
+.logo span{color:var(--yellow);background:var(--blue);padding:2px 6px;margin-left:4px}
+.nav-cta{display:flex;gap:16px;align-items:center}
+.nav-cta a{font-size:13px;font-weight:600;color:var(--muted)}
+
+/* HERO */
+.hero{padding:80px 0 60px;text-align:center;background:linear-gradient(180deg,#fff 0%,var(--bg) 100%)}
+.hero h1{font-size:clamp(32px,5vw,52px);font-weight:800;color:var(--dark);line-height:1.15;margin-bottom:24px;letter-spacing:-0.5px}
+.hero h1 em{font-style:normal;color:var(--blue);position:relative}
+.hero h1 em::after{content:'';position:absolute;left:0;right:0;bottom:-4px;height:8px;background:var(--yellow);z-index:-1;opacity:.6}
+.hero .sub{font-size:18px;color:var(--muted);max-width:600px;margin:0 auto 40px;line-height:1.6}
+.hero .greet{display:inline-block;background:#fff;color:var(--blue);font-weight:700;font-size:13px;padding:8px 18px;border:2px solid var(--blue);margin-bottom:24px;letter-spacing:1px;text-transform:uppercase}
+
+/* COMPARATIF */
+.compare{padding:80px 0;background:#fff}
+.compare h2{font-size:clamp(26px,4vw,40px);font-weight:800;text-align:center;color:var(--dark);margin-bottom:60px}
+.compare h2 em{color:var(--blue);font-style:normal}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.col{padding:32px;border:2px solid #eee;background:#fff}
+.col.win{border-color:var(--blue);background:#fafbff;position:relative}
+.col.win::before{content:'RECOMMANDÉ';position:absolute;top:-12px;left:24px;background:var(--yellow);color:var(--blue);font-weight:800;font-size:11px;letter-spacing:1.5px;padding:4px 10px}
+.col h3{font-weight:800;font-size:20px;margin-bottom:24px;color:var(--dark)}
+.col ul{list-style:none}
+.col li{padding:10px 0;font-size:15px;color:var(--muted);display:flex;align-items:flex-start;gap:10px}
+.col.win li{color:var(--text)}
+.col li::before{font-weight:800;font-size:18px;line-height:1;flex-shrink:0}
+.col:not(.win) li::before{content:'×';color:#bbb}
+.col.win li::before{content:'✓';color:var(--blue)}
+
+/* PRICING */
+.pricing{padding:80px 0;background:var(--bg)}
+.pricing-head{text-align:center;margin-bottom:60px}
+.pricing h2{font-size:clamp(28px,4vw,42px);font-weight:800;color:var(--dark);margin-bottom:16px}
+.pricing .sub{font-size:17px;color:var(--muted);max-width:580px;margin:0 auto}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+.tier{background:#fff;padding:36px 28px 32px;display:flex;flex-direction:column;position:relative;border:2px solid transparent;transition:transform .3s,box-shadow .3s}
+.tier:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(13,31,60,.08)}
+.tier.featured{border-color:var(--blue);background:linear-gradient(180deg,#fafbff 0%,#fff 100%)}
+.tier-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--yellow);color:var(--blue);font-weight:800;font-size:11px;letter-spacing:1.5px;padding:6px 14px;text-transform:uppercase;white-space:nowrap}
+.tier h3{font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+.tier-desc{font-size:14px;color:var(--muted);min-height:48px;margin-bottom:24px;line-height:1.5}
+.tier-price{display:flex;align-items:baseline;gap:6px;margin-bottom:8px}
+.price-num{font-size:42px;font-weight:800;color:var(--dark);line-height:1}
+.price-unit{font-size:14px;color:var(--muted);font-weight:600}
+.tier-engagement{font-size:12px;color:var(--muted);margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid #eee}
+.tier ul{list-style:none;margin-bottom:32px;flex-grow:1}
+.tier li{padding:8px 0;font-size:14px;color:var(--text);display:flex;gap:10px;line-height:1.5}
+.tier li::before{content:'✓';color:var(--blue);font-weight:800;flex-shrink:0}
+.tier li.muted{color:var(--muted)}
+.tier li.muted::before{content:'—';color:#ccc}
+.tier .btn{width:100%;padding:14px 20px;font-size:13px}
+
+.pricing-note{text-align:center;margin-top:48px;font-size:14px;color:var(--muted);max-width:720px;margin-left:auto;margin-right:auto}
+.pricing-note strong{color:var(--dark)}
+
+/* RDV */
+.rdv{padding:80px 0;background:#fff;text-align:center}
+.rdv h2{font-size:clamp(26px,4vw,40px);font-weight:800;color:var(--dark);margin-bottom:16px}
+.rdv .sub{font-size:17px;color:var(--muted);max-width:500px;margin:0 auto 40px}
+.scheduler-wrap{max-width:760px;margin:0 auto;background:var(--bg);padding:8px;min-height:600px}
+.scheduler-wrap iframe{width:100%;height:680px;border:none;display:block}
+
+/* FAQ */
+.faq{padding:80px 0;background:var(--bg)}
+.faq h2{font-size:clamp(26px,4vw,40px);font-weight:800;text-align:center;color:var(--dark);margin-bottom:60px}
+.faq-item{background:#fff;padding:24px 32px;margin-bottom:16px;cursor:pointer}
+.faq-item summary{font-weight:700;color:var(--dark);font-size:16px;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'+';color:var(--blue);font-size:24px;font-weight:300;transition:transform .3s}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item p{margin-top:16px;color:var(--muted);font-size:15px;line-height:1.7}
+
+/* FOOTER */
+footer{background:var(--dark);color:#fff;padding:60px 0 40px;text-align:center}
+footer .logo{color:#fff;margin-bottom:16px}
+footer p{font-size:14px;color:#aaa;margin-bottom:8px}
+footer a{color:var(--yellow)}
+footer .copyright{margin-top:32px;font-size:12px;color:#666}
+
+@media(max-width:900px){
+  .tiers{grid-template-columns:1fr;gap:32px}
+  .tier:hover{transform:none}
+  .tier.featured{order:-1}
+}
+@media(max-width:700px){
+  .compare-grid{grid-template-columns:1fr}
+  .hero{padding:50px 0 40px}
+  .compare,.pricing,.rdv,.faq{padding:50px 0}
+  .container{padding:0 16px}
+  .col{padding:24px}
+  .tier{padding:28px 24px}
+  header{padding:14px 0}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">Setup<span>NC</span></div>
+    <div class="nav-cta">
+      <a href="#tarifs">Tarifs</a>
+      <a href="#rdv" class="btn btn-blue" style="padding:12px 22px;font-size:13px">Réserver</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <span class="greet" id="greet">Bonjour 👋</span>
+    <h1>Votre site est prêt.<br><em>Activons-le ensemble.</em></h1>
+    <p class="sub">Nous vous avons préparé une démo personnalisée. Si elle vous plaît, prenons 15 minutes pour la finaliser et la mettre à votre nom.</p>
+    <a href="#tarifs" class="btn">Voir les tarifs</a>
+  </div>
+</section>
+
+<section class="compare">
+  <div class="container">
+    <h2>Pourquoi un site dédié <em>plutôt qu'une simple page Facebook</em>&nbsp;?</h2>
+    <div class="compare-grid">
+      <div class="col">
+        <h3>📱 Facebook seul</h3>
+        <ul>
+          <li>Invisibilité presque totale sur Google</li>
+          <li>Algorithme qui change sans prévenir</li>
+          <li>Vos clients doivent avoir un compte FB</li>
+          <li>Page noyée parmi des millions</li>
+          <li>Pas de personnalisation graphique</li>
+          <li>Si Meta ferme votre page, tout disparaît</li>
+        </ul>
+      </div>
+      <div class="col win">
+        <h3>🌐 Un site web dédié</h3>
+        <ul>
+          <li>Visible sur Google dès qu'on cherche votre métier</li>
+          <li>Vous gardez le contrôle, pour toujours</li>
+          <li>Accessible à tout le monde sans inscription</li>
+          <li>Votre identité graphique, votre univers</li>
+          <li>Image professionnelle qui rassure</li>
+          <li>Multi-canal : email, téléphone, RDV en ligne</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tarifs" class="pricing">
+  <div class="container">
+    <div class="pricing-head">
+      <h2>Choisissez votre formule</h2>
+      <p class="sub">Sans frais d'installation. Engagement 12 mois, paiement mensuel. Vous restez propriétaire de votre site.</p>
+    </div>
+    <div class="tiers">
+
+      <div class="tier">
+        <h3>Essentiel</h3>
+        <p class="tier-desc">Pour exister sur Google sans se prendre la tête.</p>
+        <div class="tier-price">
+          <span class="price-num">4 900</span>
+          <span class="price-unit">XPF / mois</span>
+        </div>
+        <p class="tier-engagement">Engagement 12 mois</p>
+        <ul>
+          <li>Site one-page hébergé</li>
+          <li>Sous-domaine setup.nc inclus</li>
+          <li>1 mise à jour mineure / mois</li>
+          <li>Formulaire de contact connecté</li>
+          <li>Statistiques de visites basiques</li>
+          <li>Support par email</li>
+          <li class="muted">Domaine personnel</li>
+          <li class="muted">Google Business Profile</li>
+          <li class="muted">Publications réseaux sociaux</li>
+        </ul>
+        <a href="#rdv" class="btn btn-outline">Démarrer en Essentiel</a>
+      </div>
+
+      <div class="tier featured">
+        <div class="tier-badge">Recommandé</div>
+        <h3>Pro</h3>
+        <p class="tier-desc">Pour booster votre visibilité locale et convertir.</p>
+        <div class="tier-price">
+          <span class="price-num">8 900</span>
+          <span class="price-unit">XPF / mois</span>
+        </div>
+        <p class="tier-engagement">Engagement 12 mois</p>
+        <ul>
+          <li><strong>Domaine personnel inclus</strong> (.nc)</li>
+          <li>3 mises à jour / mois</li>
+          <li>Formulaire de contact connecté</li>
+          <li>Google Business Profile optimisé</li>
+          <li>Référencement local SEO</li>
+          <li>Statistiques détaillées + rapport mensuel</li>
+          <li>Support email + téléphone</li>
+          <li class="muted">Publications réseaux sociaux</li>
+          <li class="muted">Photoshoot annuel</li>
+        </ul>
+        <a href="#rdv" class="btn">Démarrer en Pro</a>
+      </div>
+
+      <div class="tier">
+        <h3>Premium</h3>
+        <p class="tier-desc">Présence digitale complète sans rien faire.</p>
+        <div class="tier-price">
+          <span class="price-num">14 900</span>
+          <span class="price-unit">XPF / mois</span>
+        </div>
+        <p class="tier-engagement">Engagement 12 mois</p>
+        <ul>
+          <li>Tout ce qui est dans Pro</li>
+          <li><strong>Mises à jour illimitées</strong></li>
+          <li>2 publications réseaux / mois (rédigées)</li>
+          <li>Photoshoot pro annuel inclus</li>
+          <li>Refonte design tous les 18 mois</li>
+          <li>Account manager dédié</li>
+          <li>Réponse sous 4h ouvrables</li>
+          <li>Email marketing 1 campagne / mois</li>
+          <li>Rapport stratégique trimestriel</li>
+        </ul>
+        <a href="#rdv" class="btn btn-outline">Démarrer en Premium</a>
+      </div>
+
+    </div>
+    <p class="pricing-note">
+      <strong>À noter :</strong> tarifs en XPF (francs Pacifique). Aucun frais de mise en service. Premier paiement à la mise en ligne du site. <strong>Vous êtes propriétaire de votre site</strong> et pouvez le récupérer à tout moment à la fin de l'engagement.
+    </p>
+  </div>
+</section>
+
+<section id="rdv" class="rdv">
+  <div class="container">
+    <h2>Prenons 15 minutes pour en parler</h2>
+    <p class="sub">On vous présente votre site, on répond à vos questions, vous décidez. Sans engagement à ce stade.</p>
+    <div class="scheduler-wrap">
+      <iframe
+        src="https://officeplus.pipedrive.com/scheduler/xKlBQqc1/call"
+        title="Prendre rendez-vous Setup NC"
+        loading="lazy"
+        allow="camera; microphone"
+        sandbox="allow-scripts allow-same-origin allow-forms allow-popups">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="container">
+    <h2>Questions fréquentes</h2>
+    <details class="faq-item">
+      <summary>Y a-t-il des frais d'installation ou de mise en service&nbsp;?</summary>
+      <p><strong>Non.</strong> Aucun frais initial. Vous payez seulement votre abonnement mensuel à partir de la mise en ligne du site. Le travail de personnalisation est inclus.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Puis-je résilier avant la fin des 12 mois&nbsp;?</summary>
+      <p>L'engagement est de 12 mois minimum. Au-delà, le contrat continue mensuellement et peut être résilié à tout moment avec un préavis d'un mois.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Le site est-il vraiment à moi&nbsp;?</summary>
+      <p>Oui, à 100%. Vous êtes propriétaire de votre site et de votre domaine. À la fin de l'engagement, vous pouvez récupérer l'ensemble (code source, contenus, nom de domaine) pour le faire évoluer ailleurs si vous le souhaitez.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Combien de temps pour la mise en ligne&nbsp;?</summary>
+      <p>48 heures ouvrées après validation. Le site est déjà conçu — on ajuste les derniers détails avec vous puis on publie.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Si je veux changer de formule&nbsp;?</summary>
+      <p>Vous pouvez monter en gamme à tout moment (Essentiel → Pro → Premium), sans frais. La nouvelle formule s'applique au mois suivant.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Et si je veux ajouter une fonctionnalité spécifique&nbsp;?</summary>
+      <p>Toute fonctionnalité hors formule standard fait l'objet d'un devis spécifique (boutique e-commerce, réservation en ligne, espace membre, etc.). On en parle de vive voix lors du rendez-vous.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Pourquoi vous m'envoyez ça&nbsp;?</summary>
+      <p>Votre activité apparaît publiquement sur Google Maps. On a remarqué que beaucoup d'entreprises locales n'ont pas encore de site dédié — on automatise la production de prototypes pour vous montrer ce qui est possible. Pas d'inscription préalable, juste une démo.</p>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="logo">Setup<span>NC</span></div>
+    <p>Sites web sur mesure pour PME calédoniennes</p>
+    <p><a href="https://setup.nc">setup.nc</a> · <a href="mailto:hello@setup.nc">hello@setup.nc</a></p>
+    <p class="copyright">© 2026 Setup NC · Nouméa, Nouvelle-Calédonie</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get('p');
+  if (slug) {
+    const nom = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    const greet = document.getElementById('greet');
+    if (greet) greet.textContent = 'Bonjour ' + nom + ' 👋';
+  }
+})();
+</script>
+
+</body>
+</html>
