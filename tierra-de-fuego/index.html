@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tierra de Fuego — Nouméa</title>
+<meta name="description" content="Steakhouse patagoen premium face au lagon de Nouméa. Viandes généreuses sur planches, braises ardentes et terrasse au coucher du soleil. Réservez votre table.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#8B4513;
+--cs:#0D3B66;
+--ca:#D4A574;
+--cb:#F5F1E8;
+--ct:#1A1410;
+--cw:#ffffff;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;color:var(--ct);background:var(--cb);overflow-x:hidden;font-size:16px;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+
+/* BANDEAU PROMO */
+.promo{position:sticky;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;text-align:center;display:flex;align-items:center;justify-content:center}
+.promo a{font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;letter-spacing:.3px;color:#4375ff;line-height:1;transition:opacity .2s}
+.promo a:hover{opacity:.85}
+
+/* HEADER */
+.nav{position:sticky;top:44px;left:0;width:100%;z-index:1000;background:rgba(26,20,16,.92);backdrop-filter:blur(8px);transition:background .3s}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--cw);letter-spacing:.5px;white-space:nowrap}
+.logo span{color:var(--ca)}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{font-size:13px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:rgba(255,255,255,.8);transition:color .2s}
+.nav-links a:hover{color:var(--ca)}
+.nav-cta{font-family:'Lato',sans-serif;font-size:13px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;background:var(--ca);color:var(--ct);padding:10px 22px;border-radius:2px;transition:background .3s,box-shadow .3s;white-space:nowrap}
+.nav-cta:hover{background:#E8C4A0;box-shadow:0 4px 16px rgba(139,69,19,.35)}
+.tel-link{color:var(--ca);font-size:13px;font-weight:700;letter-spacing:.5px;transition:opacity .2s}
+.tel-link:hover{opacity:.8}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{display:block;width:24px;height:2px;background:var(--cw);transition:transform .3s,opacity .3s}
+.mob-menu{display:none;position:fixed;top:112px;left:0;width:100%;background:rgba(26,20,16,.98);z-index:999;padding:24px 20px;flex-direction:column;gap:4px}
+.mob-menu.open{display:flex}
+.mob-menu a{color:var(--cw);font-size:15px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08);transition:color .2s}
+.mob-menu a:hover{color:var(--ca)}
+.mob-cta-wrap{margin-top:16px}
+.mob-cta-wrap .nav-cta{display:block;text-align:center;padding:14px;border-radius:2px}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background:url('https://i.ibb.co/216JVPHZ/Tierra-de-Fuego-0.jpg') center center/cover no-repeat}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(13,59,102,.55) 0%,rgba(26,20,16,.72) 60%,rgba(139,69,19,.40) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;padding:0 20px;max-width:900px;display:flex;flex-direction:column;align-items:center;gap:20px}
+.hero-eyebrow{font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--ca);opacity:.9}
+.h1{font-family:'Playfair Display',serif;font-size:clamp(38px,7vw,72px);font-weight:700;color:var(--cw);line-height:1.1;letter-spacing:-.5px}
+.h1 em{font-style:italic;color:var(--ca)}
+.hero-sub{font-size:clamp(15px,2vw,19px);font-weight:300;color:rgba(255,255,255,.85);max-width:560px;line-height:1.7}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+.b-primary{font-family:'Lato',sans-serif;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--ca);color:var(--ct);padding:16px 36px;border:none;border-radius:2px;cursor:pointer;transition:background .3s,box-shadow .3s,transform .2s;display:inline-block}
+.b-primary:hover{background:#E8C4A0;box-shadow:0 6px 24px rgba(139,69,19,.4);transform:translateY(-2px)}
+.b-outline{font-family:'Lato',sans-serif;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:transparent;color:var(--cw);padding:15px 36px;border:2px solid rgba(255,255,255,.6);border-radius:2px;cursor:pointer;transition:border-color .3s,background .3s;display:inline-block}
+.b-outline:hover{border-color:var(--ca);background:rgba(212,165,116,.1)}
+.scroll-ind{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.7}
+.scroll-ind span{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--cw)}
+.scroll-arrow{width:20px;height:20px;border-right:2px solid var(--ca);border-bottom:2px solid var(--ca);transform:rotate(45deg);animation:bounce 1.8s infinite}
+@keyframes bounce{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(6px)}}
+
+/* STATS */
+.stats{background:var(--cp);padding:60px 20px}
+.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
+.stat-item{display:flex;flex-direction:column;align-items:center;gap:8px}
+.stat-num{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,54px);font-weight:700;color:var(--ca);line-height:1}
+.stat-label{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.75)}
+.stat-sep{width:40px;height:2px;background:rgba(212,165,116,.4);margin:4px auto 0}
+
+/* UTILITIES */
+.s{padding:96px 20px}
+.s-dark{background:var(--ct);color:var(--cw)}
+.s-mid{background:#1e1208}
+.container{max-width:1100px;margin:0 auto}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--ca);margin-bottom:14px}
+.h2{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,46px);font-weight:700;line-height:1.15;margin-bottom:20px}
+.h3{font-family:'Playfair Display',serif;font-size:clamp(20px,2.5vw,28px);font-weight:700;line-height:1.2}
+.lead{font-size:clamp(15px,1.8vw,18px);font-weight:300;line-height:1.75;max-width:680px}
+.tc{text-align:center}
+.mx-auto{margin-left:auto;margin-right:auto}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:680px){
+.nav-links,.nav-cta,.tel-link{display:none}
+.hamburger{display:flex}
+.promo{height:40px}
+.promo a{font-size:13px}
+.nav{top:40px}
+.mob-menu{top:108px}
+.hero-btns{flex-direction:column;width:100%}
+.b-primary,.b-outline{width:100%;text-align:center;padding:16px 24px}
+}
+@media(max-width:480px){
+.stats-inner{grid-template-columns:repeat(2,1fr);gap:20px}
+.nav-inner{padding:0 16px}
+.s{padding:72px 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo">
+  <a href="https://officeplus.pipedrive.com/scheduler/xKlBQqc1/call" target="_blank" rel="noopener">Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="nav" id="top">
+  <div class="nav-inner">
+    <a href="#top" class="logo">Tierra <span>de Fuego</span></a>
+    <nav aria-label="Navigation principale">
+      <ul class="nav-links">
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#ambiance">Ambiance</a></li>
+        <li><a href="#chef">Notre histoire</a></li>
+        <li><a href="#avis">Avis</a></li>
+        <li><a href="#acces">Accès</a></li>
+        <li><a href="tel:+68730428" class="tel-link">30.42.82</a></li>
+      </ul>
+    </nav>
+    <a href="#reservation" class="nav-cta">Réserver</a>
+    <button class="hamburger" aria-label="Menu" onclick="toggleMenu(this)">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<div class="mob-menu" id="mobMenu">
+  <a href="#menu" onclick="closeMenu()">Menu</a>
+  <a href="#ambiance" onclick="closeMenu()">Ambiance</a>
+  <a href="#chef" onclick="closeMenu()">Notre histoire</a>
+  <a href="#avis" onclick="closeMenu()">Avis</a>
+  <a href="#acces" onclick="closeMenu()">Accès</a>
+  <a href="tel:+68730428" onclick="closeMenu()">30.42.82</a>
+  <div class="mob-cta-wrap"><a href="#reservation" class="nav-cta" onclick="closeMenu()">Réserver une table</a></div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Nouméa — Face au lagon</p>
+    <h1 class="h1">Le feu sacré<br><em>de la Patagonie</em><br>rencontre le lagon</h1>
+    <p class="hero-sub">Viandes généreuses sur planches, braises ardentes, lumières Edison dorées — une expérience sensorielle entre feu, bois et mer calédonienne.</p>
+    <div class="hero-btns">
+      <a href="#reservation" class="b-primary">Réserver ma table</a>
+      <a href="#menu" class="b-outline">Découvrir le menu</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>Découvrir</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<section class="stats" id="stats">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <span class="stat-num" data-target="194">0</span>
+      <div class="stat-sep"></div>
+      <span class="stat-label">Avis Google</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="44" data-decimal="true">0</span>
+      <div class="stat-sep"></div>
+      <span class="stat-label">Note / 5 étoiles</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="12">0</span>
+      <div class="stat-sep"></div>
+      <span class="stat-label">Années de passion</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="100">0</span>
+      <div class="stat-sep"></div>
+      <span class="stat-label">Couverts par service</span>
+    </div>
+  </div>
+</section>
+
+<script>
+function toggleMenu(btn){
+  var m=document.getElementById('mobMenu');
+  m.classList.toggle('open');
+  var s=btn.querySelectorAll('span');
+  if(m.classList.contains('open')){
+    s[0].style.transform='rotate(45deg) translate(5px,5px)';
+    s[1].style.opacity='0';
+    s[2].style.transform='rotate(-45deg) translate(5px,-5px)';
+  } else {
+    s[0].style.transform='';s[1].style.opacity='';s[2].style.transform='';
+  }
+}
+function closeMenu(){
+  var m=document.getElementById('mobMenu');
+  m.classList.remove('open');
+  document.querySelectorAll('.hamburger span').forEach(function(s){s.style.transform='';s.style.opacity='';});
+}
+(function(){
+  var nums=document.querySelectorAll('.stat-num[data-target]'),done=false;
+  function animate(){
+    if(done)return;
+    var r=document.querySelector('.stats').getBoundingClientRect();
+    if(r.top<window.innerHeight*.85){
+      done=true;
+      nums.forEach(function(el){
+        var target=+el.dataset.target,dec=el.dataset.decimal,start=0,dur=1600,t0=null;
+        function step(ts){
+          if(!t0)t0=ts;
+          var p=Math.min((ts-t0)/dur,1),ease=1-Math.pow(1-p,3),v=ease*target;
+          el.textContent=dec?(v/10).toFixed(1):Math.round(v);
+          if(p<1)requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }
+  }
+  window.addEventListener('scroll',animate,{passive:true});
+  animate();
+})();
+</script>
+<style>
+/* ACCROCHE */
+.accroche{background:var(--cb);padding:80px 20px;text-align:center}
+.accroche .lead{color:#5a4a3a;margin:0 auto}
+.divider{width:60px;height:3px;background:var(--ca);margin:24px auto}
+
+/* MENU SIGNATURE */
+.menu-s{background:var(--ct)}
+.menu-s .h2{color:var(--cw)}
+.menu-s .eyebrow{color:var(--ca)}
+.menu-tabs{display:flex;gap:0;justify-content:center;margin-bottom:48px;border-bottom:2px solid rgba(212,165,116,.2)}
+.tab-btn{font-family:'Lato',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);padding:14px 28px;background:none;border:none;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:color .3s,border-color .3s}
+.tab-btn.active,.tab-btn:hover{color:var(--ca);border-color:var(--ca)}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.menu-panel{display:none}
+.menu-panel.active{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.mc{background:rgba(255,255,255,.04);border-left:3px solid var(--ca);padding:24px 20px;border-radius:0 4px 4px 0;perspective:1000px;cursor:default}
+.mc-inner{position:relative;transition:transform .6s;transform-style:preserve-3d}
+.mc:hover .mc-inner{transform:rotateY(180deg)}
+.mc-front,.mc-back{backface-visibility:hidden}
+.mc-back{position:absolute;inset:0;transform:rotateY(180deg);display:flex;align-items:center;justify-content:center;background:rgba(139,69,19,.15);border-radius:4px;padding:12px}
+.mc-back p{font-size:13px;color:rgba(255,255,255,.85);text-align:center;line-height:1.6;font-style:italic}
+.mc-name{font-family:'Playfair Display',serif;font-size:18px;color:var(--cw);margin-bottom:8px;line-height:1.3}
+.mc-desc{font-size:13px;color:rgba(255,255,255,.6);line-height:1.6;margin-bottom:16px}
+.mc-price{font-family:'Playfair Display',serif;font-size:22px;color:var(--ca);font-weight:700}
+.mc-unit{font-size:11px;color:rgba(212,165,116,.7);letter-spacing:1px;margin-left:4px}
+
+/* AMBIANCE */
+.amb-s{background:#13100c}
+.amb-s .h2{color:var(--cw)}
+.amb-s .eyebrow{color:var(--ca)}
+.amb-grid{display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:auto auto;gap:12px;max-width:1100px;margin:0 auto}
+.amb-item{overflow:hidden;border-radius:4px;position:relative}
+.amb-item:first-child{grid-column:1/2;grid-row:1/3}
+.amb-img{width:100%;height:100%;object-fit:cover;min-height:280px;transition:transform .6s,filter .4s;filter:brightness(.75)}
+.amb-item:hover .amb-img{transform:scale(1.04);filter:brightness(.9)}
+
+/* CHEF */
+.chef-s{background:var(--cb)}
+.chef-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.chef-img-wrap{position:relative;border-radius:4px;overflow:hidden}
+.chef-img-wrap img{width:100%;height:520px;object-fit:cover;display:block}
+.chef-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(139,69,19,.25),rgba(13,59,102,.20))}
+.chef-text .eyebrow{color:var(--cp)}
+.chef-text .h2{color:var(--ct)}
+.chef-text .lead{color:#5a4a3a;margin-bottom:28px}
+.chef-points{list-style:none;display:flex;flex-direction:column;gap:14px}
+.chef-points li{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:#5a4a3a;line-height:1.5}
+.chk{width:20px;height:20px;flex-shrink:0;background:var(--ca);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.chk svg{width:10px;height:10px;stroke:var(--ct);stroke-width:3;fill:none}
+
+/* RESERVATION */
+.resa-s{background:var(--cs)}
+.resa-s .h2{color:var(--cw)}
+.resa-s .lead{color:rgba(255,255,255,.75)}
+.resa-form{max-width:640px;margin:40px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fi{display:flex;flex-direction:column;gap:6px}
+.fi label{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.fi input,.fi select,.fi textarea{font-family:'Lato',sans-serif;font-size:15px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:var(--cw);padding:12px 16px;border-radius:2px;transition:border-color .3s;outline:none}
+.fi input:focus,.fi select:focus,.fi textarea:focus{border-color:var(--ca)}
+.fi input::placeholder,.fi textarea::placeholder{color:rgba(255,255,255,.35)}
+.fi select option{background:var(--cs);color:var(--cw)}
+.fi-full{grid-column:1/-1}
+.fi textarea{resize:vertical;min-height:100px}
+.form-submit{grid-column:1/-1;display:flex;flex-direction:column;align-items:center;gap:16px}
+.b-submit{font-family:'Lato',sans-serif;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--ca);color:var(--ct);padding:16px 48px;border:none;border-radius:2px;cursor:pointer;transition:background .3s,box-shadow .3s,transform .2s;width:100%}
+.b-submit:hover{background:#E8C4A0;box-shadow:0 6px 24px rgba(139,69,19,.4);transform:translateY(-2px)}
+.form-ok{display:none;text-align:center;padding:20px;background:rgba(212,165,116,.15);border:1px solid var(--ca);border-radius:4px;color:var(--ca);font-size:15px;font-weight:700;letter-spacing:.5px}
+.fi-err{display:none;font-size:12px;color:#ff8a70;margin-top:2px}
+
+/* GALERIE */
+.gal-s{background:var(--cb)}
+.gal-s .h2{color:var(--ct)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:48px}
+.gal-item{overflow:hidden;border-radius:4px;cursor:pointer;position:relative}
+.gal-item img{width:100%;height:220px;object-fit:cover;transition:transform .5s,filter .4s;filter:brightness(.8)}
+.gal-item:hover img{transform:scale(1.06);filter:brightness(1)}
+.gal-overlay{position:absolute;inset:0;background:rgba(139,69,19,.35);opacity:0;transition:opacity .3s;display:flex;align-items:center;justify-content:center}
+.gal-item:hover .gal-overlay{opacity:1}
+.gal-overlay svg{width:36px;height:36px;stroke:var(--cw);fill:none;stroke-width:1.5}
+.lightbox{position:fixed;inset:0;background:rgba(10,6,4,.94);z-index:2000;display:none;align-items:center;justify-content:center}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:88vh;border-radius:4px;object-fit:contain}
+.lb-close{position:absolute;top:20px;right:28px;font-size:32px;color:var(--cw);cursor:pointer;background:none;border:none;line-height:1;opacity:.8;transition:opacity .2s}
+.lb-close:hover{opacity:1}
+
+/* PREUVE SOCIALE */
+.social-s{background:#1e1208}
+.social-s .h2{color:var(--cw)}
+.social-s .eyebrow{color:var(--ca)}
+.google-badge{display:inline-flex;align-items:center;gap:16px;background:rgba(255,255,255,.06);border:1px solid rgba(212,165,116,.25);border-radius:8px;padding:20px 32px;margin:28px auto 48px;flex-wrap:wrap;justify-content:center}
+.g-score{font-family:'Playfair Display',serif;font-size:52px;font-weight:700;color:var(--ca);line-height:1}
+.g-meta{display:flex;flex-direction:column;gap:4px}
+.stars{display:flex;gap:3px}
+.star-svg{width:20px;height:20px;fill:var(--ca)}
+.g-count{font-size:13px;color:rgba(255,255,255,.55);letter-spacing:.5px}
+.g-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tc-card{background:rgba(139,69,19,.07);border:1px solid rgba(212,165,116,.12);border-radius:6px;padding:24px 22px}
+.tc-stars{display:flex;gap:3px;margin-bottom:12px}
+.tc-text{font-size:14px;color:rgba(255,255,255,.7);line-height:1.7;font-style:italic;margin-bottom:16px}
+.tc-author{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ca)}
+.badges{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:48px}
+.badge{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:40px;padding:10px 22px}
+.badge svg{width:18px;height:18px;fill:var(--ca)}
+.badge span{font-size:13px;font-weight:700;color:rgba(255,255,255,.75);letter-spacing:.5px}
+
+/* HORAIRES */
+.horaires-s{background:var(--cb)}
+.horaires-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.h-block .h3{color:var(--ct);margin-bottom:20px}
+.h-block .eyebrow{color:var(--cp)}
+.h-table{width:100%;border-collapse:collapse}
+.h-table tr{border-bottom:1px solid rgba(139,69,19,.1)}
+.h-table td{padding:10px 0;font-size:15px;color:#5a4a3a}
+.h-table td:last-child{text-align:right;font-weight:700;color:var(--cp)}
+.h-table .closed{color:#aaa}
+.map-wrap{border-radius:6px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.12)}
+.map-wrap iframe{width:100%;height:380px;border:0;display:block}
+
+/* FOOTER */
+.footer{background:var(--cp);padding:64px 20px 32px}
+.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px}
+.f-brand .logo{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--cw);letter-spacing:.5px;display:block;margin-bottom:16px}
+.f-brand .logo span{color:var(--ca)}
+.f-brand p{font-size:14px;color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:20px}
+.f-tel{font-size:16px;font-weight:700;color:var(--ca);letter-spacing:.5px;transition:opacity .2s}
+.f-tel:hover{opacity:.8}
+.f-social{display:flex;gap:14px;margin-top:20px}
+.f-col h4{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:18px}
+.f-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.f-col ul a{font-size:14px;color:rgba(255,255,255,.7);transition:color .2s}
+.f-col ul a:hover{color:var(--ca)}
+.f-addr{font-size:14px;color:rgba(255,255,255,.7);line-height:1.8}
+.footer-bottom{max-width:1100px;margin:40px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,.15);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-bottom span{font-size:12px;color:rgba(255,255,255,.5);letter-spacing:.3px}
+.footer-bottom a{color:rgba(255,255,255,.6);font-weight:700;transition:color .2s}
+.footer-bottom a:hover{color:var(--ca)}
+
+/* RESPONSIVE PART 2 */
+@media(max-width:900px){
+.menu-panel.active,.menu-grid{grid-template-columns:1fr 1fr}
+.chef-inner{grid-template-columns:1fr;gap:40px}
+.chef-img-wrap img{height:360px}
+.testi-grid{grid-template-columns:1fr}
+.horaires-inner{grid-template-columns:1fr;gap:40px}
+.footer-inner{grid-template-columns:1fr 1fr;gap:32px}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.amb-grid{grid-template-columns:1fr}
+.amb-item:first-child{grid-column:1;grid-row:auto}
+}
+@media(max-width:600px){
+.menu-tabs{flex-wrap:wrap}
+.tab-btn{padding:10px 16px;font-size:11px}
+.menu-panel.active{grid-template-columns:1fr}
+.resa-form{grid-template-columns:1fr}
+.fi-full{grid-column:1}
+.footer-inner{grid-template-columns:1fr;gap:28px}
+.footer-bottom{flex-direction:column;text-align:center}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.google-badge{padding:16px 20px}
+.g-score{font-size:42px}
+.testi-grid{grid-template-columns:1fr}
+.badges{gap:12px}
+}
+@media(max-width:480px){
+.gal-grid{grid-template-columns:1fr 1fr;gap:8px}
+.gal-item img{height:160px}
+.resa-form{grid-template-columns:1fr}
+}
+</style>
+
+<!-- ACCROCHE EMOTIONNELLE -->
+<section class="accroche s">
+  <div class="container tc">
+    <p class="eyebrow" style="color:var(--cp)">Notre vision</p>
+    <h2 class="h2" style="color:var(--ct);margin-bottom:0">Là où la braise rencontre le lagon</h2>
+    <div class="divider"></div>
+    <p class="lead mx-auto" style="color:#5a4a3a">Imaginez une table face à l'eau, les braises qui crépitent doucement, une planche généreuse posée devant vous — et l'horizon du lagon calédonien qui embrase le ciel au crépuscule. C'est précisément ce que Tierra de Fuego vous offre, soir après soir, rue Jules Ferry à Nouméa.</p>
+  </div>
+</section>
+
+<!-- MENU SIGNATURE -->
+<section class="menu-s s" id="menu">
+  <div class="container">
+    <div class="tc" style="margin-bottom:48px">
+      <p class="eyebrow">Le menu</p>
+      <h2 class="h2">Planches & saveurs du feu</h2>
+    </div>
+    <div class="menu-tabs" role="tablist">
+      <button class="tab-btn active" role="tab" onclick="switchTab(this,'entrees')">Entrées</button>
+      <button class="tab-btn" role="tab" onclick="switchTab(this,'plats')">Plats de braise</button>
+      <button class="tab-btn" role="tab" onclick="switchTab(this,'desserts')">Desserts</button>
+    </div>
+    <div class="menu-panel active" id="tab-entrees">
+      <div class="mc"><div class="mc-inner"><div class="mc-front">
+        <p class="mc-name">Planche du gaucho</p>
+        <p class="mc-desc">Charcuteries sélectionnées, fromages affinés, cornichons maison, pain grillé au feu de bois.</p>
+        <span class="mc-price">1 850<span class="mc-unit">XPF</span></span>
+      </div><div class="mc-back"><p>À partager, comme autour d'un feu de camp patagoen.</p></div></div></div>
+      <div class="mc"><div class="mc-inner"><div class="mc-front">
+        <p class="mc-name">Carpaccio de bœuf mariné</p>
+        <p class="mc-desc">Fines tranches, huile d'olive, câpres, copeaux de parmesan, roquette fraîche.</p>
+        <span class="mc-price">1 650<span class="mc-unit">XPF</span></span>
+      </div><div class="mc-back"><p>Une entrée fraîche avant la chaleur des braises.</p></div></div></div>
+      <div class="mc"><div class="mc-inner"><div class="mc-front">
+        <p class="mc-name">Soupe à l'oignon gratinée</p>
+        <p class="mc-desc">Bouillon de bœuf longuement mijoté, croûtons, fromage fondu à la flamme.</p>
+        <span class="mc-price">1 200<span class="mc-unit">XPF</span></span>
+      </div><div class="mc-back"><p>Un classique revisité à l'esprit de la Tierra.</p></div></div></div>
+    </div>
+    <div class="menu-panel" id="tab-plats">
+      <div class="mc"><div class="mc-inner"><div class="mc-front">
+        <p class="mc-name">Entrecôte Tierra</p>
+        <p class="mc-desc">Pièce généreuse, chimichurri d'exception, frites maison, sauce au poivre vert.</p>
+        <span class="mc-price">3 900<span class="mc-unit">XPF</span></span>
+      </div><div class="mc-back"><p>Notre signature absolue, cuite sur braise de bois franc.</p></div></div></div>
+      <div class="mc"><div class="mc-inner"><div class="mc-front">
+        <p class="mc-name">Côte de bœuf à partager</p>
+        <p class="mc-desc">1 kg de bœuf maturé, herbes fraîches, sel de mer, légumes grillés au feu.</p>
+        <span class="mc-price">8 500<span class="mc-unit">XPF</span></span>
+      </div><div class="mc-back"><p>Le festin patagoen — pour deux âmes aventurières.</p></div></div></div>
+      <div class="mc"><div class="mc-inner"><div class="mc-front">
+        <p class="mc-name">Poisson du jour grillé</p>
+        <p class="mc-desc">Filet de thon jaune, vivaneau ou mahi-mahi selon arrivage, beurre citronné, légumes de saison.</p>
+        <span class="mc-price">3 200<span class="mc-unit">XPF</span></span>
+      </div><div class="mc-back"><p>Les eaux calédoniennes à l'honneur, entre lagon et braise.</p></div></div></div>
+    </div>
+    <div class="menu-panel" id="tab-desserts">
+      <div class="mc"><div class="mc-inner"><div class="mc-front">
+        <p class="mc-name">Fondant au chocolat</p>
+        <p class="mc-desc">Cœur coulant, glace vanille, fleur de sel, sauce caramel beurre salé.</p>
+        <span class="mc-price">1 100<span class="mc-unit">XPF</span></span>
+      </div><div class="mc-back"><p>Un final en douceur, après l'intensité du feu.</p></div></div></div>
+      <div class="mc"><div class="mc-inner"><div class="mc-front">
+        <p class="mc-name">Dulce de leche maison</p>
+        <p class="mc-desc">Confiture de lait patagone, sablé breton, crème légère fouettée, zeste d'agrume.</p>
+        <span class="mc-price">1 000<span class="mc-unit">XPF</span></span>
+      </div><div class="mc-back"><p>L'âme sucrée de la Patagonie, en une cuillère.</p></div></div></div>
+      <div class="mc"><div class="mc-inner"><div class="mc-front">
+        <p class="mc-name">Assiette de fromages</p>
+        <p class="mc-desc">Sélection affinée, confiture de figues, noix grillées, pain de campagne.</p>
+        <span class="mc-price">1 400<span class="mc-unit">XPF</span></span>
+      </div><div class="mc-back"><p>Pour prolonger le repas autour d'un verre en terrasse.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- AMBIANCE -->
+<section class="amb-s s" id="ambiance">
+  <div class="container">
+    <div class="tc" style="margin-bottom:48px">
+      <p class="eyebrow">L'atmosphère</p>
+      <h2 class="h2">Vivre la Tierra</h2>
+    </div>
+    <div class="amb-grid">
+      <div class="amb-item">
+        <img class="amb-img" src="https://i.ibb.co/wH8HRH0/Tierra-de-Fuego-1.jpg" alt="Intérieur chaleureux Tierra de Fuego" loading="lazy">
+      </div>
+      <div class="amb-item">
+        <img class="amb-img" src="https://i.ibb.co/bRbrRHqT/Tierra-de-Fuego-2.jpg" alt="Terrasse face au lagon de Nouméa" loading="lazy">
+      </div>
+      <div class="amb-item">
+        <img class="amb-img" src="https://i.ibb.co/vvcNNLFf/Tierra-de-Fuego-3.jpg" alt="Détail plat de braise Tierra de Fuego" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="chef-s s" id="chef">
+  <div class="container">
+    <div class="chef-inner">
+      <div class="chef-img-wrap">
+        <img src="https://i.ibb.co/216JVPHZ/Tierra-de-Fuego-0.jpg" alt="La cuisine de Tierra de Fuego" loading="lazy">
+      </div>
+      <div class="chef-text">
+        <p class="eyebrow">Notre histoire</p>
+        <h2 class="h2">Un feu allumé entre deux continents</h2>
+        <p class="lead" style="margin-bottom:24px">Tierra de Fuego est née d'une passion simple : celle du feu, des belles pièces de viande et des tablées qui durent. Installée au cœur de Nouméa, notre maison cultive l'art de la braise avec la générosité des traditions patagoanes et la légèreté du cadre calédonien.</p>
+        <p class="lead">Chaque service est une invitation à ralentir, à savourer, à partager. La terrasse s'ouvre sur le lagon, les ampoules Edison diffusent leur lumière ambrée, et les planches arrivent généreuses — comme elles se doivent d'être.</p>
+        <ul class="chef-points" style="margin-top:28px">
+          <li><div class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Viandes sélectionnées et cuites sur braise de bois franc</li>
+          <li><div class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Chimichurri et sauces préparées maison chaque jour</li>
+          <li><div class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Terrasse avec vue sur le lagon de Nouméa</li>
+          <li><div class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Note Google 4,4 / 5 — 194 avis vérifiés</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="gal-s s" id="galerie">
+  <div class="container">
+    <div class="tc" style="margin-bottom:0">
+      <p class="eyebrow" style="color:var(--cp)">Galerie</p>
+      <h2 class="h2">Images du restaurant</h2>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item" onclick="openLb('https://i.ibb.co/216JVPHZ/Tierra-de-Fuego-0.jpg','Tierra de Fuego — Plat signature')">
+        <img src="https://i.ibb.co/216JVPHZ/Tierra-de-Fuego-0.jpg" alt="Plat signature Tierra de Fuego" loading="lazy">
+        <div class="gal-overlay"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      </div>
+      <div class="gal-item" onclick="openLb('https://i.ibb.co/wH8HRH0/Tierra-de-Fuego-1.jpg','Tierra de Fuego — Intérieur')">
+        <img src="https://i.ibb.co/wH8HRH0/Tierra-de-Fuego-1.jpg" alt="Intérieur Tierra de Fuego" loading="lazy">
+        <div class="gal-overlay"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      </div>
+      <div class="gal-item" onclick="openLb('https://i.ibb.co/bRbrRHqT/Tierra-de-Fuego-2.jpg','Tierra de Fuego — Terrasse lagon')">
+        <img src="https://i.ibb.co/bRbrRHqT/Tierra-de-Fuego-2.jpg" alt="Terrasse lagon Tierra de Fuego" loading="lazy">
+        <div class="gal-overlay"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      </div>
+      <div class="gal-item" onclick="openLb('https://i.ibb.co/vvcNNLFf/Tierra-de-Fuego-3.jpg','Tierra de Fuego — Détail braise')">
+        <img src="https://i.ibb.co/vvcNNLFf/Tierra-de-Fuego-3.jpg" alt="Détail braise Tierra de Fuego" loading="lazy">
+        <div class="gal-overlay"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLb(event)">
+  <button class="lb-close" onclick="closeLb()">&times;</button>
+  <img class="lb-img" id="lbImg" src="" alt="">
+</div>
+
+<!-- RÉSERVATION -->
+<section class="resa-s s" id="reservation">
+  <div class="container tc">
+    <p class="eyebrow" style="color:var(--ca)">Réservation</p>
+    <h2 class="h2">Réservez votre table</h2>
+    <p class="lead mx-auto" style="color:rgba(255,255,255,.75)">Une soirée au bord du lagon vous attend. Remplissez le formulaire ci-dessous ou appelez-nous directement au <a href="tel:+68730428" style="color:var(--ca);font-weight:700">30.42.82</a>.</p>
+    <form class="resa-form" id="resaForm" action="#" novalidate>
+      <div class="fi">
+        <label for="r-nom">Nom complet</label>
+        <input type="text" id="r-nom" name="nom" placeholder="Votre nom" autocomplete="name">
+        <span class="fi-err" id="err-nom">Ce champ est requis.</span>
+      </div>
+      <div class="fi">
+        <label for="r-email">Email</label>
+        <input type="email" id="r-email" name="email" placeholder="votre@email.com" autocomplete="email">
+        <span class="fi-err" id="err-email">Email invalide.</span>
+      </div>
+      <div class="fi">
+        <label for="r-tel">Téléphone</label>
+        <input type="tel" id="r-tel" name="tel" placeholder="Ex : 30.42.82" autocomplete="tel">
+        <span class="fi-err" id="err-tel">Numéro requis.</span>
+      </div>
+      <div class="fi">
+        <label for="r-couverts">Nombre de couverts</label>
+        <select id="r-couverts" name="couverts">
+          <option value="">Choisir</option>
+          <option>1 personne</option>
+          <option>2 personnes</option>
+          <option>3 personnes</option>
+          <option>4 personnes</option>
+          <option>5 personnes</option>
+          <option>6 personnes</option>
+          <option>7 personnes ou plus</option>
+        </select>
+      </div>
+      <div class="fi">
+        <label for="r-date">Date souhaitée</label>
+        <input type="date" id="r-date" name="date">
+      </div>
+      <div class="fi">
+        <label for="r-heure">Heure souhaitée</label>
+        <select id="r-heure" name="heure">
+          <option value="">Choisir</option>
+          <option>11h30</option><option>12h00</option><option>12h30</option><option>13h00</option>
+          <option>19h00</option><option>19h30</option><option>20h00</option><option>20h30</option><option>21h00</option>
+        </select>
+      </div>
+      <div class="fi fi-full">
+        <label for="r-msg">Message (optionnel)</label>
+        <textarea id="r-msg" name="message" placeholder="Allergie, occasion spéciale, demande particulière…"></textarea>
+      </div>
+      <div class="form-submit">
+        <button type="submit" class="b-submit">Confirmer ma réservation</button>
+        <div class="form-ok" id="resaOk">
+          ✓ &nbsp;Votre demande a bien été envoyée — nous vous confirmons votre table très prochainement.
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="social-s s" id="avis">
+  <div class="container tc">
+    <p class="eyebrow">Ce que disent nos hôtes</p>
+    <h2 class="h2">4,4 / 5 sur Google</h2>
+    <div class="google-badge" style="display:inline-flex">
+      <div class="g-score">4,4</div>
+      <div class="g-meta">
+        <div class="stars">
+          <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star-svg" viewBox="0 0 24 24" style="opacity:.45"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <span class="g-count">194 avis Google vérifiés</span>
+        <span class="g-label">Nouméa, Nouvelle-Calédonie</span>
+      </div>
+    </div>
+    <div class="testi-grid">
+      <div class="tc-card">
+        <div class="tc-stars">
+          <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="tc-text">"Une expérience absolument mémorable. La côte de bœuf était parfaitement cuite, le chimichurri maison exceptionnel, et la vue sur le lagon au coucher du soleil — sans égal à Nouméa."</p>
+        <span class="tc-author">Marie-Claire T. — Nouméa</span>
+      </div>
+      <div class="tc-card">
+        <div class="tc-stars">
+          <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="tc-text">"Le meilleur steakhouse de l'île, sans hésitation. Accueil chaleureux, ambiance parfaite, et des planches généreuses comme je n'en avais pas mangé depuis longtemps. On reviendra !"</p>
+        <span class="tc-author">Julien R. — Touriste métropole</span>
+      </div>
+      <div class="tc-card">
+        <div class="tc-stars">
+          <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star-svg" viewBox="0 0 24 24" style="opacity:.4"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="tc-text">"L'entrecôte Tierra, le service attentionné, la terrasse… Tout est réuni pour une belle soirée en amoureux ou entre amis. Le poisson du jour était excellent aussi."</p>
+        <span class="tc-author">Sophie M. — Nouméa</span>
+      </div>
+    </div>
+    <div class="badges">
+      <div class="badge"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span>194 avis vérifiés</span></div>
+      <div class="badge"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="var(--ca)" stroke-width="2" fill="none"/></svg><span>Etablissement vérifié Google</span></div>
+      <div class="badge"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="var(--ca)" stroke-width="2" fill="none"/></svg><span>Table pour groupes disponible</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- HORAIRES & ACCÈS -->
+<section class="horaires-s s" id="acces">
+  <div class="container">
+    <div class="tc" style="margin-bottom:56px">
+      <p class="eyebrow" style="color:var(--cp)">Nous trouver</p>
+      <h2 class="h2" style="color:var(--ct)">Horaires & accès</h2>
+    </div>
+    <div class="horaires-inner">
+      <div class="h-block">
+        <p class="eyebrow">Horaires d'ouverture</p>
+        <h3 class="h3" style="color:var(--ct);margin-bottom:24px">Ouvert midi et soir</h3>
+        <table class="h-table">
+          <tr><td>Lundi</td><td class="closed">Fermé</td></tr>
+          <tr><td>Mardi – Vendredi</td><td>11h30 – 14h00 &nbsp;|&nbsp; 19h00 – 22h00</td></tr>
+          <tr><td>Samedi</td><td>19h00 – 22h30</td></tr>
+          <tr><td>Dimanche</td><td>11h30 – 14h30</td></tr>
+        </table>
+        <div style="margin-top:32px">
+          <p class="eyebrow" style="margin-bottom:12px">Adresse & contact</p>
+          <p class="f-addr" style="color:#5a4a3a;line-height:1.9">
+            18 Rue Jules Ferry<br>
+            Nouméa 98800<br>
+            Nouvelle-Calédonie<br>
+            <a href="tel:+68730428" style="color:var(--cp);font-weight:700;margin-top:6px;display:inline-block">Tél : 30.42.82</a>
+          </p>
+        </div>
+      </div>
+      <div>
+        <div class="map-wrap">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.6!2d166.4427!3d-22.2758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6c23cb8f4e3d1d05%3A0x4a3b2c1d5e6f7a8b!2s18+Rue+Jules+Ferry%2C+Noum%C3%A9a!5e0!3m2!1sfr!2snc!4v1700000000000"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Localisation Tierra de Fuego Nouméa">
+          </iframe>
+        </div>
+        <div style="margin-top:16px;text-align:center">
+          <a href="https://maps.google.com/?q=18+Rue+Jules+Ferry+Nouméa" target="_blank" rel="noopener" class="b-primary" style="display:inline-block;font-size:13px;padding:12px 28px">Ouvrir dans Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="f-brand">
+      <span class="logo">Tierra <span>de Fuego</span></span>
+      <p>Steakhouse patagoen premium face au lagon de Nouméa. Braises ardentes, planches généreuses, terrasse au coucher du soleil.</p>
+      <a href="tel:+68730428" class="f-tel">30.42.82</a>
+      <div class="f-addr" style="margin-top:12px;color:rgba(255,255,255,.7)">
+        18 Rue Jules Ferry — Nouméa 98800<br>Nouvelle-Calédonie
+      </div>
+    </div>
+    <div class="f-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#menu">Menu signature</a></li>
+        <li><a href="#ambiance">Ambiance</a></li>
+        <li><a href="#chef">Notre histoire</a></li>
+        <li><a href="#avis">Avis clients</a></li>
+        <li><a href="#acces">Horaires & accès</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Réservation</h4>
+      <ul>
+        <li><a href="#reservation">Réserver une table</a></li>
+        <li><a href="tel:+68730428">Appeler le restaurant</a></li>
+      </ul>
+      <h4 style="margin-top:28px">Horaires</h4>
+      <p style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.8">Mar–Ven : 11h30–14h | 19h–22h<br>Sam : 19h–22h30<br>Dim : 11h30–14h30<br>Lun : Fermé</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Tierra de Fuego. Tous droits réservés.</span>
+    <span>Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a> · <a href="https://setup.nc" target="_blank" rel="noopener">setup.nc</a></span>
+  </div>
+</footer>
+
+<script>
+function switchTab(btn,id){
+  document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active')});
+  document.querySelectorAll('.menu-panel').forEach(function(p){p.classList.remove('active')});
+  btn.classList.add('active');
+  document.getElementById('tab-'+id).classList.add('active');
+}
+function openLb(src,alt){
+  var lb=document.getElementById('lightbox'),img=document.getElementById('lbImg');
+  img.src=src;img.alt=alt;
+  lb.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLb(e){
+  if(e&&e.target!==document.getElementById('lightbox')&&e.target.className!=='lb-close')return;
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb({target:document.getElementById('lightbox')})});
+(function(){
+  var form=document.getElementById('resaForm');
+  if(!form)return;
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var ok=true;
+    var nom=document.getElementById('r-nom'),email=document.getElementById('r-email'),tel=document.getElementById('r-tel');
+    [nom,email,tel].forEach(function(f){
+      var err=document.getElementById('err-'+f.id.replace('r-',''));
+      if(!f.value.trim()||(f.type==='email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.value))){
+        err.style.display='block';ok=false;
+      } else {err.style.display='none';}
+    });
+    if(!ok)return;
+    form.style.opacity='.5';form.style.pointerEvents='none';
+    setTimeout(function(){
+      form.style.opacity='';form.style.pointerEvents='';
+      form.reset();
+      var msg=document.getElementById('resaOk');
+      msg.style.display='block';
+      setTimeout(function(){msg.style.display='none';},6000);
+    },900);
+  });
+})();
+</script>
+</body>
+</html>
