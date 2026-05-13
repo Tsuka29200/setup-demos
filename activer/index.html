@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Activer votre site — Setup NC</title>
-<meta name="description" content="Activez votre site web personnalisé pour 4 900 XPF/mois. Sans frais d'installation. Hébergement, mises à jour, support inclus.">
+<meta name="description" content="Activez votre site web personnalisé à partir de 4 900 XPF/mois. Sans frais d'installation. Hébergement, mises à jour, support inclus.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -23,12 +23,12 @@ a{color:inherit;text-decoration:none}
 .btn-outline:hover{background:var(--blue);color:#fff}
 
 /* HEADER */
-header{padding:20px 0;background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:100}
-.header-inner{display:flex;justify-content:space-between;align-items:center}
-.logo{font-weight:800;color:var(--blue);font-size:18px;letter-spacing:1.5px;text-transform:uppercase}
-.logo span{color:var(--yellow);background:var(--blue);padding:2px 6px;margin-left:4px}
+header{padding:16px 0;background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:100}
+.header-inner{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.logo-img{height:44px;width:auto;display:block}
 .nav-cta{display:flex;gap:16px;align-items:center}
 .nav-cta a{font-size:13px;font-weight:600;color:var(--muted)}
+.nav-cta a:hover{color:var(--blue)}
 
 /* HERO */
 .hero{padding:80px 0 60px;text-align:center;background:linear-gradient(180deg,#fff 0%,var(--bg) 100%)}
@@ -99,7 +99,8 @@ header{padding:20px 0;background:#fff;border-bottom:1px solid #eee;position:stic
 
 /* FOOTER */
 footer{background:var(--dark);color:#fff;padding:60px 0 40px;text-align:center}
-footer .logo{color:#fff;margin-bottom:16px}
+.footer-logo-wrap{background:var(--yellow);display:inline-block;padding:14px 28px;margin-bottom:24px}
+.footer-logo-wrap img{height:36px;width:auto;display:block}
 footer p{font-size:14px;color:#aaa;margin-bottom:8px}
 footer a{color:var(--yellow)}
 footer .copyright{margin-top:32px;font-size:12px;color:#666}
@@ -116,7 +117,8 @@ footer .copyright{margin-top:32px;font-size:12px;color:#666}
   .container{padding:0 16px}
   .col{padding:24px}
   .tier{padding:28px 24px}
-  header{padding:14px 0}
+  header{padding:12px 0}
+  .logo-img{height:36px}
 }
 </style>
 </head>
@@ -124,7 +126,9 @@ footer .copyright{margin-top:32px;font-size:12px;color:#666}
 
 <header>
   <div class="container header-inner">
-    <div class="logo">Setup<span>NC</span></div>
+    <a href="#" aria-label="Setup NC">
+      <img src="https://setup.nc/wp-content/uploads/thegem/logos/logo_8c2e2b18db502fbf473641345b30466a_1x.png" alt="Setup NC" class="logo-img">
+    </a>
     <div class="nav-cta">
       <a href="#tarifs">Tarifs</a>
       <a href="#rdv" class="btn btn-blue" style="padding:12px 22px;font-size:13px">Réserver</a>
@@ -305,7 +309,9 @@ footer .copyright{margin-top:32px;font-size:12px;color:#666}
 
 <footer>
   <div class="container">
-    <div class="logo">Setup<span>NC</span></div>
+    <div class="footer-logo-wrap">
+      <img src="https://setup.nc/wp-content/uploads/thegem/logos/logo_8c2e2b18db502fbf473641345b30466a_1x.png" alt="Setup NC">
+    </div>
     <p>Sites web sur mesure pour PME calédoniennes</p>
     <p><a href="https://setup.nc">setup.nc</a> · <a href="mailto:hello@setup.nc">hello@setup.nc</a></p>
     <p class="copyright">© 2026 Setup NC · Nouméa, Nouvelle-Calédonie</p>
