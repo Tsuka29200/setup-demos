@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>O'Burger — Nouméa</title>
+<meta name="description" content="O'Burger à Nouméa, Nouvelle-Calédonie — Burgers savoureux, ambiance moderne, sur la route de l'Anse Vata. Commandez ou venez nous rendre visite !">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@300;400;700&family=Manrope:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#1a1a2e;
+--cs:#16213e;
+--ca:#3a86ff;
+--cw:#ffffff;
+--cb:#222222;
+--cl:#f5f5f5;
+--fy:Playfair Display,Georgia,serif;
+--fl:Lato,system-ui,sans-serif;
+--fm:Manrope,system-ui,sans-serif;
+--r:.75rem;
+--t:300ms cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fl);color:var(--cb);background:var(--cw);overflow-x:hidden;padding-top:88px}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+
+/* BANDEAU PROMO */
+.promo{position:fixed;top:0;left:0;right:0;height:44px;background:#ffd500;z-index:1001;display:flex;align-items:center;justify-content:center}
+.promo a{font-family:var(--fm);font-weight:700;font-size:14px;color:#4375ff;letter-spacing:.3px;line-height:44px;text-align:center;display:block;width:100%}
+.promo a:hover{opacity:.85}
+
+/* HEADER */
+.hdr{position:fixed;top:44px;left:0;right:0;height:64px;background:rgba(26,26,46,.97);backdrop-filter:blur(8px);z-index:1000;display:flex;align-items:center;padding:0 5%}
+.hdr-logo{font-family:var(--fy);font-size:1.5rem;font-weight:900;color:var(--cw);letter-spacing:.5px;flex:1}
+.hdr-logo span{color:var(--ca)}
+.nav{display:flex;align-items:center;gap:2rem;list-style:none}
+.nav a{font-family:var(--fl);font-size:.875rem;font-weight:700;color:rgba(255,255,255,.8);letter-spacing:.5px;text-transform:uppercase;transition:color var(--t)}
+.nav a:hover{color:var(--ca)}
+.hdr-cta{margin-left:2rem;background:var(--ca);color:var(--cw);font-family:var(--fl);font-weight:700;font-size:.875rem;padding:.6rem 1.4rem;border-radius:var(--r);transition:opacity var(--t),transform var(--t);white-space:nowrap}
+.hdr-cta:hover{opacity:.85;transform:translateY(-1px)}
+.burger-btn{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.burger-btn span{display:block;width:24px;height:2px;background:var(--cw);transition:transform var(--t),opacity var(--t)}
+.mob-nav{display:none;position:fixed;top:108px;left:0;right:0;background:var(--cp);z-index:999;padding:1.5rem 5%;flex-direction:column;gap:1.25rem}
+.mob-nav a{color:rgba(255,255,255,.85);font-size:1rem;font-weight:700;letter-spacing:.4px;text-transform:uppercase;transition:color var(--t)}
+.mob-nav a:hover{color:var(--ca)}
+.mob-nav .hdr-cta{text-align:center;display:block;margin-top:.5rem}
+.mob-nav.open{display:flex}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background:url('https://i.ibb.co/4Rk9kXDg/O-Burger-0.jpg') center center/cover no-repeat}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(26,26,46,.72) 0%,rgba(22,33,62,.55) 60%,rgba(26,26,46,.45) 100%)}
+.hero-inner{position:relative;z-index:1;text-align:center;padding:2rem 1rem;max-width:820px;margin:0 auto}
+.hero-tag{display:inline-block;background:var(--ca);color:var(--cw);font-family:var(--fl);font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:.35rem 1rem;border-radius:2rem;margin-bottom:1.5rem}
+.h1{font-family:var(--fy);font-size:clamp(2.8rem,8vw,5.5rem);font-weight:900;color:var(--cw);line-height:1.08;letter-spacing:-.5px;margin-bottom:1rem}
+.h1 em{font-style:normal;color:var(--ca)}
+.hero-sub{font-family:var(--fl);font-size:clamp(1rem,2.5vw,1.25rem);color:rgba(255,255,255,.82);font-weight:300;max-width:560px;margin:0 auto 2.5rem;line-height:1.6}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-p{display:inline-flex;align-items:center;justify-content:center;background:var(--ca);color:var(--cw);font-family:var(--fl);font-weight:700;font-size:1rem;padding:.85rem 2rem;border-radius:var(--r);min-height:48px;transition:opacity var(--t),transform var(--t)}
+.btn-p:hover{opacity:.85;transform:translateY(-2px)}
+.btn-o{display:inline-flex;align-items:center;justify-content:center;background:transparent;color:var(--cw);font-family:var(--fl);font-weight:700;font-size:1rem;padding:.85rem 2rem;border-radius:var(--r);min-height:48px;border:2px solid rgba(255,255,255,.6);transition:border-color var(--t),background var(--t)}
+.btn-o:hover{border-color:var(--cw);background:rgba(255,255,255,.08)}
+.scroll-ind{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;opacity:.7}
+.scroll-ind span{font-family:var(--fl);font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--cw)}
+.scroll-ind svg{animation:bounce 1.6s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* STATS BAND */
+.stats{background:linear-gradient(135deg,var(--cp) 0%,var(--cs) 100%);padding:4rem 5%}
+.stats-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center}
+.stat-n{font-family:var(--fy);font-size:clamp(2rem,5vw,3.2rem);font-weight:900;color:var(--ca);line-height:1}
+.stat-l{font-family:var(--fl);font-size:.85rem;font-weight:400;color:rgba(255,255,255,.7);letter-spacing:.8px;text-transform:uppercase;margin-top:.5rem}
+
+/* FADE-IN */
+.fi{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+.fi.vis{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.nav,.hdr-cta{display:none}
+.burger-btn{display:flex}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+body{padding-top:84px}
+.promo{height:40px}
+.promo a{font-size:13px;line-height:40px;padding:0 1rem}
+.hdr{top:40px;height:44px}
+.mob-nav{top:84px}
+.hero-btns .btn-p,.hero-btns .btn-o{width:100%;max-width:320px}
+.stats-grid{grid-template-columns:1fr 1fr;gap:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo">
+  <a href="https://officeplus.pipedrive.com/scheduler/xKlBQqc1/call" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr">
+  <a href="#hero" class="hdr-logo">O'<span>Burger</span></a>
+  <nav aria-label="Navigation principale">
+    <ul class="nav">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#ambiance">Ambiance</a></li>
+      <li><a href="#avis">Avis</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <a href="tel:+687435436" class="hdr-cta">📞 43.54.36</a>
+  <button class="burger-btn" id="burgerBtn" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<nav class="mob-nav" id="mobNav" aria-label="Navigation mobile">
+  <a href="#menu" class="mob-link">Menu</a>
+  <a href="#ambiance" class="mob-link">Ambiance</a>
+  <a href="#avis" class="mob-link">Avis</a>
+  <a href="#contact" class="mob-link">Contact</a>
+  <a href="tel:+687435436" class="hdr-cta">📞 43.54.36</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <span class="hero-tag">Nouméa · Anse Vata</span>
+    <h1 class="h1">Le burger qui fait<br><em>vibrer Nouméa</em></h1>
+    <p class="hero-sub">Des burgers généreux, des saveurs franches, une adresse incontournable sur la route de l'Anse Vata.</p>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-p">Voir le menu</a>
+      <a href="#contact" class="btn-o">Nous contacter</a>
+    </div>
+  </div>
+  <div class="scroll-ind" aria-hidden="true">
+    <span>Découvrir</span>
+    <svg width="20" height="20" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="stats">
+  <div class="stats-grid">
+    <div class="fi">
+      <div class="stat-n" data-target="85">0</div>
+      <div class="stat-l">Avis clients</div>
+    </div>
+    <div class="fi">
+      <div class="stat-n" data-target="3" data-suffix=".1/5">0</div>
+      <div class="stat-l">Note Google</div>
+    </div>
+    <div class="fi">
+      <div class="stat-n" data-target="100" data-suffix="%">0</div>
+      <div class="stat-l">Fait maison</div>
+    </div>
+    <div class="fi">
+      <div class="stat-n" data-target="1">0</div>
+      <div class="stat-l">Adresse à Nouméa</div>
+    </div>
+  </div>
+</section>
+
+<script>
+const bb=document.getElementById('burgerBtn'),mn=document.getElementById('mobNav');
+bb.addEventListener('click',()=>{const o=mn.classList.toggle('open');bb.setAttribute('aria-expanded',o)});
+document.querySelectorAll('.mob-link,.mob-nav .hdr-cta').forEach(l=>l.addEventListener('click',()=>{mn.classList.remove('open');bb.setAttribute('aria-expanded',false)}));
+
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
+
+const cobs=new IntersectionObserver(es=>{es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,t=+el.dataset.target,sf=el.dataset.suffix||'',d=1200,s=performance.now();
+(function f(n){const p=Math.min((n-s)/d,1),v=Math.round(p*t);el.textContent=v+(p===1?sf:'');if(p<1)requestAnimationFrame(f)})(performance.now());
+cobs.unobserve(el)})},{threshold:.5});
+document.querySelectorAll('.stat-n').forEach(el=>cobs.observe(el));
+</script>
+<style>
+/* SERVICES */
+.s{padding:5rem 5%}
+.s-w{max-width:1100px;margin:0 auto}
+.s-lbl{font-family:var(--fl);font-size:.75rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--ca);display:block;margin-bottom:.75rem}
+.h2{font-family:var(--fy);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;line-height:1.15;color:var(--cb)}
+.h2-w{color:var(--cw)}
+.s-sub{font-family:var(--fl);font-size:1rem;color:#555;margin-top:.75rem;line-height:1.65;max-width:520px}
+.srv-g{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem}
+.c{background:var(--cl);border-radius:1rem;padding:2rem 1.75rem;transition:transform var(--t),box-shadow var(--t)}
+.c:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,.1)}
+.c-ico{width:52px;height:52px;background:rgba(58,134,255,.12);border-radius:.75rem;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem}
+.c-ico svg{width:26px;height:26px;stroke:var(--ca);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.c-t{font-family:var(--fy);font-size:1.2rem;font-weight:700;color:var(--cb);margin-bottom:.6rem}
+.c-p{font-family:var(--fl);font-size:.9rem;color:#555;line-height:1.6}
+.c-lnk{display:inline-flex;align-items:center;gap:.35rem;font-family:var(--fl);font-size:.85rem;font-weight:700;color:var(--ca);margin-top:1rem;transition:opacity var(--t)}
+.c-lnk:hover{opacity:.7}
+
+/* METIER */
+.met{background:var(--cp)}
+.met-g{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:100%;align-items:stretch}
+.met-txt{padding:5rem 8%;display:flex;flex-direction:column;justify-content:center}
+.met-img{overflow:hidden;min-height:460px}
+.met-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.met-img:hover img{transform:scale(1.04)}
+.met-pts{list-style:none;margin-top:2rem;display:flex;flex-direction:column;gap:.85rem}
+.met-pts li{display:flex;align-items:flex-start;gap:.75rem;font-family:var(--fl);font-size:.95rem;color:rgba(255,255,255,.8);line-height:1.5}
+.met-pts li svg{flex-shrink:0;margin-top:2px;width:18px;height:18px;stroke:var(--ca);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* GALERIE */
+.gal{background:var(--cl)}
+.gal-h{text-align:center;margin-bottom:2.5rem}
+.gal-g{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;max-width:1100px;margin:0 auto}
+.gal-item{overflow:hidden;border-radius:.75rem;cursor:pointer;aspect-ratio:1/1;position:relative}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform var(--t),opacity var(--t)}
+.gal-item:hover img{transform:scale(1.05);opacity:.9}
+.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center;padding:1rem}
+.lb.open{display:flex}
+.lb img{max-width:92vw;max-height:88vh;border-radius:.75rem;object-fit:contain}
+.lb-x{position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;cursor:pointer;color:var(--cw);font-size:2rem;line-height:1;opacity:.8;transition:opacity var(--t)}
+.lb-x:hover{opacity:1}
+
+/* FORMULAIRE */
+.frm-g{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:2.5rem}
+.fld{display:flex;flex-direction:column;gap:.45rem}
+.fld-full{grid-column:1/-1}
+.fld label{font-family:var(--fl);font-size:.82rem;font-weight:700;color:var(--cb);letter-spacing:.4px;text-transform:uppercase}
+.fld input,.fld textarea{font-family:var(--fl);font-size:.95rem;color:var(--cb);background:var(--cl);border:2px solid transparent;border-radius:var(--r);padding:.75rem 1rem;outline:none;transition:border-color var(--t);width:100%}
+.fld input:focus,.fld textarea:focus{border-color:var(--ca)}
+.fld textarea{min-height:130px;resize:vertical}
+.fld input.err,.fld textarea.err{border-color:#e63946}
+.frm-btn{display:flex;align-items:center;justify-content:center;gap:.6rem;margin-top:1.5rem;background:var(--ca);color:var(--cw);font-family:var(--fl);font-weight:700;font-size:1rem;padding:.9rem 2.5rem;border-radius:var(--r);border:none;cursor:pointer;min-height:48px;width:100%;max-width:320px;transition:opacity var(--t),transform var(--t)}
+.frm-btn:hover{opacity:.85;transform:translateY(-2px)}
+.frm-btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.ld{width:18px;height:18px;border:2px solid rgba(255,255,255,.4);border-top-color:var(--cw);border-radius:50%;animation:spin .7s linear infinite;display:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ok-msg{display:none;background:rgba(58,134,255,.1);border:2px solid var(--ca);border-radius:var(--r);padding:1.25rem 1.5rem;margin-top:1.5rem;font-family:var(--fl);font-size:.95rem;color:var(--ca);font-weight:700;text-align:center}
+
+/* PREUVE SOCIALE */
+.ps{background:var(--cp);text-align:center}
+.ps-h{text-align:center;margin-bottom:2.5rem}
+.stars{display:flex;align-items:center;justify-content:center;gap:.35rem;margin:.75rem 0}
+.stars svg{width:22px;height:22px;fill:#fbbf24}
+.note-big{font-family:var(--fy);font-size:3.5rem;font-weight:900;color:var(--cw);line-height:1}
+.note-lbl{font-family:var(--fl);font-size:.85rem;color:rgba(255,255,255,.6);letter-spacing:.8px;text-transform:uppercase;margin-top:.25rem}
+.temo-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.temo-c{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:1rem;padding:1.75rem 1.5rem;text-align:left}
+.temo-s{display:flex;gap:.25rem;margin-bottom:.75rem}
+.temo-s svg{width:14px;height:14px;fill:#fbbf24}
+.temo-txt{font-family:var(--fl);font-size:.9rem;color:rgba(255,255,255,.8);line-height:1.6;font-style:italic}
+.temo-auth{font-family:var(--fl);font-size:.8rem;font-weight:700;color:var(--ca);margin-top:1rem;letter-spacing:.4px}
+.badge-g{display:flex;gap:1.25rem;justify-content:center;flex-wrap:wrap;margin-top:3rem}
+.badge{display:flex;align-items:center;gap:.6rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:2rem;padding:.6rem 1.25rem}
+.badge svg{width:20px;height:20px;stroke:var(--ca);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.badge span{font-family:var(--fl);font-size:.82rem;font-weight:700;color:rgba(255,255,255,.8);letter-spacing:.3px}
+
+/* FOOTER */
+.ft{background:var(--cp);border-top:1px solid rgba(255,255,255,.07);padding:3.5rem 5% 2rem}
+.ft-g{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:3rem}
+.ft-brand{font-family:var(--fy);font-size:1.6rem;font-weight:900;color:var(--cw)}
+.ft-brand span{color:var(--ca)}
+.ft-desc{font-family:var(--fl);font-size:.875rem;color:rgba(255,255,255,.55);line-height:1.65;margin-top:.75rem}
+.ft-socials{display:flex;gap:.85rem;margin-top:1.25rem}
+.ft-soc{width:38px;height:38px;border-radius:.5rem;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;transition:border-color var(--t),background var(--t)}
+.ft-soc:hover{border-color:var(--ca);background:rgba(58,134,255,.1)}
+.ft-soc svg{width:18px;height:18px;fill:rgba(255,255,255,.75)}
+.ft-soc:hover svg{fill:var(--ca)}
+.ft-ttl{font-family:var(--fl);font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ca);margin-bottom:1.1rem}
+.ft-list{list-style:none;display:flex;flex-direction:column;gap:.7rem}
+.ft-list li{font-family:var(--fl);font-size:.875rem;color:rgba(255,255,255,.6);line-height:1.5}
+.ft-list a{color:rgba(255,255,255,.6);transition:color var(--t)}
+.ft-list a:hover{color:var(--cw)}
+.ft-bot{max-width:1100px;margin:2.5rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.07);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+.ft-copy{font-family:var(--fl);font-size:.8rem;color:rgba(255,255,255,.35)}
+.ft-setup{font-family:var(--fl);font-size:.8rem;color:rgba(255,255,255,.35)}
+.ft-setup a{color:rgba(255,255,255,.5);transition:color var(--t)}
+.ft-setup a:hover{color:var(--cw)}
+
+/* RESPONSIVE PART 2 */
+@media(max-width:900px){
+.srv-g{grid-template-columns:1fr 1fr}
+.met-g{grid-template-columns:1fr}
+.met-img{min-height:300px;order:-1}
+.temo-g{grid-template-columns:1fr}
+.ft-g{grid-template-columns:1fr 1fr}
+.gal-g{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+.frm-g{grid-template-columns:1fr}
+.ft-g{grid-template-columns:1fr}
+.ft-bot{flex-direction:column;text-align:center}
+}
+@media(max-width:480px){
+.srv-g{grid-template-columns:1fr}
+.gal-g{grid-template-columns:repeat(2,1fr)}
+.frm-btn{max-width:100%}
+.temo-g{grid-template-columns:1fr}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s" id="menu">
+  <div class="s-w">
+    <span class="s-lbl fi">Ce qu'on propose</span>
+    <h2 class="h2 fi">Une expérience burger<br>sans compromis</h2>
+    <p class="s-sub fi">Chaque burger est assemblé à la commande, avec des produits frais sélectionnés chaque matin. Sur place ou à emporter, on s'adapte à votre rythme.</p>
+    <div class="srv-g">
+      <div class="c fi">
+        <div class="c-ico">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>
+        </div>
+        <div class="c-t">Burgers Signature</div>
+        <p class="c-p">Des recettes généreuses avec viande fraîche, sauces maison et pain brioché toasté. Du classique au plus audacieux.</p>
+        <a href="#contact" class="c-lnk">Commander <svg width="14" height="14" stroke="currentColor" fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+      </div>
+      <div class="c fi">
+        <div class="c-ico">
+          <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </div>
+        <div class="c-t">Menus Complets</div>
+        <p class="c-p">Burger + frites maison + boisson : le trio qui cale, au meilleur rapport plaisir-prix de l'Anse Vata.</p>
+        <a href="#contact" class="c-lnk">Voir les menus <svg width="14" height="14" stroke="currentColor" fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+      </div>
+      <div class="c fi">
+        <div class="c-ico">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div class="c-t">Snacks &amp; Extras</div>
+        <p class="c-p">Nuggets, onion rings, desserts gourmands et boissons fraîches pour compléter votre repas à toute heure.</p>
+        <a href="#contact" class="c-lnk">Découvrir <svg width="14" height="14" stroke="currentColor" fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="met" id="concept">
+  <div class="met-g">
+    <div class="met-txt">
+      <span class="s-lbl fi">Notre philosophie</span>
+      <h2 class="h2 h2-w fi">Le burger comme<br>art de vivre à Nouméa</h2>
+      <p class="s-sub fi" style="color:rgba(255,255,255,.72);max-width:460px">Chez O'Burger, on a fait simple : de bons produits, des quantités honnêtes, et une équipe qui vous accueille comme à la maison. Depuis notre adresse sur la route de l'Anse Vata, on régale Nouméa au quotidien.</p>
+      <ul class="met-pts fi">
+        <li>
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Viande fraîche préparée chaque jour, sans compromis sur la qualité
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Recettes maison : sauces, garnitures et pains sélectionnés avec soin
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Service rapide sur place ou à emporter, idéal pour une pause déjeuner
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Une adresse conviviale, appréciée des familles et des habitués du coin
+        </li>
+      </ul>
+    </div>
+    <div class="met-img fi">
+      <img src="https://i.ibb.co/ZRHtFtVJ/O-Burger-1.jpg" alt="Intérieur O'Burger Nouméa" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s gal" id="ambiance">
+  <div class="s-w">
+    <div class="gal-h">
+      <span class="s-lbl fi">Ambiance &amp; Saveurs</span>
+      <h2 class="h2 fi">Bienvenue chez O'Burger</h2>
+    </div>
+    <div class="gal-g">
+      <div class="gal-item fi" data-src="https://i.ibb.co/4Rk9kXDg/O-Burger-0.jpg" data-alt="O'Burger plat signature">
+        <img src="https://i.ibb.co/4Rk9kXDg/O-Burger-0.jpg" alt="O'Burger plat signature" loading="lazy">
+      </div>
+      <div class="gal-item fi" data-src="https://i.ibb.co/ZRHtFtVJ/O-Burger-1.jpg" data-alt="O'Burger ambiance">
+        <img src="https://i.ibb.co/ZRHtFtVJ/O-Burger-1.jpg" alt="O'Burger ambiance" loading="lazy">
+      </div>
+      <div class="gal-item fi" data-src="https://i.ibb.co/vCz6W1RX/O-Burger-2.jpg" data-alt="O'Burger détail">
+        <img src="https://i.ibb.co/vCz6W1RX/O-Burger-2.jpg" alt="O'Burger détail" loading="lazy">
+      </div>
+      <div class="gal-item fi" data-src="https://i.ibb.co/mws04k9/O-Burger-3.jpg" data-alt="O'Burger comptoir">
+        <img src="https://i.ibb.co/mws04k9/O-Burger-3.jpg" alt="O'Burger comptoir" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image agrandie">
+  <button class="lb-x" id="lbX" aria-label="Fermer">&#x2715;</button>
+  <img id="lbImg" src="" alt="">
+</div>
+
+<!-- FORMULAIRE -->
+<section class="s" id="contact">
+  <div class="s-w" style="max-width:700px">
+    <span class="s-lbl fi">Contactez-nous</span>
+    <h2 class="h2 fi">Une question ? Un renseignement ?</h2>
+    <p class="s-sub fi">Appelez-nous au <a href="tel:+687435436" style="color:var(--ca);font-weight:700">43.54.36</a> ou laissez-nous un message, on vous répond rapidement.</p>
+    <form id="cfrm" action="#" novalidate>
+      <div class="frm-g">
+        <div class="fld fi">
+          <label for="fn">Nom</label>
+          <input type="text" id="fn" name="nom" placeholder="Votre nom" autocomplete="name">
+        </div>
+        <div class="fld fi">
+          <label for="fe">Email</label>
+          <input type="email" id="fe" name="email" placeholder="votre@email.com" autocomplete="email">
+        </div>
+        <div class="fld fi">
+          <label for="ft">Téléphone</label>
+          <input type="tel" id="ft" name="tel" placeholder="XX.XX.XX" autocomplete="tel">
+        </div>
+        <div class="fld fld-full fi">
+          <label for="fm">Message</label>
+          <textarea id="fm" name="msg" placeholder="Votre message..."></textarea>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:center">
+        <button type="submit" class="frm-btn fi" id="fsubm">
+          <span id="fbtxt">Envoyer le message</span>
+          <span class="ld" id="fld"></span>
+        </button>
+      </div>
+      <div class="ok-msg" id="fok">✅ Message envoyé ! On vous répond très bientôt.</div>
+    </form>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s ps" id="avis">
+  <div class="s-w">
+    <div class="ps-h">
+      <span class="s-lbl fi">Ce qu'ils en pensent</span>
+      <div class="note-big fi">3.1<span style="font-size:1.8rem;color:rgba(255,255,255,.45)">/5</span></div>
+      <div class="stars fi">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" style="opacity:.4"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" style="opacity:.4"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <div class="note-lbl fi">Basé sur 85 avis Google</div>
+    </div>
+    <div class="temo-g">
+      <div class="temo-c fi">
+        <div class="temo-s">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="temo-txt">"Excellent burger, service rapide et accueil sympa. Les frites sont vraiment bonnes. On reviendra sans hésiter !"</p>
+        <div class="temo-auth">— Marie-Claire T. · Google</div>
+      </div>
+      <div class="temo-c fi">
+        <div class="temo-s">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" style="opacity:.3"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="temo-txt">"Bonne adresse sur l'Anse Vata pour manger un burger bien garni sans se ruiner. Idéal pour le midi en famille."</p>
+        <div class="temo-auth">— Kevin M. · Google</div>
+      </div>
+      <div class="temo-c fi">
+        <div class="temo-s">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="temo-txt">"Le burger du moment était top, pain bien toasté, viande juteuse. Le service est souriant, agréable à chaque passage."</p>
+        <div class="temo-auth">— Sandra L. · Google</div>
+      </div>
+    </div>
+    <div class="badge-g">
+      <div class="badge fi">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <span>Noté sur Google</span>
+      </div>
+      <div class="badge fi">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span>85 clients satisfaits</span>
+      </div>
+      <div class="badge fi">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Anse Vata, Nouméa</span>
+      </div>
+      <div class="badge fi">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span>Ouvert 7j/7</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ft">
+  <div class="ft-g">
+    <div>
+      <div class="ft-brand">O'<span>Burger</span></div>
+      <p class="ft-desc">Le burger incontournable de l'Anse Vata. Saveurs généreuses, accueil chaleureux, à deux pas du lagon de Nouméa.</p>
+      <div class="ft-socials">
+        <a href="https://www.facebook.com/OBurgernc/" target="_blank" rel="noopener" class="ft-soc" aria-label="Facebook O'Burger">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="ft-ttl">Navigation</div>
+      <ul class="ft-list">
+        <li><a href="#menu">Notre menu</a></li>
+        <li><a href="#ambiance">Ambiance</a></li>
+        <li><a href="#avis">Avis clients</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="ft-ttl">Nous trouver</div>
+      <ul class="ft-list">
+        <li>40 route de l'Anse Vata</li>
+        <li>98800 Nouméa</li>
+        <li>Nouvelle-Calédonie</li>
+        <li><a href="tel:+687435436">📞 43.54.36</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <div class="ft-copy">© 2026 O'Burger. Tous droits réservés.</div>
+    <div class="ft-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></div>
+  </div>
+</footer>
+
+<script>
+const obs2=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs2.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.fi:not(.vis)').forEach(el=>obs2.observe(el));
+
+const lb=document.getElementById('lb'),lbI=document.getElementById('lbImg'),lbX=document.getElementById('lbX');
+document.querySelectorAll('.gal-item').forEach(el=>{
+  el.addEventListener('click',()=>{lbI.src=el.dataset.src;lbI.alt=el.dataset.alt;lb.classList.add('open');document.body.style.overflow='hidden'});
+});
+function closeLb(){lb.classList.remove('open');document.body.style.overflow='';lbI.src=''}
+lbX.addEventListener('click',closeLb);
+lb.addEventListener('click',e=>{if(e.target===lb)closeLb()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb()});
+
+const frm=document.getElementById('cfrm'),fsubm=document.getElementById('fsubm'),fbtxt=document.getElementById('fbtxt'),fld=document.getElementById('fld'),fok=document.getElementById('fok');
+frm.addEventListener('submit',e=>{
+  e.preventDefault();
+  let ok=true;
+  ['fn','fe','fm'].forEach(id=>{
+    const f=document.getElementById(id);
+    if(!f.value.trim()){f.classList.add('err');ok=false}else f.classList.remove('err');
+  });
+  const fe=document.getElementById('fe');
+  if(fe.value&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fe.value)){fe.classList.add('err');ok=false}
+  if(!ok)return;
+  fsubm.disabled=true;fbtxt.textContent='Envoi…';fld.style.display='block';
+  setTimeout(()=>{fsubm.style.display='none';fok.style.display='block';frm.reset()},1400);
+});
+document.querySelectorAll('#cfrm input,#cfrm textarea').forEach(f=>f.addEventListener('input',()=>f.classList.remove('err')));
+</script>
+</body>
+</html>
