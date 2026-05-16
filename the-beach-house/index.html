@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Beach House — Nouméa</title>
+<meta name="description" content="Restaurant raffiné en bord de lagon à Nouméa. Cuisine de saison, produits locaux, vue sur la mer. Réservez votre table au Beach House, Promenade Roger Laroque.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Lato:wght@300;400;700&family=Manrope:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#B8C9B5;
+--cs:#1C1C1A;
+--ca:#7A9C78;
+--cb:#F5F2ED;
+--ct:#1C1C1A;
+--cw:#FFFFFF;
+--cf:#F5F2ED;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Lato',sans-serif;color:var(--ct);background:var(--cb);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU PROMO */
+.promo{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;display:flex;align-items:center;justify-content:center}
+.promo a{font-family:"Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;line-height:44px;letter-spacing:0.3px;text-align:center}
+.promo a:hover{opacity:.85}
+
+/* HEADER */
+.hdr{position:fixed;top:44px;left:0;width:100%;z-index:1000;background:rgba(245,242,237,.96);backdrop-filter:blur(8px);border-bottom:1px solid rgba(184,201,181,.3);transition:background .3s}
+.hdr-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--cs);letter-spacing:1px;white-space:nowrap}
+.logo span{color:var(--ca)}
+nav{display:flex;align-items:center;gap:32px}
+nav a{font-family:'Lato',sans-serif;font-size:13px;font-weight:400;letter-spacing:1.2px;text-transform:uppercase;color:var(--cs);transition:color .25s}
+nav a:hover{color:var(--ca)}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:'Lato',sans-serif;font-size:13px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;padding:12px 28px;border-radius:2px;transition:background .3s,color .3s,border-color .3s;cursor:pointer;min-height:44px;border:1px solid transparent}
+.btn-primary{background:var(--ca);color:var(--cw);border-color:var(--ca)}
+.btn-primary:hover{background:#5f7f5d;border-color:#5f7f5d}
+.btn-outline{background:transparent;color:var(--cw);border-color:rgba(255,255,255,.7)}
+.btn-outline:hover{background:rgba(255,255,255,.12);border-color:var(--cw)}
+.btn-dark{background:transparent;color:var(--cs);border-color:var(--cs)}
+.btn-dark:hover{background:var(--cs);color:var(--cw)}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hbg span{display:block;width:24px;height:1.5px;background:var(--cs);transition:transform .3s,opacity .3s}
+.mnav{display:none;position:fixed;top:116px;left:0;width:100%;background:var(--cb);z-index:999;padding:32px 24px;border-top:1px solid rgba(184,201,181,.3)}
+.mnav a{display:block;font-family:'Lato',sans-serif;font-size:15px;letter-spacing:1px;text-transform:uppercase;color:var(--cs);padding:14px 0;border-bottom:1px solid rgba(184,201,181,.25)}
+.mnav .btn{margin-top:24px;width:100%}
+.mnav.open{display:flex;flex-direction:column}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background:url('https://i.ibb.co/PGsrmwKH/The-Beach-House-0.jpg') center center/cover no-repeat;margin-top:116px}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(160deg,rgba(28,28,26,.55) 0%,rgba(28,28,26,.38) 50%,rgba(28,28,26,.65) 100%)}
+.hero-cnt{position:relative;z-index:2;text-align:center;max-width:780px;padding:0 24px}
+.hero-eyebrow{font-family:'Lato',sans-serif;font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cp);margin-bottom:24px;opacity:.9}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,8vw,96px);font-weight:300;color:var(--cw);line-height:1.05;letter-spacing:2px;margin-bottom:20px}
+.hero h1 em{font-style:italic;color:var(--cp)}
+.hero-sub{font-family:'Lato',sans-serif;font-size:clamp(15px,2vw,17px);font-weight:300;color:rgba(255,255,255,.85);line-height:1.7;max-width:520px;margin:0 auto 40px;letter-spacing:.3px}
+.hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.scroll-ind{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.7}
+.scroll-ind span{font-family:'Lato',sans-serif;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--cw)}
+.scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,rgba(255,255,255,.8),transparent);animation:scrollpulse 2s ease-in-out infinite}
+@keyframes scrollpulse{0%,100%{opacity:.4;transform:scaleY(.8)}50%{opacity:1;transform:scaleY(1)}}
+
+/* BANDE STATS */
+.stats{background:var(--cs);padding:72px 24px}
+.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:48px}
+.stat-item{text-align:center}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,5vw,64px);font-weight:300;color:var(--cp);line-height:1;display:block;letter-spacing:1px}
+.stat-label{font-family:'Lato',sans-serif;font-size:12px;font-weight:400;letter-spacing:2px;text-transform:uppercase;color:rgba(245,242,237,.55);margin-top:10px;line-height:1.5}
+.stat-item .stat-num[data-target]{transition:none}
+
+/* OPEN STATUS */
+.open-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#4caf50;margin-right:8px;animation:pulse-dot 2s ease-in-out infinite}
+@keyframes pulse-dot{0%,100%{box-shadow:0 0 0 0 rgba(76,175,80,.5)}70%{box-shadow:0 0 0 6px rgba(76,175,80,0)}}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.stats-inner{grid-template-columns:repeat(2,1fr);gap:40px}
+nav{display:none}
+.hbg{display:flex}
+}
+@media(max-width:480px){
+.promo{height:40px}
+.promo a{font-size:13px;line-height:40px;padding:0 12px}
+.hdr{top:40px}
+.hdr-inner{height:64px;padding:0 16px}
+.logo{font-size:19px}
+.hero{margin-top:104px;min-height:100svh}
+.hero-ctas .btn{width:100%}
+.hero-ctas{flex-direction:column;align-items:center}
+.stats{padding:56px 16px}
+.stats-inner{grid-template-columns:repeat(2,1fr);gap:32px 20px}
+.mnav{top:104px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo">
+  <a href="https://officeplus.pipedrive.com/scheduler/xKlBQqc1/call" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-inner">
+    <a href="#" class="logo">The <span>Beach</span> House</a>
+    <nav>
+      <a href="#menu">Menu</a>
+      <a href="#ambiance">Ambiance</a>
+      <a href="#reservation">Réservation</a>
+      <a href="#chef">Le Chef</a>
+      <a href="#avis">Avis</a>
+      <a href="#acces">Accès</a>
+    </nav>
+    <a href="tel:+68726 2133" class="btn btn-primary" style="display:flex">Réserver — 26.21.33</a>
+    <button class="hbg" id="hbg" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mnav" id="mnav">
+  <a href="#menu" onclick="closeMenu()">Menu</a>
+  <a href="#ambiance" onclick="closeMenu()">Ambiance</a>
+  <a href="#reservation" onclick="closeMenu()">Réservation</a>
+  <a href="#chef" onclick="closeMenu()">Le Chef</a>
+  <a href="#avis" onclick="closeMenu()">Avis</a>
+  <a href="#acces" onclick="closeMenu()">Accès</a>
+  <a href="tel:+68726 2133" class="btn btn-primary">Réserver — 26.21.33</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-ov"></div>
+  <div class="hero-cnt">
+    <p class="hero-eyebrow">Nouméa · Promenade Roger Laroque</p>
+    <h1>Une table<br>face au <em>lagon</em></h1>
+    <p class="hero-sub">Cuisine de saison, produits de la mer et de la terre, dans un écrin de lumière naturelle. Une invitation au raffinement décontracté, au cœur de Nouméa.</p>
+    <div class="hero-ctas">
+      <a href="#reservation" class="btn btn-primary">Réserver une table</a>
+      <a href="#menu" class="btn btn-outline">Découvrir le menu</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <div class="scroll-line"></div>
+    <span>Découvrir</span>
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<section class="stats">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <span class="stat-num" data-target="164">0</span>
+      <div class="stat-label">Avis Google<br><span style="color:var(--cp);font-size:11px">★★★★★ 4.8 / 5</span></div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="10">0</span>
+      <div class="stat-label">Années d'expérience<br>à Nouméa</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="100">0</span>
+      <div class="stat-label">% produits locaux<br>et de saison</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" id="stat-open">●</span>
+      <div class="stat-label"><span class="open-dot"></span>Ouvert aujourd'hui<br>déj. & dîner</div>
+    </div>
+  </div>
+</section>
+
+<script>
+var hbg=document.getElementById('hbg'),mnav=document.getElementById('mnav');
+function closeMenu(){mnav.classList.remove('open')}
+hbg.addEventListener('click',function(){mnav.classList.toggle('open')});
+
+var counted=false;
+function countUp(){
+  if(counted)return;counted=true;
+  document.querySelectorAll('.stat-num[data-target]').forEach(function(el){
+    var target=+el.getAttribute('data-target'),dur=1800,step=16,inc=target/(dur/step),cur=0;
+    var t=setInterval(function(){
+      cur+=inc;if(cur>=target){cur=target;clearInterval(t)}
+      el.textContent=Math.floor(cur)+(el.getAttribute('data-target')==='100'?'%':'');
+    },step);
+  });
+}
+var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)countUp()})},{threshold:.3});
+var statsEl=document.querySelector('.stats');
+if(statsEl)obs.observe(statsEl);
+</script>
+<style>
+/* SERVICES */
+.sv{background:var(--cb);padding:96px 24px}
+.sv-inner{max-width:1100px;margin:0 auto}
+.sec-eyebrow{font-family:'Lato',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--ca);margin-bottom:16px}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,54px);font-weight:300;color:var(--cs);line-height:1.1;margin-bottom:56px}
+.sec-title em{font-style:italic;color:var(--ca)}
+.sv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.sv-card{background:var(--cw);border:1px solid rgba(184,201,181,.3);padding:40px 32px;border-radius:2px;transition:transform .3s,box-shadow .3s}
+.sv-card:hover{transform:translateY(-8px);box-shadow:0 20px 48px rgba(28,28,26,.08)}
+.sv-icon{width:48px;height:48px;margin-bottom:24px;color:var(--ca)}
+.sv-card h3{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500;color:var(--cs);margin-bottom:12px}
+.sv-card p{font-family:'Lato',sans-serif;font-size:14px;font-weight:300;line-height:1.8;color:#4a4a48}
+
+/* METIER */
+.mt{background:var(--cs);padding:112px 24px}
+.mt-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.mt-inner.rev{direction:rtl}
+.mt-inner.rev>*{direction:ltr}
+.mt-text .sec-eyebrow{color:var(--cp)}
+.mt-text .sec-title{color:var(--cw);margin-bottom:24px}
+.mt-text p{font-family:'Lato',sans-serif;font-size:15px;font-weight:300;line-height:1.9;color:rgba(245,242,237,.75);margin-bottom:32px}
+.mt-checks{list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:36px}
+.mt-checks li{display:flex;align-items:flex-start;gap:12px;font-family:'Lato',sans-serif;font-size:14px;color:rgba(245,242,237,.85);line-height:1.6}
+.mt-checks li::before{content:'';display:block;width:18px;height:18px;min-width:18px;border-radius:50%;background:var(--ca);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-size:11px;background-repeat:no-repeat;background-position:center;margin-top:2px}
+.mt-img{border-radius:2px;overflow:hidden;aspect-ratio:4/5}
+.mt-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.mt-img:hover img{transform:scale(1.04)}
+
+/* MENU */
+.mn{background:var(--cb);padding:96px 24px}
+.mn-inner{max-width:1100px;margin:0 auto}
+.mn-tabs{display:flex;gap:4px;margin-bottom:56px;background:rgba(184,201,181,.15);border-radius:2px;padding:4px;width:fit-content}
+.mn-tab{font-family:'Lato',sans-serif;font-size:12px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;padding:10px 28px;border-radius:2px;cursor:pointer;transition:background .25s,color .25s;color:var(--cs);border:none;background:transparent}
+.mn-tab.active{background:var(--cs);color:var(--cw)}
+.mn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.mn-panel{display:none}
+.mn-panel.active{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.mn-card{background:var(--cw);border:1px solid rgba(184,201,181,.3);border-radius:2px;overflow:hidden;perspective:1000px;height:320px}
+.mn-card-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.mn-card:hover .mn-card-inner{transform:rotateY(180deg)}
+.mn-front,.mn-back{position:absolute;inset:0;backface-visibility:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:28px}
+.mn-front{background:var(--cw)}
+.mn-front-top{flex:1;display:flex;align-items:center;justify-content:center;font-size:48px}
+.mn-back{background:var(--cs);transform:rotateY(180deg);justify-content:center;gap:12px}
+.mn-back p{font-family:'Lato',sans-serif;font-size:13px;font-weight:300;line-height:1.7;color:rgba(245,242,237,.8)}
+.mn-back strong{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;color:var(--cp)}
+.mn-dish{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;color:var(--cs);margin-bottom:6px}
+.mn-desc{font-family:'Lato',sans-serif;font-size:12px;color:#888;line-height:1.5;margin-bottom:10px}
+.mn-price{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--ca)}
+
+/* GALERIE */
+.gl{background:var(--cs);padding:96px 24px}
+.gl-inner{max-width:1100px;margin:0 auto}
+.gl-text .sec-title{color:var(--cw)}
+.gl-text .sec-eyebrow{color:var(--cp)}
+.gl-masonry{columns:2;gap:16px;margin-top:48px}
+.gl-item{break-inside:avoid;margin-bottom:16px;overflow:hidden;border-radius:2px;cursor:pointer;position:relative}
+.gl-item img{width:100%;display:block;transition:transform .4s,filter .4s;filter:brightness(.95)}
+.gl-item:hover img{transform:scale(1.04);filter:brightness(1.08)}
+.lb{display:none;position:fixed;inset:0;background:rgba(28,28,26,.95);z-index:2000;align-items:center;justify-content:center;padding:24px}
+.lb.open{display:flex}
+.lb img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:2px}
+.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--cw);font-size:32px;cursor:pointer;line-height:1;opacity:.8;transition:opacity .2s}
+.lb-close:hover{opacity:1}
+
+/* RESERVATION */
+.rv{background:var(--cp);padding:112px 24px}
+.rv-inner{max-width:700px;margin:0 auto;text-align:center}
+.rv-inner .sec-eyebrow{color:var(--cs);opacity:.7}
+.rv-inner .sec-title{color:var(--cs);margin-bottom:20px}
+.rv-inner p{font-family:'Lato',sans-serif;font-size:15px;font-weight:300;line-height:1.8;color:var(--cs);opacity:.85;margin-bottom:40px;max-width:480px;margin-left:auto;margin-right:auto}
+.rv-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+.btn-cs{background:var(--cs);color:var(--cw);border-color:var(--cs)}
+.btn-cs:hover{background:#333331;border-color:#333331}
+.rv-form{background:var(--cw);border-radius:2px;padding:40px;text-align:left;box-shadow:0 12px 40px rgba(28,28,26,.12)}
+.rv-form h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:500;color:var(--cs);margin-bottom:28px}
+.fg{display:flex;flex-direction:column;gap:4px;margin-bottom:20px}
+.fg label{font-family:'Lato',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888}
+.fg input,.fg textarea,.fg select{font-family:'Lato',sans-serif;font-size:14px;color:var(--cs);background:var(--cb);border:1px solid rgba(184,201,181,.5);border-radius:2px;padding:13px 16px;width:100%;outline:none;transition:border-color .25s}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--ca)}
+.fg textarea{resize:vertical;min-height:110px}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fg-err{font-size:12px;color:#c0392b;margin-top:4px;display:none}
+.fg.err .fg-err{display:block}
+.fg.err input,.fg.err textarea,.fg.err select{border-color:#c0392b}
+.form-success{display:none;text-align:center;padding:40px 20px}
+.form-success .check{width:56px;height:56px;border-radius:50%;background:var(--ca);display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.form-success h4{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:500;color:var(--cs);margin-bottom:10px}
+.form-success p{font-family:'Lato',sans-serif;font-size:14px;color:#666;line-height:1.7}
+.btn-submit{width:100%;font-size:14px;padding:16px;margin-top:8px;position:relative}
+.ld{display:none;width:18px;height:18px;border:2px solid rgba(255,255,255,.3);border-top-color:var(--cw);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* AVIS */
+.av{background:var(--cb);padding:96px 24px}
+.av-inner{max-width:1100px;margin:0 auto}
+.av-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:56px;gap:24px;flex-wrap:wrap}
+.av-score{display:flex;align-items:center;gap:24px}
+.av-big{font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;color:var(--cs);line-height:1}
+.av-meta{display:flex;flex-direction:column;gap:6px}
+.av-stars{color:#f4b942;font-size:22px;letter-spacing:2px}
+.av-count{font-family:'Lato',sans-serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#888}
+.av-badge{display:inline-flex;align-items:center;gap:8px;background:var(--cw);border:1px solid rgba(184,201,181,.4);border-radius:2px;padding:10px 20px;font-family:'Lato',sans-serif;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--cs)}
+.av-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.av-card{background:var(--cw);border:1px solid rgba(184,201,181,.25);border-radius:2px;padding:32px;transition:box-shadow .3s;opacity:0;transform:translateY(16px)}
+.av-card.vis{opacity:1;transform:translateY(0);transition:opacity .5s,transform .5s,box-shadow .3s}
+.av-card:hover{box-shadow:0 12px 32px rgba(28,28,26,.07)}
+.av-card-stars{color:#f4b942;font-size:16px;margin-bottom:16px;letter-spacing:1px}
+.av-card p{font-family:'Lato',sans-serif;font-size:14px;font-weight:300;line-height:1.8;color:#4a4a48;margin-bottom:20px;font-style:italic}
+.av-author{display:flex;align-items:center;gap:12px}
+.av-avatar{width:36px;height:36px;border-radius:50%;background:var(--cp);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:var(--cs)}
+.av-name{font-family:'Lato',sans-serif;font-size:13px;font-weight:700;color:var(--cs)}
+.av-date{font-family:'Lato',sans-serif;font-size:11px;color:#aaa}
+
+/* ACCES */
+.ac{background:var(--cs);padding:96px 24px}
+.ac-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.ac-text .sec-title{color:var(--cw);margin-bottom:32px}
+.ac-text .sec-eyebrow{color:var(--cp)}
+.ac-info{display:flex;flex-direction:column;gap:24px}
+.ac-row{display:flex;gap:16px;align-items:flex-start}
+.ac-row-icon{width:40px;height:40px;min-width:40px;border-radius:50%;background:rgba(184,201,181,.12);display:flex;align-items:center;justify-content:center;color:var(--cp)}
+.ac-row-text strong{display:block;font-family:'Lato',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--cp);margin-bottom:4px}
+.ac-row-text span{font-family:'Lato',sans-serif;font-size:14px;color:rgba(245,242,237,.75);line-height:1.7}
+.ac-row-text a{color:rgba(245,242,237,.75);transition:color .25s}
+.ac-row-text a:hover{color:var(--cp)}
+.ac-map{border-radius:2px;overflow:hidden;height:340px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;border:1px solid rgba(184,201,181,.15)}
+.ac-map iframe{width:100%;height:100%;border:none;filter:grayscale(.3) contrast(1.05)}
+
+/* FOOTER */
+.ft{background:var(--cp);padding:64px 24px 32px}
+.ft-inner{max-width:1100px;margin:0 auto}
+.ft-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;margin-bottom:56px}
+.ft-logo{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:500;color:var(--cs);margin-bottom:16px;letter-spacing:1px}
+.ft-logo span{font-style:italic}
+.ft-tagline{font-family:'Lato',sans-serif;font-size:13px;font-weight:300;color:var(--cs);opacity:.7;line-height:1.7;margin-bottom:24px}
+.ft-social{display:flex;align-items:center;gap:12px}
+.ft-social a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:rgba(28,28,26,.12);color:var(--cs);transition:background .25s,color .25s}
+.ft-social a:hover{background:var(--cs);color:var(--cp)}
+.ft-col h4{font-family:'Lato',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cs);opacity:.55;margin-bottom:20px}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-col ul li a{font-family:'Lato',sans-serif;font-size:14px;color:var(--cs);opacity:.8;transition:opacity .25s}
+.ft-col ul li a:hover{opacity:1}
+.ft-col address{font-style:normal;font-family:'Lato',sans-serif;font-size:14px;color:var(--cs);opacity:.8;line-height:1.8}
+.ft-bottom{border-top:1px solid rgba(28,28,26,.15);padding-top:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.ft-copy{font-family:'Lato',sans-serif;font-size:12px;color:var(--cs);opacity:.6}
+.ft-setup{font-family:'Lato',sans-serif;font-size:12px;color:var(--cs);opacity:.6}
+.ft-setup a{color:var(--cs);opacity:.8;text-decoration:underline;text-underline-offset:3px;transition:opacity .25s}
+.ft-setup a:hover{opacity:1}
+
+@media(max-width:900px){
+.sv-grid{grid-template-columns:1fr}
+.mt-inner{grid-template-columns:1fr;gap:40px}
+.mt-inner.rev{direction:ltr}
+.mn-panel.active{grid-template-columns:1fr 1fr}
+.av-grid{grid-template-columns:1fr}
+.ac-inner{grid-template-columns:1fr}
+.ft-top{grid-template-columns:1fr 1fr}
+.av-header{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:480px){
+.sv{padding:64px 16px}
+.mt{padding:72px 16px}
+.mn{padding:64px 16px}
+.gl{padding:64px 16px}
+.rv{padding:72px 16px}
+.av{padding:64px 16px}
+.ac{padding:64px 16px}
+.ft{padding:48px 16px 24px}
+.mn-tabs{width:100%;justify-content:center}
+.mn-tab{padding:10px 16px;font-size:11px}
+.mn-panel.active{grid-template-columns:1fr}
+.gl-masonry{columns:1}
+.fg-row{grid-template-columns:1fr}
+.rv-form{padding:28px 20px}
+.rv-ctas .btn{width:100%}
+.rv-ctas{flex-direction:column}
+.ft-top{grid-template-columns:1fr}
+.ft-bottom{flex-direction:column;align-items:flex-start;gap:8px}
+.ac-map{height:240px}
+.av-big{font-size:56px}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="sv" id="services">
+  <div class="sv-inner">
+    <p class="sec-eyebrow">Ce que nous offrons</p>
+    <h2 class="sec-title">Une expérience pensée<br><em>dans ses moindres détails</em></h2>
+    <div class="sv-grid">
+      <div class="sv-card">
+        <svg class="sv-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M24 4C14 4 8 12 8 20c0 10 16 24 16 24s16-14 16-24c0-8-6-16-16-16z"/><circle cx="24" cy="20" r="5"/></svg>
+        <h3>Déjeuner & Dîner</h3>
+        <p>Une carte renouvelée au fil des saisons, mettant en valeur les produits de la mer et de la terre disponibles localement. Chaque assiette reflète un savoir-faire attentif.</p>
+      </div>
+      <div class="sv-card">
+        <svg class="sv-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="14" width="36" height="28" rx="2"/><path d="M6 20h36M16 14V8M32 14V8"/></svg>
+        <h3>Réceptions privées</h3>
+        <p>The Beach House accueille vos événements professionnels ou personnels dans un cadre exclusif. Menus sur-mesure, service dédié et atmosphère soignée pour chaque occasion.</p>
+      </div>
+      <div class="sv-card">
+        <svg class="sv-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 36c0-10 8-18 18-18s18 8 18 18"/><path d="M24 18V8M18 10l6-6 6 6"/></svg>
+        <h3>Brunch du dimanche</h3>
+        <p>Un moment de douceur dominicale autour d'une sélection généreuse. Formule conviviale, ambiance lumineuse, vue dégagée — la semaine commence comme elle devrait toujours commencer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="mt" id="chef">
+  <div class="mt-inner">
+    <div class="mt-text">
+      <p class="sec-eyebrow">Notre philosophie</p>
+      <h2 class="sec-title">Cuisiner ce que<br><em>la mer et la terre offrent</em></h2>
+      <p>Au Beach House, chaque plat naît d'une conviction simple : la qualité se construit d'abord par l'honnêteté des ingrédients. Nous travaillons avec des producteurs locaux, des pêcheurs du lagon et des maraîchers calédoniens pour composer une carte vivante, ancrée dans son territoire.</p>
+      <ul class="mt-checks">
+        <li>Poissons du lagon : thon jaune, vivaneau, mahi-mahi et thazard selon l'arrivage</li>
+        <li>Crevettes de Calédonie et crabe de palétuvier en saison</li>
+        <li>Fruits et légumes issus des marchés de Nouméa</li>
+        <li>Cave à vins composée de références soigneusement sélectionnées</li>
+      </ul>
+      <a href="#reservation" class="btn btn-primary">Réserver une table</a>
+    </div>
+    <div class="mt-img">
+      <img src="https://i.ibb.co/ycbRyy9K/The-Beach-House-1.jpg" alt="Cuisine du Beach House — produits locaux" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- MENU SIGNATURE -->
+<section class="mn" id="menu">
+  <div class="mn-inner">
+    <p class="sec-eyebrow">La carte</p>
+    <h2 class="sec-title">Menu signature<br><em>selon la saison</em></h2>
+    <div class="mn-tabs" role="tablist">
+      <button class="mn-tab active" data-panel="entrees" role="tab">Entrées</button>
+      <button class="mn-tab" data-panel="plats" role="tab">Plats</button>
+      <button class="mn-tab" data-panel="desserts" role="tab">Desserts</button>
+    </div>
+    <div id="entrees" class="mn-panel active">
+      <div class="mn-card"><div class="mn-card-inner"><div class="mn-front"><div class="mn-front-top">🐟</div><p class="mn-dish">Carpaccio de vivaneau</p><p class="mn-desc">Agrumes, huile d'olive, herbes fraîches</p><span class="mn-price">1 850 XPF</span></div><div class="mn-back"><strong>Carpaccio de vivaneau</strong><p>Vivaneau du lagon tranché finement, mariné aux agrumes, huile vierge et fleur de sel. Une entrée lumineuse et légère.</p><span class="mn-price">1 850 XPF</span></div></div></div>
+      <div class="mn-card"><div class="mn-card-inner"><div class="mn-front"><div class="mn-front-top">🦀</div><p class="mn-dish">Crabe de palétuvier</p><p class="mn-desc">Émietté, mayo maison, toast grillé</p><span class="mn-price">2 100 XPF</span></div><div class="mn-back"><strong>Crabe de palétuvier</strong><p>Chair émiettée et relevée, mayonnaise maison aux herbes, servi sur toast de pain de campagne grillé.</p><span class="mn-price">2 100 XPF</span></div></div></div>
+      <div class="mn-card"><div class="mn-card-inner"><div class="mn-front"><div class="mn-front-top">🥗</div><p class="mn-dish">Salade du marché</p><p class="mn-desc">Légumes de saison, vinaigrette au citron</p><span class="mn-price">1 400 XPF</span></div><div class="mn-back"><strong>Salade du marché</strong><p>Sélection de légumes frais du marché de Nouméa, vinaigrette au citron vert et huile d'olive, graines torréfiées.</p><span class="mn-price">1 400 XPF</span></div></div></div>
+    </div>
+    <div id="plats" class="mn-panel">
+      <div class="mn-card"><div class="mn-card-inner"><div class="mn-front"><div class="mn-front-top">🐠</div><p class="mn-dish">Thon jaune grillé</p><p class="mn-desc">Légumes rôtis, beurre blanc, pickles</p><span class="mn-price">3 200 XPF</span></div><div class="mn-back"><strong>Thon jaune grillé</strong><p>Pavé de thon jaune saisi à la plancha, accompagné de légumes rôtis et d'un beurre blanc délicat aux câpres.</p><span class="mn-price">3 200 XPF</span></div></div></div>
+      <div class="mn-card"><div class="mn-card-inner"><div class="mn-front"><div class="mn-front-top">🍤</div><p class="mn-dish">Crevettes de Calédonie</p><p class="mn-desc">Risotto crémeux, parmesan, estragon</p><span class="mn-price">3 600 XPF</span></div><div class="mn-back"><strong>Crevettes de Calédonie</strong><p>Crevettes d'élevage local poêlées, servies sur un risotto crémeux à l'estragon et copeaux de parmesan.</p><span class="mn-price">3 600 XPF</span></div></div></div>
+      <div class="mn-card"><div class="mn-card-inner"><div class="mn-front"><div class="mn-front-top">🐡</div><p class="mn-dish">Mahi-mahi du jour</p><p class="mn-desc">Sauce vierge, semoule aux herbes</p><span class="mn-price">3 400 XPF</span></div><div class="mn-back"><strong>Mahi-mahi du jour</strong><p>Filet de mahi-mahi selon arrivage, cuisson douce, sauce vierge tomate-basilic et semoule aux herbes fraîches.</p><span class="mn-price">3 400 XPF</span></div></div></div>
+    </div>
+    <div id="desserts" class="mn-panel">
+      <div class="mn-card"><div class="mn-card-inner"><div class="mn-front"><div class="mn-front-top">🍮</div><p class="mn-dish">Panna cotta vanille</p><p class="mn-desc">Coulis de fruits de saison</p><span class="mn-price">1 100 XPF</span></div><div class="mn-back"><strong>Panna cotta vanille</strong><p>Crème onctueuse à la vanille naturelle, coulis de fruits de saison et zeste de citron vert.</p><span class="mn-price">1 100 XPF</span></div></div></div>
+      <div class="mn-card"><div class="mn-card-inner"><div class="mn-front"><div class="mn-front-top">🍫</div><p class="mn-dish">Fondant chocolat</p><p class="mn-desc">Cœur coulant, glace vanille maison</p><span class="mn-price">1 300 XPF</span></div><div class="mn-back"><strong>Fondant chocolat</strong><p>Gâteau au chocolat noir à cœur coulant, servi tiède avec une quenelle de glace vanille faite maison.</p><span class="mn-price">1 300 XPF</span></div></div></div>
+      <div class="mn-card"><div class="mn-card-inner"><div class="mn-front"><div class="mn-front-top">🍋</div><p class="mn-dish">Tarte citron revisitée</p><p class="mn-desc">Meringue légère, curd citron vert</p><span class="mn-price">1 200 XPF</span></div><div class="mn-back"><strong>Tarte citron revisitée</strong><p>Curd de citron vert intense sur fond sablé maison, coiffé d'une meringue italienne légère et dorée.</p><span class="mn-price">1 200 XPF</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE AMBIANCE -->
+<section class="gl" id="ambiance">
+  <div class="gl-inner">
+    <div class="gl-text">
+      <p class="sec-eyebrow">L'ambiance</p>
+      <h2 class="sec-title">Un lieu qui se raconte<br><em>par l'image</em></h2>
+    </div>
+    <div class="gl-masonry">
+      <div class="gl-item" data-src="https://i.ibb.co/PGsrmwKH/The-Beach-House-0.jpg"><img src="https://i.ibb.co/PGsrmwKH/The-Beach-House-0.jpg" alt="The Beach House — ambiance" loading="lazy"></div>
+      <div class="gl-item" data-src="https://i.ibb.co/ycbRyy9K/The-Beach-House-1.jpg"><img src="https://i.ibb.co/ycbRyy9K/The-Beach-House-1.jpg" alt="The Beach House — salle" loading="lazy"></div>
+      <div class="gl-item" data-src="https://i.ibb.co/Cpb69qDJ/The-Beach-House-2.jpg"><img src="https://i.ibb.co/Cpb69qDJ/The-Beach-House-2.jpg" alt="The Beach House — cuisine" loading="lazy"></div>
+      <div class="gl-item" data-src="https://i.ibb.co/RpvyGhqZ/The-Beach-House-3.jpg"><img src="https://i.ibb.co/RpvyGhqZ/The-Beach-House-3.jpg" alt="The Beach House — détail" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo agrandie">
+  <button class="lb-close" id="lb-close" aria-label="Fermer">✕</button>
+  <img src="" alt="Photo agrandie" id="lb-img">
+</div>
+
+<!-- RÉSERVATION -->
+<section class="rv" id="reservation">
+  <div class="rv-inner">
+    <p class="sec-eyebrow">Réservation</p>
+    <h2 class="sec-title">Réservez votre table<br><em>en toute simplicité</em></h2>
+    <p>Pour un déjeuner en semaine, un dîner en terrasse ou un événement privé — notre équipe vous répond dans les plus brefs délais.</p>
+    <div class="rv-ctas">
+      <a href="tel:+68726 2133" class="btn btn-cs">Appeler — 26.21.33</a>
+      <a href="https://www.facebook.com/beachhousenoumea" target="_blank" rel="noopener" class="btn btn-dark">Nous contacter sur Facebook</a>
+    </div>
+    <div class="rv-form">
+      <h3>Formulaire de réservation</h3>
+      <div class="form-success" id="fs">
+        <div class="check"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h4>Demande envoyée !</h4>
+        <p>Nous vous confirmerons votre réservation très prochainement.<br>À très vite au Beach House.</p>
+      </div>
+      <form id="rf" novalidate>
+        <div class="fg-row">
+          <div class="fg" id="fg-nom"><label for="f-nom">Nom complet</label><input type="text" id="f-nom" name="nom" placeholder="Marie Dupont" autocomplete="name"><span class="fg-err">Ce champ est requis.</span></div>
+          <div class="fg" id="fg-tel"><label for="f-tel">Téléphone</label><input type="tel" id="f-tel" name="tel" placeholder="26.xx.xx" autocomplete="tel"><span class="fg-err">Ce champ est requis.</span></div>
+        </div>
+        <div class="fg" id="fg-email"><label for="f-email">Adresse e-mail</label><input type="email" id="f-email" name="email" placeholder="marie@exemple.com" autocomplete="email"><span class="fg-err">Adresse e-mail invalide.</span></div>
+        <div class="fg-row">
+          <div class="fg" id="fg-date"><label for="f-date">Date souhaitée</label><input type="date" id="f-date" name="date"></div>
+          <div class="fg" id="fg-cvts"><label for="f-cvts">Nombre de couverts</label><select id="f-cvts" name="cvts"><option value="">Sélectionner</option><option>1 personne</option><option>2 personnes</option><option>3 personnes</option><option>4 personnes</option><option>5 à 8 personnes</option><option>Plus de 8 personnes</option></select></div>
+        </div>
+        <div class="fg" id="fg-msg"><label for="f-msg">Message (optionnel)</label><textarea id="f-msg" name="message" placeholder="Allergies, occasion spéciale, demande particulière…"></textarea></div>
+        <button type="submit" class="btn btn-primary btn-submit" id="f-submit"><span id="f-label">Envoyer ma demande</span><div class="ld" id="f-ld"></div></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- AVIS -->
+<section class="av" id="avis">
+  <div class="av-inner">
+    <div class="av-header">
+      <div>
+        <p class="sec-eyebrow">Ce que disent nos hôtes</p>
+        <h2 class="sec-title">4.8 sur 5<br><em>164 avis Google</em></h2>
+      </div>
+      <div class="av-score">
+        <span class="av-big">4.8</span>
+        <div class="av-meta">
+          <div class="av-stars">★★★★★</div>
+          <span class="av-count">164 avis vérifiés</span>
+          <div class="av-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="#f4b942"/></svg>Google Reviews</div>
+        </div>
+      </div>
+    </div>
+    <div class="av-grid">
+      <div class="av-card"><div class="av-card-stars">★★★★★</div><p>« Un repas mémorable. Le vivaneau était d'une fraîcheur irréprochable, le service attentif sans être intrusif. L'une des meilleures tables de Nouméa, sans hésitation. »</p><div class="av-author"><div class="av-avatar">S</div><div><div class="av-name">Sophie M.</div><div class="av-date">Il y a 2 semaines</div></div></div></div>
+      <div class="av-card"><div class="av-card-stars">★★★★★</div><p>« Cadre magnifique, cuisine raffinée et généreuse. Les crevettes de Calédonie étaient parfaitement cuites. On reviendra certainement pour le brunch dominical. »</p><div class="av-author"><div class="av-avatar">T</div><div><div class="av-name">Thomas R.</div><div class="av-date">Il y a 1 mois</div></div></div></div>
+      <div class="av-card"><div class="av-card-stars">★★★★★</div><p>« Notre table d'anniversaire était parfaitement préparée. L'équipe a su créer une atmosphère intime et chaleureuse. Le fondant au chocolat restera dans nos mémoires. »</p><div class="av-author"><div class="av-avatar">A</div><div><div class="av-name">Amandine L.</div><div class="av-date">Il y a 3 semaines</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCÈS & HORAIRES -->
+<section class="ac" id="acces">
+  <div class="ac-inner">
+    <div class="ac-text">
+      <p class="sec-eyebrow">Nous trouver</p>
+      <h2 class="sec-title">Horaires<br><em>&amp; accès</em></h2>
+      <div class="ac-info">
+        <div class="ac-row">
+          <div class="ac-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="ac-row-text"><strong>Adresse</strong><span>5 Promenade Roger Laroque<br>Nouméa 98800, Nouvelle-Calédonie</span></div>
+        </div>
+        <div class="ac-row">
+          <div class="ac-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.82 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.77 1.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"/></svg></div>
+          <div class="ac-row-text"><strong>Téléphone</strong><span><a href="tel:+68726 2133">26.21.33</a></span></div>
+        </div>
+        <div class="ac-row">
+          <div class="ac-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="ac-row-text"><strong>Horaires</strong><span>Lundi – Vendredi : 11h30 – 14h00 · 18h30 – 22h00<br>Samedi : 11h30 – 14h30 · 18h30 – 22h30<br>Dimanche : Brunch 10h00 – 14h30</span></div>
+        </div>
+        <div class="ac-row">
+          <div class="ac-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
+          <div class="ac-row-text"><strong>Réseaux sociaux</strong><span><a href="https://www.facebook.com/beachhousenoumea" target="_blank" rel="noopener">Facebook — The Beach House Nouméa</a></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="ac-map">
+      <iframe title="Localisation The Beach House" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3795.0!2d166.4416!3d-22.2758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6c20e831b7b9c1c9%3A0x1!2s5+Promenade+Roger+Laroque%2C+Noum%C3%A9a!5e0!3m2!1sfr!2snc!4v1700000000000" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ft">
+  <div class="ft-inner">
+    <div class="ft-top">
+      <div>
+        <div class="ft-logo">The <span>Beach</span> House</div>
+        <p class="ft-tagline">Une table raffinée face au lagon,<br>au cœur de la Promenade de Nouméa.</p>
+        <div class="ft-social">
+          <a href="https://www.facebook.com/beachhousenoumea" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="ft-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#menu">La carte</a></li>
+          <li><a href="#ambiance">Ambiance</a></li>
+          <li><a href="#reservation">Réservation</a></li>
+          <li><a href="#avis">Avis</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Contact</h4>
+        <address>
+          5 Promenade Roger Laroque<br>
+          Nouméa 98800<br>
+          Nouvelle-Calédonie<br><br>
+          <a href="tel:+68726 2133">26.21.33</a>
+        </address>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span class="ft-copy">© 2026 The Beach House. Tous droits réservés.</span>
+      <span class="ft-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+var hbg=document.getElementById('hbg'),mnav=document.getElementById('mnav');
+function closeMenu(){mnav.classList.remove('open')}
+if(hbg)hbg.addEventListener('click',function(){mnav.classList.toggle('open')});
+
+document.querySelectorAll('.mn-tab').forEach(function(tab){
+  tab.addEventListener('click',function(){
+    document.querySelectorAll('.mn-tab').forEach(function(t){t.classList.remove('active')});
+    document.querySelectorAll('.mn-panel').forEach(function(p){p.classList.remove('active')});
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.panel).classList.add('active');
+  });
+});
+
+var lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img');
+document.querySelectorAll('.gl-item').forEach(function(el){
+  el.addEventListener('click',function(){
+    lbImg.src=el.dataset.src;
+    lb.classList.add('open');
+    document.body.style.overflow='hidden';
+  });
+});
+document.getElementById('lb-close').addEventListener('click',function(){
+  lb.classList.remove('open');
+  document.body.style.overflow='';
+});
+lb.addEventListener('click',function(e){if(e.target===lb){lb.classList.remove('open');document.body.style.overflow='';}});
+
+var rf=document.getElementById('rf');
+if(rf){
+  rf.addEventListener('submit',function(e){
+    e.preventDefault();
+    var ok=true;
+    [['fg-nom','f-nom'],['fg-tel','f-tel'],['fg-email','f-email']].forEach(function(pair){
+      var fg=document.getElementById(pair[0]),inp=document.getElementById(pair[1]);
+      var v=inp.value.trim();
+      var valid=v.length>0;
+      if(pair[1]==='f-email')valid=v.length>0&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+      fg.classList.toggle('err',!valid);
+      if(!valid)ok=false;
+    });
+    if(!ok)return;
+    var lbl=document.getElementById('f-label'),ld=document.getElementById('f-ld');
+    lbl.style.display='none';ld.style.display='block';
+    document.getElementById('f-submit').disabled=true;
+    setTimeout(function(){
+      rf.style.display='none';
+      document.getElementById('fs').style.display='block';
+    },1400);
+  });
+}
+
+var avCards=document.querySelectorAll('.av-card');
+var avObs=new IntersectionObserver(function(entries){
+  entries.forEach(function(en,i){
+    if(en.isIntersecting){
+      setTimeout(function(){en.target.classList.add('vis')},i*120);
+      avObs.unobserve(en.target);
+    }
+  });
+},{threshold:.15});
+avCards.forEach(function(c){avObs.observe(c)});
+</script>
+</body>
+</html>
