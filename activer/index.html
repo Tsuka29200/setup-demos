@@ -209,12 +209,16 @@ h2.center, .center { text-align: center; }
 .trust { background: var(--fond); padding: 60px 0; }
 .trust .wrap { text-align: center; }
 .trust-eyebrow { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--bleu); margin-bottom: 22px; }
-.trust-logos { display: inline-flex; align-items: center; gap: 28px; flex-wrap: wrap; justify-content: center; margin-bottom: 24px; padding: 22px 36px; background: #fff; border-radius: 16px; border: 1px solid var(--bord); }
-.trust-logos img { display: block; max-height: 48px; width: auto; }
-.trust-logos .logo-setup { max-height: 38px; }
-.trust-logos .logo-officeplus { max-height: 56px; }
-.trust-sep { width: 1px; height: 36px; background: var(--bord); }
-@media (max-width: 600px) { .trust-logos { gap: 18px; padding: 18px 22px; } .trust-sep { width: 36px; height: 1px; } }
+.trust-logos { display: inline-flex; align-items: center; gap: 28px; flex-wrap: wrap; justify-content: center; margin-bottom: 24px; padding: 20px 32px; background: #fff; border-radius: 16px; border: 1px solid var(--bord); }
+.trust-logos img { display: block; width: auto; }
+.trust-logos .logo-setup { max-height: 42px; }
+.trust-logos .logo-officeplus { max-height: 56px; border-radius: 6px; }
+.trust-sep { width: 1px; height: 44px; background: var(--bord); }
+@media (max-width: 600px) {
+  .trust-logos { gap: 18px; padding: 16px 20px; }
+  .trust-sep { width: 36px; height: 1px; }
+  .trust-logos .logo-officeplus { max-height: 44px; }
+}
 .trust-copy { max-width: 640px; margin: 0 auto; color: var(--texte-doux); font-size: 16px; line-height: 1.65; }
 .trust-copy strong { color: var(--texte); }
 
@@ -422,7 +426,7 @@ footer a:hover { color: var(--jaune); }
     <div class="trust-logos">
       <img src="https://setup.nc/wp-content/uploads/thegem/logos/logo_8c2e2b18db502fbf473641345b30466a_1x.png" alt="Setup NC" class="logo-setup">
       <span class="trust-sep"></span>
-      <img src="https://www.officeplus.nc/wp-content/uploads/2026/03/groupe-office-plus.png" alt="Groupe Office Plus" class="logo-officeplus">
+      <img src="Logo%20OFFICE%20PLUS%202020%20FOND%20BLEU_Plan%20de%20travail%201.png" alt="Groupe Office Plus" class="logo-officeplus">
     </div>
     <p class="trust-copy">
       <strong>Setup, c'est le studio digital du groupe Office Plus</strong> — acteur établi du paysage économique calédonien. Cette filiation nous permet de proposer un service digital ancré dans la réalité des entreprises locales, pas une offre standardisée importée d'ailleurs.
