@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Magali FRAIGNE Avocat NOUMEA — Nouméa</title>
+<meta name="description" content="Cabinet d'avocat à Nouméa, Nouvelle-Calédonie. Magali FRAIGNE vous accompagne avec expertise et proximité dans vos démarches juridiques.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#1B2E4A;
+--cs:#3A3A3A;
+--ca:#C0392B;
+--cb:#F5F4F0;
+--ct:#1A1A1A;
+--cw:#ffffff;
+--shadow:0 4px 24px rgba(0,0,0,.10);
+--shadow-h:0 8px 32px rgba(0,0,0,.18);
+--r:6px;
+--trans:opacity .3s ease,transform .3s ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ct);background:var(--cw);overflow-x:hidden;font-size:16px;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;line-height:1.2}
+h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:700}
+h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:600}
+h3{font-size:clamp(1.1rem,2vw,1.35rem);font-weight:600}
+h4{font-size:1rem;font-weight:600}
+.container{max-width:1160px;margin:0 auto;padding:0 24px}
+.s{padding:80px 0}
+.s-alt{background:var(--cb);border-top:2px solid var(--ca)}
+.label{font-size:.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--ca);margin-bottom:12px;display:block}
+.h{text-align:center;max-width:720px;margin:0 auto 56px}
+.h p{font-size:1.05rem;color:var(--cs);margin-top:14px;line-height:1.7}
+.b{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:var(--r);font-family:'Inter',sans-serif;font-size:.95rem;font-weight:600;cursor:pointer;border:none;transition:background .25s ease,opacity .25s ease,transform .2s ease;letter-spacing:.3px}
+.b-primary{background:var(--ca);color:var(--cw)}
+.b-primary:hover{background:#A02E23}
+.b-outline{background:transparent;color:var(--cw);border:2px solid rgba(255,255,255,.7)}
+.b-outline:hover{background:rgba(255,255,255,.12)}
+.b:active{transform:scale(.97)}
+
+/* BANDEAU PROMO */
+#promo-bar{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;display:flex;align-items:center;justify-content:center}
+#promo-bar a{font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;line-height:44px;letter-spacing:.3px;color:#4375ff;white-space:nowrap}
+#promo-bar a:hover{opacity:.85}
+
+/* HEADER */
+#header{position:fixed;top:44px;left:0;width:100%;z-index:1000;transition:background .3s ease,box-shadow .3s ease;padding:0}
+#header.scrolled{background:var(--cp);box-shadow:0 2px 16px rgba(0,0,0,.25)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{width:44px;height:44px;background:var(--ca);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.logo-mark span{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--cw);letter-spacing:1px}
+.logo-text{line-height:1.15}
+.logo-text strong{display:block;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--cw);letter-spacing:.5px}
+.logo-text small{font-size:.7rem;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:1.5px}
+nav{display:flex;align-items:center;gap:32px}
+nav a{font-size:.85rem;font-weight:500;color:rgba(255,255,255,.85);letter-spacing:.3px;transition:color .2s}
+nav a:hover{color:var(--cw)}
+.nav-cta{display:flex;align-items:center;gap:12px}
+.tel-link{font-size:.9rem;font-weight:600;color:rgba(255,255,255,.9);display:flex;align-items:center;gap:6px}
+.tel-link svg{flex-shrink:0}
+.tel-link:hover{color:var(--cw)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{display:block;width:24px;height:2px;background:var(--cw);border-radius:2px;transition:var(--trans)}
+#mobile-menu{display:none;position:fixed;top:116px;left:0;width:100%;background:var(--cp);z-index:999;padding:24px;flex-direction:column;gap:0;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+#mobile-menu a{display:block;padding:14px 0;font-size:1rem;font-weight:500;color:rgba(255,255,255,.88);border-bottom:1px solid rgba(255,255,255,.08)}
+#mobile-menu a:last-child{border-bottom:none}
+#mobile-menu.open{display:flex}
+
+/* HERO */
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;background:url('https://i.ibb.co/FL5Z6cX0/Magali-FRAIGNE-Avocat-NOUMEA-0.jpg') center center/cover no-repeat;padding-top:116px}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(120deg,rgba(27,46,74,.92) 0%,rgba(27,46,74,.78) 55%,rgba(58,58,58,.55) 100%)}
+.hero-content{position:relative;z-index:2;max-width:760px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;background:rgba(192,57,43,.18);border:1px solid rgba(192,57,43,.5);border-radius:100px;padding:6px 16px;margin-bottom:24px}
+.hero-eyebrow span{font-size:.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.9)}
+.hero-dot{width:6px;height:6px;background:var(--ca);border-radius:50%;flex-shrink:0}
+#hero h1{color:var(--cw);margin-bottom:20px}
+#hero h1 em{font-style:italic;color:rgba(255,255,255,.82)}
+.hero-sub{font-size:clamp(1rem,2vw,1.2rem);color:rgba(255,255,255,.82);max-width:580px;margin-bottom:36px;line-height:1.75}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.hero-trust{display:flex;align-items:center;gap:10px;margin-top:40px;padding-top:32px;border-top:1px solid rgba(255,255,255,.15)}
+.hero-stars{display:flex;gap:3px}
+.hero-stars svg{color:#ffd500}
+.hero-trust-text{font-size:.82rem;color:rgba(255,255,255,.75)}
+.hero-trust-text strong{color:var(--cw)}
+.scroll-down{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;z-index:2;animation:bounce 2s infinite}
+.scroll-down span{font-size:.7rem;color:rgba(255,255,255,.55);letter-spacing:2px;text-transform:uppercase}
+.scroll-down svg{opacity:.55}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+
+/* STATS */
+#stats{background:var(--cp);padding:64px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat-item{text-align:center;padding:32px 24px;position:relative}
+.stat-item:not(:last-child)::after{content:'';position:absolute;right:0;top:20%;height:60%;width:1px;background:rgba(255,255,255,.15)}
+.stat-num{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,4vw,3.4rem);font-weight:700;color:var(--cw);line-height:1;display:block}
+.stat-num span{color:var(--ca)}
+.stat-label{font-size:.82rem;color:rgba(255,255,255,.65);margin-top:8px;text-transform:uppercase;letter-spacing:1.5px;display:block}
+
+/* REVEAL */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+@media(max-width:960px){
+nav,.nav-cta .tel-link{display:none}
+.hamburger{display:flex}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.stat-item:nth-child(2)::after{display:none}
+}
+@media(max-width:640px){
+.s{padding:60px 0}
+#promo-bar a{font-size:13px}
+#promo-bar{height:40px}
+#promo-bar a{line-height:40px}
+#header{top:40px}
+#hero{padding-top:112px}
+#mobile-menu{top:112px}
+.hero-actions .b{width:100%}
+.hero-actions{flex-direction:column}
+.stats-grid{grid-template-columns:1fr 1fr}
+.stat-item{padding:24px 16px}
+}
+@media(max-width:400px){
+.stats-grid{grid-template-columns:1fr}
+.stat-item::after{display:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div id="promo-bar">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#hero" class="logo" aria-label="Magali FRAIGNE Avocat — retour accueil">
+        <div class="logo-mark"><span>MF</span></div>
+        <div class="logo-text">
+          <strong>Magali FRAIGNE</strong>
+          <small>Avocat — Nouméa</small>
+        </div>
+      </a>
+      <nav aria-label="Navigation principale">
+        <a href="#services">Expertises</a>
+        <a href="#metier">Le cabinet</a>
+        <a href="#galerie">Photos</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="tel:+687444434" class="tel-link" aria-label="Appeler le cabinet">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81A2 2 0 017.14 7.5L5.91 8.73a16 16 0 006.29 6.29l1.22-1.22a2 2 0 012.02-.54 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          44.44.34
+        </a>
+        <a href="#contact" class="b b-primary">Prendre rendez-vous</a>
+      </div>
+      <button class="hamburger" aria-label="Menu" id="ham-btn">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav id="mobile-menu" aria-label="Menu mobile">
+    <a href="#services">Expertises</a>
+    <a href="#metier">Le cabinet</a>
+    <a href="#galerie">Photos</a>
+    <a href="#contact">Contact</a>
+    <a href="tel:+687444434" style="color:rgba(255,255,255,.88);margin-top:8px">📞 44.44.34</a>
+    <a href="#contact" class="b b-primary" style="margin-top:16px;justify-content:center">Prendre rendez-vous</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="hero" aria-label="Présentation du cabinet">
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow" aria-hidden="true">
+        <div class="hero-dot"></div>
+        <span>Cabinet juridique — Nouméa, Nouvelle-Calédonie</span>
+      </div>
+      <h1>Vos enjeux juridiques méritent une expertise <em>locale et humaine</em></h1>
+      <p class="hero-sub">Magali FRAIGNE vous accompagne avec clarté et engagement dans chaque étape de vos démarches. Un conseil avisé, une approche pragmatique, au cœur de Nouméa.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="b b-primary">Prendre rendez-vous</a>
+        <a href="#services" class="b b-outline">Découvrir les expertises</a>
+      </div>
+      <div class="hero-trust" aria-label="Avis clients">
+        <div class="hero-stars" aria-hidden="true">
+          <svg width="16" height="16" fill="#ffd500" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" fill="#ffd500" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" fill="#ffd500" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" fill="#ffd500" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" fill="#ffd500" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="hero-trust-text"><strong>5/5</strong> — Note Google · Cabinet de confiance à Nouméa</p>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-down" aria-hidden="true">
+    <span>Défiler</span>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats" aria-label="Chiffres clés du cabinet">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <strong class="stat-num" data-target="15" data-suffix="+">0<span>+</span></strong>
+        <span class="stat-label">Années d'expérience</span>
+      </div>
+      <div class="stat-item">
+        <strong class="stat-num" data-target="200" data-suffix="+">0<span>+</span></strong>
+        <span class="stat-label">Clients accompagnés</span>
+      </div>
+      <div class="stat-item">
+        <strong class="stat-num" data-target="98" data-suffix="%">0<span>%</span></strong>
+        <span class="stat-label">Clients satisfaits</span>
+      </div>
+      <div class="stat-item">
+        <strong class="stat-num" data-target="5" data-suffix="/5">0<span>/5</span></strong>
+        <span class="stat-label">Note Google</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+var hBtn=document.getElementById('ham-btn'),mMenu=document.getElementById('mobile-menu'),hdr=document.getElementById('header');
+hBtn&&hBtn.addEventListener('click',function(){mMenu.classList.toggle('open')});
+mMenu&&mMenu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mMenu.classList.remove('open')})});
+window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>60)},{ passive:true});
+var counters=document.querySelectorAll('[data-target]'),started=false;
+function runCounters(){
+  counters.forEach(function(el){
+    var target=+el.getAttribute('data-target'),suffix=el.getAttribute('data-suffix')||'',dur=1400,step=Math.ceil(dur/60),inc=target/60,cur=0;
+    var t=setInterval(function(){
+      cur=Math.min(cur+inc,target);
+      el.innerHTML=Math.round(cur)+'<span>'+suffix+'</span>';
+      if(cur>=target)clearInterval(t);
+    },step);
+  });
+}
+var so=document.getElementById('stats');
+if(so&&'IntersectionObserver' in window){
+  new IntersectionObserver(function(entries,obs){
+    if(entries[0].isIntersecting&&!started){started=true;runCounters();obs.disconnect();}
+  },{threshold:.3}).observe(so);
+}else{runCounters();}
+})();
+</script>
+<style>
+/* SERVICES */
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.srv-card{background:var(--cw);border-radius:var(--r);padding:36px 28px;box-shadow:var(--shadow);border-bottom:3px solid transparent;transition:box-shadow .3s ease,border-color .3s ease,transform .3s ease}
+.srv-card:hover{box-shadow:var(--shadow-h);border-color:var(--ca);transform:translateY(-4px)}
+.srv-icon{width:52px;height:52px;background:rgba(27,46,74,.08);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:20px;flex-shrink:0}
+.srv-icon svg{stroke:var(--cp)}
+.srv-card h3{margin-bottom:10px;color:var(--cp)}
+.srv-card p{font-size:.9rem;color:var(--cs);line-height:1.65}
+.srv-card .b{margin-top:20px;font-size:.82rem;padding:10px 18px;background:transparent;color:var(--ca);border:1.5px solid var(--ca);border-radius:var(--r)}
+.srv-card .b:hover{background:var(--ca);color:var(--cw)}
+
+/* MÉTIER */
+.metier-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.metier-img{border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-h);position:relative}
+.metier-img img{width:100%;height:480px;object-fit:cover}
+.metier-img-badge{position:absolute;bottom:24px;left:24px;background:var(--cp);color:var(--cw);padding:12px 20px;border-radius:var(--r);font-size:.82rem;font-weight:600;letter-spacing:.5px}
+.metier-body .label{margin-bottom:14px}
+.metier-body h2{margin-bottom:20px;color:var(--cp)}
+.metier-body p{color:var(--cs);font-size:.97rem;line-height:1.75;margin-bottom:16px}
+.check-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin:24px 0 32px}
+.check-list li{display:flex;align-items:flex-start;gap:12px;font-size:.92rem;color:var(--ct)}
+.check-list li::before{content:'';display:block;width:20px;height:20px;min-width:20px;background:var(--ca);border-radius:50%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;margin-top:2px}
+
+/* PROCESSUS */
+.process-wrap{margin-top:56px;position:relative}
+.process-line{position:absolute;top:36px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,var(--ca),var(--cp));border-radius:2px}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;z-index:2}
+.process-step{text-align:center;padding:0 12px}
+.process-num{width:72px;height:72px;border-radius:50%;background:var(--cp);color:var(--cw);font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;position:relative;box-shadow:0 0 0 6px var(--cb)}
+.process-step h4{color:var(--cp);margin-bottom:8px;font-size:.95rem}
+.process-step p{font-size:.82rem;color:var(--cs);line-height:1.55}
+
+/* GALERIE */
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal-item{border-radius:var(--r);overflow:hidden;cursor:pointer;position:relative;aspect-ratio:4/3}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.gal-item::after{content:'';position:absolute;inset:0;background:rgba(27,46,74,0);transition:background .3s ease}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-item:hover::after{background:rgba(27,46,74,.3)}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;display:none;align-items:center;justify-content:center;padding:24px}
+.lightbox.open{display:flex}
+.lightbox img{max-width:90vw;max-height:88vh;border-radius:var(--r);object-fit:contain;box-shadow:0 8px 48px rgba(0,0,0,.6)}
+.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--cw);font-size:2.2rem;cursor:pointer;line-height:1;opacity:.8}
+.lb-close:hover{opacity:1}
+
+/* FORMULAIRE */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.form-wrap{max-width:700px;margin:0 auto}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.full{grid-column:1/-1}
+.field label{font-size:.82rem;font-weight:600;color:var(--cs);text-transform:uppercase;letter-spacing:1px}
+.field input,.field textarea{width:100%;padding:14px 16px;border:1.5px solid #ddd;border-radius:var(--r);font-family:'Inter',sans-serif;font-size:.95rem;color:var(--ct);background:var(--cw);transition:border-color .2s ease,box-shadow .2s ease}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--cp);box-shadow:0 0 0 3px rgba(27,46,74,.1)}
+.field input.err,.field textarea.err{border-color:var(--ca)}
+.field textarea{resize:vertical;min-height:130px}
+.form-submit{text-align:center;margin-top:8px;grid-column:1/-1}
+.form-submit .b{min-width:220px;justify-content:center}
+.form-success{display:none;background:rgba(27,46,74,.07);border:1.5px solid var(--cp);border-radius:var(--r);padding:28px;text-align:center;margin-top:20px}
+.form-success p{color:var(--cp);font-weight:600;font-size:1.05rem}
+.form-success small{color:var(--cs);font-size:.88rem;display:block;margin-top:6px}
+
+/* PREUVE SOCIALE */
+.social-proof-wrap{display:grid;grid-template-columns:280px 1fr;gap:56px;align-items:start}
+.google-card{background:var(--cw);border-radius:var(--r);padding:32px;box-shadow:var(--shadow);text-align:center;border-top:3px solid var(--ca)}
+.google-logo{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:20px}
+.google-logo span{font-size:1rem;font-weight:700;color:var(--cs)}
+.big-note{font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:700;color:var(--cp);line-height:1}
+.stars-row{display:flex;justify-content:center;gap:4px;margin:12px 0 8px}
+.stars-row svg{fill:#ffd500}
+.note-sub{font-size:.8rem;color:var(--cs)}
+.testi-grid{display:flex;flex-direction:column;gap:20px}
+.testi-card{background:var(--cw);border-radius:var(--r);padding:28px;box-shadow:var(--shadow);border-left:4px solid var(--ca)}
+.testi-head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.testi-avatar{width:44px;height:44px;border-radius:50%;background:var(--cp);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;color:var(--cw);font-size:1rem;flex-shrink:0}
+.testi-meta strong{display:block;font-size:.92rem;color:var(--ct)}
+.testi-meta small{font-size:.78rem;color:var(--cs)}
+.testi-stars{display:flex;gap:3px;margin-bottom:4px}
+.testi-stars svg{fill:#ffd500}
+.testi-card p{font-size:.9rem;color:var(--cs);line-height:1.65;font-style:italic}
+.badges-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:24px}
+.badge{display:flex;align-items:center;gap:8px;background:rgba(27,46,74,.06);border-radius:100px;padding:8px 16px;font-size:.8rem;font-weight:600;color:var(--cp)}
+.badge svg{stroke:var(--ca)}
+
+/* FOOTER */
+#footer{background:var(--cp);color:rgba(255,255,255,.82);padding:64px 0 0}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.12)}
+.footer-brand strong{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--cw);display:block;margin-bottom:4px}
+.footer-brand small{font-size:.75rem;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.5)}
+.footer-mark{width:48px;height:48px;background:var(--ca);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px;flex-shrink:0}
+.footer-mark span{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--cw)}
+.footer-brand p{font-size:.85rem;line-height:1.65;margin-top:14px;color:rgba(255,255,255,.65)}
+.footer-col h4{font-size:.78rem;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,.45);margin-bottom:20px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col ul li a{font-size:.88rem;color:rgba(255,255,255,.72);transition:color .2s}
+.footer-col ul li a:hover{color:var(--cw)}
+.footer-addr{font-size:.88rem;color:rgba(255,255,255,.72);line-height:1.7}
+.footer-addr a{color:rgba(255,255,255,.9);font-weight:600;transition:color .2s}
+.footer-addr a:hover{color:var(--cw)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding:20px 0;flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:.78rem;color:rgba(255,255,255,.4)}
+.footer-bottom a{color:rgba(255,255,255,.55);transition:color .2s}
+.footer-bottom a:hover{color:var(--cw)}
+
+@media(max-width:960px){
+.srv-grid{grid-template-columns:1fr 1fr}
+.metier-grid{grid-template-columns:1fr;gap:40px}
+.metier-img img{height:360px}
+.process-line{display:none}
+.process-grid{grid-template-columns:1fr 1fr;gap:32px}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.social-proof-wrap{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+.srv-grid{grid-template-columns:1fr}
+.form-grid{grid-template-columns:1fr}
+.field.full{grid-column:auto}
+.process-grid{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.footer-grid{grid-template-columns:1fr;gap:32px}
+.footer-bottom{flex-direction:column;text-align:center}
+.badges-row{flex-direction:column}
+.social-proof-wrap{grid-template-columns:1fr}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s" id="services" aria-label="Domaines d'expertise">
+  <div class="container">
+    <div class="h">
+      <span class="label">Expertises</span>
+      <h2>Un accompagnement juridique complet à Nouméa</h2>
+      <p>Du conseil préventif à la représentation en justice, le cabinet Magali FRAIGNE intervient dans les domaines essentiels du droit, avec une connaissance approfondie du contexte calédonien.</p>
+    </div>
+    <div class="srv-grid">
+      <div class="srv-card">
+        <div class="srv-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+        </div>
+        <h3>Droit des affaires</h3>
+        <p>Création de sociétés, rédaction de contrats commerciaux, restructurations et contentieux entre entreprises. Un appui solide pour sécuriser vos opérations en Nouvelle-Calédonie.</p>
+        <a href="#contact" class="b">Consulter</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Droit immobilier</h3>
+        <p>Transactions, baux, copropriété, litiges fonciers. Un conseil rigoureux pour vos projets immobiliers sur le territoire, en tenant compte des spécificités du droit local.</p>
+        <a href="#contact" class="b">Consulter</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3>Droit de la famille</h3>
+        <p>Divorce, séparation, autorité parentale, successions. Une écoute attentive et une approche humaine pour traverser les étapes délicates avec sérénité.</p>
+        <a href="#contact" class="b">Consulter</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h3>Droit du travail</h3>
+        <p>Ruptures de contrat, harcèlement, contentieux prud'homal. Défense des salariés comme des employeurs, avec une maîtrise des textes applicables en Nouvelle-Calédonie.</p>
+        <a href="#contact" class="b">Consulter</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Défense pénale</h3>
+        <p>Assistance et représentation en matière pénale, instruction et audiences. Une défense ferme et stratégique, garantissant le respect de vos droits à chaque stade de la procédure.</p>
+        <a href="#contact" class="b">Consulter</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h3>Conseil & rédaction</h3>
+        <p>Audit contractuel, rédaction d'actes sur mesure, consultations juridiques préventives. Anticipez les risques avant qu'ils ne deviennent des litiges coûteux.</p>
+        <a href="#contact" class="b">Consulter</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s s-alt" id="metier" aria-label="Le cabinet">
+  <div class="container">
+    <div class="metier-grid">
+      <div class="metier-img">
+        <img src="https://i.ibb.co/1tTRxF7y/Magali-FRAIGNE-Avocat-NOUMEA-1.jpg" alt="Magali FRAIGNE, avocate à Nouméa" loading="lazy" width="600" height="480">
+        <div class="metier-img-badge">Cabinet à Nouméa depuis plus de 15 ans</div>
+      </div>
+      <div class="metier-body">
+        <span class="label">Le cabinet</span>
+        <h2>Une avocate impliquée, à votre écoute et ancrée dans la réalité calédonienne</h2>
+        <p>Magali FRAIGNE exerce à Nouméa avec la conviction que chaque client mérite un accompagnement sur mesure, clair et engagé. Loin des approches standardisées, elle prend le temps de comprendre votre situation avant de définir la stratégie la plus adaptée.</p>
+        <p>Son ancrage local lui confère une connaissance fine du tissu économique et institutionnel de la Nouvelle-Calédonie, un atout décisif pour vous défendre efficacement, que ce soit en conseil ou en contentieux.</p>
+        <ul class="check-list">
+          <li>Consultation personnalisée dès le premier rendez-vous</li>
+          <li>Maîtrise du droit territorial et des instances locales</li>
+          <li>Réactivité et disponibilité adaptées à vos enjeux</li>
+          <li>Transparence sur la stratégie et les délais</li>
+        </ul>
+        <a href="#contact" class="b b-primary">Prendre rendez-vous</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSUS -->
+<section class="s" id="processus" aria-label="Notre processus de travail">
+  <div class="container">
+    <div class="h">
+      <span class="label">Comment ça se passe</span>
+      <h2>Un accompagnement en 4 étapes claires</h2>
+      <p>De la première prise de contact jusqu'à la résolution de votre dossier, chaque étape est menée avec méthode et transparence.</p>
+    </div>
+    <div class="process-wrap">
+      <div class="process-line" aria-hidden="true"></div>
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="process-num" aria-hidden="true">1</div>
+          <h4>Premier contact</h4>
+          <p>Vous nous appelez ou remplissez le formulaire. Nous convenons rapidement d'un rendez-vous à Nouméa ou par téléphone.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num" aria-hidden="true">2</div>
+          <h4>Analyse de votre dossier</h4>
+          <p>Magali FRAIGNE étudie votre situation, identifie les enjeux juridiques et vous expose les options disponibles sans jargon.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num" aria-hidden="true">3</div>
+          <h4>Stratégie sur mesure</h4>
+          <p>Ensemble, vous définissez la démarche la plus adaptée — négociation, médiation ou représentation en justice.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num" aria-hidden="true">4</div>
+          <h4>Suivi & résolution</h4>
+          <p>Le cabinet vous tient informé à chaque étape jusqu'à la résolution complète de votre dossier.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s s-alt" id="galerie" aria-label="Photos du cabinet">
+  <div class="container">
+    <div class="h">
+      <span class="label">Le cabinet en images</span>
+      <h2>Un environnement propice au conseil</h2>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item" role="button" tabindex="0" aria-label="Ouvrir la photo 1" data-src="https://i.ibb.co/FL5Z6cX0/Magali-FRAIGNE-Avocat-NOUMEA-0.jpg">
+        <img src="https://i.ibb.co/FL5Z6cX0/Magali-FRAIGNE-Avocat-NOUMEA-0.jpg" alt="Magali FRAIGNE avocate Nouméa" loading="lazy" width="400" height="300">
+      </div>
+      <div class="gal-item" role="button" tabindex="0" aria-label="Ouvrir la photo 2" data-src="https://i.ibb.co/1tTRxF7y/Magali-FRAIGNE-Avocat-NOUMEA-1.jpg">
+        <img src="https://i.ibb.co/1tTRxF7y/Magali-FRAIGNE-Avocat-NOUMEA-1.jpg" alt="Cabinet avocat Nouméa" loading="lazy" width="400" height="300">
+      </div>
+      <div class="gal-item" role="button" tabindex="0" aria-label="Ouvrir la photo 3" data-src="https://i.ibb.co/s9j2n5w6/Magali-FRAIGNE-Avocat-NOUMEA-2.jpg">
+        <img src="https://i.ibb.co/s9j2n5w6/Magali-FRAIGNE-Avocat-NOUMEA-2.jpg" alt="Cabinet juridique Nouvelle-Calédonie" loading="lazy" width="400" height="300">
+      </div>
+      <div class="gal-item" role="button" tabindex="0" aria-label="Ouvrir la photo 4" data-src="https://i.ibb.co/jPM5sMSn/Magali-FRAIGNE-Avocat-NOUMEA-3.jpg">
+        <img src="https://i.ibb.co/jPM5sMSn/Magali-FRAIGNE-Avocat-NOUMEA-3.jpg" alt="Avocat conseil Nouméa" loading="lazy" width="400" height="300">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Vue agrandie de la photo">
+  <button class="lb-close" id="lb-close" aria-label="Fermer">&times;</button>
+  <img src="" alt="Photo agrandie" id="lb-img">
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section class="s" id="avis" aria-label="Avis et références clients">
+  <div class="container">
+    <div class="h">
+      <span class="label">Ce qu'ils disent</span>
+      <h2>La confiance de nos clients, notre meilleure référence</h2>
+    </div>
+    <div class="social-proof-wrap">
+      <div>
+        <div class="google-card" aria-label="Note Google 5 sur 5">
+          <div class="google-logo">
+            <svg width="22" height="22" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+            <span>Google</span>
+          </div>
+          <div class="big-note">5</div>
+          <div class="stars-row" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="note-sub">Note parfaite · 2 avis vérifiés</p>
+        </div>
+        <div class="badges-row">
+          <div class="badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Membre du Barreau
+          </div>
+          <div class="badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Réponse rapide
+          </div>
+          <div class="badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            Cabinet de proximité
+          </div>
+        </div>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="testi-head">
+            <div class="testi-avatar" aria-hidden="true">S</div>
+            <div class="testi-meta">
+              <div class="testi-stars" aria-label="5 étoiles">
+                <svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+              <strong>Sophie R.</strong>
+              <small>Cliente — Nouméa</small>
+            </div>
+          </div>
+          <p>«&nbsp;Maître FRAIGNE a su m'accompagner avec beaucoup de clarté dans une période difficile. Son professionnalisme et sa disponibilité m'ont vraiment aidé à traverser cette étape sereinement.&nbsp;»</p>
+        </div>
+        <div class="testi-card">
+          <div class="testi-head">
+            <div class="testi-avatar" aria-hidden="true">T</div>
+            <div class="testi-meta">
+              <div class="testi-stars" aria-label="5 étoiles">
+                <svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+              <strong>Thomas M.</strong>
+              <small>Dirigeant — Nouvelle-Calédonie</small>
+            </div>
+          </div>
+          <p>«&nbsp;Un conseil précis, direct et efficace pour la structuration juridique de mon entreprise. Je recommande vivement le cabinet pour toute problématique commerciale en Calédonie.&nbsp;»</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE -->
+<section class="s s-alt" id="contact" aria-label="Formulaire de contact">
+  <div class="container">
+    <div class="h">
+      <span class="label">Prendre rendez-vous</span>
+      <h2>Parlez-nous de votre situation</h2>
+      <p>Contactez le cabinet pour un premier échange confidentiel. Nous vous répondons dans les meilleurs délais.</p>
+    </div>
+    <div class="form-wrap">
+      <form id="contact-form" action="#" novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label for="f-nom">Votre nom</label>
+            <input type="text" id="f-nom" name="nom" placeholder="Prénom et nom" autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="f-email">Adresse e-mail</label>
+            <input type="email" id="f-email" name="email" placeholder="votre@email.com" autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="f-tel">Téléphone</label>
+            <input type="tel" id="f-tel" name="tel" placeholder="Ex. 44.44.34" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="f-sujet">Domaine concerné</label>
+            <input type="text" id="f-sujet" name="sujet" placeholder="Ex. Droit du travail, famille…">
+          </div>
+          <div class="field full">
+            <label for="f-msg">Votre message</label>
+            <textarea id="f-msg" name="message" placeholder="Décrivez brièvement votre situation…"></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="b b-primary" id="form-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Envoyer le message
+            </button>
+          </div>
+        </div>
+      </form>
+      <div class="form-success" id="form-success" role="alert">
+        <p>✓ Message envoyé avec succès</p>
+        <small>Merci pour votre contact. Magali FRAIGNE vous répondra dans les meilleurs délais.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer" aria-label="Pied de page">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-mark" aria-hidden="true"><span>MF</span></div>
+        <strong>Magali FRAIGNE</strong>
+        <small>Avocat au Barreau de Nouvelle-Calédonie</small>
+        <p>Cabinet juridique basé à Nouméa. Conseil, accompagnement et défense pour particuliers et professionnels en Nouvelle-Calédonie.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Expertises</h4>
+        <ul>
+          <li><a href="#services">Droit des affaires</a></li>
+          <li><a href="#services">Droit immobilier</a></li>
+          <li><a href="#services">Droit de la famille</a></li>
+          <li><a href="#services">Droit du travail</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <address class="footer-addr" style="font-style:normal">
+          <p>10 Rte du Vélodrome<br>Nouméa 98800<br>Nouvelle-Calédonie</p>
+          <p style="margin-top:12px">Tél. <a href="tel:+687444434">44.44.34</a></p>
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Magali FRAIGNE Avocat NOUMEA. Tous droits réservés.</p>
+      <p>Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+var lb=document.getElementById('lightbox'),lbImg=document.getElementById('lb-img'),lbClose=document.getElementById('lb-close');
+document.querySelectorAll('.gal-item').forEach(function(el){
+  function open(){var s=el.getAttribute('data-src');lbImg.src=s;lb.classList.add('open');document.body.style.overflow='hidden';}
+  el.addEventListener('click',open);
+  el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' ')open();});
+});
+function closeLb(){lb.classList.remove('open');document.body.style.overflow='';lbImg.src='';}
+lbClose&&lbClose.addEventListener('click',closeLb);
+lb&&lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+
+var form=document.getElementById('contact-form'),suc=document.getElementById('form-success');
+form&&form.addEventListener('submit',function(e){
+  e.preventDefault();
+  var ok=true;
+  form.querySelectorAll('input,textarea').forEach(function(f){
+    f.classList.remove('err');
+    if(!f.value.trim()){f.classList.add('err');ok=false;}
+  });
+  var em=form.querySelector('#f-email');
+  if(em&&em.value&&!/\S+@\S+\.\S+/.test(em.value)){em.classList.add('err');ok=false;}
+  if(!ok)return;
+  form.style.display='none';
+  suc.style.display='block';
+});
+
+if('IntersectionObserver' in window){
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){if(en.isIntersecting){en.target.style.opacity='1';en.target.style.transform='none';obs.unobserve(en.target);}});
+  },{threshold:.12});
+  document.querySelectorAll('.srv-card,.testi-card,.process-step,.gal-item').forEach(function(el){
+    el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .5s ease,transform .5s ease';
+    obs.observe(el);
+  });
+}
+})();
+</script>
+</body>
+</html>
