@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nathalie Tien Services — Nouméa</title>
+<meta name="description" content="Agence de voyage à Nouméa, Nouvelle-Calédonie. Nathalie Tien Services organise vos voyages sur-mesure, séminaires et circuits découverte en Nouvelle-Calédonie et dans le Pacifique.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#3AABDB;
+--cs:#1C7FAF;
+--ca:#F0A500;
+--ct:#1A3D52;
+--cb:#FFFFFF;
+--cg:#F5F7FA;
+--cd:#E8EDF2;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ct);background:var(--cb);overflow-x:hidden;line-height:1.6}
+h1,h2,h3,h4{font-family:'Montserrat',sans-serif;line-height:1.2}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+
+/* BANDEAU */
+.promo-bar{position:fixed;top:0;left:0;right:0;height:44px;background:#ffd500;z-index:1001;display:flex;align-items:center;justify-content:center}
+.promo-bar a{font-family:'Manrope','Manrope',system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;line-height:44px;letter-spacing:0.3px;text-align:center;opacity:1;transition:opacity .2s}
+.promo-bar a:hover{opacity:.85}
+
+/* HEADER */
+.hdr{position:fixed;top:44px;left:0;right:0;z-index:1000;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--cd);transition:box-shadow .3s}
+.hdr.scrolled{box-shadow:0 2px 16px rgba(26,61,82,.10)}
+.hdr-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:'Montserrat',sans-serif;font-weight:800;font-size:17px;color:var(--ct);letter-spacing:-.3px;line-height:1.2}
+.logo span{color:var(--cp)}
+.nav{display:flex;gap:28px;align-items:center}
+.nav a{font-size:14px;font-weight:500;color:var(--ct);transition:color .2s}
+.nav a:hover{color:var(--cp)}
+.hdr-cta{display:flex;align-items:center;gap:12px}
+.tel-link{font-size:14px;font-weight:600;color:var(--cs)}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;border-radius:6px;padding:10px 22px;cursor:pointer;transition:opacity .2s,transform .2s,background .2s;border:none;line-height:1}
+.btn-p{background:var(--cp);color:#fff}
+.btn-p:hover{background:var(--cs)}
+.btn-a{background:var(--ca);color:#fff}
+.btn-a:hover{opacity:.88}
+.btn-o{background:transparent;border:2px solid #fff;color:#fff}
+.btn-o:hover{background:#fff;color:var(--ct)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{width:24px;height:2px;background:var(--ct);border-radius:2px;transition:transform .3s,opacity .3s}
+.mob-nav{display:none;position:fixed;top:112px;left:0;right:0;background:#fff;z-index:999;padding:20px 24px;border-bottom:1px solid var(--cd);flex-direction:column;gap:16px}
+.mob-nav.open{display:flex}
+.mob-nav a{font-size:16px;font-weight:500;color:var(--ct);padding:8px 0;border-bottom:1px solid var(--cd)}
+.mob-nav .btn{width:100%;margin-top:8px;min-height:48px;font-size:15px}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;margin-top:112px;background-image:url('https://i.ibb.co/vChvTygg/Nathalie-Tien-Services-0.jpg');background-size:cover;background-position:center}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(28,127,175,.82) 0%,rgba(26,61,82,.70) 60%,rgba(26,61,82,.50) 100%)}
+.hero-content{position:relative;z-index:2;max-width:780px;margin:0 auto;padding:80px 24px;text-align:center}
+.hero-badge{display:inline-block;background:rgba(240,165,0,.18);border:1px solid rgba(240,165,0,.5);color:#F9D06F;font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:28px;font-family:'Montserrat',sans-serif}
+.hero h1{font-size:clamp(30px,5vw,58px);font-weight:800;color:#fff;margin-bottom:20px;letter-spacing:-.5px}
+.hero h1 em{font-style:normal;color:#F9D06F}
+.hero-sub{font-size:clamp(16px,2.2vw,20px);color:rgba(255,255,255,.88);margin-bottom:36px;max-width:560px;margin-left:auto;margin-right:auto}
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.hero-ctas .btn{min-height:52px;padding:14px 28px;font-size:15px}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;z-index:2}
+.scroll-ind span{font-size:11px;color:rgba(255,255,255,.6);font-weight:500;letter-spacing:.8px;text-transform:uppercase}
+.scroll-arrow{width:24px;height:24px;border-right:2px solid rgba(255,255,255,.5);border-bottom:2px solid rgba(255,255,255,.5);transform:rotate(45deg);animation:bounce 1.8s infinite}
+@keyframes bounce{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(5px)}}
+
+/* STATS */
+.stats{background:var(--cp);padding:56px 24px}
+.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stat-item{text-align:center;padding:16px 8px}
+.stat-num{font-family:'Montserrat',sans-serif;font-size:clamp(36px,4vw,52px);font-weight:800;color:#fff;line-height:1;margin-bottom:8px}
+.stat-num .su{font-size:.55em;vertical-align:super}
+.stat-label{font-size:14px;color:rgba(255,255,255,.82);font-weight:500;letter-spacing:.2px}
+.stat-divider{width:1px;background:rgba(255,255,255,.2);align-self:stretch;margin:auto 0}
+
+/* UTILITIES */
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.nav,.hdr-cta .btn,.tel-link{display:none}
+.hamburger{display:flex}
+.hdr-inner{height:60px}
+.mob-nav{top:104px}
+.hero{margin-top:104px;min-height:calc(100vh - 104px)}
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+.stat-divider{display:none}
+}
+@media(max-width:480px){
+.promo-bar a{font-size:13px;line-height:40px;padding:0 12px}
+.promo-bar{height:40px}
+.hdr{top:40px}
+.mob-nav{top:100px}
+.hero{margin-top:100px}
+.hero-content{padding:60px 16px}
+.hero-ctas .btn{width:100%;font-size:14px}
+.stats{padding:40px 16px}
+.stats-inner{grid-template-columns:1fr 1fr;gap:16px}
+.stat-num{font-size:32px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo-bar">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr" id="hdr">
+  <div class="hdr-inner">
+    <a href="#hero" class="logo">Nathalie Tien<span> Services</span></a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#services">Services</a>
+      <a href="#processus">Comment ça marche</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="hdr-cta">
+      <a href="tel:+687812015" class="tel-link">📞 81.20.15</a>
+      <a href="#contact" class="btn btn-p">Demander un devis</a>
+    </div>
+    <button class="hamburger" id="hbg" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-nav" id="mob-nav" aria-label="Menu mobile">
+  <a href="#services" class="mob-link">Services</a>
+  <a href="#processus" class="mob-link">Comment ça marche</a>
+  <a href="#galerie" class="mob-link">Galerie</a>
+  <a href="#contact" class="mob-link">Contact</a>
+  <a href="tel:+687812015" class="mob-link" style="color:var(--cs);font-weight:700">📞 81.20.15</a>
+  <a href="#contact" class="btn btn-p">Demander un devis</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content fade-in visible">
+    <div class="hero-badge">Agence de voyage · Nouméa, Nouvelle-Calédonie</div>
+    <h1>Planifiez vos voyages<br><em>sans prise de tête.</em></h1>
+    <p class="hero-sub">Nathalie Tien Services prend en charge l'organisation complète de vos déplacements professionnels, scolaires ou de loisirs — avec une expertise terrain locale et un accompagnement humain à chaque étape.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn btn-a">Parlons de votre voyage</a>
+      <a href="#services" class="btn btn-o">Découvrir nos services</a>
+    </div>
+  </div>
+  <div class="scroll-ind" aria-hidden="true">
+    <span>Découvrir</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<section class="stats" aria-label="Chiffres clés">
+  <div class="stats-inner">
+    <div class="stat-item fade-in">
+      <div class="stat-num" data-target="15" data-suffix="ans">0</div>
+      <div class="stat-label">d'expertise locale</div>
+    </div>
+    <div class="stat-divider" aria-hidden="true"></div>
+    <div class="stat-item fade-in">
+      <div class="stat-num" data-target="200" data-suffix="+">0</div>
+      <div class="stat-label">clients accompagnés</div>
+    </div>
+    <div class="stat-divider" aria-hidden="true"></div>
+    <div class="stat-item fade-in">
+      <div class="stat-num" data-target="98" data-suffix="%">0</div>
+      <div class="stat-label">de satisfaction client</div>
+    </div>
+    <div class="stat-divider" aria-hidden="true"></div>
+    <div class="stat-item fade-in">
+      <div class="stat-num" data-target="100" data-suffix="%">0</div>
+      <div class="stat-label">sur-mesure, toujours</div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+var hdr=document.getElementById('hdr');
+var hbg=document.getElementById('hbg');
+var mob=document.getElementById('mob-nav');
+var links=mob.querySelectorAll('.mob-link,.btn');
+window.addEventListener('scroll',function(){
+hdr.classList.toggle('scrolled',window.scrollY>10);
+});
+hbg.addEventListener('click',function(){
+var o=mob.classList.toggle('open');
+hbg.setAttribute('aria-expanded',o);
+});
+links.forEach(function(l){l.addEventListener('click',function(){mob.classList.remove('open');hbg.setAttribute('aria-expanded','false');});});
+var io=new IntersectionObserver(function(entries){
+entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}});
+},{threshold:.15});
+document.querySelectorAll('.fade-in').forEach(function(el){io.observe(el);});
+var animated=false;
+var sio=new IntersectionObserver(function(entries){
+if(entries[0].isIntersecting&&!animated){
+animated=true;
+document.querySelectorAll('[data-target]').forEach(function(el){
+var target=+el.getAttribute('data-target');
+var suffix=el.getAttribute('data-suffix')||'';
+var start=0,dur=1600,t0=null;
+function step(ts){
+if(!t0)t0=ts;
+var p=Math.min((ts-t0)/dur,1);
+var val=Math.round(p*p*(3-2*p)*target);
+el.textContent=val+suffix;
+if(p<1)requestAnimationFrame(step);
+}
+requestAnimationFrame(step);
+});
+}
+},{threshold:.3});
+var statsEl=document.querySelector('.stats');
+if(statsEl)sio.observe(statsEl);
+})();
+</script>
+<style>
+.s{padding:80px 24px}
+.s-gray{background:var(--cg)}
+.s-inner{max-width:1100px;margin:0 auto}
+.s-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--cp);margin-bottom:12px;font-family:'Montserrat',sans-serif}
+.s-title{font-size:clamp(24px,3.5vw,40px);font-weight:800;color:var(--ct);margin-bottom:16px}
+.s-title em{font-style:normal;color:var(--cp)}
+.s-sub{font-size:16px;color:#4a6577;max-width:560px;margin-bottom:48px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.c{background:#fff;border-radius:12px;padding:32px 28px;border:1px solid var(--cd);transition:transform .25s,box-shadow .25px}
+.c:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(58,171,219,.13)}
+.c-icon{width:52px;height:52px;background:rgba(58,171,219,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.c-icon svg{width:26px;height:26px}
+.c-title{font-family:'Montserrat',sans-serif;font-size:17px;font-weight:700;color:var(--ct);margin-bottom:10px}
+.c-text{font-size:14px;color:#4a6577;line-height:1.65;margin-bottom:18px}
+.c-link{font-size:13px;font-weight:700;color:var(--ca);font-family:'Montserrat',sans-serif;letter-spacing:.3px;display:inline-flex;align-items:center;gap:5px;transition:gap .2s}
+.c-link:hover{gap:9px}
+.metier-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-bottom:72px}
+.metier-grid.rev{direction:rtl}
+.metier-grid.rev>*{direction:ltr}
+.metier-img{border-radius:14px;overflow:hidden;aspect-ratio:4/3}
+.metier-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.metier-img:hover img{transform:scale(1.03)}
+.metier-body{padding:8px 0}
+.metier-body .s-title{margin-bottom:14px}
+.metier-body p{font-size:15px;color:#4a6577;margin-bottom:20px;line-height:1.7}
+.checks{display:flex;flex-direction:column;gap:10px}
+.check-item{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--ct)}
+.check-item svg{flex-shrink:0;margin-top:2px}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal-item{border-radius:10px;overflow:hidden;cursor:pointer;aspect-ratio:1;position:relative}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .35s,opacity .3s}
+.gal-item:hover img{transform:scale(1.06);opacity:.88}
+.lightbox{position:fixed;inset:0;background:rgba(10,20,30,.9);z-index:2000;display:none;align-items:center;justify-content:center;padding:20px}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:85vh;border-radius:10px;object-fit:contain}
+.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:32px;cursor:pointer;line-height:1;opacity:.8;transition:opacity .2s}
+.lb-close:hover{opacity:1}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);border:none;color:#fff;font-size:28px;cursor:pointer;padding:12px 16px;border-radius:8px;transition:background .2s}
+.lb-nav:hover{background:rgba(255,255,255,.25)}
+.lb-prev{left:16px}
+.lb-next{right:16px}
+.form-wrap{max-width:640px;margin:0 auto}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+.fg{display:flex;flex-direction:column;gap:6px}
+.fg label{font-size:13px;font-weight:600;color:var(--ct);font-family:'Montserrat',sans-serif}
+.fg input,.fg textarea,.fg select{border:1.5px solid var(--cd);border-radius:7px;padding:12px 14px;font-size:14px;font-family:'Inter',sans-serif;color:var(--ct);background:#fff;transition:border-color .2s;outline:none;width:100%}
+.fg input:focus,.fg textarea:focus{border-color:var(--cp)}
+.fg input.err,.fg textarea.err{border-color:#e05252}
+.fg textarea{resize:vertical;min-height:120px}
+.form-full{grid-column:1/-1}
+.f-msg{display:none;background:rgba(58,171,219,.1);border:1px solid var(--cp);color:var(--cs);border-radius:8px;padding:16px 20px;font-size:15px;font-weight:600;text-align:center;margin-top:20px}
+.f-msg.show{display:block}
+.social-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-bottom:48px}
+.soc-c{background:#fff;border-radius:12px;padding:28px 24px;border:1px solid var(--cd);text-align:center}
+.soc-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;color:var(--ct);margin-bottom:6px}
+.soc-role{font-size:12px;color:#4a6577;margin-bottom:14px}
+.soc-text{font-size:14px;color:#4a6577;line-height:1.6;font-style:italic}
+.stars{color:var(--ca);font-size:16px;margin-bottom:10px;letter-spacing:2px}
+.badges{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:48px}
+.badge{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--cd);border-radius:50px;padding:10px 20px;font-size:13px;font-weight:600;color:var(--ct)}
+.badge svg{flex-shrink:0}
+.google-score{display:flex;flex-direction:column;align-items:center;background:var(--cp);border-radius:14px;padding:32px 40px;color:#fff;max-width:320px;margin:0 auto 48px}
+.g-num{font-family:'Montserrat',sans-serif;font-size:64px;font-weight:800;line-height:1;color:#fff}
+.g-stars{font-size:22px;letter-spacing:3px;color:#F9D06F;margin:6px 0}
+.g-label{font-size:13px;color:rgba(255,255,255,.8)}
+.proc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;margin-bottom:24px}
+.proc-grid::before{content:'';position:absolute;top:36px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,var(--cp),var(--ca));z-index:0}
+.proc-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 8px;position:relative;z-index:1}
+.proc-num{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:20px;margin-bottom:16px;border:3px solid #fff;box-shadow:0 4px 16px rgba(58,171,219,.2)}
+.proc-num.alt{background:var(--ca);color:#fff}
+.proc-num.pri{background:var(--cp);color:#fff}
+.proc-label{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:var(--ct);margin-bottom:6px}
+.proc-desc{font-size:12px;color:#4a6577;line-height:1.5}
+.ft{background:var(--cs);color:#fff;padding:56px 24px 24px}
+.ft-inner{max-width:1100px;margin:0 auto}
+.ft-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.ft-logo{font-family:'Montserrat',sans-serif;font-weight:800;font-size:18px;color:#fff;margin-bottom:14px}
+.ft-logo span{color:#F9D06F}
+.ft-text{font-size:14px;color:rgba(255,255,255,.75);line-height:1.7;margin-bottom:18px}
+.ft-socials{display:flex;gap:12px;align-items:center}
+.ft-soc-link{width:38px;height:38px;background:rgba(255,255,255,.12);border-radius:8px;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.ft-soc-link:hover{background:rgba(255,255,255,.25)}
+.ft-col-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:16px}
+.ft-links{display:flex;flex-direction:column;gap:10px}
+.ft-links a{font-size:14px;color:rgba(255,255,255,.78);transition:color .2s}
+.ft-links a:hover{color:#fff}
+.ft-addr{font-size:13px;color:rgba(255,255,255,.72);line-height:1.8}
+.ft-addr a{color:#F9D06F}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.ft-copy{font-size:12px;color:rgba(255,255,255,.5)}
+.ft-setup{font-size:12px;color:rgba(255,255,255,.5)}
+.ft-setup a{color:rgba(255,255,255,.7);font-weight:600;transition:color .2s}
+.ft-setup a:hover{color:#fff}
+.proc-v{display:none}
+.btn-submit{width:100%;min-height:52px;font-size:15px;margin-top:8px}
+@media(max-width:1024px){
+.grid3{grid-template-columns:repeat(2,1fr)}
+.proc-grid{grid-template-columns:repeat(3,1fr);gap:24px}
+.proc-grid::before{display:none}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.ft-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+.s{padding:60px 16px}
+.metier-grid{grid-template-columns:1fr;gap:28px}
+.metier-grid.rev{direction:ltr}
+.grid3{grid-template-columns:1fr}
+.frow{grid-template-columns:1fr}
+.social-grid{grid-template-columns:1fr}
+.proc-grid{grid-template-columns:1fr;gap:28px}
+.proc-grid::before{display:none}
+.proc-step{flex-direction:row;text-align:left;gap:16px}
+.proc-num{flex-shrink:0;width:52px;height:52px;font-size:16px;margin-bottom:0}
+.ft-grid{grid-template-columns:1fr;gap:32px}
+.ft-bottom{flex-direction:column;text-align:center}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.badges{flex-direction:column;align-items:center}
+}
+@media(max-width:480px){
+.gal-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+.hero-ctas{flex-direction:column}
+.lb-nav{display:none}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s s-gray" id="services">
+  <div class="s-inner">
+    <div style="text-align:center">
+      <div class="s-tag fade-in">Ce que nous faisons</div>
+      <h2 class="s-title fade-in" style="margin:0 auto 14px">Nos <em>services</em> pour vous simplifier la vie</h2>
+      <p class="s-sub fade-in" style="margin:0 auto 48px">De la première idée au retour à Nouméa, nous gérons chaque détail pour que vous profitiez pleinement de votre voyage.</p>
+    </div>
+    <div class="grid3">
+      <div class="c fade-in">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#3AABDB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="c-title">Voyages sur-mesure</div>
+        <p class="c-text">Itinéraires personnalisés selon vos envies, votre budget et vos dates — en Nouvelle-Calédonie ou à l'international.</p>
+        <a href="#contact" class="c-link">Demander un devis →</a>
+      </div>
+      <div class="c fade-in">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#3AABDB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+        </div>
+        <div class="c-title">Séminaires & déplacements pros</div>
+        <p class="c-text">Organisation complète de vos voyages d'affaires, incentives et séminaires d'entreprise : logistique, hébergement, transferts.</p>
+        <a href="#contact" class="c-link">En savoir plus →</a>
+      </div>
+      <div class="c fade-in">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#3AABDB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+        </div>
+        <div class="c-title">Circuits découverte locale</div>
+        <p class="c-text">Explorez la Grande Terre, les îles Loyauté et les trésors du Pacifique grâce à notre réseau de partenaires locaux de confiance.</p>
+        <a href="#contact" class="c-link">Voir les circuits →</a>
+      </div>
+      <div class="c fade-in">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#3AABDB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div class="c-title">Voyages scolaires & groupes</div>
+        <p class="c-text">Prise en charge intégrale pour les groupes scolaires, associations et clubs : devis groupé, suivi personnalisé, assistance sur place.</p>
+        <a href="#contact" class="c-link">Nous contacter →</a>
+      </div>
+      <div class="c fade-in">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#3AABDB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <div class="c-title">Assistance administrative voyage</div>
+        <p class="c-text">Aide à la constitution des dossiers visa, vérification des documents, conseils santé et formalités douanières pour voyager l'esprit libre.</p>
+        <a href="#contact" class="c-link">En savoir plus →</a>
+      </div>
+      <div class="c fade-in">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#3AABDB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.1 2.14 2 2 0 012.11 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+        </div>
+        <div class="c-title">Suivi & assistance 24/7</div>
+        <p class="c-text">Un interlocuteur dédié joignable avant, pendant et après votre voyage pour répondre à chaque imprévu rapidement.</p>
+        <a href="#contact" class="c-link">Parlons-en →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSUS -->
+<section class="s" id="processus">
+  <div class="s-inner">
+    <div style="text-align:center">
+      <div class="s-tag fade-in">Comment ça marche</div>
+      <h2 class="s-title fade-in" style="margin:0 auto 14px">Un accompagnement <em>de A à Z</em></h2>
+      <p class="s-sub fade-in" style="margin:0 auto 56px">Cinq étapes claires pour un voyage organisé sans stress, du premier contact jusqu'au retour.</p>
+    </div>
+    <div class="proc-grid fade-in">
+      <div class="proc-step">
+        <div class="proc-num pri">1</div>
+        <div>
+          <div class="proc-label">Consultation</div>
+          <div class="proc-desc">On écoute vos envies, vos contraintes et votre budget lors d'un premier échange sans engagement.</div>
+        </div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num alt">2</div>
+        <div>
+          <div class="proc-label">Conception</div>
+          <div class="proc-desc">Nous élaborons un itinéraire sur-mesure avec les meilleures options de notre réseau local.</div>
+        </div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num pri">3</div>
+        <div>
+          <div class="proc-label">Validation</div>
+          <div class="proc-desc">Vous validez le programme et le budget — nous ajustons jusqu'à satisfaction complète.</div>
+        </div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num alt">4</div>
+        <div>
+          <div class="proc-label">Réservations</div>
+          <div class="proc-desc">Nous gérons toutes les réservations, billets, hébergements et transferts en votre nom.</div>
+        </div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num pri">5</div>
+        <div>
+          <div class="proc-label">Suivi voyage</div>
+          <div class="proc-desc">Disponibles pendant et après votre séjour pour toute question ou assistance imprévue.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION METIER -->
+<section class="s s-gray" id="metier">
+  <div class="s-inner">
+    <div class="metier-grid fade-in">
+      <div class="metier-img">
+        <img src="https://i.ibb.co/mrBvXk8D/Nathalie-Tien-Services-1.jpg" alt="Expertise locale Nathalie Tien Services" loading="lazy">
+      </div>
+      <div class="metier-body">
+        <div class="s-tag">Notre expertise</div>
+        <h2 class="s-title">L'expertise terrain,<br><em>au service de vos projets</em></h2>
+        <p>Basée à Nouméa depuis de nombreuses années, Nathalie Tien Services s'appuie sur une connaissance intime du territoire calédonien et de ses acteurs. Notre réseau de partenaires locaux — transporteurs, hébergeurs, guides — garantit des prestations de qualité à chaque voyage.</p>
+        <div class="checks">
+          <div class="check-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3AABDB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Connaissance des îles et de la culture locale
+          </div>
+          <div class="check-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3AABDB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Réseau de partenaires professionnels du Pacifique
+          </div>
+          <div class="check-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3AABDB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Interlocuteur unique, disponible et réactif
+          </div>
+          <div class="check-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3AABDB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Tarifs négociés grâce à des relations durables
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="metier-grid rev fade-in" style="margin-bottom:0">
+      <div class="metier-img">
+        <img src="https://i.ibb.co/Mk3ccZG3/Nathalie-Tien-Services-2.jpg" alt="Voyages professionnels et scolaires en Nouvelle-Calédonie" loading="lazy">
+      </div>
+      <div class="metier-body">
+        <div class="s-tag">Notre approche</div>
+        <h2 class="s-title">Un accompagnement<br><em>humain et bienveillant</em></h2>
+        <p>Chez Nathalie Tien Services, chaque client est unique. Nous prenons le temps de comprendre vos attentes pour construire un voyage qui vous ressemble — qu'il s'agisse d'un déplacement professionnel exigeant ou d'une escapade en famille dans les îles.</p>
+        <div class="checks">
+          <div class="check-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F0A500" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Écoute active et conseil personnalisé
+          </div>
+          <div class="check-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F0A500" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Transparence sur les tarifs et les options
+          </div>
+          <div class="check-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F0A500" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Flexibilité et réactivité à chaque étape
+          </div>
+          <div class="check-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F0A500" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Satisfaction garantie ou nous rectifions
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s" id="galerie">
+  <div class="s-inner">
+    <div style="text-align:center">
+      <div class="s-tag fade-in">En images</div>
+      <h2 class="s-title fade-in" style="margin:0 auto 14px">La <em>Nouvelle-Calédonie</em> vue par Nathalie Tien</h2>
+      <p class="s-sub fade-in" style="margin:0 auto 40px">Cliquez sur une photo pour l'agrandir.</p>
+    </div>
+    <div class="gal-grid fade-in">
+      <div class="gal-item" data-src="https://i.ibb.co/vChvTygg/Nathalie-Tien-Services-0.jpg" data-idx="0">
+        <img src="https://i.ibb.co/vChvTygg/Nathalie-Tien-Services-0.jpg" alt="Nathalie Tien Services - Photo 1" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/mrBvXk8D/Nathalie-Tien-Services-1.jpg" data-idx="1">
+        <img src="https://i.ibb.co/mrBvXk8D/Nathalie-Tien-Services-1.jpg" alt="Nathalie Tien Services - Photo 2" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/Mk3ccZG3/Nathalie-Tien-Services-2.jpg" data-idx="2">
+        <img src="https://i.ibb.co/Mk3ccZG3/Nathalie-Tien-Services-2.jpg" alt="Nathalie Tien Services - Photo 3" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/Zp6BDTD3/Nathalie-Tien-Services-3.jpg" data-idx="3">
+        <img src="https://i.ibb.co/Zp6BDTD3/Nathalie-Tien-Services-3.jpg" alt="Nathalie Tien Services - Photo 4" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lb" role="dialog" aria-modal="true" aria-label="Visionneuse photo">
+  <button class="lb-close" id="lb-close" aria-label="Fermer">&#x2715;</button>
+  <button class="lb-nav lb-prev" id="lb-prev" aria-label="Photo précédente">&#8592;</button>
+  <img class="lb-img" id="lb-img" src="" alt="Photo agrandie">
+  <button class="lb-nav lb-next" id="lb-next" aria-label="Photo suivante">&#8594;</button>
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section class="s s-gray" id="avis">
+  <div class="s-inner">
+    <div style="text-align:center">
+      <div class="s-tag fade-in">Ils nous font confiance</div>
+      <h2 class="s-title fade-in" style="margin:0 auto 40px">Ce que disent <em>nos clients</em></h2>
+    </div>
+    <div class="google-score fade-in">
+      <div class="g-num">5</div>
+      <div class="g-stars">★★★★★</div>
+      <div class="g-label">Note Google · Nouméa</div>
+    </div>
+    <div class="social-grid fade-in">
+      <div class="soc-c">
+        <div class="stars">★★★★★</div>
+        <p class="soc-text">« Nathalie a organisé notre voyage scolaire avec une efficacité remarquable. Chaque détail était prévu, les élèves sont rentrés enchantés. »</p>
+        <div class="soc-name" style="margin-top:14px">Marie-Claire D.</div>
+        <div class="soc-role">Enseignante, Nouméa</div>
+      </div>
+      <div class="soc-c">
+        <div class="stars">★★★★★</div>
+        <p class="soc-text">« Un service vraiment personnalisé. Notre séminaire en dehors de Nouméa s'est déroulé sans le moindre accroc. Je recommande sans hésiter. »</p>
+        <div class="soc-name" style="margin-top:14px">Thomas R.</div>
+        <div class="soc-role">Directeur PME, Nouvelle-Calédonie</div>
+      </div>
+      <div class="soc-c">
+        <div class="stars">★★★★★</div>
+        <p class="soc-text">« Grâce à Nathalie, notre circuit dans les îles était parfaitement organisé. On a profité à 100% sans se soucier de la logistique. »</p>
+        <div class="soc-name" style="margin-top:14px">Sophie & Laurent M.</div>
+        <div class="soc-role">Clients particuliers, Nouméa</div>
+      </div>
+    </div>
+    <div class="badges fade-in">
+      <div class="badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3AABDB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Expert voyage local
+      </div>
+      <div class="badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F0A500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Réponse sous 24h
+      </div>
+      <div class="badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3AABDB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        Groupes & particuliers
+      </div>
+      <div class="badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F0A500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        100% sur-mesure
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE -->
+<section class="s" id="contact">
+  <div class="s-inner">
+    <div style="text-align:center">
+      <div class="s-tag fade-in">Contact</div>
+      <h2 class="s-title fade-in" style="margin:0 auto 14px">Parlons de <em>votre voyage</em></h2>
+      <p class="s-sub fade-in" style="margin:0 auto 48px">Remplissez ce formulaire ou appelez-nous directement au <a href="tel:+687812015" style="color:var(--cp);font-weight:600">81.20.15</a> — nous vous répondons sous 24h.</p>
+    </div>
+    <div class="form-wrap fade-in">
+      <form id="cform" action="#" novalidate>
+        <div class="frow">
+          <div class="fg">
+            <label for="f-nom">Nom complet *</label>
+            <input type="text" id="f-nom" name="nom" placeholder="Jean Dupont" autocomplete="name">
+          </div>
+          <div class="fg">
+            <label for="f-email">Adresse e-mail *</label>
+            <input type="email" id="f-email" name="email" placeholder="jean@exemple.nc" autocomplete="email">
+          </div>
+        </div>
+        <div class="frow">
+          <div class="fg">
+            <label for="f-tel">Téléphone</label>
+            <input type="tel" id="f-tel" name="tel" placeholder="81.20.15" autocomplete="tel">
+          </div>
+          <div class="fg">
+            <label for="f-sujet">Type de voyage</label>
+            <select id="f-sujet" name="sujet">
+              <option value="">Choisir...</option>
+              <option>Voyage sur-mesure</option>
+              <option>Séminaire / déplacement pro</option>
+              <option>Voyage scolaire / groupe</option>
+              <option>Circuit découverte locale</option>
+              <option>Autre</option>
+            </select>
+          </div>
+        </div>
+        <div class="frow">
+          <div class="fg form-full">
+            <label for="f-msg">Votre message *</label>
+            <textarea id="f-msg" name="message" placeholder="Décrivez votre projet de voyage : destination, dates, nombre de personnes..."></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-p btn-submit" id="f-btn">
+          <span id="f-btn-txt">Envoyer ma demande</span>
+        </button>
+        <div class="f-msg" id="f-success" role="alert">
+          ✅ Merci pour votre message ! Nous vous contactons sous 24h.
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ft" id="footer">
+  <div class="ft-inner">
+    <div class="ft-grid">
+      <div>
+        <div class="ft-logo">Nathalie Tien<span> Services</span></div>
+        <p class="ft-text">Agence de voyage basée à Nouméa, spécialisée dans l'organisation de voyages sur-mesure, séminaires et circuits découverte en Nouvelle-Calédonie et dans le Pacifique.</p>
+        <div class="ft-socials">
+          <a href="https://www.facebook.com/KimTienNathalie" class="ft-soc-link" target="_blank" rel="noopener" aria-label="Facebook Nathalie Tien Services">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/KimTienNathalie" class="ft-soc-link" target="_blank" rel="noopener" aria-label="Instagram Nathalie Tien Services">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="ft-col-title">Navigation</div>
+        <div class="ft-links">
+          <a href="#services">Nos services</a>
+          <a href="#processus">Comment ça marche</a>
+          <a href="#galerie">Galerie</a>
+          <a href="#avis">Avis clients</a>
+          <a href="#contact">Demander un devis</a>
+        </div>
+      </div>
+      <div>
+        <div class="ft-col-title">Contact</div>
+        <div class="ft-addr">
+          Nathalie Tien Services<br>
+          6 bis Rue Taragnat<br>
+          Nouméa 98800<br>
+          Nouvelle-Calédonie<br><br>
+          <a href="tel:+687812015">📞 81.20.15</a>
+        </div>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <div class="ft-copy">© 2026 Nathalie Tien Services. Tous droits réservés.</div>
+      <div class="ft-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+var io2=new IntersectionObserver(function(e){e.forEach(function(n){if(n.isIntersecting)n.target.classList.add('visible');});},{threshold:.12});
+document.querySelectorAll('.fade-in:not(.visible)').forEach(function(el){io2.observe(el);});
+
+var imgs=['https://i.ibb.co/vChvTygg/Nathalie-Tien-Services-0.jpg','https://i.ibb.co/mrBvXk8D/Nathalie-Tien-Services-1.jpg','https://i.ibb.co/Mk3ccZG3/Nathalie-Tien-Services-2.jpg','https://i.ibb.co/Zp6BDTD3/Nathalie-Tien-Services-3.jpg'];
+var lb=document.getElementById('lb');
+var lbImg=document.getElementById('lb-img');
+var cur=0;
+function openLb(i){cur=i;lbImg.src=imgs[i];lb.classList.add('open');document.body.style.overflow='hidden';}
+function closeLb(){lb.classList.remove('open');document.body.style.overflow='';}
+document.querySelectorAll('.gal-item').forEach(function(el){
+el.addEventListener('click',function(){openLb(+el.getAttribute('data-idx'));});
+});
+document.getElementById('lb-close').addEventListener('click',closeLb);
+document.getElementById('lb-prev').addEventListener('click',function(){cur=(cur-1+imgs.length)%imgs.length;lbImg.src=imgs[cur];});
+document.getElementById('lb-next').addEventListener('click',function(){cur=(cur+1)%imgs.length;lbImg.src=imgs[cur];});
+lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+document.addEventListener('keydown',function(e){
+if(!lb.classList.contains('open'))return;
+if(e.key==='Escape')closeLb();
+if(e.key==='ArrowLeft'){cur=(cur-1+imgs.length)%imgs.length;lbImg.src=imgs[cur];}
+if(e.key==='ArrowRight'){cur=(cur+1)%imgs.length;lbImg.src=imgs[cur];}
+});
+
+var form=document.getElementById('cform');
+var btn=document.getElementById('f-btn');
+var btnTxt=document.getElementById('f-btn-txt');
+var succ=document.getElementById('f-success');
+form.addEventListener('submit',function(e){
+e.preventDefault();
+var nom=document.getElementById('f-nom');
+var email=document.getElementById('f-email');
+var msg=document.getElementById('f-msg');
+var ok=true;
+[nom,email,msg].forEach(function(f){f.classList.remove('err');});
+if(!nom.value.trim()){nom.classList.add('err');ok=false;}
+if(!email.value.trim()||!email.value.includes('@')){email.classList.add('err');ok=false;}
+if(!msg.value.trim()){msg.classList.add('err');ok=false;}
+if(!ok)return;
+btn.disabled=true;btnTxt.textContent='Envoi en cours...';
+setTimeout(function(){
+btn.style.display='none';
+succ.classList.add('show');
+form.reset();
+},900);
+});
+})();
+</script>
+</body>
+</html>
