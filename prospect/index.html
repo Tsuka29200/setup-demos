@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Entreprise — Nouméa</title>
+<meta name="description" content="Entreprise à Nouméa, Nouvelle-Calédonie.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#2E7D5E;
+--cs:#F4A832;
+--ca:#E8522A;
+--cb:#FAF7F2;
+--ct:#1C2B22;
+--cw:#fff;
+--cd:#111;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;color:var(--ct);background:var(--cb);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU PROMO */
+#promo{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;text-align:center}
+#promo a{font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;line-height:44px;letter-spacing:.3px;color:#4375ff;display:block;width:100%}
+#promo a:hover{opacity:.85}
+
+/* HEADER */
+#hdr{position:fixed;top:44px;left:0;width:100%;z-index:1000;background:rgba(28,43,34,.92);backdrop-filter:blur(8px);transition:background .3s}
+.hdr-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--cw);letter-spacing:.5px}
+.logo span{color:var(--cs)}
+nav{display:flex;gap:28px;align-items:center}
+nav a{font-size:14px;font-weight:600;color:rgba(255,255,255,.85);letter-spacing:.4px;transition:color .25s}
+nav a:hover{color:var(--cs)}
+.b-cta{background:var(--ca);color:var(--cw);font-weight:700;font-size:14px;padding:10px 22px;border-radius:6px;border:none;cursor:pointer;transition:opacity .25s,transform .25s;white-space:nowrap}
+.b-cta:hover{opacity:.88;transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{width:24px;height:2px;background:var(--cw);border-radius:2px;transition:transform .3s,opacity .3s}
+.mob-nav{display:none;position:fixed;top:108px;left:0;width:100%;background:rgba(28,43,34,.97);padding:24px 24px 32px;flex-direction:column;gap:20px;z-index:999}
+.mob-nav a{font-size:16px;font-weight:600;color:var(--cw);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.mob-nav .b-cta{width:100%;text-align:center;padding:14px}
+
+/* HERO */
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background:url('https://i.ibb.co/PvDCGXGd/image.jpg') center/cover no-repeat;margin-top:108px}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(160deg,rgba(0,0,0,.55) 0%,rgba(28,43,34,.6) 100%)}
+.hero-cnt{position:relative;z-index:2;text-align:center;padding:40px 20px;max-width:800px}
+.h1{font-family:'Playfair Display',serif;font-size:clamp(38px,7vw,80px);font-weight:700;color:var(--cw);line-height:1.1;letter-spacing:-.5px}
+.h1 em{color:var(--cs);font-style:normal}
+.hero-sub{font-size:clamp(15px,2.2vw,20px);color:rgba(255,255,255,.88);font-weight:300;margin:18px 0 36px;line-height:1.6;max-width:560px;margin-left:auto;margin-right:auto}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.b-primary{background:var(--cs);color:var(--ct);font-weight:700;font-size:16px;padding:15px 34px;border-radius:8px;border:none;cursor:pointer;transition:background .25s,transform .25s;min-height:52px}
+.b-primary:hover{background:var(--ca);color:var(--cw);transform:translateY(-2px)}
+.b-outline{background:transparent;color:var(--cw);font-weight:600;font-size:15px;padding:14px 30px;border-radius:8px;border:2px solid rgba(255,255,255,.6);cursor:pointer;transition:border-color .25s,background .25s;min-height:52px}
+.b-outline:hover{border-color:var(--cw);background:rgba(255,255,255,.1)}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;z-index:2;opacity:.7}
+.scroll-ind span{font-size:11px;color:var(--cw);letter-spacing:1.5px;text-transform:uppercase;font-weight:600}
+.scroll-arr{width:20px;height:20px;border-right:2px solid var(--cw);border-bottom:2px solid var(--cw);transform:rotate(45deg);animation:arr .9s ease-in-out infinite alternate}
+@keyframes arr{from{transform:rotate(45deg) translateY(-3px)}to{transform:rotate(45deg) translateY(3px)}}
+
+/* STATS */
+#stats{background:var(--cp);padding:56px 24px}
+.stats-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stat{text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,56px);font-weight:700;color:var(--cs);line-height:1}
+.stat-lbl{font-size:13px;color:rgba(255,255,255,.82);font-weight:600;letter-spacing:.8px;text-transform:uppercase;margin-top:8px}
+
+/* UTILITIES */
+.s{padding:80px 24px}
+.s-inner{max-width:1100px;margin:0 auto}
+.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cp);background:rgba(46,125,94,.1);padding:6px 14px;border-radius:20px;margin-bottom:16px}
+.h2{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,44px);font-weight:700;color:var(--ct);line-height:1.2}
+.h2-wh{color:var(--cw)}
+.lead{font-size:clamp(15px,1.8vw,18px);color:#4a6358;font-weight:300;line-height:1.7;max-width:640px}
+
+@media(max-width:900px){
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+nav{display:none}
+.hamburger{display:flex}
+}
+@media(max-width:480px){
+.hdr-inner{padding:0 16px}
+#hero{margin-top:84px}
+#promo a{font-size:13px;line-height:40px}
+#promo{height:40px}
+#hdr{top:40px}
+.mob-nav{top:124px}
+.hero-btns .b-primary,.hero-btns .b-outline{width:100%}
+.s{padding:56px 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div id="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="hdr-inner">
+    <a href="#hero" class="logo">Entre<span>prise</span></a>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#reservation">Réservation</a>
+      <a href="#avis">Avis</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#reservation" class="b-cta">Réserver</a>
+    <button class="hamburger" id="ham" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="mob-nav" id="mob">
+  <a href="#services" class="mob-lnk">Services</a>
+  <a href="#galerie" class="mob-lnk">Galerie</a>
+  <a href="#reservation" class="mob-lnk">Réservation</a>
+  <a href="#avis" class="mob-lnk">Avis</a>
+  <a href="#contact" class="mob-lnk">Contact</a>
+  <a href="#reservation" class="b-cta">Réserver une table</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-ov"></div>
+  <div class="hero-cnt">
+    <p class="tag" style="background:rgba(244,168,50,.18);color:var(--cs)">Nouméa, Nouvelle-Calédonie</p>
+    <h1 class="h1">Un endroit où il<br>fait bon <em>se retrouver</em></h1>
+    <p class="hero-sub">Bienvenue chez Entreprise — un espace chaleureux au cœur de Nouméa, pensé pour ceux qui aiment prendre le temps.</p>
+    <div class="hero-btns">
+      <a href="#reservation" class="b-primary">Réserver une table</a>
+      <a href="#services" class="b-outline">Découvrir</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>Découvrir</span>
+    <div class="scroll-arr"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="stats-grid">
+    <div class="stat">
+      <div class="stat-num" data-target="100">0</div>
+      <div class="stat-lbl">% Local</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-target="7">0</div>
+      <div class="stat-lbl">Jours sur 7</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-target="50">0</div>
+      <div class="stat-lbl">Places disponibles</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-target="1">0</div>
+      <div class="stat-lbl">Adresse à Nouméa</div>
+    </div>
+  </div>
+</section>
+
+<script>
+var h=document.getElementById('ham'),m=document.getElementById('mob'),o=false;
+h.addEventListener('click',function(){
+o=!o;m.style.display=o?'flex':'none';
+h.children[0].style.transform=o?'rotate(45deg) translate(5px,5px)':'';
+h.children[1].style.opacity=o?'0':'1';
+h.children[2].style.transform=o?'rotate(-45deg) translate(5px,-5px)':'';
+});
+document.querySelectorAll('.mob-lnk').forEach(function(l){l.addEventListener('click',function(){o=false;m.style.display='none';h.children[0].style.transform='';h.children[1].style.opacity='1';h.children[2].style.transform='';});});
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){var el=e.target,t=+el.dataset.target,d=Math.ceil(1200/t),c=0,iv=setInterval(function(){c++;el.textContent=c;if(c>=t)clearInterval(iv);},d);obs.unobserve(el);}});},{threshold:.5});
+document.querySelectorAll('[data-target]').forEach(function(n){obs.observe(n);});
+</script>
+<style>
+/* SERVICES */
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px}
+.srv-c{background:var(--cw);border-radius:12px;padding:36px 28px;border:1px solid rgba(46,125,94,.12);transition:transform .3s,box-shadow .3s}
+.srv-c:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(46,125,94,.13)}
+.srv-ico{width:52px;height:52px;background:rgba(46,125,94,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.srv-ico svg{width:26px;height:26px;stroke:var(--cp);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.srv-t{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--ct);margin-bottom:12px}
+.srv-d{font-size:14px;color:#4a6358;line-height:1.7}
+.srv-lnk{display:inline-block;margin-top:18px;font-size:13px;font-weight:700;color:var(--cp);letter-spacing:.5px;border-bottom:2px solid var(--cs);padding-bottom:2px;transition:color .2s}
+.srv-lnk:hover{color:var(--ca)}
+/* METIER */
+#metier{background:var(--cw)}
+.met-row{display:flex;gap:60px;align-items:center;margin-top:48px}
+.met-row.rev{flex-direction:row-reverse}
+.met-txt{flex:1}
+.met-img{flex:1;border-radius:14px;overflow:hidden;aspect-ratio:4/3}
+.met-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.met-img:hover img{transform:scale(1.04)}
+.met-p{font-size:15px;color:#4a6358;line-height:1.8;margin-bottom:24px}
+.met-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.met-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--ct);font-weight:600}
+.met-list li svg{width:18px;height:18px;flex-shrink:0;margin-top:1px;fill:none;stroke:var(--cp);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+/* GALERIE */
+#galerie{background:var(--cb)}
+.gal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:40px}
+.gal-item{border-radius:10px;overflow:hidden;cursor:pointer;position:relative}
+.gal-item img{width:100%;height:260px;object-fit:cover;transition:transform .4s,filter .4s;display:block}
+.gal-item:hover img{transform:scale(1.05);filter:brightness(.85)}
+.gal-item:first-child{grid-column:span 2}
+.gal-item:first-child img{height:380px}
+.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center;padding:20px}
+.lb.open{display:flex}
+.lb img{max-width:90vw;max-height:88vh;border-radius:8px;object-fit:contain}
+.lb-cl{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--cw);font-size:36px;cursor:pointer;line-height:1;opacity:.8;transition:opacity .2s}
+.lb-cl:hover{opacity:1}
+/* FORMULAIRE */
+#contact{background:var(--cw)}
+.frm-wrap{max-width:680px;margin:40px auto 0}
+.frm-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.frm-grp{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.frm-lbl{font-size:13px;font-weight:700;color:var(--ct);letter-spacing:.4px}
+.frm-inp{width:100%;padding:13px 16px;border:1.5px solid rgba(46,125,94,.2);border-radius:8px;font-family:'Nunito',sans-serif;font-size:15px;color:var(--ct);background:var(--cb);transition:border-color .25s,box-shadow .25s;outline:none}
+.frm-inp:focus{border-color:var(--cp);box-shadow:0 0 0 3px rgba(46,125,94,.1)}
+.frm-inp.err{border-color:var(--ca)}
+textarea.frm-inp{resize:vertical;min-height:130px}
+.frm-btn{width:100%;background:var(--cp);color:var(--cw);font-family:'Nunito',sans-serif;font-weight:700;font-size:16px;padding:16px;border:none;border-radius:8px;cursor:pointer;transition:background .25s,transform .25s;min-height:52px;position:relative}
+.frm-btn:hover{background:var(--ca);transform:translateY(-2px)}
+.frm-ok{display:none;background:rgba(46,125,94,.1);border:1.5px solid var(--cp);border-radius:10px;padding:24px;text-align:center;margin-top:20px}
+.frm-ok p{color:var(--cp);font-weight:700;font-size:16px}
+.frm-ldr{display:none;width:20px;height:20px;border:2px solid rgba(255,255,255,.3);border-top-color:var(--cw);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* AVIS */
+#avis{background:var(--cp)}
+.avis-hd{text-align:center;margin-bottom:48px}
+.rating-big{font-family:'Playfair Display',serif;font-size:72px;font-weight:700;color:var(--cs);line-height:1}
+.rating-sub{color:rgba(255,255,255,.75);font-size:14px;margin-top:8px}
+.stars{color:var(--cs);font-size:24px;letter-spacing:2px;margin:10px 0}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.testi-c{background:rgba(255,255,255,.1);border-radius:12px;padding:28px;border:1px solid rgba(255,255,255,.15)}
+.testi-stars{color:var(--cs);font-size:16px;margin-bottom:14px}
+.testi-q{font-size:14px;color:rgba(255,255,255,.88);line-height:1.7;font-style:italic;margin-bottom:18px}
+.testi-au{font-size:13px;font-weight:700;color:var(--cs)}
+.badges{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:48px}
+.badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:40px;padding:10px 22px;font-size:13px;font-weight:700;color:var(--cw);letter-spacing:.4px}
+/* FOOTER */
+footer{background:var(--ct);padding:56px 24px 32px}
+.ft-inner{max-width:1100px;margin:0 auto}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:40px}
+.ft-logo{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--cw);margin-bottom:14px}
+.ft-logo span{color:var(--cs)}
+.ft-desc{font-size:14px;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:20px}
+.ft-socials{display:flex;gap:12px;align-items:center}
+.ft-soc{width:38px;height:38px;border-radius:8px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;transition:background .25s}
+.ft-soc:hover{background:var(--cp)}
+.ft-soc svg{width:20px;height:20px;fill:var(--cw)}
+.ft-htitle{font-size:13px;font-weight:700;color:var(--cs);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:18px}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-links a{font-size:14px;color:rgba(255,255,255,.65);transition:color .2s}
+.ft-links a:hover{color:var(--cs)}
+.ft-addr{font-size:14px;color:rgba(255,255,255,.65);line-height:1.8}
+.ft-addr a{color:rgba(255,255,255,.65);transition:color .2s}
+.ft-addr a:hover{color:var(--cs)}
+.ft-sep{border:none;border-top:1px solid rgba(255,255,255,.1);margin-bottom:24px}
+.ft-bot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ft-copy{font-size:13px;color:rgba(255,255,255,.4)}
+.ft-setup{font-size:13px;color:rgba(255,255,255,.4)}
+.ft-setup a{color:rgba(255,255,255,.55);font-weight:700;transition:color .2s}
+.ft-setup a:hover{color:var(--cs)}
+/* RESERVATION CTA */
+#reservation{background:linear-gradient(135deg,var(--cb) 0%,var(--cw) 100%);text-align:center}
+.res-sub{font-size:16px;color:#4a6358;max-width:520px;margin:16px auto 36px;line-height:1.7}
+.res-form{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;max-width:700px;margin:0 auto}
+.res-form .frm-inp{flex:1;min-width:160px;max-width:200px}
+.res-btn{background:var(--ca);color:var(--cw);font-family:'Nunito',sans-serif;font-weight:700;font-size:15px;padding:13px 28px;border:none;border-radius:8px;cursor:pointer;min-height:52px;transition:opacity .25s,transform .25s;animation:pulse 2.4s ease-in-out infinite}
+.res-btn:hover{opacity:.88;transform:translateY(-2px);animation:none}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(232,82,42,.35)}50%{box-shadow:0 0 0 10px rgba(232,82,42,0)}}
+/* RESPONSIVE */
+@media(max-width:900px){
+.srv-grid{grid-template-columns:1fr 1fr}
+.met-row,.met-row.rev{flex-direction:column;gap:32px}
+.testi-grid{grid-template-columns:1fr}
+.ft-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+.srv-grid,.frm-row,.gal-grid,.ft-grid{grid-template-columns:1fr}
+.gal-item:first-child{grid-column:span 1}
+.gal-item:first-child img{height:240px}
+.gal-item img{height:200px}
+.res-form .frm-inp{max-width:100%;min-width:100%;flex:unset;width:100%}
+.res-btn{width:100%}
+.ft-bot{flex-direction:column;align-items:flex-start}
+}
+</style>
+
+<!-- SERVICES -->
+<section id="services" class="s">
+  <div class="s-inner">
+    <div style="text-align:center;max-width:600px;margin:0 auto 0">
+      <span class="tag">Ce que nous proposons</span>
+      <h2 class="h2">Des services pensés pour vous</h2>
+      <p class="lead" style="margin:16px auto 0">Chez Entreprise, chaque service est conçu pour vous offrir une expérience simple, chaleureuse et de qualité.</p>
+    </div>
+    <div class="srv-grid">
+      <div class="srv-c">
+        <div class="srv-ico">
+          <svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </div>
+        <div class="srv-t">Notre offre principale</div>
+        <p class="srv-d">Un service accessible et de qualité, ancré dans les habitudes locales. Nous mettons un point d'honneur à répondre à vos besoins avec soin.</p>
+        <a href="#contact" class="srv-lnk">En savoir plus →</a>
+      </div>
+      <div class="srv-c">
+        <div class="srv-ico">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <div class="srv-t">Disponibilité & proximité</div>
+        <p class="srv-d">Ouverts tous les jours pour vous accueillir comme il se doit. Une équipe disponible et à l'écoute, prête à vous accompagner à chaque visite.</p>
+        <a href="#reservation" class="srv-lnk">Prendre rendez-vous →</a>
+      </div>
+      <div class="srv-c">
+        <div class="srv-ico">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div class="srv-t">Ancrage local & qualité</div>
+        <p class="srv-d">Nous travaillons en lien étroit avec les acteurs locaux de Nouméa. Notre engagement : vous offrir le meilleur de ce que la Nouvelle-Calédonie a à donner.</p>
+        <a href="#metier" class="srv-lnk">Notre histoire →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION METIER -->
+<section id="metier" class="s">
+  <div class="s-inner">
+    <div class="met-row">
+      <div class="met-txt">
+        <span class="tag">Notre histoire</span>
+        <h2 class="h2">Nés ici, attachés à ce territoire</h2>
+        <p class="met-p">Entreprise est née d'une conviction simple : il est possible d'offrir quelque chose de vrai, de local et de durable au cœur de Nouméa. Depuis notre ouverture, nous construisons chaque jour une relation de confiance avec notre communauté.</p>
+        <p class="met-p">Nous croyons en la force des liens humains, en la beauté du quotidien calédonien et en la valeur d'un commerce qui prend soin de ses clients comme de ses voisins.</p>
+        <ul class="met-list">
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Ancré dans le tissu local de Nouméa</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Une équipe passionnée et à l'écoute</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Qualité et sincérité à chaque interaction</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Un engagement durable envers notre communauté</li>
+        </ul>
+      </div>
+      <div class="met-img">
+        <img src="https://i.ibb.co/jkqrpKwH/1.jpg" alt="Ambiance Entreprise Nouméa" loading="lazy">
+      </div>
+    </div>
+    <div class="met-row rev" style="margin-top:60px">
+      <div class="met-txt">
+        <span class="tag">Notre approche</span>
+        <h2 class="h2">La simplicité comme valeur</h2>
+        <p class="met-p">Pas de fioritures, pas de promesses vides. Chez Entreprise, on fait bien ce qu'on fait, avec les bons produits, les bonnes personnes, dans le bon état d'esprit calédonien.</p>
+        <p class="met-p">Chaque détail compte — de l'accueil au départ, nous mettons tout en œuvre pour que votre expérience soit mémorable et sincère.</p>
+      </div>
+      <div class="met-img">
+        <img src="https://i.ibb.co/v8kRC5y/2.jpg" alt="Équipe Entreprise Nouméa" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section id="galerie" class="s">
+  <div class="s-inner">
+    <div style="text-align:center;max-width:560px;margin:0 auto 0">
+      <span class="tag">Galerie</span>
+      <h2 class="h2">L'ambiance en images</h2>
+      <p class="lead" style="margin:14px auto 0">Un aperçu de l'univers d'Entreprise, au cœur de Nouméa.</p>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item" data-src="https://i.ibb.co/PvDCGXGd/image.jpg">
+        <img src="https://i.ibb.co/PvDCGXGd/image.jpg" alt="Entreprise ambiance principale" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/jkqrpKwH/1.jpg">
+        <img src="https://i.ibb.co/jkqrpKwH/1.jpg" alt="Entreprise intérieur" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/v8kRC5y/2.jpg">
+        <img src="https://i.ibb.co/v8kRC5y/2.jpg" alt="Entreprise équipe" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/zHtmvd48/3.jpg">
+        <img src="https://i.ibb.co/zHtmvd48/3.jpg" alt="Entreprise lieu" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true">
+  <button class="lb-cl" id="lb-cl" aria-label="Fermer">×</button>
+  <img id="lb-img" src="" alt="Vue agrandie">
+</div>
+
+<!-- RESERVATION CTA -->
+<section id="reservation" class="s">
+  <div class="s-inner">
+    <span class="tag">Réservation</span>
+    <h2 class="h2">Réservez votre moment</h2>
+    <p class="res-sub">Choisissez une date, une heure et le nombre de personnes. Nous serons ravis de vous accueillir.</p>
+    <div class="res-form">
+      <input type="date" class="frm-inp" id="res-date" aria-label="Date">
+      <input type="time" class="frm-inp" id="res-time" aria-label="Heure">
+      <input type="number" min="1" max="20" class="frm-inp" id="res-cov" placeholder="Couverts" aria-label="Nombre de couverts">
+      <button class="res-btn" onclick="doReserv()">Confirmer</button>
+    </div>
+    <div class="frm-ok" id="res-ok"><p>✓ Demande envoyée ! Nous reviendrons vers vous rapidement.</p></div>
+  </div>
+</section>
+
+<!-- FORMULAIRE CONTACT -->
+<section id="contact" class="s">
+  <div class="s-inner">
+    <div style="text-align:center;max-width:560px;margin:0 auto 0">
+      <span class="tag">Nous contacter</span>
+      <h2 class="h2">Une question ? On vous répond.</h2>
+    </div>
+    <div class="frm-wrap">
+      <form id="frm" action="#" novalidate>
+        <div class="frm-row">
+          <div class="frm-grp">
+            <label class="frm-lbl" for="f-nom">Nom complet</label>
+            <input class="frm-inp" id="f-nom" type="text" placeholder="Votre nom" autocomplete="name">
+          </div>
+          <div class="frm-grp">
+            <label class="frm-lbl" for="f-email">Adresse e-mail</label>
+            <input class="frm-inp" id="f-email" type="email" placeholder="vous@email.com" autocomplete="email">
+          </div>
+        </div>
+        <div class="frm-grp">
+          <label class="frm-lbl" for="f-tel">Téléphone</label>
+          <input class="frm-inp" id="f-tel" type="tel" placeholder="+687 XX XX XX" autocomplete="tel">
+        </div>
+        <div class="frm-grp">
+          <label class="frm-lbl" for="f-msg">Votre message</label>
+          <textarea class="frm-inp" id="f-msg" placeholder="Comment pouvons-nous vous aider ?"></textarea>
+        </div>
+        <button type="submit" class="frm-btn" id="frm-btn">
+          <span id="frm-txt">Envoyer le message</span>
+          <div class="frm-ldr" id="frm-ldr"></div>
+        </button>
+      </form>
+      <div class="frm-ok" id="frm-ok"><p>✓ Message reçu ! Nous vous répondrons dans les plus brefs délais.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section id="avis" class="s" style="background:var(--cp)">
+  <div class="s-inner">
+    <div class="avis-hd">
+      <span class="tag" style="background:rgba(255,255,255,.15);color:var(--cs)">Avis clients</span>
+      <div class="rating-big">5.0</div>
+      <div class="stars">★★★★★</div>
+      <p class="rating-sub">Note Google — rejoignez nos premiers clients satisfaits</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-c">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-q">"Un accueil chaleureux, une équipe aux petits soins. On se sent vraiment chez soi, dans l'esprit calédonien qu'on aime."</p>
+        <div class="testi-au">Marie T. — Nouméa</div>
+      </div>
+      <div class="testi-c">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-q">"Qualité irréprochable et proximité humaine. C'est rare de trouver un commerce aussi attentif à ses clients par ici."</p>
+        <div class="testi-au">Jean-Paul M. — Nouméa</div>
+      </div>
+      <div class="testi-c">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-q">"Je recommande à 100%. On sent que l'équipe est passionnée et vraiment investie. Une belle adresse à Nouméa."</p>
+        <div class="testi-au">Sophie K. — Nouvelle-Calédonie</div>
+      </div>
+    </div>
+    <div class="badges">
+      <div class="badge">⭐ Note Google 5/5</div>
+      <div class="badge">✓ Commerce local</div>
+      <div class="badge">📍 Nouméa, NC</div>
+      <div class="badge">❤️ Recommandé</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-inner">
+    <div class="ft-grid">
+      <div>
+        <div class="ft-logo">Entre<span>prise</span></div>
+        <p class="ft-desc">Un commerce de proximité ancré dans le territoire calédonien, au cœur de Nouméa. Merci de nous faire confiance.</p>
+        <div class="ft-socials">
+          <!-- Pas de réseaux sociaux renseignés -->
+        </div>
+      </div>
+      <div>
+        <div class="ft-htitle">Navigation</div>
+        <ul class="ft-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#metier">Notre histoire</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#reservation">Réservation</a></li>
+          <li><a href="#avis">Avis clients</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft-htitle">Nous trouver</div>
+        <div class="ft-addr">
+          Nouméa<br>Nouvelle-Calédonie<br><br>
+          <a href="tel:">Nous appeler</a>
+        </div>
+      </div>
+    </div>
+    <hr class="ft-sep">
+    <div class="ft-bot">
+      <span class="ft-copy">© 2026 Entreprise. Tous droits réservés.</span>
+      <span class="ft-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+var lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img');
+document.querySelectorAll('.gal-item').forEach(function(g){
+  g.addEventListener('click',function(){lbImg.src=g.dataset.src;lb.classList.add('open');});
+});
+document.getElementById('lb-cl').addEventListener('click',function(){lb.classList.remove('open');});
+lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('open');});
+
+document.getElementById('frm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var n=document.getElementById('f-nom'),em=document.getElementById('f-email'),m=document.getElementById('f-msg'),ok=true;
+  [n,em,m].forEach(function(f){f.classList.remove('err');if(!f.value.trim()){f.classList.add('err');ok=false;}});
+  if(!ok)return;
+  var btn=document.getElementById('frm-btn'),txt=document.getElementById('frm-txt'),ldr=document.getElementById('frm-ldr');
+  txt.style.display='none';ldr.style.display='block';btn.disabled=true;
+  setTimeout(function(){
+    document.getElementById('frm').style.display='none';
+    document.getElementById('frm-ok').style.display='block';
+  },1200);
+});
+
+function doReserv(){
+  var d=document.getElementById('res-date'),t=document.getElementById('res-time'),c=document.getElementById('res-cov');
+  if(!d.value||!t.value||!c.value)return;
+  document.querySelector('.res-form').style.display='none';
+  document.getElementById('res-ok').style.display='block';
+}
+
+var fadeEls=document.querySelectorAll('.srv-c,.testi-c,.met-row,.badge');
+var fObs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});
+},{threshold:.15});
+fadeEls.forEach(function(el){el.style.opacity='0';el.style.transform='translateY(24px)';el.style.transition='opacity .5s,transform .5s';fObs.observe(el);});
+</script>
+</body>
+</html>
