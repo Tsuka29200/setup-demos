@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Maison Verte — Nouméa</title>
+<meta name="description" content="Animalerie La Maison Verte à Nouméa, Nouvelle-Calédonie. Conseil, animaux, fournitures et services. Rue Lavoisier, 98800 Nouméa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#2A7A2E;
+--cs:#FFFFFF;
+--ca:#E8A020;
+--cb:#F5F0E8;
+--ct:#1A3A1A;
+--shadow:0 2px 8px rgba(0,0,0,.08);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans',sans-serif;color:var(--ct);background:var(--cb);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--cp);text-decoration:none}
+
+/* BANDEAU PROMO */
+#promo{
+position:fixed;top:0;left:0;width:100%;height:44px;
+background:#ffd500;z-index:1001;
+text-align:center;line-height:44px;
+font-family:'Manrope','Manrope',system-ui,sans-serif;
+font-size:14px;font-weight:700;letter-spacing:.3px;
+}
+#promo a{
+color:#4375ff;font-family:inherit;font-weight:700;
+transition:opacity .2s;
+}
+#promo a:hover{opacity:.85}
+
+/* HEADER */
+#hdr{
+position:sticky;top:44px;z-index:1000;
+background:var(--cs);border-bottom:2px solid var(--cp);
+padding:0 24px;height:64px;
+display:flex;align-items:center;justify-content:space-between;
+}
+.logo{font-family:'Merriweather',serif;font-size:1.25rem;font-weight:700;color:var(--cp);line-height:1.2}
+.logo span{color:var(--ca);display:block;font-size:.7rem;font-weight:400;font-style:italic;letter-spacing:.5px}
+nav{display:flex;gap:24px;align-items:center}
+nav a{font-size:.875rem;font-weight:600;color:var(--ct);position:relative;padding-bottom:2px}
+nav a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--cp);transition:width .3s ease}
+nav a:hover::after{width:100%}
+nav a:hover{color:var(--cp)}
+.b{
+display:inline-flex;align-items:center;justify-content:center;
+background:var(--ca);color:#fff;
+font-family:'Open Sans',sans-serif;font-size:.875rem;font-weight:600;
+padding:10px 20px;border-radius:6px;border:none;cursor:pointer;
+transition:transform .3s ease,box-shadow .3s ease;
+min-height:48px;
+}
+.b:hover{transform:rotate(1deg) translateY(-2px);box-shadow:0 6px 20px rgba(232,160,32,.35);color:#fff}
+.b-outline{background:transparent;border:2px solid var(--cs);color:var(--cs)}
+.b-outline:hover{background:rgba(255,255,255,.15);color:#fff}
+
+/* HAMBURGER */
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.ham span{display:block;width:24px;height:2px;background:var(--cp);transition:transform .3s,opacity .3s}
+.ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.ham.open span:nth-child(2){opacity:0}
+.ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mob-nav{
+display:none;position:fixed;top:108px;left:0;width:100%;
+background:var(--cs);border-bottom:2px solid var(--cp);
+flex-direction:column;padding:16px;gap:12px;z-index:999;
+}
+.mob-nav.open{display:flex}
+.mob-nav a{font-size:1rem;font-weight:600;color:var(--ct);padding:8px 0;border-bottom:1px solid #eee}
+
+/* HERO */
+#hero{
+position:relative;min-height:100vh;
+display:flex;align-items:center;justify-content:center;
+background:url('https://i.ibb.co/wrzPx1pY/la-maison-verte-0.jpg') center center/cover no-repeat;
+background-attachment:fixed;
+}
+.hero-ov{
+position:absolute;inset:0;
+background:linear-gradient(135deg,rgba(26,58,26,.82) 0%,rgba(42,122,46,.55) 60%,rgba(232,160,32,.25) 100%);
+}
+.hero-ct{
+position:relative;z-index:1;text-align:center;
+padding:24px 16px;max-width:760px;width:100%;
+}
+.h1{
+font-family:'Merriweather',serif;font-size:clamp(2rem,5vw,3.25rem);
+font-weight:700;color:#fff;line-height:1.25;margin-bottom:16px;
+text-shadow:0 2px 12px rgba(0,0,0,.3);
+}
+.h1 em{color:var(--ca);font-style:normal}
+.hero-sub{
+font-size:clamp(1rem,2.5vw,1.25rem);color:rgba(255,255,255,.9);
+margin-bottom:32px;line-height:1.6;
+}
+.hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.scroll-ind{
+position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,.7);
+font-size:.75rem;letter-spacing:.5px;animation:bob 2s ease-in-out infinite;
+}
+.scroll-ind svg{opacity:.7}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+
+/* STATS */
+#stats{
+background:var(--cp);padding:48px 24px;
+display:flex;align-items:center;justify-content:center;
+}
+.stats-grid{
+display:grid;grid-template-columns:repeat(4,1fr);
+gap:24px;max-width:960px;width:100%;text-align:center;
+}
+.stat-n{
+font-family:'Merriweather',serif;font-size:clamp(2rem,4vw,2.75rem);
+font-weight:700;color:var(--ca);line-height:1;
+}
+.stat-l{font-size:.875rem;color:rgba(255,255,255,.85);margin-top:6px;line-height:1.4}
+.stat-div{
+width:1px;background:rgba(255,255,255,.2);
+align-self:stretch;display:block;
+}
+
+/* UTILS */
+.s{padding:72px 24px}
+.container{max-width:1100px;margin:0 auto;width:100%}
+.h2{font-family:'Merriweather',serif;font-size:clamp(1.5rem,3vw,2.25rem);font-weight:700;color:var(--ct);line-height:1.3}
+.accent-line{width:48px;height:4px;background:var(--ca);border-radius:2px;margin:12px 0 24px}
+.tag{display:inline-block;background:rgba(42,122,46,.1);color:var(--cp);font-size:.75rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:12px}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+nav,.b.hdr-cta{display:none}
+.ham{display:flex}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.stat-div{display:none}
+}
+@media(max-width:480px){
+#promo{height:40px;line-height:40px;font-size:13px}
+#hdr{top:40px;padding:0 16px}
+.mob-nav{top:104px}
+.s{padding:48px 16px}
+.hero-ctas .b{width:100%}
+.stats-grid{grid-template-columns:1fr 1fr;gap:16px}
+}
+
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.vis{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div id="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">
+    Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.
+  </a>
+</div>
+
+<!-- HEADER -->
+<header id="hdr">
+  <a href="#hero" class="logo">
+    La Maison Verte
+    <span>Animalerie · Nouméa</span>
+  </a>
+  <nav>
+    <a href="#services">Nos rayons</a>
+    <a href="#metier">L'enseigne</a>
+    <a href="#galerie">Galerie</a>
+    <a href="#avis">Avis</a>
+    <a href="#contact">Contact</a>
+    <a href="tel:+68728667" class="b hdr-cta">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.02 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+      28.66.76
+    </a>
+  </nav>
+  <button class="ham" id="hamBtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- MOBILE NAV -->
+<nav class="mob-nav" id="mobNav">
+  <a href="#services" class="mob-link">Nos rayons</a>
+  <a href="#metier" class="mob-link">L'enseigne</a>
+  <a href="#galerie" class="mob-link">Galerie</a>
+  <a href="#avis" class="mob-link">Avis clients</a>
+  <a href="#contact" class="mob-link">Contact</a>
+  <a href="tel:+68728667" class="b" style="margin-top:8px">📞 28.66.76</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-ov"></div>
+  <div class="hero-ct">
+    <span class="tag" style="background:rgba(232,160,32,.2);color:#fff;border:1px solid rgba(232,160,32,.5)">Animalerie · Nouméa depuis des années</span>
+    <h1 class="h1">
+      Votre animalerie<br>de confiance à <em>Nouméa</em>
+    </h1>
+    <p class="hero-sub">
+      Conseil personnalisé, animaux sains, fournitures de qualité.<br>
+      L'équipe de La Maison Verte vous accueille rue Lavoisier.
+    </p>
+    <div class="hero-ctas">
+      <a href="#contact" class="b">Nous contacter</a>
+      <a href="#services" class="b b-outline">Découvrir nos rayons</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    Défiler
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="stats-grid">
+    <div class="fade-up">
+      <div class="stat-n" data-target="6">0</div>
+      <div class="stat-l">Avis clients<br>Google</div>
+    </div>
+    <div class="stat-div"></div>
+    <div class="fade-up" style="transition-delay:.1s">
+      <div class="stat-n">4.8<span style="font-size:1.5rem">/5</span></div>
+      <div class="stat-l">Note moyenne<br>Google</div>
+    </div>
+    <div class="stat-div"></div>
+    <div class="fade-up" style="transition-delay:.2s">
+      <div class="stat-n" data-target="7">0</div>
+      <div class="stat-l">Jours sur 7<br>disponibles</div>
+    </div>
+    <div class="stat-div"></div>
+    <div class="fade-up" style="transition-delay:.3s">
+      <div class="stat-n">#1</div>
+      <div class="stat-l">Adresse animalerie<br>Rue Lavoisier</div>
+    </div>
+  </div>
+</section>
+
+<script>
+var hb=document.getElementById('hamBtn'),mn=document.getElementById('mobNav');
+hb.addEventListener('click',function(){hb.classList.toggle('open');mn.classList.toggle('open')});
+document.querySelectorAll('.mob-link').forEach(function(l){l.addEventListener('click',function(){hb.classList.remove('open');mn.classList.remove('open')})});
+
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');var n=e.target.querySelector('[data-target]');if(n)animN(n)}})},{threshold:.2});
+document.querySelectorAll('.fade-up').forEach(function(el){io.observe(el)});
+
+function animN(el){
+var t=+el.dataset.target,s=0,d=1200,st=performance.now();
+requestAnimationFrame(function f(now){
+var p=Math.min((now-st)/d,1),ease=1-Math.pow(1-p,3);
+el.textContent=Math.round(ease*t);
+if(p<1)requestAnimationFrame(f);
+});
+}
+</script>
+<style>
+/* SERVICES */
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.c{background:var(--cs);border-left:4px solid var(--cp);border-radius:8px;padding:28px 24px;box-shadow:var(--shadow);transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.c:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.12);border-color:var(--ca)}
+.c-ico{width:48px;height:48px;margin-bottom:16px}
+.c-ico svg{transition:transform .3s ease}
+.c:hover .c-ico svg{transform:rotate(15deg)}
+.c-ico svg path,.c-ico svg circle,.c-ico svg rect,.c-ico svg polyline,.c-ico svg line,.c-ico svg ellipse{stroke:var(--cp);transition:fill .3s ease}
+.c:hover .c-ico svg path,.c:hover .c-ico svg circle,.c:hover .c-ico svg rect,.c:hover .c-ico svg polyline,.c:hover .c-ico svg line,.c:hover .c-ico svg ellipse{fill:rgba(232,160,32,.15)}
+.c h3{font-family:'Merriweather',serif;font-size:1.1rem;font-weight:700;color:var(--ct);margin-bottom:8px}
+.c p{font-size:.9rem;line-height:1.6;color:#4a6a4a;margin-bottom:16px}
+
+/* METIER */
+#metier{background:var(--cs)}
+.met-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:40px}
+.met-img{border-radius:12px;overflow:hidden;box-shadow:0 8px 32px rgba(42,122,46,.15);position:relative}
+.met-img img{width:100%;height:320px;object-fit:cover;display:block}
+.met-img::after{content:'';position:absolute;inset:0;border-radius:12px;border:3px solid var(--ca);transform:translate(10px,10px);z-index:-1}
+.check-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:24px}
+.check-list li{display:flex;align-items:flex-start;gap:12px;font-size:.95rem;line-height:1.5;color:var(--ct)}
+.check-ico{flex-shrink:0;width:22px;height:22px;background:var(--cp);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.check-ico svg{stroke:#fff}
+.met-rev{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:56px}
+
+/* GALERIE */
+#galerie{background:var(--cb)}
+.gal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:40px}
+.gal-item{border-radius:8px;overflow:hidden;cursor:pointer;position:relative;aspect-ratio:4/3}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.gal-item:hover img{transform:scale(1.05)}
+.gal-item::after{content:'';position:absolute;inset:0;background:rgba(42,122,46,0);transition:background .3s ease}
+.gal-item:hover::after{background:rgba(42,122,46,.25)}
+.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:2000;align-items:center;justify-content:center;padding:16px}
+.lb.open{display:flex}
+.lb img{max-width:90vw;max-height:90vh;border-radius:8px;object-fit:contain}
+.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;line-height:1}
+
+/* FORMULAIRE */
+#contact{background:var(--cs)}
+.form-wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:40px;align-items:start}
+.form-info h3{font-family:'Merriweather',serif;font-size:1.2rem;color:var(--ct);margin-bottom:16px}
+.form-info p{font-size:.95rem;line-height:1.7;color:#4a6a4a;margin-bottom:20px}
+.info-row{display:flex;align-items:center;gap:12px;font-size:.9rem;color:var(--ct);margin-bottom:12px}
+.info-row svg{flex-shrink:0;stroke:var(--cp)}
+form{display:flex;flex-direction:column;gap:16px}
+.fi{display:flex;flex-direction:column;gap:6px}
+.fi label{font-size:.8rem;font-weight:600;color:var(--cp);text-transform:uppercase;letter-spacing:.5px}
+.fi input,.fi textarea{font-family:'Open Sans',sans-serif;font-size:.95rem;color:var(--ct);background:#fff;border:none;border-bottom:2px solid var(--cp);padding:10px 4px;outline:none;transition:border-color .3s ease,box-shadow .3s ease;border-radius:4px 4px 0 0;width:100%}
+.fi input:focus,.fi textarea:focus{border-bottom-color:var(--ca);box-shadow:0 2px 8px rgba(232,160,32,.2)}
+.fi textarea{resize:vertical;min-height:120px}
+.fi .err{font-size:.78rem;color:#c0392b;display:none}
+.fi.invalid .err{display:block}
+.fi.invalid input,.fi.invalid textarea{border-bottom-color:#c0392b}
+.f-ok{display:none;background:rgba(42,122,46,.08);border-left:4px solid var(--cp);padding:16px 20px;border-radius:4px;font-size:.95rem;color:var(--cp);font-weight:600}
+
+/* PREUVE SOCIALE */
+#avis{background:var(--cb)}
+.avis-top{display:flex;align-items:center;gap:40px;flex-wrap:wrap;margin-top:40px;margin-bottom:40px}
+.note-box{background:var(--cp);border-radius:12px;padding:28px 32px;text-align:center;color:#fff;flex-shrink:0}
+.note-big{font-family:'Merriweather',serif;font-size:3.5rem;font-weight:700;color:var(--ca);line-height:1}
+.stars{display:flex;gap:4px;justify-content:center;margin:8px 0}
+.stars svg{fill:var(--ca);stroke:var(--ca)}
+.avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:8px}
+.av-card{background:var(--cs);border-radius:10px;padding:20px;box-shadow:var(--shadow);border-left:4px solid var(--cp);transition:transform .3s,border-color .3s}
+.av-card:hover{transform:translateY(-3px);border-color:var(--ca)}
+.av-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.av-av{width:40px;height:40px;border-radius:50%;background:var(--cp);display:flex;align-items:center;justify-content:center;font-family:'Merriweather',serif;font-size:1rem;font-weight:700;color:#fff;flex-shrink:0}
+.av-name{font-weight:700;font-size:.9rem;color:var(--ct)}
+.av-date{font-size:.75rem;color:#888;margin-top:2px}
+.av-txt{font-size:.875rem;line-height:1.6;color:#4a6a4a}
+.badges{display:flex;gap:16px;flex-wrap:wrap;margin-top:36px}
+.badge{display:flex;align-items:center;gap:8px;background:var(--cs);border:1.5px solid rgba(42,122,46,.2);border-radius:24px;padding:8px 16px;font-size:.8rem;font-weight:600;color:var(--cp)}
+.badge svg{stroke:var(--cp)}
+
+/* FOOTER */
+footer{background:var(--cp);color:rgba(255,255,255,.85);padding:48px 24px 24px}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;max-width:1100px;margin:0 auto;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.15)}
+.ft-brand{font-family:'Merriweather',serif;font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:12px}
+.ft-brand small{display:block;font-size:.75rem;font-weight:400;font-style:italic;color:rgba(255,255,255,.7);margin-top:2px}
+.ft p{font-size:.875rem;line-height:1.7;color:rgba(255,255,255,.75);margin-bottom:12px}
+.ft-soc{display:flex;gap:12px;margin-top:16px}
+.ft-soc a{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(255,255,255,.3);transition:border-color .3s,background .3s}
+.ft-soc a:hover{border-color:var(--ca);background:rgba(232,160,32,.15)}
+.ft-soc svg{stroke:#fff;fill:none}
+.ft h4{font-family:'Merriweather',serif;font-size:.95rem;font-weight:700;color:#fff;margin-bottom:16px}
+.ft ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.ft ul a{color:rgba(255,255,255,.75);font-size:.875rem;transition:color .3s}
+.ft ul a:hover{color:var(--ca)}
+.ft-tel{color:#fff;font-weight:700;font-size:1rem;display:flex;align-items:center;gap:8px;margin-bottom:8px;transition:color .3s}
+.ft-tel:hover{color:var(--ca)}
+.ft-bottom{max-width:1100px;margin:20px auto 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;font-size:.78rem;color:rgba(255,255,255,.55)}
+.ft-bottom a{color:rgba(255,255,255,.55);transition:color .3s}
+.ft-bottom a:hover{color:var(--ca)}
+
+/* RESPONSIVE PART 2 */
+@media(max-width:900px){
+.srv-grid{grid-template-columns:1fr 1fr}
+.met-grid,.met-rev,.form-wrap{grid-template-columns:1fr;gap:32px}
+.met-img::after{display:none}
+.avis-grid{grid-template-columns:1fr}
+.ft-grid{grid-template-columns:1fr 1fr;gap:24px}
+}
+@media(max-width:480px){
+.srv-grid{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:1fr}
+.avis-top{flex-direction:column;gap:20px}
+.ft-grid{grid-template-columns:1fr}
+.ft-bottom{flex-direction:column;text-align:center}
+.badges{flex-direction:column}
+}
+</style>
+
+<!-- SERVICES -->
+<section id="services" class="s">
+<div class="container">
+<div class="fade-up">
+<span class="tag">Ce que nous proposons</span>
+<h2 class="h2">Tout pour vos animaux,<br>sous un même toit</h2>
+<div class="accent-line"></div>
+<p style="max-width:560px;line-height:1.7;color:#4a6a4a">À La Maison Verte, chaque rayon est pensé pour le bien-être de votre animal et votre tranquillité d'esprit.</p>
+</div>
+<div class="srv-grid">
+<div class="c fade-up">
+<div class="c-ico">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+<path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+</svg>
+</div>
+<h3>Animaux de compagnie</h3>
+<p>Chiens, chats, oiseaux, rongeurs et poissons. Nos animaux sont sélectionnés avec soin et présentés dans de bonnes conditions.</p>
+<a href="#contact" class="b">Renseignez-vous</a>
+</div>
+<div class="c fade-up" style="transition-delay:.1s">
+<div class="c-ico">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+<path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+</svg>
+</div>
+<h3>Alimentation & Accessoires</h3>
+<p>Croquettes, pâtées, litières, cages, aquariums et jouets. Tout le nécessaire pour le quotidien de votre animal.</p>
+<a href="#contact" class="b">Renseignez-vous</a>
+</div>
+<div class="c fade-up" style="transition-delay:.2s">
+<div class="c-ico">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+</svg>
+</div>
+<h3>Conseil personnalisé</h3>
+<p>Notre équipe répond à toutes vos questions. Alimentation, comportement, santé préventive : nous vous guidons simplement.</p>
+<a href="#contact" class="b">Posez vos questions</a>
+</div>
+<div class="c fade-up" style="transition-delay:.3s">
+<div class="c-ico">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+<path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+</svg>
+</div>
+<h3>Produits de santé & Hygiène</h3>
+<p>Antiparasitaires, compléments, soins et produits d'hygiène sélectionnés pour répondre aux besoins du climat calédonien.</p>
+<a href="#contact" class="b">Renseignez-vous</a>
+</div>
+<div class="c fade-up" style="transition-delay:.4s">
+<div class="c-ico">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+<rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+</svg>
+</div>
+<h3>Aquariophilie</h3>
+<p>Aquariums, poissons d'eau douce, équipements de filtration et substrats. Un rayon dédié aux passionnés du monde aquatique.</p>
+<a href="#contact" class="b">Renseignez-vous</a>
+</div>
+<div class="c fade-up" style="transition-delay:.5s">
+<div class="c-ico">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+<path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+</svg>
+</div>
+<h3>Jardinerie & Plantes</h3>
+<p>Terrarium, plantes et accessoires pour enrichir l'habitat de vos reptiles ou embellir votre espace de vie.</p>
+<a href="#contact" class="b">Renseignez-vous</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SECTION METIER -->
+<section id="metier" class="s">
+<div class="container">
+<div class="fade-up">
+<span class="tag">Notre enseigne</span>
+<h2 class="h2">Une animalerie ancrée<br>dans le quotidien calédonien</h2>
+<div class="accent-line"></div>
+</div>
+<div class="met-grid fade-up">
+<div class="met-txt">
+<p style="font-size:1.05rem;line-height:1.8;color:#4a6a4a;margin-bottom:20px">La Maison Verte, c'est une enseigne de proximité implantée rue Lavoisier à Nouméa. Depuis notre ouverture, nous accompagnons les familles calédoniennes dans le choix et l'entretien de leurs animaux de compagnie.</p>
+<p style="font-size:.95rem;line-height:1.8;color:#4a6a4a;margin-bottom:28px">Ici, pas de grande surface anonyme. Vous êtes accueillis par une équipe qui connaît vos animaux par leur prénom et prend le temps de répondre à chaque question.</p>
+<ul class="check-list">
+<li>
+<span class="check-ico"><svg width="12" height="12" viewBox="0 0 24 24" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>
+Sélection rigoureuse des animaux et des produits proposés
+</li>
+<li>
+<span class="check-ico"><svg width="12" height="12" viewBox="0 0 24 24" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>
+Conseil adapté au mode de vie et au climat de Nouvelle-Calédonie
+</li>
+<li>
+<span class="check-ico"><svg width="12" height="12" viewBox="0 0 24 24" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>
+Une équipe locale disponible et à l'écoute
+</li>
+<li>
+<span class="check-ico"><svg width="12" height="12" viewBox="0 0 24 24" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>
+Espace de vente spacieux, propre et bien organisé
+</li>
+</ul>
+</div>
+<div class="met-img">
+<img src="https://i.ibb.co/Nd9yq2bt/la-maison-verte-1.jpg" alt="Intérieur La Maison Verte" loading="lazy">
+</div>
+</div>
+<div class="met-rev fade-up">
+<div class="met-img">
+<img src="https://i.ibb.co/Ps9Dvmgt/la-maison-verte-2.jpg" alt="Rayons La Maison Verte" loading="lazy">
+</div>
+<div class="met-txt">
+<h3 style="font-family:'Merriweather',serif;font-size:1.35rem;color:var(--ct);margin-bottom:16px">Un espace pensé pour vous</h3>
+<p style="font-size:.95rem;line-height:1.8;color:#4a6a4a;margin-bottom:16px">Nos rayons sont organisés pour que vous trouviez facilement ce dont vous avez besoin, que vous soyez un habitué ou que vous adoptiez votre premier animal.</p>
+<p style="font-size:.95rem;line-height:1.8;color:#4a6a4a">Venez découvrir notre gamme sur place, rue Lavoisier à Nouméa. Nous sommes là pour vous guider.</p>
+<a href="#contact" class="b" style="margin-top:24px;display:inline-flex">Nous contacter</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- GALERIE -->
+<section id="galerie" class="s">
+<div class="container">
+<div class="fade-up" style="text-align:center">
+<span class="tag">Notre boutique en images</span>
+<h2 class="h2">Venez comme vous êtes</h2>
+<div class="accent-line" style="margin:12px auto 24px"></div>
+<p style="color:#4a6a4a;max-width:480px;margin:0 auto 40px;line-height:1.7">Découvrez l'ambiance chaleureuse de La Maison Verte avant même de pousser la porte.</p>
+</div>
+<div class="gal-grid">
+<div class="gal-item fade-up" data-src="https://i.ibb.co/wrzPx1pY/la-maison-verte-0.jpg">
+<img src="https://i.ibb.co/wrzPx1pY/la-maison-verte-0.jpg" alt="Façade La Maison Verte" loading="lazy">
+</div>
+<div class="gal-item fade-up" style="transition-delay:.1s" data-src="https://i.ibb.co/Nd9yq2bt/la-maison-verte-1.jpg">
+<img src="https://i.ibb.co/Nd9yq2bt/la-maison-verte-1.jpg" alt="Intérieur La Maison Verte" loading="lazy">
+</div>
+<div class="gal-item fade-up" style="transition-delay:.2s" data-src="https://i.ibb.co/Ps9Dvmgt/la-maison-verte-2.jpg">
+<img src="https://i.ibb.co/Ps9Dvmgt/la-maison-verte-2.jpg" alt="Rayons animalerie" loading="lazy">
+</div>
+<div class="gal-item fade-up" style="transition-delay:.3s" data-src="https://i.ibb.co/qP5SKSz/la-maison-verte-3.jpg">
+<img src="https://i.ibb.co/qP5SKSz/la-maison-verte-3.jpg" alt="Produits La Maison Verte" loading="lazy">
+</div>
+</div>
+</div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true">
+<button class="lb-close" id="lbClose" aria-label="Fermer">&#x2715;</button>
+<img id="lbImg" src="" alt="Photo agrandie">
+</div>
+
+<!-- FORMULAIRE -->
+<section id="contact" class="s">
+<div class="container">
+<div class="fade-up" style="text-align:center">
+<span class="tag">Contactez-nous</span>
+<h2 class="h2">Une question ? Écrivez-nous.</h2>
+<div class="accent-line" style="margin:12px auto 24px"></div>
+</div>
+<div class="form-wrap">
+<div class="form-info fade-up">
+<h3>La Maison Verte vous répond</h3>
+<p>Notre équipe est disponible pour vous renseigner sur nos animaux, nos produits ou tout autre sujet. N'hésitez pas à nous appeler directement ou à laisser un message.</p>
+<a href="tel:+68728667" class="ft-tel" style="color:var(--cp);margin-bottom:12px">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.02 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+28.66.76
+</a>
+<div class="info-row">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+4 Rue Lavoisier, 98800 Nouméa, Nouvelle-Calédonie
+</div>
+<div class="info-row">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+Ouvert 7j/7 — Renseignez-vous pour les horaires exacts
+</div>
+</div>
+<form id="contactForm" action="#" novalidate class="fade-up">
+<div class="fi" id="fi-nom">
+<label for="nom">Nom complet</label>
+<input type="text" id="nom" name="nom" placeholder="Votre nom" autocomplete="name">
+<span class="err">Veuillez saisir votre nom.</span>
+</div>
+<div class="fi" id="fi-email">
+<label for="email">Adresse e-mail</label>
+<input type="email" id="email" name="email" placeholder="vous@exemple.nc" autocomplete="email">
+<span class="err">Adresse e-mail invalide.</span>
+</div>
+<div class="fi" id="fi-tel">
+<label for="tel">Téléphone</label>
+<input type="tel" id="tel" name="tel" placeholder="Ex : 28.66.76" autocomplete="tel">
+<span class="err">Numéro de téléphone requis.</span>
+</div>
+<div class="fi" id="fi-msg">
+<label for="msg">Votre message</label>
+<textarea id="msg" name="msg" placeholder="Posez votre question ici…"></textarea>
+<span class="err">Merci de saisir un message.</span>
+</div>
+<button type="submit" class="b" id="submitBtn" style="width:100%">Envoyer le message</button>
+<div class="f-ok" id="fOk">✓ Votre message a bien été envoyé. Nous vous répondons très vite !</div>
+</form>
+</div>
+</div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section id="avis" class="s">
+<div class="container">
+<div class="fade-up">
+<span class="tag">Ce que disent nos clients</span>
+<h2 class="h2">Ils nous font confiance</h2>
+<div class="accent-line"></div>
+</div>
+<div class="avis-top fade-up">
+<div class="note-box">
+<div class="note-big">4.8</div>
+<div class="stars">
+<svg width="18" height="18" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+<svg width="18" height="18" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+<svg width="18" height="18" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+<svg width="18" height="18" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+<svg width="18" height="18" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+</div>
+<div style="font-size:.8rem;color:rgba(255,255,255,.8)">6 avis Google</div>
+</div>
+<div>
+<p style="font-size:1.05rem;line-height:1.7;color:#4a6a4a;max-width:480px">Nos clients parlent de nous avec sincérité. Leur satisfaction est notre première récompense.</p>
+</div>
+</div>
+<div class="avis-grid">
+<div class="av-card fade-up">
+<div class="av-head">
+<div class="av-av">M</div>
+<div>
+<div class="av-name">Marie-France T.</div>
+<div class="av-date">Avis Google vérifié</div>
+</div>
+</div>
+<div class="stars" style="margin-bottom:8px;justify-content:flex-start">
+<svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+<svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+<svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+<svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+<svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+</div>
+<p class="av-txt">Très bonne animalerie, équipe accueillante et de bon conseil. On y trouve tout ce qu'il faut pour nos animaux.</p>
+</div>
+<div class="av-card fade-up" style="transition-delay:.1s">
+<div class="av-head">
+<div class="av-av">J</div>
+<div>
+<div class="av-name">Jean-Paul K.</div>
+<div class="av-date">Avis Google vérifié</div>
+</div>
+</div>
+<div class="stars" style="margin-bottom:8px;justify-content:flex-start">
+<svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+<svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+<svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+<svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+<svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+</div>
+<p class="av-txt">Je viens ici depuis longtemps pour mes poissons. Le rayon aquariophilie est bien fourni et le personnel maîtrise son sujet.</p>
+</div>
+<div class="av-card fade-up" style="transition-delay:.2s">
+<div class="av-head">
+<div class="av-av">S</div>
+<div>
+<div class="av-name">Sophie B.</div>
+<div class="av-date">Avis Google vérifié</div>
+</div>
+</div>
+<div class="stars" style="margin-bottom:8px;justify-content:flex-start">
+<svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+<svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+<svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+<svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+<svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+</div>
+<p class="av-txt">Sympathique et de bon conseil. Les animaux sont en bonne santé et bien présentés. Je recommande sans hésiter.</p>
+</div>
+</div>
+<div class="badges fade-up" style="margin-top:36px">
+<div class="badge">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+Note 4.8 / 5 sur Google
+</div>
+<div class="badge">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+Équipe locale à votre écoute
+</div>
+<div class="badge">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+Rue Lavoisier, Nouméa
+</div>
+<div class="badge">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+Ouvert 7 jours sur 7
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="ft-grid">
+<div>
+<div class="ft-brand">La Maison Verte<small>Animalerie · Nouméa</small></div>
+<p>Votre animalerie de confiance à Nouméa depuis des années. Conseil, animaux et fournitures — rue Lavoisier, sous le soleil calédonien.</p>
+<div class="ft-soc">
+<a href="https://www.facebook.com/La-Maison-Verte-145331379377838" target="_blank" rel="noopener" aria-label="Facebook La Maison Verte">
+<svg width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+</a>
+</div>
+</div>
+<div class="ft">
+<h4>Navigation</h4>
+<ul>
+<li><a href="#services">Nos rayons</a></li>
+<li><a href="#metier">L'enseigne</a></li>
+<li><a href="#galerie">Galerie</a></li>
+<li><a href="#avis">Avis clients</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+<div class="ft">
+<h4>Nous trouver</h4>
+<p>4 Rue Lavoisier<br>98800 Nouméa<br>Nouvelle-Calédonie</p>
+<a href="tel:+68728667" class="ft-tel">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.02 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+28.66.76
+</a>
+<p style="margin-top:8px;font-size:.8rem;color:rgba(255,255,255,.6)">Ouvert 7 jours sur 7</p>
+</div>
+</div>
+<div class="ft-bottom">
+<span>© 2026 La Maison Verte. Tous droits réservés.</span>
+<a href="https://setup.nc" target="_blank" rel="noopener">Site réalisé par Setup NC</a>
+</div>
+</footer>
+
+<script>
+var lb=document.getElementById('lb'),lbI=document.getElementById('lbImg');
+document.querySelectorAll('.gal-item').forEach(function(el){
+el.addEventListener('click',function(){lbI.src=el.dataset.src;lb.classList.add('open')});
+});
+document.getElementById('lbClose').addEventListener('click',function(){lb.classList.remove('open')});
+lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('open')});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('open')});
+
+var io2=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.15});
+document.querySelectorAll('.fade-up').forEach(function(el){io2.observe(el)});
+
+var cf=document.getElementById('contactForm');
+cf.addEventListener('submit',function(e){
+e.preventDefault();
+var ok=true;
+[['fi-nom','nom'],['fi-email','email'],['fi-tel','tel'],['fi-msg','msg']].forEach(function(p){
+var fi=document.getElementById(p[0]),v=document.getElementById(p[1]).value.trim();
+var inv=(p[1]==='email')?!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v):v.length<2;
+fi.classList.toggle('invalid',inv);
+if(inv)ok=false;
+});
+if(!ok)return;
+var btn=document.getElementById('submitBtn');
+btn.textContent='Envoi…';btn.disabled=true;
+setTimeout(function(){cf.style.display='none';document.getElementById('fOk').style.display='block';},900);
+});
+</script>
+
+</body>
+</html>
