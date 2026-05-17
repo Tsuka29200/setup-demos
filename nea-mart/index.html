@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEA MART — Nouméa</title>
+<meta name="description" content="NEA MART, votre commerce maison et bricolage au cœur de Nouméa. Retrouvez tous vos essentiels au 46 Rue Georges-Clemenceau.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#F5C800;
+--cs:#1C1C00;
+--ca:#3DAF2C;
+--cb:#FFFFFF;
+--ct:#1C1C00;
+--f:'Oswald',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);color:var(--ct);background:var(--cb);overflow-x:hidden}
+
+/* BANDEAU SETUP NC */
+.setup-band{
+position:sticky;top:0;z-index:1001;
+height:44px;background:#ffd500;
+text-align:center;
+}
+.setup-band a{
+display:inline-block;
+font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;
+font-weight:700;font-size:14px;
+line-height:44px;letter-spacing:0.3px;
+color:#4375ff;text-decoration:none;
+}
+.setup-band a:hover{opacity:0.85}
+
+/* HEADER */
+.hdr{
+position:sticky;top:44px;z-index:1000;
+background:var(--cs);
+display:flex;align-items:center;justify-content:space-between;
+padding:0 24px;height:64px;
+}
+.hdr-logo{
+font-family:var(--f);font-weight:700;font-size:22px;
+color:var(--cp);letter-spacing:2px;text-decoration:none;
+}
+.hdr-logo span{color:var(--cb);font-weight:400}
+.hdr-nav{display:flex;gap:24px;list-style:none}
+.hdr-nav a{
+font-family:var(--f);font-size:14px;font-weight:500;
+color:var(--cb);text-decoration:none;letter-spacing:1px;
+text-transform:uppercase;transition:opacity .2s;
+}
+.hdr-nav a:hover{opacity:0.7}
+.hdr-cta{
+display:flex;align-items:center;gap:16px;
+}
+.hdr-tel{
+font-family:var(--f);font-weight:600;font-size:15px;
+color:var(--cp);text-decoration:none;letter-spacing:1px;
+}
+.b{
+display:inline-flex;align-items:center;justify-content:center;
+font-family:var(--f);font-weight:600;font-size:14px;
+letter-spacing:1px;text-transform:uppercase;
+text-decoration:none;border:none;cursor:pointer;
+transition:transform .15s,box-shadow .15s;
+}
+.b:active{transform:scale(.97);box-shadow:inset 0 2px 6px rgba(0,0,0,.25)}
+.b-primary{background:var(--cp);color:var(--cs);padding:10px 22px;border-radius:2px}
+.b-primary:hover{opacity:.9}
+.b-green{background:var(--ca);color:#fff;padding:10px 22px;border-radius:2px}
+.b-green:hover{opacity:.9}
+.b-outline{background:transparent;color:var(--cp);border:2px solid var(--cp);padding:10px 22px;border-radius:2px}
+.b-outline:hover{background:var(--cp);color:var(--cs)}
+
+/* HAMBURGER */
+.hmb{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hmb span{display:block;width:26px;height:2px;background:var(--cp);transition:transform .3s,opacity .3s}
+.mob-nav{display:none;position:fixed;top:108px;left:0;right:0;bottom:0;background:var(--cs);z-index:999;padding:32px 24px;flex-direction:column;gap:24px}
+.mob-nav.open{display:flex}
+.mob-nav a{font-family:var(--f);font-size:20px;font-weight:600;color:var(--cb);text-decoration:none;letter-spacing:2px;text-transform:uppercase;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.mob-nav .hdr-tel{font-size:18px;margin-top:16px}
+
+/* HERO */
+.hero{
+position:relative;min-height:100vh;
+display:flex;align-items:center;
+background:url('https://i.ibb.co/WvgJ1XvK/NEA-MART-0.jpg') center/cover no-repeat;
+}
+.hero-ov{
+position:absolute;inset:0;
+background:linear-gradient(135deg,rgba(28,28,0,.82) 0%,rgba(28,28,0,.55) 60%,rgba(245,200,0,.18) 100%);
+}
+.hero-content{
+position:relative;z-index:2;
+max-width:1200px;margin:0 auto;padding:0 24px;
+display:flex;flex-direction:column;gap:24px;
+}
+
+/* PROMO BANNER */
+.promo-ticker{
+overflow:hidden;background:var(--cp);
+border-radius:4px;padding:10px 0;
+margin-bottom:8px;max-width:560px;
+}
+.promo-ticker-inner{
+display:flex;gap:48px;
+animation:ticker 18s linear infinite;
+white-space:nowrap;
+}
+.promo-ticker-inner span{
+font-family:var(--f);font-weight:700;font-size:13px;
+color:var(--cs);letter-spacing:1.5px;text-transform:uppercase;
+display:flex;align-items:center;gap:8px;
+}
+.promo-ticker-inner span::before{content:'★';color:var(--ca)}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+.hero h1{
+font-family:var(--f);font-weight:700;font-size:clamp(36px,6vw,72px);
+color:var(--cb);line-height:1.05;letter-spacing:2px;text-transform:uppercase;
+}
+.hero h1 em{color:var(--cp);font-style:normal}
+.hero-sub{
+font-family:var(--f);font-size:clamp(16px,2vw,20px);
+color:rgba(255,255,255,.85);font-weight:400;
+max-width:480px;line-height:1.5;letter-spacing:.5px;
+}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+
+/* BADGE PULSE */
+.badge-pulse{
+display:inline-flex;align-items:center;gap:8px;
+background:var(--ca);color:#fff;
+font-family:var(--f);font-weight:700;font-size:12px;
+letter-spacing:1.5px;text-transform:uppercase;
+padding:6px 14px;border-radius:2px;
+animation:pulse 2.2s ease-in-out infinite;
+max-width:fit-content;
+}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(61,175,44,.5)}50%{box-shadow:0 0 0 8px rgba(61,175,44,0)}}
+
+/* SCROLL INDICATOR */
+.scroll-ind{
+display:flex;flex-direction:column;align-items:center;gap:6px;
+color:rgba(255,255,255,.6);font-size:12px;letter-spacing:2px;text-transform:uppercase;
+animation:bob 2s ease-in-out infinite;margin-top:16px;
+}
+.scroll-ind svg{width:24px;height:24px;stroke:rgba(255,255,255,.6);fill:none}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* STATS */
+.stats{
+background:var(--cs);padding:48px 24px;
+}
+.stats-inner{
+max-width:1200px;margin:0 auto;
+display:grid;grid-template-columns:repeat(4,1fr);gap:32px;
+}
+.stat-item{text-align:center}
+.stat-num{
+font-family:var(--f);font-weight:700;font-size:clamp(32px,4vw,52px);
+color:var(--cp);letter-spacing:2px;
+}
+.stat-unit{font-size:0.6em;vertical-align:super}
+.stat-label{
+font-family:var(--f);font-weight:400;font-size:14px;
+color:rgba(255,255,255,.7);letter-spacing:2px;text-transform:uppercase;margin-top:6px;
+}
+.stat-div{
+width:40px;height:3px;background:var(--ca);
+margin:10px auto 0;border-radius:2px;
+}
+
+/* CATEGORIES */
+.s{padding:64px 24px}
+.s-inner{max-width:1200px;margin:0 auto}
+.s-label{
+font-family:var(--f);font-weight:600;font-size:12px;
+letter-spacing:3px;text-transform:uppercase;color:var(--ca);margin-bottom:8px;
+}
+.h{
+font-family:var(--f);font-weight:700;text-transform:uppercase;letter-spacing:2px;
+}
+.h1{font-size:clamp(28px,4vw,48px);color:var(--cs);line-height:1.1}
+.h2{font-size:clamp(22px,3vw,36px);color:var(--cs);line-height:1.15}
+.s-head{margin-bottom:40px}
+.s-head .h-line{
+width:56px;height:4px;background:var(--cp);border-radius:2px;margin-top:12px;
+}
+
+.cat-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+.cat-card{
+position:relative;overflow:hidden;border-radius:4px;
+cursor:pointer;text-decoration:none;
+aspect-ratio:4/3;
+transition:transform .25s,box-shadow .25s;
+}
+.cat-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(28,28,0,.18)}
+.cat-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.cat-card:hover img{transform:scale(1.05)}
+.cat-ov{
+position:absolute;inset:0;
+background:linear-gradient(0deg,rgba(28,28,0,.75) 0%,rgba(28,28,0,.1) 60%);
+display:flex;flex-direction:column;justify-content:flex-end;
+padding:20px;
+}
+.cat-tag{
+display:inline-block;background:var(--ca);color:#fff;
+font-family:var(--f);font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+padding:4px 10px;border-radius:2px;margin-bottom:8px;align-self:flex-start;
+}
+.cat-name{
+font-family:var(--f);font-weight:700;font-size:20px;
+color:#fff;letter-spacing:2px;text-transform:uppercase;line-height:1.1;
+}
+.cat-arrow{
+font-size:12px;color:var(--cp);letter-spacing:1.5px;
+font-weight:600;margin-top:6px;
+}
+
+/* PROMO SECTION */
+.promo-s{background:#f8f8f0;padding:64px 24px}
+.promo-s-inner{max-width:1200px;margin:0 auto}
+.promo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.c{
+background:#fff;border-radius:4px;overflow:hidden;
+transition:transform .25s,box-shadow .25s;
+border:1px solid rgba(28,28,0,.06);
+}
+.c:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(28,28,0,.14)}
+.c-img{position:relative;overflow:hidden;aspect-ratio:1;background:#f0f0e0}
+.c-img img{width:100%;height:100%;object-fit:cover;display:block}
+.c-badge{
+position:absolute;top:10px;left:10px;
+background:var(--cp);color:var(--cs);
+font-family:var(--f);font-weight:700;font-size:13px;
+letter-spacing:1px;padding:4px 10px;border-radius:2px;
+animation:pulse 2.2s ease-in-out infinite;
+}
+.c-body{padding:16px}
+.c-name{
+font-family:var(--f);font-weight:600;font-size:15px;
+color:var(--cs);letter-spacing:.5px;margin-bottom:8px;
+text-transform:uppercase;
+}
+.c-price-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.c-old{font-size:13px;color:#999;text-decoration:line-through;font-weight:400}
+.c-new{
+font-family:var(--f);font-weight:700;font-size:20px;
+color:var(--cs);letter-spacing:1px;
+}
+.c-new span{font-size:13px;font-weight:400}
+.c-stock{
+display:inline-flex;align-items:center;gap:4px;
+font-family:var(--f);font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+color:var(--ca);margin-top:8px;
+}
+.c-stock::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--ca)}
+
+/* BESTSELLERS */
+.best-s{padding:64px 24px}
+.best-s-inner{max-width:1200px;margin:0 auto}
+.best-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+
+/* LIVRAISON */
+.liv-s{background:var(--cs);padding:64px 24px}
+.liv-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.liv-h{font-family:var(--f);font-weight:700;font-size:clamp(24px,3vw,40px);color:var(--cp);text-transform:uppercase;letter-spacing:2px;margin-bottom:24px}
+.liv-items{display:flex;flex-direction:column;gap:20px}
+.liv-item{display:flex;align-items:flex-start;gap:16px}
+.liv-icon{
+width:48px;height:48px;min-width:48px;border-radius:4px;
+background:var(--cp);display:flex;align-items:center;justify-content:center;
+}
+.liv-icon svg{width:26px;height:26px;fill:var(--cs)}
+.liv-item-text .lt{font-family:var(--f);font-weight:700;font-size:16px;color:#fff;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+.liv-item-text .ld{font-family:var(--f);font-size:14px;color:rgba(255,255,255,.65);font-weight:400;line-height:1.5}
+.liv-map{background:rgba(255,255,255,.06);border-radius:4px;padding:32px;border:1px solid rgba(245,200,0,.2)}
+.liv-addr{font-family:var(--f);font-size:15px;color:rgba(255,255,255,.85);line-height:1.7;font-weight:400}
+.liv-addr strong{color:var(--cp);display:block;font-size:18px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+
+/* AVIS */
+.avis-s{background:#f8f8f0;padding:64px 24px}
+.avis-inner{max-width:1200px;margin:0 auto}
+.avis-score{
+display:flex;align-items:center;gap:24px;margin-bottom:40px;flex-wrap:wrap;
+}
+.avis-num{
+font-family:var(--f);font-weight:700;font-size:72px;
+color:var(--cp);line-height:1;letter-spacing:-2px;
+}
+.avis-stars{display:flex;gap:4px;margin-bottom:6px}
+.star{font-size:22px;color:var(--cp)}
+.star.half{color:#ccc;position:relative}
+.star.half::before{content:'★';position:absolute;left:0;color:var(--cp);width:50%;overflow:hidden}
+.star.empty{color:#ccc}
+.avis-count{font-family:var(--f);font-size:13px;color:#666;letter-spacing:1px;text-transform:uppercase}
+.avis-source{font-family:var(--f);font-size:11px;color:var(--ca);font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-top:2px}
+.avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.avis-card{background:#fff;border-radius:4px;padding:24px;border:1px solid rgba(28,28,0,.07);border-top:3px solid var(--cp)}
+.avis-card-stars{display:flex;gap:3px;margin-bottom:12px}
+.avis-card-stars .star{font-size:15px}
+.avis-text{font-family:var(--f);font-size:15px;color:#444;font-weight:400;line-height:1.6;font-style:italic;margin-bottom:16px}
+.avis-author{font-family:var(--f);font-weight:600;font-size:13px;color:var(--cs);letter-spacing:1px;text-transform:uppercase}
+
+/* HORAIRES */
+.hor-s{padding:64px 24px}
+.hor-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.hor-box{background:var(--cs);border-radius:4px;padding:40px;border-top:4px solid var(--cp)}
+.hor-title{font-family:var(--f);font-weight:700;font-size:24px;color:var(--cp);text-transform:uppercase;letter-spacing:2px;margin-bottom:24px}
+.hor-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.hor-day{font-family:var(--f);font-size:14px;color:rgba(255,255,255,.65);font-weight:400;letter-spacing:1px;text-transform:uppercase}
+.hor-time{font-family:var(--f);font-size:15px;color:#fff;font-weight:600;letter-spacing:.5px}
+.hor-closed{color:#ff6b6b}
+.hor-info{display:flex;flex-direction:column;gap:24px;padding-top:8px}
+.hor-info-item{
+background:#f8f8f0;border-radius:4px;padding:24px;
+border-left:4px solid var(--cp);
+}
+.hor-info-label{font-family:var(--f);font-size:11px;color:var(--ca);font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
+.hor-info-val{font-family:var(--f);font-size:16px;color:var(--cs);font-weight:600;letter-spacing:.5px}
+
+/* FOOTER */
+.ft{background:var(--cs);border-top:3px solid var(--cp);padding:48px 24px 24px}
+.ft-inner{max-width:1200px;margin:0 auto}
+.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:40px}
+.ft-brand{display:flex;flex-direction:column;gap:12px}
+.ft-logo{font-family:var(--f);font-weight:700;font-size:26px;color:var(--cp);letter-spacing:3px}
+.ft-logo span{color:#fff;font-weight:400}
+.ft-tagline{font-family:var(--f);font-size:13px;color:rgba(255,255,255,.55);font-weight:400;line-height:1.6;letter-spacing:.5px;max-width:280px}
+.ft-social{display:flex;gap:12px;margin-top:8px}
+.ft-soc-link{
+width:40px;height:40px;border-radius:2px;background:rgba(255,255,255,.08);
+display:flex;align-items:center;justify-content:center;text-decoration:none;
+transition:background .2s,transform .2s;
+}
+.ft-soc-link:hover{background:var(--cp);transform:translateY(-2px)}
+.ft-soc-link svg{width:18px;height:18px;fill:#fff}
+.ft-soc-link:hover svg{fill:var(--cs)}
+.ft-col-title{font-family:var(--f);font-weight:700;font-size:13px;color:var(--cp);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-col ul a{font-family:var(--f);font-size:13px;color:rgba(255,255,255,.6);text-decoration:none;font-weight:400;letter-spacing:.5px;transition:color .2s}
+.ft-col ul a:hover{color:var(--cp)}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ft-copy{font-family:var(--f);font-size:12px;color:rgba(255,255,255,.35);font-weight:400;letter-spacing:.5px}
+.ft-maker{font-family:var(--f);font-size:12px;color:rgba(255,255,255,.35);font-weight:400;letter-spacing:.5px}
+.ft-maker a{color:var(--cp);text-decoration:none}
+.ft-maker a:hover{text-decoration:underline}
+
+/* FORMULAIRE */
+.form-s{background:var(--cb);padding:64px 24px}
+.form-inner{max-width:720px;margin:0 auto}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.form-full{grid-column:1/-1}
+.fg{display:flex;flex-direction:column;gap:6px}
+.fg label{font-family:var(--f);font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--cs)}
+.fg input,.fg textarea{
+font-family:var(--f);font-size:15px;color:var(--cs);
+border:2px solid #e0e0d0;border-radius:2px;
+padding:12px 16px;background:#fafaf5;
+outline:none;transition:border-color .2s;width:100%;
+}
+.fg input:focus,.fg textarea:focus{border-color:var(--cp)}
+.fg textarea{resize:vertical;min-height:120px}
+.form-msg{
+display:none;background:var(--ca);color:#fff;
+font-family:var(--f);font-size:14px;font-weight:600;letter-spacing:1px;text-transform:uppercase;
+padding:16px 24px;border-radius:2px;text-align:center;margin-top:16px;
+}
+.form-loader{display:none;text-align:center;margin-top:12px;color:var(--ca);font-family:var(--f);font-size:13px;letter-spacing:1px;text-transform:uppercase}
+
+/* GAELRIE */
+.gal-s{background:#f8f8f0;padding:64px 24px}
+.gal-inner{max-width:1200px;margin:0 auto}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.gal-item{
+border-radius:4px;overflow:hidden;cursor:pointer;
+aspect-ratio:1;position:relative;
+transition:transform .25s,box-shadow .25s;
+}
+.gal-item:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(28,28,0,.18)}
+.gal-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.gal-item:hover img{transform:scale(1.05)}
+.gal-item-ov{position:absolute;inset:0;background:rgba(28,28,0,.0);display:flex;align-items:center;justify-content:center;transition:background .3s}
+.gal-item:hover .gal-item-ov{background:rgba(28,28,0,.35)}
+.gal-zoom{opacity:0;font-size:28px;color:#fff;transition:opacity .3s}
+.gal-item:hover .gal-zoom{opacity:1}
+
+/* LIGHTBOX */
+.lbx{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;display:none;align-items:center;justify-content:center}
+.lbx.open{display:flex}
+.lbx img{max-width:90vw;max-height:90vh;border-radius:4px;object-fit:contain}
+.lbx-close{position:absolute;top:24px;right:28px;font-size:36px;color:#fff;cursor:pointer;line-height:1;background:none;border:none}
+
+/* COUNTER ANIM */
+.cnt{display:inline-block}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.hdr-nav{display:none}
+.hdr-cta .b{display:none}
+.hmb{display:flex}
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+.cat-grid{grid-template-columns:repeat(2,1fr)}
+.promo-grid{grid-template-columns:repeat(2,1fr)}
+.best-grid{grid-template-columns:repeat(2,1fr)}
+.liv-inner{grid-template-columns:1fr}
+.hor-inner{grid-template-columns:1fr}
+.avis-grid{grid-template-columns:1fr}
+.ft-top{grid-template-columns:1fr 1fr}
+.form-grid{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+.setup-band a{font-size:13px;line-height:40px}
+.setup-band{height:40px}
+.hdr{top:40px;padding:0 16px;height:56px}
+.mob-nav{top:96px}
+.hdr-logo{font-size:18px}
+.hero-btns{flex-direction:column}
+.hero-btns .b{width:100%;min-height:48px}
+.stats-inner{grid-template-columns:1fr 1fr;gap:16px}
+.cat-grid{grid-template-columns:1fr 1fr;gap:12px}
+.promo-grid{grid-template-columns:1fr}
+.best-grid{grid-template-columns:1fr 1fr;gap:12px}
+.avis-score{flex-direction:column;align-items:flex-start;gap:8px}
+.avis-num{font-size:52px}
+.ft-top{grid-template-columns:1fr}
+.ft-top>div:not(.ft-brand){display:none}
+.gal-grid{grid-template-columns:1fr 1fr;gap:10px}
+.s{padding:40px 16px}
+.promo-s{padding:40px 16px}
+.best-s{padding:40px 16px}
+.liv-s{padding:40px 16px}
+.avis-s{padding:40px 16px}
+.hor-s{padding:40px 16px}
+.form-s{padding:40px 16px}
+.gal-s{padding:40px 16px}
+.stats{padding:32px 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU SETUP NC -->
+<div class="setup-band">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr">
+  <a href="#" class="hdr-logo">NEA<span>MART</span></a>
+  <nav>
+    <ul class="hdr-nav">
+      <li><a href="#categories">Catégories</a></li>
+      <li><a href="#promos">Promos</a></li>
+      <li><a href="#livraison">Infos</a></li>
+      <li><a href="#avis">Avis</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="hdr-cta">
+    <a href="tel:+687247076" class="hdr-tel">24.70.76</a>
+    <a href="#contact" class="b b-primary">Nous contacter</a>
+    <button class="hmb" id="hmb" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<nav class="mob-nav" id="mobNav">
+  <a href="#categories" onclick="closeNav()">Catégories</a>
+  <a href="#promos" onclick="closeNav()">Promos</a>
+  <a href="#livraison" onclick="closeNav()">Infos pratiques</a>
+  <a href="#avis" onclick="closeNav()">Avis clients</a>
+  <a href="#contact" onclick="closeNav()">Contact</a>
+  <a href="tel:+687247076" class="hdr-tel">📞 24.70.76</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-ov"></div>
+  <div class="hero-content">
+    <div class="promo-ticker">
+      <div class="promo-ticker-inner">
+        <span>Promotions en cours</span>
+        <span>Maison & Bricolage</span>
+        <span>Stock disponible en boutique</span>
+        <span>Nouméa Centre-Ville</span>
+        <span>Promotions en cours</span>
+        <span>Maison & Bricolage</span>
+        <span>Stock disponible en boutique</span>
+        <span>Nouméa Centre-Ville</span>
+      </div>
+    </div>
+    <div class="badge-pulse">🏪 Ouvert à Nouméa</div>
+    <h1 class="hero-h">Les <em>essentiels</em><br>à proximité</h1>
+    <p class="hero-sub">NEA MART, votre commerce maison et bricolage au cœur de Nouméa. Tout ce qu'il vous faut, disponible maintenant.</p>
+    <div class="hero-btns">
+      <a href="#promos" class="b b-primary" style="font-size:16px;padding:14px 32px">Voir les promos</a>
+      <a href="#categories" class="b b-outline" style="font-size:16px;padding:14px 32px">Explorer les rayons</a>
+    </div>
+    <div class="scroll-ind">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      Découvrir
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats" id="stats">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num"><span class="cnt" data-target="500">0</span><span class="stat-unit">+</span></div>
+      <div class="stat-div"></div>
+      <div class="stat-label">Références disponibles</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num"><span class="cnt" data-target="5">0</span></div>
+      <div class="stat-div"></div>
+      <div class="stat-label">Univers produits</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num"><span class="cnt" data-target="7">0</span>j<span class="stat-unit">/</span>7</div>
+      <div class="stat-div"></div>
+      <div class="stat-label">Jours d'ouverture</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Au <span class="cnt" data-target="46">0</span></div>
+      <div class="stat-div"></div>
+      <div class="stat-label">Rue Clemenceau, Nouméa</div>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="s" id="categories">
+  <div class="s-inner">
+    <div class="s-head">
+      <div class="s-label">Nos univers</div>
+      <h2 class="h h1">Tout pour votre maison</h2>
+      <div class="h-line"></div>
+    </div>
+    <div class="cat-grid">
+      <a href="#" class="cat-card">
+        <img src="https://i.ibb.co/ds6dTCdC/NEA-MART-1.jpg" alt="Bricolage et outillage" loading="lazy">
+        <div class="cat-ov">
+          <span class="cat-tag">Rayon</span>
+          <div class="cat-name">Bricolage & Outillage</div>
+          <div class="cat-arrow">Explorer →</div>
+        </div>
+      </a>
+      <a href="#" class="cat-card">
+        <img src="https://i.ibb.co/qqF3PTx/NEA-MART-2.jpg" alt="Maison et décoration" loading="lazy">
+        <div class="cat-ov">
+          <span class="cat-tag">Rayon</span>
+          <div class="cat-name">Maison & Décoration</div>
+          <div class="cat-arrow">Explorer →</div>
+        </div>
+      </a>
+      <a href="#" class="cat-card">
+        <img src="https://i.ibb.co/60p0rsvq/NEA-MART-3.jpg" alt="Entretien et nettoyage" loading="lazy">
+        <div class="cat-ov">
+          <span class="cat-tag">Rayon</span>
+          <div class="cat-name">Entretien & Nettoyage</div>
+          <div class="cat-arrow">Explorer →</div>
+        </div>
+      </a>
+      <a href="#" class="cat-card">
+        <img src="https://i.ibb.co/WvgJ1XvK/NEA-MART-0.jpg" alt="Jardinage et extérieur" loading="lazy">
+        <div class="cat-ov">
+          <span class="cat-tag">Rayon</span>
+          <div class="cat-name">Jardinage & Extérieur</div>
+          <div class="cat-arrow">Explorer →</div>
+        </div>
+      </a>
+      <a href="#" class="cat-card">
+        <img src="https://i.ibb.co/ds6dTCdC/NEA-MART-1.jpg" alt="Rangement et organisation" loading="lazy">
+        <div class="cat-ov">
+          <span class="cat-tag">Rayon</span>
+          <div class="cat-name">Rangement & Organisation</div>
+          <div class="cat-arrow">Explorer →</div>
+        </div>
+      </a>
+      <a href="#" class="cat-card">
+        <img src="https://i.ibb.co/qqF3PTx/NEA-MART-2.jpg" alt="Cuisine et ustensiles" loading="lazy">
+        <div class="cat-ov">
+          <span class="cat-tag">Rayon</span>
+          <div class="cat-name">Cuisine & Ustensiles</div>
+          <div class="cat-arrow">Explorer →</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PROMOS -->
+<section class="promo-s" id="promos">
+  <div class="promo-s-inner">
+    <div class="s-head">
+      <div class="s-label">Offres du moment</div>
+      <h2 class="h h1">Promotions en cours</h2>
+      <div class="h-line"></div>
+    </div>
+    <div class="promo-grid">
+      <div class="c">
+        <div class="c-img">
+          <img src="https://i.ibb.co/WvgJ1XvK/NEA-MART-0.jpg" alt="Produit maison" loading="lazy">
+          <div class="c-badge">−20%</div>
+        </div>
+        <div class="c-body">
+          <div class="c-name">Ensemble nettoyage sol</div>
+          <div class="c-price-row">
+            <span class="c-old">1 890 F</span>
+            <span class="c-new">1 490 <span>CFP</span></span>
+          </div>
+          <div class="c-stock">En stock</div>
+        </div>
+      </div>
+      <div class="c">
+        <div class="c-img">
+          <img src="https://i.ibb.co/ds6dTCdC/NEA-MART-1.jpg" alt="Outillage" loading="lazy">
+          <div class="c-badge">−15%</div>
+        </div>
+        <div class="c-body">
+          <div class="c-name">Kit outils bricolage</div>
+          <div class="c-price-row">
+            <span class="c-old">3 500 F</span>
+            <span class="c-new">2 990 <span>CFP</span></span>
+          </div>
+          <div class="c-stock">En stock</div>
+        </div>
+      </div>
+      <div class="c">
+        <div class="c-img">
+          <img src="https://i.ibb.co/qqF3PTx/NEA-MART-2.jpg" alt="Rangement" loading="lazy">
+          <div class="c-badge">−25%</div>
+        </div>
+        <div class="c-body">
+          <div class="c-name">Bac de rangement multiusage</div>
+          <div class="c-price-row">
+            <span class="c-old">1 200 F</span>
+            <span class="c-new">890 <span>CFP</span></span>
+          </div>
+          <div class="c-stock">En stock</div>
+        </div>
+      </div>
+      <div class="c">
+        <div class="c-img">
+          <img src="https://i.ibb.co/60p0rsvq/NEA-MART-3.jpg" alt="Jardinage" loading="lazy">
+          <div class="c-badge">−10%</div>
+        </div>
+        <div class="c-body">
+          <div class="c-name">Arrosoir compact 5L</div>
+          <div class="c-price-row">
+            <span class="c-old">1 100 F</span>
+            <span class="c-new">990 <span>CFP</span></span>
+          </div>
+          <div class="c-stock">En stock</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BESTSELLERS -->
+<section class="best-s" id="bestsellers">
+  <div class="best-s-inner">
+    <div class="s-head">
+      <div class="s-label">Les incontournables</div>
+      <h2 class="h h1">Bestsellers du quartier</h2>
+      <div class="h-line"></div>
+    </div>
+    <div class="best-grid">
+      <div class="c">
+        <div class="c-img">
+          <img src="https://i.ibb.co/ds6dTCdC/NEA-MART-1.jpg" alt="Balai brosse" loading="lazy">
+        </div>
+        <div class="c-body">
+          <div class="c-name">Balai brosse robuste</div>
+          <div class="c-price-row">
+            <span class="c-new">590 <span>CFP</span></span>
+          </div>
+          <div class="c-stock">En stock</div>
+        </div>
+      </div>
+      <div class="c">
+        <div class="c-img">
+          <img src="https://i.ibb.co/qqF3PTx/NEA-MART-2.jpg" alt="Seau ménage" loading="lazy">
+        </div>
+        <div class="c-body">
+          <div class="c-name">Seau ménager 10L</div>
+          <div class="c-price-row">
+            <span class="c-new">490 <span>CFP</span></span>
+          </div>
+          <div class="c-stock">En stock</div>
+        </div>
+      </div>
+      <div class="c">
+        <div class="c-img">
+          <img src="https://i.ibb.co/60p0rsvq/NEA-MART-3.jpg" alt="Gants protection" loading="lazy">
+        </div>
+        <div class="c-body">
+          <div class="c-name">Gants de protection</div>
+          <div class="c-price-row">
+            <span class="c-new">290 <span>CFP</span></span>
+          </div>
+          <div class="c-stock">En stock</div>
+        </div>
+      </div>
+      <div class="c">
+        <div class="c-img">
+          <img src="https://i.ibb.co/WvgJ1XvK/NEA-MART-0.jpg" alt="Ruban adhésif" loading="lazy">
+        </div>
+        <div class="c-body">
+          <div class="c-name">Ruban adhésif multi-usages</div>
+          <div class="c-price-row">
+            <span class="c-new">350 <span>CFP</span></span>
+          </div>
+          <div class="c-stock">En stock</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVRAISON / INFOS -->
+<section class="liv-s" id="livraison">
+  <div class="liv-inner">
+    <div>
+      <h2 class="liv-h">Infos pratiques</h2>
+      <div class="liv-items">
+        <div class="liv-item">
+          <div class="liv-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="liv-item-text">
+            <div class="lt">Retrait en boutique</div>
+            <div class="ld">Venez directement au 46 Rue Georges-Clemenceau à Nouméa. Disponible immédiatement.</div>
+          </div>
+        </div>
+        <div class="liv-item">
+          <div class="liv-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="liv-item-text">
+            <div class="lt">Ouvert 7j/7</div>
+            <div class="ld">Nous sommes ouverts tous les jours pour répondre à vos besoins urgents en maison et bricolage.</div>
+          </div>
+        </div>
+        <div class="liv-item">
+          <div class="liv-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.9-.9a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/></svg>
+          </div>
+          <div class="liv-item-text">
+            <div class="lt">Appelez-nous</div>
+            <div class="ld">Notre équipe répond au <a href="tel:+687247076" style="color:var(--cp);text-decoration:none;font-weight:600">24.70.76</a> pour toute question sur nos produits.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="liv-map">
+      <div class="liv-addr">
+        <strong>NEA MART — Nouméa</strong>
+        46 Rue Georges-Clemenceau<br>
+        Nouméa 98800<br>
+        Nouvelle-Calédonie<br><br>
+        <a href="tel:+687247076" style="color:var(--cp);text-decoration:none;font-weight:600;font-size:20px;font-family:var(--f);letter-spacing:1px">📞 24.70.76</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AVIS -->
+<section class="avis-s" id="avis">
+  <div class="avis-inner">
+    <div class="s-head">
+      <div class="s-label">Ce que disent nos clients</div>
+      <h2 class="h h1">Avis clients</h2>
+      <div class="h-line"></div>
+    </div>
+    <div class="avis-score">
+      <div class="avis-num">3.3</div>
+      <div>
+        <div class="avis-stars">
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star half">★</span>
+          <span class="star empty">★</span>
+        </div>
+        <div class="avis-count">Basé sur 3 avis</div>
+        <div class="avis-source">Google Maps</div>
+      </div>
+    </div>
+    <div class="avis-grid">
+      <div class="avis-card">
+        <div class="avis-card-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="avis-text">"Bon magasin de quartier, on trouve ce qu'on cherche rapidement. Personnel serviable."</p>
+        <div class="avis-author">Client NEA MART</div>
+      </div>
+      <div class="avis-card">
+        <div class="avis-card-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span><span class="star empty">★</span>
+        </div>
+        <p class="avis-text">"Pratique pour les urgences bricolage en centre-ville. Bon choix de produits essentiels."</p>
+        <div class="avis-author">Client NEA MART</div>
+      </div>
+      <div class="avis-card">
+        <div class="avis-card-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span>
+        </div>
+        <p class="avis-text">"Commerce de proximité utile, ouvert régulièrement. Je recommande pour les produits ménagers."</p>
+        <div class="avis-author">Client NEA MART</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HORAIRES -->
+<section class="hor-s" id="horaires">
+  <div class="hor-inner">
+    <div class="hor-box">
+      <div class="hor-title">Nos horaires</div>
+      <div class="hor-row"><span class="hor-day">Lundi</span><span class="hor-time">7h30 – 18h00</span></div>
+      <div class="hor-row"><span class="hor-day">Mardi</span><span class="hor-time">7h30 – 18h00</span></div>
+      <div class="hor-row"><span class="hor-day">Mercredi</span><span class="hor-time">7h30 – 18h00</span></div>
+      <div class="hor-row"><span class="hor-day">Jeudi</span><span class="hor-time">7h30 – 18h00</span></div>
+      <div class="hor-row"><span class="hor-day">Vendredi</span><span class="hor-time">7h30 – 18h00</span></div>
+      <div class="hor-row"><span class="hor-day">Samedi</span><span class="hor-time">7h30 – 17h00</span></div>
+      <div class="hor-row"><span class="hor-day">Dimanche</span><span class="hor-time">8h00 – 12h00</span></div>
+    </div>
+    <div class="hor-info">
+      <div class="hor-info-item">
+        <div class="hor-info-label">Adresse</div>
+        <div class="hor-info-val">46 Rue Georges-Clemenceau, Nouméa 98800</div>
+      </div>
+      <div class="hor-info-item">
+        <div class="hor-info-label">Téléphone</div>
+        <div class="hor-info-val"><a href="tel:+687247076" style="color:var(--cs);text-decoration:none">24.70.76</a></div>
+      </div>
+      <div class="hor-info-item">
+        <div class="hor-info-label">Accès</div>
+        <div class="hor-info-val">Centre-ville Nouméa — parking à proximité</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="gal-s" id="galerie">
+  <div class="gal-inner">
+    <div class="s-head">
+      <div class="s-label">Découvrez NEA MART</div>
+      <h2 class="h h1">Notre boutique en images</h2>
+      <div class="h-line"></div>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item" onclick="openLbx('https://i.ibb.co/WvgJ1XvK/NEA-MART-0.jpg')">
+        <img src="https://i.ibb.co/WvgJ1XvK/NEA-MART-0.jpg" alt="NEA MART façade" loading="lazy">
+        <div class="gal-item-ov"><span class="gal-zoom">🔍</span></div>
+      </div>
+      <div class="gal-item" onclick="openLbx('https://i.ibb.co/ds6dTCdC/NEA-MART-1.jpg')">
+        <img src="https://i.ibb.co/ds6dTCdC/NEA-MART-1.jpg" alt="NEA MART intérieur" loading="lazy">
+        <div class="gal-item-ov"><span class="gal-zoom">🔍</span></div>
+      </div>
+      <div class="gal-item" onclick="openLbx('https://i.ibb.co/qqF3PTx/NEA-MART-2.jpg')">
+        <img src="https://i.ibb.co/qqF3PTx/NEA-MART-2.jpg" alt="NEA MART produits" loading="lazy">
+        <div class="gal-item-ov"><span class="gal-zoom">🔍</span></div>
+      </div>
+      <div class="gal-item" onclick="openLbx('https://i.ibb.co/60p0rsvq/NEA-MART-3.jpg')">
+        <img src="https://i.ibb.co/60p0rsvq/NEA-MART-3.jpg" alt="NEA MART rayon" loading="lazy">
+        <div class="gal-item-ov"><span class="gal-zoom">🔍</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lbx" id="lbx" onclick="closeLbx()">
+  <button class="lbx-close" onclick="closeLbx()">✕</button>
+  <img id="lbx-img" src="" alt="Aperçu">
+</div>
+
+<!-- FORMULAIRE -->
+<section class="form-s" id="contact">
+  <div class="form-inner">
+    <div class="s-head">
+      <div class="s-label">Nous écrire</div>
+      <h2 class="h h1">Contactez-nous</h2>
+      <div class="h-line"></div>
+      <p style="margin-top:12px;font-family:var(--f);font-size:15px;color:#555;font-weight:400;line-height:1.6">Une question sur nos produits ou disponibilités ? Notre équipe vous répond rapidement.</p>
+    </div>
+    <form id="cform" action="#" novalidate>
+      <div class="form-grid">
+        <div class="fg">
+          <label for="fn">Nom</label>
+          <input type="text" id="fn" name="nom" placeholder="Votre nom" required>
+        </div>
+        <div class="fg">
+          <label for="fe">Email</label>
+          <input type="email" id="fe" name="email" placeholder="votre@email.nc" required>
+        </div>
+        <div class="fg">
+          <label for="ft">Téléphone</label>
+          <input type="tel" id="ft" name="tel" placeholder="XX.XX.XX">
+        </div>
+        <div class="fg">
+          <label>&nbsp;</label>
+        </div>
+        <div class="fg form-full">
+          <label for="fm">Message</label>
+          <textarea id="fm" name="message" placeholder="Votre demande ou question..." required></textarea>
+        </div>
+        <div class="form-full" style="display:flex;justify-content:flex-start">
+          <button type="submit" class="b b-primary" style="font-size:16px;padding:14px 40px;min-height:48px">Envoyer le message</button>
+        </div>
+      </div>
+      <div class="form-loader" id="floader">Envoi en cours…</div>
+      <div class="form-msg" id="fmsg">✓ Message envoyé ! Nous vous répondrons rapidement.</div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ft" id="footer">
+  <div class="ft-inner">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <div class="ft-logo">NEA<span>MART</span></div>
+        <div class="ft-tagline">Votre commerce maison et bricolage au cœur de Nouméa. Tous vos essentiels, disponibles maintenant au 46 Rue Georges-Clemenceau.</div>
+        <div class="ft-social">
+          <a href="https://m.facebook.com/100057628652062" target="_blank" rel="noopener" class="ft-soc-link" aria-label="Facebook NEA MART">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="ft-col">
+        <div class="ft-col-title">Navigation</div>
+        <ul>
+          <li><a href="#categories">Catégories</a></li>
+          <li><a href="#promos">Promotions</a></li>
+          <li><a href="#livraison">Infos pratiques</a></li>
+          <li><a href="#avis">Avis clients</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <div class="ft-col-title">Contact</div>
+        <ul>
+          <li><a href="tel:+687247076">24.70.76</a></li>
+          <li><a href="#">46 Rue Georges-Clemenceau</a></li>
+          <li><a href="#">Nouméa 98800</a></li>
+          <li><a href="#">Nouvelle-Calédonie</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <div class="ft-copy">© 2026 NEA MART — Tous droits réservés</div>
+      <div class="ft-maker">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+var hmb=document.getElementById('hmb'),nav=document.getElementById('mobNav');
+function closeNav(){nav.classList.remove('open')}
+hmb.addEventListener('click',function(){nav.classList.toggle('open')});
+
+function openLbx(s){var l=document.getElementById('lbx');document.getElementById('lbx-img').src=s;l.classList.add('open')}
+function closeLbx(){document.getElementById('lbx').classList.remove('open')}
+
+var cnts=document.querySelectorAll('.cnt'),done=false;
+function animCnts(){
+if(done)return;done=true;
+cnts.forEach(function(el){
+var t=+el.dataset.target,d=1200,s=Date.now();
+(function upd(){
+var p=Math.min((Date.now()-s)/d,1);
+el.textContent=Math.round(p*t);
+if(p<1)requestAnimationFrame(upd);
+})();
+});
+}
+var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)animCnts()})},{threshold:.3});
+obs.observe(document.getElementById('stats'));
+
+document.getElementById('cform').addEventListener('submit',function(e){
+e.preventDefault();
+var fn=document.getElementById('fn').value.trim(),fe=document.getElementById('fe').value.trim(),fm=document.getElementById('fm').value.trim();
+if(!fn||!fe||!fm)return;
+var ld=document.getElementById('floader'),ms=document.getElementById('fmsg');
+ld.style.display='block';
+setTimeout(function(){ld.style.display='none';ms.style.display='block';document.getElementById('cform').reset();},1400);
+});
+</script>
+Comme demandé, voici UNIQUEMENT les sections manquantes, à la suite de la Part 1 :
+
+```html
+<!-- SERVICES -->
+<section class="s" id="services" style="background:#f8f8f0">
+  <div class="s-inner">
+    <div class="s-head">
+      <div class="s-label">Ce qu'on propose</div>
+      <h2 class="h h1">Nos services</h2>
+      <div class="h-line"></div>
+    </div>
+    <div class="srv-grid">
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h3 class="srv-title">Bricolage & Outillage</h3>
+        <p class="srv-desc">Outils essentiels, visserie, fixations et matériel de réparation pour tous vos travaux à domicile.</p>
+        <a href="#categories" class="b b-primary srv-cta">Voir le rayon</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3 class="srv-title">Maison & Ménage</h3>
+        <p class="srv-desc">Produits d'entretien, matériel de nettoyage et accessoires du quotidien pour garder votre intérieur impeccable.</p>
+        <a href="#categories" class="b b-primary srv-cta">Voir le rayon</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+        </div>
+        <h3 class="srv-title">Rangement & Organisation</h3>
+        <p class="srv-desc">Bacs, étagères, boîtes de rangement et solutions pratiques pour optimiser chaque espace de votre logement.</p>
+        <a href="#categories" class="b b-primary srv-cta">Voir le rayon</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="srv-title">Jardinage & Extérieur</h3>
+        <p class="srv-desc">Outils de jardin, arrosoirs, pots et accessoires pour entretenir vos espaces extérieurs sous le soleil calédonien.</p>
+        <a href="#categories" class="b b-primary srv-cta">Voir le rayon</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        </div>
+        <h3 class="srv-title">Cuisine & Ustensiles</h3>
+        <p class="srv-desc">Accessoires de cuisine, ustensiles pratiques et articles de table pour faciliter votre quotidien.</p>
+        <a href="#categories" class="b b-primary srv-cta">Voir le rayon</a>
+      </div>
+      <div class="srv-card srv-card-cta">
+        <div class="srv-icon srv-icon-dark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.9-.9a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/></svg>
+        </div>
+        <h3 class="srv-title srv-title-light">Besoin d'un conseil ?</h3>
+        <p class="srv-desc srv-desc-light">Notre équipe en boutique vous guide pour trouver le bon produit rapidement.</p>
+        <a href="tel:+687247076" class="b b-primary srv-cta">24.70.76</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s met-s" id="metier">
+  <div class="s-inner">
+    <div class="met-row">
+      <div class="met-text">
+        <div class="s-label">Notre histoire</div>
+        <h2 class="h h1">Le commerce de confiance du centre-ville</h2>
+        <div class="h-line"></div>
+        <p class="met-p">NEA MART s'est installé au cœur de Nouméa pour répondre à un besoin simple : avoir accès rapidement aux essentiels du quotidien, sans faire des kilomètres. Façade jaune vif reconnaissable, rayons organisés, produits disponibles — c'est un repère pour le quartier.</p>
+        <ul class="met-list">
+          <li class="met-li"><span class="met-check">✓</span>Stock en boutique, disponible immédiatement</li>
+          <li class="met-li"><span class="met-check">✓</span>Large choix maison, bricolage et jardinage</li>
+          <li class="met-li"><span class="met-check">✓</span>Équipe disponible pour vous conseiller</li>
+          <li class="met-li"><span class="met-check">✓</span>Ouvert 7j/7 pour vos urgences du quotidien</li>
+        </ul>
+        <a href="#contact" class="b b-primary met-btn">Nous contacter</a>
+      </div>
+      <div class="met-img-wrap">
+        <img src="https://i.ibb.co/ds6dTCdC/NEA-MART-1.jpg" alt="Intérieur NEA MART Nouméa" class="met-img" loading="lazy">
+        <div class="met-img-badge">
+          <span class="met-badge-num">7j/7</span>
+          <span class="met-badge-txt">Ouvert à Nouméa</span>
+        </div>
+      </div>
+    </div>
+    <div class="met-row met-row-rev">
+      <div class="met-img-wrap">
+        <img src="https://i.ibb.co/60p0rsvq/NEA-MART-3.jpg" alt="Rayons NEA MART" class="met-img" loading="lazy">
+      </div>
+      <div class="met-text">
+        <div class="s-label">Notre engagement</div>
+        <h2 class="h h2">Des rayons toujours approvisionnés</h2>
+        <div class="h-line"></div>
+        <p class="met-p">Que vous cherchiez un outil de bricolage pour une réparation urgente, un produit ménager ou du matériel de jardinage, NEA MART s'assure d'avoir les produits dont vous avez besoin. Pas de temps perdu, pas de déplacement inutile.</p>
+        <ul class="met-list">
+          <li class="met-li"><span class="met-check">✓</span>Promotions régulières sur les produits phares</li>
+          <li class="met-li"><span class="met-check">✓</span>Adresse centrale, facilement accessible</li>
+          <li class="met-li"><span class="met-check">✓</span>Commerce ancré dans le quartier depuis des années</li>
+        </ul>
+        <a href="#promos" class="b b-green met-btn">Voir les promos</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="gal-s" id="galerie">
+  <div class="gal-inner">
+    <div class="s-head">
+      <div class="s-label">Découvrez NEA MART</div>
+      <h2 class="h h1">Notre boutique en images</h2>
+      <div class="h-line"></div>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item" onclick="openLbx('https://i.ibb.co/WvgJ1XvK/NEA-MART-0.jpg')">
+        <img src="https://i.ibb.co/WvgJ1XvK/NEA-MART-0.jpg" alt="NEA MART façade jaune Nouméa" loading="lazy">
+        <div class="gal-item-ov"><span class="gal-zoom">&#128269;</span></div>
+      </div>
+      <div class="gal-item" onclick="openLbx('https://i.ibb.co/ds6dTCdC/NEA-MART-1.jpg')">
+        <img src="https://i.ibb.co/ds6dTCdC/NEA-MART-1.jpg" alt="Intérieur NEA MART" loading="lazy">
+        <div class="gal-item-ov"><span class="gal-zoom">&#128269;</span></div>
+      </div>
+      <div class="gal-item" onclick="openLbx('https://i.ibb.co/qqF3PTx/NEA-MART-2.jpg')">
+        <img src="https://i.ibb.co/qqF3PTx/NEA-MART-2.jpg" alt="Produits NEA MART" loading="lazy">
+        <div class="gal-item-ov"><span class="gal-zoom">&#128269;</span></div>
+      </div>
+      <div class="gal-item" onclick="openLbx('https://i.ibb.co/60p0rsvq/NEA-MART-3.jpg')">
+        <img src="https://i.ibb.co/60p0rsvq/NEA-MART-3.jpg" alt="Rayons NEA MART" loading="lazy">
+        <div class="gal-item-ov"><span class="gal-zoom">&#128269;</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lbx" id="lbx" onclick="closeLbx()">
+  <button class="lbx-close" onclick="closeLbx()">&#10005;</button>
+  <img id="lbx-img" src="" alt="Aperçu NEA MART">
+</div>
+
+<!-- FORMULAIRE -->
+<section class="form-s" id="contact">
+  <div class="form-inner">
+    <div class="s-head">
+      <div class="s-label">Nous écrire</div>
+      <h2 class="h h1">Contactez-nous</h2>
+      <div class="h-line"></div>
+      <p class="form-intro">Une question sur nos produits ou disponibilités ? Notre équipe vous répond rapidement.</p>
+    </div>
+    <form id="cform" action="#" novalidate>
+      <div class="form-grid">
+        <div class="fg">
+          <label for="fn">Nom</label>
+          <input type="text" id="fn" name="nom" placeholder="Votre nom" required>
+        </div>
+        <div class="fg">
+          <label for="fe">Email</label>
+          <input type="email" id="fe" name="email" placeholder="votre@email.nc" required>
+        </div>
+        <div class="fg">
+          <label for="ftel">Téléphone</label>
+          <input type="tel" id="ftel" name="tel" placeholder="XX.XX.XX">
+        </div>
+        <div class="fg fg-spacer"></div>
+        <div class="fg form-full">
+          <label for="fm">Message</label>
+          <textarea id="fm" name="message" placeholder="Votre demande ou question..." required></textarea>
+        </div>
+        <div class="form-full form-submit-row">
+          <button type="submit" class="b b-primary form-submit-btn">Envoyer le message</button>
+        </div>
+      </div>
+      <div class="form-loader" id="floader">Envoi en cours…</div>
+      <div class="form-msg" id="fmsg">&#10003; Message envoyé ! Nous vous répondrons rapidement.</div>
+    </form>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="avis-s" id="avis">
+  <div class="avis-inner">
+    <div class="s-head">
+      <div class="s-label">Ce que disent nos clients</div>
+      <h2 class="h h1">Avis clients</h2>
+      <div class="h-line"></div>
+    </div>
+    <div class="avis-score">
+      <div class="avis-num">3.3</div>
+      <div class="avis-score-right">
+        <div class="avis-stars">
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star half-star">&#9733;</span>
+          <span class="star empty-star">&#9733;</span>
+        </div>
+        <div class="avis-count">Basé sur 3 avis Google</div>
+        <div class="avis-source">Google Maps — Note vérifiée</div>
+      </div>
+      <div class="avis-badges">
+        <div class="avis-badge">
+          <span class="ab-icon">&#127968;</span>
+          <span class="ab-txt">Commerce de proximité</span>
+        </div>
+        <div class="avis-badge">
+          <span class="ab-icon">&#9989;</span>
+          <span class="ab-txt">Ouvert 7j/7</span>
+        </div>
+        <div class="avis-badge">
+          <span class="ab-icon">&#128205;</span>
+          <span class="ab-txt">Centre-ville Nouméa</span>
+        </div>
+      </div>
+    </div>
+    <div class="avis-grid">
+      <div class="avis-card">
+        <div class="avis-card-stars">
+          <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+        </div>
+        <p class="avis-text">"Bon magasin de quartier, on trouve ce qu'on cherche rapidement. Personnel serviable et disponible."</p>
+        <div class="avis-author">Client NEA MART</div>
+      </div>
+      <div class="avis-card">
+        <div class="avis-card-stars">
+          <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star empty-star">&#9733;</span><span class="star empty-star">&#9733;</span>
+        </div>
+        <p class="avis-text">"Pratique pour les urgences bricolage en centre-ville. Bon choix de produits essentiels à prix corrects."</p>
+        <div class="avis-author">Client NEA MART</div>
+      </div>
+      <div class="avis-card">
+        <div class="avis-card-stars">
+          <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star empty-star">&#9733;</span>
+        </div>
+        <p class="avis-text">"Commerce utile et bien situé. Je recommande pour les produits ménagers et de bricolage du quotidien."</p>
+        <div class="avis-author">Client NEA MART</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HORAIRES -->
+<section class="hor-s" id="horaires">
+  <div class="hor-inner">
+    <div class="hor-box">
+      <div class="hor-title">Nos horaires</div>
+      <div class="hor-row"><span class="hor-day">Lundi</span><span class="hor-time">7h30 – 18h00</span></div>
+      <div class="hor-row"><span class="hor-day">Mardi</span><span class="hor-time">7h30 – 18h00</span></div>
+      <div class="hor-row"><span class="hor-day">Mercredi</span><span class="hor-time">7h30 – 18h00</span></div>
+      <div class="hor-row"><span class="hor-day">Jeudi</span><span class="hor-time">7h30 – 18h00</span></div>
+      <div class="hor-row"><span class="hor-day">Vendredi</span><span class="hor-time">7h30 – 18h00</span></div>
+      <div class="hor-row"><span class="hor-day">Samedi</span><span class="hor-time">7h30 – 17h00</span></div>
+      <div class="hor-row"><span class="hor-day">Dimanche</span><span class="hor-time">8h00 – 12h00</span></div>
+    </div>
+    <div class="hor-info">
+      <div class="hor-info-item">
+        <div class="hor-info-label">Adresse</div>
+        <div class="hor-info-val">46 Rue Georges-Clemenceau, Nouméa 98800</div>
+      </div>
+      <div class="hor-info-item">
+        <div class="hor-info-label">Téléphone</div>
+        <div class="hor-info-val"><a href="tel:+687247076" class="hor-tel-link">24.70.76</a></div>
+      </div>
+      <div class="hor-info-item">
+        <div class="hor-info-label">Accès</div>
+        <div class="hor-info-val">Centre-ville Nouméa — parking à proximité</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ft" id="footer">
+  <div class="ft-inner">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <div class="ft-logo">NEA<span class="ft-logo-light">MART</span></div>
+        <div class="ft-tagline">Votre commerce maison et bricolage au cœur de Nouméa. Tous vos essentiels disponibles maintenant.</div>
+        <div class="ft-addr-block">
+          <div class="ft-addr-line">46 Rue Georges-Clemenceau, Nouméa 98800</div>
+          <div class="ft-addr-line">Nouvelle-Calédonie</div>
+          <a href="tel:+687247076" class="ft-tel">24.70.76</a>
+        </div>
+        <div class="ft-social">
+          <a href="https://m.facebook.com/100057628652062" target="_blank" rel="noopener" class="ft-soc-link" aria-label="Facebook NEA MART">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="ft-col">
+        <div class="ft-col-title">Navigation</div>
+        <ul>
+          <li><a href="#services">Nos services</a></li>
+          <li><a href="#categories">Catégories</a></li>
+          <li><a href="#promos">Promotions</a></li>
+          <li><a href="#livraison">Infos pratiques</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <div class="ft-col-title">Contact</div>
+        <ul>
+          <li><a href="tel:+687247076">24.70.76</a></li>
+          <li><a href="#horaires">Voir les horaires</a></li>
+          <li><a href="#contact">Formulaire de contact</a></li>
+          <li><a href="https://m.facebook.com/100057628652062" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <div class="ft-copy">© 2026 NEA MART. Tous droits réservés.</div>
+      <div class="ft-maker">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></div>
+    </div>
+  </div>
+</footer>
+
+<style>
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.srv-card{background:#fff;border-radius:4px;padding:32px 24px;display:flex;flex-direction:column;gap:16px;border:1px solid rgba(28,28,0,.07);border-top:3px solid var(--cp);transition:transform .25s,box-shadow .25s}
+.srv-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(28,28,0,.12)}
+.srv-card-cta{background:var(--cs);border-top:3px solid var(--ca)}
+.srv-icon{width:52px;height:52px;border-radius:4px;background:#f5f5e8;display:flex;align-items:center;justify-content:center}
+.srv-icon svg{width:26px;height:26px;stroke:var(--cs)}
+.srv-icon-dark{background:rgba(245,200,0,.15)}
+.srv-icon-dark svg{stroke:var(--cp)}
+.srv-title{font-family:var(--f);font-weight:700;font-size:18px;color:var(--cs);letter-spacing:1px;text-transform:uppercase;line-height:1.2}
+.srv-title-light{color:var(--cp)}
+.srv-desc{font-family:var(--f);font-size:14px;color:#555;font-weight:400;line-height:1.6;flex:1}
+.srv-desc-light{color:rgba(255,255,255,.65)}
+.srv-cta{font-size:13px;padding:10px 20px;align-self:flex-start}
+.met-s{background:#fff}
+.met-row{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:80px}
+.met-row-rev{direction:rtl}
+.met-row-rev>*{direction:ltr}
+.met-text{display:flex;flex-direction:column;gap:20px}
+.met-p{font-family:var(--f);font-size:16px;color:#444;font-weight:400;line-height:1.7}
+.met-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.met-li{display:flex;align-items:flex-start;gap:12px;font-family:var(--f);font-size:15px;color:var(--cs);font-weight:400;line-height:1.5}
+.met-check{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;min-width:22px;background:var(--ca);color:#fff;border-radius:2px;font-size:12px;font-weight:700}
+.met-btn{font-size:15px;padding:14px 32px;align-self:flex-start;min-height:48px}
+.met-img-wrap{position:relative}
+.met-img{width:100%;border-radius:4px;object-fit:cover;aspect-ratio:4/3;display:block}
+.met-img-badge{position:absolute;bottom:-16px;right:16px;background:var(--cp);color:var(--cs);border-radius:4px;padding:14px 20px;text-align:center;box-shadow:0 8px 24px rgba(28,28,0,.18)}
+.met-badge-num{display:block;font-family:var(--f);font-weight:700;font-size:28px;letter-spacing:1px;line-height:1}
+.met-badge-txt{display:block;font-family:var(--f);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-top:4px}
+.form-intro{font-family:var(--f);font-size:15px;color:#555;font-weight:400;line-height:1.6;margin-top:12px}
+.form-submit-row{display:flex;justify-content:flex-start}
+.form-submit-btn{font-size:16px;padding:14px 40px;min-height:48px}
+.fg-spacer{display:block}
+.avis-score-right{display:flex;flex-direction:column;gap:4px}
+.avis-badges{display:flex;flex-direction:column;gap:10px;margin-left:auto}
+.avis-badge{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid rgba(28,28,0,.08);border-radius:4px;padding:10px 16px}
+.ab-icon{font-size:18px}
+.ab-txt{font-family:var(--f);font-size:13px;font-weight:600;color:var(--cs);letter-spacing:.5px;text-transform:uppercase}
+.half-star{position:relative;color:#ddd}
+.half-star::before{content:"★";position:absolute;left:0;top:0;width:50%;overflow:hidden;color:var(--cp);display:block}
+.empty-star{color:#ddd}
+.hor-tel-link{color:var(--cp);text-decoration:none;font-weight:600;font-family:var(--f)}
+.ft-logo-light{color:#fff;font-weight:400}
+.ft-addr-block{display:flex;flex-direction:column;gap:4px;margin-top:4px}
+.ft-addr-line{font-family:var(--f);font-size:13px;color:rgba(255,255,255,.55);font-weight:400;letter-spacing:.3px}
+.ft-tel{font-family:var(--f);font-size:16px;font-weight:700;color:var(--cp);text-decoration:none;letter-spacing:1px;margin-top:4px}
+@media(max-width:900px){
+.srv-grid{grid-template-columns:repeat(2,1fr)}
+.met-row{grid-template-columns:1fr;gap:32px;margin-bottom:48px}
+.met-row-rev{direction:ltr}
+.met-img-badge{bottom:12px}
+.avis-badges{display:none}
+}
+@media(max-width:480px){
+.srv-grid{grid-template-columns:1fr}
+.form-grid{grid-template-columns:1fr}
+.fg-spacer{display:none}
+.form-submit-btn{width:100%}
+.met-row{gap:24px;margin-bottom:32px}
+.met-btn{width:100%;justify-content:center}
+.avis-score{flex-direction:column;align-items:flex-start;gap:12px}
+}
+</style>
+
+<script>
+function openLbx(s){var l=document.getElementById('lbx');document.getElementById('lbx-img').src=s;l.classList.add('open')}
+function closeLbx(){document.getElementById('lbx').classList.remove('open')}
+var hmb=document.getElementById('hmb'),nav=document.getElementById('mobNav');
+function closeNav(){nav.classList.remove('open')}
+hmb.addEventListener('click',function(){nav.classList.toggle('open')});
+var cnts=document.querySelectorAll('.cnt'),done=false;
+function animCnts(){
+if(done)return;done=true;
+cnts.forEach(function(el){
+var t=+el.dataset.target,d=1200,s=Date.now();
+(function u(){var p=Math.min((Date.now()-s)/d,1);el.textContent=Math.round(p*t);if(p<1)requestAnimationFrame(u)})();
+});
+}
+var ob=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)animCnts()})},{threshold:.3});
+var st=document.getElementById('stats');
+if(st)ob.observe(st);
+var cf=document.getElementById('cform');
+if(cf)cf.addEventListener('submit',function(e){
+e.preventDefault();
+var fn=document.getElementById('fn').value.trim(),fe=document.getElementById('fe').value.trim(),fm=document.getElementById('fm').value.trim();
+if(!fn||!fe||!fm)return;
+var ld=document.getElementById('floader'),ms=document.getElementById('fmsg');
+ld.style.display='block';
+setTimeout(function(){ld.style.display='none';ms.style.display='block';cf.reset();},1400);
+});
+</script>
+</body>
+</html>
