@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Chien Chic et Choc - Toilettage NC - Apogoti - DUMBEA - Toilettage pour animaux- — Dumbéa</title>
+<meta name="description" content="Salon de toilettage haut de gamme à Dumbéa, Nouvelle-Calédonie. Votre compagnon mérite le meilleur. Centre Commercial Plaza Apogoti, Dumbéa sur mer. Tél : 95.31.41">
+<meta property="og:title" content="Le Chien Chic et Choc — Toilettage premium à Dumbéa">
+<meta property="og:description" content="Salon de toilettage chic et décalé à Dumbéa sur mer. Note 5/5 sur 19 avis Google.">
+<meta property="og:image" content="https://i.ibb.co/ynqG3RFF/Le-Chien-Chic-et-Choc-Toilettage-NC-Apogoti-DUMBEA-Toilettage-pour-animaux-0.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#1A1A1A;
+--cs:#7CAF41;
+--ca:#F761A1;
+--cb:#FAF7F2;
+--ct:#1A1A1A;
+--cw:#FFFFFF;
+--cd:#C9A84C;
+--r:20px;
+--t:300ms;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--cb);color:var(--ct);overflow-x:hidden;font-size:16px;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* PROGRESS BAR */
+#prog{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--cs),var(--ca));z-index:2000;transition:width .1s}
+
+/* BANDEAU PROMO */
+.promo-band{position:sticky;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;display:flex;align-items:center;justify-content:center}
+.promo-band a{font-family:"Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;line-height:44px;letter-spacing:.3px;text-align:center;display:block}
+.promo-band a:hover{opacity:.85}
+
+/* HEADER */
+.header{position:sticky;top:44px;left:0;width:100%;z-index:1000;background:rgba(26,26,26,.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,168,76,.2)}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:70px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:'Playfair Display',serif;font-weight:900;font-size:1.1rem;color:var(--cw);letter-spacing:.5px;line-height:1.2}
+.logo span{color:var(--cd)}
+.logo small{display:block;font-family:'Nunito',sans-serif;font-weight:400;font-size:.6rem;color:var(--ca);letter-spacing:2px;text-transform:uppercase}
+nav{display:flex;align-items:center;gap:28px}
+nav a{font-family:'Nunito',sans-serif;font-size:.85rem;color:rgba(255,255,255,.8);font-weight:600;letter-spacing:.5px;transition:color var(--t)}
+nav a:hover{color:var(--cd)}
+.h-cta{background:var(--ca);color:var(--cw);padding:10px 22px;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:700;font-size:.85rem;transition:background var(--t),transform var(--t);white-space:nowrap}
+.h-cta:hover{background:var(--cs);transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{width:24px;height:2px;background:var(--cw);border-radius:2px;transition:transform var(--t),opacity var(--t)}
+.mob-nav{display:none;position:fixed;top:114px;left:0;width:100%;background:var(--cp);flex-direction:column;padding:24px;gap:20px;z-index:999;border-top:1px solid rgba(201,168,76,.2)}
+.mob-nav.open{display:flex}
+.mob-nav a{color:var(--cw);font-size:1rem;font-weight:600;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.mob-cta{background:var(--ca);color:var(--cw);padding:14px 22px;border-radius:50px;font-weight:700;text-align:center;margin-top:8px;display:block}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;padding-top:0}
+.hero-left{background:var(--cp);display:flex;flex-direction:column;justify-content:center;padding:80px 60px 80px 80px;position:relative;overflow:hidden}
+.hero-left::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;background:radial-gradient(circle,rgba(201,168,76,.12) 0%,transparent 70%);pointer-events:none}
+.hero-left::after{content:'';position:absolute;bottom:-40px;left:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(247,97,161,.08) 0%,transparent 70%);pointer-events:none}
+.hero-tag{font-family:'Nunito',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cd);margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.hero-tag::before{content:'';display:block;width:30px;height:1px;background:var(--cd)}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3.6rem);font-weight:900;color:var(--cw);line-height:1.1;margin-bottom:24px}
+.hero-title em{color:var(--cd);font-style:italic}
+.hero-sub{font-family:'Nunito',sans-serif;font-size:1rem;color:rgba(255,255,255,.72);line-height:1.7;margin-bottom:40px;max-width:420px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.b-primary{background:var(--ca);color:var(--cw);padding:14px 32px;border-radius:50px;font-weight:700;font-size:.95rem;transition:background var(--t),transform var(--t);min-height:48px;display:inline-flex;align-items:center}
+.b-primary:hover{background:var(--cs);transform:translateY(-2px)}
+.b-outline{background:transparent;color:var(--cw);padding:14px 32px;border-radius:50px;font-weight:700;font-size:.95rem;border:2px solid rgba(255,255,255,.3);transition:border-color var(--t),transform var(--t);min-height:48px;display:inline-flex;align-items:center}
+.b-outline:hover{border-color:var(--cd);transform:translateY(-2px)}
+.hero-badges{display:flex;gap:20px;margin-top:40px;flex-wrap:wrap}
+.hero-badge{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.6);font-size:.8rem}
+.hero-badge svg{flex-shrink:0}
+.hero-right{position:relative;overflow:hidden}
+.hero-img{width:100%;height:100%;object-fit:cover;min-height:100vh}
+.hero-img-border{position:absolute;inset:24px;border:1px solid rgba(201,168,76,.4);pointer-events:none;z-index:2;animation:shimmer 3s ease-in-out infinite}
+@keyframes shimmer{
+0%,100%{border-color:rgba(201,168,76,.4);box-shadow:inset 0 0 0 rgba(201,168,76,0)}
+50%{border-color:rgba(201,168,76,.8);box-shadow:inset 0 0 20px rgba(201,168,76,.05)}
+}
+.sparkle{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--cd);pointer-events:none;animation:sparkle-anim 3s ease-in-out infinite}
+.sparkle:nth-child(1){top:28px;left:28px;animation-delay:0s}
+.sparkle:nth-child(2){top:28px;right:28px;animation-delay:1s}
+.sparkle:nth-child(3){bottom:28px;left:28px;animation-delay:2s}
+@keyframes sparkle-anim{
+0%,100%{opacity:.3;transform:scale(1)}
+50%{opacity:1;transform:scale(1.8)}
+}
+.hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.5);font-size:.7rem;letter-spacing:2px;text-transform:uppercase;z-index:3}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,rgba(255,255,255,.5),transparent);animation:scroll-anim 2s ease-in-out infinite}
+@keyframes scroll-anim{0%,100%{transform:scaleY(1);opacity:.5}50%{transform:scaleY(.6);opacity:1}}
+
+/* STATS */
+.stats{background:var(--cp);padding:60px 24px}
+.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
+.stat-item{display:flex;flex-direction:column;align-items:center;gap:8px}
+.stat-num{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;color:var(--cd);line-height:1}
+.stat-label{font-family:'Nunito',sans-serif;font-size:.8rem;color:rgba(255,255,255,.6);letter-spacing:1px;text-transform:uppercase}
+.stat-icon{font-size:1.4rem;margin-bottom:4px}
+
+/* BOOKING WIDGET STICKY */
+.booking-sticky{position:fixed;bottom:24px;right:24px;z-index:900;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.b-sticky{background:var(--ca);color:var(--cw);padding:14px 24px;border-radius:50px;font-weight:700;font-size:.9rem;box-shadow:0 8px 30px rgba(247,97,161,.4);transition:background var(--t),transform var(--t);min-height:48px;display:flex;align-items:center;gap:8px;border:none;cursor:pointer}
+.b-sticky:hover{background:var(--cs);transform:translateY(-2px)}
+.b-sticky svg{width:18px;height:18px}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.hero{grid-template-columns:1fr;min-height:auto}
+.hero-left{padding:100px 24px 60px;min-height:60vh}
+.hero-right{min-height:50vw}
+.hero-img{min-height:50vw}
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+nav{display:none}
+.hamburger{display:flex}
+}
+@media(max-width:480px){
+.promo-band a{font-size:13px;line-height:40px;padding:0 12px}
+.promo-band{height:40px}
+.header{top:40px}
+.mob-nav{top:110px}
+.logo{font-size:.95rem}
+.hero-left{padding:80px 16px 50px}
+.hero-btns{flex-direction:column}
+.b-primary,.b-outline{width:100%;justify-content:center}
+.stats-inner{grid-template-columns:1fr 1fr;gap:20px}
+.booking-sticky{bottom:16px;right:16px}
+.b-sticky{padding:12px 18px;font-size:.82rem}
+}
+</style>
+</head>
+<body>
+
+<div id="prog"></div>
+
+<!-- BANDEAU PROMO -->
+<div class="promo-band">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">
+    Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.
+  </a>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#hero" class="logo">
+      Le Chien Chic<span> &amp; Choc</span>
+      <small>Toilettage premium · Dumbéa</small>
+    </a>
+    <nav>
+      <a href="#services">Prestations</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#equipe">L'équipe</a>
+      <a href="#avis">Avis</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="tel:953141" class="h-cta">📞 95.31.41</a>
+    <button class="hamburger" id="ham" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mob-nav" id="mob-nav">
+    <a href="#services" onclick="closeMob()">Prestations</a>
+    <a href="#galerie" onclick="closeMob()">Galerie</a>
+    <a href="#equipe" onclick="closeMob()">L'équipe</a>
+    <a href="#avis" onclick="closeMob()">Avis</a>
+    <a href="#contact" onclick="closeMob()">Contact</a>
+    <a href="tel:953141" class="mob-cta">📞 Appeler — 95.31.41</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-left">
+    <div class="hero-tag">🐾 Salon de toilettage · Dumbéa sur mer</div>
+    <h1 class="hero-title">
+      Votre compagnon<br>mérite le <em>luxe</em>
+    </h1>
+    <p class="hero-sub">
+      Au cœur du Plaza Apogoti, le salon de toilettage chic et décalé de Nouvelle-Calédonie — où chaque séance devient une transformation sur mesure, patte après patte.
+    </p>
+    <div class="hero-btns">
+      <a href="#services" class="b-primary">Découvrir nos prestations</a>
+      <a href="tel:953141" class="b-outline">Prendre rendez-vous</a>
+    </div>
+    <div class="hero-badges">
+      <span class="hero-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#C9A84C"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        Note 5/5 — 19 avis Google
+      </span>
+      <span class="hero-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        7j/7 sur rendez-vous
+      </span>
+      <span class="hero-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Produits professionnels
+      </span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img
+      src="https://i.ibb.co/ynqG3RFF/Le-Chien-Chic-et-Choc-Toilettage-NC-Apogoti-DUMBEA-Toilettage-pour-animaux-0.jpg"
+      alt="Salon Le Chien Chic et Choc — Dumbéa"
+      class="hero-img"
+      loading="eager"
+    >
+    <div class="hero-img-border">
+      <div class="sparkle"></div>
+      <div class="sparkle"></div>
+      <div class="sparkle"></div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="stats">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-icon">⭐</div>
+      <div class="stat-num" data-target="5">0</div>
+      <div class="stat-label">Note Google /5</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon">🐾</div>
+      <div class="stat-num" data-target="19">0</div>
+      <div class="stat-label">Avis clients</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon">✂️</div>
+      <div class="stat-num" data-target="100">0</div>
+      <div class="stat-label">Compagnons chouchoutés</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon">🏆</div>
+      <div class="stat-num" data-target="1">0</div>
+      <div class="stat-label">Salon premium à Dumbéa</div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING STICKY -->
+<div class="booking-sticky">
+  <a href="tel:953141" class="b-sticky">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+    Réserver · 95.31.41
+  </a>
+</div>
+
+<script>
+var ham=document.getElementById('ham'),mob=document.getElementById('mob-nav');
+function closeMob(){mob.classList.remove('open')}
+ham.addEventListener('click',function(){mob.classList.toggle('open')});
+
+window.addEventListener('scroll',function(){
+var s=document.documentElement,p=document.getElementById('prog');
+var t=s.scrollTop||document.body.scrollTop;
+var h=s.scrollHeight-s.clientHeight;
+p.style.width=(h>0?t/h*100:0)+'%';
+});
+
+var nums=document.querySelectorAll('.stat-num');
+var done=false;
+function animNums(){
+if(done)return;
+var rect=document.querySelector('.stats').getBoundingClientRect();
+if(rect.top<window.innerHeight*.85){
+done=true;
+nums.forEach(function(el){
+var target=+el.getAttribute('data-target'),start=0,dur=1400,s=performance.now();
+function step(now){
+var p=Math.min((now-s)/dur,1);
+el.textContent=Math.round(p*p*target);
+if(p<1)requestAnimationFrame(step);
+else el.textContent=target;
+}
+requestAnimationFrame(step);
+});
+}
+}
+window.addEventListener('scroll',animNums);
+animNums();
+</script>
+<style>
+.s{padding:80px 24px}
+.s-inner{max-width:1200px;margin:0 auto}
+.s-tag{font-family:'Nunito',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--ca);display:flex;align-items:center;gap:8px;margin-bottom:16px}
+.s-tag::before{content:'';display:block;width:30px;height:1px;background:var(--ca)}
+.s-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;color:var(--cp);line-height:1.2;margin-bottom:16px}
+.s-sub{font-size:.95rem;color:#555;max-width:560px;line-height:1.7;margin-bottom:48px}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.srv-c{background:var(--cb);border-radius:var(--r);padding:32px 28px;border-left:4px solid var(--ca);box-shadow:0 2px 16px rgba(0,0,0,.06);transition:transform var(--t),box-shadow var(--t);cursor:default}
+.srv-c:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(247,97,161,.15)}
+.srv-icon{width:52px;height:52px;background:linear-gradient(135deg,rgba(247,97,161,.12),rgba(201,168,76,.12));border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:1.5rem}
+.srv-name{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--cp);margin-bottom:6px;position:relative;display:inline-block}
+.srv-name::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--cd),var(--ca));transition:width var(--t)}
+.srv-c:hover .srv-name::after{width:100%}
+.srv-desc{font-size:.88rem;color:#666;line-height:1.65;margin-bottom:16px}
+.srv-benefit{font-size:.82rem;color:var(--cs);font-weight:700;display:flex;align-items:center;gap:6px}
+.srv-benefit::before{content:'✓';color:var(--cs)}
+.metier-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:80px}
+.metier-grid.rev{direction:rtl}
+.metier-grid.rev>*{direction:ltr}
+.metier-img{border-radius:var(--r);overflow:hidden;position:relative}
+.metier-img img{width:100%;height:420px;object-fit:cover;transition:transform .5s}
+.metier-img:hover img{transform:scale(1.03)}
+.metier-img-badge{position:absolute;bottom:20px;left:20px;background:var(--cp);color:var(--cd);padding:10px 18px;border-radius:50px;font-family:'Nunito',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:1px}
+.metier-text .s-tag{margin-bottom:12px}
+.metier-pts{list-style:none;margin-top:24px;display:flex;flex-direction:column;gap:12px}
+.metier-pts li{display:flex;align-items:flex-start;gap:12px;font-size:.9rem;color:#444;line-height:1.55}
+.metier-pts li::before{content:'🐾';flex-shrink:0;margin-top:1px}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal-item{border-radius:14px;overflow:hidden;position:relative;cursor:pointer;border:1px solid rgba(201,168,76,.25)}
+.gal-item img{width:100%;height:220px;object-fit:cover;transition:transform .4s}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-overlay{position:absolute;inset:0;background:rgba(26,26,26,.5);opacity:0;display:flex;align-items:center;justify-content:center;transition:opacity var(--t)}
+.gal-item:hover .gal-overlay{opacity:1}
+.gal-overlay svg{color:#fff;width:32px;height:32px}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;display:none;align-items:center;justify-content:center;padding:24px}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:85vh;border-radius:12px;border:1px solid rgba(201,168,76,.4)}
+.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;line-height:1;opacity:.8;transition:opacity var(--t)}
+.lb-close:hover{opacity:1}
+.form-section{background:var(--cp)}
+.form-section .s-title{color:var(--cw)}
+.form-section .s-tag{color:var(--cd)}
+.form-section .s-tag::before{background:var(--cd)}
+.form-section .s-sub{color:rgba(255,255,255,.65)}
+.form-wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.form-info{display:flex;flex-direction:column;gap:24px}
+.form-info-item{display:flex;gap:14px;align-items:flex-start}
+.form-info-icon{width:44px;height:44px;background:rgba(201,168,76,.15);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem}
+.form-info-text{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.6}
+.form-info-text strong{color:var(--cw);display:block;margin-bottom:2px}
+form{display:flex;flex-direction:column;gap:16px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f-field{display:flex;flex-direction:column;gap:6px}
+.f-field label{font-size:.8rem;font-weight:700;color:rgba(255,255,255,.6);letter-spacing:.5px;text-transform:uppercase}
+.f-field input,.f-field textarea{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:13px 16px;color:#fff;font-family:'Nunito',sans-serif;font-size:.95rem;transition:border-color var(--t);width:100%}
+.f-field input:focus,.f-field textarea:focus{outline:none;border-color:var(--ca)}
+.f-field input.err,.f-field textarea.err{border-color:#ff5555}
+.f-field textarea{resize:vertical;min-height:120px}
+.f-submit{background:var(--ca);color:#fff;border:none;border-radius:50px;padding:14px 32px;font-family:'Nunito',sans-serif;font-weight:700;font-size:1rem;cursor:pointer;transition:background var(--t),transform var(--t);min-height:48px;display:flex;align-items:center;justify-content:center;gap:8px}
+.f-submit:hover{background:var(--cs);transform:translateY(-1px)}
+.f-success{display:none;background:rgba(124,175,65,.15);border:1px solid var(--cs);border-radius:14px;padding:24px;text-align:center;color:#fff}
+.f-success.show{display:block}
+.social-section{background:var(--cb)}
+.stars{display:flex;gap:4px;margin-bottom:8px}
+.stars span{color:var(--cd);font-size:1.2rem}
+.rating-big{font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:900;color:var(--cp);line-height:1}
+.rating-label{font-size:.85rem;color:#777;margin-top:4px}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.rev-c{background:#fff;border-radius:var(--r);padding:24px;border-top:4px solid var(--ca);box-shadow:0 2px 16px rgba(0,0,0,.06)}
+.rev-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.rev-av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--ca),var(--cd));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1rem;flex-shrink:0}
+.rev-name{font-weight:700;font-size:.9rem;color:var(--cp)}
+.rev-stars{display:flex;gap:2px}
+.rev-stars span{color:var(--cd);font-size:.85rem}
+.rev-text{font-size:.88rem;color:#555;line-height:1.65;font-style:italic}
+.rev-paw{color:var(--cd);font-size:1rem;margin-bottom:8px}
+.badge-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:40px}
+.badge{background:#fff;border-radius:14px;padding:16px 24px;display:flex;align-items:center;gap:12px;box-shadow:0 2px 12px rgba(0,0,0,.07);font-size:.88rem;font-weight:700;color:var(--cp)}
+.badge-icon{font-size:1.3rem}
+.ig-grid{display:grid;grid-template-columns:repeat(3,2fr);gap:10px;max-width:700px;margin:0 auto}
+.ig-item{border-radius:12px;overflow:hidden;border:1px solid rgba(201,168,76,.3);position:relative;cursor:pointer}
+.ig-item img{width:100%;height:200px;object-fit:cover;transition:transform .4s}
+.ig-item:hover img{transform:scale(1.05)}
+.ig-overlay{position:absolute;inset:0;background:rgba(26,26,26,.5);opacity:0;display:flex;align-items:center;justify-content:center;transition:opacity var(--t)}
+.ig-item:hover .ig-overlay{opacity:1}
+.ig-overlay svg{width:28px;height:28px;color:#fff}
+.footer{background:var(--cp);padding:60px 24px 32px;border-top:1px solid rgba(201,168,76,.2)}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:48px}
+.footer-brand .logo{font-size:1.1rem}
+.footer-brand p{color:rgba(255,255,255,.55);font-size:.88rem;line-height:1.65;margin-top:16px;max-width:280px}
+.footer-socials{display:flex;gap:12px;margin-top:20px}
+.footer-social-link{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;transition:background var(--t);color:#fff}
+.footer-social-link:hover{background:var(--ca)}
+.footer-social-link svg{width:20px;height:20px}
+.footer-col h4{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--cw);margin-bottom:20px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col ul li a{color:rgba(255,255,255,.55);font-size:.88rem;transition:color var(--t)}
+.footer-col ul li a:hover{color:var(--cd)}
+.footer-col address{font-style:normal;color:rgba(255,255,255,.55);font-size:.88rem;line-height:1.7}
+.footer-col address a{color:var(--ca);font-weight:700}
+.footer-bottom{max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-copy{color:rgba(255,255,255,.35);font-size:.78rem}
+.footer-setup{color:rgba(255,255,255,.4);font-size:.78rem}
+.footer-setup a{color:var(--cd);font-weight:700}
+@media(max-width:900px){
+.srv-grid{grid-template-columns:1fr 1fr}
+.metier-grid{grid-template-columns:1fr;gap:32px}
+.metier-grid.rev{direction:ltr}
+.form-wrap{grid-template-columns:1fr}
+.review-grid{grid-template-columns:1fr}
+.footer-inner{grid-template-columns:1fr 1fr;gap:32px}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.ig-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:480px){
+.srv-grid{grid-template-columns:1fr}
+.f-row{grid-template-columns:1fr}
+.footer-inner{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.ig-grid{grid-template-columns:repeat(3,1fr)}
+.ig-item img{height:110px}
+.badge-row{flex-direction:column}
+.footer-bottom{flex-direction:column;text-align:center}
+.metier-img img{height:260px}
+.review-grid{grid-template-columns:1fr}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s" id="services">
+  <div class="s-inner">
+    <div class="s-tag">✂️ Nos prestations</div>
+    <h2 class="s-title">Un toilettage sur mesure,<br>patte après patte</h2>
+    <p class="s-sub">Chaque compagnon est unique. Nous adaptons chaque soin à sa morphologie, son pelage et sa personnalité.</p>
+    <div class="srv-grid">
+      <div class="srv-c">
+        <div class="srv-icon">🛁</div>
+        <div class="srv-name">Bain &amp; Brushing</div>
+        <p class="srv-desc">Shampoing professionnel adapté au type de pelage, séchage soigné et brushing lustré pour un rendu impeccable.</p>
+        <div class="srv-benefit">Poil brillant et doux</div>
+      </div>
+      <div class="srv-c">
+        <div class="srv-icon">✂️</div>
+        <div class="srv-name">Toilettage complet</div>
+        <p class="srv-desc">Bain, coupe sur mesure, finitions soignées et nettoyage des oreilles — une transformation complète patte à patte.</p>
+        <div class="srv-benefit">Look personnalisé garanti</div>
+      </div>
+      <div class="srv-c">
+        <div class="srv-icon">💅</div>
+        <div class="srv-name">Soin des griffes</div>
+        <p class="srv-desc">Coupe et limage des griffes pour le confort et la santé articulaire de votre compagnon au quotidien.</p>
+        <div class="srv-benefit">Confort et mobilité</div>
+      </div>
+      <div class="srv-c">
+        <div class="srv-icon">👂</div>
+        <div class="srv-name">Nettoyage des oreilles</div>
+        <p class="srv-desc">Nettoyage délicat avec des produits professionnels pour prévenir les infections et préserver l'hygiène.</p>
+        <div class="srv-benefit">Prévention santé</div>
+      </div>
+      <div class="srv-c">
+        <div class="srv-icon">🎀</div>
+        <div class="srv-name">Relooking &amp; Accessoires</div>
+        <p class="srv-desc">Bandanas, noeuds, vêtements tendance pour chiens — parce que le style n'attend pas l'âge des os.</p>
+        <div class="srv-benefit">Style affirmé et décalé</div>
+      </div>
+      <div class="srv-c">
+        <div class="srv-icon">🌿</div>
+        <div class="srv-name">Soin pelage sensible</div>
+        <p class="srv-desc">Protocole doux pour les peaux sensibles ou irritées, avec des produits hypoallergéniques choisis avec soin.</p>
+        <div class="srv-benefit">Douceur &amp; bien-être</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s" id="metier" style="background:#F0EDE8;padding-top:80px;padding-bottom:80px">
+  <div class="s-inner">
+    <div class="metier-grid">
+      <div class="metier-img">
+        <img
+          src="https://i.ibb.co/TBszt7KK/Le-Chien-Chic-et-Choc-Toilettage-NC-Apogoti-DUMBEA-Toilettage-pour-animaux-1.jpg"
+          alt="Toilettage professionnel au Chien Chic et Choc"
+          loading="lazy"
+        >
+        <div class="metier-img-badge">✨ Salon premium · Dumbéa</div>
+      </div>
+      <div class="metier-text">
+        <div class="s-tag">🐾 Notre philosophie</div>
+        <h2 class="s-title">L'excellence canine,<br>au cœur de la brousse calédonienne</h2>
+        <p style="font-size:.95rem;color:#555;line-height:1.75;margin-bottom:8px">
+          Dans notre salon aux murs noirs et aux dorures scintillantes, nichés au Plaza Apogoti de Dumbéa sur mer, chaque compagnon est traité comme la star qu'il est.
+        </p>
+        <p style="font-size:.95rem;color:#555;line-height:1.75">
+          Nous croyons que le toilettage n'est pas une corvée, c'est un moment de soin, de lien et d'expression — pour votre animal autant que pour vous.
+        </p>
+        <ul class="metier-pts">
+          <li>Produits professionnels adaptés à chaque type de pelage et de peau</li>
+          <li>Approche douce et bienveillante pour les compagnons anxieux</li>
+          <li>Suivi personnalisé à chaque visite pour respecter les habitudes de votre animal</li>
+          <li>Ambiance unique, chic et décalée — une expérience mémorable pour vous deux</li>
+        </ul>
+      </div>
+    </div>
+    <div class="metier-grid rev">
+      <div class="metier-img">
+        <img
+          src="https://i.ibb.co/gMmC1xw0/Le-Chien-Chic-et-Choc-Toilettage-NC-Apogoti-DUMBEA-Toilettage-pour-animaux-3.jpg"
+          alt="Intérieur du salon Le Chien Chic et Choc"
+          loading="lazy"
+        >
+        <div class="metier-img-badge">🏆 Note 5/5 · 19 avis</div>
+      </div>
+      <div class="metier-text">
+        <div class="s-tag">📍 Où nous trouver</div>
+        <h2 class="s-title">Un écrin de luxe<br>accessible à tous</h2>
+        <p style="font-size:.95rem;color:#555;line-height:1.75;margin-bottom:8px">
+          Situé au Centre Commercial Plaza Apogoti à Dumbéa sur mer, notre salon est facile d'accès avec un grand parking, au cœur d'un espace commercial animé.
+        </p>
+        <p style="font-size:.95rem;color:#555;line-height:1.75">
+          Sur rendez-vous pour vous garantir une attention totale — parce que votre compagnon mérite qu'on lui consacre tout le temps nécessaire.
+        </p>
+        <ul class="metier-pts">
+          <li>Centre Commercial Plaza Apogoti, Dumbéa sur mer 98835</li>
+          <li>Prise de rendez-vous par téléphone au 95.31.41</li>
+          <li>Retrouvez-nous sur Facebook et Instagram pour nos dernières créations</li>
+          <li>19 clients satisfaits vous recommandent — note parfaite 5/5 sur Google</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s" id="galerie">
+  <div class="s-inner">
+    <div class="s-tag">📸 En images</div>
+    <h2 class="s-title">La galerie du salon</h2>
+    <p class="s-sub">Quelques aperçus de notre univers chic et décalé, et des transformations de nos compagnons à quatre pattes.</p>
+    <div class="gal-grid">
+      <div class="gal-item" onclick="openLb('https://i.ibb.co/ynqG3RFF/Le-Chien-Chic-et-Choc-Toilettage-NC-Apogoti-DUMBEA-Toilettage-pour-animaux-0.jpg')">
+        <img src="https://i.ibb.co/ynqG3RFF/Le-Chien-Chic-et-Choc-Toilettage-NC-Apogoti-DUMBEA-Toilettage-pour-animaux-0.jpg" alt="Le Chien Chic et Choc" loading="lazy">
+        <div class="gal-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div>
+      </div>
+      <div class="gal-item" onclick="openLb('https://i.ibb.co/TBszt7KK/Le-Chien-Chic-et-Choc-Toilettage-NC-Apogoti-DUMBEA-Toilettage-pour-animaux-1.jpg')">
+        <img src="https://i.ibb.co/TBszt7KK/Le-Chien-Chic-et-Choc-Toilettage-NC-Apogoti-DUMBEA-Toilettage-pour-animaux-1.jpg" alt="Toilettage Le Chien Chic et Choc" loading="lazy">
+        <div class="gal-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div>
+      </div>
+      <div class="gal-item" onclick="openLb('https://i.ibb.co/fVjLrQCm/Le-Chien-Chic-et-Choc-Toilettage-NC-Apogoti-DUMBEA-Toilettage-pour-animaux-2.jpg')">
+        <img src="https://i.ibb.co/fVjLrQCm/Le-Chien-Chic-et-Choc-Toilettage-NC-Apogoti-DUMBEA-Toilettage-pour-animaux-2.jpg" alt="Compagnon toiletté" loading="lazy">
+        <div class="gal-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div>
+      </div>
+      <div class="gal-item" onclick="openLb('https://i.ibb.co/gMmC1xw0/Le-Chien-Chic-et-Choc-Toilettage-NC-Apogoti-DUMBEA-Toilettage-pour-animaux-3.jpg')">
+        <img src="https://i.ibb.co/gMmC1xw0/Le-Chien-Chic-et-Choc-Toilettage-NC-Apogoti-DUMBEA-Toilettage-pour-animaux-3.jpg" alt="Salon chic pour animaux Dumbéa" loading="lazy">
+        <div class="gal-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lb" onclick="closeLb(event)">
+  <button class="lb-close" onclick="closeLb()">×</button>
+  <img src="" alt="Agrandissement photo" class="lb-img" id="lb-img">
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section class="s social-section" id="avis">
+  <div class="s-inner">
+    <div class="s-tag">⭐ Avis clients</div>
+    <h2 class="s-title">Ce que disent nos clients</h2>
+    <div style="display:flex;align-items:center;gap:32px;flex-wrap:wrap;margin-bottom:16px">
+      <div>
+        <div class="rating-big">5,0</div>
+        <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="rating-label">19 avis Google vérifiés</div>
+      </div>
+      <div style="flex:1;min-width:200px">
+        <p style="font-size:1rem;color:#555;line-height:1.7;font-style:italic">
+          "La note parfaite est le reflet de notre engagement quotidien envers chaque compagnon qui passe la porte de notre salon."
+        </p>
+      </div>
+    </div>
+    <div class="badge-row">
+      <div class="badge"><div class="badge-icon">🏆</div>Note parfaite 5/5</div>
+      <div class="badge"><div class="badge-icon">💬</div>19 avis vérifiés</div>
+      <div class="badge"><div class="badge-icon">🐾</div>100% recommandé</div>
+      <div class="badge"><div class="badge-icon">📍</div>Dumbéa, Nouvelle-Calédonie</div>
+    </div>
+    <div class="review-grid">
+      <div class="rev-c">
+        <div class="rev-paw">🐾</div>
+        <div class="rev-head">
+          <div class="rev-av">M</div>
+          <div>
+            <div class="rev-name">Marie-Line T.</div>
+            <div class="rev-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          </div>
+        </div>
+        <p class="rev-text">"Mon petit Nougat ressort toujours magnifique ! L'équipe est aux petits soins, il n'est même plus stressé en arrivant. Je recommande sans hésiter à tous les propriétaires de Dumbéa."</p>
+      </div>
+      <div class="rev-c">
+        <div class="rev-paw">🐾</div>
+        <div class="rev-head">
+          <div class="rev-av">J</div>
+          <div>
+            <div class="rev-name">Jean-Pierre K.</div>
+            <div class="rev-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          </div>
+        </div>
+        <p class="rev-text">"Un salon vraiment unique en Nouvelle-Calédonie. L'ambiance est top, le résultat impeccable. Notre golden retriever a été chouchouté comme jamais. On revient chaque mois !"</p>
+      </div>
+      <div class="rev-c">
+        <div class="rev-paw">🐾</div>
+        <div class="rev-head">
+          <div class="rev-av">S</div>
+          <div>
+            <div class="rev-name">Sandra V.</div>
+            <div class="rev-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          </div>
+        </div>
+        <p class="rev-text">"Accueil chaleureux, travail soigné et passion du métier qui se ressent à chaque visite. Le décor est incroyable — mon chien repart toujours avec style et avec le sourire !"</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM FEED SIMULÉ -->
+<section class="s" id="instagram" style="background:#F0EDE8">
+  <div class="s-inner" style="text-align:center">
+    <div class="s-tag" style="justify-content:center">📱 Instagram</div>
+    <h2 class="s-title">Suivez nos créations</h2>
+    <p class="s-sub" style="margin:0 auto 40px">Retrouvez toutes nos transformations, looks du moment et actualités sur Instagram&nbsp;: <strong>@lechienchicetchoc</strong></p>
+    <div class="ig-grid">
+      <a href="https://www.instagram.com/lechienchicetchoc" target="_blank" rel="noopener" class="ig-item">
+        <img src="https://i.ibb.co/ynqG3RFF/Le-Chien-Chic-et-Choc-Toilettage-NC-Apogoti-DUMBEA-Toilettage-pour-animaux-0.jpg" alt="Instagram Le Chien Chic et Choc" loading="lazy">
+        <div class="ig-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></div>
+      </a>
+      <a href="https://www.instagram.com/lechienchicetchoc" target="_blank" rel="noopener" class="ig-item">
+        <img src="https://i.ibb.co/TBszt7KK/Le-Chien-Chic-et-Choc-Toilettage-NC-Apogoti-DUMBEA-Toilettage-pour-animaux-1.jpg" alt="Instagram Le Chien Chic et Choc" loading="lazy">
+        <div class="ig-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></div>
+      </a>
+      <a href="https://www.instagram.com/lechienchicetchoc" target="_blank" rel="noopener" class="ig-item">
+        <img src="https://i.ibb.co/fVjLrQCm/Le-Chien-Chic-et-Choc-Toilettage-NC-Apogoti-DUMBEA-Toilettage-pour-animaux-2.jpg" alt="Instagram Le Chien Chic et Choc" loading="lazy">
+        <div class="ig-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></div>
+      </a>
+      <a href="https://www.instagram.com/lechienchicetchoc" target="_blank" rel="noopener" class="ig-item">
+        <img src="https://i.ibb.co/gMmC1xw0/Le-Chien-Chic-et-Choc-Toilettage-NC-Apogoti-DUMBEA-Toilettage-pour-animaux-3.jpg" alt="Instagram Le Chien Chic et Choc" loading="lazy">
+        <div class="ig-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></div>
+      </a>
+      <a href="https://www.instagram.com/lechienchicetchoc" target="_blank" rel="noopener" class="ig-item">
+        <img src="https://i.ibb.co/ynqG3RFF/Le-Chien-Chic-et-Choc-Toilettage-NC-Apogoti-DUMBEA-Toilettage-pour-animaux-0.jpg" alt="Instagram Le Chien Chic et Choc" loading="lazy">
+        <div class="ig-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></div>
+      </a>
+      <a href="https://www.instagram.com/lechienchicetchoc" target="_blank" rel="noopener" class="ig-item">
+        <img src="https://i.ibb.co/TBszt7KK/Le-Chien-Chic-et-Choc-Toilettage-NC-Apogoti-DUMBEA-Toilettage-pour-animaux-1.jpg" alt="Instagram Le Chien Chic et Choc" loading="lazy">
+        <div class="ig-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></div>
+      </a>
+    </div>
+    <a href="https://www.instagram.com/lechienchicetchoc" target="_blank" rel="noopener" class="b-primary" style="display:inline-flex;margin-top:32px;align-items:center;gap:8px">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+      Voir notre Instagram
+    </a>
+  </div>
+</section>
+
+<!-- FORMULAIRE -->
+<section class="s form-section" id="contact">
+  <div class="s-inner">
+    <div class="form-wrap">
+      <div class="form-info">
+        <div class="s-tag">📬 Contact</div>
+        <h2 class="s-title" style="color:#fff">Prenons rendez-vous<br>pour votre <em style="color:var(--cd)">compagnon</em></h2>
+        <p class="s-sub">Écrivez-nous ou appelez directement — nous vous répondrons dans les plus brefs délais.</p>
+        <div class="form-info-item">
+          <div class="form-info-icon">📍</div>
+          <div class="form-info-text">
+            <strong>Adresse</strong>
+            Centre Commercial PLAZA APOGOTI<br>Dumbéa sur mer, Dumbéa 98835<br>Nouvelle-Calédonie
+          </div>
+        </div>
+        <div class="form-info-item">
+          <div class="form-info-icon">📞</div>
+          <div class="form-info-text">
+            <strong>Téléphone</strong>
+            <a href="tel:953141" style="color:var(--ca);font-weight:700">95.31.41</a>
+          </div>
+        </div>
+        <div class="form-info-item">
+          <div class="form-info-icon">📱</div>
+          <div class="form-info-text">
+            <strong>Réseaux sociaux</strong>
+            <a href="https://www.facebook.com/LeChienChicetChoc.nc" target="_blank" rel="noopener" style="color:var(--ca)">Facebook</a>
+            &nbsp;·&nbsp;
+            <a href="https://www.instagram.com/lechienchicetchoc" target="_blank" rel="noopener" style="color:var(--ca)">Instagram</a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <form id="cform" action="#" novalidate>
+          <div class="f-row">
+            <div class="f-field">
+              <label for="fname">Votre prénom</label>
+              <input type="text" id="fname" name="fname" placeholder="Marie" autocomplete="given-name">
+            </div>
+            <div class="f-field">
+              <label for="fphone">Téléphone</label>
+              <input type="tel" id="fphone" name="fphone" placeholder="79.XX.XX" autocomplete="tel">
+            </div>
+          </div>
+          <div class="f-field">
+            <label for="femail">Email</label>
+            <input type="email" id="femail" name="femail" placeholder="marie@exemple.nc" autocomplete="email">
+          </div>
+          <div class="f-field">
+            <label for="fmsg">Message</label>
+            <textarea id="fmsg" name="fmsg" placeholder="Décrivez votre compagnon et la prestation souhaitée…"></textarea>
+          </div>
+          <button type="submit" class="f-submit" id="fsub">
+            <span id="fsub-txt">Envoyer ma demande 🐾</span>
+          </button>
+        </form>
+        <div class="f-success" id="fsuccess">
+          <div style="font-size:2rem;margin-bottom:8px">🎉</div>
+          <strong style="font-size:1rem;color:#fff;display:block;margin-bottom:6px">Message envoyé !</strong>
+          <span style="font-size:.88rem;color:rgba(255,255,255,.7)">Nous vous recontacterons très vite pour prendre soin de votre compagnon.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">
+        Le Chien Chic<span> &amp; Choc</span>
+        <small>Toilettage premium · Dumbéa</small>
+      </div>
+      <p>Salon de toilettage chic et décalé à Dumbéa sur mer, Nouvelle-Calédonie. Chaque compagnon mérite une attention unique — et une allure à la hauteur.</p>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/LeChienChicetChoc.nc" target="_blank" rel="noopener" class="footer-social-link" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/lechienchicetchoc" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#services">Nos prestations</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#avis">Avis clients</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Nous trouver</h4>
+      <address>
+        Centre Commercial PLAZA APOGOTI<br>
+        Dumbéa sur mer<br>
+        Dumbéa 98835<br>
+        Nouvelle-Calédonie<br><br>
+        <a href="tel:953141">📞 95.31.41</a>
+      </address>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Le Chien Chic et Choc — Toilettage NC — Dumbéa. Tous droits réservés.</div>
+    <div class="footer-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></div>
+  </div>
+</footer>
+
+<script>
+function openLb(src){var l=document.getElementById('lb');document.getElementById('lb-img').src=src;l.classList.add('open');document.body.style.overflow='hidden'}
+function closeLb(e){if(!e||e.target!==document.getElementById('lb-img')){document.getElementById('lb').classList.remove('open');document.body.style.overflow=''}}
+
+document.getElementById('cform').addEventListener('submit',function(e){
+e.preventDefault();
+var ok=true;
+['fname','femail','fmsg'].forEach(function(id){
+var f=document.getElementById(id);
+if(!f.value.trim()){f.classList.add('err');ok=false}else f.classList.remove('err');
+});
+var em=document.getElementById('femail');
+if(em.value&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value)){em.classList.add('err');ok=false}
+if(!ok)return;
+var btn=document.getElementById('fsub'),txt=document.getElementById('fsub-txt');
+txt.textContent='Envoi…';btn.disabled=true;
+setTimeout(function(){
+document.getElementById('cform').style.display='none';
+document.getElementById('fsuccess').classList.add('show');
+},900);
+});
+
+document.querySelectorAll('.f-field input,.f-field textarea').forEach(function(el){
+el.addEventListener('input',function(){this.classList.remove('err')});
+});
+</script>
+</body>
+</html>
