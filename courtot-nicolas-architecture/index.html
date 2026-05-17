@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Courtot Nicolas Architecture — Nouméa</title>
+<meta name="description" content="Cabinet d'architecture à Nouméa, Nouvelle-Calédonie. Conception, suivi de chantier et expertise en milieu tropical calédonien.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Raleway:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#C8C070;
+--cs:#B8B8A8;
+--ca:#2E5E8E;
+--cb:#FFFFFF;
+--ct:#1A1A1A;
+--ctl:#4A4A4A;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ct);background:var(--cb);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU PROMO */
+.promo{
+position:fixed;top:0;left:0;width:100%;height:44px;
+background:#ffd500;
+z-index:1001;
+text-align:center;
+font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;
+font-weight:700;font-size:14px;letter-spacing:0.3px;line-height:44px;
+}
+.promo a{color:#4375ff;font-weight:700;transition:opacity .2s}
+.promo a:hover{opacity:.85}
+
+/* HEADER */
+.nav{
+position:fixed;top:44px;left:0;width:100%;
+background:rgba(255,255,255,.96);
+backdrop-filter:blur(8px);
+border-bottom:1px solid #ededec;
+z-index:1000;
+height:68px;
+display:flex;align-items:center;
+}
+.nav-inner{
+width:100%;max-width:1280px;margin:0 auto;
+padding:0 32px;
+display:flex;align-items:center;justify-content:space-between;
+}
+.logo{font-family:'Raleway',sans-serif;font-weight:800;font-size:17px;letter-spacing:.5px;color:var(--ct);line-height:1.2}
+.logo span{color:var(--cp);display:block;font-weight:400;font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-top:1px}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:var(--ctL);letter-spacing:.4px;transition:color .3s}
+.nav-links a:hover{color:var(--ca)}
+.nav-cta{background:var(--ca);color:#fff;font-family:'Inter',sans-serif;font-weight:600;font-size:13px;letter-spacing:.5px;padding:10px 22px;border-radius:2px;transition:opacity .3s;white-space:nowrap}
+.nav-cta:hover{opacity:.85}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.burger span{display:block;width:22px;height:2px;background:var(--ct);transition:transform .3s,opacity .3s}
+.mob-menu{display:none;position:fixed;top:112px;left:0;width:100%;background:#fff;border-bottom:1px solid #ededec;z-index:999;padding:24px 20px;flex-direction:column;gap:0}
+.mob-menu a{display:block;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:var(--ct);padding:14px 0;border-bottom:1px solid #f0f0ee;letter-spacing:.3px}
+.mob-menu a:last-child{border-bottom:none}
+.mob-menu .nav-cta{margin-top:16px;text-align:center;display:block;width:100%;min-height:48px;line-height:48px;padding:0;border-radius:2px;font-size:14px}
+.mob-open .mob-menu{display:flex}
+.mob-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.mob-open .burger span:nth-child(2){opacity:0}
+.mob-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* HERO */
+.hero{
+min-height:100vh;
+position:relative;
+display:flex;align-items:center;
+padding-top:112px;
+background:url('https://i.ibb.co/svXv4sFZ/Courtot-Nicolas-Architecture-0.jpg') center center/cover no-repeat;
+}
+.hero-overlay{
+position:absolute;inset:0;
+background:linear-gradient(135deg,rgba(26,26,26,.82) 0%,rgba(46,94,142,.55) 60%,rgba(200,192,112,.18) 100%);
+}
+.hero-inner{
+position:relative;z-index:1;
+max-width:1280px;margin:0 auto;padding:80px 32px;
+max-width:760px;
+}
+.hero-label{
+font-family:'Inter',sans-serif;font-size:11px;font-weight:600;
+letter-spacing:3px;text-transform:uppercase;color:var(--cp);
+margin-bottom:24px;display:flex;align-items:center;gap:12px;
+}
+.hero-label::before{content:'';width:32px;height:1px;background:var(--cp)}
+.h1{font-family:'Raleway',sans-serif;font-weight:800;font-size:clamp(32px,5vw,58px);line-height:1.12;color:#fff;margin-bottom:24px;letter-spacing:-.5px}
+.h1 em{font-style:normal;color:var(--cp)}
+.hero-sub{font-family:'Inter',sans-serif;font-size:clamp(15px,2vw,18px);font-weight:300;color:rgba(255,255,255,.82);line-height:1.7;margin-bottom:40px;max-width:560px}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
+.b-primary{background:var(--ca);color:#fff;font-family:'Inter',sans-serif;font-weight:600;font-size:14px;letter-spacing:.5px;padding:14px 28px;border-radius:2px;transition:opacity .3s;min-height:48px;display:inline-flex;align-items:center}
+.b-primary:hover{opacity:.85}
+.b-outline{background:transparent;color:#fff;font-family:'Inter',sans-serif;font-weight:500;font-size:14px;letter-spacing:.5px;padding:13px 28px;border-radius:2px;border:1.5px solid rgba(255,255,255,.5);transition:border-color .3s,color .3s;min-height:48px;display:inline-flex;align-items:center}
+.b-outline:hover{border-color:#fff;color:#fff}
+.scroll-ind{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;z-index:1}
+.scroll-ind span{font-family:'Inter',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.scroll-line{width:1px;height:40px;background:rgba(255,255,255,.25);position:relative;overflow:hidden}
+.scroll-line::after{content:'';position:absolute;top:-100%;left:0;width:100%;height:100%;background:var(--cp);animation:scrolldown 1.8s ease-in-out infinite}
+@keyframes scrolldown{0%{top:-100%}100%{top:100%}}
+
+/* DIVIDER */
+.div{width:100%;height:1px;background:var(--cs);opacity:.35}
+
+/* STATS BAND */
+.stats{background:var(--cp);padding:56px 32px}
+.stats-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
+.stat-num{font-family:'Raleway',sans-serif;font-weight:800;font-size:clamp(36px,4vw,56px);color:#fff;line-height:1;letter-spacing:-1px}
+.stat-label{font-family:'Inter',sans-serif;font-size:13px;font-weight:400;color:rgba(255,255,255,.78);margin-top:8px;letter-spacing:.5px;line-height:1.5}
+.stat-unit{font-family:'Raleway',sans-serif;font-size:24px;font-weight:300;color:rgba(255,255,255,.65)}
+
+/* SECTIONS GENERALES */
+.s{padding:96px 32px}
+.s-alt{background:#F8F8F6}
+.s-inner{max-width:1280px;margin:0 auto}
+.s-label{font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--ca);margin-bottom:16px}
+.h2{font-family:'Raleway',sans-serif;font-weight:700;font-size:clamp(26px,3.5vw,42px);color:var(--ct);line-height:1.2;letter-spacing:-.3px}
+.h3{font-family:'Raleway',sans-serif;font-weight:600;font-size:clamp(18px,2vw,22px);color:var(--ct);line-height:1.3}
+.p{font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:var(--ctL);line-height:1.75}
+.sep{width:48px;height:3px;background:var(--cp);margin:20px 0 36px}
+
+/* SERVICES GRID */
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:52px}
+.c{background:#fff;border:1px solid rgba(184,184,168,.4);border-radius:3px;padding:36px 32px;transition:box-shadow .3s,transform .3s;position:relative;overflow:hidden}
+.c:hover{box-shadow:0 12px 40px rgba(0,0,0,.08);transform:translateY(-3px)}
+.c::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--cp);transition:height .35s ease}
+.c:hover::before{height:100%}
+.c-icon{width:44px;height:44px;margin-bottom:24px;color:var(--ca)}
+.c-title{font-family:'Raleway',sans-serif;font-weight:700;font-size:18px;color:var(--ct);margin-bottom:12px}
+.c-text{font-family:'Inter',sans-serif;font-size:14px;color:var(--ctL);line-height:1.7;margin-bottom:20px}
+.c-link{font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--ca);letter-spacing:.3px;display:inline-flex;align-items:center;gap:6px;transition:gap .2s}
+.c-link:hover{gap:10px}
+
+/* PROCESSUS TIMELINE */
+.timeline{display:flex;gap:0;margin-top:56px;position:relative}
+.timeline::before{content:'';position:absolute;top:24px;left:0;width:100%;height:2px;background:var(--cs);opacity:.4;z-index:0}
+.step{flex:1;text-align:center;position:relative;padding:0 12px}
+.step-dot{width:48px;height:48px;border-radius:50%;background:#fff;border:2px solid var(--cp);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;position:relative;z-index:1;font-family:'Raleway',sans-serif;font-weight:700;font-size:16px;color:var(--cp);transition:background .3s,color .3s}
+.step:hover .step-dot{background:var(--cp);color:#fff}
+.step-title{font-family:'Raleway',sans-serif;font-weight:600;font-size:15px;color:var(--ct);margin-bottom:8px}
+.step-text{font-family:'Inter',sans-serif;font-size:13px;color:var(--ctL);line-height:1.6}
+
+/* GALERIE */
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:4px;margin-top:48px}
+.gallery-item{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:4/3}
+.gallery-item:first-child{grid-column:span 2;aspect-ratio:16/7}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.gallery-item:hover img{transform:scale(1.04)}
+.gallery-item::after{content:'';position:absolute;inset:0;background:rgba(26,26,26,0);transition:background .3s}
+.gallery-item:hover::after{background:rgba(26,26,26,.15)}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center}
+.lightbox.open{display:flex}
+.lightbox img{max-width:90vw;max-height:88vh;object-fit:contain;border-radius:2px}
+.lb-close{position:absolute;top:20px;right:24px;color:#fff;font-size:32px;cursor:pointer;font-weight:300;line-height:1;opacity:.7;transition:opacity .2s}
+.lb-close:hover{opacity:1}
+
+/* FORMULAIRE */
+.form{display:grid;gap:20px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.field{display:flex;flex-direction:column;gap:8px}
+.field label{font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--ctL)}
+.field input,.field textarea{font-family:'Inter',sans-serif;font-size:14px;color:var(--ct);background:#fff;border:1.5px solid #e0e0dc;border-radius:2px;padding:13px 16px;transition:border-color .3s;outline:none;width:100%}
+.field input:focus,.field textarea:focus{border-color:var(--ca)}
+.field textarea{min-height:130px;resize:vertical}
+.b-submit{background:var(--ca);color:#fff;font-family:'Inter',sans-serif;font-weight:600;font-size:14px;letter-spacing:.5px;border:none;cursor:pointer;padding:15px 36px;border-radius:2px;transition:opacity .3s;min-height:50px;display:inline-flex;align-items:center;gap:10px}
+.b-submit:hover{opacity:.85}
+.form-success{display:none;background:#f0f5f0;border:1px solid #c0d8c0;border-radius:2px;padding:18px 24px;font-family:'Inter',sans-serif;font-size:14px;color:#2e6b2e}
+
+/* PREUVE SOCIALE */
+.rating-badge{display:inline-flex;align-items:center;gap:12px;background:#F8F8F6;border:1px solid #e8e8e4;border-radius:4px;padding:16px 24px;margin-bottom:36px}
+.stars{color:#C8C070;font-size:20px;letter-spacing:2px}
+.rating-text{font-family:'Inter',sans-serif;font-size:13px;color:var(--ctL)}
+.rating-text strong{font-weight:700;color:var(--ct);font-size:20px;display:block;line-height:1}
+
+/* FOOTER */
+.footer{background:#111;padding:64px 32px 32px}
+.footer-inner{max-width:1280px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-brand{font-family:'Raleway',sans-serif;font-weight:800;font-size:20px;color:#fff;margin-bottom:16px}
+.footer-brand span{display:block;font-weight:300;font-size:12px;color:var(--cp);letter-spacing:2px;margin-top:2px}
+.footer-desc{font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:20px}
+.footer-contact a{display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.65);margin-bottom:8px;transition:color .2s}
+.footer-contact a:hover{color:var(--cp)}
+.footer-h{font-family:'Raleway',sans-serif;font-weight:600;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:20px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.55);transition:color .2s}
+.footer-links a:hover{color:var(--cp)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-copy{font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,.35)}
+.footer-copy a{color:var(--cp);transition:opacity .2s}
+.footer-copy a:hover{opacity:.75}
+.footer-social{display:flex;gap:16px}
+.footer-social a{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);transition:border-color .2s,color .2s}
+.footer-social a:hover{border-color:var(--cp);color:var(--cp)}
+
+/* TRIANGLE DECO */
+.tri{width:0;height:0;border-left:20px solid transparent;border-right:20px solid transparent;border-bottom:34px solid var(--cp);opacity:.12;position:absolute}
+
+/* ANIMATION CLASSES */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.vis{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.srv-grid{grid-template-columns:1fr 1fr}
+.footer-grid{grid-template-columns:1fr 1fr}
+.timeline{flex-direction:column}
+.timeline::before{top:0;left:24px;width:2px;height:100%}
+.step{text-align:left;display:flex;gap:20px;align-items:flex-start;padding:0 0 32px}
+.step-dot{flex-shrink:0;margin:0}
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+.nav-links,.nav-cta{display:none}
+.burger{display:flex}
+.nav-inner{padding:0 16px}
+.hero-inner{padding:60px 16px}
+.hero-ctas{flex-direction:column}
+.b-primary,.b-outline{width:100%;justify-content:center}
+.s{padding:64px 16px}
+.stats{padding:40px 16px}
+.stats-inner{grid-template-columns:repeat(2,1fr);gap:24px}
+.srv-grid{grid-template-columns:1fr}
+.form-row{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr}
+.footer{padding:48px 16px 24px}
+.footer-bottom{flex-direction:column;text-align:center}
+.gallery{grid-template-columns:1fr}
+.gallery-item:first-child{grid-column:span 1}
+.promo{height:40px;font-size:13px;line-height:40px}
+.nav{top:40px}
+.hero{padding-top:108px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="nav" id="header">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      Courtot Nicolas Architecture
+      <span>Nouméa · Nouvelle-Calédonie</span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#processus">Processus</a></li>
+        <li><a href="#galerie">Projets</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="tel:+687236904" class="nav-cta">23.69.04</a>
+    <div class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+<nav class="mob-menu" id="mobMenu">
+  <a href="#services" onclick="closeMob()">Services</a>
+  <a href="#processus" onclick="closeMob()">Processus</a>
+  <a href="#galerie" onclick="closeMob()">Projets</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="tel:+687236904" class="nav-cta">Appeler : 23.69.04</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-label">Architecture & Expertise tropicale</div>
+    <h1 class="h1">
+      Concevoir des espaces <em>durables</em> en climat tropical : un défi structurel
+    </h1>
+    <p class="hero-sub">
+      À Nouméa, chaque projet porte les exigences du milieu tropical calédonien — humidité, exposition aux cyclones, contraintes sismiques. Courtot Nicolas Architecture traduit ces défis en architecture rigoureuse et pérenne.
+    </p>
+    <div class="hero-ctas">
+      <a href="#contact" class="b-primary">Demander un devis</a>
+      <a href="#services" class="b-outline">Découvrir nos services</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>Défiler</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<section class="stats" id="stats">
+  <div class="stats-inner">
+    <div class="reveal">
+      <div class="stat-num" data-target="15" data-suffix=" ans">0</div>
+      <div class="stat-label">d'expérience<br>en Nouvelle-Calédonie</div>
+    </div>
+    <div class="reveal">
+      <div class="stat-num" data-target="200" data-suffix="+">0</div>
+      <div class="stat-label">projets réalisés<br>à Nouméa et en région</div>
+    </div>
+    <div class="reveal">
+      <div class="stat-num" data-target="100" data-suffix="%">0</div>
+      <div class="stat-label">suivi de chantier<br>jusqu'à la livraison</div>
+    </div>
+    <div class="reveal">
+      <div class="stat-num" data-target="1" data-suffix=" atelier">0</div>
+      <div class="stat-label">ancré localement<br>39 rue Fernand Forest</div>
+    </div>
+  </div>
+</section>
+
+<script>
+var burger=document.getElementById('burger'),mob=document.getElementById('mobMenu'),body=document.body;
+burger.addEventListener('click',function(){body.classList.toggle('mob-open')});
+function closeMob(){body.classList.remove('mob-open')}
+
+var obs=new IntersectionObserver(function(e){e.forEach(function(i){if(i.isIntersecting){i.target.classList.add('vis');obs.unobserve(i.target)}})},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
+
+var counters=document.querySelectorAll('.stat-num');
+var cObs=new IntersectionObserver(function(e){e.forEach(function(i){if(i.isIntersecting){animCount(i.target);cObs.unobserve(i.target)}})},{threshold:.4});
+counters.forEach(function(c){cObs.observe(c)});
+function animCount(el){
+  var t=parseInt(el.dataset.target),s=el.dataset.suffix||'',d=1200,st=null;
+  function step(ts){
+    if(!st)st=ts;
+    var p=Math.min((ts-st)/d,1),v=Math.round(p*t);
+    el.textContent=v+s;
+    if(p<1)requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+</script>
+<!-- SERVICES -->
+<section class="s" id="services">
+  <div class="s-inner">
+    <div class="reveal">
+      <div class="s-label">Nos domaines d'intervention</div>
+      <h2 class="h2">Une expertise au service<br>de chaque projet</h2>
+      <div class="sep"></div>
+    </div>
+    <div class="srv-grid">
+      <div class="c reveal">
+        <svg class="c-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="6" y="8" width="32" height="28" rx="1"/>
+          <path d="M6 16h32M14 8v8M30 8v8"/>
+          <path d="M13 24h6M13 30h12" stroke-linecap="round"/>
+        </svg>
+        <div class="c-title">Conception architecturale</div>
+        <p class="c-text">Études de faisabilité, permis de construire, plans d'exécution. Chaque projet est pensé en tenant compte des contraintes climatiques et réglementaires propres à la Nouvelle-Calédonie.</p>
+        <a href="#contact" class="c-link">Prendre contact <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a>
+      </div>
+      <div class="c reveal">
+        <svg class="c-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="22" cy="22" r="14"/>
+          <path d="M22 8v4M22 32v4M8 22h4M32 22h4"/>
+          <circle cx="22" cy="22" r="4" fill="currentColor" stroke="none" opacity=".25"/>
+          <path d="M22 22l7-7" stroke-linecap="round"/>
+        </svg>
+        <div class="c-title">Maîtrise d'œuvre</div>
+        <p class="c-text">Coordination des entreprises, contrôle de la conformité technique, respect des délais et du budget. Un interlocuteur unique du premier trait jusqu'à la réception de chantier.</p>
+        <a href="#contact" class="c-link">Prendre contact <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a>
+      </div>
+      <div class="c reveal">
+        <svg class="c-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M8 36L22 10l14 26H8z"/>
+          <path d="M16 36v-8h12v8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M19 28h6" stroke-linecap="round"/>
+        </svg>
+        <div class="c-title">Construction neuve</div>
+        <p class="c-text">Villas, bâtiments tertiaires, équipements collectifs. Conception structurelle adaptée aux normes sismiques et aux exigences de ventilation naturelle du contexte tropical calédonien.</p>
+        <a href="#contact" class="c-link">Prendre contact <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a>
+      </div>
+      <div class="c reveal">
+        <svg class="c-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="8" y="12" width="28" height="22" rx="1"/>
+          <path d="M16 12V9a2 2 0 012-2h8a2 2 0 012 2v3"/>
+          <path d="M14 22h16M14 28h10" stroke-linecap="round"/>
+        </svg>
+        <div class="c-title">Réhabilitation & rénovation</div>
+        <p class="c-text">Diagnostic technique, extension, mise aux normes. Redonner vie à un bâtiment existant en intégrant les impératifs de durabilité et d'efficacité thermique en milieu tropical.</p>
+        <a href="#contact" class="c-link">Prendre contact <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a>
+      </div>
+      <div class="c reveal">
+        <svg class="c-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M10 34h24M14 34V20M30 34V20"/>
+          <path d="M8 20l14-10 14 10" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="18" y="26" width="8" height="8"/>
+        </svg>
+        <div class="c-title">Aménagement intérieur</div>
+        <p class="c-text">Organisation des espaces, choix des matériaux, éclairage naturel. Une approche sensible qui concilie confort thermique, esthétique sobre et fonctionnalité au quotidien.</p>
+        <a href="#contact" class="c-link">Prendre contact <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a>
+      </div>
+      <div class="c reveal">
+        <svg class="c-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M22 6l2.5 8h8.5l-6.9 5 2.6 8L22 22l-6.7 5 2.6-8L11 14h8.5z" stroke-linejoin="round"/>
+          <path d="M22 30v8M16 36h12" stroke-linecap="round"/>
+        </svg>
+        <div class="c-title">Conseil & assistance</div>
+        <p class="c-text">Accompagnement en amont : analyse de terrain, faisabilité réglementaire, conseil sur les matériaux adaptés au contexte local. Une expertise disponible dès la phase d'intention.</p>
+        <a href="#contact" class="c-link">Prendre contact <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- PROCESSUS -->
+<section class="s s-alt" id="processus">
+  <div class="s-inner">
+    <div class="reveal">
+      <div class="s-label">Notre méthode de travail</div>
+      <h2 class="h2">De l'intention au bâti :<br>un processus structuré</h2>
+      <div class="sep"></div>
+    </div>
+    <div class="timeline">
+      <div class="step reveal">
+        <div class="step-dot">01</div>
+        <div>
+          <div class="step-title">Étude de site</div>
+          <p class="step-text">Analyse topographique, orientation solaire, contraintes réglementaires et conditions géotechniques propres au terrain calédonien.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-dot">02</div>
+        <div>
+          <div class="step-title">Avant-projet</div>
+          <p class="step-text">Esquisse, plans de masse, choix constructifs. Validation du programme avec le maître d'ouvrage avant tout engagement technique.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-dot">03</div>
+        <div>
+          <div class="step-title">Permis & dossiers</div>
+          <p class="step-text">Constitution du dossier de permis de construire, coordination avec les services instructeurs de la Province Sud et de la commune.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-dot">04</div>
+        <div>
+          <div class="step-title">Suivi de chantier</div>
+          <p class="step-text">Visites régulières, compte-rendu hebdomadaire, contrôle de la conformité aux plans. Présence terrain jusqu'à la livraison.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-dot">05</div>
+        <div>
+          <div class="step-title">Réception</div>
+          <p class="step-text">Levée des réserves, remise des documents d'ouvrage, accompagnement dans les démarches post-livraison. Le projet ne s'arrête pas au chantier.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- SECTION MÉTIER -->
+<section class="s" id="metier">
+  <div class="s-inner">
+    <div class="met-grid">
+      <div class="met-text reveal">
+        <div class="s-label">Notre ancrage calédonien</div>
+        <h2 class="h2">Construire juste dans un contexte exigeant</h2>
+        <div class="sep"></div>
+        <p class="p">La Nouvelle-Calédonie impose des contraintes que peu d'agences métropolitaines maîtrisent réellement : humidité persistante, exposition aux vents cycloniques, zonage sismique, matériaux soumis à des délais d'approvisionnement longs.</p>
+        <p class="p met-p2">Courtot Nicolas Architecture connaît ces réalités de l'intérieur. Chaque conception intègre dès le départ la ventilation naturelle, la gestion des eaux pluviales tropicales et la résistance structurelle aux aléas climatiques locaux.</p>
+        <ul class="met-list">
+          <li class="met-item">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="9" fill="#C8C070" opacity=".15"/><path d="M5 9l3 3 5-5" stroke="#2E5E8E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Normes parasismiques et paracycloniques intégrées en conception
+          </li>
+          <li class="met-item">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="9" fill="#C8C070" opacity=".15"/><path d="M5 9l3 3 5-5" stroke="#2E5E8E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Connaissance du tissu des entreprises locales de construction
+          </li>
+          <li class="met-item">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="9" fill="#C8C070" opacity=".15"/><path d="M5 9l3 3 5-5" stroke="#2E5E8E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Maîtrise des réglementations provinciales et communales
+          </li>
+          <li class="met-item">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="9" fill="#C8C070" opacity=".15"/><path d="M5 9l3 3 5-5" stroke="#2E5E8E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Architecture bioclimatique adaptée au climat tropical océanien
+          </li>
+        </ul>
+      </div>
+      <div class="met-imgs reveal">
+        <div class="met-img-main">
+          <img src="https://i.ibb.co/zHQsbF41/Courtot-Nicolas-Architecture-1.jpg" alt="Projet architectural Courtot Nicolas Architecture Nouméa" loading="lazy">
+        </div>
+        <div class="met-img-secondary">
+          <img src="https://i.ibb.co/GGMpJhB/Courtot-Nicolas-Architecture-2.jpg" alt="Réalisation architecturale en Nouvelle-Calédonie" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- GALERIE -->
+<section class="s s-alt" id="galerie">
+  <div class="s-inner">
+    <div class="reveal">
+      <div class="s-label">Références & projets</div>
+      <h2 class="h2">Quelques réalisations<br>à Nouméa et en région</h2>
+      <div class="sep"></div>
+    </div>
+    <div class="gallery reveal">
+      <div class="gallery-item" onclick="openLb(0)">
+        <img src="https://i.ibb.co/svXv4sFZ/Courtot-Nicolas-Architecture-0.jpg" alt="Projet architectural Courtot Nicolas Architecture" loading="lazy">
+      </div>
+      <div class="gallery-item" onclick="openLb(1)">
+        <img src="https://i.ibb.co/zHQsbF41/Courtot-Nicolas-Architecture-1.jpg" alt="Réalisation Courtot Nicolas Architecture Nouméa" loading="lazy">
+      </div>
+      <div class="gallery-item" onclick="openLb(2)">
+        <img src="https://i.ibb.co/GGMpJhB/Courtot-Nicolas-Architecture-2.jpg" alt="Chantier Courtot Nicolas Architecture Nouvelle-Calédonie" loading="lazy">
+      </div>
+      <div class="gallery-item" onclick="openLb(3)">
+        <img src="https://i.ibb.co/LXf5cP6r/Courtot-Nicolas-Architecture-3.jpg" alt="Architecture tropicale Nouméa Calédonie" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lb" onclick="closeLb()">
+  <span class="lb-close" onclick="closeLb()">&#215;</span>
+  <img id="lb-img" src="" alt="Projet Courtot Nicolas Architecture">
+</div>
+
+<div class="div"></div>
+
+<!-- FORMULAIRE -->
+<section class="s" id="contact">
+  <div class="s-inner">
+    <div class="form-layout">
+      <div class="form-intro reveal">
+        <div class="s-label">Contactez-nous</div>
+        <h2 class="h2">Parlons de<br>votre projet</h2>
+        <div class="sep"></div>
+        <p class="p">Vous avez un projet de construction, de rénovation ou souhaitez un conseil d'orientation ? L'atelier est à votre disposition.</p>
+        <div class="contact-info">
+          <a href="tel:+687236904" class="contact-line">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="var(--ca)" stroke-width="1.5"><path d="M3 3h4l1.5 4-2 1.5a11 11 0 005 5L13 11l4 1.5V16a2 2 0 01-2 2A15 15 0 011 5a2 2 0 012-2z"/></svg>
+            23.69.04
+          </a>
+          <div class="contact-line">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="var(--ca)" stroke-width="1.5"><path d="M3 4h12a1 1 0 011 1v8a1 1 0 01-1 1H3a1 1 0 01-1-1V5a1 1 0 011-1z"/><path d="M2 5l7 5 7-5"/></svg>
+            39 Rue Fernand Forest, Nouméa
+          </div>
+        </div>
+      </div>
+      <div class="form-wrap reveal">
+        <form class="form" id="contactForm" action="#" novalidate>
+          <div class="form-row">
+            <div class="field">
+              <label for="fn">Nom complet</label>
+              <input type="text" id="fn" name="nom" placeholder="Votre nom" autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="fe">Email</label>
+              <input type="email" id="fe" name="email" placeholder="votre@email.com" autocomplete="email">
+            </div>
+          </div>
+          <div class="field">
+            <label for="ft">Téléphone</label>
+            <input type="tel" id="ft" name="tel" placeholder="Ex : 23.69.xx" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="fm">Votre message</label>
+            <textarea id="fm" name="message" placeholder="Décrivez votre projet en quelques mots…"></textarea>
+          </div>
+          <div class="form-success" id="formSuccess">
+            Merci pour votre message. L'atelier vous répondra dans les plus brefs délais.
+          </div>
+          <button type="submit" class="b-submit" id="formBtn">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.8"><path d="M14 2L2 7l5 2 2 5 5-12z" stroke-linejoin="round"/></svg>
+            <span id="btnTxt">Envoyer le message</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- PREUVE SOCIALE -->
+<section class="s s-alt" id="avis">
+  <div class="s-inner">
+    <div class="reveal" style="">
+      <div class="s-label">Réputation & confiance</div>
+      <h2 class="h2">Un cabinet reconnu<br>à Nouméa</h2>
+      <div class="sep"></div>
+    </div>
+    <div class="social-grid reveal">
+      <div class="rating-block">
+        <div class="rating-badge">
+          <div>
+            <strong class="rating-num">—</strong>
+            <div class="stars">★★★★★</div>
+          </div>
+          <div class="rating-text">
+            Présent sur Google My Business<br>
+            <span>Courtot Nicolas Architecture · Nouméa</span>
+          </div>
+        </div>
+        <p class="p rating-note">Nous venons de rejoindre Google. Soyez parmi les premiers à laisser un avis et partagez votre expérience avec notre atelier.</p>
+        <a href="https://www.facebook.com/p/COURTOT-NICOLAS-ARCHITECTURE-Sarl-100063657354078" target="_blank" rel="noopener" class="b-primary badge-cta">Voir notre page Facebook</a>
+      </div>
+      <div class="badges-block">
+        <div class="badge-item reveal">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="18" fill="#C8C070" opacity=".12"/><path d="M12 18l4 4 8-8" stroke="#2E5E8E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div>
+            <div class="badge-title">Cabinet local établi</div>
+            <p class="badge-text">Implanté durablement à Nouméa, avec une connaissance approfondie du territoire calédonien.</p>
+          </div>
+        </div>
+        <div class="badge-item reveal">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="18" fill="#C8C070" opacity=".12"/><path d="M12 18l4 4 8-8" stroke="#2E5E8E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div>
+            <div class="badge-title">Interlocuteur unique</div>
+            <p class="badge-text">Du permis de construire au suivi de chantier, un seul référent technique tout au long du projet.</p>
+          </div>
+        </div>
+        <div class="badge-item reveal">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="18" fill="#C8C070" opacity=".12"/><path d="M12 18l4 4 8-8" stroke="#2E5E8E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div>
+            <div class="badge-title">Conformité réglementaire</div>
+            <p class="badge-text">Maîtrise des règles d'urbanisme provinciales, communales et des normes de construction locales.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          Courtot Nicolas Architecture
+          <span>Architecte à Nouméa</span>
+        </div>
+        <p class="footer-desc">Cabinet d'architecture ancré en Nouvelle-Calédonie. Conception, maîtrise d'œuvre et suivi de chantier pour particuliers, entreprises et collectivités à Nouméa et en région.</p>
+        <div class="footer-contact">
+          <a href="tel:+687236904">📞 23.69.04</a>
+          <a href="#contact">39, Rue Fernand Forest — 98800 Nouméa</a>
+          <a href="#contact">Nouvelle-Calédonie</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-h">Navigation</div>
+        <ul class="footer-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#processus">Notre processus</a></li>
+          <li><a href="#galerie">Projets réalisés</a></li>
+          <li><a href="#contact">Contact & devis</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-h">Suivre l'atelier</div>
+        <div class="footer-social" style="">
+          <a href="https://www.facebook.com/p/COURTOT-NICOLAS-ARCHITECTURE-Sarl-100063657354078" target="_blank" rel="noopener" aria-label="Facebook Courtot Nicolas Architecture">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z"/></svg>
+          </a>
+        </div>
+        <p class="footer-desc" style="">Retrouvez nos réalisations et actualités du cabinet sur Facebook.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Courtot Nicolas Architecture. Tous droits réservés. · <a href="https://setup.nc" target="_blank" rel="noopener">Site réalisé par Setup NC</a></p>
+      <div class="footer-copy">Nouméa, Nouvelle-Calédonie</div>
+    </div>
+  </div>
+</footer>
+
+<style>
+.met-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.met-p2{margin-top:16px}
+.met-list{list-style:none;margin-top:28px;display:flex;flex-direction:column;gap:14px}
+.met-item{display:flex;align-items:flex-start;gap:12px;font-family:'Inter',sans-serif;font-size:14px;color:var(--ctL);line-height:1.6}
+.met-imgs{display:flex;flex-direction:column;gap:12px}
+.met-img-main img,.met-img-secondary img{width:100%;object-fit:cover;border-radius:2px}
+.met-img-main img{height:280px}
+.met-img-secondary img{height:160px}
+.form-layout{display:grid;grid-template-columns:1fr 1.4fr;gap:64px;align-items:start}
+.contact-info{margin-top:28px;display:flex;flex-direction:column;gap:14px}
+.contact-line{display:flex;align-items:center;gap:12px;font-family:'Inter',sans-serif;font-size:14px;color:var(--ctL);transition:color .2s}
+.contact-line:hover{color:var(--ca)}
+.social-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:8px}
+.rating-block{display:flex;flex-direction:column;gap:20px}
+.rating-num{font-family:'Raleway',sans-serif;font-weight:800;font-size:32px;color:var(--ct);display:block;line-height:1}
+.rating-note{font-size:14px;color:var(--ctL)}
+.badge-cta{font-size:13px;padding:11px 22px;align-self:flex-start;display:inline-flex;align-items:center;gap:8px}
+.badges-block{display:flex;flex-direction:column;gap:28px}
+.badge-item{display:flex;align-items:flex-start;gap:16px}
+.badge-title{font-family:'Raleway',sans-serif;font-weight:600;font-size:16px;color:var(--ct);margin-bottom:6px}
+.badge-text{font-family:'Inter',sans-serif;font-size:13px;color:var(--ctL);line-height:1.6}
+@media(max-width:900px){
+.met-grid{grid-template-columns:1fr;gap:36px}
+.form-layout{grid-template-columns:1fr;gap:40px}
+.social-grid{grid-template-columns:1fr;gap:32px}
+}
+@media(max-width:640px){
+.met-img-main img{height:200px}
+.met-img-secondary img{height:120px}
+.b-submit{width:100%;justify-content:center}
+.badge-cta{width:100%;justify-content:center}
+}
+</style>
+
+<script>
+var imgs=['https://i.ibb.co/svXv4sFZ/Courtot-Nicolas-Architecture-0.jpg','https://i.ibb.co/zHQsbF41/Courtot-Nicolas-Architecture-1.jpg','https://i.ibb.co/GGMpJhB/Courtot-Nicolas-Architecture-2.jpg','https://i.ibb.co/LXf5cP6r/Courtot-Nicolas-Architecture-3.jpg'];
+function openLb(i){var lb=document.getElementById('lb');document.getElementById('lb-img').src=imgs[i];lb.classList.add('open')}
+function closeLb(){document.getElementById('lb').classList.remove('open')}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
+
+document.getElementById('contactForm').addEventListener('submit',function(e){
+e.preventDefault();
+var n=document.getElementById('fn').value.trim();
+var em=document.getElementById('fe').value.trim();
+var msg=document.getElementById('fm').value.trim();
+if(!n||!em||!msg){return}
+var btn=document.getElementById('formBtn');
+var txt=document.getElementById('btnTxt');
+btn.disabled=true;txt.textContent='Envoi…';
+setTimeout(function(){
+document.getElementById('formSuccess').style.display='block';
+btn.style.display='none';
+document.getElementById('contactForm').reset();
+},900);
+});
+</script>
+
+</body>
+</html>
