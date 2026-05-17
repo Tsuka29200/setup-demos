@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRIVATE TOURS NC — Nouméa</title>
+<meta name="description" content="Agence de voyages privés haut de gamme en Nouvelle-Calédonie. Expériences sur mesure, accès exclusifs, expertise locale authentique depuis Nouméa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#1A3C4D;
+--cs:#C8A96E;
+--ca:#2E8B7A;
+--cb:#F5F0E8;
+--ct:#1C1C1C;
+--cw:#ffffff;
+--t300:all .3s ease;
+--t400:all .4s ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ct);background:var(--cb);overflow-x:hidden;font-size:16px;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU PROMO */
+.promo-bar{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;text-align:center}
+.promo-bar a{font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;line-height:44px;letter-spacing:.3px;display:block;width:100%;height:100%;transition:opacity .2s}
+.promo-bar a:hover{opacity:.85}
+
+/* HEADER */
+.hdr{position:fixed;top:44px;left:0;width:100%;background:rgba(26,60,77,.97);backdrop-filter:blur(8px);z-index:1000;height:68px;display:flex;align-items:center}
+.hdr-inner{max-width:1200px;margin:0 auto;width:100%;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:'Montserrat',sans-serif;font-weight:700;font-size:18px;color:var(--cw);letter-spacing:2px;white-space:nowrap}
+.logo span{color:var(--cs)}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:rgba(255,255,255,.8);letter-spacing:.5px;transition:color .3s;text-transform:uppercase}
+.nav a:hover{color:var(--cs)}
+.hdr-cta{font-family:'Montserrat',sans-serif;font-weight:600;font-size:13px;background:var(--cs);color:var(--cw);padding:10px 22px;letter-spacing:.8px;text-transform:uppercase;border:none;cursor:pointer;transition:var(--t300);white-space:nowrap}
+.hdr-cta:hover{background:var(--ca)}
+.hdr-tel{font-size:13px;color:rgba(255,255,255,.7);font-weight:400;white-space:nowrap}
+.hdr-tel a{color:var(--cs);font-weight:600}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.burger span{display:block;width:24px;height:2px;background:var(--cw);transition:var(--t300)}
+.mob-nav{display:none;position:fixed;top:112px;left:0;width:100%;background:rgba(26,60,77,.99);z-index:999;flex-direction:column;padding:24px;gap:20px}
+.mob-nav a{font-family:'Inter',sans-serif;font-size:15px;color:rgba(255,255,255,.9);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.mob-nav.open{display:flex}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background-image:url('https://i.ibb.co/p6nnRbxC/PRIVATE-TOURS-NC-0.jpg');background-size:cover;background-position:center;padding-top:112px}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(26,60,77,.88) 0%,rgba(10,25,35,.75) 60%,rgba(0,0,0,.65) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;max-width:860px;padding:0 24px}
+.hero-label{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--cs);margin-bottom:24px;display:block}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.8rem);font-weight:600;color:var(--cw);line-height:1.15;margin-bottom:28px}
+.hero h1 em{font-style:italic;color:var(--cs)}
+.hero-sub{font-family:'Inter',sans-serif;font-size:clamp(.95rem,2vw,1.15rem);color:rgba(255,255,255,.82);max-width:600px;margin:0 auto 44px;line-height:1.75;font-weight:300}
+.hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.b-primary{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:1.2px;text-transform:uppercase;background:var(--cs);color:var(--cw);padding:16px 36px;border:none;cursor:pointer;transition:var(--t300);display:inline-block;min-height:52px;display:flex;align-items:center}
+.b-primary:hover{background:var(--ca)}
+.b-outline{font-family:'Montserrat',sans-serif;font-weight:600;font-size:13px;letter-spacing:1.2px;text-transform:uppercase;background:transparent;color:var(--cw);padding:15px 36px;border:1.5px solid rgba(255,255,255,.5);cursor:pointer;transition:var(--t300);display:inline-flex;align-items:center;min-height:52px}
+.b-outline:hover{border-color:var(--cs);color:var(--cs)}
+.scroll-ind{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,.5);font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Montserrat',sans-serif}
+.scroll-ind::after{content:'';display:block;width:1px;height:40px;background:rgba(255,255,255,.3);animation:scrollpulse 2s infinite}
+@keyframes scrollpulse{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:.8;transform:scaleY(1)}}
+
+/* STATS BAND */
+.stats{background:var(--cp);padding:64px 24px}
+.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat-item{text-align:center;padding:24px 20px;border-right:1px solid rgba(255,255,255,.12);position:relative}
+.stat-item:last-child{border-right:none}
+.stat-num{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,4vw,3.4rem);font-weight:600;color:var(--cs);line-height:1;display:block;margin-bottom:8px}
+.stat-label{font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.65);letter-spacing:1.5px;text-transform:uppercase;font-weight:400}
+.stat-line{width:32px;height:2px;background:var(--cs);margin:12px auto 0;opacity:.5}
+
+/* FADE IN */
+.fade{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+.fade.visible{opacity:1;transform:none}
+.fade-d1{transition-delay:.1s}
+.fade-d2{transition-delay:.2s}
+.fade-d3{transition-delay:.3s}
+.fade-d4{transition-delay:.4s}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.nav,.hdr-tel{display:none}
+.burger{display:flex}
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+.stat-item:nth-child(2){border-right:none}
+.stat-item:nth-child(3){border-right:1px solid rgba(255,255,255,.12)}
+.stat-item:nth-child(4){border-right:none}
+}
+@media(max-width:480px){
+.promo-bar{height:40px}
+.promo-bar a{font-size:13px;line-height:40px}
+.hdr{top:40px;height:60px}
+.mob-nav{top:100px}
+.hero{padding-top:100px}
+.hero-ctas{flex-direction:column;align-items:center}
+.b-primary,.b-outline{width:100%;justify-content:center}
+.stats-inner{grid-template-columns:1fr 1fr;gap:0}
+.stat-item{padding:20px 12px}
+.stat-item:nth-child(3){border-right:1px solid rgba(255,255,255,.12)}
+.logo{font-size:15px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo-bar">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-inner">
+    <div class="logo">PRIVATE<span>·</span>TOURS<span> NC</span></div>
+    <nav class="nav">
+      <a href="#services">Services</a>
+      <a href="#processus">Notre approche</a>
+      <a href="#galerie">Destinations</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="hdr-tel"><a href="tel:+687826878">82.68.78</a></div>
+    <a href="#contact" class="hdr-cta">Devis sur mesure</a>
+    <div class="burger" id="burger" aria-label="Menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+<nav class="mob-nav" id="mobNav">
+  <a href="#services" onclick="closeMob()">Services</a>
+  <a href="#processus" onclick="closeMob()">Notre approche</a>
+  <a href="#galerie" onclick="closeMob()">Destinations</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="tel:+687826878" style="color:var(--cs);font-weight:700">📞 82.68.78</a>
+  <a href="#contact" class="b-primary" onclick="closeMob()" style="justify-content:center;margin-top:8px">Devis sur mesure</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-label fade">Agence privée — Nouméa, Nouvelle-Calédonie</span>
+    <h1 class="fade fade-d1">Vos vacances méritent plus<br>que des <em>catalogues touristiques</em></h1>
+    <p class="hero-sub fade fade-d2">Des expériences privées conçues comme vos propres histoires au paradis — conçues sur mesure, vécues dans l'intimité du lagon calédonien.</p>
+    <div class="hero-ctas fade fade-d3">
+      <a href="#contact" class="b-primary">Concevoir mon voyage</a>
+      <a href="#services" class="b-outline">Découvrir nos services</a>
+    </div>
+  </div>
+  <div class="scroll-ind">Découvrir</div>
+</section>
+
+<!-- STATS BAND -->
+<section class="stats">
+  <div class="stats-inner">
+    <div class="stat-item fade">
+      <span class="stat-num" data-target="15" data-suffix=" ans">0</span>
+      <div class="stat-label">d'expertise locale</div>
+      <div class="stat-line"></div>
+    </div>
+    <div class="stat-item fade fade-d1">
+      <span class="stat-num" data-target="200" data-suffix="+">0</span>
+      <div class="stat-label">voyages privés réalisés</div>
+      <div class="stat-line"></div>
+    </div>
+    <div class="stat-item fade fade-d2">
+      <span class="stat-num" data-target="98" data-suffix="%">0</span>
+      <div class="stat-label">clients satisfaits</div>
+      <div class="stat-line"></div>
+    </div>
+    <div class="stat-item fade fade-d3">
+      <span class="stat-num" data-target="4" data-suffix=" îles">0</span>
+      <div class="stat-label">destinations maîtrisées</div>
+      <div class="stat-line"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+var burger=document.getElementById('burger'),mobNav=document.getElementById('mobNav');
+function closeMob(){mobNav.classList.remove('open')}
+burger.addEventListener('click',function(){mobNav.classList.toggle('open')});
+burger.addEventListener('keydown',function(e){if(e.key==='Enter')mobNav.classList.toggle('open')});
+
+var io=new IntersectionObserver(function(entries){
+entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}});
+},{threshold:.15});
+document.querySelectorAll('.fade').forEach(function(el){io.observe(el)});
+
+var statsDone=false;
+var sio=new IntersectionObserver(function(entries){
+if(entries[0].isIntersecting&&!statsDone){statsDone=true;animStats()}
+},{threshold:.3});
+var statsEl=document.querySelector('.stats');
+if(statsEl)sio.observe(statsEl);
+
+function animStats(){
+document.querySelectorAll('.stat-num').forEach(function(el){
+var t=+el.dataset.target,s=el.dataset.suffix||'',d=1200,start=null;
+function step(ts){
+if(!start)start=ts;
+var p=Math.min((ts-start)/d,1),v=Math.floor(p*p*(3-2*p)*t);
+el.textContent=v+s;
+if(p<1)requestAnimationFrame(step);
+}
+requestAnimationFrame(step);
+});
+}
+</script>
+<style>
+.s{padding:96px 24px}
+.s-alt{background:var(--cw)}
+.s-cream{background:var(--cb)}
+.inner{max-width:1200px;margin:0 auto}
+.s-label{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--ca);margin-bottom:16px;display:block}
+.s-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:600;color:var(--cp);line-height:1.2;margin-bottom:20px}
+.s-sub{font-family:'Inter',sans-serif;font-size:1rem;color:#555;max-width:600px;line-height:1.75;margin-bottom:56px}
+.s-head{text-align:center}
+.s-head .s-sub{margin-left:auto;margin-right:auto}
+
+/* SERVICES */
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#e8e0d4}
+.srv-card{background:var(--cw);padding:48px 36px;position:relative;overflow:hidden;transition:var(--t400)}
+.srv-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--ca);transition:background .3s}
+.srv-card:hover{transform:translateY(-4px);box-shadow:0 20px 48px rgba(26,60,77,.1)}
+.srv-card:hover::before{background:var(--cs)}
+.srv-icon{width:52px;height:52px;margin-bottom:28px;color:var(--cp)}
+.srv-title{font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:var(--cp);letter-spacing:.5px;margin-bottom:14px;text-transform:uppercase}
+.srv-desc{font-family:'Inter',sans-serif;font-size:.92rem;color:#555;line-height:1.75;margin-bottom:28px}
+.b-link{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:var(--ca);letter-spacing:1.5px;text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;transition:color .3s}
+.b-link::after{content:'→';transition:transform .3s}
+.b-link:hover{color:var(--cs)}
+.b-link:hover::after{transform:translateX(4px)}
+
+/* SECTION MÉTIER */
+.metier-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.metier-grid.rev{direction:rtl}
+.metier-grid.rev>*{direction:ltr}
+.metier-img{position:relative;aspect-ratio:4/3;overflow:hidden}
+.metier-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.metier-img:hover img{transform:scale(1.04)}
+.metier-img::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(26,60,77,.15),transparent)}
+.metier-accent{width:64px;height:3px;background:var(--cs);margin-bottom:32px}
+.metier-text .s-title{margin-bottom:20px}
+.metier-text p{font-family:'Inter',sans-serif;font-size:.95rem;color:#444;line-height:1.85;margin-bottom:24px}
+.check-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:8px}
+.check-list li{font-family:'Inter',sans-serif;font-size:.9rem;color:var(--ct);display:flex;align-items:flex-start;gap:12px;line-height:1.5}
+.check-list li::before{content:'';width:18px;height:18px;min-width:18px;background:var(--ca);border-radius:50%;display:block;margin-top:2px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='white'%3E%3Cpath d='M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.6l7.3-7.3a1 1 0 0 1 1.4 0z'/%3E%3C/svg%3E");background-size:12px;background-repeat:no-repeat;background-position:center}
+.prob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:64px}
+.prob-card{background:var(--cw);padding:36px 28px;border-left:3px solid transparent;transition:var(--t300)}
+.prob-card.sol{border-left-color:var(--ca)}
+.prob-card.prob{border-left-color:#c0392b;opacity:.85}
+.prob-label{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
+.prob-card.prob .prob-label{color:#c0392b}
+.prob-card.sol .prob-label{color:var(--ca)}
+.prob-card h4{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--cp);margin-bottom:10px}
+.prob-card p{font-family:'Inter',sans-serif;font-size:.88rem;color:#555;line-height:1.7}
+.arrow-col{display:flex;align-items:center;justify-content:center;font-size:2rem;color:var(--cs);align-self:center}
+
+/* PROCESSUS */
+.proc-wrap{position:relative;margin-top:64px}
+.proc-line{position:absolute;top:36px;left:calc(12.5%);width:75%;height:1px;background:linear-gradient(90deg,var(--cs),var(--ca));display:block}
+.proc-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;z-index:1}
+.proc-step{text-align:center;padding:0 16px}
+.proc-num{width:72px;height:72px;border-radius:50%;background:var(--cw);border:2px solid var(--cs);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--cp);font-weight:600;position:relative;z-index:2}
+.proc-step-title{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:var(--cp);letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px}
+.proc-step-desc{font-family:'Inter',sans-serif;font-size:.85rem;color:#555;line-height:1.65}
+
+/* GALERIE */
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:auto;gap:4px}
+.gal-item{overflow:hidden;cursor:pointer;position:relative;aspect-ratio:1}
+.gal-item:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-overlay{position:absolute;inset:0;background:rgba(26,60,77,.45);opacity:0;transition:opacity .3s;display:flex;align-items:center;justify-content:center}
+.gal-item:hover .gal-overlay{opacity:1}
+.gal-zoom{width:48px;height:48px;border:2px solid var(--cw);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--cw)}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;display:none;align-items:center;justify-content:center}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:88vh;object-fit:contain}
+.lb-close{position:absolute;top:20px;right:28px;color:var(--cw);font-size:36px;cursor:pointer;font-weight:300;line-height:1;background:none;border:none;font-family:sans-serif}
+.lb-close:hover{color:var(--cs)}
+.lb-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.1);border:none;color:var(--cw);font-size:28px;padding:12px 18px;cursor:pointer;transition:background .3s}
+.lb-arrow:hover{background:rgba(200,169,110,.4)}
+.lb-prev{left:16px}
+.lb-next{right:16px}
+
+/* FORMULAIRE */
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.form-field{margin-bottom:20px}
+.form-field label{display:block;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--cp);margin-bottom:8px}
+.form-field input,.form-field textarea,.form-field select{width:100%;padding:14px 18px;border:1.5px solid #ddd;background:var(--cw);font-family:'Inter',sans-serif;font-size:.9rem;color:var(--ct);outline:none;transition:border-color .3s;-webkit-appearance:none}
+.form-field input:focus,.form-field textarea:focus{border-color:var(--ca)}
+.form-field textarea{min-height:140px;resize:vertical}
+.form-err{font-family:'Inter',sans-serif;font-size:.8rem;color:#c0392b;margin-top:6px;display:none}
+.form-field.invalid .form-err{display:block}
+.form-field.invalid input,.form-field.invalid textarea{border-color:#c0392b}
+.b-submit{width:100%;background:var(--cp);color:var(--cw);font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;padding:18px;border:none;cursor:pointer;transition:var(--t300);min-height:56px}
+.b-submit:hover{background:var(--ca)}
+.form-success{display:none;background:#e8f5f2;border-left:4px solid var(--ca);padding:24px;font-family:'Inter',sans-serif;color:#1a5c4a;line-height:1.7}
+.form-success strong{display:block;margin-bottom:6px;font-family:'Montserrat',sans-serif;font-size:13px;letter-spacing:1px;text-transform:uppercase}
+.contact-info h3{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--cp);margin-bottom:24px}
+.contact-detail{display:flex;flex-direction:column;gap:20px;margin-bottom:40px}
+.c-detail-item{display:flex;gap:16px;align-items:flex-start}
+.c-detail-icon{width:44px;height:44px;min-width:44px;background:var(--cp);display:flex;align-items:center;justify-content:center;color:var(--cw)}
+.c-detail-text{font-family:'Inter',sans-serif;font-size:.9rem;color:#444;line-height:1.6}
+.c-detail-text strong{display:block;font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--cp);margin-bottom:4px}
+
+/* PREUVE SOCIALE */
+.social-proof{background:var(--cp);padding:96px 24px}
+.sp-inner{max-width:1100px;margin:0 auto}
+.sp-head{text-align:center;margin-bottom:64px}
+.sp-head .s-title{color:var(--cw)}
+.sp-head .s-sub{color:rgba(255,255,255,.65);margin-left:auto;margin-right:auto}
+.rating-block{display:flex;flex-direction:column;align-items:center;margin-bottom:64px}
+.rating-score{font-family:'Playfair Display',serif;font-size:4rem;color:var(--cs);font-weight:600;line-height:1}
+.rating-stars{display:flex;gap:4px;margin:12px 0}
+.star{color:var(--cs);font-size:22px}
+.star.empty{color:rgba(200,169,110,.3)}
+.rating-label{font-family:'Inter',sans-serif;font-size:.85rem;color:rgba(255,255,255,.55);letter-spacing:1px}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.testi-card{background:rgba(255,255,255,.07);padding:36px 28px;border-top:2px solid rgba(200,169,110,.4)}
+.testi-text{font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;color:rgba(255,255,255,.88);line-height:1.8;margin-bottom:24px}
+.testi-author{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:var(--cs);letter-spacing:2px;text-transform:uppercase}
+.testi-origin{font-family:'Inter',sans-serif;font-size:.82rem;color:rgba(255,255,255,.45);margin-top:4px}
+.badges{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:56px}
+.badge{background:rgba(255,255,255,.07);border:1px solid rgba(200,169,110,.3);padding:16px 28px;display:flex;align-items:center;gap:12px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.8)}
+.badge-icon{color:var(--cs)}
+
+/* FOOTER */
+.ftr{background:#0f2430;padding:72px 24px 32px}
+.ftr-inner{max-width:1200px;margin:0 auto}
+.ftr-top{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:48px;margin-bottom:56px}
+.ftr-logo{font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:var(--cw);letter-spacing:2px;margin-bottom:16px}
+.ftr-logo span{color:var(--cs)}
+.ftr-desc{font-family:'Inter',sans-serif;font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.75;margin-bottom:24px}
+.ftr-social{display:flex;gap:12px;align-items:center}
+.ftr-social a{width:40px;height:40px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.7);transition:var(--t300)}
+.ftr-social a:hover{background:var(--cs);color:var(--cw)}
+.ftr-col h4{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:20px}
+.ftr-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ftr-col ul li a{font-family:'Inter',sans-serif;font-size:.85rem;color:rgba(255,255,255,.6);transition:color .3s}
+.ftr-col ul li a:hover{color:var(--cs)}
+.ftr-addr{font-family:'Inter',sans-serif;font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.85}
+.ftr-addr a{color:var(--cs);font-weight:600;display:block;margin-top:4px;font-size:.95rem}
+.ftr-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.ftr-copy{font-family:'Inter',sans-serif;font-size:.8rem;color:rgba(255,255,255,.35)}
+.ftr-setup{font-family:'Montserrat',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.3)}
+.ftr-setup a{color:rgba(200,169,110,.6);transition:color .3s}
+.ftr-setup a:hover{color:var(--cs)}
+
+@media(max-width:1024px){
+.srv-grid{grid-template-columns:repeat(2,1fr)}
+.contact-wrap{grid-template-columns:1fr;gap:48px}
+.ftr-top{grid-template-columns:1fr 1fr;gap:36px}
+.metier-grid{gap:48px}
+}
+@media(max-width:768px){
+.s{padding:72px 20px}
+.metier-grid,.metier-grid.rev{grid-template-columns:1fr;direction:ltr}
+.prob-grid{grid-template-columns:1fr}
+.arrow-col{transform:rotate(90deg)}
+.proc-line{display:none}
+.proc-steps{grid-template-columns:1fr;gap:32px}
+.proc-step{text-align:left;display:flex;gap:20px;padding:0}
+.proc-num{width:52px;height:52px;min-width:52px;margin:0;font-size:1.1rem}
+.testi-grid{grid-template-columns:1fr}
+.gallery-grid{grid-template-columns:repeat(2,1fr)}
+.gal-item:first-child{grid-column:span 2;grid-row:span 1}
+.ftr-top{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+.srv-grid{grid-template-columns:1fr;gap:2px}
+.badges{flex-direction:column;align-items:stretch}
+.badge{justify-content:center}
+.ftr-bottom{flex-direction:column;text-align:center}
+.gallery-grid{grid-template-columns:1fr}
+.gal-item:first-child{grid-column:span 1}
+.proc-step{flex-direction:column;align-items:flex-start}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s s-cream" id="services">
+  <div class="inner">
+    <div class="s-head fade">
+      <span class="s-label">Ce que nous créons pour vous</span>
+      <h2 class="s-title">Des expériences taillées<br>dans la singularité calédonienne</h2>
+      <p class="s-sub">Chaque voyage que nous concevons est unique, confidentiel et profondément ancré dans la réalité du Pacifique Sud — loin des circuits standardisés.</p>
+    </div>
+    <div class="srv-grid">
+      <div class="srv-card fade">
+        <svg class="srv-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="26" cy="26" r="24" stroke="#1A3C4D" stroke-width="1.5"/>
+          <path d="M26 14 C20 20 14 26 20 32 C26 38 32 32 32 26 C32 20 26 14 26 14Z" stroke="#C8A96E" stroke-width="1.5" fill="none"/>
+          <line x1="26" y1="10" x2="26" y2="42" stroke="#1A3C4D" stroke-width="1" stroke-dasharray="2 3"/>
+          <line x1="10" y1="26" x2="42" y2="26" stroke="#1A3C4D" stroke-width="1" stroke-dasharray="2 3"/>
+        </svg>
+        <div class="srv-title">Excursions privées sur mesure</div>
+        <p class="srv-desc">Découvrez la Grande Terre et les Îles Loyauté dans l'intimité d'un groupe privé. Nos circuits personnalisés s'adaptent à votre rythme, vos centres d'intérêt et votre niveau d'aventure.</p>
+        <a href="#contact" class="b-link">Concevoir mon excursion</a>
+      </div>
+      <div class="srv-card fade fade-d1">
+        <svg class="srv-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 38 Q18 20 26 22 Q34 24 44 10" stroke="#C8A96E" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <circle cx="26" cy="22" r="4" fill="#2E8B7A" opacity=".7"/>
+          <path d="M10 44 L42 44" stroke="#1A3C4D" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M18 44 L18 32 M26 44 L26 28 M34 44 L34 36" stroke="#1A3C4D" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        <div class="srv-title">Navigation lagonaire privée</div>
+        <p class="srv-desc">Le lagon de Nouvelle-Calédonie, classé au patrimoine mondial, se vit autrement depuis un bateau privé. Accostez des îlots inaccessibles, plongez sur des récifs de cristal, déjeunez les pieds dans l'eau.</p>
+        <a href="#contact" class="b-link">Réserver une sortie</a>
+      </div>
+      <div class="srv-card fade fade-d2">
+        <svg class="srv-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="12" y="18" width="28" height="22" rx="1" stroke="#1A3C4D" stroke-width="1.5"/>
+          <path d="M18 18 L18 14 Q26 8 34 14 L34 18" stroke="#C8A96E" stroke-width="1.5" fill="none"/>
+          <rect x="21" y="28" width="10" height="12" fill="#2E8B7A" opacity=".4" rx="1"/>
+          <line x1="12" y1="26" x2="40" y2="26" stroke="#1A3C4D" stroke-width="1"/>
+        </svg>
+        <div class="srv-title">Séjours résidences exclusives</div>
+        <p class="srv-desc">Nous sélectionnons pour vous les hébergements d'exception en Nouvelle-Calédonie — villas privées, lodges de brousse, bungalows sur pilotis — et prenons en charge l'intégralité de la logistique.</p>
+        <a href="#contact" class="b-link">Voir les résidences</a>
+      </div>
+      <div class="srv-card fade fade-d1">
+        <svg class="srv-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="22" cy="20" r="8" stroke="#1A3C4D" stroke-width="1.5"/>
+          <path d="M32 38 C32 30 12 30 12 38" stroke="#1A3C4D" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M36 16 L44 16 M40 12 L40 20" stroke="#C8A96E" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="40" cy="30" r="6" stroke="#2E8B7A" stroke-width="1.5"/>
+          <path d="M37.5 30 L39.2 31.8 L42.5 28.5" stroke="#2E8B7A" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <div class="srv-title">Accompagnement guide expert</div>
+        <p class="srv-desc">Chacun de nos guides est un passionné enraciné dans la Nouvelle-Calédonie. Ils vous transmettent la culture kanak, la faune endémique et les histoires secrètes d'une île que peu de voyageurs connaissent vraiment.</p>
+        <a href="#contact" class="b-link">Rencontrer nos guides</a>
+      </div>
+      <div class="srv-card fade fade-d2">
+        <svg class="srv-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M26 10 L30 20 L42 20 L32 27 L36 38 L26 31 L16 38 L20 27 L10 20 L22 20 Z" stroke="#C8A96E" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+        </svg>
+        <div class="srv-title">Événements & célébrations privées</div>
+        <p class="srv-desc">Anniversaire mémorable, demande en mariage au coucher du soleil, séminaire de direction au bord du lagon — nous orchestrons chaque détail pour que vos moments de vie dépassent toutes les attentes.</p>
+        <a href="#contact" class="b-link">Organiser mon événement</a>
+      </div>
+      <div class="srv-card fade fade-d3">
+        <svg class="srv-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 36 L26 14 L36 36" stroke="#1A3C4D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="19" y1="29" x2="33" y2="29" stroke="#C8A96E" stroke-width="1.5"/>
+          <line x1="26" y1="14" x2="26" y2="8" stroke="#2E8B7A" stroke-width="1.5"/>
+          <circle cx="26" cy="6" r="2.5" fill="#2E8B7A"/>
+        </svg>
+        <div class="srv-title">Planification complète clé en main</div>
+        <p class="srv-desc">De la première conversation à votre retour, nous gérons l'intégralité de votre voyage : vols intérieurs, transfers, repas, activités et imprévus. Vous n'avez qu'à savourer l'expérience.</p>
+        <a href="#contact" class="b-link">Démarrer la planification</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s s-alt" id="metier">
+  <div class="inner">
+    <div class="s-head fade">
+      <span class="s-label">Notre philosophie</span>
+      <h2 class="s-title">Le voyage privé réinventé<br>par des passionnés du Caillou</h2>
+      <p class="s-sub">Nous ne vendons pas des destinations. Nous construisons des souvenirs qui résistent au temps, avec l'honnêteté de ceux qui connaissent chaque baie, chaque tribu, chaque courant du lagon.</p>
+    </div>
+
+    <!-- Problème → Solution -->
+    <div class="prob-grid">
+      <div class="prob-card prob fade">
+        <div class="prob-label">Le problème</div>
+        <h4>Des circuits impersonnels, des groupes encombrants</h4>
+        <p>Les agences généralistes proposent les mêmes itinéraires pour des centaines de voyageurs. Vous attendez. Vous subissez. Vous rentrez avec des photos que tout le monde a déjà.</p>
+      </div>
+      <div class="arrow-col fade fade-d1">➜</div>
+      <div class="prob-card sol fade fade-d2">
+        <div class="prob-label">Notre réponse</div>
+        <h4>Un voyage pensé uniquement pour vous</h4>
+        <p>Private Tours NC conçoit chaque programme comme une œuvre sur mesure. Votre groupe, votre rythme, vos envies. Nous ne prenons en charge qu'un nombre limité de clients par période.</p>
+      </div>
+    </div>
+
+    <!-- Alternance texte/image -->
+    <div class="metier-grid" style="margin-top:96px">
+      <div class="metier-img fade">
+        <img src="https://i.ibb.co/5XzL03fQ/PRIVATE-TOURS-NC-1.jpg" alt="Lagon de Nouvelle-Calédonie vue aérienne" loading="lazy">
+      </div>
+      <div class="metier-text fade fade-d1">
+        <div class="metier-accent"></div>
+        <span class="s-label">Intimité & exclusivité</span>
+        <h3 class="s-title">Un accès à la<br>Nouvelle-Calédonie authentique</h3>
+        <p>Nos partenaires locaux — piroguiers, propriétaires de stations de brousse, pêcheurs traditionnels — nous ouvrent des portes que les catalogues touristiques ignorent. Vous vivez la Calédonie que vivent les Calédoniens.</p>
+        <ul class="check-list">
+          <li>Accès à des sites hors des sentiers balisés</li>
+          <li>Rencontres authentiques avec les communautés locales</li>
+          <li>Gastronomie du terroir calédonien, loin des buffets standardisés</li>
+          <li>Confidentialité totale de votre itinéraire et de votre groupe</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="metier-grid rev" style="margin-top:80px">
+      <div class="metier-img fade">
+        <img src="https://i.ibb.co/qMScqNsF/PRIVATE-TOURS-NC-2.jpg" alt="Expérience privée en Nouvelle-Calédonie" loading="lazy">
+      </div>
+      <div class="metier-text fade fade-d1">
+        <div class="metier-accent"></div>
+        <span class="s-label">Expertise & passion</span>
+        <h3 class="s-title">15 ans d'immersion<br>dans le Pacifique Sud</h3>
+        <p>Notre équipe vit et respire la Nouvelle-Calédonie depuis plus d'une décennie. Cette profondeur de connaissance se traduit par des recommandations précises, des contingences anticipées et une sérénité totale pour vous.</p>
+        <ul class="check-list">
+          <li>Guides bilingues franco-anglais, experts de la biodiversité locale</li>
+          <li>Réseau de prestataires rigoureusement sélectionnés</li>
+          <li>Réactivité 7j/7 pendant votre séjour</li>
+          <li>Respect des cultures et des environnements naturels</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSUS -->
+<section class="s s-cream" id="processus">
+  <div class="inner">
+    <div class="s-head fade">
+      <span class="s-label">Comment nous travaillons</span>
+      <h2 class="s-title">Votre voyage en quatre temps</h2>
+      <p class="s-sub">De votre première prise de contact à votre retour, chaque étape est pensée pour vous offrir sérénité et enchantement.</p>
+    </div>
+    <div class="proc-wrap">
+      <span class="proc-line"></span>
+      <div class="proc-steps">
+        <div class="proc-step fade">
+          <div class="proc-num">01</div>
+          <div>
+            <div class="proc-step-title">Écoute</div>
+            <p class="proc-step-desc">Un entretien approfondi — en personne ou en visioconférence — pour comprendre vos envies, votre rythme, vos impératifs et vos rêves.</p>
+          </div>
+        </div>
+        <div class="proc-step fade fade-d1">
+          <div class="proc-num">02</div>
+          <div>
+            <div class="proc-step-title">Conception</div>
+            <p class="proc-step-desc">Nous bâtissons un itinéraire sur mesure, sélectionnons les hébergements, les guides et les expériences qui correspondent exactement à votre profil.</p>
+          </div>
+        </div>
+        <div class="proc-step fade fade-d2">
+          <div class="proc-num">03</div>
+          <div>
+            <div class="proc-step-title">Organisation</div>
+            <p class="proc-step-desc">Chaque détail logistique est orchestré en coulisses — transferts, réservations, plannings, plans B — pour que vous n'ayez rien à gérer.</p>
+          </div>
+        </div>
+        <div class="proc-step fade fade-d3">
+          <div class="proc-num">04</div>
+          <div>
+            <div class="proc-step-title">Expérience</div>
+            <p class="proc-step-desc">Vous voyagez. Nous veillons. Notre équipe reste disponible à chaque instant pour que votre séjour dépasse toutes vos attentes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s s-alt" id="galerie">
+  <div class="inner">
+    <div class="s-head fade">
+      <span class="s-label">Destinations & moments</span>
+      <h2 class="s-title">La Nouvelle-Calédonie<br>dans toute sa splendeur</h2>
+    </div>
+  </div>
+  <div class="gallery-grid fade" style="max-width:1400px;margin:0 auto">
+    <div class="gal-item" data-idx="0">
+      <img src="https://i.ibb.co/p6nnRbxC/PRIVATE-TOURS-NC-0.jpg" alt="Lagon calédonien coucher de soleil" loading="lazy">
+      <div class="gal-overlay"><div class="gal-zoom"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div></div>
+    </div>
+    <div class="gal-item" data-idx="1">
+      <img src="https://i.ibb.co/5XzL03fQ/PRIVATE-TOURS-NC-1.jpg" alt="Vue aérienne lagon et récifs" loading="lazy">
+      <div class="gal-overlay"><div class="gal-zoom"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div></div>
+    </div>
+    <div class="gal-item" data-idx="2">
+      <img src="https://i.ibb.co/qMScqNsF/PRIVATE-TOURS-NC-2.jpg" alt="Expérience privée Nouvelle-Calédonie" loading="lazy">
+      <div class="gal-overlay"><div class="gal-zoom"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div></div>
+    </div>
+    <div class="gal-item" data-idx="3">
+      <img src="https://i.ibb.co/7dyj4D5K/PRIVATE-TOURS-NC-3.jpg" alt="Paysage tropical Pacifique Sud" loading="lazy">
+      <div class="gal-overlay"><div class="gal-zoom"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lb" role="dialog" aria-modal="true">
+  <button class="lb-close" id="lbClose" aria-label="Fermer">×</button>
+  <button class="lb-arrow lb-prev" id="lbPrev" aria-label="Précédent">‹</button>
+  <img class="lb-img" id="lbImg" src="" alt="">
+  <button class="lb-arrow lb-next" id="lbNext" aria-label="Suivant">›</button>
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section class="social-proof" id="avis">
+  <div class="sp-inner">
+    <div class="sp-head fade">
+      <span class="s-label" style="color:var(--cs)">Ce que disent nos voyageurs</span>
+      <h2 class="s-title">Une réputation bâtie<br>sur chaque expérience vécue</h2>
+      <p class="s-sub">Chaque avis est la conséquence d'une attention portée aux détails et d'un engagement sincère envers l'excellence.</p>
+    </div>
+    <div class="rating-block fade">
+      <span class="rating-score">5.0</span>
+      <div class="rating-stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <span class="rating-label">Note Google · Excellence confirmée par nos clients</span>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card fade">
+        <p class="testi-text">"Une expérience absolument unique. Nous avons découvert des endroits du lagon que nous n'aurions jamais trouvés seuls. L'attention portée à chaque détail était remarquable, le guide exceptionnel."</p>
+        <div class="testi-author">Sophie & Marc L.</div>
+        <div class="testi-origin">Paris — Séjour lagonaire privé, 10 jours</div>
+      </div>
+      <div class="testi-card fade fade-d1">
+        <p class="testi-text">"Notre séminaire de direction s'est transformé en véritable révélation collective. Private Tours NC a orchestré chaque moment avec une discrétion et un professionnalisme au-delà de nos attentes."</p>
+        <div class="testi-author">Directeur Général, groupe industriel</div>
+        <div class="testi-origin">Sydney — Séminaire executive, 5 jours</div>
+      </div>
+      <div class="testi-card fade fade-d2">
+        <p class="testi-text">"La demande en mariage que j'avais imaginée depuis des années. Private Tours NC l'a rendue réelle, encore plus belle que dans mes rêves. Un souvenir pour toujours ancré dans la lumière du Pacifique."</p>
+        <div class="testi-author">Thomas R.</div>
+        <div class="testi-origin">Bordeaux — Événement privé sur mesure</div>
+      </div>
+    </div>
+    <div class="badges fade">
+      <div class="badge"><span class="badge-icon">✦</span> Expériences 100% privées</div>
+      <div class="badge"><span class="badge-icon">✦</span> Expertise locale authentique</div>
+      <div class="badge"><span class="badge-icon">✦</span> Satisfaction garantie</div>
+      <div class="badge"><span class="badge-icon">✦</span> Disponibilité 7j/7</div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE -->
+<section class="s s-cream" id="contact">
+  <div class="inner">
+    <div class="contact-wrap">
+      <div>
+        <span class="s-label fade">Démarrons votre voyage</span>
+        <h2 class="s-title fade">Parlez-nous de<br>votre projet</h2>
+        <p class="s-sub fade" style="margin-bottom:0">Chaque grand voyage commence par une conversation. Décrivez-nous vos envies — même les plus vagues — et nous construirons ensemble quelque chose d'exceptionnel.</p>
+        <div class="contact-detail" style="margin-top:40px">
+          <div class="c-detail-item fade">
+            <div class="c-detail-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.12 2.94 2 2 0 012.11 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.56-.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div class="c-detail-text">
+              <strong>Téléphone</strong>
+              <a href="tel:+687826878" style="color:var(--ca);font-weight:600">82.68.78</a>
+            </div>
+          </div>
+          <div class="c-detail-item fade fade-d1">
+            <div class="c-detail-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="c-detail-text">
+              <strong>Adresse</strong>
+              PCHP+GV3, Nouméa 98800<br>Nouvelle-Calédonie
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fade fade-d1">
+        <form id="contactForm" action="#" novalidate>
+          <div class="form-field" id="ff-nom">
+            <label for="f-nom">Nom complet</label>
+            <input type="text" id="f-nom" name="nom" placeholder="Votre nom et prénom" autocomplete="name">
+            <span class="form-err">Veuillez indiquer votre nom.</span>
+          </div>
+          <div class="form-field" id="ff-email">
+            <label for="f-email">Adresse e-mail</label>
+            <input type="email" id="f-email" name="email" placeholder="votre@email.com" autocomplete="email">
+            <span class="form-err">Veuillez indiquer un e-mail valide.</span>
+          </div>
+          <div class="form-field" id="ff-tel">
+            <label for="f-tel">Téléphone</label>
+            <input type="tel" id="f-tel" name="tel" placeholder="+687 xx xx xx" autocomplete="tel">
+            <span class="form-err">Veuillez indiquer votre téléphone.</span>
+          </div>
+          <div class="form-field" id="ff-msg">
+            <label for="f-msg">Votre projet de voyage</label>
+            <textarea id="f-msg" name="message" placeholder="Décrivez vos envies, les dates envisagées, le nombre de personnes..."></textarea>
+            <span class="form-err">Veuillez décrire votre projet.</span>
+          </div>
+          <button type="submit" class="b-submit" id="fBtn">Envoyer ma demande</button>
+          <div class="form-success" id="fSuccess">
+            <strong>Message envoyé avec succès ✦</strong>
+            Merci pour votre confiance. Notre équipe vous recontacte sous 24 heures pour commencer à construire votre voyage.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ftr">
+  <div class="ftr-inner">
+    <div class="ftr-top">
+      <div>
+        <div class="ftr-logo">PRIVATE<span>·</span>TOURS<span> NC</span></div>
+        <p class="ftr-desc">Agence de voyages privés haut de gamme basée à Nouméa. Nous créons des expériences exclusives ancrées dans la singularité de la Nouvelle-Calédonie et du Pacifique Sud.</p>
+        <div class="ftr-social">
+          <a href="https://www.facebook.com/profile.php" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/profile.php" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="ftr-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Excursions privées</a></li>
+          <li><a href="#services">Navigation lagonaire</a></li>
+          <li><a href="#services">Séjours résidences</a></li>
+          <li><a href="#services">Événements privés</a></li>
+        </ul>
+      </div>
+      <div class="ftr-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#metier">Notre philosophie</a></li>
+          <li><a href="#processus">Notre approche</a></li>
+          <li><a href="#avis">Témoignages</a></li>
+        </ul>
+      </div>
+      <div class="ftr-col">
+        <h4>Contact</h4>
+        <div class="ftr-addr">
+          PRIVATE TOURS NC<br>
+          PCHP+GV3<br>
+          Nouméa 98800<br>
+          Nouvelle-Calédonie
+          <a href="tel:+687826878">82.68.78</a>
+        </div>
+      </div>
+    </div>
+    <div class="ftr-bottom">
+      <span class="ftr-copy">© 2026 PRIVATE TOURS NC. Tous droits réservés.</span>
+      <span class="ftr-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+var imgs=["https://i.ibb.co/p6nnRbxC/PRIVATE-TOURS-NC-0.jpg","https://i.ibb.co/5XzL03fQ/PRIVATE-TOURS-NC-1.jpg","https://i.ibb.co/qMScqNsF/PRIVATE-TOURS-NC-2.jpg","https://i.ibb.co/7dyj4D5K/PRIVATE-TOURS-NC-3.jpg"];
+var alts=["Lagon calédonien coucher de soleil","Vue aérienne lagon et récifs","Expérience privée Nouvelle-Calédonie","Paysage tropical Pacifique Sud"];
+var lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),cur=0;
+function openLb(i){cur=i;lbImg.src=imgs[i];lbImg.alt=alts[i];lb.classList.add('open');document.body.style.overflow='hidden'}
+function closeLb(){lb.classList.remove('open');document.body.style.overflow=''}
+document.querySelectorAll('.gal-item').forEach(function(el){el.addEventListener('click',function(){openLb(+el.dataset.idx)})});
+document.getElementById('lbClose').addEventListener('click',closeLb);
+document.getElementById('lbPrev').addEventListener('click',function(){cur=(cur-1+imgs.length)%imgs.length;lbImg.src=imgs[cur];lbImg.alt=alts[cur]});
+document.getElementById('lbNext').addEventListener('click',function(){cur=(cur+1)%imgs.length;lbImg.src=imgs[cur];lbImg.alt=alts[cur]});
+lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});
+document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft'){cur=(cur-1+imgs.length)%imgs.length;lbImg.src=imgs[cur]}if(e.key==='ArrowRight'){cur=(cur+1)%imgs.length;lbImg.src=imgs[cur]}});
+
+var form=document.getElementById('contactForm'),fBtn=document.getElementById('fBtn'),fSuc=document.getElementById('fSuccess');
+form.addEventListener('submit',function(e){
+e.preventDefault();
+var ok=true;
+[['ff-nom','f-nom',function(v){return v.trim().length>1}],['ff-email','f-email',function(v){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)}],['ff-tel','f-tel',function(v){return v.trim().length>4}],['ff-msg','f-msg',function(v){return v.trim().length>5}]].forEach(function(r){
+var ff=document.getElementById(r[0]),inp=document.getElementById(r[1]);
+if(!r[2](inp.value)){ff.classList.add('invalid');ok=false}else{ff.classList.remove('invalid')}
+});
+if(!ok)return;
+fBtn.textContent='Envoi en cours…';fBtn.disabled=true;
+setTimeout(function(){fBtn.style.display='none';fSuc.style.display='block';form.reset()},1200);
+});
+
+var fio=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');fio.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.fade').forEach(function(el){if(!el.classList.contains('visible'))fio.observe(el)});
+</script>
+</body>
+</html>
