@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DAVID BRY ARCHITECTURE — Nouméa</title>
+<meta name="description" content="Cabinet d'architecture haut de gamme à Nouméa, Nouvelle-Calédonie. David Bry Architecture conçoit villas contemporaines, rénovations et espaces commerciaux avec exigence et élégance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#1A1A1A;
+--cs:#A07850;
+--ca:#7A6248;
+--cf:#F5F3F0;
+--ct:#1A1A1A;
+--cw:#ffffff;
+--cg:#ECECEC;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--cf);color:var(--ct);overflow-x:hidden;font-size:16px;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU PROMO */
+.promo{position:fixed;top:0;left:0;right:0;z-index:1001;background:#ffd500;height:44px;display:flex;align-items:center;justify-content:center}
+.promo a{font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;line-height:44px;letter-spacing:0.3px;text-align:center;transition:opacity .2s}
+.promo a:hover{opacity:.85}
+
+/* HEADER */
+.hdr{position:fixed;top:44px;left:0;right:0;z-index:1000;background:rgba(26,26,26,.96);backdrop-filter:blur(8px);height:72px;display:flex;align-items:center;padding:0 32px;justify-content:space-between;transition:background .3s}
+.hdr-logo{font-family:'Raleway',sans-serif;font-weight:700;font-size:17px;letter-spacing:2.5px;color:var(--cw);text-transform:uppercase}
+.hdr-logo span{color:var(--cs)}
+.hdr-nav{display:flex;gap:32px;list-style:none}
+.hdr-nav a{font-family:'Raleway',sans-serif;font-weight:500;font-size:12px;letter-spacing:1.8px;color:rgba(255,255,255,.75);text-transform:uppercase;transition:color .25s;position:relative}
+.hdr-nav a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--cs);transition:width .3s}
+.hdr-nav a:hover{color:var(--cw)}
+.hdr-nav a:hover::after{width:100%}
+.hdr-cta{display:flex;align-items:center;gap:20px}
+.hdr-tel{font-family:'Raleway',sans-serif;font-weight:600;font-size:13px;letter-spacing:1px;color:var(--cs)}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:'Raleway',sans-serif;font-weight:600;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;padding:12px 24px;border-radius:2px;transition:background .3s,color .3s,transform .2s;cursor:pointer;border:none;min-height:44px}
+.btn-p{background:var(--cs);color:var(--cw)}
+.btn-p:hover{background:var(--ca);transform:translateY(-1px)}
+.btn-o{background:transparent;color:var(--cw);border:1px solid rgba(255,255,255,.4)}
+.btn-o:hover{border-color:var(--cs);color:var(--cs)}
+.btn-d{background:var(--cs);color:var(--cw);width:100%}
+.btn-d:hover{background:var(--ca)}
+
+/* HAMBURGER */
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px}
+.ham span{display:block;width:24px;height:2px;background:var(--cw);transition:transform .3s,opacity .3s}
+.nav-mob{display:none;position:fixed;top:116px;left:0;right:0;background:rgba(26,26,26,.98);padding:32px 24px;z-index:999;flex-direction:column;gap:0}
+.nav-mob.open{display:flex}
+.nav-mob a{font-family:'Raleway',sans-serif;font-weight:500;font-size:13px;letter-spacing:1.8px;color:rgba(255,255,255,.8);text-transform:uppercase;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.08);transition:color .25s}
+.nav-mob a:hover{color:var(--cs)}
+.nav-mob .btn{margin-top:20px;width:100%}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding-top:116px;background-image:url('https://i.ibb.co/ZpGB7Qrm/DAVID-BRY-ARCHITECTURE-0.jpg');background-size:cover;background-position:center top;background-repeat:no-repeat}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(105deg,rgba(26,26,26,.88) 0%,rgba(26,26,26,.65) 50%,rgba(26,26,26,.35) 100%)}
+.hero-in{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 32px;width:100%}
+.hero-tag{font-family:'Raleway',sans-serif;font-weight:500;font-size:11px;letter-spacing:3px;color:var(--cs);text-transform:uppercase;margin-bottom:28px;display:flex;align-items:center;gap:12px}
+.hero-tag::before{content:'';display:block;width:32px;height:1px;background:var(--cs)}
+.h1{font-family:'Raleway',sans-serif;font-weight:300;font-size:clamp(36px,6vw,76px);color:var(--cw);line-height:1.1;letter-spacing:-0.5px;max-width:720px;margin-bottom:8px}
+.h1 strong{font-weight:700;display:block}
+.hero-sub{font-family:'Raleway',sans-serif;font-weight:300;font-size:clamp(16px,2vw,20px);color:rgba(255,255,255,.72);max-width:520px;margin:24px 0 40px;line-height:1.65;letter-spacing:.2px}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.hero-scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;z-index:2}
+.hero-scroll span{font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.5);text-transform:uppercase}
+.scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,var(--cs),transparent);animation:scrollpulse 2s infinite}
+@keyframes scrollpulse{0%,100%{opacity:.4;transform:scaleY(1)}50%{opacity:1;transform:scaleY(.7)}}
+
+/* STATS */
+.stats{background:var(--cp);padding:64px 32px}
+.stats-in{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stat{text-align:center;padding:24px 16px;border-left:1px solid rgba(255,255,255,.08)}
+.stat:first-child{border-left:none}
+.stat-num{font-family:'Raleway',sans-serif;font-weight:700;font-size:clamp(36px,5vw,56px);color:var(--cs);letter-spacing:-1px;line-height:1}
+.stat-suf{font-size:.6em;font-weight:300}
+.stat-lbl{font-family:'Raleway',sans-serif;font-weight:400;font-size:12px;letter-spacing:2px;color:rgba(255,255,255,.45);text-transform:uppercase;margin-top:10px}
+.stat-sep{width:24px;height:1px;background:var(--cs);margin:12px auto 0;opacity:.5}
+
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.vis{opacity:1;transform:translateY(0)}
+.fade-in{opacity:0;transition:opacity .8s ease}
+.fade-in.vis{opacity:1}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.hdr-nav,.hdr-tel{display:none}
+.ham{display:flex}
+.stats-in{grid-template-columns:repeat(2,1fr)}
+.stat:nth-child(3){border-left:none}
+}
+@media(max-width:480px){
+.promo a{font-size:13px;line-height:40px}
+.promo{height:40px}
+.hdr{top:40px;height:64px;padding:0 20px}
+.nav-mob{top:104px}
+.hdr-logo{font-size:15px;letter-spacing:2px}
+.hero{padding-top:104px}
+.hero-in{padding:0 20px}
+.hero-btns{flex-direction:column}
+.hero-btns .btn{width:100%;min-height:52px;font-size:13px}
+.hero-scroll{display:none}
+.stats{padding:48px 20px}
+.stats-in{grid-template-columns:repeat(2,1fr);gap:16px}
+.stat{padding:20px 12px}
+.stat:first-child,.stat:nth-child(3){border-left:none}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr" id="hdr">
+  <a href="#hero" class="hdr-logo">David Bry<span>&nbsp;Architecture</span></a>
+  <nav aria-label="Navigation principale">
+    <ul class="hdr-nav">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#processus">Processus</a></li>
+      <li><a href="#galerie">Projets</a></li>
+      <li><a href="#equipe">Studio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="hdr-cta">
+    <a href="tel:+68795959090" class="hdr-tel">95.95.90</a>
+    <a href="#contact" class="btn btn-p">Devis gratuit</a>
+  </div>
+  <button class="ham" id="ham" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="nav-mob" id="navMob" aria-label="Navigation mobile">
+  <a href="#services">Services</a>
+  <a href="#processus">Processus</a>
+  <a href="#galerie">Projets</a>
+  <a href="#equipe">Studio</a>
+  <a href="#contact">Contact</a>
+  <a href="tel:+68795959090" class="hdr-tel" style="color:#A07850;border-bottom:none">95.95.90</a>
+  <a href="#contact" class="btn btn-p">Demander un devis</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero" aria-label="Accueil">
+  <div class="hero-ov"></div>
+  <div class="hero-in">
+    <p class="hero-tag fade-in">Architecte — Nouméa, Nouvelle-Calédonie</p>
+    <h1 class="h1 fade-up">
+      Votre vision architecturale
+      <strong>mérite une exécution<br>sans compromis.</strong>
+    </h1>
+    <p class="hero-sub fade-up">Chaque projet est une conversation entre l'espace, la lumière et les matériaux. David Bry Architecture transforme vos ambitions en lieux qui durent.</p>
+    <div class="hero-btns fade-up">
+      <a href="#contact" class="btn btn-p">Démarrer un projet</a>
+      <a href="#galerie" class="btn btn-o">Voir les réalisations</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Découvrir</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" aria-label="Chiffres clés">
+  <div class="stats-in">
+    <div class="stat fade-up">
+      <div class="stat-num" data-target="15" data-suffix="+">0<span class="stat-suf">+</span></div>
+      <div class="stat-sep"></div>
+      <div class="stat-lbl">Années d'expérience</div>
+    </div>
+    <div class="stat fade-up">
+      <div class="stat-num" data-target="200" data-suffix="+">0<span class="stat-suf">+</span></div>
+      <div class="stat-sep"></div>
+      <div class="stat-lbl">Projets livrés</div>
+    </div>
+    <div class="stat fade-up">
+      <div class="stat-num" data-target="98" data-suffix="%">0<span class="stat-suf">%</span></div>
+      <div class="stat-sep"></div>
+      <div class="stat-lbl">Clients satisfaits</div>
+    </div>
+    <div class="stat fade-up">
+      <div class="stat-num" data-target="5" data-suffix="/5">0<span class="stat-suf">/5</span></div>
+      <div class="stat-sep"></div>
+      <div class="stat-lbl">Note Google (8 avis)</div>
+    </div>
+  </div>
+</section>
+
+<script>
+const ham=document.getElementById('ham'),mob=document.getElementById('navMob');
+ham.addEventListener('click',()=>{const o=mob.classList.toggle('open');ham.setAttribute('aria-expanded',o);const s=ham.querySelectorAll('span');o?(s[0].style.transform='rotate(45deg) translate(5px,5px)',s[1].style.opacity='0',s[2].style.transform='rotate(-45deg) translate(5px,-5px)'):(s[0].style.transform='',s[1].style.opacity='',s[2].style.transform='')});
+mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mob.classList.remove('open');ham.setAttribute('aria-expanded','false');ham.querySelectorAll('span').forEach(s=>{s.style.transform='';s.style.opacity=''})}));
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll('.fade-up,.fade-in').forEach(el=>io.observe(el));
+const statIO=new IntersectionObserver(es=>{es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,t=+el.dataset.target,suf=el.dataset.suffix||'',d=t>100?1200:800,step=t/60;let c=0,ri=null;const tick=()=>{c=Math.min(c+step,t);el.innerHTML=Math.floor(c)+'<span class="stat-suf">'+suf+'</span>';if(c<t)ri=requestAnimationFrame(tick)};tick();statIO.unobserve(el)})},{threshold:.3});
+document.querySelectorAll('.stat-num[data-target]').forEach(el=>statIO.observe(el));
+</script>
+<style>
+.s{padding:96px 32px}
+.s-alt{background:var(--cg)}
+.s-in{max-width:1200px;margin:0 auto}
+.s-tag{font-family:'Raleway',sans-serif;font-weight:500;font-size:11px;letter-spacing:3px;color:var(--cs);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.s-tag::before{content:'';display:block;width:32px;height:1px;background:var(--cs)}
+.h2{font-family:'Raleway',sans-serif;font-weight:300;font-size:clamp(28px,4vw,48px);color:var(--cp);line-height:1.15;letter-spacing:-.3px;margin-bottom:16px}
+.h2 strong{font-weight:700}
+.s-lead{font-family:'Raleway',sans-serif;font-weight:300;font-size:clamp(15px,1.5vw,18px);color:#555;max-width:560px;line-height:1.7;margin-bottom:56px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.c{background:var(--cw);border-radius:2px;padding:40px 32px;border:1px solid rgba(160,120,80,.12);transition:transform .3s,box-shadow .3s}
+.c:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.08)}
+.c-ico{width:48px;height:48px;margin-bottom:24px}
+.c-ico svg{width:100%;height:100%}
+.h3{font-family:'Raleway',sans-serif;font-weight:600;font-size:18px;color:var(--cp);letter-spacing:.3px;margin-bottom:12px}
+.c-txt{font-size:14px;color:#666;line-height:1.7;margin-bottom:24px}
+.c-lnk{font-family:'Raleway',sans-serif;font-weight:600;font-size:11px;letter-spacing:1.8px;color:var(--cs);text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;transition:gap .25s,color .25s}
+.c-lnk:hover{gap:14px;color:var(--ca)}
+.c-lnk::after{content:'→'}
+.alt-row{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:80px}
+.alt-row:last-child{margin-bottom:0}
+.alt-row.rev{direction:rtl}
+.alt-row.rev>*{direction:ltr}
+.alt-img{position:relative;overflow:hidden;border-radius:2px}
+.alt-img img{width:100%;height:360px;object-fit:cover;border:2px solid var(--cs);box-shadow:0 4px 12px rgba(0,0,0,.08);transition:transform .5s}
+.alt-img:hover img{transform:scale(1.03)}
+.alt-txt{}
+.alt-pts{list-style:none;margin-top:24px;display:flex;flex-direction:column;gap:12px}
+.alt-pts li{display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#555;line-height:1.6}
+.alt-pts li::before{content:'';display:block;width:18px;height:18px;min-width:18px;background:var(--cs);border-radius:50%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-size:12px;background-repeat:no-repeat;background-position:center;margin-top:1px}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gal-item{overflow:hidden;border-radius:2px;border:2px solid var(--cs);box-shadow:0 4px 12px rgba(0,0,0,.08);cursor:pointer;position:relative;aspect-ratio:4/3}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gal-item:hover img{transform:scale(1.05)}
+.gal-item::after{content:'⊕';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:28px;color:var(--cw);background:rgba(26,26,26,.35);opacity:0;transition:opacity .3s}
+.gal-item:hover::after{opacity:1}
+.lb{display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.92);align-items:center;justify-content:center;padding:24px}
+.lb.open{display:flex}
+.lb-img{max-width:90vw;max-height:85vh;object-fit:contain;border:2px solid var(--cs);box-shadow:0 8px 40px rgba(0,0,0,.4)}
+.lb-cl{position:absolute;top:20px;right:28px;background:none;border:none;color:var(--cw);font-size:32px;cursor:pointer;line-height:1;opacity:.7;transition:opacity .2s}
+.lb-cl:hover{opacity:1}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(160,120,80,.3);border:1px solid var(--cs);color:var(--cw);width:48px;height:48px;border-radius:2px;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;transition:background .25s}
+.lb-nav:hover{background:var(--cs)}
+.lb-prev{left:16px}
+.lb-next{right:16px}
+.frm-wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.frm-info{}
+.frm-info .h2{margin-bottom:16px}
+.frm-info p{font-size:15px;color:#555;line-height:1.7;margin-bottom:24px}
+.frm-contact-lnk{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.frm-contact-lnk svg{width:20px;height:20px;color:var(--cs)}
+.frm-contact-lnk a{font-family:'Raleway',sans-serif;font-weight:500;font-size:15px;color:var(--cp);transition:color .25s}
+.frm-contact-lnk a:hover{color:var(--cs)}
+form{background:var(--cw);padding:40px;border-radius:2px;box-shadow:0 4px 24px rgba(0,0,0,.06)}
+.fld{margin-bottom:20px}
+.fld label{display:block;font-family:'Raleway',sans-serif;font-weight:600;font-size:11px;letter-spacing:1.5px;color:var(--cp);text-transform:uppercase;margin-bottom:8px}
+.fld input,.fld textarea{width:100%;font-family:'Inter',sans-serif;font-size:15px;color:var(--cp);background:var(--cf);border:1px solid rgba(26,26,26,.15);border-radius:2px;padding:14px 16px;outline:none;transition:border-color .25s}
+.fld input:focus,.fld textarea:focus{border-color:var(--cs)}
+.fld textarea{height:120px;resize:vertical}
+.frm-err{font-size:12px;color:#c0392b;margin-top:4px;display:none}
+.frm-ok{background:rgba(160,120,80,.1);border:1px solid var(--cs);border-radius:2px;padding:20px;text-align:center;font-family:'Raleway',sans-serif;font-weight:500;font-size:15px;color:var(--ca);display:none}
+.frm-ok.show{display:block}
+.frm-sub{display:none}
+.frm-sub.show{display:block}
+.ps{background:var(--cp)}
+.ps .s-tag::before{background:var(--cs)}
+.ps .s-tag{color:var(--cs)}
+.ps .h2{color:var(--cw)}
+.ps .h2 strong{color:var(--cs)}
+.ps-stars{display:flex;align-items:center;gap:8px;margin-bottom:40px}
+.star{color:var(--cs);font-size:24px}
+.ps-score{font-family:'Raleway',sans-serif;font-weight:700;font-size:40px;color:var(--cw);line-height:1}
+.ps-score span{font-size:18px;font-weight:300;color:rgba(255,255,255,.5)}
+.ps-lbl{font-size:13px;color:rgba(255,255,255,.5);letter-spacing:1px;margin-top:4px}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:48px}
+.testi{background:rgba(255,255,255,.04);border:1px solid rgba(160,120,80,.2);border-radius:2px;padding:28px}
+.testi-st{color:var(--cs);font-size:14px;margin-bottom:12px}
+.testi-q{font-size:14px;color:rgba(255,255,255,.7);line-height:1.7;font-style:italic;margin-bottom:16px}
+.testi-auth{font-family:'Raleway',sans-serif;font-weight:600;font-size:12px;letter-spacing:1px;color:var(--cs);text-transform:uppercase}
+.badges{display:flex;gap:24px;flex-wrap:wrap;align-items:center}
+.badge{background:rgba(255,255,255,.04);border:1px solid rgba(160,120,80,.25);border-radius:2px;padding:16px 24px;display:flex;align-items:center;gap:12px}
+.badge svg{width:24px;height:24px;color:var(--cs)}
+.badge-txt{font-family:'Raleway',sans-serif;font-weight:600;font-size:12px;letter-spacing:1px;color:rgba(255,255,255,.7);text-transform:uppercase}
+footer{background:var(--cp);border-top:1px solid rgba(160,120,80,.2);padding:64px 32px 32px}
+.ft-in{max-width:1200px;margin:0 auto}
+.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.ft-logo{font-family:'Raleway',sans-serif;font-weight:700;font-size:16px;letter-spacing:2.5px;color:var(--cw);text-transform:uppercase;margin-bottom:16px}
+.ft-logo span{color:var(--cs)}
+.ft-adr{font-size:14px;color:rgba(255,255,255,.5);line-height:1.8}
+.ft-adr a{color:var(--cs);transition:opacity .25s}
+.ft-adr a:hover{opacity:.8}
+.ft-h{font-family:'Raleway',sans-serif;font-weight:600;font-size:11px;letter-spacing:2px;color:var(--cs);text-transform:uppercase;margin-bottom:16px}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:8px}
+.ft-links a{font-size:13px;color:rgba(255,255,255,.5);transition:color .25s}
+.ft-links a:hover{color:var(--cw)}
+.ft-soc{display:flex;gap:12px;margin-top:20px}
+.ft-soc a{width:40px;height:40px;border:1px solid rgba(160,120,80,.3);border-radius:2px;display:flex;align-items:center;justify-content:center;transition:border-color .25s,background .25s}
+.ft-soc a:hover{border-color:var(--cs);background:rgba(160,120,80,.1)}
+.ft-soc svg{width:20px;height:20px;fill:rgba(255,255,255,.6);transition:fill .25s}
+.ft-soc a:hover svg{fill:var(--cs)}
+.ft-btm{border-top:1px solid rgba(255,255,255,.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ft-copy{font-size:12px;color:rgba(255,255,255,.3);letter-spacing:.5px}
+.ft-setup{font-size:12px;color:rgba(255,255,255,.3);transition:color .25s}
+.ft-setup a{color:rgba(160,120,80,.7);transition:color .25s}
+.ft-setup a:hover{color:var(--cs)}
+@media(max-width:900px){
+.grid3{grid-template-columns:1fr}
+.alt-row{grid-template-columns:1fr;gap:32px}
+.alt-row.rev{direction:ltr}
+.frm-wrap{grid-template-columns:1fr}
+.testi-grid{grid-template-columns:1fr}
+.ft-top{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+.s{padding:64px 20px}
+.gal-grid{grid-template-columns:1fr}
+.ft-btm{flex-direction:column;text-align:center}
+form{padding:24px 20px}
+.badges{flex-direction:column;align-items:flex-start}
+.ps-stars{flex-wrap:wrap}
+.frm-wrap{gap:40px}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s" id="services" aria-label="Services">
+  <div class="s-in">
+    <p class="s-tag fade-in">Expertise</p>
+    <h2 class="h2 fade-up">Ce que nous <strong>concevons pour vous</strong></h2>
+    <p class="s-lead fade-up">De la première esquisse à la livraison des clés, chaque mission est conduite avec la même exigence absolue.</p>
+    <div class="grid3">
+      <div class="c fade-up">
+        <div class="c-ico">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="28" width="40" height="16" rx="1" stroke="#A07850" stroke-width="2"/>
+            <path d="M4 28 L24 8 L44 28" stroke="#A07850" stroke-width="2" stroke-linejoin="round"/>
+            <rect x="18" y="36" width="12" height="8" rx="1" stroke="#A07850" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <h3 class="h3">Villas contemporaines</h3>
+        <p class="c-txt">Conception de résidences privées qui allient volumes épurés, matériaux naturels et adaptation au climat tropical calédonien.</p>
+        <a href="#contact" class="c-lnk">Discuter de votre projet</a>
+      </div>
+      <div class="c fade-up">
+        <div class="c-ico">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="36" height="36" rx="1" stroke="#A07850" stroke-width="2"/>
+            <path d="M6 20h36M20 20v22" stroke="#A07850" stroke-width="1.5"/>
+            <circle cx="34" cy="34" r="6" stroke="#A07850" stroke-width="1.5"/>
+            <path d="M34 31v3l2 2" stroke="#A07850" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="h3">Rénovation patrimoniale</h3>
+        <p class="c-txt">Réhabilitation respectueuse de bâtiments existants : restructuration, mise aux normes et redéfinition des espaces intérieurs.</p>
+        <a href="#contact" class="c-lnk">Évaluer mon bien</a>
+      </div>
+      <div class="c fade-up">
+        <div class="c-ico">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="14" width="40" height="28" rx="1" stroke="#A07850" stroke-width="2"/>
+            <path d="M14 14V8h20v6" stroke="#A07850" stroke-width="1.5" stroke-linejoin="round"/>
+            <rect x="14" y="26" width="8" height="16" rx="1" stroke="#A07850" stroke-width="1.5"/>
+            <rect x="28" y="22" width="10" height="6" rx="1" stroke="#A07850" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <h3 class="h3">Espaces commerciaux</h3>
+        <p class="c-txt">Conception d'hôtels, bureaux, commerces et espaces de restauration pensés pour renforcer l'image de marque et l'expérience client.</p>
+        <a href="#contact" class="c-lnk">Parler de mon enseigne</a>
+      </div>
+      <div class="c fade-up">
+        <div class="c-ico">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 40V16l16-8 16 8v24H8z" stroke="#A07850" stroke-width="2" stroke-linejoin="round"/>
+            <rect x="20" y="28" width="8" height="12" rx="1" stroke="#A07850" stroke-width="1.5"/>
+            <circle cx="24" cy="14" r="4" stroke="#A07850" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <h3 class="h3">Maîtrise d'œuvre</h3>
+        <p class="c-txt">Coordination des entreprises, suivi de chantier et contrôle qualité pour garantir la fidélité du projet aux intentions architecturales.</p>
+        <a href="#contact" class="c-lnk">Confier mon chantier</a>
+      </div>
+      <div class="c fade-up">
+        <div class="c-ico">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="8" width="32" height="32" rx="1" stroke="#A07850" stroke-width="2"/>
+            <path d="M8 18h32M18 8v32" stroke="#A07850" stroke-width="1.5"/>
+            <path d="M28 28l6 6M28 34l6-6" stroke="#A07850" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="h3">Conseil & Permis de construire</h3>
+        <p class="c-txt">Étude de faisabilité, dépôt de permis et interface avec les administrations locales pour sécuriser votre projet dès l'origine.</p>
+        <a href="#contact" class="c-lnk">Obtenir un conseil</a>
+      </div>
+      <div class="c fade-up">
+        <div class="c-ico">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="16" stroke="#A07850" stroke-width="2"/>
+            <path d="M24 8v4M24 36v4M8 24h4M36 24h4" stroke="#A07850" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="24" cy="24" r="6" stroke="#A07850" stroke-width="1.5"/>
+            <path d="M24 18v6l4 4" stroke="#A07850" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="h3">Design d'intérieur</h3>
+        <p class="c-txt">Sélection des matériaux, mobilier sur-mesure et mise en lumière pour des espaces intérieurs cohérents et authentiques.</p>
+        <a href="#contact" class="c-lnk">Aménager mon intérieur</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSUS -->
+<section class="s s-alt" id="processus" aria-label="Notre processus">
+  <div class="s-in">
+    <p class="s-tag fade-in">Méthodologie</p>
+    <h2 class="h2 fade-up">De l'esquisse à la <strong>livraison des clés</strong></h2>
+    <p class="s-lead fade-up">Une démarche rigoureuse et transparente, étape par étape, pour que chaque décision soit prise en connaissance de cause.</p>
+    <div class="proc-wrap fade-up">
+      <div class="proc-step">
+        <div class="proc-num">01</div>
+        <div class="proc-body">
+          <h3 class="h3">Écoute & Brief</h3>
+          <p class="c-txt">Rencontre sur site ou en studio pour comprendre vos usages, vos ambitions et les contraintes du projet.</p>
+        </div>
+      </div>
+      <div class="proc-arrow">→</div>
+      <div class="proc-step">
+        <div class="proc-num">02</div>
+        <div class="proc-body">
+          <h3 class="h3">Esquisse & Concept</h3>
+          <p class="c-txt">Proposition d'orientations architecturales, plans de masse et premières visualisations pour valider la vision commune.</p>
+        </div>
+      </div>
+      <div class="proc-arrow">→</div>
+      <div class="proc-step">
+        <div class="proc-num">03</div>
+        <div class="proc-body">
+          <h3 class="h3">Projet & Permis</h3>
+          <p class="c-txt">Plans d'exécution détaillés, dossier de permis de construire et consultation des entreprises pour le chiffrage.</p>
+        </div>
+      </div>
+      <div class="proc-arrow">→</div>
+      <div class="proc-step">
+        <div class="proc-num">04</div>
+        <div class="proc-body">
+          <h3 class="h3">Chantier & Suivi</h3>
+          <p class="c-txt">Réunions de chantier régulières, contrôle de conformité et arbitrages techniques en temps réel.</p>
+        </div>
+      </div>
+      <div class="proc-arrow">→</div>
+      <div class="proc-step">
+        <div class="proc-num">05</div>
+        <div class="proc-body">
+          <h3 class="h3">Réception & Remise</h3>
+          <p class="c-txt">Levée des réserves, réception officielle des travaux et remise des clés dans le respect des délais convenus.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s" id="metier" aria-label="Notre approche">
+  <div class="s-in">
+    <p class="s-tag fade-in">Notre approche</p>
+    <h2 class="h2 fade-up">Une architecture qui <strong>répond à la vie</strong></h2>
+    <div class="alt-row fade-up">
+      <div class="alt-img">
+        <img src="https://i.ibb.co/ynW1Xm32/DAVID-BRY-ARCHITECTURE-1.jpg" alt="Architecture contemporaine David Bry — villa Nouméa" loading="lazy">
+      </div>
+      <div class="alt-txt">
+        <p class="s-tag">Rigueur & Matériaux</p>
+        <h3 class="h3">La matière au service du projet</h3>
+        <p class="c-txt">Chaque projet naît d'un dialogue entre l'ambition du maître d'ouvrage et les possibilités offertes par les matériaux disponibles localement. Bardages bois, parements pierre, béton architectonique : les choix sont dictés par la durabilité et l'honnêteté constructive.</p>
+        <ul class="alt-pts">
+          <li>Sélection raisonnée des matériaux naturels</li>
+          <li>Intégration des ventilations naturelles tropicales</li>
+          <li>Mise en valeur des vues et orientations</li>
+          <li>Économie de moyens, densité du sens</li>
+        </ul>
+      </div>
+    </div>
+    <div class="alt-row rev fade-up">
+      <div class="alt-img">
+        <img src="https://i.ibb.co/WNBvZp72/DAVID-BRY-ARCHITECTURE-2.jpg" alt="Intérieur architectural lumineux — David Bry Architecture" loading="lazy">
+      </div>
+      <div class="alt-txt">
+        <p class="s-tag">Lumière & Espace</p>
+        <h3 class="h3">La lumière comme matériau premier</h3>
+        <p class="c-txt">En Nouvelle-Calédonie, la qualité de la lumière naturelle est un privilège. Chaque ouverture est pensée pour inviter le soleil sans surchauffer, pour créer des jeux d'ombre qui animent les volumes tout au long de la journée.</p>
+        <ul class="alt-pts">
+          <li>Orientation solaire étudiée dès l'esquisse</li>
+          <li>Brise-soleils et débords de toiture adaptés</li>
+          <li>Double-hauteurs et lanterneaux zénithaux</li>
+          <li>Transition fluide intérieur / extérieur tropical</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s s-alt" id="galerie" aria-label="Galerie de projets">
+  <div class="s-in">
+    <p class="s-tag fade-in">Réalisations</p>
+    <h2 class="h2 fade-up">Projets <strong>livrés avec exigence</strong></h2>
+    <p class="s-lead fade-up">Une sélection de réalisations représentatives du savoir-faire du studio.</p>
+    <div class="gal-grid">
+      <div class="gal-item fade-up" data-idx="0">
+        <img src="https://i.ibb.co/ZpGB7Qrm/DAVID-BRY-ARCHITECTURE-0.jpg" alt="Villa contemporaine Nouméa — David Bry Architecture" loading="lazy">
+      </div>
+      <div class="gal-item fade-up" data-idx="1">
+        <img src="https://i.ibb.co/ynW1Xm32/DAVID-BRY-ARCHITECTURE-1.jpg" alt="Architecture résidentielle Nouvelle-Calédonie" loading="lazy">
+      </div>
+      <div class="gal-item fade-up" data-idx="2">
+        <img src="https://i.ibb.co/WNBvZp72/DAVID-BRY-ARCHITECTURE-2.jpg" alt="Espace intérieur lumineux — David Bry Architecture" loading="lazy">
+      </div>
+      <div class="gal-item fade-up" data-idx="3">
+        <img src="https://i.ibb.co/Z6z9vcfq/DAVID-BRY-ARCHITECTURE-3.jpg" alt="Réalisation architecturale haut de gamme Nouméa" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Visualisation photo">
+  <button class="lb-cl" id="lbCl" aria-label="Fermer">✕</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Photo précédente">‹</button>
+  <img class="lb-img" id="lbImg" src="" alt="">
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Photo suivante">›</button>
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section class="s ps" id="avis" aria-label="Avis clients">
+  <div class="s-in">
+    <p class="s-tag fade-in">Confiance</p>
+    <h2 class="h2 fade-up">Ce que disent <strong>nos clients</strong></h2>
+    <div class="ps-stars fade-up">
+      <div class="ps-score">5<span>/5</span></div>
+      <div>
+        <div>
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <div class="ps-lbl">8 avis Google vérifiés</div>
+      </div>
+    </div>
+    <div class="testi-grid fade-up">
+      <div class="testi">
+        <div class="testi-st">★★★★★</div>
+        <p class="testi-q">"David Bry a su transformer notre terrain en pente en une villa qui dépasse toutes nos espérances. Son écoute et sa rigueur tout au long du chantier sont remarquables."</p>
+        <div class="testi-auth">Client particulier — Nouméa</div>
+      </div>
+      <div class="testi">
+        <div class="testi-st">★★★★★</div>
+        <p class="testi-q">"Un accompagnement complet, du permis de construire jusqu'à la réception. Le résultat est à la hauteur de l'exigence que nous attendions pour notre établissement."</p>
+        <div class="testi-auth">Maître d'ouvrage professionnel</div>
+      </div>
+      <div class="testi">
+        <div class="testi-st">★★★★★</div>
+        <p class="testi-q">"Nous avons confié la rénovation de notre bien à David Bry Architecture. Le respect des délais, la qualité des finitions et la communication ont été irréprochables."</p>
+        <div class="testi-auth">Propriétaire — Grande Terre</div>
+      </div>
+    </div>
+    <div class="badges fade-up">
+      <div class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <span class="badge-txt">Note 5/5 Google</span>
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+        <span class="badge-txt">Architecte DPLG agréé</span>
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        <span class="badge-txt">+200 projets livrés</span>
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span class="badge-txt">Cabinet basé à Nouméa</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE -->
+<section class="s" id="contact" aria-label="Contact et devis">
+  <div class="s-in">
+    <div class="frm-wrap">
+      <div class="frm-info fade-up">
+        <p class="s-tag">Contact</p>
+        <h2 class="h2">Parlons de votre <strong>projet</strong></h2>
+        <p>Chaque grande réalisation commence par une conversation. Décrivez-nous votre vision et nous vous répondrons sous 48 heures.</p>
+        <div class="frm-contact-lnk">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#A07850" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.89 9.11 19.79 19.79 0 01.82 4.48 2 2 0 012.82 2.3h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          <a href="tel:+68795959090">95.95.90</a>
+        </div>
+        <div class="frm-contact-lnk">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#A07850" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <a href="https://maps.google.com/?q=6+Rue+Dame+Lechanteur+Nouméa" target="_blank" rel="noopener">6 Rue Dame Lechanteur, Nouméa 98800</a>
+        </div>
+        <div class="frm-contact-lnk">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#A07850" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          <a href="https://www.facebook.com/davidbryarchitecte" target="_blank" rel="noopener">facebook.com/davidbryarchitecte</a>
+        </div>
+      </div>
+      <div class="fade-up">
+        <form id="frm" action="#" novalidate>
+          <div class="frm-ok" id="frmOk" role="alert">Merci pour votre message. Nous vous répondrons dans les 48 heures.</div>
+          <div class="frm-sub" id="frmSub">
+            <div class="fld">
+              <label for="f-nom">Nom complet *</label>
+              <input type="text" id="f-nom" name="nom" placeholder="Jean Dupont" autocomplete="name">
+              <div class="frm-err" id="e-nom">Veuillez indiquer votre nom.</div>
+            </div>
+            <div class="fld">
+              <label for="f-email">Adresse e-mail *</label>
+              <input type="email" id="f-email" name="email" placeholder="jean@exemple.com" autocomplete="email">
+              <div class="frm-err" id="e-email">Veuillez indiquer un e-mail valide.</div>
+            </div>
+            <div class="fld">
+              <label for="f-tel">Téléphone</label>
+              <input type="tel" id="f-tel" name="tel" placeholder="XX XX XX" autocomplete="tel">
+            </div>
+            <div class="fld">
+              <label for="f-msg">Votre projet *</label>
+              <textarea id="f-msg" name="message" placeholder="Décrivez votre projet, sa nature, sa surface approximative et vos souhaits…"></textarea>
+              <div class="frm-err" id="e-msg">Veuillez décrire votre projet.</div>
+            </div>
+            <button type="submit" class="btn btn-d" id="frmBtn">Envoyer ma demande</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer" aria-label="Pied de page">
+  <div class="ft-in">
+    <div class="ft-top">
+      <div>
+        <div class="ft-logo">David Bry<span>&nbsp;Architecture</span></div>
+        <address class="ft-adr" style="font-style:normal">
+          6 Rue Dame Lechanteur<br>
+          Nouméa 98800, Nouvelle-Calédonie<br><br>
+          <a href="tel:+68795959090">95.95.90</a>
+        </address>
+        <div class="ft-soc">
+          <a href="https://www.facebook.com/davidbryarchitecte" target="_blank" rel="noopener" aria-label="Facebook David Bry Architecture">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="ft-h">Navigation</div>
+        <ul class="ft-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#processus">Processus</a></li>
+          <li><a href="#galerie">Projets</a></li>
+          <li><a href="#avis">Avis clients</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft-h">Services</div>
+        <ul class="ft-links">
+          <li><a href="#services">Villas contemporaines</a></li>
+          <li><a href="#services">Rénovation patrimoniale</a></li>
+          <li><a href="#services">Espaces commerciaux</a></li>
+          <li><a href="#services">Maîtrise d'œuvre</a></li>
+          <li><a href="#services">Design d'intérieur</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-btm">
+      <div class="ft-copy">© 2026 DAVID BRY ARCHITECTURE. Tous droits réservés.</div>
+      <div class="ft-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></div>
+    </div>
+  </div>
+</footer>
+
+<style>
+.proc-wrap{display:flex;align-items:flex-start;gap:8px;overflow-x:auto;padding-bottom:8px}
+.proc-step{flex:1;min-width:160px;background:var(--cw);border:1px solid rgba(160,120,80,.15);border-radius:2px;padding:28px 20px}
+.proc-num{font-family:'Raleway',sans-serif;font-weight:700;font-size:32px;color:var(--cs);opacity:.35;line-height:1;margin-bottom:12px}
+.proc-arrow{font-size:20px;color:var(--cs);opacity:.5;padding-top:36px;flex-shrink:0}
+@media(max-width:900px){
+.proc-wrap{flex-direction:column;overflow-x:visible}
+.proc-arrow{transform:rotate(90deg);padding-top:0;align-self:center}
+}
+</style>
+
+<script>
+const io2=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io2.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.fade-up,.fade-in').forEach(el=>io2.observe(el));
+const imgs=['https://i.ibb.co/ZpGB7Qrm/DAVID-BRY-ARCHITECTURE-0.jpg','https://i.ibb.co/ynW1Xm32/DAVID-BRY-ARCHITECTURE-1.jpg','https://i.ibb.co/WNBvZp72/DAVID-BRY-ARCHITECTURE-2.jpg','https://i.ibb.co/Z6z9vcfq/DAVID-BRY-ARCHITECTURE-3.jpg'];
+let ci=0;
+const lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg');
+document.querySelectorAll('.gal-item').forEach(el=>{el.addEventListener('click',()=>{ci=+el.dataset.idx;lbImg.src=imgs[ci];lb.classList.add('open');document.body.style.overflow='hidden'})});
+function closeLb(){lb.classList.remove('open');document.body.style.overflow=''}
+document.getElementById('lbCl').addEventListener('click',closeLb);
+lb.addEventListener('click',e=>{if(e.target===lb)closeLb()});
+document.getElementById('lbPrev').addEventListener('click',()=>{ci=(ci-1+imgs.length)%imgs.length;lbImg.src=imgs[ci]});
+document.getElementById('lbNext').addEventListener('click',()=>{ci=(ci+1)%imgs.length;lbImg.src=imgs[ci]});
+document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft'){ci=(ci-1+imgs.length)%imgs.length;lbImg.src=imgs[ci]}if(e.key==='ArrowRight'){ci=(ci+1)%imgs.length;lbImg.src=imgs[ci]}});
+const frm=document.getElementById('frm'),frmOk=document.getElementById('frmOk'),frmSub=document.getElementById('frmSub'),frmBtn=document.getElementById('frmBtn');
+frmSub.classList.add('show');
+frm.addEventListener('submit',e=>{e.preventDefault();let ok=true;const nom=document.getElementById('f-nom'),email=document.getElementById('f-email'),msg=document.getElementById('f-msg');const en=document.getElementById('e-nom'),ee=document.getElementById('e-email'),em=document.getElementById('e-msg');en.style.display=nom.value.trim().length<2?'block':'none';if(nom.value.trim().length<2)ok=false;const er=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;ee.style.display=!er.test(email.value)?'block':'none';if(!er.test(email.value))ok=false;em.style.display=msg.value.trim().length<10?'block':'none';if(msg.value.trim().length<10)ok=false;if(!ok)return;frmBtn.textContent='Envoi…';frmBtn.disabled=true;setTimeout(()=>{frmSub.classList.remove('show');frmOk.classList.add('show')},900)});
+</script>
+</body>
+</html>
