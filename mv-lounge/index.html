@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MV Lounge — Nouméa</title>
+<meta name="description" content="MV Lounge, bar lounge premium à Nouméa. Terrasse face à la mer, cocktails d'exception, programmation musicale zouk et clubbing. 22 Rue Jules Garnier, Nouméa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600&family=Manrope:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+--color-primary:#C8A84B;
+--color-secondary:#1A1A1A;
+--color-accent:#2ABFAF;
+--color-text:#F0E6C8;
+--color-bg:#111111;
+--color-charcoal:#1E1E1E;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--color-bg);color:var(--color-text);font-family:'Raleway',sans-serif;overflow-x:hidden;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU PROMO */
+.promo-bar{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;display:flex;align-items:center;justify-content:center}
+.promo-bar a{font-family:"Manrope","Raleway",system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;line-height:44px;letter-spacing:0.3px;text-align:center}
+.promo-bar a:hover{opacity:.85}
+
+/* HEADER */
+.header{position:fixed;top:44px;left:0;width:100%;z-index:1000;background:rgba(17,17,17,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(200,168,75,.15);transition:background .3s}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{font-family:'Cinzel',serif;font-size:1.35rem;font-weight:700;color:var(--color-primary);letter-spacing:2px;white-space:nowrap}
+.logo span{color:var(--color-accent)}
+.nav{display:flex;align-items:center;gap:28px;list-style:none}
+.nav a{font-size:.8rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--color-text);opacity:.8;transition:opacity .25s,color .25s}
+.nav a:hover{opacity:1;color:var(--color-primary)}
+.header-cta{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.tel-link{font-size:.85rem;font-weight:600;color:var(--color-primary);letter-spacing:.5px;white-space:nowrap;transition:opacity .25s}
+.tel-link:hover{opacity:.8}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Raleway',sans-serif;font-weight:600;font-size:.8rem;letter-spacing:1.2px;text-transform:uppercase;border:none;cursor:pointer;border-radius:2px;transition:background .3s,color .3s,transform .2s;min-height:44px;padding:0 20px}
+.btn-accent{background:var(--color-accent);color:#111}
+.btn-accent:hover{background:var(--color-primary);color:#111}
+.btn-outline{background:transparent;color:var(--color-primary);border:1.5px solid var(--color-primary)}
+.btn-outline:hover{background:var(--color-primary);color:#111}
+.btn-primary{background:var(--color-primary);color:#111}
+.btn-primary:hover{background:var(--color-accent);color:#111}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{display:block;width:24px;height:2px;background:var(--color-text);border-radius:2px;transition:transform .3s,opacity .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-nav{display:none;position:fixed;top:112px;left:0;width:100%;background:rgba(17,17,17,.98);z-index:999;padding:24px 24px 32px;flex-direction:column;gap:0;border-bottom:1px solid rgba(200,168,75,.2)}
+.mobile-nav.open{display:flex}
+.mobile-nav a{display:block;font-size:.9rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--color-text);padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.mobile-nav a:hover{color:var(--color-primary)}
+.mobile-nav .btn{margin-top:20px;width:100%;font-size:.9rem}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding-top:112px}
+.hero-bg{position:absolute;inset:0;background-image:url('https://i.ibb.co/zThm8cWk/MV-Lounge-0.jpg');background-size:cover;background-position:center;z-index:0}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,17,17,.55) 0%,rgba(17,17,17,.4) 50%,rgba(17,17,17,.75) 100%);z-index:1}
+.hero-content{position:relative;z-index:2;text-align:center;padding:0 20px;max-width:820px}
+.hero-eyebrow{font-size:.72rem;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--color-accent);margin-bottom:20px;opacity:.9}
+.hero-title{font-family:'Cinzel',serif;font-size:clamp(2.4rem,6vw,4.8rem);font-weight:700;line-height:1.1;color:#fff;margin-bottom:16px;letter-spacing:2px}
+.hero-title em{color:var(--color-primary);font-style:normal}
+.hero-sub{font-size:clamp(.95rem,2vw,1.15rem);font-weight:300;color:rgba(240,230,200,.88);letter-spacing:3px;text-transform:uppercase;margin-bottom:40px}
+.hero-btns{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+.hero-btns .btn{min-height:52px;padding:0 32px;font-size:.85rem}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.7}
+.scroll-ind span{font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--color-text)}
+.scroll-arrow{width:20px;height:20px;border-right:2px solid var(--color-primary);border-bottom:2px solid var(--color-primary);transform:rotate(45deg);animation:bounce 1.8s infinite}
+@keyframes bounce{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(6px)}}
+
+/* SLIDER DOTS (hero) */
+.hero-slider-wrap{position:absolute;inset:0;z-index:0}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease}
+.slide.active{opacity:1}
+.slide-1{background-image:url('https://i.ibb.co/zThm8cWk/MV-Lounge-0.jpg')}
+.slide-2{background-image:url('https://i.ibb.co/N2v3GyqZ/MV-Lounge-1.jpg')}
+.slide-3{background-image:url('https://i.ibb.co/6czFj5Sk/MV-Lounge-2.jpg')}
+.hero-dots{position:absolute;bottom:70px;left:50%;transform:translateX(-50%);z-index:3;display:flex;gap:10px}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35);border:1.5px solid rgba(255,255,255,.5);cursor:pointer;transition:background .3s,transform .3s}
+.dot.active{background:var(--color-primary);border-color:var(--color-primary);transform:scale(1.2)}
+
+/* STATS */
+.stats{background:var(--color-primary);padding:56px 24px}
+.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.stat{text-align:center}
+.stat-num{font-family:'Cinzel',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:700;color:#111;line-height:1}
+.stat-label{font-size:.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#333;margin-top:8px}
+
+/* REVEAL */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+.has-js .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.has-js .reveal.visible{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.nav,.tel-link{display:none}
+.hamburger{display:flex}
+.stats-inner{grid-template-columns:repeat(2,1fr);gap:24px}
+}
+@media(max-width:480px){
+.promo-bar{height:40px}
+.promo-bar a{font-size:13px;line-height:40px;padding:0 12px}
+.header-inner{padding:0 16px;height:60px}
+.mobile-nav{top:100px}
+.hero{padding-top:100px}
+.hero-btns .btn{width:100%;min-height:52px}
+.hero-btns{flex-direction:column;width:100%}
+.stats-inner{grid-template-columns:1fr 1fr;gap:20px 16px}
+.stats{padding:40px 16px}
+.logo{font-size:1.1rem}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo-bar">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="header" id="top">
+  <div class="header-inner">
+    <a href="#top" class="logo">MV<span>&nbsp;</span>Lounge</a>
+    <nav>
+      <ul class="nav">
+        <li><a href="#atmospheres">Atmosphères</a></li>
+        <li><a href="#espaces">Espaces</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-cta">
+      <a href="tel:+687778738" class="tel-link">77.87.38</a>
+      <a href="#contact" class="btn btn-accent">Réserver</a>
+    </div>
+    <button class="hamburger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="#atmospheres" class="mnav-link">Atmosphères</a>
+  <a href="#espaces" class="mnav-link">Espaces</a>
+  <a href="#galerie" class="mnav-link">Galerie</a>
+  <a href="#contact" class="mnav-link">Contact</a>
+  <a href="tel:+687778738" class="mnav-link">77.87.38</a>
+  <a href="#contact" class="btn btn-accent">Réserver une table</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-slider-wrap">
+    <div class="slide slide-1 active"></div>
+    <div class="slide slide-2"></div>
+    <div class="slide slide-3"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Nouméa · 22 Rue Jules Garnier</p>
+    <h1 class="hero-title">Golden Night<br><em>Tropical</em></h1>
+    <p class="hero-sub">Musique &nbsp;·&nbsp; Vie &nbsp;·&nbsp; Mer</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn btn-accent">Réserver une table</a>
+      <a href="#espaces" class="btn btn-outline">Découvrir le lounge</a>
+    </div>
+  </div>
+  <div class="hero-dots">
+    <button class="dot active" data-slide="0" aria-label="Slide 1"></button>
+    <button class="dot" data-slide="1" aria-label="Slide 2"></button>
+    <button class="dot" data-slide="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="scroll-ind">
+    <span>Découvrir</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="stats">
+  <div class="stats-inner">
+    <div class="stat reveal">
+      <div class="stat-num" data-target="253">0</div>
+      <div class="stat-label">Avis Google</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-num" data-target="3">0</div>
+      <div class="stat-label">Espaces uniques</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-num" data-target="7">0</div>
+      <div class="stat-label">Soirs / semaine</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-num" data-target="180">0</div>
+      <div class="stat-label">Vue mer (m)</div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+document.documentElement.classList.add('has-js');
+var burger=document.getElementById('burger'),mnav=document.getElementById('mobile-nav');
+burger.addEventListener('click',function(){burger.classList.toggle('open');mnav.classList.toggle('open')});
+mnav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){burger.classList.remove('open');mnav.classList.remove('open')})});
+var slides=document.querySelectorAll('.slide'),dots=document.querySelectorAll('.dot'),cur=0,timer;
+function goTo(n){slides[cur].classList.remove('active');dots[cur].classList.remove('active');cur=n;slides[cur].classList.add('active');dots[cur].classList.add('active')}
+function next(){goTo((cur+1)%slides.length)}
+dots.forEach(function(d){d.addEventListener('click',function(){clearInterval(timer);goTo(+d.dataset.slide);timer=setInterval(next,5000)})});
+timer=setInterval(next,5000);
+var nums=document.querySelectorAll('.stat-num[data-target]');
+function animNums(){nums.forEach(function(el){var t=+el.dataset.target,s=0,inc=Math.ceil(t/40),iv=setInterval(function(){s=Math.min(s+inc,t);el.textContent=s;if(s>=t)clearInterval(iv)},35)})}
+var statObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){animNums();statObs.disconnect()}})},{threshold:.4});
+var statsEl=document.querySelector('.stats');
+if(statsEl)statObs.observe(statsEl);
+var revObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(function(el){revObs.observe(el)});
+})();
+</script>
+<style>
+.s{padding:88px 24px}
+.s-dark{background:var(--color-bg)}
+.s-charcoal{background:#161616}
+.s-title{font-family:'Cinzel',serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;color:var(--color-primary);letter-spacing:2px;text-align:center;margin-bottom:12px}
+.s-sub{text-align:center;font-size:.9rem;color:rgba(240,230,200,.65);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:56px}
+.s-rule{width:48px;height:2px;background:var(--color-accent);margin:16px auto 0}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1100px;margin:0 auto}
+.c{background:#1a1a1a;border:1px solid rgba(200,168,75,.12);border-radius:3px;padding:40px 28px;position:relative;overflow:hidden;transition:border-color .35s}
+.c::after{content:'';position:absolute;left:0;top:0;width:3px;height:0;background:var(--color-primary);transition:height 1s ease-in-out}
+.c:hover::after{height:100%}
+.c:hover{border-color:rgba(200,168,75,.35)}
+.c-icon{width:52px;height:52px;margin-bottom:24px;color:var(--color-accent)}
+.c-title{font-family:'Cinzel',serif;font-size:1.05rem;font-weight:600;color:var(--color-primary);margin-bottom:12px;letter-spacing:1px}
+.c-text{font-size:.88rem;color:rgba(240,230,200,.75);line-height:1.7}
+.c-cta{display:inline-flex;align-items:center;gap:6px;margin-top:20px;font-size:.75rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--color-accent);transition:gap .25s}
+.c-cta:hover{gap:10px;color:var(--color-primary)}
+.metier-wrap{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:80px}
+.metier-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.metier-row.rev{direction:rtl}
+.metier-row.rev>*{direction:ltr}
+.metier-img{position:relative;border-radius:3px;overflow:hidden}
+.metier-img img{width:100%;height:380px;object-fit:cover;transition:transform .6s ease}
+.metier-img:hover img{transform:scale(1.05)}
+.metier-img::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(42,191,175,.15) 0%,transparent 60%);pointer-events:none}
+.metier-text{display:flex;flex-direction:column;gap:20px}
+.metier-eyebrow{font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--color-accent);font-weight:600}
+.metier-h{font-family:'Cinzel',serif;font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;color:var(--color-primary);line-height:1.25;letter-spacing:1px}
+.metier-p{font-size:.9rem;color:rgba(240,230,200,.78);line-height:1.8}
+.metier-pts{list-style:none;display:flex;flex-direction:column;gap:10px}
+.metier-pts li{display:flex;align-items:center;gap:10px;font-size:.85rem;color:rgba(240,230,200,.75)}
+.metier-pts li::before{content:'';display:block;width:18px;height:18px;background:var(--color-accent);border-radius:50%;flex-shrink:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23111' d='M13 4L6.5 11 3 7.5'stroke='%23111'stroke-width='2'fill='none'stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center}
+.galerie-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;max-width:1200px;margin:0 auto}
+.gal-item{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:4/3}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.gal-item::after{content:'';position:absolute;inset:0;background:rgba(42,191,175,.0);transition:background .35s}
+.gal-item:hover img{transform:scale(1.05)}
+.gal-item:hover::after{background:rgba(42,191,175,.25)}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center;padding:24px}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:85vh;object-fit:contain;border-radius:2px}
+.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;opacity:.8;line-height:1}
+.lb-close:hover{opacity:1}
+.form-wrap{max-width:680px;margin:0 auto}
+.form-group{margin-bottom:20px}
+.form-label{display:block;font-size:.75rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(240,230,200,.6);margin-bottom:8px}
+.form-input{width:100%;background:#1a1a1a;border:1px solid rgba(200,168,75,.2);border-radius:2px;padding:14px 16px;color:var(--color-text);font-family:'Raleway',sans-serif;font-size:.9rem;transition:border-color .25s}
+.form-input:focus{outline:none;border-color:var(--color-accent)}
+.form-input::placeholder{color:rgba(240,230,200,.3)}
+textarea.form-input{min-height:140px;resize:vertical}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.form-submit{width:100%;min-height:52px;font-size:.9rem;margin-top:8px}
+.form-success{display:none;text-align:center;padding:32px;background:rgba(42,191,175,.12);border:1px solid rgba(42,191,175,.35);border-radius:3px;color:var(--color-accent);font-size:1rem;font-weight:600;letter-spacing:.5px}
+.form-success.show{display:block}
+.form-loader{display:none;width:22px;height:22px;border:2px solid rgba(17,17,17,.3);border-top-color:#111;border-radius:50%;animation:spin .7s linear infinite;margin:0 auto}
+.form-loader.show{display:block}
+@keyframes spin{to{transform:rotate(360deg)}}
+.social-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1000px;margin:0 auto 56px}
+.rating-card{background:#1a1a1a;border:1px solid rgba(200,168,75,.18);border-radius:3px;padding:36px 28px;text-align:center}
+.rating-big{font-family:'Cinzel',serif;font-size:3rem;font-weight:700;color:var(--color-primary);line-height:1}
+.rating-stars{display:flex;justify-content:center;gap:3px;margin:10px 0}
+.star{color:var(--color-primary);font-size:1.1rem}
+.star.empty{color:rgba(200,168,75,.25)}
+.rating-count{font-size:.78rem;color:rgba(240,230,200,.5);letter-spacing:1px}
+.testi{background:#1a1a1a;border:1px solid rgba(200,168,75,.12);border-radius:3px;padding:28px;display:flex;flex-direction:column;gap:14px}
+.testi-text{font-size:.88rem;color:rgba(240,230,200,.75);line-height:1.75;font-style:italic}
+.testi-author{font-size:.75rem;font-weight:600;letter-spacing:1px;color:var(--color-accent);text-transform:uppercase}
+.badge-row{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;max-width:800px;margin:0 auto}
+.badge{background:rgba(200,168,75,.08);border:1px solid rgba(200,168,75,.22);border-radius:40px;padding:10px 22px;font-size:.75rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--color-primary)}
+.footer{background:var(--color-primary);color:#111;padding:56px 24px 32px}
+.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px}
+.footer-brand{display:flex;flex-direction:column;gap:14px}
+.footer-logo{font-family:'Cinzel',serif;font-size:1.3rem;font-weight:700;color:#111;letter-spacing:2px}
+.footer-addr{font-size:.82rem;color:#333;line-height:1.7}
+.footer-tel{font-size:.9rem;font-weight:700;color:#111;letter-spacing:.5px}
+.footer-col-title{font-family:'Cinzel',serif;font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#111;margin-bottom:16px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-size:.82rem;color:#333;transition:color .25s}
+.footer-links a:hover{color:#111}
+.social-icons{display:flex;align-items:center;gap:12px;margin-top:6px}
+.social-icon{display:flex;align-items:center;justify-content:center;width:38px;height:38px;background:rgba(17,17,17,.1);border-radius:50%;transition:background .25s;color:#111}
+.social-icon:hover{background:rgba(17,17,17,.22)}
+.footer-bottom{max-width:1100px;margin:40px auto 0;padding-top:24px;border-top:1px solid rgba(17,17,17,.2);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:.75rem;color:#444}
+.footer-setup{font-size:.75rem;font-weight:700;color:#111;letter-spacing:.5px}
+@media(max-width:900px){
+.grid3{grid-template-columns:1fr;max-width:500px}
+.metier-row,.metier-row.rev{grid-template-columns:1fr;direction:ltr}
+.galerie-grid{grid-template-columns:repeat(2,1fr)}
+.social-wrap{grid-template-columns:1fr}
+.footer-inner{grid-template-columns:1fr}
+.form-row{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+.s{padding:64px 16px}
+.galerie-grid{grid-template-columns:1fr 1fr;gap:3px}
+.footer{padding:44px 16px 28px}
+.footer-bottom{flex-direction:column;text-align:center}
+.social-wrap{gap:16px}
+}
+</style>
+
+<!-- SERVICES / ATMOSPHÈRES -->
+<section class="s s-charcoal" id="atmospheres">
+  <h2 class="s-title reveal">Atmosphères &amp; Moments</h2>
+  <p class="s-sub reveal">Trois expériences, une seule adresse à Nouméa</p>
+  <div class="s-rule reveal" style="margin-bottom:56px"></div>
+  <div class="grid3">
+    <div class="c reveal">
+      <svg class="c-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="26" cy="26" r="24" stroke="#2ABFAF" stroke-width="1.5" opacity=".3"/>
+        <path d="M16 36 C16 36 20 28 26 28 C32 28 36 36 36 36" stroke="#2ABFAF" stroke-width="2" stroke-linecap="round"/>
+        <path d="M20 28 C20 22 22 18 26 18 C30 18 32 22 32 28" stroke="#2ABFAF" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="26" cy="16" r="3" fill="#2ABFAF"/>
+      </svg>
+      <h3 class="c-title">Terrasse Face à la Mer</h3>
+      <p class="c-text">Laissez-vous envelopper par la brise nocturne et la vue dégagée sur le lagon. Sièges lounge, lumières dorées et l'horizon turquoise à perte de regard.</p>
+      <a href="#contact" class="c-cta">Réserver → </a>
+    </div>
+    <div class="c reveal">
+      <svg class="c-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="26" cy="26" r="24" stroke="#2ABFAF" stroke-width="1.5" opacity=".3"/>
+        <rect x="14" y="30" width="24" height="4" rx="1" fill="#2ABFAF" opacity=".4"/>
+        <rect x="18" y="22" width="4" height="8" rx="1" fill="#2ABFAF"/>
+        <rect x="24" y="18" width="4" height="12" rx="1" fill="#2ABFAF"/>
+        <rect x="30" y="25" width="4" height="5" rx="1" fill="#2ABFAF"/>
+        <path d="M12 20 Q20 14 26 18 Q32 22 40 16" stroke="#C8A84B" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      </svg>
+      <h3 class="c-title">Bar Premium &amp; Cocktails</h3>
+      <p class="c-text">Un bar élaboré en bois et bambou, luminaires ambrés, et une sélection de cocktails crafts. La chaleur ambrée du comptoir vous invite à savourer chaque instant.</p>
+      <a href="#contact" class="c-cta">Nous découvrir → </a>
+    </div>
+    <div class="c reveal">
+      <svg class="c-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="26" cy="26" r="24" stroke="#2ABFAF" stroke-width="1.5" opacity=".3"/>
+        <path d="M18 32 Q22 20 26 18 Q30 20 34 32" stroke="#2ABFAF" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <circle cx="26" cy="18" r="3" fill="#C8A84B"/>
+        <path d="M22 26 Q26 22 30 26" stroke="#C8A84B" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <path d="M20 30 Q26 24 32 30" stroke="#C8A84B" stroke-width="1" stroke-linecap="round" fill="none" opacity=".5"/>
+      </svg>
+      <h3 class="c-title">Programmation Musicale</h3>
+      <p class="c-text">Zouk, clubbing, sets DJ — chaque soirée est une promesse. Les rythmes tropicaux envahissent la nuit et font vibrer la terrasse jusqu'au bout de la nuit calédonienne.</p>
+      <a href="#contact" class="c-cta">Voir les soirées → </a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s s-dark" id="espaces">
+  <h2 class="s-title reveal">Les Espaces du Lounge</h2>
+  <p class="s-sub reveal">Un cadre pensé pour la nuit, le plaisir et l'élégance tropicale</p>
+  <div class="s-rule reveal" style="margin-bottom:72px"></div>
+  <div class="metier-wrap">
+    <div class="metier-row reveal">
+      <div class="metier-img">
+        <img src="https://i.ibb.co/N2v3GyqZ/MV-Lounge-1.jpg" alt="Bar principal MV Lounge" loading="lazy">
+      </div>
+      <div class="metier-text">
+        <span class="metier-eyebrow">L'Espace Signature</span>
+        <h3 class="metier-h">Le Bar Principal — Bois, Bambou &amp; Lumière Ambrée</h3>
+        <p class="metier-p">Au cœur du MV Lounge, le bar principal incarne l'art de vivre nocturne calédonien. Les essences de bois travaillé et les luminaires ambrés créent une chaleur enveloppante, idéale pour partager un cocktail d'exception.</p>
+        <ul class="metier-pts">
+          <li>Comptoir en bois et bambou artisanal</li>
+          <li>Sélection de spiritueux et cocktails crafts</li>
+          <li>Ambiance tamisée, lumières dorées</li>
+          <li>Service attentionné, 7 soirs sur 7</li>
+        </ul>
+        <a href="#contact" class="btn btn-accent" style="width:fit-content;margin-top:8px">Réserver une table</a>
+      </div>
+    </div>
+    <div class="metier-row rev reveal">
+      <div class="metier-img">
+        <img src="https://i.ibb.co/6czFj5Sk/MV-Lounge-2.jpg" alt="Terrasse MV Lounge Nouméa" loading="lazy">
+      </div>
+      <div class="metier-text">
+        <span class="metier-eyebrow">L'Espace Extérieur</span>
+        <h3 class="metier-h">La Terrasse — Vue Dégagée sur le Lagon</h3>
+        <p class="metier-p">La terrasse du MV Lounge est bien plus qu'un espace — c'est une scène ouverte sur Nouméa la nuit. Sièges lounge, brise marine et l'appel constant de la mer turquoise forment un cadre incomparable.</p>
+        <ul class="metier-pts">
+          <li>Vue panoramique sur la baie de Nouméa</li>
+          <li>Sièges lounge confortables en plein air</li>
+          <li>Idéale pour groupes et soirées privées</li>
+          <li>Musique live et sets DJ en terrasse</li>
+        </ul>
+        <a href="#contact" class="btn btn-accent" style="width:fit-content;margin-top:8px">Nous découvrir</a>
+      </div>
+    </div>
+    <div class="metier-row reveal">
+      <div class="metier-img">
+        <img src="https://i.ibb.co/zLRS6pT/MV-Lounge-3.jpg" alt="Espace VIP MV Lounge" loading="lazy">
+      </div>
+      <div class="metier-text">
+        <span class="metier-eyebrow">L'Espace Exclusif</span>
+        <h3 class="metier-h">Zone VIP — Intimité &amp; Vue Mer</h3>
+        <p class="metier-p">Pour ceux qui recherchent l'exclusivité, la zone VIP offre une bulle d'intimité avec vue imprenable. Parfaite pour célébrations, anniversaires ou soirées entre amis privilégiés.</p>
+        <ul class="metier-pts">
+          <li>Accès sur réservation, espace semi-privatif</li>
+          <li>Service dédié, table réservée</li>
+          <li>Vue directe sur la mer, cadre intimiste</li>
+          <li>Idéal pour événements et privatisations</li>
+        </ul>
+        <a href="#contact" class="btn btn-accent" style="width:fit-content;margin-top:8px">Privatiser un espace</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s s-charcoal" id="galerie">
+  <h2 class="s-title reveal">La Galerie</h2>
+  <p class="s-sub reveal">Une nuit au MV Lounge en images</p>
+  <div class="s-rule reveal" style="margin-bottom:48px"></div>
+  <div class="galerie-grid">
+    <div class="gal-item reveal" data-src="https://i.ibb.co/zThm8cWk/MV-Lounge-0.jpg">
+      <img src="https://i.ibb.co/zThm8cWk/MV-Lounge-0.jpg" alt="MV Lounge ambiance nocturne" loading="lazy">
+    </div>
+    <div class="gal-item reveal" data-src="https://i.ibb.co/N2v3GyqZ/MV-Lounge-1.jpg">
+      <img src="https://i.ibb.co/N2v3GyqZ/MV-Lounge-1.jpg" alt="Bar MV Lounge Nouméa" loading="lazy">
+    </div>
+    <div class="gal-item reveal" data-src="https://i.ibb.co/6czFj5Sk/MV-Lounge-2.jpg">
+      <img src="https://i.ibb.co/6czFj5Sk/MV-Lounge-2.jpg" alt="Terrasse MV Lounge vue mer" loading="lazy">
+    </div>
+    <div class="gal-item reveal" data-src="https://i.ibb.co/zLRS6pT/MV-Lounge-3.jpg">
+      <img src="https://i.ibb.co/zLRS6pT/MV-Lounge-3.jpg" alt="Espace lounge MV Lounge" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+  <button class="lb-close" id="lb-close" aria-label="Fermer">&times;</button>
+  <img class="lb-img" id="lb-img" src="" alt="Photo MV Lounge agrandie">
+</div>
+
+<!-- FORMULAIRE -->
+<section class="s s-dark" id="contact">
+  <h2 class="s-title reveal">Réserver une Table</h2>
+  <p class="s-sub reveal">Une soirée inoubliable commence par un message</p>
+  <div class="s-rule reveal" style="margin-bottom:52px"></div>
+  <div class="form-wrap">
+    <form id="contact-form" action="#" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="f-nom">Nom complet</label>
+          <input class="form-input" type="text" id="f-nom" name="nom" placeholder="Votre nom" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="f-email">Adresse email</label>
+          <input class="form-input" type="email" id="f-email" name="email" placeholder="votre@email.com" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="f-tel">Téléphone</label>
+        <input class="form-input" type="tel" id="f-tel" name="tel" placeholder="77 XX XX">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="f-msg">Votre message</label>
+        <textarea class="form-input" id="f-msg" name="message" placeholder="Date souhaitée, nombre de personnes, occasion spéciale…" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-accent form-submit" id="form-btn">Envoyer ma demande</button>
+      <div class="form-loader" id="form-loader"></div>
+    </form>
+    <div class="form-success" id="form-success">
+      ✓ &nbsp;Votre message a bien été envoyé. Nous vous recontactons très vite !
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s s-charcoal" id="avis">
+  <h2 class="s-title reveal">Ce Que Nos Clients Disent</h2>
+  <p class="s-sub reveal">MV Lounge sur Google · Nouméa</p>
+  <div class="s-rule reveal" style="margin-bottom:52px"></div>
+  <div class="social-wrap">
+    <div class="rating-card reveal">
+      <div class="rating-big">2.1</div>
+      <div class="rating-stars">
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star empty">★</span>
+        <span class="star empty">★</span>
+        <span class="star empty">★</span>
+      </div>
+      <div class="rating-count">253 avis Google</div>
+      <p style="font-size:.78rem;color:rgba(240,230,200,.5);margin-top:12px;line-height:1.6">Note basée sur les avis clients Google Maps. Nous travaillons chaque soir à offrir une expérience toujours meilleure.</p>
+    </div>
+    <div class="testi reveal">
+      <p class="testi-text">"La terrasse est vraiment magnifique, vue sur la baie incomparable. Les cocktails sont bien dosés et la musique crée une ambiance festive unique à Nouméa."</p>
+      <span class="testi-author">— Client Google · Nouméa</span>
+    </div>
+    <div class="testi reveal">
+      <p class="testi-text">"Bonne adresse pour une soirée en groupe. Le cadre tropical avec le bois et le bambou est très réussi. L'équipe accueille bien et le bar est bien achalandé."</p>
+      <span class="testi-author">— Client Google · Nouméa</span>
+    </div>
+  </div>
+  <div class="badge-row reveal">
+    <span class="badge">Bar Lounge Premium</span>
+    <span class="badge">Terrasse Vue Mer</span>
+    <span class="badge">Zouk &amp; Clubbing</span>
+    <span class="badge">Soirées Privées</span>
+    <span class="badge">Cocktails Crafts</span>
+    <span class="badge">Ouvert 7 soirs / 7</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">MV Lounge</div>
+      <p class="footer-addr">22 Rue Jules Garnier<br>Nouméa 98800<br>Nouvelle-Calédonie</p>
+      <a href="tel:+687778738" class="footer-tel">77.87.38</a>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/mvloungenoumea" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook MV Lounge">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigation</div>
+      <ul class="footer-links">
+        <li><a href="#atmospheres">Atmosphères</a></li>
+        <li><a href="#espaces">Espaces du Lounge</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#contact">Réserver une table</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Nous trouver</div>
+      <ul class="footer-links">
+        <li><a href="https://www.facebook.com/mvloungenoumea" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="tel:+687778738">Appeler le 77.87.38</a></li>
+        <li><a href="#contact">Formulaire de contact</a></li>
+        <li><a href="#avis">Avis Google</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 MV Lounge. Tous droits réservés.</span>
+    <span class="footer-setup">Site réalisé par Setup NC</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+document.documentElement.classList.add('has-js');
+var lb=document.getElementById('lightbox'),lbImg=document.getElementById('lb-img'),lbClose=document.getElementById('lb-close');
+document.querySelectorAll('.gal-item').forEach(function(el){
+  el.addEventListener('click',function(){lbImg.src=el.dataset.src;lb.classList.add('open')});
+});
+function closeLb(){lb.classList.remove('open');lbImg.src=''}
+lbClose.addEventListener('click',closeLb);
+lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
+var form=document.getElementById('contact-form'),btn=document.getElementById('form-btn'),loader=document.getElementById('form-loader'),success=document.getElementById('form-success');
+form.addEventListener('submit',function(e){
+  e.preventDefault();
+  var nom=document.getElementById('f-nom'),email=document.getElementById('f-email'),msg=document.getElementById('f-msg');
+  if(!nom.value.trim()||!email.value.trim()||!msg.value.trim()){
+    [nom,email,msg].forEach(function(f){if(!f.value.trim())f.style.borderColor='#e05'});
+    return;
+  }
+  btn.style.display='none';loader.classList.add('show');
+  setTimeout(function(){loader.classList.remove('show');form.style.display='none';success.classList.add('show')},1400);
+});
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
+})();
+</script>
+</body>
+</html>
