@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Le Rooftop — Nouméa</title>
+<meta name="description" content="Le Rooftop, bar lounge en hauteur à Nouméa avec vue panoramique sur la baie. Cocktails signature, couchers de soleil spectaculaires, terrasse bois face à la mer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Nunito:wght@300;400;600&family=Manrope:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#0D0D0D;
+--cs:#C49A7A;
+--ca:#D4A85A;
+--ct:#F0E8DC;
+--bg:#0D0D0D;
+--bg2:#141414;
+--bg3:#1a1a1a;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--ct);font-family:'Nunito',system-ui,sans-serif;overflow-x:hidden;line-height:1.7}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+.h1,.h2,.h3,.h4{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.15;font-weight:400}
+.h1{font-size:clamp(2.8rem,7vw,6rem);letter-spacing:0.02em}
+.h2{font-size:clamp(2rem,4.5vw,3.5rem);letter-spacing:0.03em}
+.h3{font-size:clamp(1.4rem,3vw,2rem)}
+.h4{font-size:1.15rem}
+.s{padding:96px 0}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.b{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 32px;border-radius:2px;font-family:'Nunito',sans-serif;font-size:.85rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:opacity .3s,background .3s,color .3s,box-shadow .3s;border:none;min-height:48px}
+.b-gold{background:var(--ca);color:#0D0D0D}
+.b-gold:hover{opacity:.88;box-shadow:0 0 24px rgba(212,168,90,.35)}
+.b-outline{background:transparent;color:var(--ct);border:1px solid rgba(240,232,220,.4)}
+.b-outline:hover{border-color:var(--ca);color:var(--ca)}
+.tag{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cs);font-family:'Nunito',sans-serif;font-weight:600}
+.divider{width:60px;height:1px;background:linear-gradient(90deg,var(--cs),var(--ca));margin:20px 0 28px}
+/* BANDEAU PROMO */
+#promo{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;text-align:center}
+#promo a{display:block;width:100%;line-height:44px;font-family:'Manrope','Plus Jakarta Sans',system-ui,sans-serif;font-weight:700;font-size:14px;letter-spacing:.3px;color:#4375ff}
+#promo a:hover{opacity:.85}
+/* HEADER */
+#hdr{position:fixed;top:44px;left:0;width:100%;z-index:1000;background:rgba(13,13,13,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(196,154,122,.12);transition:background .3s}
+.hdr-i{display:flex;align-items:center;justify-content:space-between;height:72px;padding:0 32px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:500;letter-spacing:.08em;color:var(--ct)}
+.logo span{color:var(--ca)}
+nav{display:flex;gap:32px;align-items:center}
+nav a{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:rgba(240,232,220,.75);transition:color .25s}
+nav a:hover{color:var(--ca)}
+.hdr-cta{display:flex;align-items:center;gap:16px}
+.tel-lnk{font-size:.85rem;font-weight:600;color:var(--cs);letter-spacing:.05em;transition:color .25s}
+.tel-lnk:hover{color:var(--ca)}
+#burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+#burger span{display:block;width:24px;height:2px;background:var(--ct);transition:transform .3s,opacity .3s}
+#mob-nav{display:none;flex-direction:column;background:rgba(13,13,13,.97);padding:24px 32px;gap:20px;border-top:1px solid rgba(196,154,122,.15)}
+#mob-nav a{font-size:1rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:rgba(240,232,220,.8);transition:color .25s}
+#mob-nav a:hover{color:var(--ca)}
+#mob-nav .tel-lnk{font-size:1rem}
+/* HERO */
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;padding-top:116px}
+.hero-bg{position:absolute;inset:0;background:url('https://i.ibb.co/d02ZdH2m/Le-Rooftop-0.jpg') center/cover no-repeat;z-index:0}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(105deg,rgba(13,13,13,.92) 0%,rgba(13,13,13,.72) 55%,rgba(13,13,13,.35) 100%);z-index:1}
+.hero-c{position:relative;z-index:2;max-width:680px;padding:0 32px}
+.hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.hero-eyebrow::after{content:'';flex:1;max-width:48px;height:1px;background:var(--cs)}
+.hero-c .h1{margin-bottom:8px}
+.hero-c .h1 em{font-style:italic;color:var(--ca)}
+.hero-sub{font-size:1.05rem;color:rgba(240,232,220,.75);max-width:520px;margin:24px 0 36px;font-weight:300;line-height:1.8}
+.hero-btns{display:flex;flex-wrap:wrap;gap:14px}
+.scroll-ind{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.55}
+.scroll-ind span{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase}
+.scroll-arr{width:1px;height:48px;background:linear-gradient(180deg,var(--ct),transparent);margin:0 auto}
+/* STATS */
+#stats{background:var(--bg2);border-top:1px solid rgba(196,154,122,.15);border-bottom:1px solid rgba(196,154,122,.15);padding:64px 0}
+.stats-g{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat{text-align:center;padding:24px 16px;position:relative}
+.stat:not(:last-child)::after{content:'';position:absolute;right:0;top:20%;height:60%;width:1px;background:rgba(196,154,122,.2)}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5vw,4rem);font-weight:300;color:var(--ca);line-height:1;letter-spacing:-.01em}
+.stat-n sup{font-size:.45em;vertical-align:super;letter-spacing:.05em}
+.stat-l{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,232,220,.55);margin-top:8px;font-weight:600}
+/* RESPONSIVE */
+@media(max-width:900px){
+nav,#hdr .b-gold{display:none}
+#burger{display:flex}
+.hdr-i{padding:0 20px}
+.stats-g{grid-template-columns:repeat(2,1fr)}
+.stat:nth-child(2)::after{display:none}
+}
+@media(max-width:480px){
+#promo{height:40px}
+#promo a{line-height:40px;font-size:13px}
+#hdr{top:40px}
+#hero{padding-top:110px}
+.hero-c{padding:0 16px}
+.hero-btns .b{width:100%}
+.hdr-i{padding:0 16px;height:64px}
+.logo{font-size:1.3rem}
+.stats-g{grid-template-columns:repeat(2,1fr)}
+.stat::after{display:none!important}
+.s{padding:64px 0}
+.wrap{padding:0 16px}
+}
+/* FALLBACK ANIMATION */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div id="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="hdr-i">
+    <a href="#hero" class="logo">Le&nbsp;<span>Rooftop</span></a>
+    <nav>
+      <a href="#moments">Expériences</a>
+      <a href="#atmosphere">Atmosphère</a>
+      <a href="#collectif">L'Équipe</a>
+      <a href="#reservation">Réserver</a>
+      <a href="#avis">Avis</a>
+    </nav>
+    <div class="hdr-cta">
+      <a href="tel:+687778738" class="tel-lnk">77.87.38</a>
+      <a href="#reservation" class="b b-gold">Réserver</a>
+    </div>
+    <button id="burger" aria-label="Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div id="mob-nav">
+    <a href="#moments" onclick="toggleMenu()">Expériences</a>
+    <a href="#atmosphere" onclick="toggleMenu()">Atmosphère</a>
+    <a href="#collectif" onclick="toggleMenu()">L'Équipe</a>
+    <a href="#reservation" onclick="toggleMenu()">Réserver</a>
+    <a href="#avis" onclick="toggleMenu()">Avis</a>
+    <a href="tel:+687778738" class="tel-lnk">📞 77.87.38</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-ov"></div>
+  <div class="hero-c">
+    <div class="hero-eyebrow">
+      <span class="tag">Nouméa · Nouvelle-Calédonie</span>
+    </div>
+    <h1 class="h1">L'horizon<br>comme <em>toile</em><br>de fond.</h1>
+    <p class="hero-sub">Terrasse bois en hauteur, vue panoramique sur la baie, cocktails ciselés au coucher du soleil. Le Rooftop, une adresse qui s'impose avec discrétion.</p>
+    <div class="hero-btns">
+      <a href="#reservation" class="b b-gold">Réserver votre Moment</a>
+      <a href="#atmosphere" class="b b-outline">Découvrir l'Atmosphère</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>Explorer</span>
+    <div class="scroll-arr"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="wrap">
+    <div class="stats-g">
+      <div class="stat">
+        <div class="stat-n" data-target="180">0</div>
+        <div class="stat-l">Degrés de panorama</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n" data-target="32">0</div>
+        <div class="stat-l">Avis Google</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">4.4<sup>★</sup></div>
+        <div class="stat-l">Note moyenne</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n" data-target="365">0</div>
+        <div class="stat-l">Couchers de soleil par an</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function toggleMenu(){
+  var m=document.getElementById('mob-nav');
+  m.style.display=m.style.display==='flex'?'none':'flex';
+}
+(function(){
+  var nums=document.querySelectorAll('.stat-n[data-target]');
+  var done=false;
+  function run(){
+    if(done)return;
+    var r=document.getElementById('stats').getBoundingClientRect();
+    if(r.top<window.innerHeight*.9){
+      done=true;
+      nums.forEach(function(el){
+        var t=+el.getAttribute('data-target'),s=0,d=Math.ceil(1200/t);
+        var i=setInterval(function(){
+          s+=Math.ceil(t/60);
+          if(s>=t){s=t;clearInterval(i);}
+          el.textContent=s;
+        },d);
+      });
+    }
+  }
+  window.addEventListener('scroll',run,{passive:true});
+  run();
+})();
+</script>
+<style>
+/* SERVICES */
+.svc-g{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:56px}
+.svc-c{background:var(--bg2);padding:48px 36px;position:relative;overflow:hidden;transition:background .3s}
+.svc-c::before{content:'';position:absolute;inset:0;border:1px solid transparent;transition:border-color .3s;pointer-events:none}
+.svc-c:hover{background:var(--bg3)}
+.svc-c:hover::before{border-color:var(--cs)}
+.svc-ico{width:48px;height:48px;margin-bottom:28px}
+.svc-ico path,.svc-ico circle,.svc-ico line,.svc-ico rect,.svc-ico polyline{stroke:var(--ca);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.svc-c .h3{margin-bottom:14px}
+.svc-c p{font-size:.9rem;color:rgba(240,232,220,.65);line-height:1.75;margin-bottom:28px}
+.svc-lnk{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--cs);font-weight:600;transition:color .25s;display:inline-flex;align-items:center;gap:8px}
+.svc-lnk::after{content:'→';transition:transform .25s}
+.svc-lnk:hover{color:var(--ca)}
+.svc-lnk:hover::after{transform:translateX(4px)}
+/* METIER */
+#metier{background:var(--bg2)}
+.met-g{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;margin-top:64px}
+.met-txt{padding:64px 56px;display:flex;flex-direction:column;justify-content:center}
+.met-img{position:relative;min-height:480px;overflow:hidden}
+.met-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.met-img:hover img{transform:scale(1.04)}
+.met-pts{list-style:none;margin-top:32px;display:flex;flex-direction:column;gap:14px}
+.met-pts li{display:flex;align-items:flex-start;gap:14px;font-size:.9rem;color:rgba(240,232,220,.75)}
+.met-pts li::before{content:'';display:block;width:20px;height:20px;min-width:20px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='9' stroke='%23D4A85A' stroke-width='1.5' fill='none'/%3E%3Cpolyline points='6,10 9,13 14,7' stroke='%23D4A85A' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;margin-top:2px}
+.met-r .met-img{order:-1}
+/* GALERIE */
+#atmosphere{background:var(--bg)}
+.gal-g{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-top:48px}
+.gal-it{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:1}
+.gal-it img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.gal-it:hover img{transform:scale(1.07)}
+.gal-ov{position:absolute;inset:0;background:rgba(13,13,13,.45);opacity:0;transition:opacity .35s;display:flex;align-items:center;justify-content:center}
+.gal-ov svg{width:32px;height:32px}
+.gal-ov svg path,.gal-ov svg line{stroke:#fff;stroke-width:1.5;fill:none;stroke-linecap:round}
+.gal-it:hover .gal-ov{opacity:1}
+.gal-it:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+/* LIGHTBOX */
+#lbox{position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:2000;display:none;align-items:center;justify-content:center;padding:24px}
+#lbox.open{display:flex}
+#lbox img{max-width:90vw;max-height:88vh;object-fit:contain;border:1px solid rgba(196,154,122,.2)}
+#lbox-close{position:absolute;top:24px;right:28px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;line-height:1;opacity:.7;transition:opacity .2s}
+#lbox-close:hover{opacity:1}
+/* FORMULAIRE */
+#reservation{background:var(--bg2)}
+.res-g{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin-top:56px}
+.form-r{display:flex;flex-direction:column;gap:18px}
+.fi{display:flex;flex-direction:column;gap:8px}
+.fi label{font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(240,232,220,.55);font-weight:600}
+.fi input,.fi textarea,.fi select{background:rgba(255,255,255,.04);border:1px solid rgba(196,154,122,.2);color:var(--ct);font-family:'Nunito',sans-serif;font-size:.95rem;padding:14px 18px;border-radius:2px;transition:border-color .25s;outline:none;width:100%}
+.fi input:focus,.fi textarea:focus,.fi select:focus{border-color:var(--ca)}
+.fi textarea{min-height:130px;resize:vertical}
+.fi input.err,.fi textarea.err{border-color:#e05c5c}
+.fi .errtxt{font-size:.75rem;color:#e07070;margin-top:4px;display:none}
+.fi .errtxt.show{display:block}
+.form-ok{display:none;background:rgba(212,168,90,.1);border:1px solid rgba(212,168,90,.35);color:var(--ca);padding:20px 24px;border-radius:2px;font-size:.9rem;text-align:center;line-height:1.6}
+.form-ok.show{display:block}
+.res-info{display:flex;flex-direction:column;gap:32px}
+.res-bl{padding:32px;background:rgba(255,255,255,.03);border:1px solid rgba(196,154,122,.12);border-radius:2px}
+.res-bl .h4{margin-bottom:10px;font-family:'Cormorant Garamond',serif;font-size:1.2rem}
+.res-bl p{font-size:.88rem;color:rgba(240,232,220,.6);line-height:1.7}
+.res-bl a{color:var(--cs);transition:color .25s}
+.res-bl a:hover{color:var(--ca)}
+/* PREUVE SOCIALE */
+#avis{background:var(--bg)}
+.avis-top{display:flex;align-items:center;gap:48px;padding:48px;background:var(--bg2);border:1px solid rgba(196,154,122,.15);margin-top:56px;border-radius:2px}
+.avis-score{text-align:center;min-width:160px}
+.avis-note{font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:300;color:var(--ca);line-height:1}
+.avis-stars{display:flex;gap:4px;justify-content:center;margin:8px 0}
+.star{width:18px;height:18px;fill:var(--ca)}
+.avis-cnt{font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(240,232,220,.45)}
+.avis-sep{width:1px;height:100px;background:rgba(196,154,122,.2);flex-shrink:0}
+.avis-txt p{font-size:1rem;color:rgba(240,232,220,.7);line-height:1.8;max-width:520px}
+.avis-txt strong{color:var(--ct)}
+.temo-g{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.temo-c{background:var(--bg2);padding:36px 32px;border:1px solid rgba(196,154,122,.1);border-radius:2px;transition:border-color .3s}
+.temo-c:hover{border-color:rgba(196,154,122,.35)}
+.temo-q{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:rgba(240,232,220,.85);line-height:1.7;margin-bottom:20px}
+.temo-q::before{content:'\201C';font-size:2.5rem;color:var(--ca);line-height:.5;display:block;margin-bottom:8px}
+.temo-au{display:flex;align-items:center;gap:12px}
+.temo-av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--cs),var(--ca));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:#0D0D0D;font-weight:600;flex-shrink:0}
+.temo-nm{font-size:.82rem;font-weight:600;letter-spacing:.05em}
+.temo-st{display:flex;gap:2px;margin-top:2px}
+.temo-st .star{width:12px;height:12px}
+.badges-g{display:flex;flex-wrap:wrap;gap:16px;margin-top:48px;justify-content:center}
+.badge{display:flex;align-items:center;gap:12px;padding:16px 28px;background:var(--bg2);border:1px solid rgba(196,154,122,.15);border-radius:2px;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:rgba(240,232,220,.6)}
+.badge svg{width:22px;height:22px;flex-shrink:0}
+.badge svg path,.badge svg circle{stroke:var(--ca);fill:none;stroke-width:1.5;stroke-linecap:round}
+/* FOOTER */
+#ft{background:#080808;border-top:1px solid rgba(196,154,122,.2);padding:72px 0 0}
+.ft-g{display:grid;grid-template-columns:2fr 1fr 1fr;gap:56px;padding-bottom:56px;border-bottom:1px solid rgba(196,154,122,.1)}
+.ft-brand .logo{display:inline-block;margin-bottom:20px}
+.ft-brand p{font-size:.88rem;color:rgba(240,232,220,.5);line-height:1.8;max-width:320px}
+.ft-socials{display:flex;gap:14px;margin-top:24px}
+.ft-soc{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid rgba(196,154,122,.2);border-radius:2px;transition:border-color .25s,background .25s}
+.ft-soc:hover{border-color:var(--ca);background:rgba(212,168,90,.08)}
+.ft-soc svg{width:20px;height:20px}
+.ft-soc svg path{fill:rgba(240,232,220,.6);transition:fill .25s}
+.ft-soc:hover svg path{fill:var(--ca)}
+.ft-col h4{font-family:'Cormorant Garamond',serif;font-size:1rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px;color:var(--ct)}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.ft-col ul li a{font-size:.85rem;color:rgba(240,232,220,.5);transition:color .25s}
+.ft-col ul li a:hover{color:var(--ca)}
+.ft-col address{font-style:normal;font-size:.85rem;color:rgba(240,232,220,.5);line-height:1.85}
+.ft-col address a{color:var(--cs);transition:color .25s}
+.ft-col address a:hover{color:var(--ca)}
+.ft-bot{display:flex;align-items:center;justify-content:space-between;padding:20px 0;flex-wrap:wrap;gap:12px}
+.ft-bot p{font-size:.75rem;color:rgba(240,232,220,.3);letter-spacing:.05em}
+.ft-bot a{color:rgba(240,232,220,.45);transition:color .25s}
+.ft-bot a:hover{color:var(--ca)}
+/* RESPONSIVE PART 2 */
+@media(max-width:900px){
+.svc-g{grid-template-columns:1fr 1fr}
+.met-g{grid-template-columns:1fr}
+.met-txt{padding:48px 32px}
+.met-img{min-height:320px}
+.met-r .met-img{order:0}
+.res-g{grid-template-columns:1fr}
+.temo-g{grid-template-columns:1fr 1fr}
+.ft-g{grid-template-columns:1fr 1fr;gap:40px}
+.ft-brand{grid-column:span 2}
+.avis-top{flex-direction:column;gap:24px;text-align:center;padding:32px}
+.avis-sep{width:80px;height:1px}
+.avis-stars{justify-content:center}
+.gal-g{grid-template-columns:repeat(2,1fr)}
+.gal-it:first-child{grid-column:span 2;grid-row:span 1}
+}
+@media(max-width:480px){
+.svc-g{grid-template-columns:1fr;gap:2px}
+.svc-c{padding:36px 24px}
+.temo-g{grid-template-columns:1fr}
+.ft-g{grid-template-columns:1fr;gap:32px}
+.ft-brand{grid-column:span 1}
+.res-g{gap:40px}
+.gal-g{grid-template-columns:1fr 1fr}
+.gal-it:first-child{grid-column:span 2}
+.badges-g{flex-direction:column;align-items:stretch}
+.badge{justify-content:center}
+.ft-bot{flex-direction:column;text-align:center}
+.met-txt{padding:36px 20px}
+}
+</style>
+
+<!-- SERVICES / MOMENTS -->
+<section id="moments" class="s">
+  <div class="wrap">
+    <div class="divider"></div>
+    <span class="tag">Ce que nous offrons</span>
+    <h2 class="h2" style="">Nos Expériences</h2>
+    <p style="color:rgba(240,232,220,.6);max-width:540px;margin-top:16px;font-size:.95rem">Du premier verre au dernier souffle du coucher de soleil, chaque moment au Rooftop est pensé pour rester.</p>
+    <div class="svc-g">
+      <div class="svc-c">
+        <svg class="svc-ico" viewBox="0 0 48 48"><path d="M8 36h32M24 36V16M14 22c0-5.5 4-10 10-10s10 4.5 10 10"/><path d="M10 36c0-2 1.5-4 4-4h20c2.5 0 4 2 4 4"/></svg>
+        <h3 class="h3">Cocktails Signature</h3>
+        <p>Des créations ciselées par nos bartenders, jouant avec les agrumes locaux et les spiritueux d'exception. Chaque verre est une adresse à la golden hour.</p>
+        <a href="#reservation" class="svc-lnk">Réserver une table</a>
+      </div>
+      <div class="svc-c">
+        <svg class="svc-ico" viewBox="0 0 48 48"><rect x="8" y="20" width="32" height="20" rx="2"/><path d="M16 20v-4a8 8 0 0116 0v4"/><circle cx="24" cy="30" r="3"/></svg>
+        <h3 class="h3">Planches & Partage</h3>
+        <p>Sélection de produits frais — fromages affinés, charcuteries, crevettes de Calédonie — pour prolonger l'apéritif avec élégance face à la baie.</p>
+        <a href="#reservation" class="svc-lnk">Voir les disponibilités</a>
+      </div>
+      <div class="svc-c">
+        <svg class="svc-ico" viewBox="0 0 48 48"><circle cx="24" cy="24" r="16"/><path d="M24 14v10l6 6"/></svg>
+        <h3 class="h3">Sunset Sessions</h3>
+        <p>Chaque soir, la terrasse se teinte d'or et de corail. Installez-vous, commandez votre premier verre et laissez Nouméa vous offrir son plus beau spectacle.</p>
+        <a href="#reservation" class="svc-lnk">Choisir mon créneau</a>
+      </div>
+      <div class="svc-c">
+        <svg class="svc-ico" viewBox="0 0 48 48"><path d="M8 38l8-10 8 6 8-14 8 18"/><path d="M8 28c6-4 12-2 16-8 4-6 10-4 16 0"/></svg>
+        <h3 class="h3">Vue Panoramique</h3>
+        <p>En hauteur sur la baie de Nouméa, 180° de lagon et de lumière. Une perspective qui transforme chaque instant en souvenir photographique.</p>
+        <a href="#atmosphere" class="svc-lnk">Voir la galerie</a>
+      </div>
+      <div class="svc-c">
+        <svg class="svc-ico" viewBox="0 0 48 48"><path d="M24 8c-8.8 0-16 7.2-16 16 0 6 3.3 11.3 8.2 14.1L14 40h20l-2.2-1.9C36.7 35.3 40 30 40 24c0-8.8-7.2-16-16-16z"/><path d="M18 28s1.5 4 6 4 6-4 6-4"/><line x1="20" y1="22" x2="20" y2="22"/><line x1="28" y1="22" x2="28" y2="22"/></svg>
+        <h3 class="h3">Ambiance Privatisée</h3>
+        <p>Anniversaires, événements corporate, célébrations intimes — le Rooftop se prête à vos occasions spéciales avec une discrétion et une attention irréprochables.</p>
+        <a href="#reservation" class="svc-lnk">Demander un devis</a>
+      </div>
+      <div class="svc-c">
+        <svg class="svc-ico" viewBox="0 0 48 48"><path d="M12 36V20l12-8 12 8v16"/><path d="M20 36v-8h8v8"/><path d="M8 36h32"/></svg>
+        <h3 class="h3">Terrasse Bois Premium</h3>
+        <p>Mobilier lounge sélectionné, éclairage tamisé, brises marines — l'architecture de la terrasse est pensée pour que vous ne vouliez plus partir.</p>
+        <a href="#atmosphere" class="svc-lnk">Découvrir l'espace</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section id="metier" class="s">
+  <div class="wrap">
+    <div class="divider"></div>
+    <span class="tag">Notre histoire</span>
+    <h2 class="h2">Un rooftop pensé<br>comme une <em style="font-style:italic;color:var(--ca)">promesse</em></h2>
+  </div>
+  <div class="met-g">
+    <div class="met-txt">
+      <div style="padding:0 0 0 calc((100vw - 1200px)/2 + 24px);max-width:calc((100vw - 1200px)/2 + 600px + 24px)">
+        <p style="font-size:1.05rem;color:rgba(240,232,220,.75);line-height:1.85;margin-bottom:20px">Au sommet de la rue Jules Garnier, Le Rooftop s'est construit autour d'une conviction simple&nbsp;: Nouméa méritait un endroit à sa hauteur. Un lieu où la beauté naturelle du lagon calédonien se conjugue avec le raffinement d'un bar d'exception.</p>
+        <p style="font-size:.95rem;color:rgba(240,232,220,.6);line-height:1.85">Nous avons choisi la bonne hauteur, la bonne orientation, le bon moment de la journée. Et nous avons construit autour de ça — un espace qui n'existe que pour sublimer ce que Nouméa a de plus précieux&nbsp;: sa lumière.</p>
+        <ul class="met-pts">
+          <li>Terrasse en bois noble surplombant la baie de Nouméa</li>
+          <li>Carte de cocktails renouvelée selon les saisons</li>
+          <li>Service attentionné, sans formalité excessive</li>
+          <li>Ouvert à tous ceux qui cherchent un moment d'exception</li>
+        </ul>
+      </div>
+    </div>
+    <div class="met-img">
+      <img src="https://i.ibb.co/Vp3fz5Jv/Le-Rooftop-1.jpg" alt="Terrasse du Rooftop Nouméa au coucher de soleil" loading="lazy">
+    </div>
+  </div>
+  <div class="met-g met-r" style="margin-top:2px">
+    <div class="met-txt">
+      <div style="padding:0 0 0 calc((100vw - 1200px)/2 + 24px);max-width:calc((100vw - 1200px)/2 + 600px + 24px)">
+        <div class="divider"></div>
+        <span class="tag">L'art du moment</span>
+        <h3 class="h3" style="margin:16px 0 20px;font-family:'Cormorant Garamond',serif">Quand le soleil touche<br>l'horizon, tout s'arrête.</h3>
+        <p style="font-size:.95rem;color:rgba(240,232,220,.6);line-height:1.85">La golden hour sur la baie de Nouméa est un phénomène — une lumière cuivrée qui transforme chaque verre en objet d'art, chaque visage en portrait. Nos équipes orchestrent ce rituel du soir avec le soin d'un chef composant sa partition.</p>
+      </div>
+    </div>
+    <div class="met-img">
+      <img src="https://i.ibb.co/LzKssQdV/Le-Rooftop-3.jpg" alt="Coucher de soleil vue depuis le Rooftop de Nouméa" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section id="atmosphere" class="s">
+  <div class="wrap">
+    <div class="divider"></div>
+    <span class="tag">Atmosphère</span>
+    <h2 class="h2">L'espace en images</h2>
+    <p style="color:rgba(240,232,220,.6);max-width:480px;margin-top:16px;font-size:.95rem">Quatre angles, une seule promesse&nbsp;: vous serez heureux d'être là.</p>
+  </div>
+  <div class="wrap" style="margin-top:0">
+    <div class="gal-g">
+      <div class="gal-it" onclick="openLbox(this)">
+        <img src="https://i.ibb.co/d02ZdH2m/Le-Rooftop-0.jpg" alt="Vue panoramique Rooftop Nouméa" loading="lazy">
+        <div class="gal-ov"><svg viewBox="0 0 32 32"><path d="M20 12l-8 8M12 12h8v8"/></svg></div>
+      </div>
+      <div class="gal-it" onclick="openLbox(this)">
+        <img src="https://i.ibb.co/Vp3fz5Jv/Le-Rooftop-1.jpg" alt="Terrasse bois Rooftop coucher de soleil" loading="lazy">
+        <div class="gal-ov"><svg viewBox="0 0 32 32"><path d="M20 12l-8 8M12 12h8v8"/></svg></div>
+      </div>
+      <div class="gal-it" onclick="openLbox(this)">
+        <img src="https://i.ibb.co/zTtk6SV6/Le-Rooftop-2.jpg" alt="Ambiance lounge Rooftop bar Nouméa" loading="lazy">
+        <div class="gal-ov"><svg viewBox="0 0 32 32"><path d="M20 12l-8 8M12 12h8v8"/></svg></div>
+      </div>
+      <div class="gal-it" onclick="openLbox(this)">
+        <img src="https://i.ibb.co/LzKssQdV/Le-Rooftop-3.jpg" alt="Golden hour baie de Nouméa depuis le Rooftop" loading="lazy">
+        <div class="gal-ov"><svg viewBox="0 0 32 32"><path d="M20 12l-8 8M12 12h8v8"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lbox" role="dialog" aria-modal="true" aria-label="Image agrandie" onclick="closeLbox(event)">
+  <button id="lbox-close" onclick="closeLbox()" aria-label="Fermer">×</button>
+  <img id="lbox-img" src="" alt="">
+</div>
+
+<!-- FORMULAIRE -->
+<section id="reservation" class="s">
+  <div class="wrap">
+    <div class="divider"></div>
+    <span class="tag">Réservations</span>
+    <h2 class="h2">Réservez votre Moment</h2>
+    <p style="color:rgba(240,232,220,.6);max-width:520px;margin-top:16px;font-size:.95rem">Dites-nous quand vous souhaitez venir — nous nous occupons du reste.</p>
+    <div class="res-g">
+      <form class="form-r" id="res-form" action="#" novalidate>
+        <div class="fi">
+          <label for="f-nom">Votre prénom & nom</label>
+          <input type="text" id="f-nom" name="nom" placeholder="Marie Dupont" autocomplete="name">
+          <span class="errtxt" id="e-nom">Merci d'indiquer votre nom.</span>
+        </div>
+        <div class="fi">
+          <label for="f-email">Adresse e-mail</label>
+          <input type="email" id="f-email" name="email" placeholder="marie@exemple.com" autocomplete="email">
+          <span class="errtxt" id="e-email">Adresse e-mail invalide.</span>
+        </div>
+        <div class="fi">
+          <label for="f-tel">Téléphone</label>
+          <input type="tel" id="f-tel" name="tel" placeholder="77.00.00" autocomplete="tel">
+          <span class="errtxt" id="e-tel">Merci d'indiquer votre numéro.</span>
+        </div>
+        <div class="fi">
+          <label for="f-msg">Votre message ou occasion</label>
+          <textarea id="f-msg" name="message" placeholder="Anniversaire, soirée en groupe, demande spéciale…"></textarea>
+          <span class="errtxt" id="e-msg">Merci d'indiquer votre demande.</span>
+        </div>
+        <button type="submit" class="b b-gold" id="res-btn" style="width:100%;justify-content:center">
+          <span id="res-btn-txt">Envoyer ma demande</span>
+        </button>
+        <div class="form-ok" id="form-ok">
+          ✦ &nbsp;Merci pour votre message&nbsp;!<br>
+          <span style="font-size:.85rem;opacity:.8">Notre équipe vous recontacte dans les plus brefs délais pour confirmer votre moment.</span>
+        </div>
+      </form>
+      <div class="res-info">
+        <div class="res-bl">
+          <h4 class="h4">Adresse</h4>
+          <p>22 Rue Jules Garnier<br>Nouméa 98800, Nouvelle-Calédonie</p>
+        </div>
+        <div class="res-bl">
+          <h4 class="h4">Contact direct</h4>
+          <p><a href="tel:+687778738">📞 77.87.38</a><br>Ou écrivez-nous via le formulaire ci-contre.</p>
+        </div>
+        <div class="res-bl">
+          <h4 class="h4">Horaires</h4>
+          <p>Ouvert le soir, en semaine et le week-end.<br>Terrasse disponible jusqu'au coucher du soleil et au-delà.</p>
+        </div>
+        <div class="res-bl">
+          <h4 class="h4">Privatisation</h4>
+          <p>Pour les événements privés, indiquez le dans votre message — nous vous proposerons une formule sur mesure.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section id="avis" class="s">
+  <div class="wrap">
+    <div class="divider"></div>
+    <span class="tag">Ce qu'ils en disent</span>
+    <h2 class="h2">4.4 étoiles sur Google</h2>
+    <div class="avis-top">
+      <div class="avis-score">
+        <div class="avis-note">4.4</div>
+        <div class="avis-stars">
+          <svg class="star" viewBox="0 0 20 20"><path d="M10 1l2.4 7.4H20l-6.2 4.5 2.4 7.4L10 16l-6.2 4.3 2.4-7.4L0 8.4h7.6z"/></svg>
+          <svg class="star" viewBox="0 0 20 20"><path d="M10 1l2.4 7.4H20l-6.2 4.5 2.4 7.4L10 16l-6.2 4.3 2.4-7.4L0 8.4h7.6z"/></svg>
+          <svg class="star" viewBox="0 0 20 20"><path d="M10 1l2.4 7.4H20l-6.2 4.5 2.4 7.4L10 16l-6.2 4.3 2.4-7.4L0 8.4h7.6z"/></svg>
+          <svg class="star" viewBox="0 0 20 20"><path d="M10 1l2.4 7.4H20l-6.2 4.5 2.4 7.4L10 16l-6.2 4.3 2.4-7.4L0 8.4h7.6z"/></svg>
+          <svg class="star" viewBox="0 0 20 20" style="opacity:.35"><path d="M10 1l2.4 7.4H20l-6.2 4.5 2.4 7.4L10 16l-6.2 4.3 2.4-7.4L0 8.4h7.6z"/></svg>
+        </div>
+        <div class="avis-cnt">32 avis Google</div>
+      </div>
+      <div class="avis-sep"></div>
+      <div class="avis-txt">
+        <p><strong>Nos clients reviennent pour la vue, restent pour l'ambiance.</strong> Sunset magique, service attentionné, cocktails qui tiennent leurs promesses — 32 avis Google reflètent des soirées qui marquent les esprits. Merci à chacun d'entre vous d'avoir partagé votre moment.</p>
+      </div>
+    </div>
+    <div class="temo-g">
+      <div class="temo-c">
+        <p class="temo-q">Vue à couper le souffle sur la baie. On y retourne à chaque occasion spéciale — c'est l'adresse que l'on garde pour soi mais qu'on finit toujours par partager.</p>
+        <div class="temo-au">
+          <div class="temo-av">S</div>
+          <div>
+            <div class="temo-nm">Sophie M.</div>
+            <div class="temo-st">
+              <svg class="star" viewBox="0 0 20 20"><path d="M10 1l2.4 7.4H20l-6.2 4.5 2.4 7.4L10 16l-6.2 4.3 2.4-7.4L0 8.4h7.6z"/></svg>
+              <svg class="star" viewBox="0 0 20 20"><path d="M10 1l2.4 7.4H20l-6.2 4.5 2.4 7.4L10 16l-6.2 4.3 2.4-7.4L0 8.4h7.6z"/></svg>
+              <svg class="star" viewBox="0 0 20 20"><path d="M10 1l2.4 7.4H20l-6.2 4.5 2.4 7.4L10 16l-6.2 4.3 2.4-7.4L0 8.4h7.6z"/></svg>
+              <svg class="star" viewBox="0 0 20 20"><path d="M10 1l2.4 7.4H20l-6.2 4.5 2.4 7.4L10 16l-6.2 4.3 2.4-7.4L0 8.4h7.6z"/></svg>
+              <svg class="star" viewBox="0 0 20 20"><path d="M10 1l2.4 7.4H20l-6.2 4.5 2.4 7.4L10 16l-6.2 4.3 2.4-7.4L0 8.4h7.6z"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="temo-c">
+        <p class="temo-q">Sunset magique depuis la terrasse. Les cocktails sont travaillés avec soin, le service est irréprochable. Un endroit rare à Nouméa.</p>
+        <div class="temo-au">
+          <div class="temo-av">T</div>
+          <div>
+            <div class="temo-nm">Thomas R.</div>
+            <div class="temo-st">
+              <svg class="star" viewBox="0 0 20 20"><path d="M10 1l2.4 7.4H20l-6.2 4.5 2.4 7.4L10 16l-6.2 4.3 2.4-7.4L0 8.4h7.6z"/></svg>
+              <svg class="star" viewBox="0 0 20 20"><path d="M10 1l2.4 7.4H20l-6.2 4.5 2.4 7.4L10 16l-6.2 4.3 2.4-7.4L0 8.4h7.6z"/></svg>
+              <svg class="star" viewBox="0 0 20 20"><path d="M10 1l2.4 7.4H20l-6.2 4.5 2.4 7.4L10 16l-6.2 4.3 2.4-7.4L0 8.4h7.6z"/></svg>
+              <svg class="star" viewBox="0 0 20 20"><path d="M10 1l2.4 7.4H20l-6.2 4.5 2.4 7.4L10 16l-6.2 4.3 2.4-7.4L0 8.4h7.6z"/></svg>
+              <svg class="star" viewBox="0 0 20 20"><path d="M10 1l2.4 7.4H20l-6.2 4.5 2.4 7.4L10 16l-6.2 4.3 2.4-7.4L0 8.4h7.6z"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="temo-c">
+        <p class="temo-q">On a fêté notre anniversaire ici — l'équipe a été aux petits soins. La vue sur le lagon au crépuscule, c'est quelque chose qu'on n'oublie pas.</p>
+        <div class="temo-au">
+          <div class="temo-av">C</div>
+          <div>
+            <div class="temo-nm">Céline & Marc V.</div>
+            <div class="temo-st">
+              <svg class="star" viewBox="0 0 20 20"><path d="M10 1l2.4 7.4H20l-6.2 4.5 2.4 7.4L10 16l-6.2 4.3 2.4-7.4L0 8.4h7.6z"/></svg>
+              <svg class="star" viewBox="0 0 20 20"><path d="M10 1l2.4 7.4H20l-6.2 4.5 2.4 7.4L10 16l-6.2 4.3 2.4-7.4L0 8.4h7.6z"/></svg>
+              <svg class="star" viewBox="0 0 20 20"><path d="M10 1l2.4 7.4H20l-6.2 4.5 2.4 7.4L10 16l-6.2 4.3 2.4-7.4L0 8.4h7.6z"/></svg>
+              <svg class="star" viewBox="0 0 20 20"><path d="M10 1l2.4 7.4H20l-6.2 4.5 2.4 7.4L10 16l-6.2 4.3 2.4-7.4L0 8.4h7.6z"/></svg>
+              <svg class="star" viewBox="0 0 20 20" style="opacity:.35"><path d="M10 1l2.4 7.4H20l-6.2 4.5 2.4 7.4L10 16l-6.2 4.3 2.4-7.4L0 8.4h7.6z"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="badges-g">
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Service attentionné
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg>
+        Cocktails d'exception
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        Vue panoramique sur le lagon
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Nouméa, Nouvelle-Calédonie
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="ft">
+  <div class="wrap">
+    <div class="ft-g">
+      <div class="ft-brand">
+        <a href="#hero" class="logo">Le&nbsp;<span>Rooftop</span></a>
+        <p>Bar lounge en hauteur à Nouméa. Vue panoramique sur la baie de Nouvelle-Calédonie, cocktails signature et couchers de soleil d'exception, chaque soir.</p>
+        <div class="ft-socials">
+          <a href="https://www.facebook.com/lendroitrooftop" class="ft-soc" target="_blank" rel="noopener" aria-label="Facebook Le Rooftop">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="ft-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#moments">Expériences</a></li>
+          <li><a href="#atmosphere">Atmosphère</a></li>
+          <li><a href="#reservation">Réserver</a></li>
+          <li><a href="#avis">Avis clients</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Nous trouver</h4>
+        <address>
+          Le Rooftop<br>
+          22 Rue Jules Garnier<br>
+          Nouméa 98800<br>
+          Nouvelle-Calédonie<br><br>
+          <a href="tel:+687778738">📞 77.87.38</a>
+        </address>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <p>© 2026 Le Rooftop. Tous droits réservés.</p>
+      <p>Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+function openLbox(el){
+  var i=el.querySelector('img');
+  document.getElementById('lbox-img').src=i.src;
+  document.getElementById('lbox-img').alt=i.alt;
+  document.getElementById('lbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLbox(e){
+  if(!e||e.target===document.getElementById('lbox')||e.currentTarget===document.getElementById('lbox-close')){
+    document.getElementById('lbox').classList.remove('open');
+    document.body.style.overflow='';
+  }
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLbox({target:document.getElementById('lbox')});});
+(function(){
+  var f=document.getElementById('res-form');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var ok=true;
+    var fields=[
+      {id:'f-nom',err:'e-nom',test:function(v){return v.trim().length>1;}},
+      {id:'f-email',err:'e-email',test:function(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);}},
+      {id:'f-tel',err:'e-tel',test:function(v){return v.trim().length>4;}},
+      {id:'f-msg',err:'e-msg',test:function(v){return v.trim().length>3;}}
+    ];
+    fields.forEach(function(fd){
+      var inp=document.getElementById(fd.id);
+      var err=document.getElementById(fd.err);
+      if(!fd.test(inp.value)){
+        inp.classList.add('err');
+        err.classList.add('show');
+        ok=false;
+      } else {
+        inp.classList.remove('err');
+        err.classList.remove('show');
+      }
+    });
+    if(!ok)return;
+    var btn=document.getElementById('res-btn');
+    var txt=document.getElementById('res-btn-txt');
+    btn.disabled=true;
+    txt.textContent='Envoi en cours…';
+    setTimeout(function(){
+      f.reset();
+      btn.disabled=false;
+      txt.textContent='Envoyer ma demande';
+      document.getElementById('form-ok').classList.add('show');
+    },1200);
+  });
+})();
+</script>
+</body>
+</html>
