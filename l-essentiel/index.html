@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'ESSENTIEL — Nouméa</title>
+<meta name="description" content="Restaurant-lounge bar à Nouméa, vue sur la marina. Terrasse lumineuse le jour, atmosphère cosy le soir. Réservez votre table au cœur de la marina.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#1A2E5A;
+--cs:#2A5F8F;
+--ca:#C9A84C;
+--cb:#F8F6F1;
+--ct:#1A2E5A;
+--cw:#ffffff;
+--tr:0.35s ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--cb);color:var(--ct);overflow-x:hidden;font-size:16px}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+
+/* BANDEAU PROMO */
+.promo-bar{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;display:flex;align-items:center;justify-content:center}
+.promo-bar a{font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;letter-spacing:0.3px;line-height:44px;text-align:center;transition:opacity var(--tr)}
+.promo-bar a:hover{opacity:0.85}
+
+/* HEADER */
+.nav{position:fixed;top:44px;left:0;width:100%;z-index:1000;background:rgba(26,46,90,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,0.25)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--cw);letter-spacing:2px;white-space:nowrap}
+.nav-logo span{color:var(--ca)}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-family:'Nunito',sans-serif;font-size:0.85rem;font-weight:600;color:rgba(255,255,255,0.85);letter-spacing:0.8px;text-transform:uppercase;transition:color var(--tr);position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--ca);transition:width var(--tr)}
+.nav-links a:hover{color:var(--ca)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{font-family:'Nunito',sans-serif;font-size:0.85rem;font-weight:700;color:var(--cw);background:linear-gradient(135deg,var(--cp),var(--cs));border:1.5px solid var(--ca);padding:10px 22px;border-radius:4px;letter-spacing:0.5px;transition:opacity var(--tr),transform var(--tr);white-space:nowrap}
+.nav-cta:hover{opacity:0.9;transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.hamburger span{width:24px;height:2px;background:var(--cw);border-radius:2px;transition:var(--tr)}
+.mob-menu{display:none;position:fixed;top:112px;left:0;width:100%;background:rgba(26,46,90,0.97);backdrop-filter:blur(16px);z-index:999;padding:24px 24px 32px;flex-direction:column;gap:4px}
+.mob-menu.open{display:flex}
+.mob-menu a{font-family:'Nunito',sans-serif;font-size:1rem;font-weight:600;color:rgba(255,255,255,0.9);padding:14px 0;border-bottom:1px solid rgba(201,168,76,0.15);letter-spacing:0.5px}
+.mob-menu a:last-child{border-bottom:none;margin-top:12px;background:var(--ca);color:var(--cp);text-align:center;border-radius:4px;padding:14px}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;margin-top:112px;position:relative}
+.hero-left{background:var(--cp);display:flex;flex-direction:column;justify-content:center;padding:80px 64px 80px 48px;position:relative;overflow:hidden}
+.hero-left::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;border:1px solid rgba(201,168,76,0.15);pointer-events:none}
+.hero-left::after{content:'';position:absolute;bottom:40px;left:-80px;width:300px;height:300px;border-radius:50%;border:1px solid rgba(201,168,76,0.1);pointer-events:none}
+.hero-tag{display:inline-flex;align-items:center;gap:10px;font-family:'Nunito',sans-serif;font-size:0.75rem;font-weight:700;color:var(--ca);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:24px}
+.hero-tag::before{content:'';width:32px;height:1px;background:var(--ca)}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5vw,4.2rem);font-weight:700;color:var(--cw);line-height:1.1;margin-bottom:20px}
+.hero h1 em{color:var(--ca);font-style:italic}
+.hero-sub{font-family:'Nunito',sans-serif;font-size:1.05rem;font-weight:300;color:rgba(255,255,255,0.78);line-height:1.7;margin-bottom:36px;max-width:380px}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn-p{font-family:'Nunito',sans-serif;font-weight:700;font-size:0.9rem;padding:14px 28px;border-radius:4px;letter-spacing:0.5px;transition:opacity var(--tr),transform var(--tr);cursor:pointer;border:none;display:inline-block}
+.btn-gold{background:var(--ca);color:var(--cp)}
+.btn-outline{background:transparent;border:1.5px solid rgba(255,255,255,0.4);color:var(--cw)}
+.btn-p:hover{opacity:0.88;transform:translateY(-2px)}
+.hero-tel{margin-top:28px;font-family:'Nunito',sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.55);letter-spacing:0.3px}
+.hero-tel a{color:var(--ca);font-weight:600}
+.hero-right{position:relative;overflow:hidden;min-height:600px}
+.hero-right img{width:100%;height:100%;object-fit:cover;object-position:center}
+.hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(26,46,90,0.35),transparent)}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,0.5);font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;font-family:'Nunito',sans-serif;z-index:2}
+.scroll-ind::after{content:'';width:1px;height:48px;background:linear-gradient(to bottom,rgba(201,168,76,0.6),transparent);animation:scrollpulse 2s infinite}
+@keyframes scrollpulse{0%,100%{opacity:0.4;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.15)}}
+
+/* STATS */
+.stats{background:linear-gradient(135deg,var(--cp) 0%,var(--cs) 100%);padding:64px 24px;position:relative;overflow:hidden}
+.stats::before{content:'';position:absolute;top:-80px;right:-40px;width:400px;height:400px;border-radius:50%;border:1px solid rgba(201,168,76,0.12);pointer-events:none}
+.stats-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
+.stat-item{display:flex;flex-direction:column;align-items:center;gap:8px;padding:24px 16px;border-radius:8px;border:1px solid rgba(201,168,76,0.2);transition:border-color var(--tr)}
+.stat-item:hover{border-color:rgba(201,168,76,0.55)}
+.stat-icon{font-size:1.6rem;margin-bottom:4px}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--ca);line-height:1}
+.stat-lbl{font-family:'Nunito',sans-serif;font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.7);letter-spacing:1.2px;text-transform:uppercase}
+
+/* REVEAL FALLBACK */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.hero{grid-template-columns:1fr}
+.hero-right{min-height:320px;order:-1}
+.hero-left{padding:52px 32px}
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+.nav-links{display:none}
+.hamburger{display:flex}
+}
+@media(max-width:480px){
+.promo-bar{height:40px}
+.promo-bar a{font-size:13px;line-height:40px}
+.nav{top:40px}
+.mob-menu{top:108px}
+.hero{margin-top:108px}
+.hero-left{padding:40px 20px}
+.hero h1{font-size:2.2rem}
+.hero-btns{flex-direction:column}
+.btn-p{width:100%;text-align:center;min-height:48px;line-height:1.4}
+.stats{padding:40px 16px}
+.stats-inner{grid-template-columns:1fr 1fr;gap:16px}
+.stat-item{padding:16px 8px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo-bar">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">L'<span>ESSENTIEL</span></a>
+    <div class="nav-links">
+      <a href="#services">L'Expérience</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#equipe">L'Équipe</a>
+      <a href="#avis">Avis</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="tel:240200" class="nav-cta">Réserver — 24.02.00</a>
+    <div class="hamburger" id="hbg" aria-label="Menu" role="button">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="mob-menu" id="mobmenu">
+  <a href="#services" onclick="closeMob()">L'Expérience</a>
+  <a href="#galerie" onclick="closeMob()">Galerie</a>
+  <a href="#equipe" onclick="closeMob()">L'Équipe</a>
+  <a href="#avis" onclick="closeMob()">Avis</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="tel:240200">📞 24.02.00 — Réserver</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-left">
+    <div class="hero-tag">Marina de Nouméa</div>
+    <h1>L'art du moment,<br><em>face aux voiliers</em></h1>
+    <p class="hero-sub">Restaurant-lounge bar en bord de marina. Terrasse lumineuse le jour, atmosphère blue-night le soir — bistronomy raffinée au cœur de Nouméa.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-p btn-gold">Réserver une table</a>
+      <a href="#services" class="btn-p btn-outline">Découvrir</a>
+    </div>
+    <p class="hero-tel">Ou par téléphone : <a href="tel:240200">24.02.00</a></p>
+    <div class="scroll-ind">Découvrir</div>
+  </div>
+  <div class="hero-right">
+    <img src="https://i.ibb.co/sdqrvDYn/L-ESSENTIEL-0.jpg" alt="L'ESSENTIEL — vue marina Nouméa" loading="eager">
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-icon">⚓</div>
+      <div class="stat-num" data-target="15">0</div>
+      <div class="stat-lbl">Ans d'expérience</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon">🌅</div>
+      <div class="stat-num" data-target="7">0</div>
+      <div class="stat-lbl">Jours sur 7</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon">🍽️</div>
+      <div class="stat-num" data-target="47">0</div>
+      <div class="stat-lbl">Avis clients</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon">⛵</div>
+      <div class="stat-num" data-target="1">0</div>
+      <div class="stat-lbl">Vue marina unique</div>
+    </div>
+  </div>
+</section>
+
+<script>
+var hbg=document.getElementById('hbg'),mob=document.getElementById('mobmenu');
+hbg.addEventListener('click',function(){mob.classList.toggle('open')});
+function closeMob(){mob.classList.remove('open')}
+
+var counted=false;
+function countUp(){
+  if(counted)return;
+  counted=true;
+  document.querySelectorAll('.stat-num[data-target]').forEach(function(el){
+    var target=+el.getAttribute('data-target'),start=0,dur=1600,step=16;
+    var timer=setInterval(function(){
+      start+=Math.ceil(target/(dur/step));
+      if(start>=target){start=target;clearInterval(timer)}
+      el.textContent=start;
+    },step);
+  });
+}
+var so=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)countUp()})},{threshold:0.3});
+var statsEl=document.querySelector('.stats');
+if(statsEl)so.observe(statsEl);
+</script>
+<style>
+/* SERVICES */
+.s-services{padding:96px 24px;background:var(--cb)}
+.s-hd{text-align:center;margin-bottom:64px}
+.s-hd h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--cp);line-height:1.15;margin-bottom:12px}
+.s-hd p{font-family:'Nunito',sans-serif;font-size:1rem;color:#5a6a82;max-width:520px;margin:0 auto;line-height:1.7}
+.s-hd-line{width:48px;height:2px;background:var(--ca);margin:16px auto 0}
+.srv-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.srv-card{background:#fff;border-radius:10px;padding:36px 28px;border:1px solid rgba(26,46,90,0.08);transition:border-color var(--tr),box-shadow var(--tr),transform var(--tr);display:flex;flex-direction:column;gap:16px}
+.srv-card:hover{border-color:var(--ca);box-shadow:0 12px 40px rgba(26,46,90,0.1);transform:translateY(-4px)}
+.srv-ico{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--cp),var(--cs));display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+.srv-title{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--cp);line-height:1.2}
+.srv-desc{font-family:'Nunito',sans-serif;font-size:0.9rem;color:#5a6a82;line-height:1.7;flex:1}
+.srv-cta{font-family:'Nunito',sans-serif;font-size:0.82rem;font-weight:700;color:var(--ca);letter-spacing:0.8px;text-transform:uppercase;display:inline-flex;align-items:center;gap:6px;margin-top:auto;transition:gap var(--tr)}
+.srv-card:hover .srv-cta{gap:10px}
+
+/* METIER */
+.s-metier{padding:96px 24px;background:var(--cp);position:relative;overflow:hidden}
+.s-metier::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;border:1px solid rgba(201,168,76,0.1);pointer-events:none}
+.met-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.met-inner.rev{direction:rtl}
+.met-inner.rev>*{direction:ltr}
+.met-text{display:flex;flex-direction:column;gap:20px}
+.met-tag{font-family:'Nunito',sans-serif;font-size:0.75rem;font-weight:700;color:var(--ca);letter-spacing:2.5px;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.met-tag::before{content:'';width:28px;height:1px;background:var(--ca)}
+.met-text h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;color:var(--cw);line-height:1.2}
+.met-text h2 em{color:var(--ca);font-style:italic}
+.met-text p{font-family:'Nunito',sans-serif;font-size:0.95rem;color:rgba(255,255,255,0.75);line-height:1.8}
+.met-pts{display:flex;flex-direction:column;gap:12px;margin-top:8px}
+.met-pt{display:flex;align-items:flex-start;gap:12px;font-family:'Nunito',sans-serif;font-size:0.9rem;color:rgba(255,255,255,0.85);line-height:1.5}
+.met-pt::before{content:'✦';color:var(--ca);font-size:0.7rem;margin-top:3px;flex-shrink:0}
+.met-img{border-radius:10px;overflow:hidden;aspect-ratio:4/3;border:1px solid rgba(201,168,76,0.25)}
+.met-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease}
+.met-img:hover img{transform:scale(1.04)}
+
+/* GALERIE */
+.s-galerie{padding:96px 24px;background:var(--cb)}
+.gal-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.gal-item{border-radius:10px;overflow:hidden;cursor:pointer;aspect-ratio:4/3;position:relative}
+.gal-item:first-child{grid-column:span 2;aspect-ratio:16/7}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-item::after{content:'';position:absolute;inset:0;background:rgba(26,46,90,0);transition:background var(--tr)}
+.gal-item:hover::after{background:rgba(26,46,90,0.22)}
+.lb{display:none;position:fixed;inset:0;background:rgba(10,18,40,0.95);z-index:2000;align-items:center;justify-content:center;padding:24px}
+.lb.open{display:flex}
+.lb img{max-width:90vw;max-height:88vh;border-radius:8px;border:1px solid rgba(201,168,76,0.3)}
+.lb-close{position:absolute;top:20px;right:24px;color:var(--cw);font-size:2rem;cursor:pointer;background:none;border:none;line-height:1;font-family:'Nunito',sans-serif;opacity:0.8;transition:opacity var(--tr)}
+.lb-close:hover{opacity:1}
+
+/* FORMULAIRE */
+.s-contact{padding:96px 24px;background:var(--cp)}
+.form-wrap{max-width:640px;margin:0 auto;background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.2);border-radius:12px;padding:48px 40px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.fg{display:flex;flex-direction:column;gap:8px}
+.fg.full{grid-column:span 2}
+.fg label{font-family:'Nunito',sans-serif;font-size:0.8rem;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:0.8px;text-transform:uppercase}
+.fg input,.fg textarea{font-family:'Nunito',sans-serif;font-size:0.95rem;color:var(--cw);background:rgba(255,255,255,0.07);border:1px solid rgba(201,168,76,0.3);border-radius:6px;padding:14px 16px;outline:none;transition:border-color var(--tr),box-shadow var(--tr);width:100%}
+.fg textarea{resize:vertical;min-height:120px}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,0.3)}
+.fg input:focus,.fg textarea:focus{border-color:var(--ca);box-shadow:0 0 0 3px rgba(201,168,76,0.15)}
+.form-err{font-family:'Nunito',sans-serif;font-size:0.78rem;color:#ff8a80;display:none;margin-top:2px}
+.fg.has-err .form-err{display:block}
+.fg.has-err input,.fg.has-err textarea{border-color:#ff8a80}
+.form-submit{margin-top:8px;width:100%;padding:16px;font-family:'Nunito',sans-serif;font-weight:700;font-size:1rem;background:var(--ca);color:var(--cp);border:none;border-radius:6px;cursor:pointer;letter-spacing:0.5px;transition:opacity var(--tr),transform var(--tr);min-height:52px}
+.form-submit:hover{opacity:0.9;transform:translateY(-1px)}
+.form-ok{display:none;text-align:center;padding:32px 16px}
+.form-ok .ok-ico{font-size:2.5rem;margin-bottom:12px}
+.form-ok p{font-family:'Nunito',sans-serif;color:rgba(255,255,255,0.85);font-size:1rem;line-height:1.6}
+.form-ok strong{color:var(--ca);font-size:1.2rem;display:block;font-family:'Cormorant Garamond',serif;font-weight:600;margin-bottom:8px}
+
+/* PREUVE SOCIALE */
+.s-avis{padding:96px 24px;background:var(--cb)}
+.avis-top{max-width:1100px;margin:0 auto 56px;display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap}
+.avis-score{text-align:center}
+.avis-score .big{font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:700;color:var(--cp);line-height:1}
+.avis-score .stars{color:var(--ca);font-size:1.3rem;letter-spacing:2px;margin:6px 0}
+.avis-score .cnt{font-family:'Nunito',sans-serif;font-size:0.85rem;color:#7a8a9a}
+.avis-divider{width:1px;height:80px;background:rgba(26,46,90,0.12)}
+.badge-grid{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
+.badge{background:#fff;border:1px solid rgba(26,46,90,0.1);border-radius:8px;padding:16px 24px;text-align:center;min-width:120px}
+.badge-ico{font-size:1.5rem;margin-bottom:6px}
+.badge-lbl{font-family:'Nunito',sans-serif;font-size:0.75rem;font-weight:700;color:var(--cp);letter-spacing:0.5px;text-transform:uppercase}
+.testi-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.testi{background:#fff;border-radius:10px;padding:28px 24px;border:1px solid rgba(26,46,90,0.08);display:flex;flex-direction:column;gap:12px}
+.testi-stars{color:var(--ca);font-size:1rem;letter-spacing:1px}
+.testi-txt{font-family:'Nunito',sans-serif;font-size:0.9rem;color:#3a4a5e;line-height:1.7;flex:1;font-style:italic}
+.testi-author{font-family:'Nunito',sans-serif;font-size:0.8rem;font-weight:700;color:var(--cp)}
+.testi-src{font-family:'Nunito',sans-serif;font-size:0.72rem;color:#9aabb8}
+
+/* FOOTER */
+.footer{background:var(--cp);padding:64px 24px 0;border-top:2px solid var(--ca)}
+.foot-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:48px;padding-bottom:48px}
+.foot-brand{display:flex;flex-direction:column;gap:16px}
+.foot-logo{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--cw);letter-spacing:2px}
+.foot-logo span{color:var(--ca)}
+.foot-desc{font-family:'Nunito',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.6);line-height:1.7}
+.foot-soc{display:flex;gap:14px;margin-top:4px}
+.foot-soc a{width:40px;height:40px;border-radius:50%;border:1px solid rgba(201,168,76,0.35);display:flex;align-items:center;justify-content:center;transition:border-color var(--tr),background var(--tr)}
+.foot-soc a:hover{border-color:var(--ca);background:rgba(201,168,76,0.12)}
+.foot-soc svg{width:20px;height:20px;fill:rgba(255,255,255,0.75)}
+.foot-col h4{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--ca);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:20px}
+.foot-col ul{display:flex;flex-direction:column;gap:10px}
+.foot-col ul li a,.foot-col ul li{font-family:'Nunito',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.65);transition:color var(--tr);line-height:1.5}
+.foot-col ul li a:hover{color:var(--ca)}
+.foot-bar{border-top:1px solid rgba(255,255,255,0.1);padding:20px 24px;max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:gap;gap:12px}
+.foot-bar p{font-family:'Nunito',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.4)}
+.foot-bar a{color:rgba(255,255,255,0.6);font-weight:700;transition:color var(--tr)}
+.foot-bar a:hover{color:var(--ca)}
+
+/* RESPONSIVE PART 2 */
+@media(max-width:900px){
+.srv-grid{grid-template-columns:1fr 1fr}
+.met-inner,.met-inner.rev{grid-template-columns:1fr;direction:ltr}
+.met-img{order:-1}
+.testi-grid{grid-template-columns:1fr 1fr}
+.foot-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+.srv-grid{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:1fr}
+.gal-item:first-child{grid-column:span 1;aspect-ratio:4/3}
+.form-grid{grid-template-columns:1fr}
+.fg.full{grid-column:span 1}
+.form-wrap{padding:28px 20px}
+.testi-grid{grid-template-columns:1fr}
+.avis-divider{width:80px;height:1px}
+.foot-inner{grid-template-columns:1fr}
+.foot-bar{flex-direction:column;text-align:center}
+.s-services,.s-metier,.s-galerie,.s-contact,.s-avis{padding:64px 16px}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s-services" id="services">
+  <div class="s-hd">
+    <h2>L'Expérience L'Essentiel</h2>
+    <div class="s-hd-line"></div>
+    <p>Du déjeuner face aux voiliers au cocktail en soirée — deux ambiances, un seul lieu d'exception.</p>
+  </div>
+  <div class="srv-grid">
+    <div class="srv-card">
+      <div class="srv-ico">🌅</div>
+      <div class="srv-title">Déjeuner Terrasse</div>
+      <p class="srv-desc">Profitez d'un déjeuner au soleil sur notre terrasse surplombant la marina. Cuisine du marché, produits locaux et vue imprenable sur les voiliers amarrés.</p>
+      <a href="#contact" class="srv-cta">Réserver →</a>
+    </div>
+    <div class="srv-card">
+      <div class="srv-ico">🍽️</div>
+      <div class="srv-title">Bistronomy du Soir</div>
+      <p class="srv-desc">Le soir, la carte s'affirme : cuisine bistronomy soignée, poisson local du jour, sélection de vins travaillée dans un cadre intime et feutré.</p>
+      <a href="#contact" class="srv-cta">Réserver →</a>
+    </div>
+    <div class="srv-card">
+      <div class="srv-ico">🍸</div>
+      <div class="srv-title">Bar & Cocktails</div>
+      <p class="srv-desc">Notre lounge bar propose une carte de cocktails classiques et signatures. Apéritif en terrasse ou en salle, au rythme de la marina endormie.</p>
+      <a href="#contact" class="srv-cta">Nous rejoindre →</a>
+    </div>
+    <div class="srv-card">
+      <div class="srv-ico">🤝</div>
+      <div class="srv-title">Événements Privés</div>
+      <p class="srv-desc">Séminaires, cocktails professionnels, célébrations en famille — L'Essentiel propose un espace modulable avec vue sur la marina pour vos événements.</p>
+      <a href="#contact" class="srv-cta">Nous contacter →</a>
+    </div>
+    <div class="srv-card">
+      <div class="srv-ico">☀️</div>
+      <div class="srv-title">Brunch du Week-end</div>
+      <p class="srv-desc">Le week-end, la terrasse se transforme en espace brunch généreux : buffet, boissons chaudes, vue sur la baie — un rituel calédonien entre amis ou en famille.</p>
+      <a href="#contact" class="srv-cta">S'inscrire →</a>
+    </div>
+    <div class="srv-card">
+      <div class="srv-ico">🌙</div>
+      <div class="srv-title">Lounge Blue-Night</div>
+      <p class="srv-desc">En fin de soirée, le lieu se mue en lounge intimiste. Lumières tamisées, musique douce, cocktails de saison — l'art du moment partagé face aux reflets de la marina.</p>
+      <a href="#contact" class="srv-cta">Découvrir →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION METIER -->
+<section class="s-metier" id="metier">
+  <div class="met-inner">
+    <div class="met-text">
+      <div class="met-tag">Notre philosophie</div>
+      <h2>Deux actes,<br><em>une seule scène</em></h2>
+      <p>L'Essentiel naît d'une conviction : un lieu peut porter en lui deux identités sans jamais se contredire. Le jour appartient à la lumière, à la terrasse ouverte sur la marina, aux conversations légères entre professionnels ou amis de longue date.</p>
+      <p>Le soir, les teintes changent. L'espace se resserre, la cuisine s'affirme, les cocktails prennent le temps d'être préparés. C'est cela, L'Essentiel — l'art de sublimer chaque moment de la journée.</p>
+      <div class="met-pts">
+        <div class="met-pt">Cuisine bistronomy ancrée dans les produits de Nouvelle-Calédonie</div>
+        <div class="met-pt">Terrasse panoramique face aux voiliers de la marina de Nouméa</div>
+        <div class="met-pt">Carte cocktails soignée, bar ouvert en journée comme en soirée</div>
+        <div class="met-pt">Espace privatisable pour événements professionnels et célébrations</div>
+      </div>
+    </div>
+    <div class="met-img">
+      <img src="https://i.ibb.co/ZRs058C4/L-ESSENTIEL-1.jpg" alt="Ambiance intérieure L'Essentiel Nouméa" loading="lazy">
+    </div>
+  </div>
+  <div class="met-inner rev" style="margin-top:72px">
+    <div class="met-text">
+      <div class="met-tag">La table & le comptoir</div>
+      <h2>Prestige discret,<br><em>saveurs sincères</em></h2>
+      <p>Nous ne cherchons pas à impressionner — nous cherchons à ravir. Chaque assiette porte l'empreinte de produits choisis : poisson local du jour, légumes de saison, associations franches et généreuses.</p>
+      <p>Au comptoir comme en salle, l'équipe L'Essentiel incarne un service attentif sans formalisme excessif. Ici, l'élégance n'exclut pas la chaleur humaine — c'est même ce qui fait toute la différence à Nouméa.</p>
+      <div class="met-pts">
+        <div class="met-pt">Carte renouvelée selon les arrivages et les saisons calédoniennes</div>
+        <div class="met-pt">Sélection de vins et spiritueux pour accompagner chaque moment</div>
+        <div class="met-pt">Accueil chaleureux, service attentif, sans code vestimentaire imposé</div>
+        <div class="met-pt">Ouvert 7 jours sur 7, du déjeuner jusqu'en soirée</div>
+      </div>
+    </div>
+    <div class="met-img">
+      <img src="https://i.ibb.co/vxfRHkWk/L-ESSENTIEL-2.jpg" alt="Cuisine et service L'Essentiel" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s-galerie" id="galerie">
+  <div class="s-hd">
+    <h2>Galerie</h2>
+    <div class="s-hd-line"></div>
+    <p>Terrasse lumineuse, lounge intimiste, marina en toile de fond — L'Essentiel en images.</p>
+  </div>
+  <div class="gal-grid">
+    <div class="gal-item" data-src="https://i.ibb.co/sdqrvDYn/L-ESSENTIEL-0.jpg">
+      <img src="https://i.ibb.co/sdqrvDYn/L-ESSENTIEL-0.jpg" alt="L'Essentiel vue marina" loading="lazy">
+    </div>
+    <div class="gal-item" data-src="https://i.ibb.co/ZRs058C4/L-ESSENTIEL-1.jpg">
+      <img src="https://i.ibb.co/ZRs058C4/L-ESSENTIEL-1.jpg" alt="Intérieur lounge L'Essentiel" loading="lazy">
+    </div>
+    <div class="gal-item" data-src="https://i.ibb.co/vxfRHkWk/L-ESSENTIEL-2.jpg">
+      <img src="https://i.ibb.co/vxfRHkWk/L-ESSENTIEL-2.jpg" alt="Cuisine L'Essentiel" loading="lazy">
+    </div>
+    <div class="gal-item" data-src="https://i.ibb.co/yB4HX2Jm/L-ESSENTIEL-3.jpg">
+      <img src="https://i.ibb.co/yB4HX2Jm/L-ESSENTIEL-3.jpg" alt="Terrasse L'Essentiel Nouméa" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true">
+  <button class="lb-close" id="lb-close" aria-label="Fermer">✕</button>
+  <img src="" alt="Photo L'Essentiel" id="lb-img">
+</div>
+
+<!-- FORMULAIRE -->
+<section class="s-contact" id="contact">
+  <div class="s-hd">
+    <h2 style="color:#fff">Réserver ou nous contacter</h2>
+    <div class="s-hd-line"></div>
+    <p style="color:rgba(255,255,255,0.65)">Une table en terrasse, un événement privé ou simplement une question — nous sommes à votre écoute.</p>
+  </div>
+  <div class="form-wrap">
+    <div id="form-success" class="form-ok">
+      <div class="ok-ico">⚓</div>
+      <strong>Message envoyé !</strong>
+      <p>Merci pour votre message. L'équipe de L'Essentiel vous répondra dans les meilleurs délais.</p>
+    </div>
+    <form id="res-form" action="#" novalidate>
+      <div class="form-grid">
+        <div class="fg" id="fg-nom">
+          <label for="f-nom">Nom complet</label>
+          <input type="text" id="f-nom" name="nom" placeholder="Votre nom" autocomplete="name">
+          <span class="form-err">Veuillez indiquer votre nom.</span>
+        </div>
+        <div class="fg" id="fg-email">
+          <label for="f-email">E-mail</label>
+          <input type="email" id="f-email" name="email" placeholder="votre@email.com" autocomplete="email">
+          <span class="form-err">Adresse e-mail invalide.</span>
+        </div>
+        <div class="fg" id="fg-tel">
+          <label for="f-tel">Téléphone</label>
+          <input type="tel" id="f-tel" name="tel" placeholder="XX.XX.XX" autocomplete="tel">
+          <span class="form-err">Numéro de téléphone requis.</span>
+        </div>
+        <div class="fg" id="fg-date">
+          <label for="f-date">Date souhaitée</label>
+          <input type="date" id="f-date" name="date">
+        </div>
+        <div class="fg full" id="fg-msg">
+          <label for="f-msg">Message</label>
+          <textarea id="f-msg" name="message" placeholder="Votre demande, nombre de convives, occasion particulière…"></textarea>
+          <span class="form-err">Veuillez saisir votre message.</span>
+        </div>
+      </div>
+      <button type="submit" class="form-submit" id="form-btn">Envoyer ma demande</button>
+    </form>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s-avis" id="avis">
+  <div class="s-hd">
+    <h2>Ce que disent nos clients</h2>
+    <div class="s-hd-line"></div>
+  </div>
+  <div class="avis-top">
+    <div class="avis-score">
+      <div class="big">3.1</div>
+      <div class="stars">★★★☆☆</div>
+      <div class="cnt">47 avis Google</div>
+    </div>
+    <div class="avis-divider"></div>
+    <div class="badge-grid">
+      <div class="badge">
+        <div class="badge-ico">⚓</div>
+        <div class="badge-lbl">Vue Marina</div>
+      </div>
+      <div class="badge">
+        <div class="badge-ico">🍽️</div>
+        <div class="badge-lbl">Cuisine locale</div>
+      </div>
+      <div class="badge">
+        <div class="badge-ico">🌙</div>
+        <div class="badge-lbl">Lounge & Bar</div>
+      </div>
+      <div class="badge">
+        <div class="badge-ico">🤝</div>
+        <div class="badge-lbl">Événements</div>
+      </div>
+    </div>
+  </div>
+  <div class="testi-grid">
+    <div class="testi">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-txt">« La terrasse sur la marina est vraiment un cadre unique à Nouméa. On y a fêté un anniversaire, tout était parfait — l'accueil, l'ambiance, la carte. »</p>
+      <div class="testi-author">Marie-Hélène L.</div>
+      <div class="testi-src">Via Google</div>
+    </div>
+    <div class="testi">
+      <div class="testi-stars">★★★★☆</div>
+      <p class="testi-txt">« Excellent endroit pour un déjeuner d'affaires. Le cadre est élégant sans être guindé, le service discret et efficace. Je recommande la formule déjeuner. »</p>
+      <div class="testi-author">Christophe M.</div>
+      <div class="testi-src">Via Google</div>
+    </div>
+    <div class="testi">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-txt">« Un vrai lounge comme on n'en trouve pas souvent à Nouméa. Les cocktails sont bien travaillés, l'ambiance du soir est vraiment réussie. Notre adresse préférée. »</p>
+      <div class="testi-author">Isabelle & Sébastien R.</div>
+      <div class="testi-src">Via Google</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <div class="foot-logo">L'<span>ESSENTIEL</span></div>
+      <p class="foot-desc">Restaurant-lounge bar face à la marina de Nouméa. Bistronomy raffinée, cocktails soignés, terrasse panoramique — du déjeuner jusqu'en soirée.</p>
+      <div class="foot-soc">
+        <a href="https://www.facebook.com/Essentiel.nc" target="_blank" rel="noopener" aria-label="Facebook L'Essentiel">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="foot-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#services">L'Expérience</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#avis">Avis clients</a></li>
+        <li><a href="#contact">Contact & Réservation</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Nous trouver</h4>
+      <ul>
+        <li>5 rue Adolphe Barrau</li>
+        <li>Nouméa 98800</li>
+        <li>Nouvelle-Calédonie</li>
+        <li><a href="tel:240200">📞 24.02.00</a></li>
+        <li>Ouvert 7j/7</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bar">
+    <p>© 2026 L'ESSENTIEL. Tous droits réservés.</p>
+    <p>Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+  </div>
+</footer>
+
+<script>
+var gItems=document.querySelectorAll('.gal-item');
+var lb=document.getElementById('lb');
+var lbImg=document.getElementById('lb-img');
+var lbClose=document.getElementById('lb-close');
+gItems.forEach(function(el){
+  el.addEventListener('click',function(){
+    lbImg.src=el.getAttribute('data-src');
+    lb.classList.add('open');
+    document.body.style.overflow='hidden';
+  });
+});
+function closeLb(){lb.classList.remove('open');document.body.style.overflow='';lbImg.src='';}
+lbClose.addEventListener('click',closeLb);
+lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+
+var form=document.getElementById('res-form');
+var fSuccess=document.getElementById('form-success');
+var fBtn=document.getElementById('form-btn');
+function vField(id,check){
+  var fg=document.getElementById('fg-'+id);
+  var ok=check(document.getElementById('f-'+id).value.trim());
+  fg.classList.toggle('has-err',!ok);
+  return ok;
+}
+form.addEventListener('submit',function(e){
+  e.preventDefault();
+  var ok=true;
+  ok=vField('nom',function(v){return v.length>1;})&&ok;
+  ok=vField('email',function(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);})&&ok;
+  ok=vField('tel',function(v){return v.length>5;})&&ok;
+  ok=vField('msg',function(v){return v.length>4;})&&ok;
+  if(!ok)return;
+  fBtn.textContent='Envoi…';
+  fBtn.disabled=true;
+  setTimeout(function(){
+    form.style.display='none';
+    fSuccess.style.display='block';
+  },900);
+});
+
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='none';}
+  });
+},{threshold:0.1});
+document.querySelectorAll('.srv-card,.testi,.met-text,.met-img,.badge,.gal-item').forEach(function(el){
+  el.style.transition='opacity 0.55s ease, transform 0.55s ease';
+  el.style.opacity='0';
+  el.style.transform='translateY(22px)';
+  obs.observe(el);
+});
+</script>
+</body>
+</html>
