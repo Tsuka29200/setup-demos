@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>La Môme — Nouméa</title>
+<meta name="description" content="Bar lounge cabaret au cœur de Nouméa. Cocktails signature, ambiance cabaret-parisien, soirées inoubliables sous le ciel du Pacifique.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#C8102E;
+--cs:#1A1A1A;
+--ca:#E8C46A;
+--cb:#0D0D0D;
+--ct:#F5F0EB;
+--cw:#fff;
+--ch:#E63946;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cb);color:var(--ct);font-family:'Lato',sans-serif;font-weight:300;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+
+/* BANDEAU PROMO */
+.promo{position:sticky;top:0;z-index:1001;background:#ffd500;height:44px;text-align:center}
+.promo a{display:block;line-height:44px;color:#4375ff;font-family:'Manrope','Plus Jakarta Sans',system-ui,sans-serif;font-weight:700;font-size:14px;letter-spacing:.3px}
+.promo a:hover{opacity:.85}
+
+/* HEADER */
+.hdr{position:sticky;top:44px;z-index:1000;background:rgba(13,13,13,.95);backdrop-filter:blur(8px);border-bottom:1px solid rgba(232,196,106,.15)}
+.hdr-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--ct);letter-spacing:.05em}
+.logo span{color:var(--ca)}
+nav{display:flex;gap:28px;align-items:center}
+nav a{font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ct);opacity:.8;transition:opacity .3s}
+nav a:hover{opacity:1;color:var(--ca)}
+.hdr-cta{background:var(--cp);color:var(--cw);font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:10px 22px;border-radius:2px;transition:background .3s,box-shadow .3s}
+.hdr-cta:hover{background:var(--ch);box-shadow:0 8px 24px rgba(200,16,46,.4);color:var(--cw)}
+.tel-link{font-size:.85rem;opacity:.7;transition:opacity .3s}
+.tel-link:hover{opacity:1;color:var(--ca)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.burger span{display:block;width:24px;height:2px;background:var(--ct);transition:transform .3s,opacity .3s}
+.mob-nav{display:none;flex-direction:column;background:var(--cs);padding:20px 24px;gap:16px}
+.mob-nav a{font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;opacity:.8;padding:6px 0;border-bottom:1px solid rgba(232,196,106,.1)}
+.mob-nav a:last-child{border-bottom:none}
+.mob-nav .hdr-cta{text-align:center;margin-top:8px;padding:14px;width:100%}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background:url('https://i.ibb.co/Kx788SDR/La-M-me-0.jpg') center center/cover no-repeat;text-align:center}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(13,13,13,.55) 0%,rgba(13,13,13,.75) 60%,rgba(13,13,13,.92) 100%)}
+.hero-content{position:relative;z-index:2;padding:0 20px;max-width:860px}
+.hero-tag{font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ca);margin-bottom:24px;opacity:.9}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(3.5rem,10vw,8rem);font-weight:700;color:var(--ct);line-height:.95;letter-spacing:.04em;margin-bottom:12px}
+.hero h1 em{color:var(--cp);font-style:italic}
+.hero-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1rem,2.5vw,1.4rem);color:var(--ct);opacity:.85;margin-bottom:40px;line-height:1.5}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--cp);color:var(--cw);padding:16px 36px;font-size:.85rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-radius:2px;transition:background .3s,box-shadow .3s;min-height:52px;display:inline-flex;align-items:center}
+.btn-primary:hover{background:var(--ch);box-shadow:0 8px 24px rgba(200,16,46,.4)}
+.btn-ghost{border:1px solid rgba(232,196,106,.5);color:var(--ca);padding:16px 36px;font-size:.85rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;border-radius:2px;transition:border-color .3s,background .3s;min-height:52px;display:inline-flex;align-items:center}
+.btn-ghost:hover{border-color:var(--ca);background:rgba(232,196,106,.08)}
+.scroll-ind{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;opacity:.55}
+.scroll-ind span{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ct)}
+.scroll-arr{width:1px;height:40px;background:linear-gradient(to bottom,var(--ca),transparent);animation:scrollpulse 1.8s ease-in-out infinite}
+@keyframes scrollpulse{0%,100%{opacity:.4;transform:scaleY(.8)}50%{opacity:1;transform:scaleY(1)}}
+
+/* BANDE STATS */
+.stats{background:var(--cp);padding:56px 24px}
+.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;color:var(--cw);line-height:1}
+.stat-label{font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-top:8px}
+.stat-sep{display:none}
+
+/* REVEAL FALLBACK */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+nav{display:none}
+.tel-link{display:none}
+.hdr-cta{display:none}
+.burger{display:flex}
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+.promo a{font-size:13px;line-height:40px}
+.promo{height:40px}
+.hdr{top:40px}
+.hdr-inner{padding:0 16px;height:60px}
+.logo{font-size:1.2rem}
+.hero{min-height:100svh}
+.hero-btns{flex-direction:column;align-items:center}
+.btn-primary,.btn-ghost{width:100%;justify-content:center;max-width:320px}
+.stats-inner{grid-template-columns:repeat(2,1fr);gap:32px 16px}
+.stat-num{font-size:2rem}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-inner">
+    <a href="#" class="logo">La <span>Môme</span></a>
+    <nav>
+      <a href="#ambiance">Ambiance</a>
+      <a href="#cocktails">Cocktails</a>
+      <a href="#reservation">Réservation</a>
+      <a href="#acces">Accès</a>
+      <a href="tel:+687285325" class="tel-link">☎ 28.53.25</a>
+    </nav>
+    <a href="#reservation" class="hdr-cta">Réserver</a>
+    <div class="burger" id="burger" aria-label="Menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+  <div class="mob-nav" id="mob-nav">
+    <a href="#ambiance">Ambiance</a>
+    <a href="#cocktails">Cocktails</a>
+    <a href="#reservation">Réservation</a>
+    <a href="#acces">Accès</a>
+    <a href="tel:+687285325">☎ 28.53.25</a>
+    <a href="#reservation" class="hdr-cta btn-primary">Réserver une table</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-tag">Bar Lounge · Cabaret · Nouméa</p>
+    <h1>LA <em>MÔME</em></h1>
+    <p class="hero-sub">Où Nouméa s'abandonne à la nuit</p>
+    <div class="hero-btns">
+      <a href="#reservation" class="btn-primary">Réserver une table</a>
+      <a href="#cocktails" class="btn-ghost">Découvrir la carte</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>Descendre</span>
+    <div class="scroll-arr"></div>
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<div class="stats" id="stats">
+  <div class="stats-inner">
+    <div>
+      <div class="stat-num" data-target="5">0</div>
+      <div class="stat-label">Note Google / 5</div>
+    </div>
+    <div>
+      <div class="stat-num" data-target="7">0</div>
+      <div class="stat-label">Soirs par semaine</div>
+    </div>
+    <div>
+      <div class="stat-num" data-target="20">0</div>
+      <div class="stat-label">Cocktails signature</div>
+    </div>
+    <div>
+      <div class="stat-num" data-target="1">0</div>
+      <div class="stat-label">Adresse unique à Nouméa</div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var b=document.getElementById('burger'),n=document.getElementById('mob-nav'),o=false;
+  function tog(){o=!o;n.style.display=o?'flex':'none';}
+  b.addEventListener('click',tog);
+  b.addEventListener('keydown',function(e){if(e.key==='Enter')tog();});
+  n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){o=false;n.style.display='none';});});
+})();
+(function(){
+  var nums=document.querySelectorAll('[data-target]'),done=false;
+  function count(){
+    nums.forEach(function(el){
+      var t=+el.getAttribute('data-target'),d=1200,s=30,st=Math.ceil(d/s);
+      var i=0;
+      var r=setInterval(function(){
+        i++;
+        el.textContent=Math.round(t*(i/st));
+        if(i>=st){el.textContent=t==='5'?'5★':t;clearInterval(r);}
+      },d/st);
+    });
+  }
+  var ob=new IntersectionObserver(function(entries){
+    if(entries[0].isIntersecting&&!done){done=true;count();}
+  },{threshold:.3});
+  var sec=document.getElementById('stats');
+  if(sec)ob.observe(sec);
+})();
+</script>
+<style>
+.s{padding:96px 24px}
+.s-dark{background:var(--cb)}
+.s-mid{background:var(--cs)}
+.s-red{background:var(--cp)}
+.s-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--ct);text-align:center;margin-bottom:12px}
+.s-sub{font-size:.9rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ca);text-align:center;margin-bottom:48px;opacity:.9}
+.s-line{width:48px;height:1px;background:var(--ca);margin:0 auto 48px;opacity:.6}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto}
+.c{background:rgba(255,255,255,.03);border:1px solid rgba(232,196,106,.12);border-radius:4px;padding:40px 32px;text-align:center;transition:border-color .3s,background .3s}
+.c:hover{border-color:rgba(232,196,106,.35);background:rgba(232,196,106,.04)}
+.c-icon{width:48px;height:48px;margin:0 auto 20px;color:var(--ca)}
+.c-title{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--ct);margin-bottom:12px}
+.c-txt{font-size:.875rem;line-height:1.7;opacity:.75;color:var(--ct)}
+.c-link{display:inline-block;margin-top:20px;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ca);border-bottom:1px solid rgba(232,196,106,.3);padding-bottom:2px;transition:border-color .3s}
+.c-link:hover{border-color:var(--ca)}
+.alt-row{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;max-width:1100px;margin:0 auto 80px}
+.alt-row:last-of-type{margin-bottom:0}
+.alt-row.rev{direction:rtl}
+.alt-row.rev>*{direction:ltr}
+.alt-img{border-radius:4px;overflow:hidden;aspect-ratio:4/3;position:relative}
+.alt-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.alt-img:hover img{transform:scale(1.03)}
+.alt-img::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(200,16,46,.15),transparent);pointer-events:none}
+.alt-text{}
+.alt-tag{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ca);margin-bottom:16px;opacity:.85}
+.alt-h{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--ct);line-height:1.2;margin-bottom:20px}
+.alt-p{font-size:.9rem;line-height:1.8;opacity:.75;margin-bottom:20px}
+.check-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.check-list li{font-size:.875rem;opacity:.8;display:flex;align-items:flex-start;gap:10px}
+.check-list li::before{content:'';display:block;width:16px;height:16px;min-width:16px;background:var(--ca);border-radius:50%;margin-top:2px;mask:url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 8l3.5 3.5L13 5' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/cover;-webkit-mask:url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 8l3.5 3.5L13 5' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/cover}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;max-width:100%}
+.gal-item{overflow:hidden;aspect-ratio:1;cursor:pointer;position:relative}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gal-item::after{content:'';position:absolute;inset:0;background:rgba(232,196,106,.15);opacity:0;transition:opacity .3s}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-item:hover::after{opacity:1}
+.lb{display:none;position:fixed;inset:0;background:rgba(13,13,13,.95);z-index:2000;align-items:center;justify-content:center;padding:20px}
+.lb.on{display:flex}
+.lb img{max-width:90vw;max-height:85vh;object-fit:contain;border-radius:4px}
+.lb-close{position:absolute;top:20px;right:24px;font-size:2rem;color:var(--ct);cursor:pointer;opacity:.7;transition:opacity .3s;background:none;border:none;line-height:1}
+.lb-close:hover{opacity:1}
+.frm{max-width:620px;margin:0 auto}
+.frm input,.frm textarea{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(245,240,235,.15);border-radius:2px;color:var(--ct);font-family:'Lato',sans-serif;font-size:.9rem;padding:14px 18px;margin-bottom:16px;transition:border-color .3s;outline:none}
+.frm input::placeholder,.frm textarea::placeholder{opacity:.45;color:var(--ct)}
+.frm input:focus,.frm textarea:focus{border-color:rgba(232,196,106,.5)}
+.frm textarea{min-height:120px;resize:vertical}
+.frm-submit{background:var(--ca);color:#1A1A1A;font-family:'Lato',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;padding:16px 40px;border:none;border-radius:2px;cursor:pointer;width:100%;min-height:52px;transition:background .3s,box-shadow .3s}
+.frm-submit:hover{background:#f0d07a;box-shadow:0 8px 24px rgba(232,196,106,.3)}
+.frm-ok{display:none;text-align:center;padding:32px;font-family:'Playfair Display',serif;font-style:italic;font-size:1.2rem;color:var(--ca);opacity:.9}
+.frm-err{border-color:var(--cp) !important}
+.stars{color:var(--ca);font-size:1.4rem;letter-spacing:.1em;display:block;margin-bottom:8px}
+.google-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid rgba(232,196,106,.2);border-radius:4px;padding:14px 24px;margin-bottom:40px}
+.gb-score{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--ct)}
+.gb-info{display:flex;flex-direction:column}
+.gb-stars{color:var(--ca);font-size:1rem}
+.gb-label{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;opacity:.6}
+.testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:900px;margin:0 auto}
+.testi{background:rgba(255,255,255,.03);border:1px solid rgba(232,196,106,.1);border-radius:4px;padding:32px}
+.testi-stars{color:var(--ca);margin-bottom:12px;font-size:1rem}
+.testi-q{font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;line-height:1.7;opacity:.85;margin-bottom:16px}
+.testi-name{font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;opacity:.5}
+.bdg-row{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:40px}
+.bdg{background:rgba(232,196,106,.08);border:1px solid rgba(232,196,106,.25);border-radius:2px;padding:8px 20px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ca)}
+.ftr{background:var(--cp);padding:64px 24px 32px}
+.ftr-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px}
+.ftr-logo{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--cw);margin-bottom:16px}
+.ftr-addr{font-size:.85rem;line-height:1.8;color:rgba(255,255,255,.8)}
+.ftr-tel{font-size:.9rem;color:var(--cw);font-weight:700;margin-top:10px;display:block}
+.ftr-tel:hover{opacity:.8}
+.ftr-h{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:18px}
+.ftr-links{display:flex;flex-direction:column;gap:10px}
+.ftr-links a{font-size:.85rem;color:rgba(255,255,255,.8);transition:color .3s}
+.ftr-links a:hover{color:var(--cw)}
+.ftr-social{display:flex;gap:14px;margin-top:8px}
+.ftr-social a{color:var(--cw);opacity:.75;transition:opacity .3s}
+.ftr-social a:hover{opacity:1}
+.ftr-bot{border-top:1px solid rgba(255,255,255,.15);max-width:1100px;margin:40px auto 0;padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.78rem;color:rgba(255,255,255,.55)}
+.ftr-bot a{color:rgba(255,255,255,.7);transition:color .3s}
+.ftr-bot a:hover{color:var(--cw)}
+.hr-gold{border:none;height:1px;background:linear-gradient(to right,transparent,rgba(232,196,106,.4),transparent);margin:0 auto 48px;max-width:480px}
+@media(max-width:900px){
+.grid3{grid-template-columns:1fr}
+.alt-row{grid-template-columns:1fr;gap:32px}
+.alt-row.rev{direction:ltr}
+.gal{grid-template-columns:repeat(2,1fr)}
+.testi-grid{grid-template-columns:1fr}
+.ftr-inner{grid-template-columns:1fr;gap:32px}
+.ftr-bot{flex-direction:column;text-align:center}
+}
+@media(max-width:480px){
+.s{padding:64px 16px}
+.c{padding:28px 20px}
+.gal{grid-template-columns:repeat(2,1fr)}
+.testi{padding:24px 18px}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s s-dark" id="services">
+  <p class="s-sub">L'expérience La Môme</p>
+  <h2 class="s-title">Une nuit qui ne ressemble à nulle autre</h2>
+  <hr class="hr-gold">
+  <div class="grid3">
+    <div class="c">
+      <svg class="c-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M24 8c-8.84 0-16 7.16-16 16s7.16 16 16 16 16-7.16 16-16S32.84 8 24 8zm0 4c2.2 0 4 1.8 4 4s-1.8 4-4 4-4-1.8-4-4 1.8-4 4-4zm0 22.8c-4 0-7.56-2.04-9.68-5.14.04-3.2 6.48-4.96 9.68-4.96 3.18 0 9.64 1.76 9.68 4.96A11.92 11.92 0 0124 34.8z" fill="currentColor" opacity=".9"/>
+      </svg>
+      <h3 class="c-title">Bar Lounge Signature</h3>
+      <p class="c-txt">Un comptoir où chaque geste est rituel. Cocktails élaborés, sélection de spiritueux, ambiance tamisée — une invitation à ralentir le temps.</p>
+      <a href="#cocktails" class="c-link">Voir la carte</a>
+    </div>
+    <div class="c">
+      <svg class="c-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M38 16H10a2 2 0 00-2 2v16a2 2 0 002 2h28a2 2 0 002-2V18a2 2 0 00-2-2zM14 30v-8l6 4-6 4zm10 2l-6-4 6-4 6 4-6 4zm4-2l6-4-6-4v8z" fill="currentColor" opacity=".9"/>
+        <path d="M16 12h16v2H16z" fill="currentColor" opacity=".5"/>
+      </svg>
+      <h3 class="c-title">Ambiance Cabaret</h3>
+      <p class="c-txt">Décors floraux, lumières chaudes, musique enveloppante — La Môme transpose l'esprit cabaret parisien sous le ciel du Pacifique.</p>
+      <a href="#ambiance" class="c-link">Voir l'ambiance</a>
+    </div>
+    <div class="c">
+      <svg class="c-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M32 10H16a6 6 0 00-6 6v16a6 6 0 006 6h16a6 6 0 006-6V16a6 6 0 00-6-6zm-8 22a8 8 0 110-16 8 8 0 010 16zm10-15a2 2 0 110-4 2 2 0 010 4z" fill="currentColor" opacity=".9"/>
+      </svg>
+      <h3 class="c-title">Soirées &amp; Événements</h3>
+      <p class="c-txt">Anniversaires, fêtes privées, soirées thématiques — réservez l'espace pour vos moments les plus précieux, dans un écrin unique à Nouméa.</p>
+      <a href="#reservation" class="c-link">Réserver</a>
+    </div>
+  </div>
+</section>
+
+<!-- COCKTAILS / MENU SIGNATURE -->
+<section class="s s-mid" id="cocktails">
+  <p class="s-sub">Carte signature</p>
+  <h2 class="s-title">Nos cocktails &amp; créations</h2>
+  <hr class="hr-gold">
+  <div class="grid3">
+    <div class="c">
+      <span class="c-title" style="">🌹 La Môme Rouge</span>
+      <p class="c-txt" style="">Vodka, liqueur de litchi, sirop de rose, jus de cranberry — une rondeur florale qui s'ouvre comme une nuit naissante.</p>
+      <span class="c-link" style="cursor:default;border:none">1 600 XPF</span>
+    </div>
+    <div class="c">
+      <span class="c-title">🌙 Minuit Pacifique</span>
+      <p class="c-txt">Rhum ambré, citron vert, sirop de canne local, gingembre frais — la chaleur tropicale en une seule gorgée.</p>
+      <span class="c-link" style="cursor:default;border:none">1 700 XPF</span>
+    </div>
+    <div class="c">
+      <span class="c-title">✨ Pétales d'Or</span>
+      <p class="c-txt">Gin, eau tonique artisanale, fleur de sureau, écorce d'orange — une légèreté pétillante comme les lumières de la salle.</p>
+      <span class="c-link" style="cursor:default;border:none">1 800 XPF</span>
+    </div>
+    <div class="c">
+      <span class="c-title">🍹 Sans Alcool — L'Innocente</span>
+      <p class="c-txt">Grenadine maison, ananas frais, eau pétillante, menthe — fraîcheur et élégance sans compromis.</p>
+      <span class="c-link" style="cursor:default;border:none">900 XPF</span>
+    </div>
+    <div class="c">
+      <span class="c-title">🥂 Coupe du Soir</span>
+      <p class="c-txt">Champagne, liqueur de framboise, pétale de rose — pour les instants qui méritent d'être célébrés.</p>
+      <span class="c-link" style="cursor:default;border:none">2 200 XPF</span>
+    </div>
+    <div class="c">
+      <span class="c-title">🔥 Canaille Noire</span>
+      <p class="c-txt">Whisky fumé, sirop de miel de brousse, angostura, zeste de citron — puissant, enveloppant, inoubliable.</p>
+      <span class="c-link" style="cursor:default;border:none">1 900 XPF</span>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER / STORYTELLING -->
+<section class="s s-dark" id="histoire">
+  <p class="s-sub">Notre histoire</p>
+  <h2 class="s-title">L'âme de La Môme</h2>
+  <hr class="hr-gold">
+  <div class="alt-row">
+    <div class="alt-img">
+      <img src="https://i.ibb.co/MDgQHT2C/La-M-me-1.jpg" alt="Ambiance intérieure La Môme" loading="lazy">
+    </div>
+    <div class="alt-text">
+      <p class="alt-tag">Bar lounge · Cabaret · Nouméa</p>
+      <h3 class="alt-h">Un cabaret parisien sous les étoiles du Pacifique</h3>
+      <p class="alt-p">La Môme est née d'un désir simple et fou : apporter à Nouméa le frisson des nuits parisiennes, cette légèreté canaille des cabarets où la vie semble plus belle, plus grande, plus lumineuse.</p>
+      <p class="alt-p">Dans une rue calme du centre-ville, derrière une façade discrète, s'ouvre un monde à part — fleurs artificielles en cascade, lumières rouges et dorées, musique qui enveloppe sans écraser.</p>
+      <ul class="check-list">
+        <li>Une décoration entièrement pensée pour créer l'évasion</li>
+        <li>Des cocktails élaborés par des passionnés du détail</li>
+        <li>Un espace chaleureux pour toutes les occasions</li>
+        <li>Le seul bar lounge cabaret à Nouméa</li>
+      </ul>
+    </div>
+  </div>
+  <div class="alt-row rev">
+    <div class="alt-img">
+      <img src="https://i.ibb.co/zTVbs7nd/La-M-me-2.jpg" alt="Détails festifs La Môme" loading="lazy">
+    </div>
+    <div class="alt-text">
+      <p class="alt-tag">Esprit &amp; vision</p>
+      <h3 class="alt-h">Féminin, charmeur, irrésistiblement nocturne</h3>
+      <p class="alt-p">L'univers de La Môme est résolument féminin — non pas exclusif, mais dans sa sensibilité : le soin du détail, la douceur de l'accueil, le plaisir de la mise en scène.</p>
+      <p class="alt-p">Chaque soir, dès que les lumières de la ville s'estompent, La Môme s'éveille. Une soirée sous le ciel étoilé de Nouméa prend ici une tout autre saveur.</p>
+      <ul class="check-list">
+        <li>Ouvert 7 soirs sur 7 pour votre plaisir</li>
+        <li>Privatisation possible pour vos événements</li>
+        <li>Accueil personnalisé, atmosphère sans prétention</li>
+        <li>Un moment hors du temps, au cœur de Nouméa</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE AMBIANCE -->
+<section class="s s-mid" id="ambiance">
+  <p class="s-sub">Galerie</p>
+  <h2 class="s-title">Entrez dans l'univers</h2>
+  <hr class="hr-gold">
+  <div class="gal">
+    <div class="gal-item" data-src="https://i.ibb.co/Kx788SDR/La-M-me-0.jpg" tabindex="0" role="button" aria-label="Voir la photo 1">
+      <img src="https://i.ibb.co/Kx788SDR/La-M-me-0.jpg" alt="La Môme ambiance nuit" loading="lazy">
+    </div>
+    <div class="gal-item" data-src="https://i.ibb.co/MDgQHT2C/La-M-me-1.jpg" tabindex="0" role="button" aria-label="Voir la photo 2">
+      <img src="https://i.ibb.co/MDgQHT2C/La-M-me-1.jpg" alt="La Môme intérieur" loading="lazy">
+    </div>
+    <div class="gal-item" data-src="https://i.ibb.co/zTVbs7nd/La-M-me-2.jpg" tabindex="0" role="button" aria-label="Voir la photo 3">
+      <img src="https://i.ibb.co/zTVbs7nd/La-M-me-2.jpg" alt="La Môme détails festifs" loading="lazy">
+    </div>
+    <div class="gal-item" data-src="https://i.ibb.co/SwD06mWd/La-M-me-3.jpg" tabindex="0" role="button" aria-label="Voir la photo 4">
+      <img src="https://i.ibb.co/SwD06mWd/La-M-me-3.jpg" alt="La Môme bar lounge" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Visionneuse photo">
+  <button class="lb-close" id="lb-close" aria-label="Fermer">&times;</button>
+  <img src="" alt="Photo agrandie" id="lb-img">
+</div>
+
+<!-- RÉSERVATION / FORMULAIRE -->
+<section class="s s-dark" id="reservation">
+  <p class="s-sub">Réservation</p>
+  <h2 class="s-title">Réservez votre soirée</h2>
+  <hr class="hr-gold">
+  <p style="text-align:center;opacity:.7;font-size:.9rem;margin-bottom:48px;line-height:1.7">Une soirée inoubliable commence ici. Écrivez-nous, nous vous répondons dans les plus brefs délais.</p>
+  <form class="frm" id="frm" action="#" novalidate>
+    <input type="text" id="f-name" name="nom" placeholder="Votre nom *" autocomplete="name">
+    <input type="email" id="f-email" name="email" placeholder="Votre adresse e-mail *" autocomplete="email">
+    <input type="tel" id="f-tel" name="telephone" placeholder="Votre téléphone" autocomplete="tel">
+    <input type="text" id="f-date" name="date" placeholder="Date souhaitée (jj/mm/aaaa)">
+    <textarea id="f-msg" name="message" placeholder="Votre message, nombre de personnes, occasion…"></textarea>
+    <button type="submit" class="frm-submit">Envoyer ma demande</button>
+  </form>
+  <div class="frm-ok" id="frm-ok">
+    Merci — nous avons bien reçu votre demande.<br>La Môme vous répondra très prochainement. ✨
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s s-mid" id="avis">
+  <p class="s-sub">Ce qu'ils disent</p>
+  <h2 class="s-title">Ils ont vécu La Môme</h2>
+  <hr class="hr-gold">
+  <div style="text-align:center">
+    <div class="google-badge">
+      <div class="gb-score">5,0</div>
+      <div class="gb-info">
+        <span class="gb-stars">★★★★★</span>
+        <span class="gb-label">Note Google · 2 avis</span>
+      </div>
+    </div>
+  </div>
+  <div class="testi-grid">
+    <div class="testi">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-q">"Une adresse absolument magique. L'ambiance, les cocktails, l'accueil — tout est parfait. On se croirait dans un autre monde, à deux pas du centre de Nouméa."</p>
+      <span class="testi-name">— Client Google</span>
+    </div>
+    <div class="testi">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-q">"La Môme, c'est une véritable pépite. Le décor est envoûtant, les cocktails sont délicieux et l'atmosphère est unique en Nouvelle-Calédonie. On y retourne sans hésiter."</p>
+      <span class="testi-name">— Client Google</span>
+    </div>
+  </div>
+  <div class="bdg-row">
+    <span class="bdg">Bar lounge unique à Nouméa</span>
+    <span class="bdg">Ambiance cabaret-parisien</span>
+    <span class="bdg">Cocktails signature</span>
+    <span class="bdg">Événements privés</span>
+  </div>
+</section>
+
+<!-- HORAIRES & ACCÈS -->
+<section class="s s-dark" id="acces">
+  <p class="s-sub">Nous trouver</p>
+  <h2 class="s-title">Horaires &amp; Accès</h2>
+  <hr class="hr-gold">
+  <div class="grid3" style="max-width:900px">
+    <div class="c" style="text-align:left">
+      <svg class="c-icon" style="margin-left:0" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M24 4C16.27 4 10 10.27 10 18c0 10.5 14 26 14 26s14-15.5 14-26c0-7.73-6.27-14-14-14zm0 19a5 5 0 110-10 5 5 0 010 10z" fill="currentColor" opacity=".9"/>
+      </svg>
+      <h3 class="c-title" style="text-align:left">Adresse</h3>
+      <p class="c-txt">49 bis Rue Jules Garnier<br>Nouméa 98800<br>Nouvelle-Calédonie</p>
+    </div>
+    <div class="c" style="text-align:left">
+      <svg class="c-icon" style="margin-left:0" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M24 8C15.16 8 8 15.16 8 24s7.16 16 16 16 16-7.16 16-16S32.84 8 24 8zm1 17h-8v-2h6V14h2v11z" fill="currentColor" opacity=".9"/>
+      </svg>
+      <h3 class="c-title" style="text-align:left">Horaires</h3>
+      <p class="c-txt">Ouvert tous les soirs<br>À partir de 18h00<br>Fermeture tardive</p>
+    </div>
+    <div class="c" style="text-align:left">
+      <svg class="c-icon" style="margin-left:0" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M38.71 30.29l-6-6a2 2 0 00-2.83 0l-2.73 2.73a20.2 20.2 0 01-6.17-6.17l2.73-2.73a2 2 0 000-2.83l-6-6a2 2 0 00-2.83 0l-2.44 2.44C11.16 13.18 10 15.5 10 18c0 11.03 8.97 20 20 20 2.5 0 4.82-1.16 6.27-2.44l2.44-2.44a2 2 0 000-2.83z" fill="currentColor" opacity=".9"/>
+      </svg>
+      <h3 class="c-title" style="text-align:left">Contact</h3>
+      <p class="c-txt"><a href="tel:+687285325" style="color:var(--ca);font-weight:700">28.53.25</a><br><a href="https://www.facebook.com/profile.php" target="_blank" rel="noopener" style="color:var(--ca)">Facebook La Môme</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ftr">
+  <div class="ftr-inner">
+    <div>
+      <div class="ftr-logo">La Môme</div>
+      <p class="ftr-addr">49 bis Rue Jules Garnier<br>Nouméa 98800, Nouvelle-Calédonie</p>
+      <a href="tel:+687285325" class="ftr-tel">☎ 28.53.25</a>
+      <div class="ftr-social" style="margin-top:20px">
+        <a href="https://www.facebook.com/profile.php" target="_blank" rel="noopener" aria-label="Facebook La Môme">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <p class="ftr-h">Navigation</p>
+      <div class="ftr-links">
+        <a href="#services">L'expérience</a>
+        <a href="#cocktails">Cocktails</a>
+        <a href="#ambiance">Galerie</a>
+        <a href="#reservation">Réservation</a>
+        <a href="#avis">Avis clients</a>
+        <a href="#acces">Accès</a>
+      </div>
+    </div>
+    <div>
+      <p class="ftr-h">Horaires</p>
+      <div class="ftr-links" style="font-size:.85rem;color:rgba(255,255,255,.8);flex-direction:column;gap:6px;display:flex">
+        <span>Tous les soirs</span>
+        <span>Dès 18h00</span>
+        <span style="margin-top:10px;opacity:.6;font-size:.75rem">Bar Lounge · Cabaret<br>Nouméa, Nouvelle-Calédonie</span>
+      </div>
+    </div>
+  </div>
+  <div class="ftr-bot">
+    <span>© 2026 La Môme. Tous droits réservés.</span>
+    <a href="https://setup.nc" target="_blank" rel="noopener">Site réalisé par Setup NC</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var items=document.querySelectorAll('.gal-item'),lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img'),lbClose=document.getElementById('lb-close');
+  function open(src){lbImg.src=src;lb.classList.add('on');document.body.style.overflow='hidden';}
+  function close(){lb.classList.remove('on');document.body.style.overflow='';lbImg.src='';}
+  items.forEach(function(el){
+    el.addEventListener('click',function(){open(el.getAttribute('data-src'));});
+    el.addEventListener('keydown',function(e){if(e.key==='Enter')open(el.getAttribute('data-src'));});
+  });
+  lbClose.addEventListener('click',close);
+  lb.addEventListener('click',function(e){if(e.target===lb)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+})();
+(function(){
+  var frm=document.getElementById('frm'),ok=document.getElementById('frm-ok');
+  frm.addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=document.getElementById('f-name'),em=document.getElementById('f-email'),valid=true;
+    [n,em].forEach(function(f){f.classList.remove('frm-err');});
+    if(!n.value.trim()){n.classList.add('frm-err');valid=false;}
+    if(!em.value.includes('@')){em.classList.add('frm-err');valid=false;}
+    if(!valid)return;
+    frm.style.display='none';
+    ok.style.display='block';
+  });
+})();
+</script>
+</body>
+</html>
