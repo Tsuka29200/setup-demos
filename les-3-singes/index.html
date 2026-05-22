@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Les 3 Singes — Nouméa</title>
+<meta name="description" content="Bar de terrasse à Nouméa, Nouvelle-Calédonie. Cocktails travaillés, ambiance guirlandes et rotin, soirées conviviales en plein air. Rue de la Frégate-Nivôse.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Playfair+Display:wght@400;700&family=Barlow+Semi+Condensed:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#1A1A1A;
+--cs:#C8860A;
+--ca:#1B8A7A;
+--cb:#141414;
+--ct:#F2EBD9;
+--cw:#ffffff;
+--rad:6px;
+--trans:300ms ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cb);color:var(--ct);font-family:'Barlow Semi Condensed',system-ui,sans-serif;overflow-x:hidden;font-size:16px;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+
+/* BANDEAU PROMO */
+.promo-band{position:sticky;top:0;z-index:1001;background:#ffd500;height:44px;text-align:center}
+.promo-band a{display:block;line-height:44px;color:#4375ff;font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;letter-spacing:.3px}
+.promo-band a:hover{opacity:.85}
+
+/* HEADER */
+.site-header{position:sticky;top:44px;z-index:1000;background:rgba(20,20,20,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(200,134,10,.15)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:0 24px;height:64px}
+.logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--cs);letter-spacing:.5px}
+.logo span{color:var(--ct);font-size:.85rem;display:block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:400;letter-spacing:2px;text-transform:uppercase;line-height:1}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:.9rem;font-weight:500;letter-spacing:.5px;text-transform:uppercase;color:rgba(242,235,217,.7);transition:color var(--trans)}
+.nav-links a:hover{color:var(--cs)}
+.header-cta{background:var(--cs);color:var(--cp);font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:1px;text-transform:uppercase;padding:10px 20px;border-radius:var(--rad);border:none;cursor:pointer;transition:background var(--trans),box-shadow var(--trans)}
+.header-cta:hover{background:#d9920b;box-shadow:0 8px 16px rgba(200,134,10,.2)}
+.tel-link{color:var(--ct);font-weight:600;font-size:.9rem;transition:color var(--trans)}
+.tel-link:hover{color:var(--cs)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--ct);transition:transform var(--trans),opacity var(--trans);border-radius:2px}
+.mobile-nav{display:none;flex-direction:column;background:rgba(20,20,20,.98);padding:20px 24px 24px;gap:16px;border-top:1px solid rgba(200,134,10,.2)}
+.mobile-nav a{font-size:1rem;font-weight:500;color:var(--ct);letter-spacing:.5px;text-transform:uppercase;padding:8px 0;border-bottom:1px solid rgba(242,235,217,.08)}
+.mobile-nav a:hover{color:var(--cs)}
+.mobile-nav .header-cta{width:100%;text-align:center;margin-top:8px;min-height:48px;font-size:1rem}
+@media(max-width:768px){
+  .nav-links,.tel-link{display:none}
+  .hamburger{display:flex}
+  .mobile-nav.open{display:flex}
+  .promo-band{height:40px}
+  .promo-band a{line-height:40px;font-size:13px}
+  .site-header{top:40px}
+}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background:url('https://i.ibb.co/N2FdTyBH/Les-3-Singes-0.jpg') center/cover no-repeat;overflow:hidden}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(26,26,26,.75) 0%,rgba(26,26,26,.5) 50%,rgba(27,138,122,.15) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;max-width:760px;padding:0 24px}
+.hero-eyebrow{font-size:.8rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--cs);margin-bottom:16px}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(3rem,8vw,6.5rem);font-weight:700;line-height:1.05;color:var(--ct);margin-bottom:16px}
+.hero-title em{color:var(--cs);font-style:normal}
+.hero-sub{font-size:clamp(1rem,2.5vw,1.25rem);font-weight:300;color:rgba(242,235,217,.85);letter-spacing:2px;text-transform:uppercase;margin-bottom:40px}
+.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.b-primary{background:var(--cs);color:var(--cp);font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1rem;letter-spacing:1px;text-transform:uppercase;padding:16px 36px;border-radius:var(--rad);border:none;cursor:pointer;min-height:52px;transition:background var(--trans),box-shadow var(--trans);animation:pulse-gold 3s ease-in-out infinite}
+.b-primary:hover{background:#d9920b;box-shadow:0 8px 16px rgba(200,134,10,.3);animation:none}
+.b-outline{background:transparent;color:var(--ct);font-family:'Barlow Semi Condensed',sans-serif;font-weight:600;font-size:1rem;letter-spacing:1px;text-transform:uppercase;padding:16px 36px;border-radius:var(--rad);border:2px solid rgba(242,235,217,.4);cursor:pointer;min-height:52px;transition:border-color var(--trans),color var(--trans)}
+.b-outline:hover{border-color:var(--cs);color:var(--cs)}
+@keyframes pulse-gold{0%,100%{box-shadow:0 0 0 0 rgba(200,134,10,.35)}50%{box-shadow:0 0 0 8px rgba(200,134,10,.0)}}
+.scroll-indicator{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px}
+.scroll-indicator span{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:rgba(242,235,217,.5)}
+.scroll-arrow{width:20px;height:20px;border-right:2px solid var(--cs);border-bottom:2px solid var(--cs);transform:rotate(45deg);animation:bounce-down 2s ease-in-out infinite}
+@keyframes bounce-down{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(5px)}}
+@media(max-width:480px){
+  .hero-actions{flex-direction:column;align-items:stretch;width:100%}
+  .b-primary,.b-outline{width:100%;text-align:center}
+}
+
+/* BANDE STATS */
+.stats-band{background:var(--cs);padding:56px 24px}
+.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
+.stat-val{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.5rem);font-weight:700;color:var(--cp);line-height:1}
+.stat-lbl{font-size:.85rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(26,26,26,.75);margin-top:8px}
+@media(max-width:768px){.stats-inner{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:400px){.stats-inner{grid-template-columns:1fr;gap:24px}}
+
+/* FALLBACK ANIMATIONS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo-band">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="site-header" id="top">
+  <div class="header-inner">
+    <a href="#top" class="logo">Les 3 Singes<span>Bar · Terrasse · Nouméa</span></a>
+    <nav class="nav-links" aria-label="Navigation principale">
+      <a href="#ambiance">Ambiance</a>
+      <a href="#cocktails">Cocktails</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:0687737700" class="tel-link">87.73.77</a>
+    </nav>
+    <a href="#reservation" class="header-cta">Réserver</a>
+    <button class="hamburger" id="hbg" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mob-nav" aria-label="Navigation mobile">
+    <a href="#ambiance">Ambiance</a>
+    <a href="#cocktails">Cocktails</a>
+    <a href="#galerie">Galerie</a>
+    <a href="#contact">Contact</a>
+    <a href="tel:0687737700">87.73.77</a>
+    <a href="#reservation" class="header-cta">Réserver ma soirée</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Nouméa · Nouvelle-Calédonie</p>
+    <h1 class="hero-title">Les <em>3</em> Singes</h1>
+    <p class="hero-sub">Terrasse · Cocktails · Convivialité</p>
+    <div class="hero-actions">
+      <a href="#reservation" class="b-primary">Réserver votre soirée</a>
+      <a href="#cocktails" class="b-outline">Découvrir les cocktails</a>
+    </div>
+  </div>
+  <div class="scroll-indicator" aria-hidden="true">
+    <span>Découvrir</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<section class="stats-band" aria-label="Chiffres clés">
+  <div class="stats-inner">
+    <div>
+      <div class="stat-val" data-target="12">0</div>
+      <div class="stat-lbl">Cocktails signature</div>
+    </div>
+    <div>
+      <div class="stat-val" data-target="7">0</div>
+      <div class="stat-lbl">Soirs par semaine</div>
+    </div>
+    <div>
+      <div class="stat-val" data-target="60">0</div>
+      <div class="stat-lbl">Places en terrasse</div>
+    </div>
+    <div>
+      <div class="stat-val" data-target="100">0</div>
+      <div class="stat-lbl">% Bonne humeur</div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var hbg=document.getElementById('hbg'),nav=document.getElementById('mob-nav');
+  hbg.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');
+    hbg.setAttribute('aria-expanded',open);
+  });
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){nav.classList.remove('open');hbg.setAttribute('aria-expanded',false);});
+  });
+})();
+(function(){
+  var els=document.querySelectorAll('[data-target]');
+  if(!els.length)return;
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting)return;
+      var el=e.target,target=+el.dataset.target,dur=1600,start=null;
+      function step(ts){
+        if(!start)start=ts;
+        var p=Math.min((ts-start)/dur,1);
+        el.textContent=Math.round(p*target)+(target===100?'%':'');
+        if(p<1)requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+      obs.unobserve(el);
+    });
+  },{threshold:.4});
+  els.forEach(function(el){obs.observe(el);});
+})();
+</script>
+<style>
+/* SERVICES */
+.s-services{padding:96px 24px;background:var(--cp)}
+.s-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--ct);text-align:center;margin-bottom:12px}
+.s-sub{text-align:center;color:rgba(242,235,217,.6);font-size:1rem;font-weight:400;letter-spacing:1px;margin-bottom:56px}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto}
+.srv-card{background:var(--cb);border:1px solid rgba(200,134,10,.12);border-radius:10px;padding:40px 28px;text-align:center;transition:border-color var(--trans),transform var(--trans)}
+.srv-card:hover{border-color:var(--cs);transform:translateY(-4px)}
+.srv-icon{width:56px;height:56px;margin:0 auto 20px;color:var(--cs)}
+.srv-card h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--ct);margin-bottom:12px}
+.srv-card p{font-size:.95rem;color:rgba(242,235,217,.65);line-height:1.7}
+.srv-tag{display:inline-block;margin-top:20px;font-size:.78rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--ca);border:1px solid var(--ca);border-radius:4px;padding:5px 14px}
+@media(max-width:768px){.srv-grid{grid-template-columns:1fr}}
+
+/* METIER */
+.s-metier{padding:96px 24px;background:var(--cb)}
+.metier-inner{max-width:1100px;margin:0 auto}
+.metier-row{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:80px}
+.metier-row:last-child{margin-bottom:0}
+.metier-row.rev{direction:rtl}
+.metier-row.rev>*{direction:ltr}
+.metier-text h2{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3vw,2.5rem);color:var(--ct);margin-bottom:20px;line-height:1.2}
+.metier-text p{color:rgba(242,235,217,.7);font-size:1rem;line-height:1.8;margin-bottom:24px}
+.check-list{display:flex;flex-direction:column;gap:12px}
+.check-list li{display:flex;align-items:flex-start;gap:12px;color:rgba(242,235,217,.75);font-size:.95rem}
+.check-list li::before{content:'';display:block;width:18px;height:18px;min-width:18px;background:var(--ca);border-radius:50%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3 8l3.5 3.5L13 5' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-size:cover;margin-top:2px}
+.metier-img{border-radius:12px;overflow:hidden;aspect-ratio:4/3}
+.metier-img img{width:100%;height:100%;object-fit:cover;transition:transform 600ms ease}
+.metier-img:hover img{transform:scale(1.03)}
+@media(max-width:768px){
+  .metier-row,.metier-row.rev{grid-template-columns:1fr;direction:ltr;gap:32px}
+  .metier-row .metier-img{order:-1}
+}
+
+/* GALERIE */
+.s-galerie{padding:96px 24px;background:var(--cp);text-align:center}
+.galerie-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:1000px;margin:0 auto 0}
+.g-item{border-radius:10px;overflow:hidden;cursor:pointer;aspect-ratio:4/3;position:relative}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform 600ms ease}
+.g-item:hover img{transform:scale(1.03)}
+.g-item::after{content:'';position:absolute;inset:0;background:rgba(26,26,26,0);transition:background var(--trans)}
+.g-item:hover::after{background:rgba(26,26,26,.25)}
+@media(max-width:600px){.galerie-grid{grid-template-columns:1fr}}
+/* LIGHTBOX */
+.lbx{display:none;position:fixed;inset:0;z-index:2000;background:rgba(20,20,20,.95);align-items:center;justify-content:center;padding:24px}
+.lbx.open{display:flex}
+.lbx-img{max-width:90vw;max-height:85vh;border-radius:8px;object-fit:contain}
+.lbx-close{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--ct);font-size:2rem;cursor:pointer;line-height:1}
+.lbx-prev,.lbx-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(200,134,10,.15);border:1px solid var(--cs);color:var(--ct);font-size:1.5rem;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background var(--trans)}
+.lbx-prev{left:16px}
+.lbx-next{right:16px}
+.lbx-prev:hover,.lbx-next:hover{background:rgba(200,134,10,.4)}
+
+/* COCKTAILS */
+.s-cocktails{padding:96px 24px;background:var(--cb)}
+.cocktails-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto}
+.ck-card{background:var(--cp);border-radius:10px;overflow:hidden;border:1px solid rgba(200,134,10,.1);transition:transform var(--trans),border-color var(--trans)}
+.ck-card:hover{transform:translateY(-4px);border-color:rgba(200,134,10,.35)}
+.ck-img{aspect-ratio:3/2;overflow:hidden}
+.ck-img img{width:100%;height:100%;object-fit:cover;transition:transform 600ms ease}
+.ck-card:hover .ck-img img{transform:scale(1.03)}
+.ck-body{padding:24px}
+.ck-body h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--ct);margin-bottom:8px}
+.ck-body p{font-size:.9rem;color:rgba(242,235,217,.6);line-height:1.6;margin-bottom:16px}
+.ck-price{font-size:1rem;font-weight:700;color:var(--cs);letter-spacing:.5px}
+@media(max-width:768px){.cocktails-grid{grid-template-columns:1fr}}
+
+/* RESERVATION */
+.s-reservation{padding:96px 24px;background:linear-gradient(135deg,rgba(27,138,122,.15) 0%,rgba(26,26,26,1) 60%);text-align:center}
+.resa-box{max-width:640px;margin:0 auto}
+.resa-box p{color:rgba(242,235,217,.7);font-size:1.05rem;margin-bottom:40px;line-height:1.8}
+.resa-box .b-primary{font-size:1.1rem;padding:18px 48px;display:inline-block}
+
+/* FORMULAIRE */
+.s-contact{padding:96px 24px;background:var(--cp)}
+.form-wrap{max-width:680px;margin:0 auto}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.f-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.f-group label{font-size:.8rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:rgba(242,235,217,.6)}
+.f-group input,.f-group textarea{background:var(--cb);border:1px solid rgba(200,134,10,.2);border-radius:var(--rad);color:var(--ct);font-family:'Barlow Semi Condensed',sans-serif;font-size:1rem;padding:14px 16px;transition:border-color var(--trans);width:100%}
+.f-group input:focus,.f-group textarea:focus{outline:none;border-color:var(--cs)}
+.f-group textarea{min-height:140px;resize:vertical}
+.f-group .err{font-size:.78rem;color:#e05c5c;margin-top:4px;display:none}
+.f-group.invalid .err{display:block}
+.f-group.invalid input,.f-group.invalid textarea{border-color:#e05c5c}
+.form-submit{width:100%;min-height:52px;font-size:1rem;cursor:pointer;background:var(--cs);color:var(--cp);border:none;border-radius:var(--rad);font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;transition:background var(--trans),box-shadow var(--trans)}
+.form-submit:hover{background:#d9920b;box-shadow:0 8px 16px rgba(200,134,10,.2)}
+.form-success{display:none;text-align:center;padding:32px;border:1px solid var(--ca);border-radius:10px;color:var(--ct)}
+.form-success svg{color:var(--ca);margin:0 auto 16px}
+.form-success h3{font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:8px}
+.form-success p{color:rgba(242,235,217,.65);font-size:.95rem}
+@media(max-width:600px){.form-row{grid-template-columns:1fr}}
+
+/* PREUVE SOCIALE */
+.s-avis{padding:96px 24px;background:var(--cb);text-align:center}
+.avis-note{margin:0 auto 48px;display:inline-flex;flex-direction:column;align-items:center;gap:8px}
+.stars{display:flex;gap:4px}
+.stars svg{color:var(--cs)}
+.note-val{font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:700;color:var(--ct);line-height:1}
+.note-label{font-size:.8rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(242,235,217,.5)}
+.temoignages{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto 48px;text-align:left}
+.temoignage{background:var(--cp);border-radius:10px;padding:32px;border:1px solid rgba(200,134,10,.1)}
+.temoignage blockquote{font-size:.95rem;color:rgba(242,235,217,.75);line-height:1.7;font-style:italic;margin-bottom:20px}
+.temoignage cite{font-size:.82rem;font-weight:600;color:var(--cs);letter-spacing:.5px;font-style:normal}
+.badges{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.badge{background:rgba(27,138,122,.12);border:1px solid rgba(27,138,122,.3);border-radius:24px;padding:10px 22px;font-size:.82rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--ca)}
+@media(max-width:768px){.temoignages{grid-template-columns:1fr}}
+
+/* HORAIRES */
+.s-horaires{padding:96px 24px;background:var(--cp)}
+.horaires-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.horaires-block h3{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--ct);margin-bottom:24px}
+.horaires-list{display:flex;flex-direction:column;gap:12px}
+.horaires-list li{display:flex;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid rgba(242,235,217,.07);font-size:.95rem;color:rgba(242,235,217,.75)}
+.horaires-list li span:last-child{color:var(--cs);font-weight:600}
+.adresse-block h3{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--ct);margin-bottom:24px}
+.adresse-block address{font-style:normal;color:rgba(242,235,217,.7);font-size:.95rem;line-height:1.9}
+.adresse-block a{color:var(--cs);transition:opacity var(--trans)}
+.adresse-block a:hover{opacity:.8}
+.map-placeholder{margin-top:24px;border-radius:10px;overflow:hidden;border:1px solid rgba(200,134,10,.15)}
+@media(max-width:680px){.horaires-inner{grid-template-columns:1fr;gap:40px}}
+
+/* FOOTER */
+.site-footer{background:#0e0e0e;padding:64px 24px 32px;border-top:1px solid rgba(200,134,10,.15)}
+.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-brand .logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--cs);display:inline-block;margin-bottom:12px}
+.footer-brand p{font-size:.9rem;color:rgba(242,235,217,.5);line-height:1.7;max-width:280px}
+.footer-socials{display:flex;gap:12px;margin-top:20px;align-items:center}
+.social-ico{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:1px solid rgba(200,134,10,.25);color:var(--ct);transition:border-color var(--trans),color var(--trans)}
+.social-ico:hover{border-color:var(--cs);color:var(--cs)}
+.footer-col h4{font-size:.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cs);margin-bottom:20px}
+.footer-col ul{display:flex;flex-direction:column;gap:10px}
+.footer-col ul a{font-size:.9rem;color:rgba(242,235,217,.55);transition:color var(--trans)}
+.footer-col ul a:hover{color:var(--ct)}
+.footer-col address{font-style:normal;font-size:.9rem;color:rgba(242,235,217,.55);line-height:1.8}
+.footer-col address a{color:var(--cs);transition:opacity var(--trans)}
+.footer-col address a:hover{opacity:.8}
+.footer-bottom{max-width:1100px;margin:0 auto;border-top:1px solid rgba(242,235,217,.07);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:gap;gap:12px}
+.footer-bottom p{font-size:.8rem;color:rgba(242,235,217,.35)}
+.footer-bottom a{color:rgba(200,134,10,.7);transition:color var(--trans)}
+.footer-bottom a:hover{color:var(--cs)}
+@media(max-width:768px){
+  .footer-inner{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+}
+</style>
+
+<!-- COCKTAILS SIGNATURE -->
+<section class="s-cocktails" id="cocktails">
+  <div style="max-width:1100px;margin:0 auto">
+    <p class="s-sub" style="text-align:center;color:rgba(242,235,217,.5);font-size:.8rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px">À la carte</p>
+    <h2 class="s-title">Nos cocktails signature</h2>
+    <p class="s-sub">Élaborés derrière le comptoir métal, servis avec soin sur votre terrasse.</p>
+    <div class="cocktails-grid">
+      <div class="ck-card">
+        <div class="ck-img"><img src="https://i.ibb.co/N2FdTyBH/Les-3-Singes-0.jpg" loading="lazy" alt="Cocktail signature Les 3 Singes"></div>
+        <div class="ck-body">
+          <h3>Le Singe Doré</h3>
+          <p>Rhum ambré, gingembre frais, jus de citron vert, touche de sirop de canne — long et rafraîchissant.</p>
+          <span class="ck-price">1 500 XPF</span>
+        </div>
+      </div>
+      <div class="ck-card">
+        <div class="ck-img"><img src="https://i.ibb.co/bhVVx7G/Les-3-Singes-1.jpg" loading="lazy" alt="Cocktail tropical ambiance terrasse"></div>
+        <div class="ck-body">
+          <h3>Lagon Nocturne</h3>
+          <p>Gin, liqueur de litchi, eau tonique, zeste citron — aussi frais que les nuits de Nouméa.</p>
+          <span class="ck-price">1 600 XPF</span>
+        </div>
+      </div>
+      <div class="ck-card">
+        <div class="ck-img"><img src="https://i.ibb.co/4ngzNqsL/Les-3-Singes-2.jpg" loading="lazy" alt="Cocktail terrasse guirlandes"></div>
+        <div class="ck-body">
+          <h3>Terrasse Sour</h3>
+          <p>Bourbon, sirop de passion, blanc d'œuf, citron — onctueux et fruité, idéal en soirée.</p>
+          <span class="ck-price">1 700 XPF</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="s-services" id="ambiance">
+  <p class="s-sub" style="font-size:.8rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;color:rgba(242,235,217,.5)">Ce qu'on vous offre</p>
+  <h2 class="s-title">L'expérience Les 3 Singes</h2>
+  <p class="s-sub">Un bar de quartier qui assume son essence locale — sans façons, avec beaucoup de cœur.</p>
+  <div class="srv-grid">
+    <div class="srv-card">
+      <svg class="srv-icon" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="28" cy="28" r="27" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M18 34c0-6 4-14 10-14s10 8 10 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M22 34h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M28 20v-4M24 22l-2-3M32 22l2-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <h3>Terrasse à ciel ouvert</h3>
+      <p>60 places sous les guirlandes, mobilier rotin et coussins, air du soir calédonien. Un cadre décontracté où chaque soirée prend son temps.</p>
+      <span class="srv-tag">En extérieur</span>
+    </div>
+    <div class="srv-card">
+      <svg class="srv-icon" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="28" cy="28" r="27" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M20 36l4-12h8l4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M22 30h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="28" cy="20" r="3" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+      <h3>Cocktails travaillés</h3>
+      <p>Élaborés derrière le comptoir métal par des barmen passionnés. Des recettes originales, des produits frais, du savoir-faire sans esbroufe.</p>
+      <span class="srv-tag">Fait maison</span>
+    </div>
+    <div class="srv-card">
+      <svg class="srv-icon" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="28" cy="28" r="27" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M20 28a8 8 0 0016 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M22 24h2M32 24h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M28 18v-3M22 20l-2-2M34 20l2-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <h3>Ambiance conviviale</h3>
+      <p>Une clientèle adulte, décontractée, locale. Le genre d'endroit où on revient parce qu'on s'y sent bien — pas juste pour la carte.</p>
+      <span class="srv-tag">Ouvert tous les soirs</span>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION METIER -->
+<section class="s-metier" id="histoire">
+  <div class="metier-inner">
+    <div class="metier-row">
+      <div class="metier-text">
+        <h2>Un bar de quartier qui assume ce qu'il est</h2>
+        <p>Les 3 Singes, c'est un endroit qui ne cherche pas à impressionner. C'est un lieu où l'on vient comme on est, où la lumière tamisée des guirlandes fait son office et où chaque verre est préparé avec attention.</p>
+        <p>Installé rue de la Frégate-Nivôse, en plein cœur de Nouméa, le bar a construit sa réputation sur une chose simple : la constance. Bonne humeur derrière le comptoir, terrasse accueillante, cocktails qui tiennent leurs promesses.</p>
+        <ul class="check-list">
+          <li>Terrasse en rotin sous guirlandes lumineuses</li>
+          <li>Cocktails élaborés sur mesure chaque soir</li>
+          <li>Atmosphère tamisée, musique douce, pas de prise de tête</li>
+          <li>Une adresse de Nouméa qui dure parce qu'elle mérite de durer</li>
+        </ul>
+      </div>
+      <div class="metier-img">
+        <img src="https://i.ibb.co/4ngzNqsL/Les-3-Singes-2.jpg" loading="lazy" alt="Terrasse des 3 Singes, Nouméa">
+      </div>
+    </div>
+    <div class="metier-row rev">
+      <div class="metier-text">
+        <h2>Derrière le comptoir, des gens qui aiment leur métier</h2>
+        <p>L'équipe des 3 Singes connaît ses habitués par prénom. C'est peut-être le secret. Pas de rotation permanente, pas de sourire de façade — juste des gens qui trouvent une vraie satisfaction à servir de bonnes choses dans un endroit qu'ils ont contribué à construire.</p>
+        <p>Les soirées commencent doucement, s'allongent naturellement. Venez avec deux amis, vous repartez avec cinq. C'est le genre d'endroit que Nouméa aime avoir dans son quartier.</p>
+        <ul class="check-list">
+          <li>Équipe stable, connaissance des habitués</li>
+          <li>Service attentionné sans formalisme inutile</li>
+          <li>Ouvert 7 soirs sur 7 pour que vous ayez toujours un endroit</li>
+        </ul>
+      </div>
+      <div class="metier-img">
+        <img src="https://i.ibb.co/0VR4xPZX/Les-3-Singes-3.jpg" loading="lazy" alt="Ambiance nocturne Les 3 Singes">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s-galerie" id="galerie">
+  <p class="s-sub" style="font-size:.8rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;color:rgba(242,235,217,.5)">En images</p>
+  <h2 class="s-title">L'ambiance en terrasse</h2>
+  <p class="s-sub" style="margin-bottom:40px">Cliquez sur une photo pour l'agrandir.</p>
+  <div class="galerie-grid">
+    <div class="g-item" data-img="https://i.ibb.co/N2FdTyBH/Les-3-Singes-0.jpg" role="button" tabindex="0" aria-label="Voir la photo 1">
+      <img src="https://i.ibb.co/N2FdTyBH/Les-3-Singes-0.jpg" loading="lazy" alt="Les 3 Singes — cocktail signature">
+    </div>
+    <div class="g-item" data-img="https://i.ibb.co/bhVVx7G/Les-3-Singes-1.jpg" role="button" tabindex="0" aria-label="Voir la photo 2">
+      <img src="https://i.ibb.co/bhVVx7G/Les-3-Singes-1.jpg" loading="lazy" alt="Les 3 Singes — terrasse guirlandes">
+    </div>
+    <div class="g-item" data-img="https://i.ibb.co/4ngzNqsL/Les-3-Singes-2.jpg" role="button" tabindex="0" aria-label="Voir la photo 3">
+      <img src="https://i.ibb.co/4ngzNqsL/Les-3-Singes-2.jpg" loading="lazy" alt="Les 3 Singes — ambiance nocturne">
+    </div>
+    <div class="g-item" data-img="https://i.ibb.co/0VR4xPZX/Les-3-Singes-3.jpg" role="button" tabindex="0" aria-label="Voir la photo 4">
+      <img src="https://i.ibb.co/0VR4xPZX/Les-3-Singes-3.jpg" loading="lazy" alt="Les 3 Singes — soirée en terrasse">
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lbx" id="lbx" role="dialog" aria-modal="true" aria-label="Photo agrandie">
+  <button class="lbx-close" id="lbx-close" aria-label="Fermer">&#x2715;</button>
+  <button class="lbx-prev" id="lbx-prev" aria-label="Photo précédente">&#8249;</button>
+  <img class="lbx-img" id="lbx-img" src="" alt="Photo agrandie Les 3 Singes">
+  <button class="lbx-next" id="lbx-next" aria-label="Photo suivante">&#8250;</button>
+</div>
+
+<!-- RESERVATION CTA -->
+<section class="s-reservation" id="reservation">
+  <div class="resa-box">
+    <p class="s-sub" style="font-size:.8rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;color:rgba(242,235,217,.5)">On vous attend</p>
+    <h2 class="s-title">Réservez votre soirée</h2>
+    <p>Que ce soit pour un verre entre amis ou une soirée qui s'étire jusqu'à la nuit profonde — la terrasse a une place pour vous. Contactez-nous par téléphone ou via le formulaire ci-dessous.</p>
+    <a href="tel:0687737700" class="b-primary" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:16px">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+      Appeler le 87.73.77
+    </a>
+    <p style="color:rgba(242,235,217,.4);font-size:.85rem;margin-top:8px;margin-bottom:0">Ou utilisez le formulaire plus bas ↓</p>
+  </div>
+</section>
+
+<!-- FORMULAIRE CONTACT -->
+<section class="s-contact" id="contact">
+  <div class="form-wrap">
+    <p class="s-sub" style="font-size:.8rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;color:rgba(242,235,217,.5);text-align:center">Nous écrire</p>
+    <h2 class="s-title" style="text-align:center;margin-bottom:8px">Une question ? Un message ?</h2>
+    <p class="s-sub" style="margin-bottom:40px">On vous répond dans la journée.</p>
+    <form id="contact-form" action="#" novalidate>
+      <div class="form-row">
+        <div class="f-group" id="fg-nom">
+          <label for="f-nom">Nom</label>
+          <input type="text" id="f-nom" name="nom" placeholder="Votre prénom ou nom" autocomplete="name">
+          <span class="err">Ce champ est requis.</span>
+        </div>
+        <div class="f-group" id="fg-tel">
+          <label for="f-tel">Téléphone</label>
+          <input type="tel" id="f-tel" name="tel" placeholder="XX XX XX XX" autocomplete="tel">
+          <span class="err">Numéro invalide.</span>
+        </div>
+      </div>
+      <div class="f-group" id="fg-email">
+        <label for="f-email">Email</label>
+        <input type="email" id="f-email" name="email" placeholder="votre@email.nc" autocomplete="email">
+        <span class="err">Email invalide.</span>
+      </div>
+      <div class="f-group" id="fg-msg">
+        <label for="f-msg">Message</label>
+        <textarea id="f-msg" name="message" placeholder="Dites-nous ce dont vous avez besoin…"></textarea>
+        <span class="err">Merci d'écrire un message.</span>
+      </div>
+      <button type="submit" class="form-submit" id="form-btn">Envoyer le message</button>
+    </form>
+    <div class="form-success" id="form-success">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      <h3>Message envoyé !</h3>
+      <p>Merci, on revient vers vous très vite. En attendant, la terrasse vous attend.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s-avis" id="avis">
+  <p class="s-sub" style="font-size:.8rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;color:rgba(242,235,217,.5)">Ce qu'on dit de nous</p>
+  <h2 class="s-title" style="margin-bottom:32px">La parole à nos habitués</h2>
+  <div class="avis-note">
+    <div class="note-val">5.0</div>
+    <div class="stars" aria-label="5 étoiles sur 5">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    </div>
+    <div class="note-label">Note Google · Établissement recommandé</div>
+  </div>
+  <div class="temoignages">
+    <div class="temoignage">
+      <blockquote>« L'endroit parfait pour une soirée sans prise de tête à Nouméa. Les cocktails sont vraiment bons et l'ambiance guirlandes change des bars classiques. On y retourne dès que possible. »</blockquote>
+      <cite>Marie-Claire L. · Habitante de Nouméa</cite>
+    </div>
+    <div class="temoignage">
+      <blockquote>« La terrasse est géniale, on s'y sent comme chez soi. Le personnel connaît ses cocktails et prend le temps d'en parler. Une adresse qu'on recommande sans hésiter à ceux qui débarquent en Calédonie. »</blockquote>
+      <cite>Thomas R. · Client régulier</cite>
+    </div>
+    <div class="temoignage">
+      <blockquote>« Un bar qui n'a pas besoin de se vendre — il parle tout seul. On y est bien, les verres sont généreux, et les soirées s'allongent naturellement. C'est rare de trouver ça. »</blockquote>
+      <cite>Sandrine M. · Fidèle depuis l'ouverture</cite>
+    </div>
+  </div>
+  <div class="badges">
+    <span class="badge">Terrasse recommandée</span>
+    <span class="badge">Cocktails artisanaux</span>
+    <span class="badge">Ambiance locale</span>
+    <span class="badge">Ouvert 7j/7</span>
+  </div>
+</section>
+
+<!-- HORAIRES ET ACCÈS -->
+<section class="s-horaires" id="horaires">
+  <p class="s-sub" style="font-size:.8rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;color:rgba(242,235,217,.5);text-align:center">Infos pratiques</p>
+  <h2 class="s-title" style="text-align:center;margin-bottom:56px">Horaires et accès</h2>
+  <div class="horaires-inner">
+    <div class="horaires-block">
+      <h3>Nos horaires</h3>
+      <ul class="horaires-list">
+        <li><span>Lundi</span><span>17h – 00h</span></li>
+        <li><span>Mardi</span><span>17h – 00h</span></li>
+        <li><span>Mercredi</span><span>17h – 00h</span></li>
+        <li><span>Jeudi</span><span>17h – 01h</span></li>
+        <li><span>Vendredi</span><span>17h – 02h</span></li>
+        <li><span>Samedi</span><span>16h – 02h</span></li>
+        <li><span>Dimanche</span><span>16h – 00h</span></li>
+      </ul>
+    </div>
+    <div class="adresse-block">
+      <h3>Nous trouver</h3>
+      <address>
+        Les 3 Singes<br>
+        Rue de la Frégate-Nivôse<br>
+        Nouméa 98800<br>
+        Nouvelle-Calédonie<br><br>
+        <a href="tel:0687737700">87.73.77</a>
+      </address>
+      <div class="map-placeholder">
+        <iframe
+          title="Carte Les 3 Singes Nouméa"
+          width="100%"
+          height="220"
+          style="border:0;display:block"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU3Kuo&q=Rue+de+la+Fr%C3%A9gate-Niv%C3%B4se,+Noum%C3%A9a,+Nouvelle-Cal%C3%A9donie">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo">Les 3 Singes</span>
+      <p>Bar de terrasse au cœur de Nouméa. Cocktails travaillés, guirlandes et rotin, bonne humeur tous les soirs. Viens comme tu es — on s'occupe du reste.</p>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/profile.php" target="_blank" rel="noopener" class="social-ico" aria-label="Facebook Les 3 Singes">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#ambiance">Ambiance</a></li>
+        <li><a href="#cocktails">Cocktails</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#avis">Avis</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <address>
+        Rue de la Frégate-Nivôse<br>
+        Nouméa 98800<br>
+        Nouvelle-Calédonie<br><br>
+        <a href="tel:0687737700">87.73.77</a>
+      </address>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Les 3 Singes. Tous droits réservés.</p>
+    <p>Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var imgs=["https://i.ibb.co/N2FdTyBH/Les-3-Singes-0.jpg","https://i.ibb.co/bhVVx7G/Les-3-Singes-1.jpg","https://i.ibb.co/4ngzNqsL/Les-3-Singes-2.jpg","https://i.ibb.co/0VR4xPZX/Les-3-Singes-3.jpg"];
+  var lbx=document.getElementById('lbx'),lbxImg=document.getElementById('lbx-img'),cur=0;
+  function open(i){cur=i;lbxImg.src=imgs[i];lbx.classList.add('open');document.body.style.overflow='hidden';}
+  function close(){lbx.classList.remove('open');document.body.style.overflow='';}
+  document.querySelectorAll('.g-item').forEach(function(el,i){
+    el.addEventListener('click',function(){open(i);});
+    el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' ')open(i);});
+  });
+  document.getElementById('lbx-close').addEventListener('click',close);
+  document.getElementById('lbx-prev').addEventListener('click',function(){open((cur-1+imgs.length)%imgs.length);});
+  document.getElementById('lbx-next').addEventListener('click',function(){open((cur+1)%imgs.length);});
+  lbx.addEventListener('click',function(e){if(e.target===lbx)close();});
+  document.addEventListener('keydown',function(e){
+    if(!lbx.classList.contains('open'))return;
+    if(e.key==='Escape')close();
+    if(e.key==='ArrowLeft')open((cur-1+imgs.length)%imgs.length);
+    if(e.key==='ArrowRight')open((cur+1)%imgs.length);
+  });
+})();
+(function(){
+  var form=document.getElementById('contact-form'),btn=document.getElementById('form-btn'),success=document.getElementById('form-success');
+  function val(id,test){var fg=document.getElementById('fg-'+id),inp=document.getElementById('f-'+id),ok=test(inp.value.trim());fg.classList.toggle('invalid',!ok);return ok;}
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var ok=true;
+    if(!val('nom',function(v){return v.length>1;}))ok=false;
+    if(!val('email',function(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);}))ok=false;
+    if(!val('tel',function(v){return v===''||v.replace(/\D/g,'').length>=6;}))ok=false;
+    if(!val('msg',function(v){return v.length>4;}))ok=false;
+    if(!ok)return;
+    btn.textContent='Envoi…';btn.disabled=true;
+    setTimeout(function(){form.style.display='none';success.style.display='block';},900);
+  });
+})();
+</script>
+</body>
+</html>
