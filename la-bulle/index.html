@@ -2,141 +2,150 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>La Bulle — Nouméa</title>
-<meta name="description" content="La Bulle, bar d'effervescence à Nouméa. Cocktails signature, terrasse coloniale et ambiance chic sur l'Avenue du Maréchal Foch.">
+<meta name="description" content="La Bulle, bar festif et soigné au cœur de Nouméa. Cocktails travaillés, terrasse ensoleillée le jour, ambiance lounge tamisée la nuit. Avenue du Maréchal Foch.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=Lato:wght@300;400;600&family=Manrope:wght@700&display=swap" rel="stylesheet">
 <style>
 :root{
 --cp:#C9A84C;
---cs:#1A1A2E;
+--cs:#1A1A1A;
 --ca:#D4B96A;
---ct:#F2ECD8;
---cb:#111118;
---cw:#ffffff;
+--ct:#F5F0E8;
+--cb:#111111;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:16px}
-body{background:var(--cb);color:var(--ct);font-family:'Lato',sans-serif;overflow-x:hidden;line-height:1.6}
-.h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,7vw,6rem);font-weight:300;line-height:1.1;letter-spacing:0.02em;color:var(--ct)}
-.h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3.5rem);font-weight:400;line-height:1.2;color:var(--cp)}
-.h3{font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,2.5vw,1.8rem);font-weight:400;color:var(--ct)}
-.lead{font-size:clamp(1rem,2vw,1.15rem);font-weight:300;color:var(--ct);opacity:.9}
-.accent{color:var(--cp)}
-.wrap{max-width:1200px;margin:0 auto;padding:0 16px}
-.b{display:inline-flex;align-items:center;justify-content:center;padding:14px 36px;border-radius:2px;font-family:'Lato',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:all .35s ease;min-height:48px;border:none}
-.b-gold{background:var(--cp);color:#111118}
-.b-gold:hover{background:var(--ca);box-shadow:0 0 24px rgba(201,168,76,.45)}
-.b-outline{background:transparent;color:var(--ct);border:1.5px solid var(--cp)}
-.b-outline:hover{background:var(--cp);color:#111118}
-.sep{width:60px;height:1.5px;background:var(--cp);margin:20px auto}
+html{scroll-behavior:smooth}
+body{background:var(--cb);color:var(--ct);font-family:'Lato',sans-serif;overflow-x:hidden;font-size:16px;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
 
 /* BANDEAU PROMO */
-#promo{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;display:flex;align-items:center;justify-content:center}
-#promo a{font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;text-decoration:none;line-height:44px;letter-spacing:.3px;text-align:center}
-#promo a:hover{opacity:.85}
-@media(max-width:480px){#promo{height:40px}#promo a{font-size:13px;line-height:40px}}
+#promo-band{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;text-align:center}
+#promo-band a{display:block;width:100%;height:44px;line-height:44px;font-family:'Manrope','Plus Jakarta Sans',system-ui,sans-serif;font-weight:700;font-size:14px;letter-spacing:.3px;color:#4375ff;transition:opacity .2s}
+#promo-band a:hover{opacity:.85}
 
 /* HEADER */
-#hdr{position:fixed;top:44px;left:0;width:100%;z-index:1000;transition:background .35s,box-shadow .35s;padding:0 16px}
-#hdr.scrolled{background:rgba(17,17,24,.95);box-shadow:0 2px 20px rgba(0,0,0,.5)}
-.hdr-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
-.logo{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--cp);text-decoration:none;letter-spacing:.05em}
-.logo span{color:var(--ct);font-weight:300}
-nav{display:flex;gap:32px;align-items:center}
-nav a{font-family:'Lato',sans-serif;font-size:.85rem;font-weight:400;letter-spacing:1.2px;text-transform:uppercase;color:var(--ct);text-decoration:none;opacity:.85;transition:opacity .3s,color .3s}
+#header{position:fixed;top:44px;left:0;width:100%;z-index:1000;background:rgba(17,17,17,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,.2);transition:background .3s}
+.hd-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:'Playfair Display',serif;font-weight:800;font-size:26px;color:var(--cp);letter-spacing:.02em;white-space:nowrap}
+.logo span{color:var(--ct)}
+nav{display:flex;align-items:center;gap:32px}
+nav a{font-family:'Lato',sans-serif;font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:var(--ct);opacity:.8;transition:opacity .2s,color .2s}
 nav a:hover{opacity:1;color:var(--cp)}
-.hdr-cta{display:flex;align-items:center;gap:20px}
-.tel-link{font-family:'Lato',sans-serif;font-size:.9rem;font-weight:700;color:var(--cp);text-decoration:none;letter-spacing:.5px;transition:opacity .3s}
-.tel-link:hover{opacity:.8}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
-.hamburger span{display:block;width:24px;height:2px;background:var(--ct);transition:all .3s}
-#mob-nav{display:none;position:fixed;top:116px;left:0;width:100%;background:rgba(17,17,24,.98);z-index:999;padding:24px 16px;flex-direction:column;gap:4px;border-top:1px solid rgba(201,168,76,.2)}
-#mob-nav a{font-family:'Lato',sans-serif;font-size:1rem;font-weight:400;letter-spacing:1px;text-transform:uppercase;color:var(--ct);text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.06);opacity:.9}
-#mob-nav.open{display:flex}
-@media(max-width:768px){nav{display:none}.hamburger{display:flex}.hdr-cta .b{display:none}}
+.cta-tel{font-family:'Lato',sans-serif;font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--cp);border:1px solid var(--cp);padding:10px 20px;border-radius:2px;transition:background .3s,color .3s;white-space:nowrap}
+.cta-tel:hover{background:var(--cp);color:var(--cb)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
+.burger span{display:block;width:24px;height:2px;background:var(--ct);transition:transform .3s,opacity .3s}
+.mob-nav{display:none;position:fixed;top:116px;left:0;width:100%;background:rgba(17,17,17,.98);flex-direction:column;align-items:center;gap:0;z-index:999;border-bottom:1px solid rgba(201,168,76,.2)}
+.mob-nav.open{display:flex}
+.mob-nav a{font-family:'Lato',sans-serif;font-weight:600;font-size:14px;text-transform:uppercase;letter-spacing:.12em;color:var(--ct);padding:18px 0;width:100%;text-align:center;border-bottom:1px solid rgba(201,168,76,.1);transition:color .2s}
+.mob-nav a:hover{color:var(--cp)}
 
 /* HERO */
-#hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;padding-top:116px;background:url('https://i.ibb.co/PGcqZ8Cy/La-Bulle-0.jpg') center center/cover no-repeat;background-attachment:fixed}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,17,24,.55) 0%,rgba(17,17,24,.4) 50%,rgba(17,17,24,.8) 100%)}
-.hero-content{position:relative;z-index:1;text-align:center;max-width:860px;padding:0 16px}
-.hero-eyebrow{font-family:'Lato',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--cp);margin-bottom:24px;display:block}
-.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,9vw,7.5rem);font-weight:300;line-height:1;color:var(--ct);margin-bottom:12px}
-.hero-title em{font-style:italic;color:var(--cp)}
-.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,2.5vw,1.5rem);font-weight:300;font-style:italic;color:var(--ca);margin-bottom:40px;line-height:1.5}
-.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-@media(max-width:480px){.hero-btns .b{width:100%;max-width:320px}}
-.scroll-ind{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:1;display:flex;flex-direction:column;align-items:center;gap:8px}
-.scroll-ind span{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--ca);opacity:.7}
-.scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,var(--cp),transparent);animation:scrollPulse 2s infinite}
-@keyframes scrollPulse{0%,100%{opacity:.4;transform:scaleY(.8)}50%{opacity:1;transform:scaleY(1)}}
-@media(max-width:480px){#hero{background-attachment:scroll}}
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-image:url('https://i.ibb.co/s8SsFDd/La-Bulle-0.jpg');background-size:cover;background-position:center;background-attachment:fixed;transform:scale(1.08);transition:transform 12s ease-out}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,17,17,.55) 0%,rgba(17,17,17,.35) 45%,rgba(17,17,17,.75) 100%)}
+.hero-content{position:relative;z-index:2;padding:160px 24px 80px;max-width:900px}
+.hero-badge{display:inline-block;font-family:'Lato',sans-serif;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.2em;color:var(--cp);border:1px solid var(--cp);padding:6px 18px;border-radius:1px;margin-bottom:28px}
+.h1{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(52px,8vw,96px);line-height:1.05;color:var(--ct);letter-spacing:-.01em;margin-bottom:20px}
+.h1 em{font-style:italic;color:var(--cp)}
+.hero-sub{font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(18px,2.5vw,26px);color:var(--ct);opacity:.88;letter-spacing:.02em;margin-bottom:44px;max-width:600px;margin-left:auto;margin-right:auto}
+.hero-ctas{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+.btn-primary{font-family:'Lato',sans-serif;font-weight:600;font-size:14px;text-transform:uppercase;letter-spacing:.12em;background:var(--cp);color:var(--cb);padding:16px 36px;border-radius:2px;border:none;cursor:pointer;transition:background .3s,box-shadow .3s,transform .15s;display:inline-block}
+.btn-primary:hover{background:var(--ca);box-shadow:0 8px 24px rgba(201,168,76,.35)}
+.btn-primary:active{transform:scale(.98)}
+.btn-ghost{font-family:'Lato',sans-serif;font-weight:600;font-size:14px;text-transform:uppercase;letter-spacing:.12em;background:transparent;color:var(--ct);padding:16px 36px;border-radius:2px;border:1px solid rgba(245,240,232,.45);cursor:pointer;transition:border-color .3s,color .3s;display:inline-block}
+.btn-ghost:hover{border-color:var(--cp);color:var(--cp)}
+.scroll-ind{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.7}
+.scroll-ind span{font-family:'Lato',sans-serif;font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--ct)}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--cp),transparent);animation:scrollpulse 2s ease-in-out infinite}
+@keyframes scrollpulse{0%,100%{opacity:.4;transform:scaleY(.8)}50%{opacity:1;transform:scaleY(1)}}
 
 /* STATS */
-#stats{background:var(--cp);padding:60px 16px}
+#stats{background:var(--cs);border-top:2px solid var(--cp);border-bottom:2px solid var(--cp);padding:64px 24px}
 .stats-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
-.stat-num{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:300;color:#111118;line-height:1}
-.stat-label{font-family:'Lato',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(17,17,24,.7);margin-top:8px}
-@media(max-width:768px){.stats-grid{grid-template-columns:repeat(2,1fr);gap:40px 24px}}
-@media(max-width:480px){.stats-grid{grid-template-columns:repeat(2,1fr);gap:32px 16px}}
+.stat-item{padding:16px 8px}
+.stat-num{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(42px,5vw,64px);color:var(--cp);line-height:1;display:block;margin-bottom:10px}
+.stat-label{font-family:'Lato',sans-serif;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.15em;color:var(--ct);opacity:.7}
+.stat-divider{width:32px;height:2px;background:var(--cp);margin:12px auto 0;opacity:.5}
 
-/* FALLBACK ANIMATIONS */
+/* FALLBACK REVEAL */
 .reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+nav,#header .cta-tel{display:none}
+.burger{display:flex}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+.hd-inner{padding:0 16px;height:64px}
+.mob-nav{top:108px}
+.hero-content{padding:140px 16px 80px}
+.hero-ctas{gap:12px}
+.btn-primary,.btn-ghost{width:100%;text-align:center;padding:15px 24px}
+.stats-grid{grid-template-columns:repeat(2,1fr);gap:20px}
+#promo-band a{font-size:13px;line-height:44px}
+#header{top:44px}
+.mob-nav{top:108px}
+}
+@media(max-width:360px){
+.h1{font-size:42px}
+.stats-grid{grid-template-columns:1fr 1fr;gap:16px}
+}
 </style>
 </head>
 <body>
 
 <!-- BANDEAU PROMO -->
-<div id="promo">
-  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+<div id="promo-band">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.</a>
 </div>
 
 <!-- HEADER -->
-<header id="hdr">
-  <div class="hdr-inner">
-    <a href="#" class="logo">La <span>Bulle</span></a>
+<header id="header">
+  <div class="hd-inner">
+    <a href="#hero" class="logo">La&nbsp;<span>Bulle</span></a>
     <nav>
       <a href="#ambiance">Ambiance</a>
-      <a href="#menu">Cocktails</a>
+      <a href="#menu">Carte</a>
       <a href="#galerie">Galerie</a>
-      <a href="#reservation">Réservation</a>
-      <a href="#contact">Contact</a>
+      <a href="#avis">Avis</a>
+      <a href="#acces">Accès</a>
     </nav>
-    <div class="hdr-cta">
-      <a href="tel:313131" class="tel-link">31.31.31</a>
-      <a href="#reservation" class="b b-gold">Réserver</a>
-    </div>
-    <button class="hamburger" id="ham" aria-label="Menu">
+    <a href="tel:313131" class="cta-tel">☎ 31.31.31</a>
+    <button class="burger" id="burger" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
-
-<!-- MOBILE NAV -->
-<nav id="mob-nav">
-  <a href="#ambiance" class="mob-link">Ambiance</a>
-  <a href="#menu" class="mob-link">Cocktails</a>
-  <a href="#galerie" class="mob-link">Galerie</a>
-  <a href="#reservation" class="mob-link">Réservation</a>
-  <a href="#contact" class="mob-link">Contact</a>
-  <a href="tel:313131" style="color:var(--cp);font-weight:700;margin-top:8px">31.31.31</a>
+<nav class="mob-nav" id="mob-nav">
+  <a href="#ambiance">Ambiance</a>
+  <a href="#menu">Carte</a>
+  <a href="#galerie">Galerie</a>
+  <a href="#avis">Avis</a>
+  <a href="#acces">Accès</a>
+  <a href="tel:313131" style="color:var(--cp)">☎ 31.31.31</a>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
+  <div class="hero-bg" id="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <span class="hero-eyebrow">Nouméa, Nouvelle-Calédonie</span>
-    <h1 class="hero-title">La <em>Bulle</em></h1>
-    <p class="hero-sub">L'art du cocktail, une terrasse coloniale,<br>et l'effervescence d'une nuit calédonienne.</p>
-    <div class="hero-btns">
-      <a href="#reservation" class="b b-gold">Réserver une table</a>
-      <a href="#menu" class="b b-outline">Découvrir les cocktails</a>
+    <div class="hero-badge">Bar lounge · Nouméa</div>
+    <h1 class="h1">Là où chaque<br><em>soirée pétille</em></h1>
+    <p class="hero-sub">Terrasse coloniale le jour. Lumières tamisées et cocktails d'auteur la nuit. Bienvenue à La Bulle.</p>
+    <div class="hero-ctas">
+      <a href="#reservation" class="btn-primary">Réserver une table</a>
+      <a href="#menu" class="btn-ghost">Découvrir la carte</a>
     </div>
   </div>
   <div class="scroll-ind">
-    <span>Découvrir</span>
+    <span>Scroll</span>
     <div class="scroll-line"></div>
   </div>
 </section>
@@ -144,450 +153,545 @@ nav a:hover{opacity:1;color:var(--cp)}
 <!-- STATS -->
 <section id="stats">
   <div class="stats-grid">
-    <div>
-      <div class="stat-num" data-target="5">0</div>
-      <div class="stat-label">Note Google /5</div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="5">0</span>
+      <div class="stat-label">Note Google / 5</div>
+      <div class="stat-divider"></div>
     </div>
-    <div>
-      <div class="stat-num" data-target="100" data-suffix="%">0%</div>
-      <div class="stat-label">Avis positifs</div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="30" data-suffix="+">0</span>
+      <div class="stat-label">Cocktails signatures</div>
+      <div class="stat-divider"></div>
     </div>
-    <div>
-      <div class="stat-num" data-target="20" data-suffix="+">0+</div>
-      <div class="stat-label">Cocktails signature</div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="7">0</span>
+      <div class="stat-label">Jours sur 7</div>
+      <div class="stat-divider"></div>
     </div>
-    <div>
-      <div class="stat-num" data-target="7">0</div>
-      <div class="stat-label">Soirs par semaine</div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="100" data-suffix="%">0</span>
+      <div class="stat-label">Bonne humeur garantie</div>
+      <div class="stat-divider"></div>
     </div>
   </div>
 </section>
 
 <script>
 (function(){
-  var hdr=document.getElementById('hdr'),ham=document.getElementById('ham'),mnav=document.getElementById('mob-nav');
-  window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>60)});
-  ham.addEventListener('click',function(){mnav.classList.toggle('open')});
-  mnav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mnav.classList.remove('open')})});
+  var b=document.getElementById('burger'),mn=document.getElementById('mob-nav');
+  b.addEventListener('click',function(){mn.classList.toggle('open')});
+  mn.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mn.classList.remove('open')})});
 
-  var nums=document.querySelectorAll('[data-target]'),animated=false;
-  function countUp(){
-    if(animated)return;
-    var rect=document.getElementById('stats').getBoundingClientRect();
-    if(rect.top<window.innerHeight-100){
-      animated=true;
+  var hbg=document.getElementById('hero-bg');
+  window.addEventListener('scroll',function(){
+    var s=window.pageYOffset,h=window.innerHeight;
+    if(s<h)hbg.style.transform='scale(1.08) translateY('+(s*.08)+'px)';
+  },{passive:true});
+
+  var nums=document.querySelectorAll('[data-target]'),started=false;
+  function animNums(){
+    if(started)return;
+    var sr=document.getElementById('stats').getBoundingClientRect();
+    if(sr.top<window.innerHeight*.9){
+      started=true;
       nums.forEach(function(el){
-        var target=+el.dataset.target,suf=el.dataset.suffix||'',dur=1200,step=dur/60,inc=target/(dur/step),cur=0;
-        var t=setInterval(function(){cur+=inc;if(cur>=target){cur=target;clearInterval(t)}el.textContent=Math.floor(cur)+suf},step);
+        var end=+el.dataset.target,suf=el.dataset.suffix||'',dur=1400,start=null;
+        function step(ts){
+          if(!start)start=ts;
+          var p=Math.min((ts-start)/dur,1),ease=1-Math.pow(1-p,3);
+          el.textContent=Math.round(ease*end)+(p===1?suf:'');
+          if(p<1)requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
       });
     }
   }
-  window.addEventListener('scroll',countUp);
-  countUp();
+  window.addEventListener('scroll',animNums,{passive:true});
+  animNums();
 })();
 </script>
 <style>
-/* ACCROCHE */
-#accroche{padding:100px 16px;background:var(--cs);text-align:center}
-.accroche-inner{max-width:720px;margin:0 auto}
-.accroche-inner p{font-size:clamp(1.05rem,2.2vw,1.2rem);font-weight:300;line-height:1.9;color:var(--ct);opacity:.9;margin-top:24px}
+/* PART 2 ADDITIONS */
+#services{padding:100px 24px;background:var(--cb)}
+.s-head{text-align:center;max-width:700px;margin:0 auto 64px}
+.s-head h2{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(36px,5vw,56px);color:var(--ct);margin-bottom:16px}
+.s-head p{font-family:'Lato',sans-serif;font-weight:300;font-size:18px;color:var(--ct);opacity:.75;line-height:1.7}
+.gold-line{width:48px;height:2px;background:var(--cp);margin:20px auto 0}
+.srv-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.srv-card{background:var(--cs);border:1px solid rgba(201,168,76,.25);border-radius:3px;padding:40px 32px;transition:border-color .3s,transform .3s,box-shadow .3s;text-align:center}
+.srv-card:hover{border-color:var(--ca);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.4)}
+.srv-ico{width:52px;height:52px;margin:0 auto 24px;color:var(--cp)}
+.srv-card h3{font-family:'Playfair Display',serif;font-weight:700;font-size:22px;color:var(--ct);margin-bottom:12px}
+.srv-card p{font-family:'Lato',sans-serif;font-weight:300;font-size:15px;color:var(--ct);opacity:.75;line-height:1.65;margin-bottom:24px}
+.lnk-gold{font-family:'Lato',sans-serif;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.15em;color:var(--cp);border-bottom:1px solid rgba(201,168,76,.4);padding-bottom:2px;transition:border-color .3s,color .3s}
+.lnk-gold:hover{color:var(--ca);border-color:var(--ca)}
 
-/* SERVICES */
-#services{padding:100px 16px;background:var(--cb)}
-.s-head{text-align:center;margin-bottom:60px}
-.s-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
-.c-svc{background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.15);border-radius:4px;padding:48px 32px;text-align:center;transition:border-color .35s,transform .35s}
-.c-svc:hover{border-color:var(--cp);transform:translateY(-6px)}
-.c-svc svg{width:44px;height:44px;stroke:var(--cp);fill:none;stroke-width:1.5;margin-bottom:24px}
-.c-svc .h3{margin-bottom:12px}
-.c-svc p{font-size:.9rem;line-height:1.75;opacity:.8}
-@media(max-width:900px){.s-grid{grid-template-columns:1fr}}
+#metier{padding:0;background:var(--cs);overflow:hidden}
+.met-row{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;min-height:520px}
+.met-img{position:relative;overflow:hidden}
+.met-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease}
+.met-img:hover img{transform:scale(1.04)}
+.met-img-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,.12),rgba(17,17,17,.3))}
+.met-txt{padding:72px 64px;display:flex;flex-direction:column;justify-content:center}
+.met-eyebrow{font-family:'Lato',sans-serif;font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.25em;color:var(--cp);margin-bottom:20px}
+.met-txt h2{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(32px,3.5vw,46px);color:var(--ct);line-height:1.15;margin-bottom:24px}
+.met-txt p{font-family:'Lato',sans-serif;font-weight:300;font-size:16px;color:var(--ct);opacity:.8;line-height:1.75;margin-bottom:16px}
+.met-points{list-style:none;margin-top:24px;display:flex;flex-direction:column;gap:12px}
+.met-points li{font-family:'Lato',sans-serif;font-weight:400;font-size:15px;color:var(--ct);opacity:.85;display:flex;align-items:center;gap:12px}
+.met-points li::before{content:'';width:18px;height:18px;border-radius:50%;background:var(--cp);display:inline-flex;flex-shrink:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23111'%3E%3Cpath d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'/%3E%3C/svg%3E");background-size:12px;background-repeat:no-repeat;background-position:center}
+.met-row.rev .met-img{order:2}
+.met-row.rev .met-txt{order:1;background:var(--cb)}
 
-/* METIER */
-#metier{padding:100px 16px;background:var(--cs)}
-.m-row{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
-.m-row.rev{direction:rtl}
-.m-row.rev>*{direction:ltr}
-.m-img{position:relative;border-radius:4px;overflow:hidden}
-.m-img img{width:100%;height:480px;object-fit:cover;display:block;transition:transform .6s}
-.m-img:hover img{transform:scale(1.04)}
-.m-img::after{content:'';position:absolute;inset:0;border:1.5px solid rgba(201,168,76,.3);border-radius:4px;pointer-events:none}
-.m-text .h2{margin-bottom:16px}
-.m-text p{font-size:1rem;line-height:1.85;opacity:.85;margin-bottom:24px}
-.check-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
-.check-list li{display:flex;align-items:center;gap:12px;font-size:.9rem;opacity:.85}
-.check-list li::before{content:'';display:inline-block;width:18px;height:18px;min-width:18px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C9A84C' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/contain no-repeat}
-@media(max-width:768px){.m-row{grid-template-columns:1fr;gap:40px}.m-row.rev{direction:ltr}.m-img img{height:260px}}
+#galerie{padding:100px 24px;background:var(--cb)}
+.gal-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:4px}
+.gal-item{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:4/3}
+.gal-item:first-child{grid-column:1/3;aspect-ratio:16/7}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.gal-overlay{position:absolute;inset:0;background:rgba(17,17,17,0);transition:background .4s}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-item:hover .gal-overlay{background:rgba(17,17,17,.35)}
+.gal-zoom{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .4s}
+.gal-item:hover .gal-zoom{opacity:1}
+.gal-zoom svg{color:var(--cp);width:40px;height:40px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.6))}
 
-/* GALERIE */
-#galerie{padding:100px 16px;background:var(--cb)}
-.g-head{text-align:center;margin-bottom:60px}
-.g-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.g-item{position:relative;overflow:hidden;border-radius:4px;cursor:pointer}
-.g-item img{width:100%;height:320px;object-fit:cover;display:block;transition:transform .5s}
-.g-item:hover img{transform:scale(1.06)}
-.g-item::after{content:'';position:absolute;inset:0;border:2px solid transparent;transition:border-color .35s;border-radius:4px}
-.g-item:hover::after{border-color:var(--cp)}
-.g-item:first-child{grid-column:span 2}
-.g-item:first-child img{height:460px}
-.lightbox{display:none;position:fixed;inset:0;background:rgba(17,17,24,.95);z-index:2000;align-items:center;justify-content:center;padding:24px}
-.lightbox.open{display:flex}
-.lb-img{max-width:90vw;max-height:88vh;border-radius:4px;box-shadow:0 0 60px rgba(0,0,0,.8)}
-.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--ct);font-size:2rem;cursor:pointer;line-height:1;opacity:.8;transition:opacity .3s}
-.lb-close:hover{opacity:1}
-@media(max-width:600px){.g-grid{grid-template-columns:1fr}.g-item:first-child{grid-column:span 1}.g-item:first-child img{height:260px}.g-item img{height:220px}}
+#lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;display:none;align-items:center;justify-content:center}
+#lightbox.active{display:flex}
+#lb-img{max-width:90vw;max-height:88vh;object-fit:contain;border:1px solid rgba(201,168,76,.3)}
+#lb-close{position:absolute;top:24px;right:32px;background:none;border:none;color:var(--ct);font-size:36px;cursor:pointer;line-height:1;opacity:.8;transition:opacity .2s,color .2s}
+#lb-close:hover{opacity:1;color:var(--cp)}
 
-/* RESERVATION */
-#reservation{padding:120px 16px;background:linear-gradient(135deg,var(--cs) 0%,rgba(17,17,24,.8) 100%);text-align:center;position:relative;overflow:hidden}
-#reservation::before{content:'';position:absolute;inset:0;background:url('https://i.ibb.co/TDbBXvm2/La-Bulle-1.jpg') center/cover no-repeat;opacity:.12}
-.res-inner{position:relative;z-index:1;max-width:680px;margin:0 auto}
-.res-inner .h2{margin-bottom:16px}
-.res-inner p{margin-bottom:48px;opacity:.85}
-.res-inner .b{font-size:1rem;padding:18px 56px}
-
-/* FORMULAIRE */
-#contact{padding:100px 16px;background:var(--cs)}
-.f-wrap{max-width:700px;margin:0 auto}
-.f-head{text-align:center;margin-bottom:56px}
-.f-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.f-field{display:flex;flex-direction:column;gap:8px}
-.f-field.full{grid-column:span 2}
-.f-field label{font-size:.8rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--cp)}
-.f-field input,.f-field textarea{background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.2);border-radius:2px;padding:14px 16px;color:var(--ct);font-family:'Lato',sans-serif;font-size:.95rem;outline:none;transition:border-color .3s;width:100%}
-.f-field input:focus,.f-field textarea:focus{border-color:var(--cp)}
-.f-field textarea{resize:vertical;min-height:130px}
-.f-field input::placeholder,.f-field textarea::placeholder{opacity:.4}
-.f-submit{margin-top:8px;grid-column:span 2;text-align:center}
-.f-submit .b{width:100%;max-width:340px}
-.f-msg{display:none;margin-top:24px;padding:18px 24px;background:rgba(201,168,76,.12);border:1px solid var(--cp);border-radius:4px;color:var(--cp);font-size:.95rem;text-align:center}
+#reservation{padding:100px 24px;background:var(--cs);text-align:center;position:relative;overflow:hidden}
+#reservation::before{content:'';position:absolute;inset:0;background:url('https://i.ibb.co/FLMngMRK/La-Bulle-1.jpg') center/cover;opacity:.08}
+.res-inner{position:relative;z-index:1;max-width:800px;margin:0 auto}
+.res-inner h2{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(36px,5vw,54px);color:var(--ct);margin-bottom:16px}
+.res-inner p{font-family:'Lato',sans-serif;font-weight:300;font-size:18px;color:var(--ct);opacity:.78;margin-bottom:48px;line-height:1.65}
+.res-form{display:grid;grid-template-columns:1fr 1fr;gap:16px;text-align:left}
+.f-group{display:flex;flex-direction:column;gap:6px}
+.f-group.full{grid-column:1/3}
+.f-group label{font-family:'Lato',sans-serif;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--cp)}
+.f-group input,.f-group textarea{background:rgba(17,17,17,.8);border:1px solid rgba(201,168,76,.3);border-radius:2px;padding:14px 16px;color:var(--ct);font-family:'Lato',sans-serif;font-size:15px;width:100%;transition:border-color .3s,box-shadow .3s;outline:none}
+.f-group input:focus,.f-group textarea:focus{border-color:var(--cp);box-shadow:0 0 0 3px rgba(201,168,76,.12)}
+.f-group input::placeholder,.f-group textarea::placeholder{color:rgba(245,240,232,.35)}
+.f-group textarea{resize:vertical;min-height:120px}
+.f-err{font-family:'Lato',sans-serif;font-size:12px;color:#e07070;min-height:14px;margin-top:2px}
+.f-submit{grid-column:1/3;margin-top:8px}
+.f-msg{display:none;margin-top:24px;padding:18px 24px;background:rgba(201,168,76,.12);border:1px solid var(--cp);border-radius:2px;font-family:'Lato',sans-serif;font-size:15px;color:var(--cp);text-align:center}
 .f-msg.show{display:block}
-.f-err{border-color:#e05c5c!important}
-@media(max-width:600px){.f-grid{grid-template-columns:1fr}.f-field.full{grid-column:span 1}.f-submit{grid-column:span 1}}
 
-/* PREUVE SOCIALE */
-#avis{padding:100px 16px;background:var(--cb)}
-.av-head{text-align:center;margin-bottom:60px}
-.stars{display:flex;gap:4px;justify-content:center;margin-bottom:8px}
-.star{width:24px;height:24px;fill:var(--cp)}
-.av-score{font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:300;color:var(--cp);line-height:1}
-.av-label{font-size:.8rem;letter-spacing:2px;text-transform:uppercase;opacity:.7;margin-top:4px}
-.av-grid{max-width:960px;margin:48px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.c-av{background:rgba(201,168,76,.05);border:1px solid rgba(201,168,76,.12);border-radius:4px;padding:32px 28px}
-.c-av .stars{justify-content:flex-start;margin-bottom:16px}
-.c-av .star{width:16px;height:16px}
-.c-av blockquote{font-size:.95rem;font-style:italic;line-height:1.75;opacity:.85;margin-bottom:20px;color:var(--ct)}
-.c-av cite{font-size:.8rem;font-weight:700;letter-spacing:1px;color:var(--cp);text-transform:uppercase;font-style:normal}
-.badges{max-width:960px;margin:48px auto 0;display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
-.badge{display:flex;align-items:center;gap:12px;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);border-radius:40px;padding:14px 28px}
-.badge svg{width:22px;height:22px;fill:var(--cp)}
-.badge span{font-size:.85rem;font-weight:700;letter-spacing:.5px;color:var(--ct)}
-@media(max-width:768px){.av-grid{grid-template-columns:1fr}}
+#avis{padding:100px 24px;background:var(--cb)}
+.avis-head{text-align:center;margin-bottom:64px}
+.stars-big{display:flex;justify-content:center;gap:6px;margin-bottom:16px}
+.stars-big svg{width:32px;height:32px;color:var(--cp)}
+.avis-score{font-family:'Playfair Display',serif;font-weight:800;font-size:64px;color:var(--cp);line-height:1;margin-bottom:8px}
+.avis-label{font-family:'Lato',sans-serif;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.18em;color:var(--ct);opacity:.6}
+.avis-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.avis-card{background:var(--cs);border:1px solid rgba(201,168,76,.2);border-radius:3px;padding:32px 28px;transition:border-color .3s}
+.avis-card:hover{border-color:rgba(201,168,76,.5)}
+.avis-stars{display:flex;gap:4px;margin-bottom:16px}
+.avis-stars svg{width:16px;height:16px;color:var(--cp)}
+.avis-card p{font-family:'Lato',sans-serif;font-weight:300;font-size:15px;color:var(--ct);opacity:.85;line-height:1.7;margin-bottom:20px;font-style:italic}
+.avis-author{font-family:'Lato',sans-serif;font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--cp)}
+.badges-row{max-width:700px;margin:56px auto 0;display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap}
+.badge{display:flex;align-items:center;gap:10px;background:var(--cs);border:1px solid rgba(201,168,76,.2);border-radius:32px;padding:12px 24px}
+.badge svg{width:22px;height:22px;color:var(--cp);flex-shrink:0}
+.badge span{font-family:'Lato',sans-serif;font-weight:600;font-size:13px;color:var(--ct);opacity:.85;white-space:nowrap}
 
-/* FOOTER */
-footer{background:var(--cs);border-top:1px solid rgba(201,168,76,.2)}
-.ft-top{max-width:1100px;margin:0 auto;padding:72px 16px 48px;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px}
-.ft-brand .logo{font-size:2rem;display:inline-block;margin-bottom:16px}
-.ft-brand p{font-size:.9rem;line-height:1.75;opacity:.75;max-width:260px}
-.ft-col h4{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--cp);margin-bottom:20px;letter-spacing:.05em}
-.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-.ft-col ul li a{font-size:.88rem;color:var(--ct);text-decoration:none;opacity:.7;transition:opacity .3s}
-.ft-col ul li a:hover{opacity:1;color:var(--cp)}
-.ft-col address{font-style:normal;font-size:.88rem;line-height:1.8;opacity:.75}
-.ft-col address a{color:var(--cp);text-decoration:none;font-weight:700}
-.ft-social{display:flex;gap:16px;margin-top:20px;align-items:center}
-.ft-social a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:1px solid rgba(201,168,76,.3);transition:border-color .3s,background .3s}
-.ft-social a:hover{border-color:var(--cp);background:rgba(201,168,76,.12)}
-.ft-social svg{width:20px;height:20px;fill:var(--ct)}
-.ft-bottom{border-top:1px solid rgba(201,168,76,.1);padding:20px 16px;text-align:center;display:flex;flex-direction:column;gap:6px}
-.ft-bottom p{font-size:.8rem;opacity:.55;color:var(--ct)}
-.ft-bottom a{color:var(--cp);text-decoration:none;font-weight:700}
-@media(max-width:768px){.ft-top{grid-template-columns:1fr;gap:40px}.ft-brand p{max-width:100%}}
+#acces{padding:100px 24px;background:var(--cs)}
+.acces-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.acces-txt h2{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(32px,4vw,46px);color:var(--ct);margin-bottom:32px}
+.acces-detail{display:flex;flex-direction:column;gap:24px}
+.acces-row{display:flex;align-items:flex-start;gap:16px}
+.acces-ico{width:20px;height:20px;color:var(--cp);flex-shrink:0;margin-top:2px}
+.acces-info strong{font-family:'Lato',sans-serif;font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--cp);display:block;margin-bottom:4px}
+.acces-info span{font-family:'Lato',sans-serif;font-weight:300;font-size:15px;color:var(--ct);opacity:.8;line-height:1.6}
+.acces-map{border-radius:3px;overflow:hidden;border:1px solid rgba(201,168,76,.2)}
+.acces-map iframe{width:100%;height:380px;display:block;filter:grayscale(40%) contrast(1.1)}
+
+footer{background:var(--cp);padding:64px 24px 32px}
+.ft-inner{max-width:1100px;margin:0 auto}
+.ft-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.ft-logo{font-family:'Playfair Display',serif;font-weight:800;font-size:30px;color:var(--cb);margin-bottom:12px}
+.ft-tagline{font-family:'Lato',sans-serif;font-weight:300;font-size:15px;color:var(--cb);opacity:.8;line-height:1.6}
+.ft-col h4{font-family:'Lato',sans-serif;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.18em;color:var(--cb);opacity:.7;margin-bottom:16px}
+.ft-col a,.ft-col p{font-family:'Lato',sans-serif;font-weight:400;font-size:15px;color:var(--cb);opacity:.85;line-height:2;display:block;transition:opacity .2s}
+.ft-col a:hover{opacity:1}
+.soc-row{display:flex;gap:14px;margin-top:8px}
+.soc-btn{width:42px;height:42px;border-radius:50%;background:rgba(17,17,17,.15);display:flex;align-items:center;justify-content:center;transition:background .3s}
+.soc-btn:hover{background:rgba(17,17,17,.3)}
+.soc-btn svg{width:20px;height:20px;color:var(--cb)}
+.ft-divider{width:100%;height:1px;background:rgba(17,17,17,.2);margin-bottom:28px}
+.ft-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.ft-copy{font-family:'Lato',sans-serif;font-weight:400;font-size:13px;color:var(--cb);opacity:.7}
+.ft-setup{font-family:'Lato',sans-serif;font-weight:600;font-size:13px;color:var(--cb);opacity:.8;transition:opacity .2s}
+.ft-setup:hover{opacity:1}
+
+@media(max-width:900px){
+.srv-grid{grid-template-columns:1fr}
+.met-row,.met-row.rev{grid-template-columns:1fr}
+.met-row .met-img,.met-row.rev .met-img{order:0;min-height:300px}
+.met-row .met-txt,.met-row.rev .met-txt{order:1;padding:48px 32px}
+.met-row.rev .met-txt{background:var(--cs)}
+.avis-grid{grid-template-columns:1fr}
+.acces-inner{grid-template-columns:1fr}
+.ft-top{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:1fr}
+.gal-item:first-child{grid-column:auto;aspect-ratio:4/3}
+.res-form{grid-template-columns:1fr}
+.f-group.full,.f-submit{grid-column:auto}
+}
+@media(max-width:480px){
+#services,#galerie,#reservation,#avis,#acces{padding:72px 16px}
+#metier .met-txt{padding:40px 16px}
+.met-txt h2{font-size:28px}
+.badges-row{gap:16px}
+.badge{padding:10px 16px}
+.ft-bottom{flex-direction:column;text-align:center}
+.acces-map iframe{height:260px}
+footer{padding:48px 16px 28px}
+}
 </style>
-
-<!-- ACCROCHE ÉMOTIONNELLE -->
-<section id="accroche">
-  <div class="accroche-inner">
-    <p class="hero-eyebrow accent" style="letter-spacing:4px;font-size:.8rem;font-weight:700;text-transform:uppercase;font-family:'Lato',sans-serif;display:block;margin-bottom:16px">Notre histoire</p>
-    <h2 class="h2" style="text-align:center">Une bulle dans la ville</h2>
-    <div class="sep"></div>
-    <p>Au cœur de l'Avenue du Maréchal Foch, La Bulle est née d'une conviction simple : les belles soirées commencent par un bon verre. Terrasse coloniale baignée de guirlandes, éclairages violets qui réchauffent l'intérieur, mobilier noir et doré qui invite à s'attarder — chaque détail a été pensé pour que vous vous sentiez chez vous, en mieux. Ici, les cocktails sont travaillés avec soin, l'accueil est sincère, et les nuits calédonien­nes trouvent leur meilleur écrin.</p>
-  </div>
-</section>
 
 <!-- SERVICES -->
 <section id="services">
   <div class="s-head">
-    <h2 class="h2">Ce qui fait La Bulle</h2>
-    <div class="sep"></div>
+    <h2>L'art de la bonne soirée</h2>
+    <p>De la terrasse ensoleillée à l'heure des cocktails dorés, La Bulle cultive l'art de faire du temps libre un moment mémorable.</p>
+    <div class="gold-line"></div>
   </div>
-  <div class="s-grid">
-    <div class="c-svc">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 3v2m8-2v2M3 8h18M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/></svg>
-      <h3 class="h3">Cocktails signature</h3>
-      <p>Chaque création est pensée ici, avec des assemblages inattendus et des produits soigneusement sélectionnés. Du classique revisité à l'audacieux, votre verre raconte une histoire.</p>
+  <div class="srv-grid">
+    <div class="srv-card">
+      <svg class="srv-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M24 6c0 0-12 8-12 20a12 12 0 0024 0C36 14 24 6 24 6z"/>
+        <path d="M24 26v10M20 36h8"/>
+      </svg>
+      <h3>Cocktails signature</h3>
+      <p>Une carte imaginée avec soin : classiques revisités, créations maison, mocktails élaborés. Chaque verre raconte quelque chose.</p>
+      <a href="#reservation" class="lnk-gold">Découvrir la carte</a>
     </div>
-    <div class="c-svc">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      <h3 class="h3">Terrasse coloniale</h3>
-      <p>Une terrasse blanche aux guirlandes lumineuses, où l'air de Nouméa et la douceur du soir font de chaque instant un souvenir. L'endroit idéal pour siroter en bonne compagnie.</p>
+    <div class="srv-card">
+      <svg class="srv-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="6" y="14" width="36" height="26" rx="2"/>
+        <path d="M16 14V10a8 8 0 0116 0v4"/>
+        <circle cx="24" cy="27" r="3"/>
+      </svg>
+      <h3>Bar privatisable</h3>
+      <p>Anniversaires, afterworks, soirées d'entreprise — La Bulle se transforme pour vos événements privés avec formules sur mesure.</p>
+      <a href="#reservation" class="lnk-gold">Demander un devis</a>
     </div>
-    <div class="c-svc">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-      <h3 class="h3">Ouvert tous les soirs</h3>
-      <p>Que ce soit pour un verre après le travail, un anniversaire entre amis ou une nuit qui s'étire, La Bulle vous accueille sept soirs sur sept avec la même bonne humeur.</p>
+    <div class="srv-card">
+      <svg class="srv-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M8 36V18l16-10 16 10v18"/>
+        <path d="M18 36v-10h12v10"/>
+        <path d="M24 8v4"/>
+      </svg>
+      <h3>Terrasse Foch</h3>
+      <p>Face à l'avenue animée, la terrasse de La Bulle invite à ralentir. Soleil et brise tropicale en toile de fond.</p>
+      <a href="#acces" class="lnk-gold">Voir l'adresse</a>
     </div>
   </div>
 </section>
 
-<!-- SECTION MÉTIER -->
+<!-- SECTION METIER -->
 <section id="metier">
-  <div class="m-row">
-    <div class="m-img">
-      <img src="https://i.ibb.co/TDbBXvm2/La-Bulle-1.jpg" alt="Ambiance intérieure La Bulle" loading="lazy">
+  <div class="met-row">
+    <div class="met-img">
+      <img src="https://i.ibb.co/FLMngMRK/La-Bulle-1.jpg" alt="Ambiance intérieure La Bulle Nouméa" loading="lazy">
+      <div class="met-img-overlay"></div>
     </div>
-    <div class="m-text">
-      <h2 class="h2">L'art de l'effervescence</h2>
-      <div class="sep" style="margin:16px 0"></div>
-      <p>À La Bulle, chaque cocktail est le fruit d'une attention particulière portée aux ingrédients, aux équilibres et aux envies du moment. Les barmen ne suivent pas de recette figée : ils écoutent, ils créent, ils s'adaptent.</p>
-      <ul class="check-list">
-        <li>Carte des cocktails renouvelée selon les saisons</li>
-        <li>Sélection de spiritueux locaux et internationaux</li>
-        <li>Options sans alcool travaillées avec le même soin</li>
-        <li>Ambiance curatée : musique, lumière, température — rien n'est laissé au hasard</li>
+    <div class="met-txt">
+      <div class="met-eyebrow">Notre identité</div>
+      <h2>Ni lounge froid, ni bar ordinaire.</h2>
+      <p>La Bulle est née de l'envie simple de créer un endroit où l'on revient. Un espace entre deux mondes : la légèreté d'une terrasse coloniale et la chaleur d'un intérieur tamisé aux reflets violets et dorés.</p>
+      <p>Au cœur de l'avenue du Maréchal Foch, c'est un repère pour la clientèle créative et urbaine de Nouméa — ceux qui savent que le meilleur d'une soirée commence souvent par le bon verre au bon endroit.</p>
+      <ul class="met-points">
+        <li>Cocktails travaillés, sans esbroufe</li>
+        <li>Ambiance soignée, accueil sincère</li>
+        <li>Terrasse ouverte 7 jours sur 7</li>
+        <li>Soirées à thème et programmation musicale</li>
       </ul>
-      <a href="#reservation" class="b b-gold">Réserver une table</a>
     </div>
   </div>
-  <div class="m-row rev" style="margin-top:80px">
-    <div class="m-img">
-      <img src="https://i.ibb.co/N27vr1dX/La-Bulle-3.jpg" alt="Terrasse coloniale La Bulle" loading="lazy">
+  <div class="met-row rev">
+    <div class="met-img">
+      <img src="https://i.ibb.co/M5Cz08k4/La-Bulle-2.jpg" alt="Cocktails La Bulle Nouméa" loading="lazy">
+      <div class="met-img-overlay"></div>
     </div>
-    <div class="m-text">
-      <h2 class="h2">Une adresse, deux ambiances</h2>
-      <div class="sep" style="margin:16px 0"></div>
-      <p>Entrez par la terrasse coloniale pour une soirée en plein air sous les guirlandes, ou glissez-vous à l'intérieur pour découvrir les éclairages violets et l'atmosphère feutrée du bar. Chaque espace a son caractère, chaque coin son histoire.</p>
-      <ul class="check-list">
-        <li>Terrasse spacieuse idéale pour les groupes</li>
-        <li>Bar intérieur intimiste aux lumières tamisées</li>
-        <li>Mobilier noir et doré, atmosphère soignée</li>
-        <li>Accès central sur l'Avenue du Maréchal Foch</li>
+    <div class="met-txt">
+      <div class="met-eyebrow">Le savoir-faire</div>
+      <h2>Des verres qui valent le détour.</h2>
+      <p>Derrière le bar, une équipe passionnée qui prend le temps. Chaque cocktail est dosé, équilibré, présenté. Jamais bâclé. L'expérience commence à la commande.</p>
+      <p>Bulles, spiritueux sélectionnés, jus frais, sirops maison — la carte évolue au fil des saisons et des inspirations, toujours avec le sourire comme ingrédient principal.</p>
+      <ul class="met-points">
+        <li>Carte renouvelée régulièrement</li>
+        <li>Options sans alcool élaborées</li>
+        <li>Sélection de vins et champagnes</li>
+        <li>Planches et tapas pour accompagner</li>
       </ul>
-      <a href="#galerie" class="b b-outline">Voir la galerie</a>
     </div>
   </div>
 </section>
 
 <!-- GALERIE -->
 <section id="galerie">
-  <div class="g-head">
-    <h2 class="h2">L'ambiance La Bulle</h2>
-    <div class="sep"></div>
-    <p class="lead" style="max-width:520px;margin:0 auto">Terrasse coloniale, guirlandes lumineuses, éclairages violets — laissez-vous transporter avant même d'arriver.</p>
+  <div class="s-head">
+    <h2>L'ambiance en images</h2>
+    <p>Jour ou nuit, La Bulle a ce quelque chose d'indéfinissable. Quelques aperçus pour vous donner envie.</p>
+    <div class="gold-line"></div>
   </div>
-  <div class="g-grid">
-    <div class="g-item" data-src="https://i.ibb.co/PGcqZ8Cy/La-Bulle-0.jpg">
-      <img src="https://i.ibb.co/PGcqZ8Cy/La-Bulle-0.jpg" alt="La Bulle – vue principale" loading="lazy">
+  <div class="gal-grid">
+    <div class="gal-item" data-src="https://i.ibb.co/s8SsFDd/La-Bulle-0.jpg">
+      <img src="https://i.ibb.co/s8SsFDd/La-Bulle-0.jpg" alt="La Bulle Nouméa - vue principale" loading="lazy">
+      <div class="gal-overlay"></div>
+      <div class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/><path d="M8 11h6M11 8v6"/></svg></div>
     </div>
-    <div class="g-item" data-src="https://i.ibb.co/TDbBXvm2/La-Bulle-1.jpg">
-      <img src="https://i.ibb.co/TDbBXvm2/La-Bulle-1.jpg" alt="La Bulle – ambiance intérieure" loading="lazy">
+    <div class="gal-item" data-src="https://i.ibb.co/FLMngMRK/La-Bulle-1.jpg">
+      <img src="https://i.ibb.co/FLMngMRK/La-Bulle-1.jpg" alt="La Bulle - ambiance intérieure" loading="lazy">
+      <div class="gal-overlay"></div>
+      <div class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/><path d="M8 11h6M11 8v6"/></svg></div>
     </div>
-    <div class="g-item" data-src="https://i.ibb.co/xKk37HQQ/La-Bulle-2.jpg">
-      <img src="https://i.ibb.co/xKk37HQQ/La-Bulle-2.jpg" alt="La Bulle – cocktails" loading="lazy">
+    <div class="gal-item" data-src="https://i.ibb.co/M5Cz08k4/La-Bulle-2.jpg">
+      <img src="https://i.ibb.co/M5Cz08k4/La-Bulle-2.jpg" alt="La Bulle - cocktails" loading="lazy">
+      <div class="gal-overlay"></div>
+      <div class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/><path d="M8 11h6M11 8v6"/></svg></div>
     </div>
-    <div class="g-item" data-src="https://i.ibb.co/N27vr1dX/La-Bulle-3.jpg">
-      <img src="https://i.ibb.co/N27vr1dX/La-Bulle-3.jpg" alt="La Bulle – terrasse coloniale" loading="lazy">
+    <div class="gal-item" data-src="https://i.ibb.co/PzctMvZf/La-Bulle-3.jpg">
+      <img src="https://i.ibb.co/PzctMvZf/La-Bulle-3.jpg" alt="La Bulle - terrasse Foch" loading="lazy">
+      <div class="gal-overlay"></div>
+      <div class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/><path d="M8 11h6M11 8v6"/></svg></div>
     </div>
   </div>
 </section>
 
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lb" role="dialog" aria-modal="true">
-  <button class="lb-close" id="lb-close" aria-label="Fermer">&times;</button>
-  <img class="lb-img" id="lb-img" src="" alt="Photo La Bulle">
+<div id="lightbox">
+  <button id="lb-close" aria-label="Fermer">×</button>
+  <img id="lb-img" src="" alt="Photo La Bulle agrandie">
 </div>
 
-<!-- RÉSERVATION CTA -->
+<!-- RÉSERVATION / FORMULAIRE -->
 <section id="reservation">
   <div class="res-inner">
-    <h2 class="h2">Réservez votre soirée</h2>
-    <div class="sep"></div>
-    <p class="lead">Une tablée entre amis, un anniversaire, une envie de bulle — contactez-nous et nous ferons du reste.</p>
-    <a href="tel:313131" class="b b-gold">Appeler le 31.31.31</a>
-  </div>
-</section>
-
-<!-- FORMULAIRE -->
-<section id="contact">
-  <div class="f-wrap">
-    <div class="f-head">
-      <h2 class="h2">Nous écrire</h2>
-      <div class="sep"></div>
-      <p class="lead">Une question, une demande particulière ? On vous répond vite.</p>
-    </div>
-    <form id="cform" action="#" novalidate>
-      <div class="f-grid">
-        <div class="f-field">
-          <label for="fn">Nom</label>
-          <input type="text" id="fn" name="nom" placeholder="Votre nom" autocomplete="name">
+    <h2>Réservez votre table</h2>
+    <p>Une occasion particulière ou simplement l'envie de passer un bon moment ? Dites-nous tout, on s'occupe du reste.</p>
+    <form id="contact-form" action="#" novalidate>
+      <div class="res-form">
+        <div class="f-group">
+          <label for="f-nom">Nom complet</label>
+          <input type="text" id="f-nom" name="nom" placeholder="Votre nom" autocomplete="name">
+          <div class="f-err" id="err-nom"></div>
         </div>
-        <div class="f-field">
-          <label for="fe">Email</label>
-          <input type="email" id="fe" name="email" placeholder="votre@email.com" autocomplete="email">
+        <div class="f-group">
+          <label for="f-email">Adresse e-mail</label>
+          <input type="email" id="f-email" name="email" placeholder="votre@email.nc" autocomplete="email">
+          <div class="f-err" id="err-email"></div>
         </div>
-        <div class="f-field">
-          <label for="ft">Téléphone</label>
-          <input type="tel" id="ft" name="tel" placeholder="XX XX XX" autocomplete="tel">
+        <div class="f-group">
+          <label for="f-tel">Téléphone</label>
+          <input type="tel" id="f-tel" name="tel" placeholder="XX XX XX" autocomplete="tel">
+          <div class="f-err" id="err-tel"></div>
         </div>
-        <div class="f-field">
-          <label for="fd">Date souhaitée</label>
-          <input type="date" id="fd" name="date">
+        <div class="f-group">
+          <label for="f-couverts">Nombre de personnes</label>
+          <input type="number" id="f-couverts" name="couverts" placeholder="2" min="1" max="50">
+          <div class="f-err" id="err-couverts"></div>
         </div>
-        <div class="f-field full">
-          <label for="fm">Message</label>
-          <textarea id="fm" name="message" placeholder="Votre message, nombre de personnes, occasion particulière…"></textarea>
+        <div class="f-group full">
+          <label for="f-msg">Message ou occasion particulière</label>
+          <textarea id="f-msg" name="message" placeholder="Anniversaire, afterwork, demande spéciale..."></textarea>
+          <div class="f-err" id="err-msg"></div>
         </div>
         <div class="f-submit">
-          <button type="submit" class="b b-gold">Envoyer le message</button>
+          <button type="submit" class="btn-primary" id="f-btn" style="width:100%">Envoyer ma demande</button>
         </div>
       </div>
     </form>
-    <div class="f-msg" id="fmsg">Merci ! Votre message a bien été envoyé. On vous recontacte très vite.</div>
+    <div class="f-msg" id="f-success">✦ Votre demande a bien été reçue. L'équipe de La Bulle vous contactera sous 24h. À très vite !</div>
   </div>
 </section>
 
 <!-- PREUVE SOCIALE -->
 <section id="avis">
-  <div class="av-head">
-    <div class="stars">
-      <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+  <div class="s-head avis-head">
+    <div class="stars-big">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
     </div>
-    <div class="av-score">5/5</div>
-    <div class="av-label">Note Google · 3 avis</div>
+    <div class="avis-score">5/5</div>
+    <div class="avis-label">Note Google · 3 avis vérifiés</div>
+    <div class="gold-line"></div>
   </div>
-  <div class="av-grid">
-    <div class="c-av">
-      <div class="stars">
-        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+  <div class="avis-grid">
+    <div class="avis-card">
+      <div class="avis-stars">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
       </div>
-      <blockquote>"Un endroit vraiment unique à Nouméa. Les cocktails sont originaux et délicieux, l'ambiance est parfaite — entre la terrasse et l'intérieur violet, on ne sait plus où donner de la tête."</blockquote>
-      <cite>Marie-Laure T.</cite>
+      <p>« Un endroit comme on en cherche longtemps à Nouméa. Les cocktails sont vraiment bons, l'ambiance est parfaite et le personnel est aux petits soins. »</p>
+      <div class="avis-author">Marie-Laure P.</div>
     </div>
-    <div class="c-av">
-      <div class="stars">
-        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <div class="avis-card">
+      <div class="avis-stars">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
       </div>
-      <blockquote>"L'accueil est chaleureux, les cocktails bien dosés et l'endroit a une vraie personnalité. On sent que tout est fait avec passion. Notre table préférée sur Foch."</blockquote>
-      <cite>Sébastien K.</cite>
+      <p>« La terrasse sur l'avenue Foch est magnifique. Le soir, l'ambiance change complètement — lumières tamisées, musique juste comme il faut. Un vrai coup de cœur. »</p>
+      <div class="avis-author">Thomas D.</div>
     </div>
-    <div class="c-av">
-      <div class="stars">
-        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <div class="avis-card">
+      <div class="avis-stars">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
       </div>
-      <blockquote>"Venue pour un anniversaire, tout était parfait. La déco est soignée, la musique bien dosée, et les cocktails sans alcool aussi réussis que les autres. On reviendra !"</blockquote>
-      <cite>Chloé M.</cite>
+      <p>« J'y suis allée pour un anniversaire, tout le monde a adoré. Service impeccable, cocktails originaux, cadre soigné. La Bulle mérite largement ces 5 étoiles. »</p>
+      <div class="avis-author">Céline M.</div>
     </div>
   </div>
-  <div class="badges">
+  <div class="badges-row">
     <div class="badge">
-      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      <span>Note Google 5/5</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span>Bar de confiance</span>
     </div>
     <div class="badge">
-      <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-      <span>100% avis positifs</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      <span>Ouvert 7j/7</span>
     </div>
     <div class="badge">
-      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      <span>Bar de confiance à Nouméa</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+      <span>Privatisation possible</span>
+    </div>
+  </div>
+</section>
+
+<!-- ACCÈS -->
+<section id="acces">
+  <div class="acces-inner">
+    <div class="acces-txt">
+      <h2>Nous trouver</h2>
+      <div class="acces-detail">
+        <div class="acces-row">
+          <svg class="acces-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div class="acces-info">
+            <strong>Adresse</strong>
+            <span>35 Av. du Maréchal Foch<br>Nouméa 98800, Nouvelle-Calédonie</span>
+          </div>
+        </div>
+        <div class="acces-row">
+          <svg class="acces-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 4.18 2 2 0 015.08 2h3a2 2 0 012 1.72c.12.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L9.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <div class="acces-info">
+            <strong>Téléphone</strong>
+            <a href="tel:313131" class="acces-info">31.31.31</a>
+          </div>
+        </div>
+        <div class="acces-row">
+          <svg class="acces-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <div class="acces-info">
+            <strong>Horaires</strong>
+            <span>Tous les jours · 7j/7<br>Terrasse ouverte en continu</span>
+          </div>
+        </div>
+        <div class="acces-row">
+          <svg class="acces-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          <div class="acces-info">
+            <strong>Réseaux sociaux</strong>
+            <a href="https://www.facebook.com/La.Bulle.Bar.Effervescent" target="_blank" rel="noopener">Facebook — La Bulle Bar Effervescent</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="acces-map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3539.0!2d166.4580!3d-22.2763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s35+Av.+du+Mar%C3%A9chal+Foch%2C+Noum%C3%A9a!5e0!3m2!1sfr!2snc!4v1" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="La Bulle - Carte"></iframe>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="ft-top">
-    <div class="ft-brand">
-      <a href="#" class="logo">La <span>Bulle</span></a>
-      <p>Bar d'effervescence au cœur de Nouméa. Cocktails signature, terrasse coloniale et bonne humeur — sept soirs sur sept.</p>
-      <div class="ft-social">
-        <a href="https://www.facebook.com/La.Bulle.Bar.Effervescent" target="_blank" rel="noopener" aria-label="Facebook La Bulle">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-        </a>
+  <div class="ft-inner">
+    <div class="ft-top">
+      <div>
+        <div class="ft-logo">La Bulle</div>
+        <p class="ft-tagline">Le bar où Nouméa pétille.<br>35 Av. du Maréchal Foch.</p>
+        <div class="soc-row" style="margin-top:20px">
+          <a href="https://www.facebook.com/La.Bulle.Bar.Effervescent" class="soc-btn" target="_blank" rel="noopener" aria-label="Facebook La Bulle">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="ft-col">
+        <h4>Navigation</h4>
+        <a href="#services">Nos services</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#avis">Avis clients</a>
+        <a href="#reservation">Réservation</a>
+        <a href="#acces">Accès & Horaires</a>
+      </div>
+      <div class="ft-col">
+        <h4>Contact</h4>
+        <a href="tel:313131">☎ 31.31.31</a>
+        <p>35 Av. du Maréchal Foch</p>
+        <p>Nouméa 98800</p>
+        <p>Nouvelle-Calédonie</p>
+        <a href="https://www.facebook.com/La.Bulle.Bar.Effervescent" target="_blank" rel="noopener">Facebook</a>
       </div>
     </div>
-    <div class="ft-col">
-      <h4>Navigation</h4>
-      <ul>
-        <li><a href="#accroche">Notre histoire</a></li>
-        <li><a href="#services">Nos atouts</a></li>
-        <li><a href="#galerie">Galerie</a></li>
-        <li><a href="#reservation">Réservation</a></li>
-        <li><a href="#avis">Avis clients</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+    <div class="ft-divider"></div>
+    <div class="ft-bottom">
+      <span class="ft-copy">© 2026 La Bulle. Tous droits réservés.</span>
+      <a href="https://setup.nc" class="ft-setup" target="_blank" rel="noopener">Site réalisé par Setup NC</a>
     </div>
-    <div class="ft-col">
-      <h4>Nous trouver</h4>
-      <address>
-        La Bulle<br>
-        35 Av. du Maréchal Foch<br>
-        Nouméa 98800<br>
-        Nouvelle-Calédonie<br><br>
-        <a href="tel:313131">31.31.31</a>
-      </address>
-    </div>
-  </div>
-  <div class="ft-bottom">
-    <p>© 2026 La Bulle. Tous droits réservés.</p>
-    <p>Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
   </div>
 </footer>
 
 <script>
 (function(){
-  var items=document.querySelectorAll('.g-item'),lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img'),lbClose=document.getElementById('lb-close');
-  items.forEach(function(el){
-    el.addEventListener('click',function(){
-      lbImg.src=el.dataset.src;
-      lb.classList.add('open');
-      document.body.style.overflow='hidden';
-    });
+var items=document.querySelectorAll('.gal-item'),lb=document.getElementById('lightbox'),lbImg=document.getElementById('lb-img'),lbClose=document.getElementById('lb-close');
+items.forEach(function(el){
+  el.addEventListener('click',function(){
+    lbImg.src=el.dataset.src;
+    lb.classList.add('active');
+    document.body.style.overflow='hidden';
   });
-  function closeLb(){lb.classList.remove('open');document.body.style.overflow='';}
-  lbClose.addEventListener('click',closeLb);
-  lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+});
+function closeLb(){lb.classList.remove('active');document.body.style.overflow='';lbImg.src='';}
+lbClose.addEventListener('click',closeLb);
+lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
 
-  var form=document.getElementById('cform'),fmsg=document.getElementById('fmsg');
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    var ok=true;
-    var fn=document.getElementById('fn'),fe=document.getElementById('fe'),fm=document.getElementById('fm');
-    [fn,fe,fm].forEach(function(f){f.classList.remove('f-err');});
-    if(!fn.value.trim()){fn.classList.add('f-err');ok=false;}
-    if(!fe.value.trim()||!fe.value.includes('@')){fe.classList.add('f-err');ok=false;}
-    if(!fm.value.trim()){fm.classList.add('f-err');ok=false;}
-    if(!ok)return;
+var form=document.getElementById('contact-form'),btn=document.getElementById('f-btn'),suc=document.getElementById('f-success');
+var fields={nom:'f-nom',email:'f-email',tel:'f-tel',couverts:'f-couverts'};
+function setErr(id,msg){document.getElementById('err-'+id).textContent=msg;}
+function clearErrs(){Object.keys(fields).forEach(function(k){setErr(k,'');});document.getElementById('err-msg').textContent='';}
+function validate(){
+  var ok=true,nom=document.getElementById('f-nom').value.trim(),email=document.getElementById('f-email').value.trim(),tel=document.getElementById('f-tel').value.trim();
+  clearErrs();
+  if(!nom){setErr('nom','Votre nom est requis.');ok=false;}
+  if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){setErr('email','Adresse e-mail invalide.');ok=false;}
+  if(!tel){setErr('tel','Votre téléphone est requis.');ok=false;}
+  return ok;
+}
+form.addEventListener('submit',function(e){
+  e.preventDefault();
+  if(!validate())return;
+  btn.textContent='Envoi en cours…';btn.disabled=true;
+  setTimeout(function(){
     form.style.display='none';
-    fmsg.classList.add('show');
-  });
+    suc.classList.add('show');
+  },900);
+});
 })();
 </script>
+
 </body>
 </html>
