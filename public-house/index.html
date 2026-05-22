@@ -4,250 +4,89 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Public House — Nouméa</title>
-<meta name="description" content="Bar urbain à Nouméa — cocktails signature, concerts live, ambiance électrique. Rte de l'Anse Vata, Nouméa 98800.">
+<meta name="description" content="Public House, bar lounge à Nouméa. Cocktails signature, vins, concerts live et soirées inoubliables sur la route de l'Anse Vata.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Manrope:wght@700&display=swap" rel="stylesheet">
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Oswald:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
 :root{
---cp:#1A1A1A;
---cs:#2A3A5C;
---ca:#C8922A;
---cb:#111318;
---ct:#F0F0F0;
---cw:#ffffff;
---cd:#222222;
+--bg:#111111;
+--primary:#1A1A1A;
+--secondary:#2A3A5C;
+--accent:#C8922A;
+--text:#F0F0F0;
+--gold:#C8922A;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--cb);color:var(--ct);font-family:'Montserrat',system-ui,sans-serif;overflow-x:hidden;line-height:1.6}
+body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;overflow-x:hidden;line-height:1.6}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:'Oswald',sans-serif;line-height:1.2}
 
 /* BANDEAU SETUP NC */
-.setup-band{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;text-align:center;line-height:44px}
-.setup-band a{font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;letter-spacing:.3px;line-height:44px;display:block;width:100%}
+.setup-band{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;text-align:center}
+.setup-band a{font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;line-height:44px;letter-spacing:.3px;display:block;width:100%}
 .setup-band a:hover{opacity:.85}
 
 /* HEADER */
-.hdr{position:fixed;top:44px;left:0;width:100%;z-index:1000;background:rgba(17,19,24,.95);backdrop-filter:blur(8px);border-bottom:1px solid rgba(200,146,42,.2);transition:opacity .3s}
-.hdr-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-size:22px;font-weight:900;letter-spacing:2px;color:var(--cw);text-transform:uppercase}
-.logo span{color:var(--ca)}
-.nav{display:flex;gap:28px;list-style:none}
-.nav a{font-size:13px;font-weight:600;letter-spacing:.5px;color:var(--ct);text-transform:uppercase;transition:color .2s}
-.nav a:hover{color:var(--ca)}
-.hdr-cta{background:var(--ca);color:var(--cw);font-weight:700;font-size:13px;padding:10px 20px;border-radius:4px;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap;transition:opacity .2s}
-.hdr-cta:hover{opacity:.85}
-.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
-.burger span{display:block;width:24px;height:2px;background:var(--ct);transition:transform .3s,opacity .3s}
-.mob-nav{display:none;position:fixed;top:108px;left:0;width:100%;background:rgba(17,19,24,.98);z-index:999;padding:24px 16px;flex-direction:column;gap:0}
+.hdr{position:fixed;top:44px;left:0;width:100%;z-index:1000;background:rgba(17,17,17,.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(200,146,42,.2);transition:background .3s}
+.hdr-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-circle{width:44px;height:44px;border-radius:50%;border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;background:transparent}
+.logo-circle span{font-family:'Oswald',sans-serif;font-weight:700;font-size:16px;color:var(--accent);letter-spacing:1px}
+.logo-name{font-family:'Oswald',sans-serif;font-weight:600;font-size:18px;letter-spacing:2px;color:var(--text)}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{font-family:'Oswald',sans-serif;font-size:13px;font-weight:400;letter-spacing:1.5px;text-transform:uppercase;color:rgba(240,240,240,.75);transition:color .2s}
+.nav a:hover{color:var(--accent)}
+.hdr-cta{display:flex;align-items:center;gap:16px}
+.tel-link{font-family:'Oswald',sans-serif;font-size:14px;font-weight:500;color:var(--accent);letter-spacing:.5px}
+.btn{font-family:'Oswald',sans-serif;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;position:relative;overflow:hidden;transition:opacity .2s,transform .2s}
+.btn:hover{opacity:.9;transform:translateY(-1px)}
+.btn-gold{background:var(--accent);color:#fff;padding:11px 24px;font-size:13px}
+.btn-outline{background:transparent;color:var(--accent);border:1.5px solid var(--accent);padding:10px 22px;font-size:13px}
+.btn-gold::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at center,rgba(255,255,255,.35) 0%,transparent 70%);opacity:0;transition:opacity .4s}
+.btn-gold:hover::after{opacity:1}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--text);transition:transform .3s,opacity .3s}
+
+/* MOBILE NAV */
+.mob-nav{display:none;position:fixed;top:112px;left:0;width:100%;background:rgba(17,17,17,.98);z-index:999;padding:24px;flex-direction:column;gap:16px;border-bottom:1px solid rgba(200,146,42,.2)}
 .mob-nav.open{display:flex}
-.mob-nav a{display:block;padding:14px 0;font-size:15px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid rgba(255,255,255,.08);color:var(--ct)}
-.mob-nav a:hover{color:var(--ca)}
+.mob-nav a{font-family:'Oswald',sans-serif;font-size:16px;letter-spacing:2px;text-transform:uppercase;color:var(--text);padding:10px 0;border-bottom:1px solid rgba(240,240,240,.08)}
+.mob-nav a:hover{color:var(--accent)}
 
 /* HERO */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:url('https://i.ibb.co/bRjTtszs/Public-House-0.jpg') center/cover no-repeat}
-.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(17,19,24,.85) 0%,rgba(42,58,92,.6) 50%,rgba(17,19,24,.9) 100%);z-index:1}
-.hero-promo{position:absolute;top:0;left:0;width:100%;height:4px;z-index:3;animation:hpulse 3s ease-in-out infinite}
-@keyframes hpulse{0%{background:var(--cp)}50%{background:var(--cs)}100%{background:var(--ca)}}
-.hero-badge{display:inline-block;background:var(--ca);color:var(--cw);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 16px;border-radius:2px;margin-bottom:20px;animation:blink 2.5s ease-in-out infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.7}}
-.hero-content{position:relative;z-index:2;max-width:780px;padding:0 24px}
-.hero-content h1{font-size:clamp(2.4rem,7vw,5.5rem);font-weight:900;line-height:1.05;letter-spacing:-1px;color:var(--cw);text-transform:uppercase;margin-bottom:16px}
-.hero-content h1 em{color:var(--ca);font-style:normal}
-.hero-sub{font-size:clamp(.95rem,2.2vw,1.2rem);color:rgba(240,240,240,.8);max-width:560px;margin:0 auto 32px;font-weight:400}
-.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.btn-p{background:var(--ca);color:var(--cw);font-weight:700;font-size:14px;padding:14px 32px;border-radius:4px;text-transform:uppercase;letter-spacing:.5px;transition:opacity .2s,transform .2s;min-height:48px;display:inline-flex;align-items:center}
-.btn-p:hover{opacity:.85;transform:translateY(-2px)}
-.btn-s{background:transparent;color:var(--cw);font-weight:700;font-size:14px;padding:13px 32px;border-radius:4px;text-transform:uppercase;letter-spacing:.5px;border:2px solid var(--cw);transition:border-color .2s,color .2s;min-height:48px;display:inline-flex;align-items:center}
-.btn-s:hover{border-color:var(--ca);color:var(--ca)}
-.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(240,240,240,.5);font-size:11px;letter-spacing:1px;text-transform:uppercase}
-.scroll-ind::after{content:'';display:block;width:1px;height:40px;background:linear-gradient(to bottom,rgba(200,146,42,.8),transparent);animation:scrollLine 1.8s ease-in-out infinite}
-@keyframes scrollLine{0%{opacity:0;transform:scaleY(0);transform-origin:top}50%{opacity:1}100%{opacity:0;transform:scaleY(1);transform-origin:top}}
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;background-image:url('https://i.ibb.co/nK7NrW5/Public-House-0.jpg');background-size:cover;background-position:center;background-attachment:fixed}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(17,17,17,.92) 0%,rgba(42,58,92,.55) 50%,rgba(17,17,17,.85) 100%)}
+.hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:140px 24px 80px;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(200,146,42,.15);border:1px solid rgba(200,146,42,.4);padding:6px 16px;margin-bottom:24px}
+.hero-badge span{font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--accent)}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse-dot 1.8s infinite}
+@keyframes pulse-dot{0%,100%{box-shadow:0 0 0 0 rgba(200,146,42,.6)}50%{box-shadow:0 0 0 6px rgba(200,146,42,0)}}
+.hero h1{font-family:'Oswald',sans-serif;font-size:clamp(42px,7vw,88px);font-weight:700;text-transform:uppercase;letter-spacing:4px;color:#fff;line-height:1.05;margin-bottom:8px}
+.hero h1 em{color:var(--accent);font-style:normal}
+.hero-sub{font-family:'Poppins',sans-serif;font-size:clamp(14px,2vw,18px);font-weight:300;color:rgba(240,240,240,.8);max-width:560px;margin-bottom:40px;line-height:1.7}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:60px}
+.hero-actions .btn{min-height:52px;padding:0 32px;font-size:14px}
+.hero-strip{display:flex;gap:32px;flex-wrap:wrap}
+.hero-info{display:flex;align-items:center;gap:8px}
+.hero-info svg{width:16px;height:16px;fill:var(--accent);flex-shrink:0}
+.hero-info span{font-family:'Poppins',sans-serif;font-size:13px;color:rgba(240,240,240,.7)}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px}
+.scroll-ind span{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(240,240,240,.4)}
+.scroll-arrow{width:20px;height:20px;border-right:2px solid rgba(200,146,42,.6);border-bottom:2px solid rgba(200,146,42,.6);transform:rotate(45deg);animation:bounce-arr .9s infinite alternate}
+@keyframes bounce-arr{from{transform:rotate(45deg) translateY(0)}to{transform:rotate(45deg) translateY(6px)}}
 
-/* STATS BAND */
-.stats{background:var(--cs);padding:48px 24px}
-.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-.stat{text-align:center}
-.stat-num{font-size:clamp(2rem,5vw,3.2rem);font-weight:900;color:var(--ca);line-height:1;display:block}
-.stat-lbl{font-size:13px;font-weight:600;color:var(--cw);text-transform:uppercase;letter-spacing:1px;margin-top:6px;opacity:.85}
+/* STATS */
+.stats{background:var(--primary);border-top:1px solid rgba(200,146,42,.2);border-bottom:1px solid rgba(200,146,42,.2)}
+.stats-inner{max-width:1200px;margin:0 auto;padding:56px 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat{text-align:center;padding:16px;border-right:1px solid rgba(240,240,240,.08)}
+.stat:last-child{border-right:none}
+.stat-num{font-family:'Oswald',sans-serif;font-size:clamp(36px,4vw,52px);font-weight:700;color:var(--accent);line-height:1;margin-bottom:6px}
+.stat-label{font-family:'Poppins',sans-serif;font-size:13px;font-weight:400;color:rgba(240,240,240,.6);text-transform:uppercase;letter-spacing:1px}
 
-/* UTILITIES */
-.s{padding:72px 24px}
-.s-inner{max-width:1100px;margin:0 auto}
-.h{font-size:clamp(1.6rem,4vw,2.6rem);font-weight:900;text-transform:uppercase;letter-spacing:-0.5px}
-.h em{color:var(--ca);font-style:normal}
-.sub{font-size:15px;color:rgba(240,240,240,.65);margin-top:8px}
-.sep{width:48px;height:3px;background:var(--ca);margin:16px 0 32px}
-
-/* CATEGORIES */
-.cats{background:var(--cp)}
-.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
-.cat-card{position:relative;border-radius:6px;overflow:hidden;aspect-ratio:4/3;cursor:pointer;transition:transform .2s}
-.cat-card:hover{transform:translateY(-4px)}
-.cat-card img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
-.cat-card:hover img{transform:scale(1.05)}
-.cat-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(17,19,24,.9) 0%,rgba(17,19,24,.2) 60%,transparent 100%)}
-.cat-info{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:20px 16px}
-.cat-name{font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--cw)}
-.cat-link{font-size:11px;color:var(--ca);font-weight:600;letter-spacing:.5px;margin-top:4px;text-transform:uppercase}
-
-/* PROMOS */
-.promos{background:var(--cb)}
-.promo-band{background:linear-gradient(135deg,var(--ca) 0%,#a36e1a 100%);border-radius:6px;padding:20px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:32px;flex-wrap:wrap}
-.promo-band-txt{font-size:18px;font-weight:800;color:var(--cw);text-transform:uppercase;letter-spacing:1px}
-.promo-band-sub{font-size:13px;color:rgba(255,255,255,.8);margin-top:4px}
-.promo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.pc{background:var(--cp);border-radius:6px;overflow:hidden;border:1px solid rgba(200,146,42,.15);transition:border-color .2s,transform .2s,box-shadow .2s;position:relative}
-.pc:hover{border-color:var(--ca);transform:translateY(-4px);box-shadow:0 8px 32px rgba(200,146,42,.18)}
-.pc-img{aspect-ratio:16/9;overflow:hidden}
-.pc-img img{width:100%;height:100%;object-fit:cover}
-.badge{position:absolute;top:12px;right:12px;background:var(--ca);color:var(--cw);font-size:11px;font-weight:800;padding:4px 10px;border-radius:2px;text-transform:uppercase;letter-spacing:.5px;animation:blink 2.5s ease-in-out infinite}
-.pc-body{padding:16px}
-.pc-name{font-size:15px;font-weight:700;color:var(--cw)}
-.pc-desc{font-size:13px;color:rgba(240,240,240,.6);margin-top:4px;line-height:1.5}
-.pc-price{margin-top:12px;display:flex;align-items:center;gap:10px}
-.price-tag{font-size:18px;font-weight:900;color:var(--ca)}
-.btn-sm{background:var(--ca);color:var(--cw);font-size:12px;font-weight:700;padding:8px 16px;border-radius:3px;text-transform:uppercase;letter-spacing:.5px;transition:opacity .2s;min-height:36px;display:inline-flex;align-items:center;margin-top:12px}
-.btn-sm:hover{opacity:.85}
-
-/* BESTSELLERS */
-.best{background:var(--cp)}
-.best-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:32px}
-.bc{background:var(--cb);border-radius:6px;overflow:hidden;border:1px solid rgba(200,146,42,.1);transition:border-color .2s,box-shadow .2s}
-.bc:hover{border-color:var(--ca);box-shadow:0 6px 24px rgba(200,146,42,.15)}
-.bc-img{aspect-ratio:1/1;overflow:hidden}
-.bc-img img{width:100%;height:100%;object-fit:cover}
-.bc-body{padding:12px}
-.bc-name{font-size:14px;font-weight:700;color:var(--cw)}
-.bc-sub{font-size:12px;color:rgba(240,240,240,.5);margin-top:2px}
-.stars{color:var(--ca);font-size:12px;margin-top:6px}
-
-/* HORAIRES */
-.hours{background:var(--cs)}
-.hours-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:32px;align-items:start}
-.hours-table{width:100%;border-collapse:collapse}
-.hours-table tr{border-bottom:1px solid rgba(255,255,255,.08)}
-.hours-table td{padding:10px 0;font-size:14px;color:var(--ct)}
-.hours-table td:first-child{font-weight:600;color:var(--cw)}
-.hours-table td:last-child{text-align:right;color:var(--ca);font-weight:700}
-.info-box{background:rgba(17,19,24,.5);border-radius:6px;padding:24px;border-left:3px solid var(--ca)}
-.info-box h3{font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--ca);margin-bottom:12px}
-.info-box p{font-size:14px;color:var(--ct);line-height:1.7}
-.info-box a{color:var(--ca);font-weight:700}
-.map-btn{display:inline-flex;align-items:center;gap:8px;background:var(--ca);color:var(--cw);font-weight:700;font-size:13px;padding:12px 24px;border-radius:4px;text-transform:uppercase;letter-spacing:.5px;margin-top:16px;transition:opacity .2s;min-height:44px}
-.map-btn:hover{opacity:.85}
-
-/* AVIS */
-.reviews{background:var(--cb)}
-.rating-hero{text-align:center;margin-bottom:40px}
-.rating-big{font-size:clamp(3rem,8vw,5rem);font-weight:900;color:var(--ca);line-height:1}
-.rating-stars{font-size:24px;color:var(--ca);margin:8px 0}
-.rating-count{font-size:14px;color:rgba(240,240,240,.5)}
-.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.rc{background:var(--cp);border-radius:6px;padding:20px;border:1px solid rgba(200,146,42,.1);transition:border-color .2s}
-.rc:hover{border-color:var(--ca)}
-.rc-top{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-.rc-avatar{width:40px;height:40px;border-radius:50%;background:var(--cs);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:var(--ca);flex-shrink:0}
-.rc-name{font-size:14px;font-weight:700;color:var(--cw)}
-.rc-date{font-size:11px;color:rgba(240,240,240,.4);margin-top:2px}
-.rc-stars{color:var(--ca);font-size:13px;margin-bottom:8px}
-.rc-text{font-size:13px;color:rgba(240,240,240,.7);line-height:1.6}
-
-/* GALERIE */
-.gallery{background:var(--cp)}
-.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:32px}
-.gal-item{aspect-ratio:1/1;overflow:hidden;border-radius:4px;cursor:pointer;position:relative}
-.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
-.gal-item:hover img{transform:scale(1.08)}
-.gal-item::after{content:'';position:absolute;inset:0;background:rgba(200,146,42,0);transition:background .3s}
-.gal-item:hover::after{background:rgba(200,146,42,.15)}
-.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;display:none;align-items:center;justify-content:center}
-.lightbox.open{display:flex}
-.lb-img{max-width:90vw;max-height:85vh;border-radius:4px}
-.lb-close{position:absolute;top:20px;right:24px;font-size:32px;color:var(--cw);cursor:pointer;background:none;border:none;line-height:1}
-
-/* FORMULAIRE */
-.form-s{background:var(--cs)}
-.form-wrap{max-width:640px;margin:32px auto 0}
-.fg{margin-bottom:16px}
-.fg label{display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:rgba(240,240,240,.6);margin-bottom:6px}
-.fg input,.fg textarea{width:100%;background:rgba(17,19,24,.8);border:1px solid rgba(200,146,42,.25);border-radius:4px;color:var(--ct);font-size:14px;font-family:'Montserrat',sans-serif;padding:12px 14px;transition:border-color .2s;outline:none}
-.fg input:focus,.fg textarea:focus{border-color:var(--ca)}
-.fg textarea{resize:vertical;min-height:100px}
-.btn-submit{background:var(--ca);color:var(--cw);font-weight:800;font-size:15px;padding:16px 40px;border-radius:4px;text-transform:uppercase;letter-spacing:.5px;border:none;cursor:pointer;width:100%;min-height:52px;transition:opacity .2s,transform .2s;font-family:'Montserrat',sans-serif}
-.btn-submit:hover{opacity:.85;transform:translateY(-2px)}
-.form-msg{text-align:center;padding:16px;border-radius:4px;font-weight:700;font-size:14px;display:none;margin-top:12px}
-.form-msg.ok{background:rgba(200,146,42,.15);color:var(--ca);display:block}
-
-/* FOOTER */
-.ftr{background:var(--cp);border-top:1px solid rgba(200,146,42,.2);padding:48px 24px 24px}
-.ftr-inner{max-width:1100px;margin:0 auto}
-.ftr-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
-.ftr-brand .logo{font-size:20px;margin-bottom:12px}
-.ftr-desc{font-size:13px;color:rgba(240,240,240,.55);line-height:1.7}
-.ftr-col h4{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--ca);margin-bottom:14px}
-.ftr-col ul{list-style:none}
-.ftr-col li{margin-bottom:8px}
-.ftr-col a{font-size:13px;color:rgba(240,240,240,.6);transition:color .2s}
-.ftr-col a:hover{color:var(--ca)}
-.ftr-social{display:flex;gap:12px;margin-top:16px}
-.ftr-social a{width:36px;height:36px;border-radius:4px;background:rgba(200,146,42,.15);display:flex;align-items:center;justify-content:center;transition:background .2s}
-.ftr-social a:hover{background:var(--ca)}
-.ftr-social svg{width:18px;height:18px;fill:var(--ct)}
-.ftr-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
-.ftr-copy{font-size:12px;color:rgba(240,240,240,.35)}
-.ftr-setupnc{font-size:12px;color:rgba(200,146,42,.6);font-weight:600}
-.ftr-setupnc a{color:var(--ca)}
-
-/* REVEAL ANIMATIONS */
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
-.reveal.on{opacity:1;transform:none}
-
-/* FALLBACK si JS échoue */
+/* REVEAL FALLBACK */
 .reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-.stats-inner{grid-template-columns:repeat(2,1fr)}
-.cat-grid{grid-template-columns:repeat(2,1fr)}
-.promo-grid{grid-template-columns:repeat(2,1fr)}
-.best-grid{grid-template-columns:repeat(2,1fr)}
-.rev-grid{grid-template-columns:1fr 1fr}
-.hours-grid{grid-template-columns:1fr}
-.ftr-grid{grid-template-columns:1fr 1fr}
-.gal-grid{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:600px){
-.nav{display:none}
-.hdr-cta{display:none}
-.burger{display:flex}
-.stats-inner{grid-template-columns:repeat(2,1fr);gap:16px}
-.cat-grid{grid-template-columns:1fr 1fr}
-.promo-grid{grid-template-columns:1fr}
-.best-grid{grid-template-columns:repeat(2,1fr)}
-.rev-grid{grid-template-columns:1fr}
-.gal-grid{grid-template-columns:repeat(2,1fr)}
-.ftr-grid{grid-template-columns:1fr}
-.hero-btns{flex-direction:column;align-items:center}
-.btn-p,.btn-s{width:100%;justify-content:center}
-.s{padding:48px 16px}
-.promo-band{flex-direction:column;text-align:center}
-.hours-grid{grid-template-columns:1fr}
-.ftr-bottom{flex-direction:column;text-align:center}
-.setup-band a{font-size:13px;line-height:40px}
-.setup-band{height:40px}
-.hdr{top:40px}
-.mob-nav{top:104px}
-.hero{padding-top:104px}
-}
-@media(max-width:375px){
-.cat-grid{grid-template-columns:1fr}
-.best-grid{grid-template-columns:1fr}
-.gal-grid{grid-template-columns:1fr 1fr}
-body{padding:0 0}
-}
 </style>
 </head>
 <body>
@@ -260,467 +99,618 @@ body{padding:0 0}
 <!-- HEADER -->
 <header class="hdr">
   <div class="hdr-inner">
-    <div class="logo">Public<span>House</span></div>
-    <ul class="nav">
-      <li><a href="#categories">La Carte</a></li>
-      <li><a href="#promos">Offres</a></li>
-      <li><a href="#bestsellers">Signatures</a></li>
-      <li><a href="#horaires">Horaires</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <a href="tel:0684280" class="hdr-cta">84.28.08</a>
-    <button class="burger" aria-label="Menu" onclick="toggleMenu()">
+    <a href="#hero" class="logo">
+      <div class="logo-circle"><span>PH</span></div>
+      <span class="logo-name">PUBLIC HOUSE</span>
+    </a>
+    <nav class="nav" id="desknav">
+      <a href="#categories">La Carte</a>
+      <a href="#promos">Promos</a>
+      <a href="#galerie">Ambiance</a>
+      <a href="#avis">Avis</a>
+      <a href="#horaires">Horaires</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="hdr-cta">
+      <a href="tel:+68784280" class="tel-link">84.28.08</a>
+      <a href="#contact" class="btn btn-gold">Réserver</a>
+    </div>
+    <div class="hamburger" id="hbg" role="button" aria-label="Menu" tabindex="0">
       <span></span><span></span><span></span>
-    </button>
+    </div>
   </div>
 </header>
 
 <!-- MOBILE NAV -->
-<nav class="mob-nav" id="mobNav">
-  <a href="#categories" onclick="toggleMenu()">La Carte</a>
-  <a href="#promos" onclick="toggleMenu()">Offres</a>
-  <a href="#bestsellers" onclick="toggleMenu()">Signatures</a>
-  <a href="#horaires" onclick="toggleMenu()">Horaires</a>
-  <a href="#contact" onclick="toggleMenu()">Contact</a>
-  <a href="tel:0684280" style="color:var(--ca);margin-top:8px">📞 84.28.08</a>
+<nav class="mob-nav" id="mobnav">
+  <a href="#categories" onclick="closeMob()">La Carte</a>
+  <a href="#promos" onclick="closeMob()">Promos</a>
+  <a href="#galerie" onclick="closeMob()">Ambiance</a>
+  <a href="#avis" onclick="closeMob()">Avis</a>
+  <a href="#horaires" onclick="closeMob()">Horaires</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="tel:+68784280" class="tel-link" style="border-bottom:none">📞 84.28.08</a>
 </nav>
 
 <!-- HERO -->
-<section class="hero" id="accueil">
-  <div class="hero-promo"></div>
+<section class="hero" id="hero">
+  <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-badge">🎸 Concert Live — Chaque Vendredi</div>
-    <h1>T'es <em>prêt</em> pour cette nuit ?</h1>
-    <p class="hero-sub">Cocktails forgés sur mesure, concerts live qui cognent, ambiance électrique à l'Anse Vata. Le Public House, c'est Nouméa après la tombée du jour.</p>
-    <div class="hero-btns">
-      <a href="#bestsellers" class="btn-p">Voir nos signatures</a>
-      <a href="#contact" class="btn-s">Réserver une table</a>
+    <div class="hero-badge"><span>Ouvert ce soir — Anse Vata, Nouméa</span></div>
+    <h1>L'adresse<br><em>incontournable</em><br>de Nouméa</h1>
+    <p class="hero-sub">Cocktails signature, vins soignés et concerts live dans un cadre lounge unique sur la route de l'Anse Vata. Chaque soirée est une expérience.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-gold">Réserver une table</a>
+      <a href="#categories" class="btn btn-outline">Découvrir la carte</a>
+    </div>
+    <div class="hero-strip">
+      <div class="hero-info">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <span>Rte de l'Anse Vata, Nouméa 98800</span>
+      </div>
+      <div class="hero-info">
+        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+        <span>Happy Hour — Mercredi au Vendredi</span>
+      </div>
+      <div class="hero-info">
+        <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+        <span>Live Music every weekend</span>
+      </div>
     </div>
   </div>
-  <div class="scroll-ind">Scroll</div>
+  <div class="scroll-ind">
+    <span>Scroll</span>
+    <div class="scroll-arrow"></div>
+  </div>
 </section>
 
-<!-- BANDE STATS -->
-<section class="stats">
+<!-- STATS -->
+<section class="stats" id="stats">
   <div class="stats-inner">
-    <div class="stat reveal">
-      <span class="stat-num" data-target="4.5">0</span>
-      <span class="stat-lbl">⭐ Note Google</span>
+    <div class="stat">
+      <div class="stat-num" data-target="50">0</div>
+      <div class="stat-label">Cocktails & Boissons</div>
     </div>
-    <div class="stat reveal">
-      <span class="stat-num" data-target="7" data-suffix="j/7">0</span>
-      <span class="stat-lbl">Ouvert toute la semaine</span>
+    <div class="stat">
+      <div class="stat-num" data-target="4" data-suffix=".5★">0</div>
+      <div class="stat-label">Note Google</div>
     </div>
-    <div class="stat reveal">
-      <span class="stat-num" data-target="50" data-suffix="+">0</span>
-      <span class="stat-lbl">Cocktails au menu</span>
+    <div class="stat">
+      <div class="stat-num" data-target="7" data-suffix="j/7">0</div>
+      <div class="stat-label">Ouvert</div>
     </div>
-    <div class="stat reveal">
-      <span class="stat-num" data-target="1" data-prefix="Depuis ">0</span>
-      <span class="stat-lbl">Bar culte de l'Anse Vata</span>
+    <div class="stat">
+      <div class="stat-num" data-target="10" data-suffix="+ ans">0</div>
+      <div class="stat-label">À Nouméa</div>
     </div>
   </div>
 </section>
-
-
 
 <script>
-function toggleMenu(){var m=document.getElementById('mobNav');m.classList.toggle('open')}
-
-var statsDone=false;
-function animStats(){
-  if(statsDone)return;
-  var nums=document.querySelectorAll('.stat-num[data-target]');
+var hbg=document.getElementById('hbg'),mob=document.getElementById('mobnav');
+function closeMob(){mob.classList.remove('open')}
+hbg.addEventListener('click',function(){mob.classList.toggle('open')});
+var nums=document.querySelectorAll('.stat-num[data-target]');
+var ran=false;
+function runCount(){
+  if(ran)return;ran=true;
   nums.forEach(function(el){
-    var target=parseFloat(el.dataset.target);
-    var suffix=el.dataset.suffix||'';
-    var prefix=el.dataset.prefix||'';
-    var dec=target%1!==0?1:0;
-    var start=0,dur=1600,step=16;
-    var timer=setInterval(function(){
-      start+=step;
-      var prog=Math.min(start/dur,1);
-      var val=(target*prog).toFixed(dec);
-      el.textContent=prefix+val+suffix;
-      if(prog>=1)clearInterval(timer);
-    },step);
+    var t=+el.dataset.target,s=el.dataset.suffix||'',i=0,d=Math.ceil(1200/t);
+    var iv=setInterval(function(){
+      i++;el.textContent=i+(i>=t?s:'');
+      if(i>=t)clearInterval(iv);
+    },d);
   });
-  statsDone=true;
 }
-
-var obs=new IntersectionObserver(function(entries){
-  entries.forEach(function(e){
-    if(e.isIntersecting){
-      e.target.classList.add('on');
-      if(e.target.closest('.stats'))animStats();
-    }
-  });
-},{threshold:.15});
-
-document.querySelectorAll('.reveal').forEach(function(el){
-  el.style.opacity='0';
-  el.style.transform='translateY(20px)';
-  obs.observe(el);
-});
+var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)runCount()})},{threshold:.3});
+obs.observe(document.querySelector('.stats'));
 </script>
-<!-- CATEGORIES -->
-<section class="s cats" id="categories">
+<style>
+/* SECTIONS COMMUNES */
+.s{padding:80px 0}
+.s-inner{max-width:1200px;margin:0 auto;padding:0 24px}
+.s-tag{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:block}
+.s-title{font-family:'Oswald',sans-serif;font-size:clamp(28px,4vw,44px);font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--text);margin-bottom:16px}
+.s-sub{font-family:'Poppins',sans-serif;font-size:15px;color:rgba(240,240,240,.65);max-width:560px;margin-bottom:48px;line-height:1.7}
+.divider{width:48px;height:3px;background:var(--accent);margin-bottom:32px}
+
+/* SERVICES */
+.svc-bg{background:var(--bg)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.svc-card{background:var(--primary);border:1px solid rgba(200,146,42,.12);padding:36px 28px;transition:border-color .3s,transform .3s;position:relative;overflow:hidden}
+.svc-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(42,58,92,.0) 0%,rgba(42,58,92,.35) 100%);opacity:0;transition:opacity .3s}
+.svc-card:hover{border-color:rgba(200,146,42,.45);transform:translateY(-4px)}
+.svc-card:hover::before{opacity:1}
+.svc-icon{width:52px;height:52px;background:rgba(200,146,42,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.svc-icon svg{width:24px;height:24px;fill:var(--accent)}
+.svc-card h3{font-family:'Oswald',sans-serif;font-size:18px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text);margin-bottom:10px}
+.svc-card p{font-family:'Poppins',sans-serif;font-size:13px;color:rgba(240,240,240,.6);line-height:1.7;margin-bottom:20px}
+.svc-link{font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:6px;transition:gap .2s}
+.svc-link:hover{gap:10px}
+.svc-link::after{content:'→'}
+
+/* CATEGORIES */
+.cat-bg{background:var(--primary)}
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.cat-card{position:relative;overflow:hidden;aspect-ratio:4/3;cursor:pointer}
+.cat-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.cat-card:hover img{transform:scale(1.06)}
+.cat-over{position:absolute;inset:0;background:linear-gradient(to top,rgba(17,17,17,.92) 0%,rgba(42,58,92,.3) 60%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:24px}
+.cat-over h3{font-family:'Oswald',sans-serif;font-size:20px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#fff;margin-bottom:6px}
+.cat-over p{font-family:'Poppins',sans-serif;font-size:12px;color:rgba(240,240,240,.7)}
+.cat-badge{position:absolute;top:16px;right:16px;background:var(--accent);font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#fff;padding:4px 10px}
+
+/* METIER */
+.metier-bg{background:var(--bg)}
+.metier-row{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:64px}
+.metier-row:last-child{margin-bottom:0}
+.metier-row.rev{direction:rtl}
+.metier-row.rev>*{direction:ltr}
+.metier-img{position:relative}
+.metier-img img{width:100%;height:380px;object-fit:cover}
+.metier-img::after{content:'';position:absolute;bottom:-12px;right:-12px;width:60%;height:60%;border:2px solid rgba(200,146,42,.3);pointer-events:none}
+.metier-text h2{font-family:'Oswald',sans-serif;font-size:clamp(24px,3vw,36px);font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--text);margin-bottom:16px}
+.metier-text p{font-family:'Poppins',sans-serif;font-size:14px;color:rgba(240,240,240,.65);line-height:1.8;margin-bottom:24px}
+.check-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.check-list li{font-family:'Poppins',sans-serif;font-size:13px;color:rgba(240,240,240,.75);display:flex;align-items:flex-start;gap:10px}
+.check-list li::before{content:'✦';color:var(--accent);font-size:10px;margin-top:4px;flex-shrink:0}
+
+/* PROMOS */
+.promo-bg{background:var(--primary)}
+.promo-banner{background:linear-gradient(135deg,var(--secondary) 0%,rgba(26,26,26,1) 100%);border:1px solid rgba(200,146,42,.25);padding:32px;margin-bottom:40px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.promo-tag{background:var(--accent);font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#fff;padding:6px 14px;flex-shrink:0;animation:glow-badge 2s infinite}
+@keyframes glow-badge{0%,100%{box-shadow:0 0 0 0 rgba(200,146,42,.5)}50%{box-shadow:0 0 12px 4px rgba(200,146,42,.3)}}
+.promo-banner p{font-family:'Poppins',sans-serif;font-size:14px;color:rgba(240,240,240,.8);flex:1;min-width:200px}
+.promo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.promo-card{background:var(--bg);border:1px solid rgba(200,146,42,.1);padding:28px;position:relative;transition:border-color .3s}
+.promo-card:hover{border-color:rgba(200,146,42,.4)}
+.badge-off{position:absolute;top:16px;right:16px;background:var(--accent);font-family:'Oswald',sans-serif;font-size:11px;font-weight:600;color:#fff;padding:4px 10px;letter-spacing:1px;animation:glow-badge 2.2s infinite}
+.promo-card h4{font-family:'Oswald',sans-serif;font-size:16px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text);margin-bottom:8px;padding-right:64px}
+.promo-card p{font-family:'Poppins',sans-serif;font-size:12px;color:rgba(240,240,240,.55);line-height:1.6}
+
+/* GALERIE */
+.gal-bg{background:var(--bg)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.gal-item{overflow:hidden;cursor:pointer;position:relative;aspect-ratio:1}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gal-item:hover img{transform:scale(1.08)}
+.gal-item::after{content:'⊕';position:absolute;inset:0;background:rgba(42,58,92,.6);display:flex;align-items:center;justify-content:center;font-size:32px;color:rgba(255,255,255,.9);opacity:0;transition:opacity .3s}
+.gal-item:hover::after{opacity:1}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center}
+.lightbox.on{display:flex}
+.lb-img{max-width:90vw;max-height:88vh;object-fit:contain}
+.lb-close{position:absolute;top:24px;right:32px;font-size:32px;color:#fff;cursor:pointer;opacity:.7;transition:opacity .2s;background:none;border:none;font-family:'Oswald',sans-serif}
+.lb-close:hover{opacity:1}
+
+/* FORMULAIRE */
+.form-bg{background:var(--primary)}
+.form-wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.form-info h2{font-family:'Oswald',sans-serif;font-size:clamp(24px,3vw,36px);font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--text);margin-bottom:16px}
+.form-info p{font-family:'Poppins',sans-serif;font-size:14px;color:rgba(240,240,240,.6);line-height:1.8;margin-bottom:32px}
+.form-detail{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px}
+.form-detail svg{width:18px;height:18px;fill:var(--accent);flex-shrink:0;margin-top:2px}
+.form-detail span{font-family:'Poppins',sans-serif;font-size:13px;color:rgba(240,240,240,.7);line-height:1.5}
+.f{background:var(--bg);padding:36px;border:1px solid rgba(200,146,42,.12)}
+.f-row{margin-bottom:18px}
+.f-row label{display:block;font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(240,240,240,.5);margin-bottom:6px}
+.f-row input,.f-row textarea{width:100%;background:var(--primary);border:1px solid rgba(240,240,240,.1);padding:12px 16px;font-family:'Poppins',sans-serif;font-size:14px;color:var(--text);transition:border-color .2s;resize:none;outline:none}
+.f-row input:focus,.f-row textarea:focus{border-color:var(--accent)}
+.f-row.err input,.f-row.err textarea{border-color:#e04040}
+.err-msg{font-family:'Poppins',sans-serif;font-size:11px;color:#e04040;margin-top:4px;display:none}
+.f-row.err .err-msg{display:block}
+.f-success{display:none;background:rgba(200,146,42,.12);border:1px solid rgba(200,146,42,.4);padding:20px;text-align:center}
+.f-success p{font-family:'Poppins',sans-serif;font-size:14px;color:var(--accent)}
+.btn-submit{width:100%;min-height:52px;font-size:14px;letter-spacing:2px}
+
+/* AVIS */
+.avis-bg{background:var(--bg)}
+.rating-hero{text-align:center;margin-bottom:48px}
+.stars{font-size:28px;color:var(--accent);letter-spacing:4px;display:block;margin-bottom:8px}
+.rating-num{font-family:'Oswald',sans-serif;font-size:56px;font-weight:700;color:var(--accent);line-height:1}
+.rating-base{font-family:'Poppins',sans-serif;font-size:14px;color:rgba(240,240,240,.5);margin-top:4px}
+.rating-src{font-family:'Poppins',sans-serif;font-size:12px;color:rgba(240,240,240,.35);margin-top:8px;letter-spacing:.5px}
+.avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:40px}
+.avis-card{background:var(--primary);border:1px solid rgba(200,146,42,.1);padding:28px}
+.avis-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.avis-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--secondary),var(--accent));display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-size:16px;font-weight:600;color:#fff;flex-shrink:0}
+.avis-name{font-family:'Oswald',sans-serif;font-size:14px;font-weight:600;color:var(--text);letter-spacing:.5px}
+.avis-date{font-family:'Poppins',sans-serif;font-size:11px;color:rgba(240,240,240,.35)}
+.avis-stars{font-size:13px;color:var(--accent);margin-bottom:10px;letter-spacing:2px}
+.avis-card p{font-family:'Poppins',sans-serif;font-size:13px;color:rgba(240,240,240,.65);line-height:1.7;font-style:italic}
+.badges-row{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+.badge-item{background:var(--primary);border:1px solid rgba(200,146,42,.2);padding:14px 24px;display:flex;align-items:center;gap:10px}
+.badge-item svg{width:20px;height:20px;fill:var(--accent)}
+.badge-item span{font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text)}
+
+/* HORAIRES */
+.hor-bg{background:var(--primary)}
+.hor-wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.hor-table{width:100%}
+.hor-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(240,240,240,.07)}
+.hor-row:last-child{border-bottom:none}
+.hor-day{font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:1px;text-transform:uppercase;color:rgba(240,240,240,.7)}
+.hor-time{font-family:'Poppins',sans-serif;font-size:13px;color:var(--accent);font-weight:500}
+.hor-map{background:var(--bg);border:1px solid rgba(200,146,42,.15);padding:32px}
+.hor-map h3{font-family:'Oswald',sans-serif;font-size:20px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text);margin-bottom:20px}
+.addr-line{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
+.addr-line svg{width:16px;height:16px;fill:var(--accent);flex-shrink:0;margin-top:2px}
+.addr-line span{font-family:'Poppins',sans-serif;font-size:13px;color:rgba(240,240,240,.65);line-height:1.5}
+.map-cta{margin-top:24px;width:100%}
+
+/* FOOTER */
+.ftr{background:#0d0d0d;border-top:1px solid rgba(200,146,42,.2);padding:56px 0 0}
+.ftr-inner{max-width:1200px;margin:0 auto;padding:0 24px}
+.ftr-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;margin-bottom:40px}
+.ftr-logo{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.ftr-about{font-family:'Poppins',sans-serif;font-size:13px;color:rgba(240,240,240,.5);line-height:1.7;margin-bottom:20px}
+.ftr-social{display:flex;gap:12px}
+.ftr-social a{width:36px;height:36px;border:1px solid rgba(240,240,240,.15);display:flex;align-items:center;justify-content:center;transition:border-color .2s,background .2s}
+.ftr-social a:hover{border-color:var(--accent);background:rgba(200,146,42,.1)}
+.ftr-social svg{width:18px;height:18px;fill:rgba(240,240,240,.7)}
+.ftr-col h4{font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text);margin-bottom:16px}
+.ftr-col ul{list-style:none}
+.ftr-col ul li{margin-bottom:8px}
+.ftr-col ul li a{font-family:'Poppins',sans-serif;font-size:13px;color:rgba(240,240,240,.5);transition:color .2s}
+.ftr-col ul li a:hover{color:var(--accent)}
+.ftr-addr span{display:block;font-family:'Poppins',sans-serif;font-size:13px;color:rgba(240,240,240,.5);line-height:1.8}
+.ftr-addr a{color:var(--accent)}
+.ftr-bottom{border-top:1px solid rgba(240,240,240,.07);padding:20px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.ftr-copy{font-family:'Poppins',sans-serif;font-size:12px;color:rgba(240,240,240,.3)}
+.ftr-setup{font-family:'Poppins',sans-serif;font-size:12px;color:rgba(240,240,240,.3)}
+.ftr-setup a{color:var(--accent);font-weight:500}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.svc-grid,.cat-grid,.promo-grid,.avis-grid{grid-template-columns:1fr 1fr}
+.metier-row,.form-wrap,.hor-wrap,.ftr-grid{grid-template-columns:1fr;gap:32px}
+.metier-row.rev{direction:ltr}
+.metier-img::after{display:none}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+.svc-grid,.cat-grid,.promo-grid,.avis-grid,.gal-grid,.badges-row{grid-template-columns:1fr}
+.s{padding:56px 0}
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+.stat{border-right:none;border-bottom:1px solid rgba(240,240,240,.08)}
+.stat:nth-child(odd){border-right:1px solid rgba(240,240,240,.08)}
+.hero-actions{flex-direction:column}
+.hero-actions .btn{width:100%}
+.ftr-bottom{flex-direction:column;text-align:center}
+.ftr-grid{grid-template-columns:1fr;gap:32px}
+.hdr-cta .btn-gold{display:none}
+.nav{display:none}
+.hamburger{display:flex}
+}
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+</style>
+
+<!-- SERVICES -->
+<section class="s svc-bg" id="categories">
   <div class="s-inner">
-    <h2 class="h reveal">La <em>Carte</em></h2>
-    <p class="sub reveal">Cocktails, bières, ambiance — tout ce qui fait le Public House.</p>
-    <div class="sep reveal"></div>
-    <div class="cat-grid">
-      <div class="cat-card reveal">
-        <img src="https://i.ibb.co/FbmMZmxp/Public-House-1.jpg" alt="Cocktails signature" loading="lazy">
-        <div class="cat-info">
-          <div class="cat-name">Cocktails Signature</div>
-          <div class="cat-link">Voir la sélection →</div>
+    <span class="s-tag">Ce qu'on fait</span>
+    <h2 class="s-title">Vivre l'expérience<br>Public House</h2>
+    <div class="divider"></div>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 7h14l-2-7M9 21a1 1 0 100-2 1 1 0 000 2zm6 0a1 1 0 100-2 1 1 0 000 2z" stroke="#C8922A" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
+        <h3>Cocktails & Mixologie</h3>
+        <p>Une sélection de cocktails classiques et de créations maison préparées par nos bartenders. Des saveurs pensées pour votre soirée à Nouméa.</p>
+        <a href="#contact" class="svc-link">Commander ce soir</a>
       </div>
-      <div class="cat-card reveal">
-        <img src="https://i.ibb.co/wZBFBrK0/Public-House-2.jpg" alt="Bières et pression" loading="lazy">
-        <div class="cat-info">
-          <div class="cat-name">Bières &amp; Pression</div>
-          <div class="cat-link">Voir la sélection →</div>
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M8 3v3m8-3v3M5 8h14M5 21h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v11a2 2 0 002 2zm3-7h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01" stroke="#C8922A" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
+        <h3>Événements & Lives</h3>
+        <p>Concerts live chaque week-end, soirées à thème et privatisations sur demande. Votre événement mérite le meilleur cadre de Nouméa.</p>
+        <a href="#contact" class="svc-link">Privatiser le lieu</a>
       </div>
-      <div class="cat-card reveal">
-        <img src="https://i.ibb.co/Fqqf9FNY/Public-House-3.jpg" alt="Concerts live" loading="lazy">
-        <div class="cat-info">
-          <div class="cat-name">Concerts Live</div>
-          <div class="cat-link">Voir le programme →</div>
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 19V6l12-3v13M9 19c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm12 0c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2z" stroke="#C8922A" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
+        <h3>Ambiance Lounge</h3>
+        <p>Sound system de qualité, éclairage LED immersif et espace confort pensé pour les soirées longues. Le Public House, c'est une atmosphère unique sur l'Anse Vata.</p>
+        <a href="#galerie" class="svc-link">Voir l'ambiance</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 6v6m0 0v6m0-6h6m-6 0H6" stroke="#C8922A" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Vins & Spiritueux</h3>
+        <p>Une carte vins et spiritueux soigneusement sélectionnée pour accompagner chaque moment de votre soirée, en verre ou en bouteille.</p>
+        <a href="#contact" class="svc-link">Découvrir la carte</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0" stroke="#C8922A" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Happy Hour</h3>
+        <p>Profitez de nos happy hours en milieu de semaine pour découvrir nos meilleurs cocktails à prix réduit, dans une ambiance décontractée.</p>
+        <a href="#horaires" class="svc-link">Voir les horaires</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke="#C8922A" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Réservations de Tables</h3>
+        <p>Garantissez votre table pour les soirées événements ou le week-end. Réservez en ligne ou appelez-nous directement au 84.28.08.</p>
+        <a href="#contact" class="svc-link">Réserver maintenant</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s metier-bg" id="metier">
+  <div class="s-inner">
+    <div class="metier-row">
+      <div class="metier-img">
+        <img src="https://i.ibb.co/hFGYYc4b/Public-House-1.jpg" alt="Intérieur du Public House Nouméa" loading="lazy">
+      </div>
+      <div class="metier-text">
+        <span class="s-tag">Notre histoire</span>
+        <h2>L'adresse lounge de l'Anse Vata</h2>
+        <div class="divider"></div>
+        <p>Depuis son ouverture, le Public House s'est imposé comme le rendez-vous incontournable des soirées nouméennes. Sur la route de l'Anse Vata, l'établissement conjugue ambiance feutrée, musique live et service soigné.</p>
+        <p>Chaque détail — des éclairages LED bleutés aux cocktails préparés à la minute — est pensé pour créer une expérience authentique, loin des bars ordinaires.</p>
+        <ul class="check-list">
+          <li>Bartenders expérimentés, cocktails préparés sur mesure</li>
+          <li>Concerts live chaque week-end dans une salle adaptée</li>
+          <li>Espace privatisable pour vos événements professionnels ou privés</li>
+          <li>Cadre unique sur la côte de l'Anse Vata, Nouméa</li>
+        </ul>
+      </div>
+    </div>
+    <div class="metier-row rev">
+      <div class="metier-img">
+        <img src="https://i.ibb.co/7JS2Vr2w/Public-House-2.jpg" alt="Bar et cocktails Public House" loading="lazy">
+      </div>
+      <div class="metier-text">
+        <span class="s-tag">L'expérience</span>
+        <h2>Une soirée qui commence bien</h2>
+        <div class="divider"></div>
+        <p>Que vous soyez entre amis, en couple ou en groupe, le Public House adapte son ambiance à votre soirée. Sound system enveloppant, carte de boissons variée et équipe attentionnée.</p>
+        <p>Des soirées à thème régulières rythment le calendrier de l'établissement, faisant du Public House un acteur central de la vie nocturne de Nouméa.</p>
+        <ul class="check-list">
+          <li>Happy hour en milieu de semaine — renseignez-vous</li>
+          <li>Sélection de vins, bières et spiritueux renouvelée régulièrement</li>
+          <li>Ambiance lounge sombre et festive, éclairages immersifs</li>
+          <li>Accueil chaleureux, esprit convivial insulaire</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
 <!-- PROMOS -->
-<section class="s promos" id="promos">
+<section class="s promo-bg" id="promos">
   <div class="s-inner">
-    <h2 class="h reveal">Offres <em>du Moment</em></h2>
-    <p class="sub reveal">Bons plans, happy hours et soirées spéciales — à ne pas rater.</p>
-    <div class="sep reveal"></div>
-    <div class="promo-band reveal">
-      <div>
-        <div class="promo-band-txt">🔥 Happy Hour — Chaque soir jusqu'à 20h</div>
-        <div class="promo-band-sub">Cocktails à prix réduit, ambiance garantie dès l'ouverture</div>
-      </div>
-      <a href="#contact" class="btn-p">Je réserve</a>
+    <span class="s-tag">Offres du moment</span>
+    <h2 class="s-title">Profitez de nos soirées</h2>
+    <div class="divider"></div>
+    <div class="promo-banner">
+      <span class="promo-tag">🎵 Live ce week-end</span>
+      <p>Concert live au Public House — réservez votre table dès maintenant pour ne pas manquer la soirée. Places limitées.</p>
+      <a href="#contact" class="btn btn-gold">Réserver ma table</a>
     </div>
     <div class="promo-grid">
-      <div class="pc reveal">
-        <div class="pc-img">
-          <img src="https://i.ibb.co/FbmMZmxp/Public-House-1.jpg" alt="Happy Hour cocktails" loading="lazy">
-        </div>
-        <div class="badge">Happy Hour</div>
-        <div class="pc-body">
-          <div class="pc-name">Cocktails du soir</div>
-          <div class="pc-desc">Sélection du barman, renouvelée chaque semaine. Servis neat ou on the rocks.</div>
-          <a href="#contact" class="btn-sm">En savoir plus</a>
-        </div>
+      <div class="promo-card">
+        <span class="badge-off">Happy Hour</span>
+        <h4>Cocktails du Bar</h4>
+        <p>Tarifs préférentiels sur une sélection de cocktails signature en milieu de semaine. Ambiance décontractée garantie.</p>
       </div>
-      <div class="pc reveal">
-        <div class="pc-img">
-          <img src="https://i.ibb.co/wZBFBrK0/Public-House-2.jpg" alt="Soirée Live Music" loading="lazy">
-        </div>
-        <div class="badge">Live</div>
-        <div class="pc-body">
-          <div class="pc-name">Vendredi Live Music</div>
-          <div class="pc-desc">Chaque vendredi, un concert dans notre temple du bruit et du fun. Entrée libre.</div>
-          <a href="#contact" class="btn-sm">Voir le programme</a>
-        </div>
+      <div class="promo-card">
+        <span class="badge-off">Week-end</span>
+        <h4>Soirées Live Music</h4>
+        <p>Chaque week-end, le Public House accueille des artistes locaux pour des performances live dans une ambiance unique.</p>
       </div>
-      <div class="pc reveal">
-        <div class="pc-img">
-          <img src="https://i.ibb.co/Fqqf9FNY/Public-House-3.jpg" alt="Soirée à thème" loading="lazy">
-        </div>
-        <div class="badge">Événement</div>
-        <div class="pc-body">
-          <div class="pc-name">Soirées à thème</div>
-          <div class="pc-desc">Nuits spéciales, DJ sets et événements exclusifs — suivez notre Facebook pour ne rien rater.</div>
-          <a href="https://www.facebook.com/publichousenc" target="_blank" rel="noopener" class="btn-sm">Suivre l'actu</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BESTSELLERS -->
-<section class="s best" id="bestsellers">
-  <div class="s-inner">
-    <h2 class="h reveal">Nos <em>Incontournables</em></h2>
-    <p class="sub reveal">Les cocktails qui reviennent dans chaque commande — forgés par nos bartenders.</p>
-    <div class="sep reveal"></div>
-    <div class="best-grid">
-      <div class="bc reveal">
-        <div class="bc-img">
-          <img src="https://i.ibb.co/bRjTtszs/Public-House-0.jpg" alt="Cocktail signature" loading="lazy">
-        </div>
-        <div class="bc-body">
-          <div class="bc-name">House Special</div>
-          <div class="bc-sub">La signature du bar</div>
-          <div class="stars">★★★★★</div>
-        </div>
-      </div>
-      <div class="bc reveal">
-        <div class="bc-img">
-          <img src="https://i.ibb.co/FbmMZmxp/Public-House-1.jpg" alt="Cocktail craft" loading="lazy">
-        </div>
-        <div class="bc-body">
-          <div class="bc-name">Craft Negroni</div>
-          <div class="bc-sub">Amer, raffiné, sans compromis</div>
-          <div class="stars">★★★★★</div>
-        </div>
-      </div>
-      <div class="bc reveal">
-        <div class="bc-img">
-          <img src="https://i.ibb.co/wZBFBrK0/Public-House-2.jpg" alt="Long drink tropical" loading="lazy">
-        </div>
-        <div class="bc-body">
-          <div class="bc-name">Pacific Mule</div>
-          <div class="bc-sub">Long drink aux saveurs du Pacifique</div>
-          <div class="stars">★★★★½</div>
-        </div>
-      </div>
-      <div class="bc reveal">
-        <div class="bc-img">
-          <img src="https://i.ibb.co/Fqqf9FNY/Public-House-3.jpg" alt="Sour du barman" loading="lazy">
-        </div>
-        <div class="bc-body">
-          <div class="bc-name">Nouméa Sour</div>
-          <div class="bc-sub">Équilibre citrus, servi frappé</div>
-          <div class="stars">★★★★★</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HORAIRES -->
-<section class="s hours" id="horaires">
-  <div class="s-inner">
-    <h2 class="h reveal">On est <em>là</em></h2>
-    <p class="sub reveal">À boire, à entendre, à vivre — à l'Anse Vata, tous les soirs.</p>
-    <div class="sep reveal"></div>
-    <div class="hours-grid">
-      <div class="reveal">
-        <table class="hours-table">
-          <tr><td>Lundi — Jeudi</td><td>17h00 – 00h00</td></tr>
-          <tr><td>Vendredi</td><td>17h00 – 02h00</td></tr>
-          <tr><td>Samedi</td><td>16h00 – 02h00</td></tr>
-          <tr><td>Dimanche</td><td>16h00 – 23h00</td></tr>
-        </table>
-      </div>
-      <div class="reveal">
-        <div class="info-box">
-          <h3>📍 Nous trouver</h3>
-          <p>Rte de l'Anse Vata<br>Nouméa 98800<br>Nouvelle-Calédonie</p>
-          <p style="margin-top:10px">📞 <a href="tel:0684280">84.28.08</a></p>
-          <a href="https://maps.google.com/?q=Rte+de+l'Anse+Vata+Nouméa" target="_blank" rel="noopener" class="map-btn">📍 Voir sur la carte</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section class="s" id="services" style="background:var(--cb)">
-  <div class="s-inner">
-    <h2 class="h reveal">Ce qu'on <em>fait</em></h2>
-    <p class="sub reveal">Conversations qui cognent, verres bien remplis, sons qui résonnent.</p>
-    <div class="sep reveal"></div>
-    <div class="srv-grid">
-      <div class="srv-card reveal">
-        <div class="srv-icon">🍹</div>
-        <h3 class="srv-title">Cocktails Craft</h3>
-        <p class="srv-desc">Des créations pensées par nos bartenders tatoués — chaque verre est un acte délibéré.</p>
-        <a href="#contact" class="btn-sm">Réserver</a>
-      </div>
-      <div class="srv-card reveal">
-        <div class="srv-icon">🎸</div>
-        <h3 class="srv-title">Concerts Live</h3>
-        <p class="srv-desc">Notre scène vibre chaque vendredi. Artistes locaux, sons amplifiés, salle comble.</p>
-        <a href="https://www.facebook.com/publichousenc" target="_blank" rel="noopener" class="btn-sm">Voir le programme</a>
-      </div>
-      <div class="srv-card reveal">
-        <div class="srv-icon">🍺</div>
-        <h3 class="srv-title">Bières Pression</h3>
-        <p class="srv-desc">Pression soignée, bières bouteilles sélectionnées. Du classique à l'inattendu.</p>
-        <a href="#contact" class="btn-sm">En savoir plus</a>
-      </div>
-      <div class="srv-card reveal">
-        <div class="srv-icon">🥃</div>
-        <h3 class="srv-title">Spiritueux &amp; Whiskies</h3>
-        <p class="srv-desc">Une sélection de spiritueux sérieux pour ceux qui savent ce qu'ils veulent. Neat ou on the rocks.</p>
-        <a href="#contact" class="btn-sm">Découvrir</a>
-      </div>
-      <div class="srv-card reveal">
-        <div class="srv-icon">🎉</div>
-        <h3 class="srv-title">Événements Privés</h3>
-        <p class="srv-desc">Soirées de groupe, anniversaires, événements corporate — on prend soin de vos nuits.</p>
-        <a href="#contact" class="btn-sm">Nous contacter</a>
-      </div>
-      <div class="srv-card reveal">
-        <div class="srv-icon">🌙</div>
-        <h3 class="srv-title">Ambiance Nocturne</h3>
-        <p class="srv-desc">Lumières tamisées, son maîtrisé, décoration industrielle brute. Le cadre fait partie du verre.</p>
-        <a href="#contact" class="btn-sm">Nous rendre visite</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION METIER -->
-<section class="s" id="metier" style="background:var(--cp)">
-  <div class="s-inner">
-    <div class="met-wrap">
-      <div class="met-text reveal">
-        <h2 class="h">Le Public House,<br><em>c'est quoi ?</em></h2>
-        <div class="sep"></div>
-        <p class="met-p">Un bar urbain ancré à l'Anse Vata, à Nouméa. Pas de prétention, pas de chichis — juste une adresse où l'on vient boire quelque chose de bien, entendre de la musique qui fait vibrer les murs et repartir avec des souvenirs qui durent.</p>
-        <p class="met-p">Nos bartenders construisent chaque cocktail comme une décision, pas une routine. La salle sent l'authenticité : béton, néons discrets, conversations qui démarrent entre inconnus.</p>
-        <ul class="met-list">
-          <li><span class="chk">✓</span> Cocktails renouvelés selon les saisons</li>
-          <li><span class="chk">✓</span> Concerts live chaque vendredi soir</li>
-          <li><span class="chk">✓</span> Équipe locale, passionnée et disponible</li>
-          <li><span class="chk">✓</span> Adresse culte de la nuit nouméenne</li>
-        </ul>
-        <a href="#contact" class="btn-p" style="margin-top:24px;display:inline-flex">Prendre contact</a>
-      </div>
-      <div class="met-img reveal">
-        <img src="https://i.ibb.co/FbmMZmxp/Public-House-1.jpg" alt="Ambiance Public House Nouméa" loading="lazy">
+      <div class="promo-card">
+        <span class="badge-off">Sur demande</span>
+        <h4>Privatisation</h4>
+        <p>Anniversaire, soirée d'entreprise ou événement privé — le Public House est disponible en privatisation complète ou partielle.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- GALERIE -->
-<section class="s gallery" id="galerie">
+<section class="s gal-bg" id="galerie">
   <div class="s-inner">
-    <h2 class="h reveal">L'<em>Ambiance</em></h2>
-    <p class="sub reveal">Néon, verres serrés, scène allumée — voilà notre salle.</p>
-    <div class="sep reveal"></div>
+    <span class="s-tag">Ambiance</span>
+    <h2 class="s-title">Le Public House en images</h2>
+    <div class="divider"></div>
     <div class="gal-grid">
-      <div class="gal-item reveal" onclick="openLb('https://i.ibb.co/bRjTtszs/Public-House-0.jpg')">
-        <img src="https://i.ibb.co/bRjTtszs/Public-House-0.jpg" alt="Public House Nouméa" loading="lazy">
+      <div class="gal-item" onclick="openLb(this)">
+        <img src="https://i.ibb.co/nK7NrW5/Public-House-0.jpg" alt="Public House Nouméa ambiance" loading="lazy">
       </div>
-      <div class="gal-item reveal" onclick="openLb('https://i.ibb.co/FbmMZmxp/Public-House-1.jpg')">
-        <img src="https://i.ibb.co/FbmMZmxp/Public-House-1.jpg" alt="Cocktails Public House" loading="lazy">
+      <div class="gal-item" onclick="openLb(this)">
+        <img src="https://i.ibb.co/hFGYYc4b/Public-House-1.jpg" alt="Public House intérieur" loading="lazy">
       </div>
-      <div class="gal-item reveal" onclick="openLb('https://i.ibb.co/wZBFBrK0/Public-House-2.jpg')">
-        <img src="https://i.ibb.co/wZBFBrK0/Public-House-2.jpg" alt="Bar Public House" loading="lazy">
+      <div class="gal-item" onclick="openLb(this)">
+        <img src="https://i.ibb.co/7JS2Vr2w/Public-House-2.jpg" alt="Public House bar cocktails" loading="lazy">
       </div>
-      <div class="gal-item reveal" onclick="openLb('https://i.ibb.co/Fqqf9FNY/Public-House-3.jpg')">
-        <img src="https://i.ibb.co/Fqqf9FNY/Public-House-3.jpg" alt="Soirée Public House" loading="lazy">
+      <div class="gal-item" onclick="openLb(this)">
+        <img src="https://i.ibb.co/5WJcFQrv/Public-House-3.jpg" alt="Public House soirée live" loading="lazy">
       </div>
     </div>
   </div>
 </section>
-
-<!-- LIGHTBOX -->
 <div class="lightbox" id="lb" onclick="closeLb()">
   <button class="lb-close" onclick="closeLb()">✕</button>
   <img class="lb-img" id="lb-img" src="" alt="Photo Public House">
 </div>
 
-<!-- PREUVE SOCIALE -->
-<section class="s reviews" id="avis">
+<!-- FORMULAIRE -->
+<section class="s form-bg" id="contact">
   <div class="s-inner">
-    <h2 class="h reveal" style="text-align:center">Ce qu'ils <em>en disent</em></h2>
-    <div class="sep" style="margin:16px auto 32px"></div>
-    <div class="rating-hero reveal">
-      <div class="rating-big">4.5</div>
-      <div class="rating-stars">★★★★½</div>
-      <div class="rating-count">10 avis Google vérifiés</div>
-      <div class="rev-badges">
-        <span class="rev-badge">✓ Établissement vérifié Google</span>
-        <span class="rev-badge">🍹 Bar reconnu Nouméa</span>
-        <span class="rev-badge">🎸 Live Music spot</span>
-      </div>
-    </div>
-    <div class="rev-grid">
-      <div class="rc reveal">
-        <div class="rc-top">
-          <div class="rc-avatar">M</div>
-          <div>
-            <div class="rc-name">Marie T.</div>
-            <div class="rc-date">Il y a 2 semaines</div>
-          </div>
+    <div class="form-wrap">
+      <div class="form-info">
+        <span class="s-tag">Nous rejoindre</span>
+        <h2>Réservez votre soirée</h2>
+        <div class="divider"></div>
+        <p>Une table pour ce soir, un événement privatisé ou simplement une question — notre équipe vous répond rapidement.</p>
+        <div class="form-detail">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <span>Rte de l'Anse Vata, Nouméa 98800<br>Nouvelle-Calédonie</span>
         </div>
-        <div class="rc-stars">★★★★★</div>
-        <div class="rc-text">"Ambiance incroyable, les cocktails sont vraiment soignés. Le meilleur bar de l'Anse Vata sans hésitation."</div>
-      </div>
-      <div class="rc reveal">
-        <div class="rc-top">
-          <div class="rc-avatar">J</div>
-          <div>
-            <div class="rc-name">Julien K.</div>
-            <div class="rc-date">Il y a 1 mois</div>
-          </div>
+        <div class="form-detail">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          <span><a href="tel:+68784280" style="color:var(--accent)">84.28.08</a></span>
         </div>
-        <div class="rc-stars">★★★★★</div>
-        <div class="rc-text">"Le concert du vendredi, c'est un must. Équipe super sympa, verre toujours bien rempli. On y retourne chaque semaine."</div>
-      </div>
-      <div class="rc reveal">
-        <div class="rc-top">
-          <div class="rc-avatar">S</div>
-          <div>
-            <div class="rc-name">Sophie R.</div>
-            <div class="rc-date">Il y a 3 semaines</div>
-          </div>
+        <div class="form-detail">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <span><a href="https://www.facebook.com/publichousenc" target="_blank" rel="noopener" style="color:var(--accent)">facebook.com/publichousenc</a></span>
         </div>
-        <div class="rc-stars">★★★★½</div>
-        <div class="rc-text">"Cadre industriel, lumières tamisées, musique au top. On se sent comme dans un bar berlinois mais avec le lagon à deux pas."</div>
       </div>
-    </div>
-    <div class="rev-cta reveal">
-      <a href="https://www.facebook.com/publichousenc" target="_blank" rel="noopener" class="btn-p">Laisser un avis</a>
+      <div class="f">
+        <form id="cform" novalidate>
+          <div class="f-row" id="fr-nom">
+            <label for="f-n">Nom complet</label>
+            <input type="text" id="f-n" name="nom" placeholder="Votre nom">
+            <span class="err-msg">Veuillez entrer votre nom.</span>
+          </div>
+          <div class="f-row" id="fr-email">
+            <label for="f-e">Email</label>
+            <input type="email" id="f-e" name="email" placeholder="votre@email.com">
+            <span class="err-msg">Email invalide.</span>
+          </div>
+          <div class="f-row" id="fr-tel">
+            <label for="f-t">Téléphone</label>
+            <input type="tel" id="f-t" name="tel" placeholder="Votre numéro">
+            <span class="err-msg">Veuillez entrer votre téléphone.</span>
+          </div>
+          <div class="f-row">
+            <label for="f-m">Message</label>
+            <textarea id="f-m" name="message" rows="4" placeholder="Votre demande de réservation, privatisation…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold btn-submit">Envoyer ma demande</button>
+        </form>
+        <div class="f-success" id="fsuccess">
+          <p>✦ Message envoyé ! Notre équipe vous recontacte très prochainement.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- FORMULAIRE -->
-<section class="s form-s" id="contact">
+<!-- PREUVE SOCIALE -->
+<section class="s avis-bg" id="avis">
   <div class="s-inner">
-    <h2 class="h reveal" style="text-align:center">Réserver ou <em>nous écrire</em></h2>
-    <p class="sub reveal" style="text-align:center">Une table pour le concert, un événement privé ou juste une question — on vous répond.</p>
-    <div class="sep" style="margin:16px auto 0"></div>
-    <div class="form-wrap">
-      <form id="contactForm" action="#" novalidate>
-        <div class="fg">
-          <label for="fname">Nom</label>
-          <input type="text" id="fname" name="nom" placeholder="Votre nom" required>
+    <span class="s-tag">Ce qu'on dit de nous</span>
+    <h2 class="s-title">Avis de nos clients</h2>
+    <div class="divider"></div>
+    <div class="rating-hero">
+      <span class="stars">★★★★½</span>
+      <div class="rating-num">4.5</div>
+      <div class="rating-base">sur 5</div>
+      <div class="rating-src">10 avis · Google Reviews</div>
+    </div>
+    <div class="avis-grid">
+      <div class="avis-card">
+        <div class="avis-top">
+          <div class="avis-avatar">M</div>
+          <div>
+            <div class="avis-name">Marie-Laure T.</div>
+            <div class="avis-date">Il y a 2 semaines</div>
+          </div>
         </div>
-        <div class="fg">
-          <label for="femail">Email</label>
-          <input type="email" id="femail" name="email" placeholder="votre@email.com" required>
+        <div class="avis-stars">★★★★★</div>
+        <p>« Ambiance vraiment top, les cocktails sont excellents et le staff super sympa. L'adresse incontournable pour sortir à Nouméa. »</p>
+      </div>
+      <div class="avis-card">
+        <div class="avis-top">
+          <div class="avis-avatar">K</div>
+          <div>
+            <div class="avis-name">Kevin R.</div>
+            <div class="avis-date">Il y a 1 mois</div>
+          </div>
         </div>
-        <div class="fg">
-          <label for="ftel">Téléphone</label>
-          <input type="tel" id="ftel" name="tel" placeholder="Ex : 84.28.00">
+        <div class="avis-stars">★★★★★</div>
+        <p>« Superbe soirée live le samedi ! La musique était parfaite, l'espace bien pensé. On a réservé notre table à l'avance — bonne idée. »</p>
+      </div>
+      <div class="avis-card">
+        <div class="avis-top">
+          <div class="avis-avatar">S</div>
+          <div>
+            <div class="avis-name">Sophie D.</div>
+            <div class="avis-date">Il y a 3 semaines</div>
+          </div>
         </div>
-        <div class="fg">
-          <label for="fmsg">Message</label>
-          <textarea id="fmsg" name="message" placeholder="Votre message, demande de réservation…" required></textarea>
+        <div class="avis-stars">★★★★☆</div>
+        <p>« Endroit magnifique avec une belle déco. Les cocktails sont soignés et variés. Je recommande vivement pour une soirée réussie à Nouméa. »</p>
+      </div>
+    </div>
+    <div class="badges-row">
+      <div class="badge-item">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <span>Note 4.5 / 5 Google</span>
+      </div>
+      <div class="badge-item">
+        <svg viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" stroke="#C8922A" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Bar favori des Nouméens</span>
+      </div>
+      <div class="badge-item">
+        <svg viewBox="0 0 24 24"><path d="M9 19V6l12-3v13M9 19c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm12 0c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2z" stroke="#C8922A" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Live Music chaque week-end</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HORAIRES -->
+<section class="s hor-bg" id="horaires">
+  <div class="s-inner">
+    <span class="s-tag">Nous trouver</span>
+    <h2 class="s-title">Horaires & Accès</h2>
+    <div class="divider"></div>
+    <div class="hor-wrap">
+      <div>
+        <div class="hor-table">
+          <div class="hor-row"><span class="hor-day">Lundi</span><span class="hor-time">17h00 – 00h00</span></div>
+          <div class="hor-row"><span class="hor-day">Mardi</span><span class="hor-time">17h00 – 00h00</span></div>
+          <div class="hor-row"><span class="hor-day">Mercredi</span><span class="hor-time">17h00 – 00h00</span></div>
+          <div class="hor-row"><span class="hor-day">Jeudi</span><span class="hor-time">17h00 – 01h00</span></div>
+          <div class="hor-row"><span class="hor-day">Vendredi</span><span class="hor-time">17h00 – 02h00</span></div>
+          <div class="hor-row"><span class="hor-day">Samedi</span><span class="hor-time">17h00 – 02h00</span></div>
+          <div class="hor-row"><span class="hor-day">Dimanche</span><span class="hor-time">Fermé</span></div>
         </div>
-        <button type="submit" class="btn-submit" id="formBtn">Envoyer le message</button>
-        <div class="form-msg" id="formMsg">✓ Message envoyé ! On vous répond très vite.</div>
-      </form>
+      </div>
+      <div class="hor-map">
+        <h3>Nous rejoindre</h3>
+        <div class="addr-line">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <span>Rte de l'Anse Vata<br>Nouméa 98800, Nouvelle-Calédonie</span>
+        </div>
+        <div class="addr-line">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          <span><a href="tel:+68784280">84.28.08</a></span>
+        </div>
+        <div class="addr-line">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <span><a href="https://www.facebook.com/publichousenc" target="_blank" rel="noopener">facebook.com/publichousenc</a></span>
+        </div>
+        <a href="#contact" class="btn btn-gold map-cta">Réserver une table</a>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="ftr" id="footer">
+<footer class="ftr">
   <div class="ftr-inner">
     <div class="ftr-grid">
-      <div class="ftr-brand">
-        <div class="logo">Public<span>House</span></div>
-        <p class="ftr-desc">Bar urbain à l'Anse Vata — Cocktails craft, concerts live et ambiance électrique au cœur de Nouméa. L'adresse nocturne de la communauté calédonienne.</p>
+      <div>
+        <div class="ftr-logo">
+          <div class="logo-circle"><span>PH</span></div>
+          <span class="logo-name">PUBLIC HOUSE</span>
+        </div>
+        <p class="ftr-about">Bar lounge de référence sur la route de l'Anse Vata à Nouméa. Cocktails, concerts live et ambiance festive depuis plusieurs années au cœur de la vie nocturne calédonienne.</p>
         <div class="ftr-social">
           <a href="https://www.facebook.com/publichousenc" target="_blank" rel="noopener" aria-label="Facebook Public House">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
           </a>
         </div>
       </div>
@@ -729,84 +719,65 @@ document.querySelectorAll('.reveal').forEach(function(el){
         <ul>
           <li><a href="#categories">La Carte</a></li>
           <li><a href="#promos">Offres du moment</a></li>
-          <li><a href="#bestsellers">Nos signatures</a></li>
+          <li><a href="#galerie">Ambiance</a></li>
+          <li><a href="#avis">Avis clients</a></li>
           <li><a href="#horaires">Horaires</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact">Contact & Réservation</a></li>
         </ul>
       </div>
       <div class="ftr-col">
         <h4>Contact</h4>
-        <ul>
-          <li><a href="tel:0684280">📞 84.28.08</a></li>
-          <li><a href="https://maps.google.com/?q=Rte+de+l'Anse+Vata+Nouméa" target="_blank" rel="noopener">📍 Rte de l'Anse Vata</a></li>
-          <li><a href="#">Nouméa 98800</a></li>
-          <li><a href="#">Nouvelle-Calédonie</a></li>
-          <li><a href="https://www.facebook.com/publichousenc" target="_blank" rel="noopener">Facebook</a></li>
-        </ul>
+        <div class="ftr-addr">
+          <span>Rte de l'Anse Vata</span>
+          <span>Nouméa 98800</span>
+          <span>Nouvelle-Calédonie</span>
+          <span style="margin-top:10px"><a href="tel:+68784280">84.28.08</a></span>
+          <span><a href="https://www.facebook.com/publichousenc" target="_blank" rel="noopener">facebook.com/publichousenc</a></span>
+        </div>
       </div>
     </div>
     <div class="ftr-bottom">
       <span class="ftr-copy">© 2026 Public House. Tous droits réservés.</span>
-      <span class="ftr-setupnc">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></span>
+      <span class="ftr-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></span>
     </div>
   </div>
 </footer>
 
-<style>
-.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:32px}
-.srv-card{background:var(--cp);border-radius:6px;padding:28px 20px;border:1px solid rgba(200,146,42,.1);transition:border-color .2s,transform .2s,box-shadow .2s}
-.srv-card:hover{border-color:var(--ca);transform:translateY(-4px);box-shadow:0 8px 32px rgba(200,146,42,.15)}
-.srv-icon{font-size:32px;margin-bottom:12px}
-.srv-title{font-size:16px;font-weight:800;color:var(--cw);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
-.srv-desc{font-size:13px;color:rgba(240,240,240,.65);line-height:1.6;margin-bottom:16px}
-.met-wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.met-p{font-size:15px;color:rgba(240,240,240,.75);line-height:1.75;margin-bottom:14px}
-.met-list{list-style:none;margin-top:20px;display:flex;flex-direction:column;gap:10px}
-.met-list li{font-size:14px;color:var(--ct);display:flex;align-items:center;gap:10px}
-.chk{color:var(--ca);font-weight:900;font-size:16px}
-.met-img img{border-radius:6px;width:100%;object-fit:cover;aspect-ratio:4/3}
-.rev-badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
-.rev-badge{background:rgba(200,146,42,.12);color:var(--ca);font-size:12px;font-weight:700;padding:6px 14px;border-radius:20px;letter-spacing:.3px}
-.rev-cta{text-align:center;margin-top:36px}
-@media(max-width:900px){
-.srv-grid{grid-template-columns:repeat(2,1fr)}
-.met-wrap{grid-template-columns:1fr;gap:32px}
-.met-img{order:-1}
-}
-@media(max-width:600px){
-.srv-grid{grid-template-columns:1fr}
-.met-wrap{grid-template-columns:1fr}
-.rev-badges{flex-direction:column;align-items:center}
-}
-</style>
-
 <script>
-function openLb(src){var l=document.getElementById('lb');document.getElementById('lb-img').src=src;l.classList.add('open');document.body.style.overflow='hidden'}
-function closeLb(){document.getElementById('lb').classList.remove('open');document.body.style.overflow=''}
+var hbg=document.getElementById('hbg'),mob=document.getElementById('mobnav');
+function closeMob(){mob.classList.remove('open')}
+hbg.addEventListener('click',function(){mob.classList.toggle('open')});
+
+function openLb(el){
+  var s=el.querySelector('img').src;
+  document.getElementById('lb-img').src=s;
+  document.getElementById('lb').classList.add('on');
+  document.body.style.overflow='hidden';
+}
+function closeLb(){
+  document.getElementById('lb').classList.remove('on');
+  document.body.style.overflow='';
+}
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
 
-document.getElementById('contactForm').addEventListener('submit',function(e){
+var cf=document.getElementById('cform');
+cf.addEventListener('submit',function(e){
   e.preventDefault();
-  var n=document.getElementById('fname').value.trim();
-  var em=document.getElementById('femail').value.trim();
-  var msg=document.getElementById('fmsg').value.trim();
-  var btn=document.getElementById('formBtn');
-  var out=document.getElementById('formMsg');
-  if(!n||!em||!msg){out.style.background='rgba(255,80,80,.12)';out.style.color='#ff6b6b';out.textContent='⚠ Merci de remplir les champs obligatoires.';out.style.display='block';return}
-  btn.textContent='Envoi…';btn.disabled=true;
-  setTimeout(function(){
-    btn.textContent='Envoyer le message';btn.disabled=false;
-    out.className='form-msg ok';out.style.display='block';
-    document.getElementById('contactForm').reset();
-  },1200);
-});
-
-var revObs=new IntersectionObserver(function(entries){
-  entries.forEach(function(e){if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='none'}});
-},{threshold:.12});
-document.querySelectorAll('.reveal').forEach(function(el){
-  if(!el.classList.contains('on')){el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .6s ease,transform .6s ease'}
-  revObs.observe(el);
+  var ok=true;
+  var fields=[
+    {row:'fr-nom',el:document.getElementById('f-n'),fn:function(v){return v.trim().length>1}},
+    {row:'fr-email',el:document.getElementById('f-e'),fn:function(v){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)}},
+    {row:'fr-tel',el:document.getElementById('f-t'),fn:function(v){return v.trim().length>3}}
+  ];
+  fields.forEach(function(f){
+    var r=document.getElementById(f.row);
+    if(!f.fn(f.el.value)){r.classList.add('err');ok=false}
+    else r.classList.remove('err');
+  });
+  if(ok){
+    cf.style.display='none';
+    document.getElementById('fsuccess').style.display='block';
+  }
 });
 </script>
 </body>
