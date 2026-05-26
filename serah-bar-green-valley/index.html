@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Serah-Bar Green-Valley — Nouméa</title>
+<meta name="description" content="Café de quartier chaleureux au cœur de Nouméa, ancré dans la verdure calédonienne. Venez savourer une pause authentique à Serah-Bar Green-Valley.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#3B7A57;
+--cs:#C8A96E;
+--ca:#E8523A;
+--cb:#FAF4E8;
+--ct:#2C2016;
+--cw:#fff;
+--cd:#1a1108;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;color:var(--ct);background:var(--cb);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+
+/* BANDEAU */
+.promo-bar{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;text-align:center}
+.promo-bar a{font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;line-height:44px;letter-spacing:.3px;display:block;width:100%}
+.promo-bar a:hover{opacity:.85}
+
+/* HEADER */
+.nav{position:fixed;top:44px;left:0;width:100%;background:rgba(250,244,232,.97);backdrop-filter:blur(8px);z-index:1000;border-bottom:1px solid rgba(59,122,87,.12)}
+.nav-in{max-width:1200px;margin:0 auto;padding:0 24px;height:68px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--cp);letter-spacing:.5px}
+.logo span{color:var(--cs)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:.88rem;font-weight:700;color:var(--ct);letter-spacing:.4px;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--cp)}
+.nav-cta{background:var(--cp);color:var(--cw);font-size:.85rem;font-weight:700;padding:10px 22px;border-radius:4px;letter-spacing:.4px;text-transform:uppercase;transition:background .2s,transform .2s}
+.nav-cta:hover{background:var(--cs);transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{width:24px;height:2px;background:var(--ct);border-radius:2px;transition:transform .3s,opacity .3s}
+.mob-menu{display:none;position:fixed;top:112px;left:0;width:100%;background:var(--cb);z-index:999;padding:24px 20px;border-bottom:2px solid var(--cp)}
+.mob-menu.open{display:block}
+.mob-menu ul{list-style:none;display:flex;flex-direction:column;gap:0}
+.mob-menu ul li a{display:block;padding:14px 0;font-size:1rem;font-weight:700;color:var(--ct);border-bottom:1px solid rgba(59,122,87,.1);text-transform:uppercase;letter-spacing:.4px}
+.mob-menu .nav-cta{display:block;text-align:center;margin-top:16px;padding:14px;width:100%}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background:url('https://i.ibb.co/XZDXMPxs/Serah-Bar-Green-Valley-0.jpg') center center/cover no-repeat;margin-top:112px}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(0,0,0,.55) 0%,rgba(28,18,5,.38) 60%,rgba(59,122,87,.25) 100%)}
+.hero-body{position:relative;z-index:1;text-align:center;max-width:780px;padding:0 20px}
+.hero-tag{display:inline-block;background:var(--cs);color:var(--cw);font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 16px;border-radius:2px;margin-bottom:24px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,6vw,4.2rem);color:var(--cw);line-height:1.18;font-weight:700;margin-bottom:20px;text-shadow:0 2px 16px rgba(0,0,0,.3)}
+.hero h1 em{color:var(--cs);font-style:italic}
+.hero-sub{font-size:clamp(1rem,2vw,1.18rem);color:rgba(255,255,255,.88);font-weight:300;line-height:1.7;max-width:560px;margin:0 auto 36px}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.b-primary{background:var(--cp);color:var(--cw);font-size:.9rem;font-weight:700;padding:15px 32px;border-radius:4px;letter-spacing:.5px;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s,transform .2s;min-height:48px;display:inline-flex;align-items:center;gap:8px}
+.b-primary:hover{background:var(--cs);transform:translateY(-2px)}
+.b-outline{background:transparent;color:var(--cw);font-size:.9rem;font-weight:700;padding:15px 32px;border-radius:4px;letter-spacing:.5px;text-transform:uppercase;border:2px solid rgba(255,255,255,.7);cursor:pointer;transition:border-color .2s,background .2s,transform .2s;min-height:48px;display:inline-flex;align-items:center;gap:8px}
+.b-outline:hover{border-color:var(--cs);background:rgba(200,169,110,.15);transform:translateY(-2px)}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px}
+.scroll-ind span{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.scroll-arr{width:24px;height:24px;border-right:2px solid rgba(255,255,255,.5);border-bottom:2px solid rgba(255,255,255,.5);transform:rotate(45deg);animation:bounce 1.8s infinite}
+@keyframes bounce{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(6px)}}
+
+/* STATS */
+.stats{background:var(--cp);padding:64px 24px}
+.stats-in{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stat-n{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--cs);line-height:1;margin-bottom:8px}
+.stat-l{font-size:.82rem;font-weight:700;color:rgba(255,255,255,.8);letter-spacing:1.5px;text-transform:uppercase}
+.stat-div{width:32px;height:2px;background:var(--cs);margin:10px auto 0;opacity:.5}
+
+/* REVEAL */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.stats-in{grid-template-columns:repeat(2,1fr)}
+.nav-links,.nav-cta{display:none}
+.hamburger{display:flex}
+}
+@media(max-width:480px){
+.promo-bar{height:40px}
+.promo-bar a{font-size:13px;line-height:40px}
+.nav{top:40px}
+.hero{margin-top:108px}
+.mob-menu{top:108px}
+.hero-btns .b-primary,.hero-btns .b-outline{width:100%;justify-content:center}
+.stats-in{grid-template-columns:1fr 1fr;gap:16px}
+.nav-in{padding:0 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo-bar">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="nav" id="top">
+  <div class="nav-in">
+    <div class="logo">Serah-Bar <span>Green-Valley</span></div>
+    <ul class="nav-links">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#ambiance">Ambiance</a></li>
+      <li><a href="#reservation">Réservation</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#reservation" class="nav-cta">Réserver</a>
+    <button class="hamburger" id="hbg" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<nav class="mob-menu" id="mob">
+  <ul>
+    <li><a href="#menu" onclick="closeMob()">Menu</a></li>
+    <li><a href="#ambiance" onclick="closeMob()">Ambiance</a></li>
+    <li><a href="#reservation" onclick="closeMob()">Réservation</a></li>
+    <li><a href="#contact" onclick="closeMob()">Contact</a></li>
+  </ul>
+  <a href="#reservation" class="b-primary nav-cta" onclick="closeMob()">Réserver une table</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-body">
+    <div class="hero-tag">☕ Café de quartier · Nouméa</div>
+    <h1>Un refuge de <em>verdure</em><br>au cœur de la ville</h1>
+    <p class="hero-sub">Serah-Bar Green-Valley vous accueille dans une atmosphère tropicale authentique, où chaque tasse de café raconte l'âme calédonienne.</p>
+    <div class="hero-btns">
+      <a href="#reservation" class="b-primary">Réserver une table</a>
+      <a href="#menu" class="b-outline">Voir le menu</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>Découvrir</span>
+    <div class="scroll-arr"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="stats">
+  <div class="stats-in">
+    <div>
+      <div class="stat-n" data-target="7">0</div>
+      <div class="stat-div"></div>
+      <div class="stat-l">Jours d'ouverture</div>
+    </div>
+    <div>
+      <div class="stat-n" data-target="100">0</div>
+      <div class="stat-div"></div>
+      <div class="stat-l">% Café sélectionné</div>
+    </div>
+    <div>
+      <div class="stat-n" data-target="30">0</div>
+      <div class="stat-div"></div>
+      <div class="stat-l">Couverts en terrasse</div>
+    </div>
+    <div>
+      <div class="stat-n" data-target="1">0</div>
+      <div class="stat-div"></div>
+      <div class="stat-l">Adresse incontournable</div>
+    </div>
+  </div>
+</section>
+
+<script>
+function closeMob(){document.getElementById('mob').classList.remove('open')}
+document.getElementById('hbg').addEventListener('click',function(){
+  document.getElementById('mob').classList.toggle('open')
+})
+var counted=false;
+function countStats(){
+  if(counted)return;
+  counted=true;
+  document.querySelectorAll('[data-target]').forEach(function(el){
+    var t=+el.dataset.target,d=1200,s=30,inc=t/(d/s);
+    var c=0,timer=setInterval(function(){
+      c=Math.min(c+inc,t);
+      el.textContent=c>=t?t:Math.floor(c);
+      if(c>=t)clearInterval(timer);
+    },s);
+  });
+}
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting)countStats()});
+},{threshold:.3});
+var statsEl=document.querySelector('.stats');
+if(statsEl)obs.observe(statsEl);
+</script>
+<style>
+/* PART 2 STYLES */
+.s{padding:88px 24px}
+.s-dark{background:var(--cd);color:var(--cw)}
+.s-green{background:var(--cp);color:var(--cw)}
+.s-cream{background:var(--cb)}
+.s-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;line-height:1.2;margin-bottom:12px}
+.s-sub{font-size:1rem;font-weight:300;opacity:.75;max-width:560px;line-height:1.7}
+.s-head{text-align:center;margin-bottom:56px}
+.s-head .s-sub{margin:0 auto}
+.tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:2px;margin-bottom:16px}
+.tag-green{background:rgba(59,122,87,.12);color:var(--cp)}
+.tag-white{background:rgba(255,255,255,.12);color:var(--cs)}
+.wrap{max-width:1200px;margin:0 auto}
+/* SERVICES */
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.srv-c{background:var(--cw);border-radius:8px;padding:40px 28px;border:1px solid rgba(59,122,87,.1);transition:transform .25s,box-shadow .25s}
+.srv-c:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(59,122,87,.14)}
+.srv-ico{width:52px;height:52px;background:rgba(59,122,87,.08);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.srv-ico svg{width:26px;height:26px;fill:var(--cp)}
+.srv-c h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--ct);margin-bottom:10px}
+.srv-c p{font-size:.9rem;color:#5a4a38;line-height:1.7;margin-bottom:20px}
+.srv-lnk{font-size:.82rem;font-weight:700;color:var(--cp);letter-spacing:.5px;text-transform:uppercase;border-bottom:2px solid var(--cs);padding-bottom:2px;transition:color .2s}
+.srv-lnk:hover{color:var(--ca)}
+/* METIER */
+.met-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch}
+.met-img{position:relative;overflow:hidden;min-height:420px}
+.met-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.met-img:hover img{transform:scale(1.04)}
+.met-txt{padding:64px 56px;display:flex;flex-direction:column;justify-content:center}
+.met-txt .s-title{margin-bottom:20px}
+.met-txt p{font-size:.97rem;line-height:1.8;margin-bottom:16px;opacity:.85}
+.checks{list-style:none;margin-top:8px;display:flex;flex-direction:column;gap:10px}
+.checks li{display:flex;align-items:center;gap:12px;font-size:.92rem;font-weight:700}
+.checks li svg{width:18px;height:18px;flex-shrink:0}
+/* MENU */
+.menu-tabs{display:flex;justify-content:center;gap:8px;margin-bottom:48px;flex-wrap:wrap}
+.m-tab{background:transparent;border:2px solid var(--cp);color:var(--cp);font-family:'Lato',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:10px 24px;border-radius:4px;cursor:pointer;transition:background .2s,color .2s}
+.m-tab.active,.m-tab:hover{background:var(--cp);color:var(--cw)}
+.menu-cat{display:none;grid-template-columns:repeat(3,1fr);gap:24px}
+.menu-cat.show{display:grid}
+.m-card{background:var(--cw);border-radius:8px;overflow:hidden;border:1px solid rgba(59,122,87,.08);transition:transform .25s,box-shadow .25s;perspective:600px}
+.m-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(59,122,87,.12)}
+.m-card-in{padding:24px}
+.m-card-in h4{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--ct);margin-bottom:6px}
+.m-card-in p{font-size:.86rem;color:#6b5540;line-height:1.6;margin-bottom:14px}
+.m-price{font-size:.95rem;font-weight:700;color:var(--cp)}
+.m-badge{display:inline-block;background:rgba(200,169,110,.15);color:var(--cs);font-size:.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:2px;margin-bottom:10px}
+/* GALERIE AMBIANCE */
+.gal-grid{display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:auto auto;gap:12px;max-width:1100px;margin:0 auto}
+.gal-item{overflow:hidden;border-radius:8px;position:relative;cursor:pointer}
+.gal-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.gal-item:hover img{transform:scale(1.05)}
+.gal-item:first-child{grid-row:span 2}
+.gal-item:first-child{height:520px}
+.gal-item:not(:first-child){height:250px}
+/* LIGHTBOX */
+.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center}
+.lb.open{display:flex}
+.lb img{max-width:90vw;max-height:88vh;border-radius:6px;object-fit:contain}
+.lb-close{position:absolute;top:20px;right:28px;background:none;border:none;color:var(--cw);font-size:2rem;cursor:pointer;line-height:1;opacity:.8}
+.lb-close:hover{opacity:1}
+/* RESERVATION */
+.res-wrap{max-width:720px;margin:0 auto;text-align:center}
+.res-wrap .s-title{margin-bottom:16px}
+.res-wrap p{font-size:1rem;line-height:1.8;opacity:.8;margin-bottom:40px}
+.res-form{background:rgba(255,255,255,.06);border:1px solid rgba(200,169,110,.25);border-radius:10px;padding:40px;text-align:left}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.fi{display:flex;flex-direction:column;gap:6px}
+.fi.full{grid-column:span 2}
+.fi label{font-size:.78rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.fi input,.fi select,.fi textarea{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:4px;padding:12px 16px;color:var(--cw);font-family:'Lato',sans-serif;font-size:.95rem;width:100%;outline:none;transition:border-color .2s}
+.fi input::placeholder,.fi textarea::placeholder{color:rgba(255,255,255,.35)}
+.fi input:focus,.fi select:focus,.fi textarea:focus{border-color:var(--cs)}
+.fi select option{background:var(--cd);color:var(--cw)}
+.fi textarea{resize:vertical;min-height:90px}
+.res-msg{display:none;text-align:center;padding:20px;background:rgba(59,122,87,.25);border:1px solid var(--cp);border-radius:6px;color:var(--cw);margin-top:16px}
+.res-msg.show{display:block}
+/* CONTACT FORM */
+.cf-wrap{max-width:680px;margin:0 auto}
+.cf-form{display:flex;flex-direction:column;gap:16px}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cf-fi{display:flex;flex-direction:column;gap:6px}
+.cf-fi label{font-size:.78rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(44,32,22,.6)}
+.cf-fi input,.cf-fi textarea{background:var(--cw);border:1.5px solid rgba(59,122,87,.2);border-radius:4px;padding:12px 16px;color:var(--ct);font-family:'Lato',sans-serif;font-size:.95rem;width:100%;outline:none;transition:border-color .2s}
+.cf-fi input:focus,.cf-fi textarea:focus{border-color:var(--cp)}
+.cf-fi textarea{resize:vertical;min-height:110px}
+.cf-msg{display:none;padding:16px 20px;background:rgba(59,122,87,.1);border-left:4px solid var(--cp);border-radius:4px;color:var(--cp);font-weight:700;margin-top:8px}
+.cf-msg.show{display:block}
+.b-accent{background:var(--ca);color:var(--cw);font-size:.9rem;font-weight:700;padding:15px 36px;border-radius:4px;letter-spacing:.5px;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s,transform .2s;min-height:48px;display:inline-flex;align-items:center;gap:8px}
+.b-accent:hover{background:#c73e27;transform:translateY(-2px)}
+/* PREUVE SOCIALE */
+.ps-grid{display:grid;grid-template-columns:1fr 2fr;gap:56px;align-items:start}
+.ps-note{text-align:center;background:var(--cw);border-radius:10px;padding:40px 28px;box-shadow:0 4px 32px rgba(59,122,87,.1)}
+.ps-score{font-family:'Playfair Display',serif;font-size:4rem;font-weight:700;color:var(--cp);line-height:1}
+.ps-stars{display:flex;justify-content:center;gap:4px;margin:12px 0}
+.ps-stars svg{width:22px;height:22px;fill:var(--cs)}
+.ps-label{font-size:.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#888;margin-top:6px}
+.ps-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(59,122,87,.06);border:1px solid rgba(59,122,87,.15);padding:8px 16px;border-radius:4px;font-size:.78rem;font-weight:700;color:var(--cp);margin-top:16px;letter-spacing:.5px}
+.testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.testi-c{background:var(--cw);border-radius:8px;padding:28px;border:1px solid rgba(59,122,87,.1)}
+.testi-q{font-size:2rem;color:var(--cs);line-height:1;margin-bottom:8px;font-family:'Playfair Display',serif}
+.testi-txt{font-size:.92rem;color:#4a3828;line-height:1.7;margin-bottom:16px;font-style:italic}
+.testi-auth{display:flex;align-items:center;gap:10px}
+.testi-av{width:38px;height:38px;border-radius:50%;background:var(--cp);display:flex;align-items:center;justify-content:center;font-size:.95rem;font-weight:700;color:var(--cw);flex-shrink:0}
+.testi-name{font-size:.85rem;font-weight:700;color:var(--ct)}
+.testi-loc{font-size:.75rem;color:#888}
+/* FOOTER */
+.footer{background:#1c1108;color:rgba(255,255,255,.75);padding:64px 24px 0}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;max-width:1200px;margin:0 auto;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.1)}
+.f-brand .logo{color:var(--cs);margin-bottom:12px;display:block;font-size:1.2rem}
+.f-brand p{font-size:.88rem;line-height:1.8;max-width:280px}
+.f-col h4{font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cs);margin-bottom:20px}
+.f-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.f-col ul li a{font-size:.88rem;opacity:.75;transition:opacity .2s}
+.f-col ul li a:hover{opacity:1;color:var(--cs)}
+.f-addr{font-size:.88rem;line-height:1.9;opacity:.75}
+.f-bottom{max-width:1200px;margin:0 auto;padding:20px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.f-copy{font-size:.78rem;opacity:.5}
+.f-setup{font-size:.78rem;opacity:.65}
+.f-setup a{color:var(--cs);font-weight:700}
+.f-setup a:hover{opacity:.8}
+/* HORAIRES */
+.hor-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:900px;margin:0 auto}
+.hor-c{background:rgba(255,255,255,.05);border:1px solid rgba(200,169,110,.2);border-radius:8px;padding:28px;text-align:center}
+.hor-c h4{font-family:'Playfair Display',serif;font-size:1rem;color:var(--cs);margin-bottom:8px}
+.hor-c p{font-size:.88rem;opacity:.75;line-height:1.7}
+@media(max-width:900px){
+.srv-grid{grid-template-columns:1fr}
+.met-grid{grid-template-columns:1fr}
+.met-img{min-height:280px}
+.met-txt{padding:40px 24px}
+.menu-cat.show{grid-template-columns:1fr}
+.ps-grid{grid-template-columns:1fr}
+.testi-grid{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr}
+.hor-grid{grid-template-columns:1fr}
+.fg{grid-template-columns:1fr}
+.fi.full{grid-column:span 1}
+.gal-item:first-child{height:280px;grid-row:span 1}
+.gal-item:not(:first-child){height:200px}
+.gal-grid{grid-template-columns:1fr 1fr}
+.f-bottom{flex-direction:column;text-align:center}
+}
+@media(max-width:480px){
+.s{padding:64px 16px}
+.cf-row{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:1fr}
+.gal-item:first-child,.gal-item:not(:first-child){height:220px}
+.res-form{padding:24px 16px}
+.b-primary,.b-accent{width:100%;justify-content:center}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s s-cream" id="services">
+  <div class="wrap">
+    <div class="s-head">
+      <div class="tag tag-green">Ce que nous offrons</div>
+      <h2 class="s-title">Bienvenue dans votre espace</h2>
+      <p class="s-sub">Un café où chaque moment trouve sa saveur, du matin calme à l'après-midi animé.</p>
+    </div>
+    <div class="srv-grid">
+      <div class="srv-c">
+        <div class="srv-ico">
+          <svg viewBox="0 0 24 24"><path d="M2 21h18v-2H2v2zm0-4h18v-2H2v2zM18 7V5a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v2H4v2l1 10h14l1-10V7h-2zm-2 0H8V5h8v2z"/></svg>
+        </div>
+        <h3>Café & Boissons</h3>
+        <p>Expressos soignés, cafés filtre, thés et boissons fraîches préparés avec soin à toute heure de la journée.</p>
+        <a href="#menu" class="srv-lnk">Voir la carte →</a>
+      </div>
+      <div class="srv-c">
+        <div class="srv-ico">
+          <svg viewBox="0 0 24 24"><path d="M18.06 22.99h1.66c.84 0 1.53-.64 1.63-1.46L23 5.05h-5V1h-1.97v4.05h-4.97l.3 2.34c1.71.47 3.31 1.32 4.27 2.26 1.44 1.42 2.43 2.89 2.43 5.29v8.05zM1 21.99V21h15.03v.99c0 .55-.45 1-1.01 1H2.01c-.56 0-1.01-.45-1.01-1zm15.03-7c0-3.87-3.06-7-6.77-7S2.5 11.12 2.5 15v.01h13.53V15z"/></svg>
+        </div>
+        <h3>Restauration Légère</h3>
+        <p>Sandwichs frais, salades du marché et plats simples mijotés chaque matin pour accompagner votre pause.</p>
+        <a href="#menu" class="srv-lnk">Voir la carte →</a>
+      </div>
+      <div class="srv-c">
+        <div class="srv-ico">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+        </div>
+        <h3>Terrasse & Détente</h3>
+        <p>Une terrasse ombragée entourée de verdure, idéale pour souffler, lire ou se retrouver entre amis après le travail.</p>
+        <a href="#reservation" class="srv-lnk">Réserver →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION METIER -->
+<section class="s s-dark" id="metier">
+  <div class="wrap">
+    <div class="met-grid">
+      <div class="met-img">
+        <img src="https://i.ibb.co/Ng90qWwv/Serah-Bar-Green-Valley-1.jpg" alt="Intérieur chaleureux du Serah-Bar Green-Valley" loading="lazy">
+      </div>
+      <div class="met-txt">
+        <div class="tag tag-white">Notre histoire</div>
+        <h2 class="s-title">Un café né du<br><em style="color:var(--cs)">cœur de la vallée</em></h2>
+        <p>Au fond d'une rue tranquille de Nouméa, là où le bruit de la ville s'efface derrière le feuillage, Serah-Bar Green-Valley est né d'un désir simple : offrir un vrai refuge.</p>
+        <p>Ici, les journées commencent doucement, le café exhale ses arômes dans l'air tiède calédonien, et chaque client repart avec la sensation d'avoir été chez lui.</p>
+        <ul class="checks">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--cs)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Café torréfié avec soin, sélectionné pour ses notes rondes
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--cs)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Produits frais du marché, cuisine préparée sur place
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--cs)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Terrasse verte et accueillante, ouverte 7 jours sur 7
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--cs)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Atmosphère conviviale, ancrée dans la communauté locale
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="s s-cream" id="menu">
+  <div class="wrap">
+    <div class="s-head">
+      <div class="tag tag-green">Notre carte</div>
+      <h2 class="s-title">Des saveurs à partager</h2>
+      <p class="s-sub">Une sélection honnête, élaborée chaque jour avec les produits disponibles au marché de Nouméa.</p>
+    </div>
+    <div class="menu-tabs">
+      <button class="m-tab active" data-cat="entrees">Boissons & Cafés</button>
+      <button class="m-tab" data-cat="plats">Plats & Salades</button>
+      <button class="m-tab" data-cat="desserts">Douceurs</button>
+    </div>
+    <div class="menu-cat show" id="entrees">
+      <div class="m-card">
+        <div class="m-card-in">
+          <div class="m-badge">Signature</div>
+          <h4>Café Green Valley</h4>
+          <p>Espresso double, lait végétal et sirop de vanille — la boisson emblématique du bar.</p>
+          <div class="m-price">350 XPF</div>
+        </div>
+      </div>
+      <div class="m-card">
+        <div class="m-card-in">
+          <h4>Café Noisette</h4>
+          <p>Espresso allongé, nuance de crème fraîche. Un classique intemporel, bien équilibré.</p>
+          <div class="m-price">280 XPF</div>
+        </div>
+      </div>
+      <div class="m-card">
+        <div class="m-card-in">
+          <h4>Jus de fruits frais</h4>
+          <p>Fruits de saison pressés à la commande. Composé selon l'arrivage du marché local.</p>
+          <div class="m-price">420 XPF</div>
+        </div>
+      </div>
+    </div>
+    <div class="menu-cat" id="plats">
+      <div class="m-card">
+        <div class="m-card-in">
+          <div class="m-badge">Du jour</div>
+          <h4>Sandwich maison</h4>
+          <p>Pain artisanal, garniture fraîche du marché, sauce maison. Composé chaque matin.</p>
+          <div class="m-price">650 XPF</div>
+        </div>
+      </div>
+      <div class="m-card">
+        <div class="m-card-in">
+          <h4>Salade verte composée</h4>
+          <p>Légumes de saison, vinaigrette maison, et accompagnements selon l'arrivage.</p>
+          <div class="m-price">780 XPF</div>
+        </div>
+      </div>
+      <div class="m-card">
+        <div class="m-card-in">
+          <h4>Plat du jour</h4>
+          <p>Recette maison élaborée chaque matin. Renseignez-vous auprès de l'équipe.</p>
+          <div class="m-price">À partir de 950 XPF</div>
+        </div>
+      </div>
+    </div>
+    <div class="menu-cat" id="desserts">
+      <div class="m-card">
+        <div class="m-card-in">
+          <div class="m-badge">Maison</div>
+          <h4>Gâteau du jour</h4>
+          <p>Préparation maison, recette qui change selon l'envie et les produits de saison.</p>
+          <div class="m-price">380 XPF</div>
+        </div>
+      </div>
+      <div class="m-card">
+        <div class="m-card-in">
+          <h4>Assortiment de biscuits</h4>
+          <p>Petites douceurs sèches, idéales pour accompagner un café ou un thé chaud.</p>
+          <div class="m-price">250 XPF</div>
+        </div>
+      </div>
+      <div class="m-card">
+        <div class="m-card-in">
+          <h4>Yaourt & fruits frais</h4>
+          <p>Option légère et naturelle, avec un filet de miel et fruits de saison locaux.</p>
+          <div class="m-price">420 XPF</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE AMBIANCE -->
+<section class="s s-dark" id="ambiance">
+  <div class="wrap">
+    <div class="s-head">
+      <div class="tag tag-white">L'ambiance</div>
+      <h2 class="s-title" style="color:var(--cw)">Quatre murs, mille instants</h2>
+      <p class="s-sub">Laissez-vous porter par l'atmosphère du Green Valley — lumière dorée, verdure et sérénité.</p>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item" data-src="https://i.ibb.co/XZDXMPxs/Serah-Bar-Green-Valley-0.jpg">
+        <img src="https://i.ibb.co/XZDXMPxs/Serah-Bar-Green-Valley-0.jpg" alt="Terrasse verte Serah-Bar" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/Ng90qWwv/Serah-Bar-Green-Valley-1.jpg">
+        <img src="https://i.ibb.co/Ng90qWwv/Serah-Bar-Green-Valley-1.jpg" alt="Intérieur chaleureux du café" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/B2Q2kctt/Serah-Bar-Green-Valley-2.jpg">
+        <img src="https://i.ibb.co/B2Q2kctt/Serah-Bar-Green-Valley-2.jpg" alt="Détail d'une boisson signature" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/S7GSMZ74/Serah-Bar-Green-Valley-3.jpg">
+        <img src="https://i.ibb.co/S7GSMZ74/Serah-Bar-Green-Valley-3.jpg" alt="Moment de convivialité au bar" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true">
+  <button class="lb-close" id="lb-close" aria-label="Fermer">✕</button>
+  <img id="lb-img" src="" alt="Photo agrandie">
+</div>
+
+<!-- RÉSERVATION -->
+<section class="s s-green" id="reservation">
+  <div class="wrap">
+    <div class="res-wrap">
+      <div class="tag tag-white">Réservation</div>
+      <h2 class="s-title" style="color:var(--cw)">Réservez votre table</h2>
+      <p style="color:rgba(255,255,255,.8);line-height:1.8;margin-bottom:40px;">Assurez-vous une place sur notre terrasse ombragée. Nous sommes ouverts tous les jours et nous répondons dans les meilleurs délais.</p>
+      <form class="res-form" id="res-form" action="#" novalidate>
+        <div class="fg">
+          <div class="fi">
+            <label for="r-nom">Nom complet</label>
+            <input type="text" id="r-nom" name="nom" placeholder="Marie Dupont" required>
+          </div>
+          <div class="fi">
+            <label for="r-tel">Téléphone</label>
+            <input type="tel" id="r-tel" name="tel" placeholder="+687 00 00 00">
+          </div>
+          <div class="fi">
+            <label for="r-date">Date souhaitée</label>
+            <input type="date" id="r-date" name="date" required>
+          </div>
+          <div class="fi">
+            <label for="r-heure">Heure</label>
+            <input type="time" id="r-heure" name="heure" min="07:00" max="21:00">
+          </div>
+          <div class="fi">
+            <label for="r-couverts">Nombre de personnes</label>
+            <select id="r-couverts" name="couverts">
+              <option value="1">1 personne</option>
+              <option value="2" selected>2 personnes</option>
+              <option value="3">3 personnes</option>
+              <option value="4">4 personnes</option>
+              <option value="5+">5 personnes et plus</option>
+            </select>
+          </div>
+          <div class="fi">
+            <label for="r-email">Email</label>
+            <input type="email" id="r-email" name="email" placeholder="marie@email.com">
+          </div>
+          <div class="fi full">
+            <label for="r-msg">Message (optionnel)</label>
+            <textarea id="r-msg" name="message" placeholder="Occasion spéciale, régime alimentaire…"></textarea>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:28px">
+          <button type="submit" class="b-accent" id="res-btn">Confirmer ma réservation</button>
+        </div>
+        <div class="res-msg" id="res-ok">
+          ✓ Votre demande est bien envoyée ! Nous vous confirmons votre table très prochainement.
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- HORAIRES & ACCÈS -->
+<section class="s s-dark" id="horaires">
+  <div class="wrap">
+    <div class="s-head">
+      <div class="tag tag-white">Accès & Horaires</div>
+      <h2 class="s-title" style="color:var(--cw)">Venez nous retrouver</h2>
+      <p class="s-sub">Rue Descartes, à Nouméa — facile d'accès, impossible à oublier.</p>
+    </div>
+    <div class="hor-grid">
+      <div class="hor-c">
+        <h4>Lundi – Vendredi</h4>
+        <p>7h00 – 18h00<br>Petit-déjeuner & déjeuner</p>
+      </div>
+      <div class="hor-c">
+        <h4>Samedi</h4>
+        <p>8h00 – 17h00<br>Brunch & pauses café</p>
+      </div>
+      <div class="hor-c">
+        <h4>Dimanche</h4>
+        <p>8h30 – 14h00<br>Ouverture matinale douce</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px">
+      <p style="color:rgba(255,255,255,.7);font-size:.92rem;line-height:1.8;">
+        📍 98800 Rue Descartes, Nouméa 98800, Nouvelle-Calédonie
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s s-cream" id="avis">
+  <div class="wrap">
+    <div class="s-head">
+      <div class="tag tag-green">Ils nous font confiance</div>
+      <h2 class="s-title">Ce que disent nos habitués</h2>
+      <p class="s-sub">L'atmosphère du Green Valley se vit, se ressent, et parfois se raconte.</p>
+    </div>
+    <div class="ps-grid">
+      <div class="ps-note">
+        <div class="ps-score">5.0</div>
+        <div class="ps-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div class="ps-label">Note Google</div>
+        <div class="ps-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--cp)"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+          Établissement local de confiance
+        </div>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-c">
+          <div class="testi-q">"</div>
+          <p class="testi-txt">Un endroit magique pour commencer sa journée. Le café est excellent et la terrasse verdoyante invite à prendre son temps. Je reviens chaque matin.</p>
+          <div class="testi-auth">
+            <div class="testi-av">ML</div>
+            <div>
+              <div class="testi-name">Marie-Laure</div>
+              <div class="testi-loc">Nouméa</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-c">
+          <div class="testi-q">"</div>
+          <p class="testi-txt">Une adresse rare à Nouméa — l'accueil est sincère, les produits frais et l'ambiance verte apaise vraiment. On s'y sent comme chez soi.</p>
+          <div class="testi-auth">
+            <div class="testi-av">TK</div>
+            <div>
+              <div class="testi-name">Tearii K.</div>
+              <div class="testi-loc">Nouméa</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-c">
+          <div class="testi-q">"</div>
+          <p class="testi-txt">Le plat du jour était délicieux et le service souriant. La terrasse est parfaite pour un déjeuner au calme, loin de l'agitation du centre-ville.</p>
+          <div class="testi-auth">
+            <div class="testi-av">PD</div>
+            <div>
+              <div class="testi-name">Patrick D.</div>
+              <div class="testi-loc">Nouméa</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-c">
+          <div class="testi-q">"</div>
+          <p class="testi-txt">Un café de quartier comme on en rêve. Chaleureux, authentique et ancré dans la vie locale. Le Green Valley mérite vraiment sa réputation grandissante.</p>
+          <div class="testi-auth">
+            <div class="testi-av">SA</div>
+            <div>
+              <div class="testi-name">Sophie A.</div>
+              <div class="testi-loc">Nouméa</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="s s-cream" id="contact">
+  <div class="wrap">
+    <div class="s-head">
+      <div class="tag tag-green">Nous écrire</div>
+      <h2 class="s-title">Une question ? Un mot ?</h2>
+      <p class="s-sub">Notre équipe vous répondra avec plaisir dans les plus brefs délais.</p>
+    </div>
+    <div class="cf-wrap">
+      <form class="cf-form" id="cf-form" action="#" novalidate>
+        <div class="cf-row">
+          <div class="cf-fi">
+            <label for="c-nom">Nom</label>
+            <input type="text" id="c-nom" name="nom" placeholder="Votre nom" required>
+          </div>
+          <div class="cf-fi">
+            <label for="c-email">Email</label>
+            <input type="email" id="c-email" name="email" placeholder="votre@email.com" required>
+          </div>
+        </div>
+        <div class="cf-fi">
+          <label for="c-tel">Téléphone</label>
+          <input type="tel" id="c-tel" name="tel" placeholder="+687 00 00 00">
+        </div>
+        <div class="cf-fi">
+          <label for="c-msg">Message</label>
+          <textarea id="c-msg" name="message" placeholder="Votre message…" required></textarea>
+        </div>
+        <div>
+          <button type="submit" class="b-primary" id="cf-btn">Envoyer le message</button>
+        </div>
+        <div class="cf-msg" id="cf-ok">✓ Merci ! Votre message a bien été reçu. Nous vous recontactons très prochainement.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="footer">
+  <div class="footer-grid">
+    <div class="f-brand">
+      <span class="logo">Serah-Bar <span style="color:var(--cs)">Green-Valley</span></span>
+      <p>Un café de quartier chaleureux au cœur de Nouméa, où la verdure calédonienne et la convivialité locale font de chaque visite un moment mémorable.</p>
+    </div>
+    <div class="f-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#menu">Notre carte</a></li>
+        <li><a href="#ambiance">Ambiance</a></li>
+        <li><a href="#reservation">Réservation</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Nous trouver</h4>
+      <address class="f-addr" style="font-style:normal">
+        98800 Rue Descartes<br>
+        Nouméa 98800<br>
+        Nouvelle-Calédonie
+      </address>
+    </div>
+  </div>
+  <div class="f-bottom wrap">
+    <div class="f-copy">© 2026 Serah-Bar Green-Valley. Tous droits réservés.</div>
+    <div class="f-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></div>
+  </div>
+</footer>
+
+<script>
+var hbg=document.getElementById('hbg'),mob=document.getElementById('mob');
+function closeMob(){mob.classList.remove('open')}
+hbg.addEventListener('click',function(){mob.classList.toggle('open')});
+
+document.querySelectorAll('.m-tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.m-tab').forEach(function(x){x.classList.remove('active')});
+    document.querySelectorAll('.menu-cat').forEach(function(x){x.classList.remove('show')});
+    t.classList.add('active');
+    var cat=document.getElementById(t.dataset.cat);
+    if(cat)cat.classList.add('show');
+  });
+});
+
+var lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img');
+document.querySelectorAll('.gal-item').forEach(function(el){
+  el.addEventListener('click',function(){
+    lbImg.src=el.dataset.src;
+    lb.classList.add('open');
+    document.body.style.overflow='hidden';
+  });
+});
+function closeLb(){lb.classList.remove('open');document.body.style.overflow='';}
+document.getElementById('lb-close').addEventListener('click',closeLb);
+lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+
+document.getElementById('res-form').addEventListener('submit',function(e){
+  e.preventDefault();
+  var btn=document.getElementById('res-btn');
+  btn.textContent='Envoi…';btn.disabled=true;
+  setTimeout(function(){
+    document.getElementById('res-ok').classList.add('show');
+    btn.textContent='Demande envoyée ✓';
+  },800);
+});
+
+document.getElementById('cf-form').addEventListener('submit',function(e){
+  e.preventDefault();
+  var nom=document.getElementById('c-nom').value.trim();
+  var email=document.getElementById('c-email').value.trim();
+  var msg=document.getElementById('c-msg').value.trim();
+  var btn=document.getElementById('cf-btn');
+  if(!nom||!email||!msg){btn.textContent='Remplissez les champs requis';setTimeout(function(){btn.textContent='Envoyer le message';},2000);return;}
+  btn.textContent='Envoi…';btn.disabled=true;
+  setTimeout(function(){
+    document.getElementById('cf-ok').classList.add('show');
+    btn.textContent='Message envoyé ✓';
+  },800);
+});
+
+var iObs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='none';}
+  });
+},{threshold:.1});
+document.querySelectorAll('.srv-c,.m-card,.testi-c,.hor-c').forEach(function(el){
+  el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .5s,transform .5s';
+  iObs.observe(el);
+});
+</script>
+</body>
+</html>
