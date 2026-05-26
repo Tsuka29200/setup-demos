@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Les Délices de Ferry — Nouméa</title>
+<meta name="description" content="Boulangerie-pâtisserie artisanale au cœur de Nouméa, 18 Rue Jules Ferry. Pains de fermentation, pâtisseries maison, créations du jour.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&family=Manrope:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--cp:#1A1A1A;--cs:#C8A96E;--ca:#C8A96E;--ct:#1A1A1A;--cb:#F5F0E8;--white:#FFFFFF;--radius:4px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;color:var(--ct);background:var(--cb);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU PROMO */
+.promo{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;text-align:center}
+.promo a{font-family:'Manrope','Lato',system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;line-height:44px;letter-spacing:.3px;display:block;width:100%}
+.promo a:hover{opacity:.85}
+
+/* HEADER */
+.nav{position:fixed;top:44px;left:0;width:100%;background:rgba(26,26,26,.97);z-index:1000;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;transition:background .3s}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--cs);letter-spacing:.5px;white-space:nowrap}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:.85rem;font-weight:400;color:#e0d9cc;letter-spacing:.8px;text-transform:uppercase;transition:color .3s}
+.nav-links a:hover{color:var(--cs)}
+.nav-cta{font-family:'Lato',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:1px;text-transform:uppercase;padding:10px 22px;border:2px solid var(--cs);color:var(--cs);background:transparent;cursor:pointer;transition:background .3s,color .3s;white-space:nowrap}
+.nav-cta:hover{background:var(--cs);color:var(--cp)}
+.nav-tel{color:#e0d9cc;font-size:.85rem;font-weight:700;letter-spacing:.5px;margin-right:16px;transition:color .3s}
+.nav-tel:hover{color:var(--cs)}
+.nav-right{display:flex;align-items:center;gap:0}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{display:block;width:24px;height:2px;background:var(--cs);transition:transform .3s,opacity .3s}
+.mob-menu{display:none;position:fixed;top:108px;left:0;width:100%;background:rgba(26,26,26,.98);padding:24px 0;z-index:999;flex-direction:column;align-items:center;gap:0}
+.mob-menu.open{display:flex}
+.mob-menu a{color:#e0d9cc;font-size:1rem;letter-spacing:1px;text-transform:uppercase;padding:14px 0;width:100%;text-align:center;border-bottom:1px solid rgba(200,169,110,.1)}
+.mob-menu a:hover{color:var(--cs)}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background:url('https://i.ibb.co/MxPc0MxJ/Les-D-lices-de-Ferry-0.jpg') center center/cover no-repeat;margin-top:108px}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,26,26,.55) 0%,rgba(26,26,26,.35) 50%,rgba(26,26,26,.65) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;padding:0 20px;max-width:780px}
+.hero-eyebrow{font-family:'Lato',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cs);margin-bottom:18px}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,6vw,4.2rem);font-weight:700;color:var(--white);line-height:1.15;margin-bottom:16px}
+.hero-title em{font-style:italic;color:var(--cs)}
+.hero-sub{font-family:'Lato',sans-serif;font-size:clamp(1rem,2.2vw,1.15rem);font-weight:300;color:rgba(255,255,255,.88);line-height:1.6;margin-bottom:36px;max-width:520px;margin-left:auto;margin-right:auto}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-gold{font-family:'Lato',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:1.2px;text-transform:uppercase;padding:15px 34px;background:var(--cs);color:var(--cp);border:none;cursor:pointer;transition:opacity .3s,transform .3s;min-height:48px;display:inline-flex;align-items:center}
+.btn-gold:hover{opacity:.88;transform:translateY(-1px)}
+.btn-outline-w{font-family:'Lato',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:1.2px;text-transform:uppercase;padding:15px 34px;background:transparent;color:var(--white);border:2px solid rgba(255,255,255,.7);cursor:pointer;transition:border-color .3s,color .3s;min-height:48px;display:inline-flex;align-items:center}
+.btn-outline-w:hover{border-color:var(--cs);color:var(--cs)}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,.5);font-size:.7rem;letter-spacing:2px;text-transform:uppercase}
+.scroll-ind span{width:1px;height:40px;background:linear-gradient(to bottom,rgba(200,169,110,.8),transparent);animation:scrollpulse 2s ease-in-out infinite}
+@keyframes scrollpulse{0%,100%{opacity:.4;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.15)}}
+
+/* BANDE STATS */
+.stats{background:var(--cp);padding:56px 32px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;max-width:960px;margin:0 auto}
+.stat{text-align:center;padding:24px 16px;border-right:1px solid rgba(200,169,110,.2)}
+.stat:last-child{border-right:none}
+.stat-num{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:700;color:var(--cs);line-height:1;display:block;margin-bottom:8px}
+.stat-label{font-family:'Lato',sans-serif;font-size:.78rem;font-weight:400;color:rgba(245,240,232,.65);letter-spacing:1.5px;text-transform:uppercase}
+
+/* SECTIONS COMMUNES */
+.s{padding:96px 32px}
+.s-dark{background:var(--cp)}
+.s-light{background:var(--cb)}
+.s-white{background:#FFFFFF}
+.s-center{text-align:center}
+.container{max-width:1100px;margin:0 auto}
+.eyebrow{font-family:'Lato',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cs);margin-bottom:12px;display:block}
+.eyebrow-dark{color:var(--cs)}
+.h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;line-height:1.2;margin-bottom:16px}
+.h2-white{color:var(--white)}
+.h2-dark{color:var(--cp)}
+.lead{font-family:'Lato',sans-serif;font-size:1.05rem;font-weight:300;line-height:1.75;color:#555;max-width:600px}
+.lead-center{margin:0 auto}
+.lead-white{color:rgba(245,240,232,.75)}
+.divider-gold{width:48px;height:3px;background:var(--cs);margin:20px 0 36px}
+.divider-center{margin:20px auto 36px}
+
+/* CARDS SERVICES */
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.c{background:#FFFFFF;padding:36px 28px;transition:transform .3s,box-shadow .3s;position:relative;overflow:hidden}
+.c::before{content:'';position:absolute;bottom:0;left:0;width:100%;height:3px;background:var(--cs);transform:scaleX(0);transition:transform .3s;transform-origin:left}
+.c:hover{transform:translateY(-4px) scale(1.01);box-shadow:0 12px 40px rgba(26,26,26,.1)}
+.c:hover::before{transform:scaleX(1)}
+.c-icon{width:48px;height:48px;margin-bottom:20px;color:var(--cs)}
+.c-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;color:var(--cp);margin-bottom:10px}
+.c-text{font-size:.9rem;line-height:1.65;color:#666}
+
+/* METIER */
+.metier-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.metier-img{aspect-ratio:4/3;overflow:hidden}
+.metier-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.metier-img:hover img{transform:scale(1.03)}
+.check-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:28px}
+.check-list li{display:flex;align-items:flex-start;gap:12px;font-size:.92rem;line-height:1.6;color:#444}
+.check-list li::before{content:'';display:inline-block;width:18px;height:18px;min-width:18px;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 13l4 4L19 7' stroke='%23C8A96E' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;margin-top:2px}
+
+/* GALERIE */
+.gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:48px}
+.gallery-item{overflow:hidden;cursor:pointer;aspect-ratio:4/3}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.gallery-item:hover img{transform:scale(1.04)}
+.gallery-item:first-child{grid-column:1/2;grid-row:1/3;aspect-ratio:auto}
+
+/* LIGHTBOX */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center;padding:20px}
+.lightbox.open{display:flex}
+.lightbox img{max-width:90vw;max-height:90vh;object-fit:contain}
+.lb-close{position:absolute;top:20px;right:24px;color:var(--white);font-size:2rem;cursor:pointer;background:none;border:none;line-height:1}
+
+/* FORMULAIRE */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.full{grid-column:1/-1}
+.field label{font-size:.78rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#555}
+.field input,.field textarea{font-family:'Lato',sans-serif;font-size:.95rem;padding:13px 16px;border:1.5px solid #ddd;background:#fff;color:var(--cp);transition:border-color .3s;outline:none}
+.field input:focus,.field textarea:focus{border-color:var(--cs)}
+.field textarea{min-height:120px;resize:vertical}
+.form-submit{margin-top:8px;text-align:center}
+.btn-submit{font-family:'Lato',sans-serif;font-weight:700;font-size:.88rem;letter-spacing:1.2px;text-transform:uppercase;padding:16px 48px;background:var(--cp);color:var(--white);border:none;cursor:pointer;transition:background .3s,transform .3s;min-height:52px;position:relative;overflow:hidden}
+.btn-submit:hover{background:var(--cs);color:var(--cp);transform:translateY(-1px)}
+.form-msg{margin-top:16px;font-size:.9rem;color:var(--cs);font-weight:700;min-height:22px;text-align:center}
+
+/* AVIS */
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.review-card{background:#fff;padding:28px;border-top:3px solid var(--cs)}
+.review-stars{color:var(--cs);font-size:1.1rem;margin-bottom:10px;letter-spacing:2px}
+.review-text{font-size:.9rem;line-height:1.65;color:#555;font-style:italic;margin-bottom:14px}
+.review-author{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--cp)}
+.rating-badge{display:inline-flex;flex-direction:column;align-items:center;gap:4px;background:var(--cp);padding:28px 40px;margin-bottom:40px}
+.rating-num{font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;color:var(--cs);line-height:1}
+.rating-stars{color:var(--cs);font-size:1.2rem;letter-spacing:3px}
+.rating-count{font-size:.78rem;color:rgba(245,240,232,.6);letter-spacing:1px;text-transform:uppercase}
+
+/* FOOTER */
+.footer{background:#111;padding:64px 32px 32px;color:rgba(245,240,232,.7)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;max-width:1100px;margin:0 auto 48px}
+.footer-brand{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--cs);margin-bottom:14px}
+.footer-desc{font-size:.88rem;line-height:1.7}
+.footer-title{font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cs);margin-bottom:16px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-links a{font-size:.88rem;transition:color .3s}
+.footer-links a:hover{color:var(--white)}
+.footer-social{display:flex;gap:12px;margin-top:16px}
+.social-btn{width:40px;height:40px;border:1px solid rgba(200,169,110,.3);display:flex;align-items:center;justify-content:center;transition:border-color .3s,background .3s}
+.social-btn:hover{border-color:var(--cs);background:rgba(200,169,110,.1)}
+.social-btn svg{width:18px;height:18px;fill:rgba(245,240,232,.7);transition:fill .3s}
+.social-btn:hover svg{fill:var(--cs)}
+.footer-bottom{border-top:1px solid rgba(200,169,110,.15);padding-top:24px;text-align:center;font-size:.8rem;color:rgba(245,240,232,.4);max-width:1100px;margin:0 auto}
+.footer-bottom a{color:var(--cs)}
+
+/* HORAIRES */
+.hours-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:24px}
+.hour-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(200,169,110,.15);font-size:.9rem}
+.hour-day{color:rgba(245,240,232,.65)}
+.hour-time{color:var(--cs);font-weight:700}
+
+/* REVEAL ANIMATIONS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+.rev{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.stat{border-right:none;border-bottom:1px solid rgba(200,169,110,.2)}
+.stat:nth-child(2n){border-bottom:1px solid rgba(200,169,110,.2)}
+.stat:last-child{border-bottom:none}
+.cards-grid{grid-template-columns:1fr 1fr}
+.metier-grid{grid-template-columns:1fr;gap:40px}
+.reviews-grid{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+.nav{padding:0 16px;height:56px}
+.nav-links,.nav-cta,.nav-tel{display:none}
+.hamburger{display:flex}
+.hero{margin-top:100px;min-height:calc(100vh - 100px)}
+.promo{height:40px}
+.promo a{font-size:13px;line-height:40px}
+.nav{top:40px}
+.mob-menu{top:96px}
+.s{padding:64px 16px}
+.stats{padding:40px 16px}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.cards-grid{grid-template-columns:1fr}
+.gallery-grid{grid-template-columns:1fr}
+.gallery-item:first-child{grid-column:auto;grid-row:auto;aspect-ratio:4/3}
+.form-grid{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr}
+.hero-btns{flex-direction:column;align-items:center}
+.btn-gold,.btn-outline-w{width:100%;max-width:320px;justify-content:center}
+}
+@media(max-width:480px){
+.nav-logo{font-size:1rem}
+.hours-grid{grid-template-columns:1fr}
+.rating-badge{padding:20px 28px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="nav" id="top">
+  <a href="#top" class="nav-logo">Les Délices de Ferry</a>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="#creations">Créations</a></li>
+      <li><a href="#metier">Notre métier</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#horaires">Horaires</a></li>
+    </ul>
+  </nav>
+  <div class="nav-right">
+    <a href="tel:+687309070" class="nav-tel">30.90.70</a>
+    <a href="#contact" class="nav-cta">Commander</a>
+    <button class="hamburger" id="hbg" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-menu" id="mob">
+  <a href="#creations" onclick="closeMob()">Créations</a>
+  <a href="#metier" onclick="closeMob()">Notre métier</a>
+  <a href="#galerie" onclick="closeMob()">Galerie</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="#horaires" onclick="closeMob()">Horaires</a>
+  <a href="tel:+687309070" onclick="closeMob()">📞 30.90.70</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Boulangerie &amp; Pâtisserie Artisanale — Nouméa</span>
+    <h1 class="hero-title">Les Délices<br><em>de Ferry</em></h1>
+    <p class="hero-sub">Depuis plus de dix ans, nous pétrissons la passion. Chaque pain, chaque pâtisserie est une création façonnée à la main, dans le respect du temps et des ingrédients.</p>
+    <div class="hero-btns">
+      <a href="#creations" class="btn-gold">Découvrir nos créations</a>
+      <a href="tel:+687309070" class="btn-outline-w">Nous appeler</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span></span>
+    <p style="color:rgba(255,255,255,.5);font-size:.65rem;letter-spacing:2px;">Découvrir</p>
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<section class="stats">
+  <div class="stats-grid">
+    <div class="stat">
+      <span class="stat-num" data-target="10">0</span>
+      <span class="stat-label">Ans d'artisanat</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num" data-target="46">0</span>
+      <span class="stat-label">Avis Google</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num" data-target="100" data-suffix="%">0%</span>
+      <span class="stat-label">Fait main</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num" data-target="6" data-prefix="" data-suffix="h">6h</span>
+      <span class="stat-label">Ouverture dès l'aube</span>
+    </div>
+  </div>
+</section>
+<!-- SERVICES -->
+<section class="s s-light" id="creations">
+<div class="container s-center">
+<span class="eyebrow">Nos créations</span>
+<h2 class="h2 h2-dark">L'artisanat au quotidien</h2>
+<div class="divider-gold divider-center"></div>
+<p class="lead lead-center">Chaque matin, notre fournil s'anime avant l'aube. Pains de fermentation lente, pâtisseries de saison et viennoiseries dorées — façonnés à la main, pour vous.</p>
+<div class="cards-grid">
+<div class="c">
+<svg class="c-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 32c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><rect x="6" y="32" width="36" height="6" rx="2" stroke="currentColor" stroke-width="2.5"/><path d="M24 16V10M18 14l2-4M30 14l-2-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+<h3 class="c-title">Pains artisanaux</h3>
+<p class="c-text">Fermentation lente, croûte dorée, mie alvéolée. Baguette tradition, pain de campagne, pain de seigle — cuits chaque matin dans notre four.</p>
+</div>
+<div class="c">
+<svg class="c-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="28" width="32" height="12" rx="3" stroke="currentColor" stroke-width="2.5"/><path d="M14 28v-4a10 10 0 0 1 20 0v4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M20 20v-4M28 20v-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="24" cy="22" r="2" fill="currentColor"/></svg>
+<h3 class="c-title">Pâtisseries maison</h3>
+<p class="c-text">Tartes, éclairs, millefeuilles et entremets — préparés avec des ingrédients soigneusement choisis et un savoir-faire transmis avec fierté.</p>
+</div>
+<div class="c">
+<svg class="c-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 20c0-4.418 3.582-8 8-8s8 3.582 8 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M12 20h24l-2 14H14L12 20Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M20 20v-2M28 20v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+<h3 class="c-title">Viennoiseries &amp; gourmandises</h3>
+<p class="c-text">Croissants feuilletés, pains au chocolat, chaussons aux pommes — la promesse d'une pause gourmande dès l'ouverture à 6h du matin.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s s-dark" id="metier">
+<div class="container">
+<div class="metier-grid">
+<div>
+<span class="eyebrow eyebrow-dark">Notre métier</span>
+<h2 class="h2 h2-white">Le goût du travail bien fait</h2>
+<div class="divider-gold"></div>
+<p class="lead lead-white">Chez Les Délices de Ferry, rien n'est laissé au hasard. Nous sélectionnons nos ingrédients avec soin et respectons les temps de repos que la pâte réclame. C'est cette exigence tranquille qui fait la différence dans chaque bouchée.</p>
+<ul class="check-list">
+<li>Pétrissage et façonnage à la main chaque matin</li>
+<li>Fermentation lente pour des pains au goût authentique</li>
+<li>Ingrédients de confiance, choisis avec attention</li>
+<li>Une adresse de quartier à Nouméa depuis plus de dix ans</li>
+</ul>
+</div>
+<div class="metier-img">
+<img src="https://i.ibb.co/WN6yFF0p/Les-D-lices-de-Ferry-1.jpg" alt="Intérieur de la boulangerie Les Délices de Ferry" loading="lazy">
+</div>
+</div>
+</div>
+</section>
+
+<!-- GALERIE -->
+<section class="s s-light" id="galerie">
+<div class="container s-center">
+<span class="eyebrow">Galerie</span>
+<h2 class="h2 h2-dark">Regard sur notre univers</h2>
+<div class="divider-gold divider-center"></div>
+<p class="lead lead-center">La chaleur du four, la précision du geste, la beauté des vitrines — voici les coulisses des Délices de Ferry.</p>
+<div class="gallery-grid">
+<div class="gallery-item" onclick="openLb('https://i.ibb.co/MxPc0MxJ/Les-D-lices-de-Ferry-0.jpg','Devanture Les Délices de Ferry')">
+<img src="https://i.ibb.co/MxPc0MxJ/Les-D-lices-de-Ferry-0.jpg" alt="Devanture Les Délices de Ferry" loading="lazy">
+</div>
+<div class="gallery-item" onclick="openLb('https://i.ibb.co/WN6yFF0p/Les-D-lices-de-Ferry-1.jpg','Intérieur de la boulangerie')">
+<img src="https://i.ibb.co/WN6yFF0p/Les-D-lices-de-Ferry-1.jpg" alt="Intérieur de la boulangerie" loading="lazy">
+</div>
+<div class="gallery-item" onclick="openLb('https://i.ibb.co/d4tW8rGp/Les-D-lices-de-Ferry-2.jpg','Créations pâtissières')">
+<img src="https://i.ibb.co/d4tW8rGp/Les-D-lices-de-Ferry-2.jpg" alt="Créations pâtissières" loading="lazy">
+</div>
+<div class="gallery-item" onclick="openLb('https://i.ibb.co/Xxnrd8WK/Les-D-lices-de-Ferry-3.jpg','Viennoiseries et pains')">
+<img src="https://i.ibb.co/Xxnrd8WK/Les-D-lices-de-Ferry-3.jpg" alt="Viennoiseries et pains" loading="lazy">
+</div>
+</div>
+</div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lb" onclick="closeLb()">
+<button class="lb-close" onclick="closeLb()" aria-label="Fermer">&times;</button>
+<img id="lb-img" src="" alt="">
+</div>
+
+<!-- FORMULAIRE -->
+<section class="s s-dark" id="contact">
+<div class="container" style="max-width:700px">
+<div class="s-center">
+<span class="eyebrow">Nous contacter</span>
+<h2 class="h2 h2-white">Une question, une commande&nbsp;?</h2>
+<div class="divider-gold divider-center"></div>
+<p class="lead lead-white lead-center">Passez commande, demandez un renseignement ou partagez-nous votre projet — nous vous répondons avec plaisir.</p>
+</div>
+<form id="cform" action="#" novalidate style="margin-top:40px">
+<div class="form-grid">
+<div class="field">
+<label for="fname">Nom complet</label>
+<input type="text" id="fname" name="name" placeholder="Marie Dupont" required>
+</div>
+<div class="field">
+<label for="fmail">Adresse e-mail</label>
+<input type="email" id="fmail" name="email" placeholder="marie@exemple.com" required>
+</div>
+<div class="field">
+<label for="ftel">Téléphone</label>
+<input type="tel" id="ftel" name="tel" placeholder="XX.XX.XX">
+</div>
+<div class="field">
+<label for="fsujet">Sujet</label>
+<input type="text" id="fsujet" name="sujet" placeholder="Commande, renseignement…">
+</div>
+<div class="field full">
+<label for="fmsg">Message</label>
+<textarea id="fmsg" name="message" placeholder="Décrivez votre demande…" required></textarea>
+</div>
+</div>
+<div class="form-submit">
+<button type="submit" class="btn-submit" id="fsub">Envoyer le message</button>
+<p class="form-msg" id="fmsg-ok" aria-live="polite"></p>
+</div>
+</form>
+</div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s s-light" id="avis">
+<div class="container s-center">
+<span class="eyebrow">Avis clients</span>
+<h2 class="h2 h2-dark">Ce que nos clients disent</h2>
+<div class="divider-gold divider-center"></div>
+<div class="rating-badge">
+<span class="rating-num">3.1</span>
+<div class="rating-stars">★★★☆☆</div>
+<span class="rating-count">46 avis Google</span>
+</div>
+<div class="reviews-grid">
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<p class="review-text">«&nbsp;Un vrai régal dès le matin — les croissants sont dorés à la perfection et le pain de campagne a cette croûte craquante qu'on cherche partout.&nbsp;»</p>
+<span class="review-author">Sophie L. — Cliente fidèle</span>
+</div>
+<div class="review-card">
+<div class="review-stars">★★★★☆</div>
+<p class="review-text">«&nbsp;La boulangerie de quartier comme on les aime : accueil chaleureux, produits frais chaque jour. On y passe volontiers avant le travail.&nbsp;»</p>
+<span class="review-author">Marc T. — Habitué du quartier</span>
+</div>
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<p class="review-text">«&nbsp;Les pâtisseries maison sont une belle surprise — travaillées, généreuses, avec ce petit soin artisanal qu'on sent dans chaque bouchée.&nbsp;»</p>
+<span class="review-author">Nathalie V. — Nouméa</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- HORAIRES & ACCÈS -->
+<section class="s s-dark" id="horaires">
+<div class="container">
+<div class="metier-grid">
+<div>
+<span class="eyebrow">Horaires &amp; Accès</span>
+<h2 class="h2 h2-white">Venez nous rendre visite</h2>
+<div class="divider-gold"></div>
+<p class="lead lead-white">La boulangerie ouvre tôt pour que votre pain soit chaud dès le réveil. Retrouvez-nous du mardi au dimanche, rue Jules Ferry à Nouméa.</p>
+<div class="hours-grid">
+<div class="hour-row"><span class="hour-day">Lundi</span><span class="hour-time">Fermé</span></div>
+<div class="hour-row"><span class="hour-day">Mardi – Vendredi</span><span class="hour-time">06h – 12h</span></div>
+<div class="hour-row"><span class="hour-day">Samedi</span><span class="hour-time">06h – 12h</span></div>
+<div class="hour-row"><span class="hour-day">Dimanche</span><span class="hour-time">06h – 11h</span></div>
+</div>
+<div style="margin-top:28px">
+<a href="tel:+687309070" class="btn-gold">📞 30.90.70</a>
+</div>
+</div>
+<div class="metier-img">
+<img src="https://i.ibb.co/d4tW8rGp/Les-D-lices-de-Ferry-2.jpg" alt="Boutique Les Délices de Ferry" loading="lazy">
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="footer-grid">
+<div>
+<div class="footer-brand">Les Délices de Ferry</div>
+<p class="footer-desc">Boulangerie-pâtisserie artisanale au cœur de Nouméa. Façonné à la main, cuit chaque matin, partagé avec passion.</p>
+<div class="footer-social">
+<a href="https://www.facebook.com/p/Les-d%C3%A9lices-de-Ferry-100088518214239/?locale=fr_FR" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+</a>
+</div>
+</div>
+<div>
+<div class="footer-title">Navigation</div>
+<ul class="footer-links">
+<li><a href="#creations">Nos créations</a></li>
+<li><a href="#metier">Notre métier</a></li>
+<li><a href="#galerie">Galerie</a></li>
+<li><a href="#avis">Avis clients</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+<div>
+<div class="footer-title">Nous trouver</div>
+<ul class="footer-links">
+<li>18 Rue Jules Ferry</li>
+<li>Nouméa 98800</li>
+<li>Nouvelle-Calédonie</li>
+<li style="margin-top:12px"><a href="tel:+687309070">📞 30.90.70</a></li>
+<li style="margin-top:8px">Mar – Ven : 06h – 12h</li>
+<li>Sam : 06h – 12h</li>
+<li>Dim : 06h – 11h</li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 Les Délices de Ferry. Tous droits réservés. &nbsp;|&nbsp; <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Site réalisé par Setup NC</a></p>
+</div>
+</footer>
+
+<script>
+var hbg=document.getElementById('hbg'),mob=document.getElementById('mob');
+function closeMob(){mob.classList.remove('open')}
+hbg.addEventListener('click',function(){mob.classList.toggle('open')});
+
+function openLb(src,alt){var l=document.getElementById('lb'),i=document.getElementById('lb-img');i.src=src;i.alt=alt;l.classList.add('open');document.body.style.overflow='hidden'}
+function closeLb(){document.getElementById('lb').classList.remove('open');document.body.style.overflow=''}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
+
+var cform=document.getElementById('cform');
+cform.addEventListener('submit',function(e){
+e.preventDefault();
+var n=document.getElementById('fname'),m=document.getElementById('fmail'),msg=document.getElementById('fmsg'),ok=document.getElementById('fmsg-ok'),sub=document.getElementById('fsub');
+if(!n.value.trim()||!m.value.trim()||!msg.value.trim()){ok.style.color='#e57373';ok.textContent='Merci de remplir les champs obligatoires.';return}
+sub.textContent='Envoi…';sub.disabled=true;
+setTimeout(function(){ok.style.color='#C8A96E';ok.textContent='✓ Message envoyé ! Nous vous répondrons très vite.';cform.reset();sub.textContent='Envoyer le message';sub.disabled=false},900)
+});
+
+var nums=document.querySelectorAll('[data-target]'),done=false;
+function countUp(){if(done)return;done=true;nums.forEach(function(el){var t=+el.getAttribute('data-target'),suf=el.getAttribute('data-suffix')||'',d=Math.ceil(t/40),c=0,iv=setInterval(function(){c=Math.min(c+d,t);el.textContent=c+suf;if(c>=t)clearInterval(iv)},30)})}
+var so=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting)countUp()})},{threshold:.3});
+document.querySelectorAll('.stats').forEach(function(el){so.observe(el)});
+
+var revEls=document.querySelectorAll('.rev');
+if(revEls.length){revEls.forEach(function(el){el.style.opacity='0';el.style.transform='translateY(24px)'});var ro=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.style.opacity='1';en.target.style.transform='none';ro.unobserve(en.target)}})},{threshold:.15});revEls.forEach(function(el){ro.observe(el)})}
+</script>
+</body>
+</html>
