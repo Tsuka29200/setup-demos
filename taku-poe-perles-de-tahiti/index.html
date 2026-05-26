@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taku Poe - Perles de Tahiti — Nouméa</title>
+<meta name="description" content="Taku Poe - Perles de Tahiti, maison perlière authentique à Nouméa. Perles noires de Tahiti, bijoux artisanaux, certificats d'authenticité. Nouvelle-Calédonie.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root{--cp:#2C1A0E;--cs:#C9A96E;--ca:#7B9E8A;--ct:#1E1209;--cb:#F5F0E8;--cw:#fff;--cd:#1a1009}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Cormorant Garamond',Georgia,serif;background:var(--cb);color:var(--ct);overflow-x:hidden;font-size:18px}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.h1{font-size:clamp(2.4rem,6vw,5rem);font-weight:300;letter-spacing:.04em;line-height:1.1;font-style:italic}
+.h2{font-size:clamp(1.8rem,4vw,3rem);font-weight:400;letter-spacing:.03em;line-height:1.2}
+.h3{font-size:clamp(1.2rem,2.5vw,1.6rem);font-weight:500;letter-spacing:.02em}
+.htag{display:block;width:60px;height:2px;background:var(--cs);margin:12px auto 20px}
+.htag-l{margin-left:0}
+.sub{font-size:clamp(.9rem,2vw,1.1rem);letter-spacing:.08em;text-transform:uppercase;opacity:.75;font-family:'Cormorant Garamond',serif;font-style:normal;font-weight:400}
+.b{display:inline-block;padding:14px 32px;font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border:1.5px solid currentColor;transition:background .3s,color .3s,transform .2s,box-shadow .2s;cursor:pointer;text-align:center}
+.b:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.18)}
+.b-gold{background:var(--cs);color:var(--cp);border-color:var(--cs)}
+.b-gold:hover{background:var(--cp);color:var(--cs)}
+.b-outline{background:transparent;color:var(--cw);border-color:var(--cw)}
+.b-outline:hover{background:var(--cw);color:var(--cp)}
+.b-dark{background:var(--cp);color:var(--cs);border-color:var(--cp)}
+.b-dark:hover{background:var(--cs);color:var(--cp)}
+.s{padding:90px 0}
+.s-dark{background:var(--cp);color:var(--cw)}
+.s-mid{background:#ede6d8}
+.tc{text-align:center}
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* BANDEAU PROMO */
+#promo{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;display:flex;align-items:center;justify-content:center}
+#promo a{font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;line-height:44px;letter-spacing:.3px;color:#4375ff;text-align:center}
+#promo a:hover{opacity:.85}
+
+/* HEADER */
+#nav{position:fixed;top:44px;left:0;width:100%;background:rgba(28,15,6,.92);backdrop-filter:blur(10px);z-index:1000;height:70px;display:flex;align-items:center;border-bottom:1px solid rgba(201,169,110,.2)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;width:100%}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--cs);letter-spacing:.06em;line-height:1.2}
+.logo span{display:block;font-size:.65rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(201,169,110,.65);font-style:normal}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,240,232,.8);font-family:'Cormorant Garamond',serif;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--cs)}
+.nav-cta{display:flex;align-items:center;gap:16px}
+.nav-tel{font-size:.85rem;color:var(--cs);letter-spacing:.05em;font-family:'Cormorant Garamond',serif}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{width:24px;height:2px;background:var(--cs);transition:all .3s;display:block}
+.mob-menu{display:none;position:fixed;top:114px;left:0;width:100%;background:rgba(28,15,6,.98);z-index:999;padding:32px 24px;flex-direction:column;gap:0}
+.mob-menu a{display:block;padding:16px 0;font-family:'Cormorant Garamond',serif;font-size:1.1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cb);border-bottom:1px solid rgba(201,169,110,.15)}
+.mob-menu a:hover{color:var(--cs)}
+.mob-menu.open{display:flex}
+
+/* HERO */
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background-image:url('https://i.ibb.co/gLXYBTc6/Taku-Poe-Perles-de-Tahiti-0.jpg');background-size:cover;background-position:center;background-attachment:fixed;margin-top:114px}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(160deg,rgba(28,15,6,.72) 0%,rgba(28,15,6,.38) 50%,rgba(28,15,6,.65) 100%)}
+.hero-c{position:relative;z-index:2;text-align:center;padding:60px 24px;max-width:900px}
+.hero-eyebrow{font-size:.75rem;letter-spacing:.35em;text-transform:uppercase;color:var(--cs);margin-bottom:24px;font-weight:400}
+.hero-c .h1{color:var(--cw);margin-bottom:8px}
+.hero-dash{width:80px;height:1px;background:var(--cs);margin:24px auto}
+.hero-sub{font-size:clamp(1rem,2vw,1.25rem);color:rgba(245,240,232,.85);font-style:italic;font-weight:300;max-width:560px;margin:0 auto 40px;line-height:1.7}
+.hero-btns{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.scroll-ind{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px}
+.scroll-ind span{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,240,232,.5)}
+.scroll-arr{width:20px;height:20px;border-right:1.5px solid var(--cs);border-bottom:1.5px solid var(--cs);transform:rotate(45deg);animation:arr 1.6s infinite}
+@keyframes arr{0%,100%{opacity:.3;transform:rotate(45deg) translateY(-4px)}50%{opacity:1;transform:rotate(45deg) translateY(4px)}}
+
+/* STATS */
+#stats{background:var(--cp);padding:60px 0;border-top:1px solid rgba(201,169,110,.2);border-bottom:1px solid rgba(201,169,110,.2)}
+.stats-g{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat-i{text-align:center;padding:24px 16px;border-right:1px solid rgba(201,169,110,.2)}
+.stat-i:last-child{border-right:none}
+.stat-n{font-size:clamp(2.2rem,4vw,3.2rem);font-weight:600;color:var(--cs);font-style:italic;line-height:1}
+.stat-l{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,240,232,.6);margin-top:8px;font-family:'Cormorant Garamond',serif;font-weight:400}
+
+@media(max-width:900px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .stats-g{grid-template-columns:repeat(2,1fr)}
+  .stat-i:nth-child(2){border-right:none}
+  .stat-i:nth-child(3){border-right:1px solid rgba(201,169,110,.2)}
+  .stat-i:nth-child(3),.stat-i:nth-child(4){border-top:1px solid rgba(201,169,110,.2)}
+}
+@media(max-width:480px){
+  #promo a{font-size:13px;line-height:40px}
+  #promo{height:40px}
+  #nav{top:40px}
+  #hero{margin-top:110px}
+  .mob-menu{top:110px}
+  .hero-btns .b{width:100%;max-width:280px}
+  .stats-g{grid-template-columns:repeat(2,1fr)}
+  .wrap{padding:0 16px}
+  .s{padding:60px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div id="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header id="nav">
+  <div class="wrap nav-in">
+    <a href="#hero" class="logo">Taku Poe<span>Perles de Tahiti — Nouméa</span></a>
+    <ul class="nav-links">
+      <li><a href="#collections">Collections</a></li>
+      <li><a href="#maison">Notre maison</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#avis">Témoignages</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#contact" class="b b-gold">Prendre rendez-vous</a>
+    </div>
+    <button class="hamburger" id="hbg" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<nav class="mob-menu" id="mob">
+  <a href="#collections" onclick="closeMob()">Collections</a>
+  <a href="#maison" onclick="closeMob()">Notre maison</a>
+  <a href="#galerie" onclick="closeMob()">Galerie</a>
+  <a href="#avis" onclick="closeMob()">Témoignages</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="#contact" class="b b-gold" style="margin-top:20px;text-align:center" onclick="closeMob()">Prendre rendez-vous</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-ov"></div>
+  <div class="hero-c">
+    <p class="hero-eyebrow">Maison perlière — Nouméa, Nouvelle-Calédonie</p>
+    <h1 class="h1">Taku Poe<br>L'âme des perles de Tahiti</h1>
+    <div class="hero-dash"></div>
+    <p class="hero-sub">Chaque perle noire est une vie née du lagon. Sélectionnées à la source, montées à Nouméa avec le soin de l'artisan.</p>
+    <div class="hero-btns">
+      <a href="#collections" class="b b-gold">Découvrir la collection</a>
+      <a href="#contact" class="b b-outline">Prendre rendez-vous</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>Explorer</span>
+    <div class="scroll-arr"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="wrap">
+    <div class="stats-g">
+      <div class="stat-i">
+        <div class="stat-n" data-target="20" data-suffix="+">0+</div>
+        <div class="stat-l">Années d'expertise</div>
+      </div>
+      <div class="stat-i">
+        <div class="stat-n" data-target="500" data-suffix="+">0+</div>
+        <div class="stat-l">Perles sélectionnées par an</div>
+      </div>
+      <div class="stat-i">
+        <div class="stat-n" data-target="5" data-suffix="/5">0/5</div>
+        <div class="stat-l">Note Google clients</div>
+      </div>
+      <div class="stat-i">
+        <div class="stat-n" data-target="100" data-suffix="%">0%</div>
+        <div class="stat-l">Authenticité certifiée</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+var hbg=document.getElementById('hbg'),mob=document.getElementById('mob');
+function closeMob(){mob.classList.remove('open')}
+hbg.addEventListener('click',function(){mob.classList.toggle('open')});
+var stats=document.querySelectorAll('.stat-n');
+var ran=false;
+function runStats(){
+  if(ran)return;ran=true;
+  stats.forEach(function(el){
+    var t=+el.dataset.target,s=el.dataset.suffix||'',d=Math.ceil(1200/t),c=0;
+    var iv=setInterval(function(){
+      c+=Math.ceil(t/40);if(c>=t){c=t;clearInterval(iv);}
+      el.textContent=c+s;
+    },d);
+  });
+}
+var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)runStats();})},{threshold:.3});
+obs.observe(document.getElementById('stats'));
+</script>
+<style>
+.srv-g{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px}
+.srv-c{background:var(--cw);padding:48px 32px;text-align:center;border:1px solid rgba(44,26,14,.08);transition:transform .3s,box-shadow .3s}
+.srv-c:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(44,26,14,.12)}
+.srv-ico{width:56px;height:56px;margin:0 auto 24px;color:var(--cs)}
+.srv-c .h3{margin-bottom:12px;color:var(--cp)}
+.srv-c p{font-size:1rem;line-height:1.7;color:#5a4535;margin-bottom:24px;font-style:italic}
+.srv-c .b{font-size:.75rem}
+.met-g{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:center;margin-top:0}
+.met-txt{padding:72px 64px}
+.met-txt .h2{color:var(--cp);margin-bottom:16px}
+.met-txt p{font-size:1.05rem;line-height:1.85;color:#4a3525;font-style:italic;margin-bottom:20px}
+.met-checks{list-style:none;margin-top:24px;display:flex;flex-direction:column;gap:12px}
+.met-checks li{display:flex;align-items:flex-start;gap:12px;font-size:.95rem;color:#3a2515;line-height:1.5}
+.chk{width:20px;height:20px;flex-shrink:0;color:var(--ca)}
+.met-img{height:600px;object-fit:cover;width:100%}
+.met-rev .met-txt{background:var(--cp);color:var(--cw)}
+.met-rev .met-txt .h2{color:var(--cs)}
+.met-rev .met-txt p{color:rgba(245,240,232,.8)}
+.met-rev .met-txt .met-checks li{color:rgba(245,240,232,.85)}
+.met-rev .met-img-w{order:-1}
+.gal-g{display:grid;grid-template-columns:repeat(2,1fr);gap:4px;margin-top:0}
+.gal-item{overflow:hidden;cursor:pointer;position:relative;aspect-ratio:4/3}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gal-item:hover img{transform:scale(1.04)}
+.gal-item:first-child{grid-column:span 2;aspect-ratio:16/7}
+.lb{display:none;position:fixed;inset:0;background:rgba(10,5,2,.92);z-index:2000;align-items:center;justify-content:center;padding:24px}
+.lb.on{display:flex}
+.lb-img{max-width:90vw;max-height:88vh;object-fit:contain;border:1px solid rgba(201,169,110,.3)}
+.lb-cls{position:absolute;top:24px;right:32px;background:none;border:none;color:var(--cs);font-size:2.5rem;cursor:pointer;line-height:1;font-family:'Cormorant Garamond',serif}
+.frm-w{max-width:680px;margin:0 auto}
+.frm-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.frm-g{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
+.frm-g label{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cp);font-weight:600}
+.frm-g input,.frm-g textarea,.frm-g select{background:var(--cw);border:1.5px solid rgba(44,26,14,.18);padding:14px 16px;font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--ct);outline:none;transition:border-color .2s;width:100%}
+.frm-g input:focus,.frm-g textarea:focus{border-color:var(--cs)}
+.frm-g textarea{resize:vertical;min-height:130px}
+.frm-err{font-size:.82rem;color:#c0392b;margin-top:4px;display:none}
+.frm-ok{background:var(--ca);color:var(--cw);padding:20px 32px;text-align:center;margin-top:24px;display:none;font-size:1.05rem;font-style:italic}
+.frm-ok.on{display:block}
+.frm-ld{display:inline-block;width:18px;height:18px;border:2px solid var(--cs);border-top-color:transparent;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-left:10px;display:none}
+.frm-ld.on{display:inline-block}
+@keyframes spin{to{transform:rotate(360deg)}}
+.soc-stars{display:flex;gap:4px;justify-content:center;margin:16px 0}
+.star{color:var(--cs);font-size:1.6rem}
+.soc-note{font-size:3.5rem;font-weight:600;color:var(--cp);font-style:italic;line-height:1}
+.soc-lbl{font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:#7a6050;margin-top:4px}
+.testi-g{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px}
+.testi-c{background:var(--cw);padding:36px 28px;border-left:3px solid var(--cs);position:relative}
+.testi-q{font-size:3rem;color:var(--cs);line-height:.8;font-style:italic;font-weight:700;margin-bottom:8px}
+.testi-c p{font-size:1rem;line-height:1.75;font-style:italic;color:#3a2515;margin-bottom:20px}
+.testi-auth{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:#7a6050;font-style:normal}
+.badges-g{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-top:48px}
+.badge{display:flex;align-items:center;gap:12px;padding:16px 24px;border:1.5px solid rgba(44,26,14,.15);background:var(--cw)}
+.badge-ico{width:32px;height:32px;color:var(--cs)}
+.badge span{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--cp);font-weight:600}
+footer{background:var(--cp);color:rgba(245,240,232,.75);padding:72px 0 0}
+.ft-g{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(201,169,110,.2)}
+.ft-logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--cs);margin-bottom:12px;letter-spacing:.06em}
+.ft-logo span{display:block;font-size:.65rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(201,169,110,.55)}
+.ft-blk p{font-size:.9rem;line-height:1.8;margin-bottom:6px}
+.ft-blk a{color:rgba(245,240,232,.75);transition:color .2s}
+.ft-blk a:hover{color:var(--cs)}
+.ft-blk h4{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--cs);margin-bottom:20px}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-links a{font-size:.9rem;color:rgba(245,240,232,.75);transition:color .2s}
+.ft-links a:hover{color:var(--cs)}
+.ft-bar{display:flex;align-items:center;justify-content:space-between;padding:20px 0;flex-wrap:wrap;gap:12px}
+.ft-bar p{font-size:.8rem;color:rgba(245,240,232,.45);letter-spacing:.04em}
+.ft-bar a{color:rgba(201,169,110,.7);transition:color .2s}
+.ft-bar a:hover{color:var(--cs)}
+@media(max-width:900px){
+  .srv-g{grid-template-columns:1fr;max-width:480px;margin-left:auto;margin-right:auto}
+  .met-g{grid-template-columns:1fr}
+  .met-txt{padding:48px 32px}
+  .met-img{height:320px}
+  .met-rev .met-img-w{order:0}
+  .testi-g{grid-template-columns:1fr}
+  .ft-g{grid-template-columns:1fr;gap:36px}
+  .frm-row{grid-template-columns:1fr}
+  .gal-item:first-child{grid-column:span 1;aspect-ratio:4/3}
+  .gal-g{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .met-txt{padding:40px 16px}
+  .ft-bar{flex-direction:column;text-align:center}
+  .badges-g{flex-direction:column;align-items:center}
+  .frm-row{grid-template-columns:1fr}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s s-mid" id="collections">
+  <div class="wrap tc">
+    <p class="sub">Nos savoir-faire</p>
+    <h2 class="h2">L'excellence à chaque étape</h2>
+    <span class="htag"></span>
+    <div class="srv-g">
+      <div class="srv-c">
+        <svg class="srv-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></svg>
+        <h3 class="h3">Perles noires de Tahiti</h3>
+        <p>Sélectionnées à la source dans les lagons polynésiens, triées pour leur lustre, leur rondeur et la profondeur de leur orient.</p>
+        <a href="#contact" class="b b-dark">Découvrir la collection</a>
+      </div>
+      <div class="srv-c">
+        <svg class="srv-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+        <h3 class="h3">Bijoux sur mesure</h3>
+        <p>Chaque création est pensée avec vous — montage artisanal, choix du métal, personnalisation du sertissage pour un bijou unique.</p>
+        <a href="#contact" class="b b-dark">Prendre rendez-vous</a>
+      </div>
+      <div class="srv-c">
+        <svg class="srv-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="7" width="18" height="13" rx="1"/><path d="M8 7V5a4 4 0 018 0v2"/><path d="M12 12v3"/></svg>
+        <h3 class="h3">Certificat d'authenticité</h3>
+        <p>Chaque perle est accompagnée d'un certificat garantissant son origine, sa qualité et son classement — un gage de confiance absolu.</p>
+        <a href="#contact" class="b b-dark">Demander un certificat</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s" id="maison" style="padding:0">
+  <div class="met-g">
+    <div class="met-txt">
+      <p class="sub">Notre histoire</p>
+      <h2 class="h2">Nées du lagon, offertes à Nouméa</h2>
+      <span class="htag htag-l"></span>
+      <p>La perle noire de Tahiti est l'une des gemmes les plus rares du monde. Elle naît dans les eaux cristallines de la Polynésie française, cultivée pendant des années au cœur des huîtres perlières Pinctada margaritifera.</p>
+      <p>Chez Taku Poe, chaque perle est choisie à la main pour son éclat singulier — cet orient qui fait danser la lumière du Pacifique sur sa surface sombre et profonde.</p>
+      <ul class="met-checks">
+        <li>
+          <svg class="chk" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4,10 8,14 16,6"/></svg>
+          Approvisionnement direct en Polynésie française
+        </li>
+        <li>
+          <svg class="chk" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4,10 8,14 16,6"/></svg>
+          Montage artisanal réalisé à Nouméa
+        </li>
+        <li>
+          <svg class="chk" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4,10 8,14 16,6"/></svg>
+          Certification et traçabilité de chaque perle
+        </li>
+        <li>
+          <svg class="chk" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4,10 8,14 16,6"/></svg>
+          Essayage privé sur rendez-vous
+        </li>
+      </ul>
+    </div>
+    <div>
+      <img src="https://i.ibb.co/JFkYXsLS/Taku-Poe-Perles-de-Tahiti-1.jpg" alt="Perles noires de Tahiti sélectionnées chez Taku Poe" class="met-img" loading="lazy">
+    </div>
+  </div>
+  <div class="met-g met-rev">
+    <div class="met-txt">
+      <p class="sub" style="color:rgba(201,169,110,.65)">L'art du choix</p>
+      <h2 class="h2">Le regard du joaillier</h2>
+      <span class="htag htag-l"></span>
+      <p>Sélectionner une perle, c'est lire en elle des années de vie sous-marine. Chaque teinte — du noir de jais au vert forêt, du gris argenté au reflet aubergine — raconte l'histoire unique de son huître, de son lagon.</p>
+      <p>Notre maison vous guide dans ce choix intime, pour que chaque bijou devienne une mémoire portée sur la peau.</p>
+      <ul class="met-checks">
+        <li>
+          <svg class="chk" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4,10 8,14 16,6"/></svg>
+          Conseil personnalisé en boutique
+        </li>
+        <li>
+          <svg class="chk" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4,10 8,14 16,6"/></svg>
+          Accords colorés selon votre carnation
+        </li>
+        <li>
+          <svg class="chk" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4,10 8,14 16,6"/></svg>
+          Écrins et emballages soignés pour chaque pièce
+        </li>
+      </ul>
+    </div>
+    <div class="met-img-w">
+      <img src="https://i.ibb.co/YHkDNtR/Taku-Poe-Perles-de-Tahiti-2.jpg" alt="Joaillier Taku Poe sélectionnant une perle noire" class="met-img" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s s-mid" id="galerie">
+  <div class="wrap tc">
+    <p class="sub">Galerie</p>
+    <h2 class="h2">L'univers Taku Poe</h2>
+    <span class="htag"></span>
+  </div>
+  <div class="gal-g" style="margin-top:32px">
+    <div class="gal-item" data-src="https://i.ibb.co/gLXYBTc6/Taku-Poe-Perles-de-Tahiti-0.jpg">
+      <img src="https://i.ibb.co/gLXYBTc6/Taku-Poe-Perles-de-Tahiti-0.jpg" alt="Collection Taku Poe - Perles de Tahiti" loading="lazy">
+    </div>
+    <div class="gal-item" data-src="https://i.ibb.co/JFkYXsLS/Taku-Poe-Perles-de-Tahiti-1.jpg">
+      <img src="https://i.ibb.co/JFkYXsLS/Taku-Poe-Perles-de-Tahiti-1.jpg" alt="Perles noires sélectionnées" loading="lazy">
+    </div>
+    <div class="gal-item" data-src="https://i.ibb.co/YHkDNtR/Taku-Poe-Perles-de-Tahiti-2.jpg">
+      <img src="https://i.ibb.co/YHkDNtR/Taku-Poe-Perles-de-Tahiti-2.jpg" alt="Atelier bijoutier Taku Poe Nouméa" loading="lazy">
+    </div>
+    <div class="gal-item" data-src="https://i.ibb.co/qLZTK9sL/Taku-Poe-Perles-de-Tahiti-3.jpg">
+      <img src="https://i.ibb.co/qLZTK9sL/Taku-Poe-Perles-de-Tahiti-3.jpg" alt="Bijoux perles de Tahiti Nouméa" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Galerie agrandie">
+  <button class="lb-cls" id="lb-cls" aria-label="Fermer">×</button>
+  <img src="" alt="Photo agrandie" class="lb-img" id="lb-img">
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section class="s" id="avis">
+  <div class="wrap tc">
+    <p class="sub">Ce que disent nos clientes</p>
+    <div class="soc-note">5</div>
+    <div class="soc-stars">
+      <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+    </div>
+    <p class="soc-lbl">Note Google · 3 avis certifiés</p>
+    <div class="testi-g">
+      <div class="testi-c">
+        <div class="testi-q">"</div>
+        <p>Un accueil d'une douceur rare, et une perle d'une beauté à couper le souffle. Je portais mon collier le soir même. Un souvenir que je garderai toute ma vie.</p>
+        <span class="testi-auth">— Marie-Claire V., Nouméa</span>
+      </div>
+      <div class="testi-c">
+        <div class="testi-q">"</div>
+        <p>Pour nos 20 ans de mariage, mon mari m'a offert un bracelet Taku Poe. Le conseil reçu en boutique était précis, chaleureux, sans pression. Une maison d'exception.</p>
+        <span class="testi-auth">— Sandrine M., Dumbéa</span>
+      </div>
+      <div class="testi-c">
+        <div class="testi-q">"</div>
+        <p>J'ai découvert Taku Poe en cherchant un cadeau authentique pour ma mère. La qualité des perles et le soin apporté à chaque détail m'ont convaincue dès la première visite.</p>
+        <span class="testi-auth">— Émilie T., Nouméa</span>
+      </div>
+    </div>
+    <div class="badges-g">
+      <div class="badge">
+        <svg class="badge-ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 3l3.09 6.26L26 10.27l-5 4.87 1.18 6.88L16 18.77l-6.18 3.25L11 15.14 6 10.27l6.91-1.01L16 3z"/></svg>
+        <span>Perles certifiées origine Tahiti</span>
+      </div>
+      <div class="badge">
+        <svg class="badge-ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="8" width="24" height="18" rx="2"/><path d="M4 14h24M12 8V5M20 8V5"/></svg>
+        <span>Essayage privé sur rendez-vous</span>
+      </div>
+      <div class="badge">
+        <svg class="badge-ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 3C10 3 5 8 5 14c0 8 11 15 11 15s11-7 11-15c0-6-5-11-11-11z"/><circle cx="16" cy="14" r="4"/></svg>
+        <span>Maison à Nouméa depuis plus de 20 ans</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE -->
+<section class="s s-dark" id="contact">
+  <div class="wrap tc">
+    <p class="sub" style="color:rgba(201,169,110,.65)">Nous écrire</p>
+    <h2 class="h2" style="color:var(--cs)">Prendre rendez-vous</h2>
+    <span class="htag"></span>
+    <p style="color:rgba(245,240,232,.75);font-style:italic;margin-bottom:48px;font-size:1.05rem">Venez rencontrer notre collection. Nous vous recevons sur rendez-vous pour un essayage personnalisé.</p>
+    <div class="frm-w">
+      <form id="frm" action="#" novalidate>
+        <div class="frm-row">
+          <div class="frm-g">
+            <label for="f-nom">Nom complet</label>
+            <input type="text" id="f-nom" name="nom" placeholder="Votre nom" autocomplete="name">
+            <span class="frm-err" id="e-nom">Veuillez entrer votre nom.</span>
+          </div>
+          <div class="frm-g">
+            <label for="f-email">Adresse e-mail</label>
+            <input type="email" id="f-email" name="email" placeholder="votre@email.com" autocomplete="email">
+            <span class="frm-err" id="e-email">Veuillez entrer un e-mail valide.</span>
+          </div>
+        </div>
+        <div class="frm-g">
+          <label for="f-tel">Téléphone</label>
+          <input type="tel" id="f-tel" name="tel" placeholder="+687 xx xx xx" autocomplete="tel">
+        </div>
+        <div class="frm-g">
+          <label for="f-msg">Votre message</label>
+          <textarea id="f-msg" name="message" placeholder="Décrivez votre projet, l'occasion, vos souhaits…"></textarea>
+          <span class="frm-err" id="e-msg">Veuillez entrer un message.</span>
+        </div>
+        <button type="submit" class="b b-gold" style="width:100%;min-height:52px;font-size:1rem">
+          Envoyer ma demande <span class="frm-ld" id="ld"></span>
+        </button>
+      </form>
+      <div class="frm-ok" id="frm-ok">
+        Merci — nous avons bien reçu votre message et vous recontacterons très prochainement.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="ft-g">
+      <div class="ft-blk">
+        <div class="ft-logo">Taku Poe<span>Perles de Tahiti — Nouméa</span></div>
+        <p>12 Rue Auguste Brun<br>Nouméa, Nouvelle-Calédonie</p>
+        <p style="margin-top:12px;font-size:.85rem;color:rgba(245,240,232,.5);font-style:italic;line-height:1.7">Maison perlière authentique spécialisée dans la sélection et la création de bijoux en perles noires de Tahiti.</p>
+      </div>
+      <div class="ft-blk">
+        <h4>Navigation</h4>
+        <ul class="ft-links">
+          <li><a href="#collections">Collections</a></li>
+          <li><a href="#maison">Notre maison</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#avis">Témoignages</a></li>
+          <li><a href="#contact">Rendez-vous</a></li>
+        </ul>
+      </div>
+      <div class="ft-blk">
+        <h4>Nos engagements</h4>
+        <ul class="ft-links">
+          <li><a href="#contact">Perles certifiées Tahiti</a></li>
+          <li><a href="#contact">Bijoux sur mesure</a></li>
+          <li><a href="#contact">Essayage privé</a></li>
+          <li><a href="#contact">Certificat d'authenticité</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bar">
+      <p>© 2026 Taku Poe - Perles de Tahiti. Tous droits réservés.</p>
+      <p>Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+var hbg=document.getElementById('hbg'),mob=document.getElementById('mob');
+function closeMob(){mob.classList.remove('open');}
+if(hbg)hbg.addEventListener('click',function(){mob.classList.toggle('open');});
+
+var lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img');
+document.querySelectorAll('.gal-item').forEach(function(el){
+  el.addEventListener('click',function(){
+    lbImg.src=el.dataset.src;lb.classList.add('on');
+  });
+});
+document.getElementById('lb-cls').addEventListener('click',function(){lb.classList.remove('on');});
+lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('on');});
+
+var frm=document.getElementById('frm'),ld=document.getElementById('ld'),ok=document.getElementById('frm-ok');
+frm.addEventListener('submit',function(e){
+  e.preventDefault();
+  var nom=document.getElementById('f-nom'),eml=document.getElementById('f-email'),msg=document.getElementById('f-msg');
+  var v=true;
+  [document.getElementById('e-nom'),document.getElementById('e-email'),document.getElementById('e-msg')].forEach(function(x){x.style.display='none';});
+  if(!nom.value.trim()){document.getElementById('e-nom').style.display='block';v=false;}
+  if(!eml.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)){document.getElementById('e-email').style.display='block';v=false;}
+  if(!msg.value.trim()){document.getElementById('e-msg').style.display='block';v=false;}
+  if(!v)return;
+  ld.classList.add('on');
+  setTimeout(function(){ld.classList.remove('on');frm.style.display='none';ok.classList.add('on');},1400);
+});
+
+var stats=document.querySelectorAll('.stat-n'),ran=false;
+function runStats(){
+  if(ran)return;ran=true;
+  stats.forEach(function(el){
+    var t=+el.dataset.target,s=el.dataset.suffix||'',c=0,iv=setInterval(function(){
+      c+=Math.ceil(t/40);if(c>=t){c=t;clearInterval(iv);}
+      el.textContent=c+s;
+    },30);
+  });
+}
+var so=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)runStats();});},{threshold:.3});
+var st=document.getElementById('stats');
+if(st)so.observe(st);
+</script>
+</body>
+</html>
