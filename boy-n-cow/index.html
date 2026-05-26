@@ -4,912 +4,799 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Boy N Cow — Dumbéa</title>
-<meta name="description" content="Bar-grill urbain à Dumbéa, Nouvelle-Calédonie. Planches de viande généreuses, terrasse festive, concerts live. Réservez votre table au Boy N Cow.">
+<meta name="description" content="Boy N Cow, bar-grill urbain et festif à Dumbéa Mall. Street food carnivore assumée, terrasse colorée, musique live le soir. Venez vivre l'expérience !">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Barlow+Condensed:wght@300;400;500;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Lato:wght@300;400;700&family=Manrope:wght@700&display=swap" rel="stylesheet">
 <style>
-:root{
---color-primary:#F5C518;
---color-secondary:#1A1A1A;
---color-accent:#CC2200;
---color-text:#F0EDE6;
---color-bg:#111111;
---color-charcoal:#1A1A1A;
---color-cream:#F0EDE6;
+:root {
+  --color-bg: #111111;
+  --color-primary: #1A1A1A;
+  --color-secondary: #C9A84C;
+  --color-accent: #D32F2F;
+  --color-text: #F5D078;
+  --color-white: #FFFFFF;
+  --color-gray: #888888;
+  --font-title: 'Oswald', sans-serif;
+  --font-body: 'Lato', sans-serif;
+  --max-w: 1200px;
+  --pad-x: clamp(16px, 5vw, 80px);
+  --radius: 6px;
+  --trans: 300ms ease;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--color-bg);color:var(--color-text);font-family:'Lato',sans-serif;font-weight:300;font-size:16px;overflow-x:hidden}
+body{background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);overflow-x:hidden;line-height:1.6}
 img{max-width:100%;height:auto;display:block}
-a{color:inherit;text-decoration:none}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
 
 /* BANDEAU PROMO */
-.promo-band{
-position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;
-text-align:center;line-height:44px
-}
-.promo-band a{
-font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;
-font-weight:700;font-size:14px;letter-spacing:0.3px;color:#4375ff;
-transition:opacity .2s
-}
-.promo-band a:hover{opacity:.85}
+.promo-bar{position:fixed;top:0;left:0;right:0;height:44px;background:#ffd500;z-index:1001;display:flex;align-items:center;justify-content:center}
+.promo-bar a{font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;letter-spacing:0.3px;line-height:44px;text-align:center;display:block;width:100%}
+.promo-bar a:hover{opacity:0.85}
 
 /* HEADER */
-.header{
-position:fixed;top:44px;left:0;width:100%;z-index:1000;
-background:rgba(17,17,17,.92);backdrop-filter:blur(8px);
-border-bottom:1px solid rgba(245,197,24,.15);
-padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between
-}
-.logo{
-font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;
-color:var(--color-primary);letter-spacing:2px;display:flex;align-items:center;gap:8px
-}
-.logo-crown{font-size:18px;color:#fff}
-.nav{display:flex;align-items:center;gap:28px}
-.nav a{
-font-family:'Barlow Condensed',sans-serif;font-weight:500;font-size:15px;
-letter-spacing:1px;color:var(--color-cream);text-transform:uppercase;
-position:relative;padding-bottom:2px;transition:color .2s
-}
-.nav a::after{
-content:'';position:absolute;bottom:0;left:0;width:0;height:1.5px;
-background:var(--color-primary);transition:width .25s ease
-}
-.nav a:hover::after{width:100%}
-.nav a:hover{color:var(--color-primary)}
-.btn{
-font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:1.5px;
-text-transform:uppercase;border:none;cursor:pointer;transition:all .25s ease;display:inline-block
-}
-.btn-reserve{
-background:var(--color-accent);color:#fff;
-padding:10px 22px;font-size:14px;
-border-radius:2px
-}
-.btn-reserve:hover{
-background:var(--color-primary);color:var(--color-secondary);
-box-shadow:0 0 18px rgba(245,197,24,.45)
-}
-.btn-hero{
-background:var(--color-accent);color:#fff;
-padding:16px 36px;font-size:18px;border-radius:2px;
-animation:pulse-border 2s ease-in-out infinite
-}
-.btn-hero:hover{background:var(--color-primary);color:var(--color-secondary);box-shadow:0 0 28px rgba(245,197,24,.5)}
-@keyframes pulse-border{
-0%,100%{box-shadow:0 0 0 0 rgba(245,197,24,.0)}
-50%{box-shadow:0 0 0 6px rgba(245,197,24,.25)}
-}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
-.hamburger span{width:24px;height:2px;background:var(--color-cream);border-radius:1px;transition:all .3s}
-.mob-nav{
-display:none;position:fixed;top:108px;left:0;width:100%;background:rgba(17,17,17,.97);
-flex-direction:column;align-items:center;gap:0;z-index:999;border-bottom:1px solid rgba(245,197,24,.2)
-}
-.mob-nav.open{display:flex}
-.mob-nav a{
-font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:18px;letter-spacing:2px;
-text-transform:uppercase;color:var(--color-cream);padding:16px 0;width:100%;text-align:center;
-border-bottom:1px solid rgba(255,255,255,.07)
-}
-.mob-nav a:hover{color:var(--color-primary);background:rgba(245,197,24,.05)}
+.site-header{position:fixed;top:44px;left:0;right:0;z-index:1000;background:rgba(17,17,17,0.95);backdrop-filter:blur(8px);border-bottom:1px solid rgba(201,168,76,0.2);transition:background var(--trans)}
+.header-inner{max-width:var(--max-w);margin:0 auto;padding:0 var(--pad-x);height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{font-family:var(--font-title);font-size:1.6rem;font-weight:700;color:var(--color-secondary);letter-spacing:2px;white-space:nowrap}
+.logo span{color:var(--color-accent)}
+.nav{display:flex;align-items:center;gap:32px}
+.nav a{font-family:var(--font-title);font-size:0.9rem;font-weight:500;color:var(--color-white);letter-spacing:1px;text-transform:uppercase;transition:color var(--trans)}
+.nav a:hover{color:var(--color-secondary)}
+.header-cta{display:flex;align-items:center;gap:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-title);font-weight:600;font-size:0.9rem;letter-spacing:1.5px;text-transform:uppercase;padding:12px 28px;border-radius:var(--radius);border:none;cursor:pointer;transition:background var(--trans),color var(--trans),transform 150ms ease;min-height:48px}
+.btn-gold{background:var(--color-secondary);color:var(--color-bg)}
+.btn-gold:hover{background:var(--color-accent);color:var(--color-white)}
+.btn-outline{background:transparent;color:var(--color-secondary);border:2px solid var(--color-secondary)}
+.btn-outline:hover{background:var(--color-secondary);color:var(--color-bg)}
+.btn-red{background:var(--color-accent);color:var(--color-white)}
+.btn-red:hover{background:#b71c1c;transform:translateY(-2px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{display:block;width:24px;height:2px;background:var(--color-secondary);transition:transform var(--trans),opacity var(--trans);border-radius:2px}
+.mobile-nav{display:none;position:fixed;top:108px;left:0;right:0;background:rgba(17,17,17,0.98);padding:24px var(--pad-x);flex-direction:column;gap:8px;z-index:999;border-bottom:1px solid rgba(201,168,76,0.2)}
+.mobile-nav.open{display:flex}
+.mobile-nav a{font-family:var(--font-title);font-size:1.1rem;font-weight:500;color:var(--color-white);letter-spacing:1px;text-transform:uppercase;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06);transition:color var(--trans)}
+.mobile-nav a:hover{color:var(--color-secondary)}
+.mobile-nav .btn{width:100%;margin-top:8px}
 
 /* HERO */
-.hero{
-position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;
-background-image:url('https://i.ibb.co/bgtk6Pkt/Boy-N-Cow-0.jpg');
-background-size:cover;background-position:center;background-attachment:fixed;
-padding-top:108px
-}
-.hero-overlay{
-position:absolute;inset:0;
-background:linear-gradient(135deg,rgba(17,17,17,.72) 0%,rgba(17,17,17,.55) 50%,rgba(245,197,24,.12) 100%)
-}
-.hero-content{position:relative;z-index:1;text-align:center;padding:0 20px;max-width:820px}
-.hero-eyebrow{
-font-family:'Barlow Condensed',sans-serif;font-weight:500;font-size:14px;
-letter-spacing:4px;text-transform:uppercase;color:var(--color-primary);margin-bottom:16px
-}
-.hero-title{
-font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(52px,9vw,80px);
-line-height:.95;color:var(--color-primary);text-transform:uppercase;
-letter-spacing:2px;margin-bottom:20px;text-shadow:0 4px 24px rgba(0,0,0,.6)
-}
-.hero-sub{
-font-family:'Barlow Condensed',sans-serif;font-weight:400;font-size:clamp(18px,3vw,24px);
-color:var(--color-cream);letter-spacing:1px;margin-bottom:36px;
-text-shadow:0 2px 12px rgba(0,0,0,.7)
-}
-.hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-.btn-outline{
-font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:1.5px;
-text-transform:uppercase;font-size:16px;padding:14px 30px;border-radius:2px;
-border:2px solid var(--color-primary);color:var(--color-primary);background:transparent;
-cursor:pointer;transition:all .25s ease
-}
-.btn-outline:hover{background:var(--color-primary);color:var(--color-secondary)}
-.scroll-ind{
-position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
-display:flex;flex-direction:column;align-items:center;gap:6px;opacity:.7
-}
-.scroll-ind span{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--color-cream)}
-.scroll-arrow{width:20px;height:20px;border-right:2px solid var(--color-primary);border-bottom:2px solid var(--color-primary);transform:rotate(45deg);animation:bounce 1.5s infinite}
-@keyframes bounce{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(5px)}}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background-image:url('https://i.ibb.co/6cfkBQqS/Boy-N-Cow-0.jpg');background-size:cover;background-position:center;background-attachment:fixed;padding-top:108px}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,17,17,0.55) 0%,rgba(17,17,17,0.7) 60%,rgba(17,17,17,0.92) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;padding:0 var(--pad-x);max-width:900px}
+.hero-badge{display:inline-block;font-family:var(--font-title);font-size:0.75rem;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--color-secondary);border:1px solid rgba(201,168,76,0.4);padding:6px 18px;border-radius:20px;margin-bottom:24px;background:rgba(201,168,76,0.08)}
+.hero h1{font-family:var(--font-title);font-size:clamp(4rem,12vw,9rem);font-weight:700;letter-spacing:6px;text-transform:uppercase;line-height:0.9;color:var(--color-secondary);text-shadow:0 4px 24px rgba(201,168,76,0.3)}
+.hero h1 span{color:var(--color-white)}
+.hero-sub{font-family:var(--font-title);font-size:clamp(1rem,3vw,1.5rem);font-weight:400;letter-spacing:6px;text-transform:uppercase;color:var(--color-white);margin:20px 0 12px;opacity:0.9}
+.hero-desc{font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.7);margin-bottom:36px;max-width:480px;margin-left:auto;margin-right:auto}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;z-index:2;color:rgba(255,255,255,0.5);font-family:var(--font-title);font-size:0.7rem;letter-spacing:3px;text-transform:uppercase}
+.scroll-ind::after{content:'';display:block;width:1px;height:40px;background:linear-gradient(180deg,rgba(201,168,76,0.8),transparent);animation:scrollpulse 2s infinite}
+@keyframes scrollpulse{0%,100%{opacity:1;transform:scaleY(1)}50%{opacity:0.3;transform:scaleY(0.6)}}
 
 /* BANDE STATS */
-.stats{
-background:var(--color-secondary);padding:56px 24px;
-border-top:2px solid rgba(245,197,24,.2);border-bottom:2px solid rgba(245,197,24,.2)
+.stats{background:var(--color-primary);border-top:1px solid rgba(201,168,76,0.15);border-bottom:1px solid rgba(201,168,76,0.15);padding:60px var(--pad-x)}
+.stats-inner{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:40px;text-align:center}
+.stat-item{display:flex;flex-direction:column;align-items:center;gap:8px}
+.stat-num{font-family:var(--font-title);font-size:clamp(2.5rem,5vw,4rem);font-weight:700;color:var(--color-secondary);line-height:1;transition:color var(--trans)}
+.stat-label{font-family:var(--font-title);font-size:0.8rem;font-weight:400;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.6)}
+.stat-sep{width:40px;height:2px;background:linear-gradient(90deg,transparent,var(--color-accent),transparent);margin:4px auto 0}
+
+/* SECTIONS COMMUNES */
+.s{padding:80px var(--pad-x)}
+.s-dark{background:var(--color-bg)}
+.s-mid{background:var(--color-primary)}
+.s-title{font-family:var(--font-title);font-size:clamp(2rem,5vw,3.5rem);font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--color-secondary);line-height:1.1;margin-bottom:12px}
+.s-sub{font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.6);margin-bottom:48px;max-width:560px}
+.s-header{text-align:center}
+.s-header .s-sub{margin-left:auto;margin-right:auto}
+.divider{width:60px;height:3px;background:linear-gradient(90deg,var(--color-accent),var(--color-secondary));border-radius:2px;margin:16px auto 0}
+
+/* MENU CARDS */
+.menu-grid{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.c-menu{background:var(--color-primary);border:1px solid rgba(201,168,76,0.1);border-radius:10px;overflow:hidden;transition:transform var(--trans),border-color var(--trans),box-shadow var(--trans);cursor:pointer}
+.c-menu:hover{transform:scale(1.05);border-color:var(--color-secondary);box-shadow:0 8px 40px rgba(201,168,76,0.15)}
+.c-menu-img{height:220px;overflow:hidden;position:relative}
+.c-menu-img img{width:100%;height:100%;object-fit:cover;transition:filter var(--trans)}
+.c-menu:hover .c-menu-img img{filter:sepia(30%) brightness(0.85)}
+.c-menu-body{padding:20px}
+.c-menu-cat{font-family:var(--font-title);font-size:0.7rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--color-accent);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.badge-pop{display:inline-flex;align-items:center;gap:4px;background:rgba(211,47,47,0.15);border:1px solid rgba(211,47,47,0.3);border-radius:12px;padding:2px 8px;font-size:0.65rem;letter-spacing:2px}
+.badge-dot{width:6px;height:6px;background:var(--color-accent);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.7)}}
+.c-menu-name{font-family:var(--font-title);font-size:1.3rem;font-weight:600;color:var(--color-white);margin-bottom:8px}
+.c-menu-desc{font-family:var(--font-body);font-size:0.875rem;color:var(--color-gray);margin-bottom:16px;line-height:1.5}
+.c-menu-footer{display:flex;align-items:center;justify-content:space-between}
+.price{font-family:var(--font-title);font-size:1.2rem;font-weight:600;color:var(--color-secondary)}
+.badge-house{font-family:var(--font-title);font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--color-secondary);border:1px solid rgba(201,168,76,0.4);padding:3px 8px;border-radius:3px}
+
+/* ACCROCHE */
+.accroche-inner{max-width:820px;margin:0 auto;text-align:center}
+.accroche-quote{font-family:var(--font-title);font-size:clamp(1.5rem,4vw,2.6rem);font-weight:600;color:var(--color-secondary);line-height:1.25;letter-spacing:1px;margin-bottom:24px}
+.accroche-text{font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:32px}
+.accroche-tags{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.tag{font-family:var(--font-title);font-size:0.75rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--color-secondary);border:1px solid rgba(201,168,76,0.3);padding:8px 16px;border-radius:20px;background:rgba(201,168,76,0.05)}
+
+/* GALERIE */
+.gallery-grid{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:auto;gap:12px}
+.g-item{overflow:hidden;border-radius:8px;position:relative}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:filter var(--trans),transform var(--trans);display:block}
+.g-item:hover img{filter:sepia(20%) brightness(0.8);transform:scale(1.04)}
+.g-item:nth-child(1){grid-column:span 2;height:400px}
+.g-item:nth-child(2),.g-item:nth-child(3){height:280px}
+
+/* RÉSERVATION */
+.resa-inner{max-width:680px;margin:0 auto;text-align:center}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.field{display:flex;flex-direction:column;gap:6px;text-align:left}
+.field label{font-family:var(--font-title);font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--color-secondary)}
+.field input,.field select,.field textarea{background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.2);border-radius:var(--radius);padding:14px 16px;font-family:var(--font-body);font-size:0.95rem;color:var(--color-white);transition:border-color var(--trans),background var(--trans);outline:none;width:100%}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--color-secondary);background:rgba(201,168,76,0.06)}
+.field select option{background:var(--color-primary);color:var(--color-white)}
+.field textarea{resize:vertical;min-height:100px}
+.form-full{margin-bottom:16px}
+.form-msg{display:none;font-family:var(--font-title);font-size:0.9rem;letter-spacing:1px;color:#4caf50;padding:12px;border:1px solid rgba(76,175,80,0.3);border-radius:var(--radius);margin-top:12px;text-align:center}
+.form-msg.visible{display:block}
+.form-error{color:var(--color-accent);font-size:0.75rem;font-family:var(--font-body);margin-top:2px;display:none}
+.form-error.show{display:block}
+
+/* STORYTELLING */
+.story-inner{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.story-img{border-radius:10px;overflow:hidden;position:relative}
+.story-img img{width:100%;height:480px;object-fit:cover;transition:filter var(--trans)}
+.story-img::after{content:'';position:absolute;inset:0;border:2px solid rgba(201,168,76,0.2);border-radius:10px;pointer-events:none}
+.story-text .s-title{text-align:left}
+.story-text .divider{margin-left:0}
+.story-body{font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.7);line-height:1.8;margin:24px 0}
+.check-list{display:flex;flex-direction:column;gap:12px}
+.check-item{display:flex;align-items:flex-start;gap:12px;font-family:var(--font-body);font-size:0.9rem;color:rgba(255,255,255,0.8)}
+.check-icon{width:20px;height:20px;background:var(--color-accent);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.check-icon svg{width:11px;height:11px;fill:none;stroke:#fff;stroke-width:2.5}
+
+/* AVIS */
+.reviews-grid{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.c-review{background:var(--color-primary);border:1px solid rgba(201,168,76,0.1);border-radius:10px;padding:24px;transition:border-color var(--trans),transform var(--trans)}
+.c-review:hover{border-color:rgba(201,168,76,0.3);transform:translateY(-4px)}
+.stars{display:flex;gap:3px;margin-bottom:12px}
+.star{color:var(--color-secondary);font-size:1rem}
+.review-text{font-family:var(--font-body);font-size:0.9rem;color:rgba(255,255,255,0.75);line-height:1.6;margin-bottom:16px;font-style:italic}
+.reviewer{font-family:var(--font-title);font-size:0.8rem;letter-spacing:1px;text-transform:uppercase;color:var(--color-secondary)}
+.google-badge{display:flex;align-items:center;gap:12px;justify-content:center;margin-top:40px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);border-radius:10px;padding:20px 32px;max-width:320px;margin-left:auto;margin-right:auto}
+.g-score{font-family:var(--font-title);font-size:2.5rem;font-weight:700;color:var(--color-secondary);line-height:1}
+.g-info{text-align:left}
+.g-label{font-family:var(--font-title);font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--color-gray)}
+.g-count{font-family:var(--font-body);font-size:0.8rem;color:rgba(255,255,255,0.5)}
+
+/* HORAIRES */
+.hours-inner{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.hours-table{width:100%}
+.hours-table tr{border-bottom:1px solid rgba(255,255,255,0.06)}
+.hours-table td{padding:12px 0;font-family:var(--font-body);font-size:0.95rem;color:rgba(255,255,255,0.75)}
+.hours-table td:first-child{font-family:var(--font-title);font-weight:500;letter-spacing:1px;color:var(--color-white)}
+.hours-table td:last-child{text-align:right;color:var(--color-secondary)}
+.live-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(211,47,47,0.12);border:1px solid rgba(211,47,47,0.3);border-radius:16px;padding:4px 12px;font-family:var(--font-title);font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--color-accent);margin-top:8px}
+.map-card{background:var(--color-primary);border:1px solid rgba(201,168,76,0.1);border-radius:10px;padding:28px}
+.map-title{font-family:var(--font-title);font-size:1.1rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--color-secondary);margin-bottom:16px}
+.map-info{display:flex;flex-direction:column;gap:14px}
+.map-row{display:flex;gap:12px;align-items:flex-start;font-family:var(--font-body);font-size:0.9rem;color:rgba(255,255,255,0.7)}
+.map-icon{color:var(--color-accent);font-size:1rem;flex-shrink:0;margin-top:1px}
+.map-link{color:var(--color-secondary);transition:opacity var(--trans)}
+.map-link:hover{opacity:0.75}
+
+/* FOOTER */
+.footer{background:#0a0a0a;border-top:1px solid rgba(201,168,76,0.15);padding:48px var(--pad-x) 24px}
+.footer-inner{max-width:var(--max-w);margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:40px}
+.footer-logo{font-family:var(--font-title);font-size:2rem;font-weight:700;color:var(--color-secondary);letter-spacing:3px;margin-bottom:12px}
+.footer-tagline{font-family:var(--font-body);font-size:0.875rem;color:rgba(255,255,255,0.5);line-height:1.6}
+.footer-col h4{font-family:var(--font-title);font-size:0.8rem;letter-spacing:3px;text-transform:uppercase;color:var(--color-secondary);margin-bottom:16px}
+.footer-col ul li{margin-bottom:8px}
+.footer-col ul li a{font-family:var(--font-body);font-size:0.875rem;color:rgba(255,255,255,0.5);transition:color var(--trans)}
+.footer-col ul li a:hover{color:var(--color-secondary)}
+.social-links{display:flex;gap:12px;margin-top:20px}
+.social-link{width:40px;height:40px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--color-secondary);font-size:1rem;transition:background var(--trans),border-color var(--trans)}
+.social-link:hover{background:rgba(201,168,76,0.2);border-color:var(--color-secondary)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-copy{font-family:var(--font-body);font-size:0.8rem;color:rgba(255,255,255,0.3)}
+.footer-credit{font-family:var(--font-body);font-size:0.8rem;color:rgba(255,255,255,0.3)}
+.footer-credit a{color:rgba(201,168,76,0.5);transition:color var(--trans)}
+.footer-credit a:hover{color:var(--color-secondary)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav{display:none}
+  .header-cta .btn:not(.btn-tel){display:none}
+  .hamburger{display:flex}
+  .menu-grid{grid-template-columns:1fr 1fr}
+  .story-inner{grid-template-columns:1fr}
+  .reviews-grid{grid-template-columns:1fr 1fr}
+  .hours-inner{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .stats-inner{grid-template-columns:repeat(2,1fr)}
 }
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;max-width:1100px;margin:0 auto}
-.stat-item{
-text-align:center;padding:20px 16px;
-border-right:1px solid rgba(245,197,24,.15)
-}
-.stat-item:last-child{border-right:none}
-.stat-num{
-font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(44px,6vw,64px);
-color:var(--color-primary);line-height:1;display:block
-}
-.stat-label{
-font-family:'Barlow Condensed',sans-serif;font-weight:500;font-size:13px;
-letter-spacing:2.5px;text-transform:uppercase;color:var(--color-cream);opacity:.7;margin-top:8px;display:block
+@media(max-width:600px){
+  .promo-bar a{font-size:13px;line-height:40px}
+  .promo-bar{height:40px}
+  .site-header{top:40px}
+  .hero{padding-top:104px;background-attachment:scroll}
+  .mobile-nav{top:104px}
+  .menu-grid{grid-template-columns:1fr}
+  .reviews-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .hero-btns .btn{width:100%}
+  .g-item:nth-child(1){height:260px}
+  .g-item:nth-child(2),.g-item:nth-child(3){height:200px}
+  .gallery-grid{grid-template-columns:1fr}
+  .g-item:nth-child(1){grid-column:span 1}
+  .stats-inner{grid-template-columns:repeat(2,1fr);gap:24px}
+  .story-img img{height:280px}
 }
 
 /* FALLBACK ANIMATIONS */
 .reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
-
-@media(max-width:900px){
-.nav,.btn-reserve{display:none}
-.hamburger{display:flex}
-.stats-grid{grid-template-columns:repeat(2,1fr)}
-.stat-item:nth-child(2){border-right:none}
-.stat-item:nth-child(3){border-top:1px solid rgba(245,197,24,.15);border-right:1px solid rgba(245,197,24,.15)}
-.stat-item:nth-child(4){border-top:1px solid rgba(245,197,24,.15);border-right:none}
-}
-@media(max-width:480px){
-.promo-band{height:40px;line-height:40px}
-.promo-band a{font-size:13px}
-.header{top:40px;height:56px;padding:0 16px}
-.mob-nav{top:96px}
-.hero{padding-top:96px;background-attachment:scroll}
-.hero-title{font-size:clamp(42px,12vw,60px)}
-.hero-ctas{flex-direction:column;align-items:center}
-.btn-hero,.btn-outline{width:100%;min-height:48px;text-align:center}
-.stats{padding:36px 16px}
-.stats-grid{grid-template-columns:repeat(2,1fr)}
-}
 </style>
 </head>
 <body>
 
 <!-- BANDEAU PROMO -->
-<div class="promo-band">
-  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+<div class="promo-bar">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.</a>
 </div>
 
 <!-- HEADER -->
-<header class="header">
-  <a href="#hero" class="logo">
-    <span class="logo-crown">♛</span>
-    BOY N COW
-  </a>
-  <nav class="nav">
-    <a href="#ambiance">Ambiance</a>
-    <a href="#menu">Menu</a>
-    <a href="#avis">Avis</a>
-    <a href="#acces">Accès</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <a href="#reservation" class="btn btn-reserve">Réserver</a>
-  <button class="hamburger" id="ham" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+<header class="site-header" id="top">
+  <div class="header-inner">
+    <a href="#top" class="logo">BOY N<span>&nbsp;COW</span></a>
+    <nav class="nav">
+      <a href="#menu">Menu</a>
+      <a href="#ambiance">Ambiance</a>
+      <a href="#reservation">Réserver</a>
+      <a href="#spirit">L'Esprit</a>
+      <a href="#avis">Avis</a>
+      <a href="#acces">Accès</a>
+    </nav>
+    <div class="header-cta">
+      <a href="#reservation" class="btn btn-gold">Réserver</a>
+      <button class="hamburger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
 </header>
 
-<!-- NAV MOBILE -->
-<nav class="mob-nav" id="mobNav">
-  <a href="#ambiance" class="mob-link">Ambiance</a>
-  <a href="#menu" class="mob-link">Menu</a>
-  <a href="#avis" class="mob-link">Avis</a>
-  <a href="#acces" class="mob-link">Accès</a>
-  <a href="#contact" class="mob-link">Contact</a>
-  <a href="#reservation" class="mob-link" style="color:var(--color-primary)">Réserver une table</a>
+<!-- MENU MOBILE -->
+<nav class="mobile-nav" id="mobileNav">
+  <a href="#menu" onclick="closeMobile()">Menu</a>
+  <a href="#ambiance" onclick="closeMobile()">Ambiance</a>
+  <a href="#reservation" onclick="closeMobile()">Réserver</a>
+  <a href="#spirit" onclick="closeMobile()">L'Esprit</a>
+  <a href="#avis" onclick="closeMobile()">Avis</a>
+  <a href="#acces" onclick="closeMobile()">Accès</a>
+  <a href="#reservation" class="btn btn-gold" onclick="closeMobile()">Réserver une table</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <p class="hero-eyebrow">Bar-Grill Urbain — Dumbéa, Nouvelle-Calédonie</p>
-    <h1 class="hero-title">La Viande<br>en Maître</h1>
-    <p class="hero-sub">Street food généreuse · Terrasse festive · Concerts live</p>
-    <div class="hero-ctas">
-      <a href="#reservation" class="btn btn-hero">Réserver une table</a>
-      <a href="#menu" class="btn-outline">Voir le menu</a>
+    <div class="hero-badge">📍 Dumbéa Mall — Nouvelle-Calédonie</div>
+    <h1>BOY N<span>&nbsp;COW</span></h1>
+    <p class="hero-sub">Street Food Carnivore</p>
+    <p class="hero-desc">Grillades généreuses, ambiance festive et musique live — l'adresse qui décomplexe le carnivore qui est en vous.</p>
+    <div class="hero-btns">
+      <a href="#reservation" class="btn btn-gold">Réserver Maintenant</a>
+      <a href="#menu" class="btn btn-outline">Voir la Carte</a>
     </div>
   </div>
-  <div class="scroll-ind">
-    <span>Découvrir</span>
-    <div class="scroll-arrow"></div>
-  </div>
+  <div class="scroll-ind">Découvrir</div>
 </section>
 
 <!-- BANDE STATS -->
 <section class="stats">
-  <div class="stats-grid">
+  <div class="stats-inner">
     <div class="stat-item">
       <span class="stat-num" data-target="64">0</span>
+      <div class="stat-sep"></div>
       <span class="stat-label">Avis Google</span>
     </div>
     <div class="stat-item">
-      <span class="stat-num" data-target="3" data-suffix=".6/5">3.6/5</span>
-      <span class="stat-label">Note moyenne</span>
+      <span class="stat-num" data-target="3.6" data-decimal="1">0</span>
+      <div class="stat-sep"></div>
+      <span class="stat-label">Note / 5</span>
     </div>
     <div class="stat-item">
-      <span class="stat-num" data-target="100" data-suffix="%">0%</span>
-      <span class="stat-label">Viande de qualité</span>
+      <span class="stat-num" data-target="100">0</span>
+      <div class="stat-sep"></div>
+      <span class="stat-label">% Carnivore</span>
     </div>
     <div class="stat-item">
-      <span class="stat-num" data-target="7" data-suffix="j/7">0j/7</span>
-      <span class="stat-label">Ouvert toute la semaine</span>
+      <span class="stat-num" data-suffix="j/7">7</span>
+      <div class="stat-sep"></div>
+      <span class="stat-label">Ouvert</span>
     </div>
   </div>
 </section>
-
-<script>
-var ham=document.getElementById('ham'),mob=document.getElementById('mobNav');
-ham.addEventListener('click',function(){mob.classList.toggle('open')});
-document.querySelectorAll('.mob-link').forEach(function(l){l.addEventListener('click',function(){mob.classList.remove('open')})});
-
-var counters=document.querySelectorAll('[data-target]');
-var counted=false;
-function runCounters(){
-if(counted)return;counted=true;
-counters.forEach(function(el){
-var target=+el.dataset.target,suffix=el.dataset.suffix||'',dur=1800,start=null;
-if(suffix&&suffix.indexOf('.')>-1){el.textContent=target+suffix;return;}
-function step(ts){
-if(!start)start=ts;
-var p=Math.min((ts-start)/dur,1),val=Math.floor(p*target);
-el.textContent=val+(p===1?suffix:'');
-if(p<1)requestAnimationFrame(step);
-}
-requestAnimationFrame(step);
-});
-}
-var statsEl=document.querySelector('.stats');
-var obs=new IntersectionObserver(function(e){if(e[0].isIntersecting)runCounters();},{threshold:.3});
-obs.observe(statsEl);
-</script>
-<style>
-.s{padding:80px 24px}
-.s-dark{background:var(--color-bg)}
-.s-mid{background:var(--color-secondary)}
-.s-gold{background:var(--color-primary)}
-.container{max-width:1100px;margin:0 auto}
-.s-tag{font-family:'Barlow Condensed',sans-serif;font-weight:500;font-size:13px;letter-spacing:4px;text-transform:uppercase;color:var(--color-primary);display:block;margin-bottom:12px}
-.s-tag-dark{color:var(--color-secondary)}
-.h{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(36px,5vw,54px);line-height:1;text-transform:uppercase;letter-spacing:1px;margin-bottom:24px}
-.h-gold{color:var(--color-primary)}
-.h-dark{color:var(--color-secondary)}
-.h-cream{color:var(--color-cream)}
-.sub{font-family:'Barlow Condensed',sans-serif;font-weight:400;font-size:18px;color:var(--color-cream);opacity:.8;max-width:600px;line-height:1.5}
-.sub-dark{color:var(--color-secondary);opacity:.75}
-.divider{width:60px;height:3px;background:var(--color-primary);margin:0 0 32px}
-.divider-dark{background:var(--color-secondary)}
-.divider-center{margin:0 auto 32px}
-
-/* SERVICES */
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
-.c{background:rgba(255,255,255,.04);border:1px solid rgba(245,197,24,.12);border-radius:4px;padding:32px 28px;transition:transform .25s ease,box-shadow .25s ease}
-.c:hover{transform:translateY(-6px);box-shadow:0 12px 36px rgba(245,197,24,.12)}
-.c-icon{width:48px;height:48px;margin-bottom:20px}
-.c-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--color-primary);margin-bottom:10px}
-.c-text{font-size:15px;line-height:1.65;color:var(--color-cream);opacity:.8}
-.c-cta{display:inline-block;margin-top:18px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--color-primary);border-bottom:1px solid rgba(245,197,24,.4);padding-bottom:2px;transition:border-color .2s}
-.c-cta:hover{border-color:var(--color-primary)}
-
-/* METIER */
-.metier-wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:48px}
-.metier-wrap.reverse{direction:rtl}
-.metier-wrap.reverse>*{direction:ltr}
-.metier-text p{font-size:16px;line-height:1.8;color:var(--color-cream);opacity:.85;margin-bottom:16px}
-.metier-text ul{list-style:none;margin-top:24px;display:flex;flex-direction:column;gap:12px}
-.metier-text li{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:var(--color-cream);opacity:.85}
-.check-icon{width:20px;height:20px;flex-shrink:0;margin-top:1px}
-.metier-img{border-radius:4px;overflow:hidden;position:relative}
-.metier-img img{width:100%;height:380px;object-fit:cover;display:block;filter:brightness(.9)}
-.metier-img::after{content:'';position:absolute;inset:0;border:2px solid rgba(245,197,24,.2);border-radius:4px;pointer-events:none}
-
-/* MENU */
-.menu-section{background:var(--color-secondary)}
-.menu-cats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
-.menu-cat-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--color-primary);margin-bottom:20px;display:flex;align-items:center;gap:8px}
-.menu-cat-title::after{content:'';flex:1;height:1px;background:rgba(245,197,24,.25)}
-.menu-item{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.07);gap:16px}
-.menu-item:last-child{border-bottom:none}
-.mi-info{}
-.mi-name{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:17px;color:var(--color-cream)}
-.mi-desc{font-size:13px;color:var(--color-cream);opacity:.55;margin-top:2px}
-.mi-price{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:17px;color:var(--color-primary);white-space:nowrap}
-
-/* GALERIE */
-.gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:auto auto;gap:8px;margin-top:48px}
-.g-item{overflow:hidden;border-radius:3px;cursor:pointer;position:relative}
-.g-item:first-child{grid-column:1/2;grid-row:1/2}
-.g-item:nth-child(2){grid-column:2/3;grid-row:1/3}
-.g-item:nth-child(3){grid-column:1/2;grid-row:2/3}
-.g-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease,filter .4s ease;min-height:220px}
-.g-item:hover img{transform:scale(1.04);filter:brightness(.8)}
-.g-overlay{position:absolute;inset:0;background:rgba(245,197,24,0);transition:background .3s ease;display:flex;align-items:center;justify-content:center}
-.g-item:hover .g-overlay{background:rgba(245,197,24,.08)}
-.g-zoom{opacity:0;transition:opacity .3s;color:#fff;font-size:28px}
-.g-item:hover .g-zoom{opacity:1}
-
-/* LIGHTBOX */
-.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center;padding:20px}
-.lb.active{display:flex}
-.lb-img{max-width:90vw;max-height:88vh;object-fit:contain;border-radius:4px;box-shadow:0 0 60px rgba(0,0,0,.8)}
-.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:36px;cursor:pointer;line-height:1;opacity:.7;transition:opacity .2s}
-.lb-close:hover{opacity:1}
-
-/* RESERVATION */
-.resa-section{background:var(--color-bg);text-align:center}
-.resa-inner{background:var(--color-secondary);border:1px solid rgba(245,197,24,.2);border-radius:6px;padding:64px 40px;max-width:700px;margin:0 auto}
-.resa-text{font-size:17px;line-height:1.7;color:var(--color-cream);opacity:.8;margin-bottom:36px}
-.resa-cta-wrap{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-.red-pulse{background:var(--color-accent);color:#fff;padding:16px 36px;font-size:18px;border-radius:2px;animation:pulse-border 2s ease-in-out infinite;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;display:inline-block;cursor:pointer;border:none;transition:background .25s}
-.red-pulse:hover{background:var(--color-primary);color:var(--color-secondary);box-shadow:0 0 28px rgba(245,197,24,.5)}
-
-/* FORMULAIRE */
-.form-section{background:var(--color-secondary)}
-.form-wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:48px}
-.form-info p{font-size:15px;line-height:1.75;color:var(--color-cream);opacity:.8;margin-bottom:20px}
-.form-info address{font-style:normal;font-size:15px;line-height:1.8;color:var(--color-cream);opacity:.75}
-.form-info strong{color:var(--color-primary);font-family:'Barlow Condensed',sans-serif;font-size:17px;letter-spacing:1px;text-transform:uppercase}
-.f{display:flex;flex-direction:column;gap:16px}
-.fg{display:flex;flex-direction:column;gap:6px}
-.fg label{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--color-primary)}
-.fg input,.fg textarea,.fg select{background:rgba(255,255,255,.06);border:1px solid rgba(245,197,24,.2);border-radius:3px;padding:12px 16px;color:var(--color-cream);font-family:'Lato',sans-serif;font-size:15px;width:100%;transition:border-color .2s;outline:none}
-.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--color-primary)}
-.fg textarea{resize:vertical;min-height:120px}
-.f-error{font-size:13px;color:#ff5533;display:none;margin-top:2px}
-.f-success{display:none;background:rgba(245,197,24,.12);border:1px solid var(--color-primary);border-radius:4px;padding:20px 24px;text-align:center;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:18px;letter-spacing:1px;color:var(--color-primary);margin-top:8px}
-.btn-submit{background:var(--color-accent);color:#fff;padding:14px 32px;font-size:16px;border-radius:2px;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;cursor:pointer;width:100%;transition:background .25s;min-height:48px}
-.btn-submit:hover{background:var(--color-primary);color:var(--color-secondary)}
-
-/* AVIS */
-.avis-section{background:var(--color-bg)}
-.rating-hero{text-align:center;margin-bottom:56px}
-.rating-big{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(72px,12vw,100px);color:var(--color-primary);line-height:1}
-.stars{display:flex;gap:6px;justify-content:center;margin:12px 0}
-.star{width:28px;height:28px;fill:var(--color-primary)}
-.star-empty{fill:rgba(245,197,24,.25)}
-.rating-count{font-family:'Barlow Condensed',sans-serif;font-size:16px;letter-spacing:2px;color:var(--color-cream);opacity:.6;text-transform:uppercase}
-.temoignages{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:40px}
-.temo{background:var(--color-secondary);border:1px solid rgba(245,197,24,.12);border-radius:4px;padding:28px 24px}
-.temo-text{font-size:15px;line-height:1.7;color:var(--color-cream);opacity:.85;margin-bottom:20px;font-style:italic}
-.temo-author{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;color:var(--color-primary)}
-.temo-date{font-size:12px;color:var(--color-cream);opacity:.45;margin-top:2px}
-.temo-stars{display:flex;gap:3px;margin-bottom:14px}
-.ts{width:14px;height:14px;fill:var(--color-primary)}
-.badges{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:40px}
-.badge{background:var(--color-secondary);border:1px solid rgba(245,197,24,.2);border-radius:4px;padding:14px 24px;text-align:center}
-.badge-label{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--color-cream);opacity:.7;display:block;margin-top:4px}
-.badge-val{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;color:var(--color-primary)}
-
-/* HORAIRES */
-.horaires-section{background:var(--color-secondary)}
-.horaires-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px;align-items:start}
-.h-table{width:100%;border-collapse:collapse}
-.h-table tr{border-bottom:1px solid rgba(245,197,24,.1)}
-.h-table tr:last-child{border-bottom:none}
-.h-table td{padding:10px 0;font-size:15px;color:var(--color-cream);opacity:.85}
-.h-table td:first-child{font-family:'Barlow Condensed',sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:14px;color:var(--color-cream);opacity:.6;width:140px}
-.h-table td:last-child{color:var(--color-primary);font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:15px}
-.map-placeholder{background:rgba(0,0,0,.3);border:1px solid rgba(245,197,24,.15);border-radius:4px;overflow:hidden;height:280px}
-.map-placeholder iframe{width:100%;height:100%;border:none;filter:grayscale(30%) brightness(.85)}
-.acces-info{margin-top:24px}
-.acces-info p{font-size:15px;color:var(--color-cream);opacity:.75;line-height:1.7;margin-bottom:8px}
-
-/* FOOTER */
-.footer{background:var(--color-secondary);border-top:2px solid rgba(245,197,24,.2);padding:56px 24px 32px}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;max-width:1100px;margin:0 auto 40px}
-.footer-brand .logo{margin-bottom:16px;display:inline-flex}
-.footer-brand p{font-size:14px;line-height:1.75;color:var(--color-cream);opacity:.6;max-width:300px}
-.footer-col h4{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--color-primary);margin-bottom:18px}
-.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-.footer-col li a{font-size:14px;color:var(--color-cream);opacity:.65;transition:opacity .2s}
-.footer-col li a:hover{opacity:1;color:var(--color-primary)}
-.footer-address{font-style:normal;font-size:14px;line-height:1.85;color:var(--color-cream);opacity:.65}
-.footer-address a{color:var(--color-primary);opacity:.9}
-.social-row{display:flex;gap:14px;margin-top:20px}
-.social-ico{width:40px;height:40px;border:1px solid rgba(245,197,24,.25);border-radius:3px;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s}
-.social-ico:hover{background:rgba(245,197,24,.1);border-color:var(--color-primary)}
-.social-ico svg{width:20px;height:20px}
-.footer-bottom{max-width:1100px;margin:0 auto;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.footer-copy{font-size:13px;color:var(--color-cream);opacity:.45}
-.footer-setup{font-size:13px;color:var(--color-cream);opacity:.45}
-.footer-setup a{color:var(--color-primary);opacity:.8;text-decoration:none}
-.footer-setup a:hover{opacity:1}
-
-@media(max-width:900px){
-.services-grid,.menu-cats,.temoignages{grid-template-columns:1fr}
-.metier-wrap,.form-wrap,.horaires-grid,.footer-grid{grid-template-columns:1fr}
-.metier-wrap.reverse{direction:ltr}
-.gallery-grid{grid-template-columns:1fr 1fr}
-.g-item:nth-child(2){grid-column:2/3;grid-row:1/2}
-.g-item:nth-child(3){grid-column:1/2;grid-row:2/3}
-}
-@media(max-width:480px){
-.s{padding:56px 16px}
-.resa-inner{padding:40px 20px}
-.gallery-grid{grid-template-columns:1fr}
-.g-item:first-child,.g-item:nth-child(2),.g-item:nth-child(3){grid-column:1;grid-row:auto}
-.footer-bottom{flex-direction:column;text-align:center}
-.menu-cats{grid-template-columns:1fr}
-.red-pulse,.btn-outline{width:100%;text-align:center}
-.resa-cta-wrap{flex-direction:column;align-items:center}
-.badges{flex-direction:column;align-items:center}
-.horaires-grid{gap:32px}
-}
-</style>
-
-<!-- SERVICES -->
-<section class="s s-dark" id="services">
-  <div class="container">
-    <span class="s-tag">Ce qu'on fait</span>
-    <h2 class="h h-gold">L'Expérience<br>Boy N Cow</h2>
-    <div class="divider"></div>
-    <div class="services-grid">
-      <div class="c">
-        <svg class="c-icon" viewBox="0 0 48 48" fill="none">
-          <path d="M8 36L12 12h24l4 24H8z" stroke="#F5C518" stroke-width="2.5" stroke-linejoin="round"/>
-          <path d="M18 12V10a6 6 0 0112 0v2" stroke="#F5C518" stroke-width="2.5"/>
-          <line x1="24" y1="18" x2="24" y2="30" stroke="#CC2200" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="18" y1="24" x2="30" y2="24" stroke="#CC2200" stroke-width="2.5" stroke-linecap="round"/>
-        </svg>
-        <div class="c-title">Planches &amp; Grillades</div>
-        <p class="c-text">Nos planches de viande sont généreusement garnies, servies sur bois brut directement du gril au bois. Carnivores, ce endroit est fait pour vous.</p>
-        <a href="#menu" class="c-cta">Voir le menu</a>
-      </div>
-      <div class="c">
-        <svg class="c-icon" viewBox="0 0 48 48" fill="none">
-          <rect x="6" y="30" width="36" height="6" rx="2" stroke="#F5C518" stroke-width="2.5"/>
-          <path d="M14 30V18l10-8 10 8v12" stroke="#F5C518" stroke-width="2.5" stroke-linejoin="round"/>
-          <circle cx="24" cy="22" r="3" stroke="#CC2200" stroke-width="2"/>
-        </svg>
-        <div class="c-title">Terrasse Festive</div>
-        <p class="c-text">Chaises Tolix rouge et jaune, ambiance colorée sous les étoiles de Dumbéa. Notre terrasse est le point de rendez-vous incontournable du Dumbéa Mall.</p>
-        <a href="#ambiance" class="c-cta">Voir l'ambiance</a>
-      </div>
-      <div class="c">
-        <svg class="c-icon" viewBox="0 0 48 48" fill="none">
-          <ellipse cx="24" cy="36" rx="14" ry="4" stroke="#F5C518" stroke-width="2.5"/>
-          <path d="M14 36V20c0-2 2-4 4-4h12c2 0 4 2 4 4v16" stroke="#F5C518" stroke-width="2.5"/>
-          <path d="M18 16v-2a2 2 0 014 0v2M26 16v-2a2 2 0 014 0v2" stroke="#CC2200" stroke-width="2"/>
-          <line x1="24" y1="20" x2="24" y2="32" stroke="#F5C518" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-        <div class="c-title">Concerts Live</div>
-        <p class="c-text">Le Boy N Cow s'anime en soirée avec des concerts live. Musique, ambiance, bonne viande : une combinaison qui fait de chaque soir un événement.</p>
-        <a href="#contact" class="c-cta">Programmer une soirée</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION METIER -->
-<section class="s s-mid" id="metier">
-  <div class="container">
-    <span class="s-tag">Notre ADN</span>
-    <h2 class="h h-gold">Bar-Grill Urbain,<br>Sans Compromis</h2>
-    <div class="divider"></div>
-    <div class="metier-wrap">
-      <div class="metier-text">
-        <p>Au Boy N Cow, la viande est reine. Installé au cœur du Complexe Green Retail à Dumbéa Sur Mer, le bar-grill assume une identité tranchée : street food généreuse, ambiance urbaine, et une passion authentique pour la grillade sur bois brut.</p>
-        <p>Chaque service est un moment partagé. Entre l'enseigne dorée sur fond noir qui guide les noctambules, les tables qui débordent de bonne humeur et les grillades qui fument, le Boy N Cow incarne cette convivialité brute et assumée propre aux meilleures adresses de Nouvelle-Calédonie.</p>
-        <ul>
-          <li>
-            <svg class="check-icon" viewBox="0 0 20 20" fill="none">
-              <circle cx="10" cy="10" r="9" stroke="#F5C518" stroke-width="1.5"/>
-              <path d="M6 10l3 3 5-5" stroke="#F5C518" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Viande grillée sur bois brut, servie sur planche
-          </li>
-          <li>
-            <svg class="check-icon" viewBox="0 0 20 20" fill="none">
-              <circle cx="10" cy="10" r="9" stroke="#F5C518" stroke-width="1.5"/>
-              <path d="M6 10l3 3 5-5" stroke="#F5C518" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Terrasse animée, concerts live en soirée
-          </li>
-          <li>
-            <svg class="check-icon" viewBox="0 0 20 20" fill="none">
-              <circle cx="10" cy="10" r="9" stroke="#F5C518" stroke-width="1.5"/>
-              <path d="M6 10l3 3 5-5" stroke="#F5C518" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Ambiance urbaine dans un cadre festif et coloré
-          </li>
-          <li>
-            <svg class="check-icon" viewBox="0 0 20 20" fill="none">
-              <circle cx="10" cy="10" r="9" stroke="#F5C518" stroke-width="1.5"/>
-              <path d="M6 10l3 3 5-5" stroke="#F5C518" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Idéalement situé au Dumbéa Mall, Dumbéa Sur Mer
-          </li>
-        </ul>
-      </div>
-      <div class="metier-img">
-        <img src="https://i.ibb.co/DPPVT0b1/Boy-N-Cow-1.jpg" alt="Ambiance Boy N Cow" loading="lazy">
-      </div>
+<!-- ACCROCHE ÉMOTION -->
+<section class="s s-dark" id="accroche">
+  <div class="accroche-inner">
+    <p class="accroche-quote">"Ici, on ne fait pas semblant. On grille, on partage, on savoure."</p>
+    <p class="accroche-text">Boy N Cow, c'est l'énergie brute d'un grill urbain planté en plein cœur de Dumbéa Mall. Une terrasse colorée qui s'anime dès le soir tombé, des planches généreuses posées sur la table, et une musique qui donne envie de rester encore un verre.</p>
+    <div class="accroche-tags">
+      <span class="tag">🔥 Grill au charbon</span>
+      <span class="tag">🎵 Musique live le soir</span>
+      <span class="tag">🪵 Planches en bois brut</span>
+      <span class="tag">🍻 Bar festif</span>
     </div>
   </div>
 </section>
 
 <!-- MENU SIGNATURE -->
-<section class="s menu-section" id="menu">
-  <div class="container">
-    <span class="s-tag">À la carte</span>
-    <h2 class="h h-gold">Le Menu</h2>
+<section class="s s-mid" id="menu">
+  <div class="s-header" style="">
+    <p class="s-title" style="">La Carte</p>
     <div class="divider"></div>
-    <p class="sub">Nos incontournables, servis avec générosité. Produits frais, cuisson au gril.</p>
-    <div class="menu-cats">
-      <div>
-        <div class="menu-cat-title">Pour commencer</div>
-        <div class="menu-item">
-          <div class="mi-info">
-            <div class="mi-name">Planche charcuterie maison</div>
-            <div class="mi-desc">Sélection du moment, pain grillé, condiments</div>
-          </div>
-          <div class="mi-price">1 800 XPF</div>
+    <p class="s-sub" style="">Des pièces généreuses, grillées avec intention. La viande est la star — le reste suit.</p>
+  </div>
+  <div class="menu-grid">
+    <div class="c-menu">
+      <div class="c-menu-img">
+        <img src="https://i.ibb.co/Wvhdw8qK/Boy-N-Cow-1.jpg" alt="Smash Burger Boy N Cow" loading="lazy">
+      </div>
+      <div class="c-menu-body">
+        <div class="c-menu-cat">
+          Plat signature
+          <span class="badge-pop"><span class="badge-dot"></span>Populaire</span>
         </div>
-        <div class="menu-item">
-          <div class="mi-info">
-            <div class="mi-name">Ailes de poulet grillées</div>
-            <div class="mi-desc">Marinade maison, sauce dip au choix</div>
-          </div>
-          <div class="mi-price">1 200 XPF</div>
-        </div>
-        <div class="menu-item">
-          <div class="mi-info">
-            <div class="mi-name">Nachos &amp; fromage fondu</div>
-            <div class="mi-desc">Jalapeños, guacamole, crème fraîche</div>
-          </div>
-          <div class="mi-price">1 100 XPF</div>
+        <div class="c-menu-name">Smash Burger</div>
+        <p class="c-menu-desc">Double steak écrasé sur plancha, cheddar fondu, sauce maison, oignons caramélisés et pickles croquants.</p>
+        <div class="c-menu-footer">
+          <span class="price">1 950 XPF</span>
+          <span class="badge-house">Spécialité maison</span>
         </div>
       </div>
-      <div>
-        <div class="menu-cat-title">Nos Planches</div>
-        <div class="menu-item">
-          <div class="mi-info">
-            <div class="mi-name">Planche Boy N Cow</div>
-            <div class="mi-desc">Bœuf, chipolatas, brochettes, frites maison</div>
-          </div>
-          <div class="mi-price">3 800 XPF</div>
+    </div>
+    <div class="c-menu">
+      <div class="c-menu-img">
+        <img src="https://i.ibb.co/XZjM7Pqp/Boy-N-Cow-2.jpg" alt="Côtes grillées Boy N Cow" loading="lazy">
+      </div>
+      <div class="c-menu-body">
+        <div class="c-menu-cat">
+          Au grill
+          <span class="badge-pop"><span class="badge-dot"></span>Populaire</span>
         </div>
-        <div class="menu-item">
-          <div class="mi-info">
-            <div class="mi-name">Entrecôte du gril</div>
-            <div class="mi-desc">300g, sauce au poivre ou beurre d'herbes</div>
-          </div>
-          <div class="mi-price">3 200 XPF</div>
-        </div>
-        <div class="menu-item">
-          <div class="mi-info">
-            <div class="mi-name">Burger Boy N Cow</div>
-            <div class="mi-desc">Double steak, cheddar, oignons caramélisés, frites</div>
-          </div>
-          <div class="mi-price">2 400 XPF</div>
+        <div class="c-menu-name">Côtes au Grill</div>
+        <p class="c-menu-desc">Côtes marinées 24h, cuisson lente au charbon, sauce barbecue fumée et frites maison dorées.</p>
+        <div class="c-menu-footer">
+          <span class="price">2 800 XPF</span>
+          <span class="badge-house">Spécialité maison</span>
         </div>
       </div>
-      <div>
-        <div class="menu-cat-title">Pour finir</div>
-        <div class="menu-item">
-          <div class="mi-info">
-            <div class="mi-name">Brownie coulant</div>
-            <div class="mi-desc">Cœur chocolat chaud, boule de glace vanille</div>
-          </div>
-          <div class="mi-price">900 XPF</div>
-        </div>
-        <div class="menu-item">
-          <div class="mi-info">
-            <div class="mi-name">Cheesecake du jour</div>
-            <div class="mi-desc">Coulis de fruits frais de saison</div>
-          </div>
-          <div class="mi-price">850 XPF</div>
-        </div>
-        <div class="menu-item">
-          <div class="mi-info">
-            <div class="mi-name">Assiette de fromages</div>
-            <div class="mi-desc">Sélection affinée, confiture, crackers</div>
-          </div>
-          <div class="mi-price">1 100 XPF</div>
+    </div>
+    <div class="c-menu">
+      <div class="c-menu-img">
+        <img src="https://i.ibb.co/23nX3By4/Boy-N-Cow-3.jpg" alt="Planche carnivore Boy N Cow" loading="lazy">
+      </div>
+      <div class="c-menu-body">
+        <div class="c-menu-cat">Planche à partager</div>
+        <div class="c-menu-name">Planche Carnivore</div>
+        <p class="c-menu-desc">Sélection de viandes grillées servies sur planche en bois brut — pour 2 à 4 personnes, accompagnées de sauces et légumes grillés.</p>
+        <div class="c-menu-footer">
+          <span class="price">5 200 XPF</span>
+          <span class="badge-house">À partager</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- GALERIE AMBIANCE -->
-<section class="s s-dark" id="ambiance">
-  <div class="container">
-    <span class="s-tag">L'atmosphère</span>
-    <h2 class="h h-gold">Une Nuit au<br>Boy N Cow</h2>
+<!-- SERVICES -->
+<section class="s s-dark" id="services">
+  <div class="s-header">
+    <p class="s-title">Ce qu'on fait bien</p>
     <div class="divider"></div>
-    <div class="gallery-grid">
-      <div class="g-item" data-src="https://i.ibb.co/bgtk6Pkt/Boy-N-Cow-0.jpg">
-        <img src="https://i.ibb.co/bgtk6Pkt/Boy-N-Cow-0.jpg" alt="Grillades Boy N Cow" loading="lazy">
-        <div class="g-overlay"><span class="g-zoom">+</span></div>
+    <p class="s-sub">Une expérience complète du grill à la scène, du verre à l'assiette.</p>
+  </div>
+  <div class="srv-grid">
+    <div class="srv-card">
+      <div class="srv-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8 2 5 6 5 10c0 5 7 12 7 12s7-7 7-12c0-4-3-8-7-8z"/><circle cx="12" cy="10" r="2.5"/></svg>
       </div>
-      <div class="g-item" data-src="https://i.ibb.co/DPPVT0b1/Boy-N-Cow-1.jpg">
-        <img src="https://i.ibb.co/DPPVT0b1/Boy-N-Cow-1.jpg" alt="Terrasse Boy N Cow" loading="lazy">
-        <div class="g-overlay"><span class="g-zoom">+</span></div>
+      <h3 class="srv-title">Grillades au Charbon</h3>
+      <p class="srv-desc">Pièces de viande saisies directement sur braise vive pour une saveur fumée authentique et une cuisson maîtrisée à la perfection.</p>
+      <a href="#menu" class="btn btn-outline srv-cta">Voir la carte</a>
+    </div>
+    <div class="srv-card">
+      <div class="srv-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
       </div>
-      <div class="g-item" data-src="https://i.ibb.co/yFY2H0Cn/Boy-N-Cow-2.jpg">
-        <img src="https://i.ibb.co/yFY2H0Cn/Boy-N-Cow-2.jpg" alt="Ambiance soirée Boy N Cow" loading="lazy">
-        <div class="g-overlay"><span class="g-zoom">+</span></div>
+      <h3 class="srv-title">Musique Live le Soir</h3>
+      <p class="srv-desc">La terrasse s'anime chaque soir avec des sets live — l'ambiance monte, les verres se lèvent, la nuit commence vraiment.</p>
+      <a href="#reservation" class="btn btn-outline srv-cta">Réserver une table</a>
+    </div>
+    <div class="srv-card">
+      <div class="srv-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
       </div>
-      <div class="g-item" data-src="https://i.ibb.co/QvcvTncg/Boy-N-Cow-3.jpg" style="grid-column:2/3;grid-row:3/4">
-        <img src="https://i.ibb.co/QvcvTncg/Boy-N-Cow-3.jpg" alt="Concert live Boy N Cow" loading="lazy">
-        <div class="g-overlay"><span class="g-zoom">+</span></div>
+      <h3 class="srv-title">Terrasse Colorée</h3>
+      <p class="srv-desc">Une terrasse ouverte en plein cœur de Dumbéa Mall — conviviale, animée et pensée pour se retrouver entre amis ou en famille.</p>
+      <a href="#ambiance" class="btn btn-outline srv-cta">Voir l'ambiance</a>
+    </div>
+    <div class="srv-card">
+      <div class="srv-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8C8 10 5.9 16.17 3.82 19"/><path d="M3.82 19c.5.5 1.5.5 2 0"/><path d="M6.59 9.47C7.9 7.62 10.1 6 14 6c2.19 0 3.97.64 5 1.5"/><path d="M19.5 11.5c.5 1.17.5 2.5 0 4"/><path d="M9 15c.5 1 1.5 2 3 2.5"/></svg>
       </div>
+      <h3 class="srv-title">Bar & Cocktails</h3>
+      <p class="srv-desc">Un bar bien tenu, des cocktails bien dosés et une sélection de bières fraîches pour accompagner chaque bouchée généreuse.</p>
+      <a href="#reservation" class="btn btn-outline srv-cta">Nous rejoindre</a>
+    </div>
+    <div class="srv-card">
+      <div class="srv-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3 class="srv-title">Groupes & Événements</h3>
+      <p class="srv-desc">Anniversaires, soirées d'équipe, repas de groupe — on s'occupe de tout pour que votre événement soit mémorable.</p>
+      <a href="#reservation" class="btn btn-outline srv-cta">Demander un devis</a>
+    </div>
+    <div class="srv-card">
+      <div class="srv-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+      </div>
+      <h3 class="srv-title">Street Food & Planches</h3>
+      <p class="srv-desc">Des planches généreuses en bois brut, des burgers smashés et des formules street food pensées pour partager sans chichis.</p>
+      <a href="#menu" class="btn btn-outline srv-cta">Voir le menu</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s s-mid" id="spirit">
+  <div class="story-inner">
+    <div class="story-img">
+      <img src="https://i.ibb.co/Wvhdw8qK/Boy-N-Cow-1.jpg" alt="Grill en action chez Boy N Cow" loading="lazy">
+    </div>
+    <div class="story-text">
+      <p class="s-title">L'Esprit Boy N Cow</p>
+      <div class="divider"></div>
+      <p class="story-body">Boy N Cow est né d'une conviction simple : la viande bien grillée, servie sans façons dans une ambiance festive, ça n'a pas de prix. Installés en plein Dumbéa Mall, on a construit un endroit où la Calédonie se retrouve — autour d'une planche, d'un verre et d'une bonne musique.<br><br>Pas de prétention, pas de discours. Juste du feu, de la matière et du plaisir partagé. C'est ça, l'ADN du Boy N Cow.</p>
+      <ul class="check-list">
+        <li class="check-item">
+          <span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+          Viande grillée au charbon, cuisson maîtrisée
+        </li>
+        <li class="check-item">
+          <span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+          Ambiance festive et terrasse ouverte chaque soir
+        </li>
+        <li class="check-item">
+          <span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+          Musique live pour finir la nuit comme il se doit
+        </li>
+        <li class="check-item">
+          <span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+          Une adresse calédonienne, authentique et décomplexée
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s s-dark" id="ambiance">
+  <div class="s-header">
+    <p class="s-title">L'Ambiance</p>
+    <div class="divider"></div>
+    <p class="s-sub">La terrasse, le grill, les gens — l'atmosphère Boy N Cow en images.</p>
+  </div>
+  <div class="gallery-grid" id="gallery">
+    <div class="g-item g-big">
+      <img src="https://i.ibb.co/6cfkBQqS/Boy-N-Cow-0.jpg" alt="Planche carnivore Boy N Cow" loading="lazy">
+    </div>
+    <div class="g-item">
+      <img src="https://i.ibb.co/Wvhdw8qK/Boy-N-Cow-1.jpg" alt="Burgers grillés Boy N Cow" loading="lazy">
+    </div>
+    <div class="g-item">
+      <img src="https://i.ibb.co/XZjM7Pqp/Boy-N-Cow-2.jpg" alt="Grill en action Boy N Cow" loading="lazy">
+    </div>
+    <div class="g-item">
+      <img src="https://i.ibb.co/23nX3By4/Boy-N-Cow-3.jpg" alt="Terrasse Boy N Cow Dumbéa Mall" loading="lazy">
     </div>
   </div>
 </section>
 
 <!-- LIGHTBOX -->
-<div class="lb" id="lb">
-  <button class="lb-close" id="lbClose">&times;</button>
-  <img class="lb-img" id="lbImg" src="" alt="Photo Boy N Cow">
+<div class="lb-overlay" id="lb" role="dialog" aria-modal="true" aria-label="Visionneuse photo">
+  <button class="lb-close" id="lbClose" aria-label="Fermer">&#x2715;</button>
+  <button class="lb-prev" id="lbPrev" aria-label="Précédent">&#8592;</button>
+  <button class="lb-next" id="lbNext" aria-label="Suivant">&#8594;</button>
+  <img class="lb-img" id="lbImg" src="" alt="">
 </div>
 
-<!-- RESERVATION CTA -->
-<section class="s resa-section" id="reservation">
-  <div class="container">
-    <div class="resa-inner">
-      <span class="s-tag" style="display:block;text-align:center">Votre table vous attend</span>
-      <h2 class="h h-gold" style="text-align:center">Réservez<br>Votre Soirée</h2>
-      <div class="divider divider-center"></div>
-      <p class="resa-text">Terrasse animée, grillades fumantes et concerts live : les meilleures tables partent vite. Contactez-nous pour réserver et ne manquer aucune soirée au Boy N Cow.</p>
-      <div class="resa-cta-wrap">
-        <a href="#contact" class="red-pulse">Réserver une table</a>
-        <a href="https://www.facebook.com/profile.php" target="_blank" rel="noopener" class="btn-outline">Nous suivre sur Facebook</a>
-      </div>
+<!-- RÉSERVATION -->
+<section class="s s-mid" id="reservation">
+  <div class="resa-inner">
+    <div class="s-header">
+      <p class="s-title">Réserver une Table</p>
+      <div class="divider"></div>
+      <p class="s-sub">Garantissez votre place sur la terrasse — on s'occupe du reste.</p>
     </div>
+    <form class="resa-form" id="resaForm" action="#" novalidate>
+      <div class="form-row">
+        <div class="field">
+          <label for="f-nom">Nom complet</label>
+          <input type="text" id="f-nom" name="nom" placeholder="Votre nom" autocomplete="name">
+          <span class="form-error" id="e-nom">Veuillez saisir votre nom.</span>
+        </div>
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input type="email" id="f-email" name="email" placeholder="votre@email.com" autocomplete="email">
+          <span class="form-error" id="e-email">Email invalide.</span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="f-tel">Téléphone</label>
+          <input type="tel" id="f-tel" name="tel" placeholder="+687 XX XX XX" autocomplete="tel">
+          <span class="form-error" id="e-tel">Veuillez saisir un téléphone.</span>
+        </div>
+        <div class="field">
+          <label for="f-couverts">Nombre de personnes</label>
+          <select id="f-couverts" name="couverts">
+            <option value="">Sélectionner</option>
+            <option value="1">1 personne</option>
+            <option value="2">2 personnes</option>
+            <option value="3">3 personnes</option>
+            <option value="4">4 personnes</option>
+            <option value="5">5 personnes</option>
+            <option value="6+">6 personnes et plus</option>
+          </select>
+          <span class="form-error" id="e-couverts">Veuillez choisir.</span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="f-date">Date souhaitée</label>
+          <input type="date" id="f-date" name="date">
+          <span class="form-error" id="e-date">Veuillez choisir une date.</span>
+        </div>
+        <div class="field">
+          <label for="f-heure">Heure souhaitée</label>
+          <select id="f-heure" name="heure">
+            <option value="">Sélectionner</option>
+            <option value="11h30">11h30</option>
+            <option value="12h00">12h00</option>
+            <option value="12h30">12h30</option>
+            <option value="13h00">13h00</option>
+            <option value="18h30">18h30</option>
+            <option value="19h00">19h00</option>
+            <option value="19h30">19h30</option>
+            <option value="20h00">20h00</option>
+            <option value="20h30">20h30</option>
+            <option value="21h00">21h00</option>
+          </select>
+          <span class="form-error" id="e-heure">Veuillez choisir une heure.</span>
+        </div>
+      </div>
+      <div class="form-full field">
+        <label for="f-msg">Message (optionnel)</label>
+        <textarea id="f-msg" name="message" placeholder="Allergie, événement spécial, demande particulière..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-gold btn-submit" id="submitBtn">Confirmer ma réservation</button>
+      <div class="form-msg" id="formMsg">✅ Demande envoyée ! Nous vous confirmons votre table très bientôt.</div>
+    </form>
   </div>
 </section>
 
-<!-- AVIS CLIENTS -->
-<section class="s avis-section" id="avis">
-  <div class="container">
-    <span class="s-tag">Ce qu'ils en pensent</span>
-    <h2 class="h h-gold">Avis &amp; Réputation</h2>
+<!-- PREUVE SOCIALE -->
+<section class="s s-dark" id="avis">
+  <div class="s-header">
+    <p class="s-title">Ce qu'ils en disent</p>
     <div class="divider"></div>
-    <div class="rating-hero">
-      <div class="rating-big">3.6</div>
+    <p class="s-sub">Des Calédoniens, des vrais. Sans filtre.</p>
+  </div>
+  <div class="google-badge">
+    <span class="g-score">3.6</span>
+    <div class="g-info">
       <div class="stars">
-        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg class="star star-empty" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg class="star star-empty" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star" style="opacity:.4">★</span><span class="star" style="opacity:.4">★</span>
       </div>
-      <div class="rating-count">64 avis Google</div>
+      <div class="g-label">Note Google</div>
+      <div class="g-count">Basée sur 64 avis vérifiés</div>
     </div>
-    <div class="temoignages">
-      <div class="temo">
-        <div class="temo-stars">
-          <svg class="ts" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#F5C518"/></svg>
-          <svg class="ts" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#F5C518"/></svg>
-          <svg class="ts" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#F5C518"/></svg>
-          <svg class="ts" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#F5C518"/></svg>
-          <svg class="ts" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#F5C518"/></svg>
-        </div>
-        <p class="temo-text">"Super ambiance, la terrasse est vraiment sympa le soir. Les planches de viande sont généreuses et bien grillées. On reviendra sans hésiter !"</p>
-        <div class="temo-author">Marie-Claire T.</div>
-        <div class="temo-date">Avis Google</div>
+  </div>
+  <div class="reviews-grid" style="margin-top:40px">
+    <div class="c-review">
+      <div class="stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
       </div>
-      <div class="temo">
-        <div class="temo-stars">
-          <svg class="ts" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#F5C518"/></svg>
-          <svg class="ts" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#F5C518"/></svg>
-          <svg class="ts" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#F5C518"/></svg>
-          <svg class="ts" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#F5C518"/></svg>
-          <svg class="ts" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#F5C518"/></svg>
-        </div>
-        <p class="temo-text">"Un endroit festif et chaleureux. Les concerts live le week-end donnent vraiment envie de rester toute la soirée. Bonne sélection au bar aussi."</p>
-        <div class="temo-author">Jean-Paul M.</div>
-        <div class="temo-date">Avis Google</div>
-      </div>
-      <div class="temo">
-        <div class="temo-stars">
-          <svg class="ts" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#F5C518"/></svg>
-          <svg class="ts" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#F5C518"/></svg>
-          <svg class="ts" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#F5C518"/></svg>
-          <svg class="ts" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#F5C518"/></svg>
-          <svg class="ts" viewBox="0 0 24 24" fill="rgba(245,197,24,0.25)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        </div>
-        <p class="temo-text">"Bel endroit au Dumbéa Mall, parfait pour sortir en famille ou entre amis. Les chaises colorées sur la terrasse créent une super ambiance. Rapport qualité-prix correct."</p>
-        <div class="temo-author">Sandra K.</div>
-        <div class="temo-date">Avis Google</div>
-      </div>
+      <p class="review-text">"La planche carnivore était absolument généreuse, la viande parfaitement grillée. L'ambiance de la terrasse le soir avec la musique, c'est vraiment le top à Dumbéa !"</p>
+      <span class="reviewer">Marie-Claire T.</span>
     </div>
-    <div class="badges">
-      <div class="badge">
-        <span class="badge-val">64</span>
-        <span class="badge-label">Avis vérifiés Google</span>
+    <div class="c-review">
+      <div class="stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star" style="opacity:.35">★</span>
       </div>
-      <div class="badge">
-        <span class="badge-val">3.6/5</span>
-        <span class="badge-label">Note moyenne</span>
+      <p class="review-text">"Le smash burger est vraiment très bon, sauce maison au top. On y retourne régulièrement avec les collègues pour la pause déjeuner. Service sympa et rapide."</p>
+      <span class="reviewer">Kevin D.</span>
+    </div>
+    <div class="c-review">
+      <div class="stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
       </div>
-      <div class="badge">
-        <span class="badge-val">Bar-Grill</span>
-        <span class="badge-label">Référence à Dumbéa</span>
-      </div>
+      <p class="review-text">"Meilleur bar-grill du mall sans hésiter. Les côtes grillées sont fondantes, et la terrasse est super animée le week-end. On s'y sent bien, c'est convivial et authentique."</p>
+      <span class="reviewer">Léa M.</span>
     </div>
   </div>
 </section>
 
-<!-- HORAIRES & ACCES -->
-<section class="s horaires-section" id="acces">
-  <div class="container">
-    <span class="s-tag">Nous trouver</span>
-    <h2 class="h h-gold">Horaires &amp; Accès</h2>
+<!-- HORAIRES & ACCÈS -->
+<section class="s s-mid" id="acces">
+  <div class="s-header">
+    <p class="s-title">Nous Trouver</p>
     <div class="divider"></div>
-    <div class="horaires-grid">
-      <div>
-        <table class="h-table">
-          <tr><td>Lundi</td><td>11h00 – 22h00</td></tr>
-          <tr><td>Mardi</td><td>11h00 – 22h00</td></tr>
-          <tr><td>Mercredi</td><td>11h00 – 22h00</td></tr>
-          <tr><td>Jeudi</td><td>11h00 – 23h00</td></tr>
-          <tr><td>Vendredi</td><td>11h00 – 00h00</td></tr>
-          <tr><td>Samedi</td><td>11h00 – 00h00</td></tr>
-          <tr><td>Dimanche</td><td>11h00 – 22h00</td></tr>
-        </table>
-        <div class="acces-info">
-          <p>📍 Complexe Green Retail — Dumbéa Mall<br>285 Boulevard Du Rail Calédonien<br>Dumbéa Sur Mer, Nouvelle-Calédonie</p>
-          <p>Parking gratuit au sein du Dumbéa Mall. Accès facile depuis la route principale.</p>
-        </div>
-      </div>
-      <div>
-        <div class="map-placeholder">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.0!2d166.41!3d-22.16!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDA5JzM2LjAiUyAxNjbCsDI0JzM2LjAiRQ!5e0!3m2!1sfr!2snc!4v1700000000000"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Localisation Boy N Cow Dumbéa">
-          </iframe>
-        </div>
-      </div>
-    </div>
+    <p class="s-sub">En plein cœur de Dumbéa Mall — on vous attend.</p>
   </div>
-</section>
-
-<!-- FORMULAIRE CONTACT -->
-<section class="s s-dark" id="contact">
-  <div class="container">
-    <span class="s-tag">Nous écrire</span>
-    <h2 class="h h-gold">Contact &amp;<br>Réservation</h2>
-    <div class="divider"></div>
-    <div class="form-wrap">
-      <div class="form-info">
-        <p>Pour réserver une table, organiser un événement privatif ou simplement nous poser une question, utilisez ce formulaire. Nous vous répondons rapidement.</p>
-        <address>
-          <strong>Boy N Cow</strong><br>
-          Complexe Green Retail — Dumbéa Mall<br>
-          285 Boulevard Du Rail Calédonien<br>
-          Dumbéa Sur Mer, Nouvelle-Calédonie<br><br>
-          <a href="https://www.facebook.com/profile.php" target="_blank" rel="noopener">Notre page Facebook</a>
-        </address>
+  <div class="hours-inner">
+    <div>
+      <p class="map-title" style="">Horaires d'ouverture</p>
+      <table class="hours-table">
+        <tbody>
+          <tr><td>Lundi – Vendredi</td><td>11h30 – 14h00 · 18h00 – 22h00</td></tr>
+          <tr><td>Samedi</td><td>11h30 – 23h00</td></tr>
+          <tr><td>Dimanche</td><td>11h30 – 22h00</td></tr>
+        </tbody>
+      </table>
+      <span class="live-badge"><span class="badge-dot"></span>Musique live — Vendredi & Samedi soir</span>
+    </div>
+    <div class="map-card">
+      <p class="map-title">Infos pratiques</p>
+      <div class="map-info">
+        <div class="map-row">
+          <span class="map-icon">📍</span>
+          <span>Complexe Green Retail — Dumbéa Mall<br>285 Boulevard Du Rail Calédonien<br>Dumbéa Sur Mer, Nouvelle-Calédonie</span>
+        </div>
+        <div class="map-row">
+          <span class="map-icon">🔵</span>
+          <a href="https://www.facebook.com/boyncownoumea/?locale=fr_FR" target="_blank" rel="noopener" class="map-link">Suivre sur Facebook</a>
+        </div>
+        <div class="map-row">
+          <span class="map-icon">🅿️</span>
+          <span>Parking gratuit au sein du Dumbéa Mall</span>
+        </div>
+        <a href="#reservation" class="btn btn-gold" style="margin-top:8px;width:100%">Réserver une table</a>
       </div>
-      <form class="f" id="contactForm" action="#" novalidate>
-        <div class="fg">
-          <label for="fname">Nom complet</label>
-          <input type="text" id="fname" name="nom" placeholder="Votre nom" autocomplete="name">
-          <span class="f-error" id="errNom">Veuillez indiquer votre nom.</span>
-        </div>
-        <div class="fg">
-          <label for="femail">Email</label>
-          <input type="email" id="femail" name="email" placeholder="votre@email.com" autocomplete="email">
-          <span class="f-error" id="errEmail">Email invalide.</span>
-        </div>
-        <div class="fg">
-          <label for="ftel">Téléphone</label>
-          <input type="tel" id="ftel" name="telephone" placeholder="+687 XX XX XX" autocomplete="tel">
-        </div>
-        <div class="fg">
-          <label for="fmsg">Message</label>
-          <textarea id="fmsg" name="message" placeholder="Votre message, demande de réservation..."></textarea>
-          <span class="f-error" id="errMsg">Veuillez saisir un message.</span>
-        </div>
-        <button type="submit" class="btn-submit" id="submitBtn">Envoyer le message</button>
-        <div class="f-success" id="fSuccess">✓ Message envoyé ! Nous vous répondrons très vite.</div>
-      </form>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="footer" id="footer">
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <a href="#hero" class="logo">
-        <span class="logo-crown">♛</span>
-        BOY N COW
-      </a>
-      <p>Bar-grill urbain au cœur du Dumbéa Mall. Planches généreuses, terrasse festive, concerts live. L'adresse incontournable de Dumbéa, Nouvelle-Calédonie.</p>
-      <div class="social-row">
-        <a href="https://www.facebook.com/profile.php" target="_blank" rel="noopener" class="social-ico" aria-label="Facebook">
-          <svg viewBox="0 0 24 24" fill="#F0EDE6">
-            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
-          </svg>
-        </a>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">BOY N COW</div>
+        <p class="footer-tagline">Bar-grill urbain et festif.<br>Street food carnivore assumée,<br>terrasse colorée, musique live.</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/boyncownoumea/?locale=fr_FR" target="_blank" rel="noopener" class="social-link" aria-label="Facebook Boy N Cow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#menu">La Carte</a></li>
+          <li><a href="#ambiance">Ambiance</a></li>
+          <li><a href="#reservation">Réservation</a></li>
+          <li><a href="#spirit">Notre esprit</a></li>
+          <li><a href="#avis">Avis clients</a></li>
+          <li><a href="#acces">Accès & Horaires</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact & Adresse</h4>
+        <ul>
+          <li><a href="#">Complexe Green Retail</a></li>
+          <li><a href="#">Dumbéa Mall</a></li>
+          <li><a href="#">285 Bd Du Rail Calédonien</a></li>
+          <li><a href="#">Dumbéa Sur Mer, NC</a></li>
+        </ul>
+        <div style="margin-top:16px">
+          <a href="https://www.facebook.com/boyncownoumea/?locale=fr_FR" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:0.75rem;padding:10px 16px;min-height:40px">Nous suivre sur Facebook</a>
+        </div>
       </div>
     </div>
-    <div class="footer-col">
-      <h4>Navigation</h4>
-      <ul>
-        <li><a href="#services">Nos services</a></li>
-        <li><a href="#menu">Le menu</a></li>
-        <li><a href="#ambiance">Ambiance</a></li>
-        <li><a href="#avis">Avis clients</a></li>
-        <li><a href="#acces">Accès &amp; horaires</a></li>
-      </ul>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Boy N Cow. Tous droits réservés.</span>
+      <span class="footer-credit">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></span>
     </div>
-    <div class="footer-col">
-      <h4>Adresse</h4>
-      <address class="footer-address">
-        Boy N Cow<br>
-        Complexe Green Retail<br>
-        Dumbéa Mall<br>
-        285 Bd Du Rail Calédonien<br>
-        Dumbéa Sur Mer<br>
-        Nouvelle-Calédonie<br><br>
-        <a href="https://www.facebook.com/profile.php" target="_blank" rel="noopener">Facebook</a>
-      </address>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span class="footer-copy">© 2026 Boy N Cow. Tous droits réservés.</span>
-    <span class="footer-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></span>
   </div>
 </footer>
 
-<script>
-var lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),lbClose=document.getElementById('lbClose');
-document.querySelectorAll('.g-item').forEach(function(el){
-  el.addEventListener('click',function(){
-    lbImg.src=el.dataset.src;lb.classList.add('active');
-  });
-});
-lbClose.addEventListener('click',function(){lb.classList.remove('active');lbImg.src='';});
-lb.addEventListener('click',function(e){if(e.target===lb){lb.classList.remove('active');lbImg.src='';}});
+<style>
+.srv-grid{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.srv-card{background:var(--color-bg);border:1px solid rgba(201,168,76,0.1);border-radius:10px;padding:32px 24px;display:flex;flex-direction:column;gap:16px;transition:border-color var(--trans),transform var(--trans)}
+.srv-card:hover{border-color:var(--color-secondary);transform:translateY(-4px)}
+.srv-icon{width:52px;height:52px;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--color-secondary)}
+.srv-icon svg{width:24px;height:24px}
+.srv-title{font-family:var(--font-title);font-size:1.15rem;font-weight:600;letter-spacing:1px;color:var(--color-white)}
+.srv-desc{font-family:var(--font-body);font-size:0.875rem;color:var(--color-gray);line-height:1.65;flex:1}
+.srv-cta{font-size:0.8rem;padding:10px 18px;min-height:40px;align-self:flex-start}
+.gallery-grid{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.g-big{grid-column:span 2;height:420px}
+.g-item:not(.g-big){height:280px}
+.lb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.94);z-index:2000;align-items:center;justify-content:center;padding:20px}
+.lb-overlay.active{display:flex}
+.lb-img{max-width:90vw;max-height:85vh;object-fit:contain;border-radius:6px;box-shadow:0 0 60px rgba(0,0,0,0.8)}
+.lb-close,.lb-prev,.lb-next{position:fixed;background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);color:var(--color-secondary);font-size:1.4rem;cursor:pointer;border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;transition:background var(--trans);z-index:2001}
+.lb-close{top:24px;right:24px}
+.lb-prev{left:16px;top:50%;transform:translateY(-50%)}
+.lb-next{right:16px;top:50%;transform:translateY(-50%)}
+.lb-close:hover,.lb-prev:hover,.lb-next:hover{background:rgba(201,168,76,0.3)}
+.resa-form{width:100%}
+.btn-submit{width:100%;margin-top:8px;font-size:1rem;padding:16px}
+@media(max-width:900px){.srv-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.srv-grid{grid-template-columns:1fr}.g-big{height:260px}.g-item:not(.g-big){height:200px}.gallery-grid{grid-template-columns:1fr}.g-big{grid-column:span 1}.lb-prev{left:6px}.lb-next{right:6px}}
+</style>
 
-var form=document.getElementById('contactForm');
-form.addEventListener('submit',function(e){
-  e.preventDefault();
-  var n=document.getElementById('fname'),em=document.getElementById('femail'),msg=document.getElementById('fmsg');
-  var ok=true;
-  document.querySelectorAll('.f-error').forEach(function(el){el.style.display='none';});
-  if(!n.value.trim()){document.getElementById('errNom').style.display='block';ok=false;}
-  if(!em.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)){document.getElementById('errEmail').style.display='block';ok=false;}
-  if(!msg.value.trim()){document.getElementById('errMsg').style.display='block';ok=false;}
-  if(!ok)return;
-  var btn=document.getElementById('submitBtn');
-  btn.textContent='Envoi en cours…';btn.disabled=true;
-  setTimeout(function(){
-    form.reset();
-    btn.style.display='none';
-    document.getElementById('fSuccess').style.display='block';
-  },1200);
-});
+<script>
+(function(){
+  var burger=document.getElementById('burger'),nav=document.getElementById('mobileNav');
+  function closeMobile(){nav.classList.remove('open')}
+  window.closeMobile=closeMobile;
+  burger&&burger.addEventListener('click',function(){nav.classList.toggle('open')});
+
+  var imgs=Array.from(document.querySelectorAll('#gallery .g-item img'));
+  var lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg');
+  var cur=0;
+  function openLb(i){cur=i;lbImg.src=imgs[i].src;lbImg.alt=imgs[i].alt;lb.classList.add('active');document.body.style.overflow='hidden'}
+  function closeLb(){lb.classList.remove('active');document.body.style.overflow=''}
+  imgs.forEach(function(img,i){img.parentElement.style.cursor='pointer';img.parentElement.addEventListener('click',function(){openLb(i)})});
+  document.getElementById('lbClose').addEventListener('click',closeLb);
+  document.getElementById('lbPrev').addEventListener('click',function(){cur=(cur-1+imgs.length)%imgs.length;lbImg.src=imgs[cur].src;lbImg.alt=imgs[cur].alt});
+  document.getElementById('lbNext').addEventListener('click',function(){cur=(cur+1)%imgs.length;lbImg.src=imgs[cur].src;lbImg.alt=imgs[cur].alt});
+  lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});
+  document.addEventListener('keydown',function(e){if(!lb.classList.contains('active'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')document.getElementById('lbPrev').click();if(e.key==='ArrowRight')document.getElementById('lbNext').click()});
+
+  var form=document.getElementById('resaForm');
+  form&&form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var ok=true;
+    function chk(id,eid,fn){var v=document.getElementById(id),er=document.getElementById(eid);var valid=fn(v.value);er.classList.toggle('show',!valid);if(!valid)ok=false}
+    chk('f-nom','e-nom',function(v){return v.trim().length>1});
+    chk('f-email','e-email',function(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)});
+    chk('f-tel','e-tel',function(v){return v.trim().length>5});
+    chk('f-couverts','e-couverts',function(v){return v!==''});
+    chk('f-date','e-date',function(v){return v!==''});
+    chk('f-heure','e-heure',function(v){return v!==''});
+    if(!ok)return;
+    var btn=document.getElementById('submitBtn');
+    btn.textContent='Envoi en cours…';btn.disabled=true;
+    setTimeout(function(){btn.style.display='none';document.getElementById('formMsg').classList.add('visible')},900);
+  });
+
+  var stats=document.querySelectorAll('.stat-num[data-target]');
+  var animated=false;
+  function animStats(){
+    if(animated)return;
+    var section=document.querySelector('.stats');
+    if(!section)return;
+    var rect=section.getBoundingClientRect();
+    if(rect.top<window.innerHeight*0.9){
+      animated=true;
+      stats.forEach(function(el){
+        var target=parseFloat(el.dataset.target),dec=parseInt(el.dataset.decimal)||0,start=0,dur=1200,step=16;
+        var timer=setInterval(function(){
+          start+=target/(dur/step);
+          if(start>=target){start=target;clearInterval(timer)}
+          el.textContent=dec?start.toFixed(dec):Math.floor(start);
+        },step);
+      });
+    }
+  }
+  window.addEventListener('scroll',animStats,{passive:true});
+  animStats();
+})();
 </script>
 </body>
 </html>
