@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Bout Du Monde — Nouméa</title>
+<meta name="description" content="Bar-brasserie maritime en bord de marina à Nouméa. Ambiance nautique, happy hours, jazz brunch et cuisine locale. Venez nous rejoindre au cœur de la Nouvelle-Calédonie.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Playfair+Display:wght@400;700&family=Oswald:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#1BBCBE;
+--cs:#2A6E7A;
+--ca:#F5C518;
+--ct:#FFFFFF;
+--cb:#0D2B35;
+--cg:#e8f6f6;
+--cd:#0a1f28;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;background:var(--cb);color:var(--ct);overflow-x:hidden;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU PROMO */
+#promo{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;text-align:center}
+#promo a{display:block;height:100%;line-height:44px;font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;letter-spacing:0.3px;color:#4375ff}
+#promo a:hover{opacity:0.85}
+
+/* HEADER */
+.hdr{position:fixed;top:44px;left:0;width:100%;background:rgba(13,43,53,0.96);backdrop-filter:blur(8px);z-index:1000;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;border-bottom:1px solid rgba(27,188,190,0.15)}
+.hdr-logo{font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;letter-spacing:2px;color:var(--ct);text-transform:uppercase}
+.hdr-logo span{color:var(--cp)}
+.hdr-nav{display:flex;align-items:center;gap:28px}
+.hdr-nav a{font-family:'Oswald',sans-serif;font-size:13px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.8);position:relative;transition:color .3s}
+.hdr-nav a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--ca);transition:width .3s}
+.hdr-nav a:hover{color:#fff}
+.hdr-nav a:hover::after{width:100%}
+.hdr-cta{display:flex;align-items:center;gap:16px}
+.hdr-tel{font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;color:var(--cp);letter-spacing:1px}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;border:none;cursor:pointer;transition:transform .3s,background .3s,color .3s;border-radius:3px}
+.btn-p{background:var(--cp);color:#0D2B35;font-size:13px;padding:10px 22px}
+.btn-p:hover{transform:scale(1.05);background:var(--ca);color:#0D2B35}
+.btn-g{background:var(--ca);color:#0D2B35;font-size:15px;padding:14px 32px;min-height:48px}
+.btn-g:hover{transform:scale(1.05);background:#fff;color:#0D2B35}
+.btn-o{background:transparent;color:#fff;font-size:14px;padding:13px 28px;min-height:48px;border:2px solid rgba(255,255,255,0.6)}
+.btn-o:hover{transform:scale(1.05);border-color:var(--ca);color:var(--ca)}
+.hmb{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.hmb span{width:24px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
+.mob-nav{display:none;position:fixed;top:112px;left:0;width:100%;background:var(--cd);z-index:999;padding:24px 0;flex-direction:column;align-items:center;gap:0;border-top:1px solid rgba(27,188,190,0.2)}
+.mob-nav.open{display:flex}
+.mob-nav a{font-family:'Oswald',sans-serif;font-size:15px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.85);padding:14px 0;width:100%;text-align:center;border-bottom:1px solid rgba(255,255,255,0.06)}
+.mob-nav a:hover{color:var(--ca)}
+.mob-nav .btn-p{margin:16px auto 0;width:80%;max-width:280px}
+
+/* HERO */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;padding:140px 16px 80px}
+.hero-bg{position:absolute;inset:0;background-image:url('https://i.ibb.co/nqw5gZ71/Le-Bout-Du-Monde-0.jpg');background-size:cover;background-position:center;background-repeat:no-repeat}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,43,53,0.55) 0%,rgba(13,43,53,0.75) 60%,rgba(13,43,53,0.95) 100%)}
+.hero-cnt{position:relative;z-index:2;max-width:780px}
+.hero-eyebrow{font-family:'Oswald',sans-serif;font-size:12px;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--cp);margin-bottom:20px;display:block}
+.h1{font-family:'Playfair Display',serif;font-size:clamp(42px,7vw,88px);font-weight:700;line-height:1.05;color:#fff;margin-bottom:20px}
+.h1 em{font-style:italic;color:var(--cp)}
+.hero-sub{font-family:'Lato',sans-serif;font-size:clamp(16px,2.2vw,20px);font-weight:300;color:rgba(255,255,255,0.85);max-width:560px;margin:0 auto 36px;line-height:1.7}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px}
+.hero-scroll span{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.5)}
+.scroll-line{width:1px;height:40px;background:linear-gradient(180deg,rgba(27,188,190,0.8),transparent);animation:scrollpulse 2s ease-in-out infinite}
+@keyframes scrollpulse{0%,100%{opacity:.4;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.1)}}
+
+/* STATS */
+.stats{background:var(--cp);padding:56px 16px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;max-width:960px;margin:0 auto}
+.stat{text-align:center;padding:24px 16px;border-right:1px solid rgba(255,255,255,0.2)}
+.stat:last-child{border-right:none}
+.stat-n{font-family:'Oswald',sans-serif;font-size:clamp(36px,5vw,56px);font-weight:700;color:#0D2B35;line-height:1;display:block}
+.stat-n em{font-style:normal;font-size:0.6em;vertical-align:middle}
+.stat-l{font-family:'Lato',sans-serif;font-size:13px;font-weight:400;color:rgba(13,43,53,0.8);text-transform:uppercase;letter-spacing:1.5px;margin-top:6px;display:block}
+
+/* FALLBACK REVEAL */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.hdr{padding:0 20px}
+.hdr-nav{display:none}
+.hmb{display:flex}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.stat{border-right:none;border-bottom:1px solid rgba(255,255,255,0.2)}
+.stat:nth-child(2n){border-right:none}
+.stat:last-child,.stat:nth-last-child(2){border-bottom:none}
+}
+@media(max-width:480px){
+#promo{height:40px}
+#promo a{line-height:40px;font-size:13px}
+.hdr{top:40px;height:60px;padding:0 16px}
+.hdr-logo{font-size:18px}
+.mob-nav{top:100px}
+.hero-btns .btn-g,.hero-btns .btn-o{width:100%;max-width:320px}
+.stats-grid{grid-template-columns:1fr 1fr}
+.stat-n{font-size:32px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div id="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr">
+  <a href="#hero" class="hdr-logo">Le Bout <span>Du Monde</span></a>
+  <nav class="hdr-nav">
+    <a href="#ambiance">Ambiance</a>
+    <a href="#menu">La Carte</a>
+    <a href="#evenements">Événements</a>
+    <a href="#galerie">Galerie</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="hdr-cta">
+    <a href="tel:0027.77.28" class="hdr-tel">☎ 27.77.28</a>
+    <a href="#contact" class="btn btn-p">Nous rejoindre</a>
+  </div>
+  <div class="hmb" id="hmb" aria-label="Menu" role="button">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-nav" id="mob-nav">
+  <a href="#ambiance" class="mob-lnk">Ambiance</a>
+  <a href="#menu" class="mob-lnk">La Carte</a>
+  <a href="#evenements" class="mob-lnk">Événements</a>
+  <a href="#galerie" class="mob-lnk">Galerie</a>
+  <a href="#contact" class="mob-lnk">Contact</a>
+  <a href="tel:0027.77.28" class="btn btn-p">☎ 27.77.28</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-ov"></div>
+  <div class="hero-cnt">
+    <span class="hero-eyebrow">Nouméa — Marina de la Moselle</span>
+    <h1 class="h1">Là où la mer<br><em>rencontre la vie</em></h1>
+    <p class="hero-sub">Un bar-brasserie ancré dans l'âme maritime de Nouméa. Bois blond, teal profond et couchers de soleil sur la lagune — bienvenue au bout du monde.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn btn-g">Venez nous rejoindre</a>
+      <a href="#menu" class="btn btn-o">Découvrir la carte</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Explorer</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="stats">
+  <div class="stats-grid">
+    <div class="stat">
+      <span class="stat-n" data-target="418">0</span>
+      <span class="stat-l">Avis Google</span>
+    </div>
+    <div class="stat">
+      <span class="stat-n" data-target="37" data-decimal="true">0<em>/5</em></span>
+      <span class="stat-l">Note clients</span>
+    </div>
+    <div class="stat">
+      <span class="stat-n" data-target="7" data-suffix="j/7">0</span>
+      <span class="stat-l">Ouvert toute la semaine</span>
+    </div>
+    <div class="stat">
+      <span class="stat-n" data-target="1">~</span>
+      <span class="stat-l">Minute de la marina</span>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+var hmb=document.getElementById('hmb'),mn=document.getElementById('mob-nav');
+hmb.addEventListener('click',function(){mn.classList.toggle('open')});
+mn.querySelectorAll('.mob-lnk,.btn').forEach(function(l){l.addEventListener('click',function(){mn.classList.remove('open')})});
+
+var stats=document.querySelectorAll('.stat-n[data-target]');
+var animated=false;
+function runStats(){
+if(animated)return;
+animated=true;
+stats.forEach(function(el){
+var target=parseInt(el.getAttribute('data-target'));
+var isDecimal=el.getAttribute('data-decimal');
+var suffix=el.getAttribute('data-suffix')||'';
+var start=0,duration=1800,step=16;
+var timer=setInterval(function(){
+start+=Math.ceil(target/(duration/step));
+if(start>=target){start=target;clearInterval(timer)}
+if(isDecimal){
+el.innerHTML=(start/10).toFixed(1)+'<em>/5</em>';
+}else if(suffix){
+el.innerHTML=start+'<em> '+suffix+'</em>';
+}else{
+el.textContent=start;
+}
+},step);
+});
+}
+var obs=new IntersectionObserver(function(entries){
+if(entries[0].isIntersecting)runStats();
+},{threshold:0.3});
+var statsEl=document.querySelector('.stats');
+if(statsEl)obs.observe(statsEl);
+})();
+</script>
+<style>
+/* PART 2 STYLES */
+.s{padding:80px 16px}
+.s-dk{background:var(--cb)}
+.s-lt{background:#f0f9f9}
+.s-md{background:#0a1f28}
+.sc{max-width:1100px;margin:0 auto}
+.sh{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,44px);font-weight:700;text-align:center;margin-bottom:12px;color:var(--ct)}
+.sh-lt{color:#0D2B35}
+.se{font-family:'Oswald',sans-serif;font-size:11px;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--cp);text-align:center;display:block;margin-bottom:10px}
+.se-dk{color:var(--cs)}
+.sp{text-align:center;font-size:16px;color:rgba(255,255,255,0.7);max-width:560px;margin:0 auto 52px}
+.sp-lt{color:rgba(10,31,40,0.7)}
+.sg{display:grid;gap:28px}
+.sg3{grid-template-columns:repeat(3,1fr)}
+.sg2{grid-template-columns:repeat(2,1fr)}
+.c{background:rgba(255,255,255,0.04);border:1px solid rgba(27,188,190,0.12);border-radius:6px;padding:36px 28px;transition:transform .3s,border-color .3s}
+.c:hover{transform:translateY(-4px);border-color:var(--cp)}
+.c-lt{background:#fff;border:1px solid rgba(27,188,190,0.2);box-shadow:0 4px 24px rgba(27,188,190,0.08)}
+.c-lt:hover{border-color:var(--cp)}
+.c-ico{width:52px;height:52px;background:rgba(27,188,190,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.c-ico svg{width:26px;height:26px;fill:var(--cp)}
+.c-t{font-family:'Oswald',sans-serif;font-size:18px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;color:var(--ct)}
+.c-t-lt{color:#0D2B35}
+.c-d{font-size:15px;line-height:1.7;color:rgba(255,255,255,0.7);margin-bottom:20px}
+.c-d-lt{color:rgba(10,31,40,0.7)}
+.lnk{font-family:'Oswald',sans-serif;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--cp);display:inline-flex;align-items:center;gap:6px;transition:color .3s}
+.lnk::after{content:'→';transition:transform .3s}
+.lnk:hover{color:var(--ca)}
+.lnk:hover::after{transform:translateX(4px)}
+.lnk-dk{color:#0D2B35}
+.lnk-dk:hover{color:var(--cs)}
+
+/* METIER */
+.mt-row{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:72px}
+.mt-row:last-child{margin-bottom:0}
+.mt-img{border-radius:6px;overflow:hidden;aspect-ratio:4/3}
+.mt-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.mt-img:hover img{transform:scale(1.03)}
+.mt-txt .se{text-align:left}
+.mt-txt .sh{text-align:left}
+.mt-txt p{font-size:16px;line-height:1.8;color:rgba(255,255,255,0.75);margin-bottom:24px}
+.mt-chk{list-style:none;display:flex;flex-direction:column;gap:10px}
+.mt-chk li{display:flex;align-items:flex-start;gap:10px;font-size:15px;color:rgba(255,255,255,0.8)}
+.mt-chk li::before{content:'';width:18px;height:18px;min-width:18px;background:var(--cp);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%230D2B35' d='M6.5 11.5L3 8l1-1 2.5 2.5 5-5 1 1z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;margin-top:2px}
+
+/* GALERIE */
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.gal-item{overflow:hidden;border-radius:4px;cursor:pointer;aspect-ratio:1;position:relative}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-item::after{content:'⊕';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:32px;color:#fff;background:rgba(13,43,53,0.4);opacity:0;transition:opacity .3s}
+.gal-item:hover::after{opacity:1}
+.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:2000;align-items:center;justify-content:center}
+.lb.open{display:flex}
+.lb-img{max-width:90vw;max-height:88vh;border-radius:4px;object-fit:contain}
+.lb-x{position:absolute;top:20px;right:28px;font-size:32px;color:#fff;cursor:pointer;line-height:1;opacity:0.8;transition:opacity .3s}
+.lb-x:hover{opacity:1}
+
+/* FORMULAIRE */
+.frm{max-width:680px;margin:0 auto}
+.frm-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
+.fg label{font-family:'Oswald',sans-serif;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.6)}
+.fg input,.fg textarea{background:rgba(255,255,255,0.06);border:1px solid rgba(27,188,190,0.25);border-radius:4px;padding:14px 16px;font-family:'Lato',sans-serif;font-size:15px;color:#fff;transition:border-color .3s;width:100%}
+.fg textarea{min-height:120px;resize:vertical}
+.fg input:focus,.fg textarea:focus{outline:none;border-color:var(--cp)}
+.fg input.err,.fg textarea.err{border-color:#e05252}
+.frm-ok{display:none;background:rgba(27,188,190,0.15);border:1px solid var(--cp);border-radius:4px;padding:20px;text-align:center;font-size:16px;color:var(--cp);margin-top:16px}
+.frm-ok.show{display:block}
+.frm-btn{width:100%;font-size:15px;padding:16px;min-height:52px}
+.ld{display:none;width:20px;height:20px;border:2px solid rgba(13,43,53,0.3);border-top-color:#0D2B35;border-radius:50%;animation:spin .7s linear infinite;margin:0 auto}
+.ld.on{display:block}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* PREUVE SOCIALE */
+.ps-hero{display:flex;align-items:center;justify-content:center;gap:20px;margin-bottom:52px;flex-wrap:wrap}
+.ps-score{font-family:'Oswald',sans-serif;font-size:72px;font-weight:700;color:var(--ca);line-height:1}
+.ps-info{display:flex;flex-direction:column;gap:4px}
+.ps-stars{color:var(--ca);font-size:28px;letter-spacing:2px}
+.ps-lbl{font-family:'Oswald',sans-serif;font-size:13px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.6)}
+.ps-src{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.06);border-radius:4px;padding:8px 16px;margin-top:8px}
+.ps-src svg{width:18px;height:18px}
+.ps-src span{font-size:13px;color:rgba(255,255,255,0.7)}
+.tg{display:grid;gap:24px}
+.tg3{grid-template-columns:repeat(3,1fr)}
+.tc{background:rgba(255,255,255,0.04);border:1px solid rgba(27,188,190,0.1);border-radius:6px;padding:28px 24px;display:flex;flex-direction:column;gap:12px}
+.tc-stars{color:var(--ca);font-size:16px;letter-spacing:1px}
+.tc-txt{font-size:15px;line-height:1.7;color:rgba(255,255,255,0.8);flex:1}
+.tc-aut{font-family:'Oswald',sans-serif;font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--cp)}
+.bdg-row{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:48px}
+.bdg{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(27,188,190,0.15);border-radius:4px;padding:14px 22px}
+.bdg svg{width:22px;height:22px;fill:var(--ca)}
+.bdg span{font-family:'Oswald',sans-serif;font-size:13px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.8)}
+
+/* FOOTER */
+.ft{background:var(--cs);padding:60px 16px 0}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;max-width:1100px;margin:0 auto;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.1)}
+.ft-brand{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:16px}
+.ft-brand span{color:var(--ca)}
+.ft-adr{font-size:14px;color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:16px}
+.ft-soc{display:flex;gap:12px;align-items:center}
+.ft-soc a{width:40px;height:40px;background:rgba(255,255,255,0.1);border-radius:4px;display:flex;align-items:center;justify-content:center;transition:background .3s}
+.ft-soc a:hover{background:var(--ca)}
+.ft-soc svg{width:20px;height:20px;fill:#fff}
+.ft-ht{font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#fff;margin-bottom:16px}
+.ft-ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.ft-ul li a{font-size:14px;color:rgba(255,255,255,0.65);transition:color .3s}
+.ft-ul li a:hover{color:var(--ca)}
+.ft-hrs p{font-size:14px;color:rgba(255,255,255,0.7);line-height:1.9}
+.ft-hrs strong{color:#fff}
+.ft-bot{max-width:1100px;margin:0 auto;padding:20px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.ft-cp{font-size:12px;color:rgba(255,255,255,0.45);letter-spacing:0.5px}
+.ft-by{font-size:12px;color:rgba(255,255,255,0.45)}
+.ft-by a{color:rgba(255,255,255,0.6);transition:color .3s}
+.ft-by a:hover{color:var(--ca)}
+
+@media(max-width:900px){
+.sg3,.sg2{grid-template-columns:1fr}
+.mt-row{grid-template-columns:1fr;gap:32px}
+.mt-row.rev .mt-img{order:-1}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.frm-row{grid-template-columns:1fr}
+.tg3{grid-template-columns:1fr}
+.ft-grid{grid-template-columns:1fr;gap:32px}
+.ft-bot{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:480px){
+.s{padding:56px 16px}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.ps-score{font-size:52px}
+.bdg-row{flex-direction:column;align-items:stretch}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s s-dk" id="services">
+  <div class="sc">
+    <span class="se">Ce que nous offrons</span>
+    <h2 class="sh">L'art de vivre au bord de l'eau</h2>
+    <p class="sp">Du matin au coucher du soleil, Le Bout Du Monde est votre escale favorite sur la marina de Nouméa.</p>
+    <div class="sg sg3">
+      <div class="c">
+        <div class="c-ico">
+          <svg viewBox="0 0 24 24"><path d="M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.11 0 2-.89 2-2V5c0-1.11-.89-2-2-2zm0 5h-2V5h2v3zM4 19h16v2H4z"/></svg>
+        </div>
+        <div class="c-t">Bar & Brasserie</div>
+        <p class="c-d">Bières pression, cocktails maison et sélection de vins servis dans une ambiance chaleureuse avec vue sur la marina.</p>
+        <a href="#contact" class="lnk">Venez nous voir</a>
+      </div>
+      <div class="c">
+        <div class="c-ico">
+          <svg viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg>
+        </div>
+        <div class="c-t">Restauration</div>
+        <p class="c-d">Cuisine du marché valorisant les produits locaux — poisson du jour, assiettes généreuses et saveurs du Pacifique.</p>
+        <a href="#menu" class="lnk">Voir la carte</a>
+      </div>
+      <div class="c">
+        <div class="c-ico">
+          <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+        </div>
+        <div class="c-t">Événements & Soirées</div>
+        <p class="c-d">Jazz brunch le dimanche, happy hours en semaine et soirées thématiques pour célébrer la vie en bord de mer.</p>
+        <a href="#evenements" class="lnk">Voir les événements</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s s-md" id="ambiance">
+  <div class="sc">
+    <div class="mt-row">
+      <div class="mt-txt">
+        <span class="se">Notre identité</span>
+        <h2 class="sh">Un lieu taillé pour l'horizon</h2>
+        <p>Depuis la marina de la Moselle, Le Bout Du Monde s'est imposé comme l'escale incontournable des amoureux de la mer. Bois blond, hublots vintage et lumière dorée des fins d'après-midi composent un intérieur qui sent bon le large et l'aventure.</p>
+        <ul class="mt-chk">
+          <li>Vue imprenable sur les bateaux à l'ancre</li>
+          <li>Intérieur nautique avec objets de plongée vintage</li>
+          <li>Terrasse ombragée face à la lagune turquoise</li>
+          <li>Ambiance décontractée, authentiquement calédonienne</li>
+        </ul>
+      </div>
+      <div class="mt-img">
+        <img src="https://i.ibb.co/dspr0Pdr/Le-Bout-Du-Monde-1.jpg" alt="Intérieur chaleureux du Bout Du Monde" loading="lazy">
+      </div>
+    </div>
+    <div class="mt-row rev">
+      <div class="mt-img">
+        <img src="https://i.ibb.co/PZYW2dD3/Le-Bout-Du-Monde-2.jpg" alt="Ambiance festive au Bout Du Monde" loading="lazy">
+      </div>
+      <div class="mt-txt">
+        <span class="se">L'âme du lieu</span>
+        <h2 class="sh">Des moments qui restent</h2>
+        <p>Ici, le temps s'écoule différemment. Les habitués partagent leurs récits de plongée, les voyageurs de passage s'attardent plus que prévu et les résidents de Nouméa reviennent chaque semaine retrouver cette chaleur unique.</p>
+        <ul class="mt-chk">
+          <li>Jazz brunch dominical dans une ambiance vibrante</li>
+          <li>Happy hours en semaine pour décompresser</li>
+          <li>Atmosphère mêlant aventuriers, plongeurs et locaux</li>
+          <li>À deux pas du cœur de Nouméa</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s s-dk" id="galerie">
+  <div class="sc">
+    <span class="se">Galerie</span>
+    <h2 class="sh">Plongez dans l'ambiance</h2>
+    <p class="sp">Chaque photo raconte une lumière, un instant, un sourire au bord de l'eau.</p>
+    <div class="gal-grid">
+      <div class="gal-item" data-src="https://i.ibb.co/nqw5gZ71/Le-Bout-Du-Monde-0.jpg">
+        <img src="https://i.ibb.co/nqw5gZ71/Le-Bout-Du-Monde-0.jpg" alt="Le Bout Du Monde - vue extérieure" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/dspr0Pdr/Le-Bout-Du-Monde-1.jpg">
+        <img src="https://i.ibb.co/dspr0Pdr/Le-Bout-Du-Monde-1.jpg" alt="Le Bout Du Monde - intérieur bois" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/PZYW2dD3/Le-Bout-Du-Monde-2.jpg">
+        <img src="https://i.ibb.co/PZYW2dD3/Le-Bout-Du-Monde-2.jpg" alt="Le Bout Du Monde - ambiance soirée" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/7tgY2Fvm/Le-Bout-Du-Monde-3.jpg">
+        <img src="https://i.ibb.co/7tgY2Fvm/Le-Bout-Du-Monde-3.jpg" alt="Le Bout Du Monde - terrasse marina" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true">
+  <span class="lb-x" id="lb-x" aria-label="Fermer">✕</span>
+  <img class="lb-img" id="lb-img" src="" alt="Photo agrandie">
+</div>
+
+<!-- FORMULAIRE -->
+<section class="s s-md" id="contact">
+  <div class="sc">
+    <span class="se">Nous contacter</span>
+    <h2 class="sh">Venez nous rejoindre</h2>
+    <p class="sp">Une question, une réservation de groupe ou juste l'envie de dire bonjour ? Écrivez-nous.</p>
+    <form class="frm" id="frm" action="#" novalidate>
+      <div class="frm-row">
+        <div class="fg">
+          <label for="f-nom">Votre nom</label>
+          <input type="text" id="f-nom" name="nom" placeholder="Marie Dupont" autocomplete="name">
+        </div>
+        <div class="fg">
+          <label for="f-email">Email</label>
+          <input type="email" id="f-email" name="email" placeholder="marie@email.com" autocomplete="email">
+        </div>
+      </div>
+      <div class="fg">
+        <label for="f-tel">Téléphone</label>
+        <input type="tel" id="f-tel" name="tel" placeholder="Ex : 27.77.28" autocomplete="tel">
+      </div>
+      <div class="fg">
+        <label for="f-msg">Votre message</label>
+        <textarea id="f-msg" name="message" placeholder="Une réservation pour samedi soir, une question sur nos événements..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-g frm-btn">Envoyer le message</button>
+      <div class="ld" id="frm-ld"></div>
+      <div class="frm-ok" id="frm-ok">✓ Message envoyé ! Nous vous répondrons très vite. À bientôt au Bout Du Monde.</div>
+    </form>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s s-dk" id="avis">
+  <div class="sc">
+    <span class="se">Ce qu'ils disent</span>
+    <h2 class="sh">Avis de nos habitués</h2>
+    <div class="ps-hero">
+      <div class="ps-score">3.7</div>
+      <div class="ps-info">
+        <div class="ps-stars">★★★★☆</div>
+        <div class="ps-lbl">418 avis vérifiés</div>
+        <div class="ps-src">
+          <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          <span>Google Reviews</span>
+        </div>
+      </div>
+    </div>
+    <div class="tg tg3">
+      <div class="tc">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-txt">« Un endroit unique sur la marina. L'ambiance bois et teal, les verres au bord de l'eau à la tombée du soir… on ne repart pas de sitôt. »</p>
+        <div class="tc-aut">— Sophie L., Nouméa</div>
+      </div>
+      <div class="tc">
+        <div class="tc-stars">★★★★☆</div>
+        <p class="tc-txt">« Le jazz brunch du dimanche vaut vraiment le détour. Bonne musique, bonne humeur, personnel sympa et vue sur les bateaux. »</p>
+        <div class="tc-aut">— Thomas R., visiteur</div>
+      </div>
+      <div class="tc">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-txt">« Adresse incontournable de Nouméa. On s'y retrouve après la plongée ou en fin de journée. Le meilleur endroit pour décompresser face à la lagune. »</p>
+        <div class="tc-aut">— Mathieu D., habitué</div>
+      </div>
+    </div>
+    <div class="bdg-row">
+      <div class="bdg">
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+        <span>Adresse favorite des locals</span>
+      </div>
+      <div class="bdg">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <span>Marina de Nouméa</span>
+      </div>
+      <div class="bdg">
+        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>
+        <span>418 avis Google</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ft" id="footer">
+  <div class="ft-grid">
+    <div>
+      <div class="ft-brand">Le Bout <span>Du Monde</span></div>
+      <p class="ft-adr">4 rue de la frégate Nivôse<br>Rue D'Austerlitz, Nouméa 98800<br>Nouvelle-Calédonie</p>
+      <a href="tel:002777.28" class="ft-adr" style="">☎ <strong>27.77.28</strong></a>
+      <div class="ft-soc" style="margin-top:16px">
+        <a href="https://www.facebook.com/leboutdumonde.nc" target="_blank" rel="noopener" aria-label="Facebook Le Bout Du Monde">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="ft-ht">Navigation</div>
+      <ul class="ft-ul">
+        <li><a href="#ambiance">Notre ambiance</a></li>
+        <li><a href="#services">Nos services</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#avis">Avis clients</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="ft-ht">Horaires</div>
+      <div class="ft-hrs">
+        <p><strong>Lundi – Vendredi</strong><br>11h00 – 00h00</p>
+        <p style="margin-top:10px"><strong>Samedi – Dimanche</strong><br>10h00 – 01h00</p>
+        <p style="margin-top:14px"><a href="tel:002777.28" class="lnk lnk-dk" style="color:var(--ca)">☎ 27.77.28</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <span class="ft-cp">© 2026 Le Bout Du Monde. Tous droits réservés.</span>
+    <span class="ft-by">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+var gi=document.querySelectorAll('.gal-item'),lb=document.getElementById('lb'),lbi=document.getElementById('lb-img'),lbx=document.getElementById('lb-x');
+gi.forEach(function(el){
+el.addEventListener('click',function(){
+lbi.src=el.getAttribute('data-src');
+lb.classList.add('open');
+document.body.style.overflow='hidden';
+});
+});
+function closeLb(){lb.classList.remove('open');document.body.style.overflow='';}
+lbx.addEventListener('click',closeLb);
+lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+
+var frm=document.getElementById('frm'),fld=document.getElementById('frm-ld'),fok=document.getElementById('frm-ok');
+frm.addEventListener('submit',function(e){
+e.preventDefault();
+var n=document.getElementById('f-nom'),em=document.getElementById('f-email'),msg=document.getElementById('f-msg'),ok=true;
+[n,em,msg].forEach(function(f){f.classList.remove('err');});
+if(!n.value.trim()){n.classList.add('err');ok=false;}
+if(!em.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)){em.classList.add('err');ok=false;}
+if(!msg.value.trim()){msg.classList.add('err');ok=false;}
+if(!ok)return;
+fld.classList.add('on');
+frm.querySelector('button').disabled=true;
+setTimeout(function(){
+fld.classList.remove('on');
+fok.classList.add('show');
+frm.reset();
+frm.querySelector('button').disabled=false;
+},1200);
+});
+})();
+</script>
+</body>
+</html>
