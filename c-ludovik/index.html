@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C.Ludovik — Nouméa</title>
+<meta name="description" content="Salon de coiffure C.Ludovik à Nouméa, Nouvelle-Calédonie. Expertise capillaire, coupes, colorations et soins dans une ambiance végétale et élégante au cœur de Nouméa.">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Nunito:wght@300;400;500;600;700&family=Manrope:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#1C3F5E;
+--cs:#2D5A3D;
+--ca:#B8963E;
+--cb:#F5F2EC;
+--ct:#1A1A1A;
+--cw:#ffffff;
+--cr:#8B1A1A;
+--shadow:0 4px 24px rgba(28,63,94,.13);
+--shadow-h:0 8px 40px rgba(28,63,94,.22);
+--r:12px;
+--t:.35s ease;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',system-ui,sans-serif;background:var(--cb);color:var(--ct);overflow-x:hidden;font-size:16px;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+
+/* BANDEAU PROMO */
+.promo{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;text-align:center}
+.promo a{font-family:"Manrope","Nunito",system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;line-height:44px;letter-spacing:.3px;display:block;width:100%}
+.promo a:hover{opacity:.85}
+
+/* HEADER */
+.nav{position:fixed;top:44px;left:0;width:100%;background:rgba(28,63,94,.97);backdrop-filter:blur(12px);z-index:1000;height:68px;display:flex;align-items:center;border-bottom:1px solid rgba(184,150,62,.25)}
+.nav-inner{max-width:1200px;margin:0 auto;width:100%;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:600;color:var(--cw);letter-spacing:.04em;white-space:nowrap}
+.logo span{color:var(--ca)}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-family:'Nunito',sans-serif;font-size:.88rem;font-weight:600;color:rgba(255,255,255,.85);letter-spacing:.04em;text-transform:uppercase;transition:color var(--t)}
+.nav-links a:hover{color:var(--ca)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.tel-link{font-family:'Nunito',sans-serif;font-size:.88rem;font-weight:700;color:var(--ca);letter-spacing:.04em;transition:opacity var(--t)}
+.tel-link:hover{opacity:.8}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:'Nunito',sans-serif;font-weight:700;letter-spacing:.05em;border:none;cursor:pointer;transition:background var(--t),transform var(--t),box-shadow var(--t);border-radius:6px}
+.btn-primary{background:var(--ca);color:var(--cw);padding:10px 22px;font-size:.88rem}
+.btn-primary:hover{background:#9a7c32;transform:translateY(-1px);box-shadow:0 6px 20px rgba(184,150,62,.35)}
+.btn-lg{padding:15px 36px;font-size:1rem;border-radius:8px}
+.btn-ghost{background:transparent;border:2px solid var(--cw);color:var(--cw);padding:13px 34px;font-size:1rem;border-radius:8px}
+.btn-ghost:hover{background:var(--cw);color:var(--cp)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:transparent;border:none}
+.hamburger span{width:24px;height:2px;background:var(--cw);border-radius:2px;transition:transform var(--t),opacity var(--t)}
+.mob-menu{display:none;position:fixed;top:112px;left:0;width:100%;background:var(--cp);z-index:999;padding:24px 24px 32px;flex-direction:column;gap:0;border-bottom:2px solid var(--ca)}
+.mob-menu.open{display:flex}
+.mob-menu a{font-family:'Nunito',sans-serif;font-size:1rem;font-weight:600;color:var(--cw);padding:14px 0;border-bottom:1px solid rgba(255,255,255,.1);letter-spacing:.04em}
+.mob-menu a:last-child{border-bottom:none;margin-top:16px;background:var(--ca);text-align:center;border-radius:6px;padding:14px}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding-top:112px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-image:url('https://i.ibb.co/R44xNxT0/C-Ludovik-0.jpg');background-size:cover;background-position:center top;background-repeat:no-repeat}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(28,63,94,.92) 0%,rgba(28,63,94,.88) 45%,rgba(28,63,94,.45) 70%,rgba(28,63,94,.15) 100%)}
+.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;padding:60px 24px 80px;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px;min-height:calc(100vh - 112px)}
+.hero-text{display:flex;flex-direction:column;align-items:flex-start;gap:24px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(184,150,62,.18);border:1px solid rgba(184,150,62,.45);border-radius:30px;padding:6px 16px}
+.hero-badge span{font-family:'Nunito',sans-serif;font-size:.8rem;font-weight:700;color:var(--ca);letter-spacing:.1em;text-transform:uppercase}
+.hero-badge::before{content:'★';color:var(--ca);font-size:.85rem}
+.h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,5vw,4rem);font-weight:600;color:var(--cw);line-height:1.12;letter-spacing:-.01em}
+.h1 em{font-style:italic;color:var(--ca)}
+.hero-sub{font-family:'Nunito',sans-serif;font-size:1.08rem;font-weight:400;color:rgba(255,255,255,.82);max-width:440px;line-height:1.7}
+.hero-ctas{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.hero-meta{display:flex;align-items:center;gap:20px;padding-top:8px;border-top:1px solid rgba(255,255,255,.15)}
+.hero-meta-item{display:flex;flex-direction:column;gap:2px}
+.hero-meta-item strong{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--ca)}
+.hero-meta-item span{font-size:.78rem;font-weight:600;color:rgba(255,255,255,.65);letter-spacing:.08em;text-transform:uppercase}
+.hero-divider{width:1px;height:36px;background:rgba(255,255,255,.2)}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px}
+.scroll-ind span{font-size:.72rem;font-weight:600;color:rgba(255,255,255,.5);letter-spacing:.12em;text-transform:uppercase}
+.scroll-arrow{width:20px;height:20px;border-right:2px solid rgba(255,255,255,.4);border-bottom:2px solid rgba(255,255,255,.4);transform:rotate(45deg);animation:bounce 1.8s ease infinite}
+@keyframes bounce{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(5px)}}
+
+/* STATS */
+.stats{background:var(--cp);padding:56px 24px}
+.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat{display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px 16px;border-right:1px solid rgba(255,255,255,.15)}
+.stat:last-child{border-right:none}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:600;color:var(--ca);line-height:1;transition:none}
+.stat-label{font-family:'Nunito',sans-serif;font-size:.8rem;font-weight:600;color:rgba(255,255,255,.7);letter-spacing:.1em;text-transform:uppercase;text-align:center}
+.stat-icon{font-size:1.4rem;margin-bottom:4px}
+
+/* SECTION BASE */
+.s{padding:88px 24px}
+.s-inner{max-width:1200px;margin:0 auto}
+.s-head{text-align:center;margin-bottom:56px;display:flex;flex-direction:column;align-items:center;gap:12px}
+.s-tag{font-family:'Nunito',sans-serif;font-size:.78rem;font-weight:700;color:var(--ca);letter-spacing:.15em;text-transform:uppercase}
+.h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,2.9rem);font-weight:600;color:var(--cp);line-height:1.2}
+.h2-light{color:var(--cw)}
+.s-desc{font-size:1rem;color:#555;max-width:560px;text-align:center;line-height:1.7}
+.divider-gold{width:56px;height:3px;background:linear-gradient(90deg,var(--ca),#d4a85a);border-radius:2px}
+
+/* CARDS */
+.c{background:var(--cw);border-radius:var(--r);box-shadow:var(--shadow);transition:transform var(--t),box-shadow var(--t);overflow:hidden}
+.c:hover{transform:translateY(-6px);box-shadow:var(--shadow-h)}
+.c-body{padding:28px}
+
+/* FALLBACKS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE HEADER */
+@media(max-width:900px){
+.nav-links{display:none}
+.hamburger{display:flex}
+.tel-link{display:none}
+.nav-right .btn{display:none}
+}
+@media(max-width:700px){
+.hero-inner{grid-template-columns:1fr;padding:40px 16px 60px}
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+.stat:nth-child(2){border-right:none}
+.stat{border-bottom:1px solid rgba(255,255,255,.12);padding:16px}
+.stat:nth-child(3),.stat:nth-child(4){border-bottom:none}
+.hero-ctas{flex-direction:column;width:100%}
+.hero-ctas .btn{width:100%}
+}
+@media(max-width:480px){
+.promo a{font-size:13px;line-height:40px}
+.promo{height:40px}
+.nav{top:40px;height:62px}
+.mob-menu{top:102px}
+.hero{padding-top:102px}
+.hero-meta{flex-wrap:wrap;gap:14px}
+.s{padding:64px 16px}
+.logo{font-size:1.35rem}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="nav" id="top">
+  <div class="nav-inner">
+    <a href="#top" class="logo">C.<span>Ludovik</span></a>
+    <nav class="nav-links">
+      <a href="#services">Prestations</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#equipe">Équipe</a>
+      <a href="#avis">Avis</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <a href="tel:+68735313" class="tel-link">35.31.35</a>
+      <a href="#contact" class="btn btn-primary">Réserver</a>
+    </div>
+    <button class="hamburger" id="hbg" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<div class="mob-menu" id="mob">
+  <a href="#services" onclick="closeMob()">Prestations</a>
+  <a href="#galerie" onclick="closeMob()">Galerie</a>
+  <a href="#equipe" onclick="closeMob()">Équipe</a>
+  <a href="#avis" onclick="closeMob()">Avis clients</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="tel:+68735313" onclick="closeMob()">📞 35.31.35</a>
+  <a href="#contact" onclick="closeMob()" class="btn btn-primary">Prendre rendez-vous</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge"><span>Salon de coiffure à Nouméa</span></div>
+      <h1 class="h1">Créez votre<br><em>signature</em><br>capillaire</h1>
+      <p class="hero-sub">Au cœur de Nouméa, C.Ludovik vous accueille dans un écrin végétal et chaleureux pour révéler le meilleur de votre chevelure — avec soin, expertise et attention à chaque détail.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-primary btn-lg">Prendre rendez-vous</a>
+        <a href="#services" class="btn btn-ghost btn-lg">Découvrir les prestations</a>
+      </div>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <strong>4.7★</strong>
+          <span>Avis Google</span>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-meta-item">
+          <strong>Nouméa</strong>
+          <span>Nouvelle-Calédonie</span>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-meta-item">
+          <strong>35.31.35</strong>
+          <span>Sur rendez-vous</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>Découvrir</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<section class="stats">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-icon">✂️</div>
+      <span class="stat-num" data-target="10" data-suffix="+">0</span>
+      <span class="stat-label">Années d'expertise</span>
+    </div>
+    <div class="stat">
+      <div class="stat-icon">⭐</div>
+      <span class="stat-num" data-target="4.7" data-suffix="/5">0</span>
+      <span class="stat-label">Note Google</span>
+    </div>
+    <div class="stat">
+      <div class="stat-icon">🌿</div>
+      <span class="stat-num" data-target="100" data-suffix="%">0</span>
+      <span class="stat-label">Satisfaction client</span>
+    </div>
+    <div class="stat">
+      <div class="stat-icon">📍</div>
+      <span class="stat-num" data-target="1" data-suffix="">1</span>
+      <span class="stat-label">Adresse — Nouméa</span>
+    </div>
+  </div>
+</section>
+
+<script>
+var hbg=document.getElementById('hbg'),mob=document.getElementById('mob'),open=false;
+function closeMob(){open=false;mob.classList.remove('open');hbg.querySelectorAll('span')[0].style.transform='';hbg.querySelectorAll('span')[1].style.opacity='';hbg.querySelectorAll('span')[2].style.transform='';}
+hbg.addEventListener('click',function(){
+  open=!open;
+  mob.classList.toggle('open',open);
+  var s=hbg.querySelectorAll('span');
+  s[0].style.transform=open?'translateY(7px) rotate(45deg)':'';
+  s[1].style.opacity=open?'0':'';
+  s[2].style.transform=open?'translateY(-7px) rotate(-45deg)':'';
+});
+
+// STATS COUNTER
+var counted=false;
+function runCounters(){
+  if(counted)return;
+  counted=true;
+  document.querySelectorAll('.stat-num').forEach(function(el){
+    var target=parseFloat(el.dataset.target),suffix=el.dataset.suffix||'',dec=target%1!==0,steps=60,i=0;
+    var iv=setInterval(function(){
+      i++;
+      var v=target*(i/steps);
+      el.textContent=(dec?v.toFixed(1):Math.floor(v))+suffix;
+      if(i>=steps){el.textContent=(dec?target.toFixed(1):target)+suffix;clearInterval(iv);}
+    },16);
+  });
+}
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)runCounters();});},{threshold:.4});
+var statsEl=document.querySelector('.stats');
+if(statsEl)obs.observe(statsEl);
+</script>
+<style>
+/* SERVICES */
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.srv-filter{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:40px}
+.srv-btn{font-family:'Nunito',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:8px 20px;border-radius:30px;border:2px solid var(--cp);color:var(--cp);background:transparent;cursor:pointer;transition:background var(--t),color var(--t)}
+.srv-btn.active,.srv-btn:hover{background:var(--cp);color:var(--cw)}
+.srv-card{border-radius:var(--r);background:var(--cw);box-shadow:var(--shadow);transition:transform var(--t),box-shadow var(--t);overflow:hidden;border-top:3px solid transparent;display:flex;flex-direction:column}
+.srv-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-h);border-top-color:var(--ca)}
+.srv-icon{font-size:2rem;margin-bottom:12px}
+.srv-body{padding:28px;flex:1;display:flex;flex-direction:column;gap:10px}
+.srv-cat{font-size:.72rem;font-weight:700;color:var(--ca);letter-spacing:.14em;text-transform:uppercase}
+.srv-title{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--cp)}
+.srv-desc{font-size:.9rem;color:#666;line-height:1.6;flex:1}
+.srv-meta{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid #eee;margin-top:auto}
+.srv-price{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--cp)}
+.srv-dur{font-size:.78rem;color:#999;font-weight:600;letter-spacing:.06em}
+.srv-cta{width:100%;text-align:center;margin-top:14px;padding:11px;background:var(--cb);color:var(--cp);font-weight:700;font-size:.85rem;border-radius:6px;transition:background var(--t),color var(--t)}
+.srv-cta:hover{background:var(--ca);color:var(--cw)}
+
+/* METIER */
+.metier{background:var(--cw)}
+.metier-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.metier-img{border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;position:relative}
+.metier-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.metier-img:hover img{transform:scale(1.03)}
+.metier-img::after{content:'';position:absolute;inset:0;border:2px solid var(--ca);border-radius:var(--r);pointer-events:none;opacity:.35}
+.metier-text{display:flex;flex-direction:column;gap:24px}
+.metier-tag{font-size:.78rem;font-weight:700;color:var(--ca);letter-spacing:.15em;text-transform:uppercase}
+.metier-body{font-size:1rem;color:#555;line-height:1.8}
+.metier-list{display:flex;flex-direction:column;gap:12px;margin-top:4px}
+.metier-item{display:flex;align-items:flex-start;gap:12px;font-size:.95rem;color:var(--ct)}
+.metier-check{width:22px;height:22px;border-radius:50%;background:var(--cs);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.metier-check svg{width:11px;height:11px;stroke:var(--cw);stroke-width:2.5;fill:none}
+.metier-grid.rev{direction:rtl}
+.metier-grid.rev>*{direction:ltr}
+
+/* GALERIE */
+.gal-bg{background:var(--cb)}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.gal-item{border-radius:var(--r);overflow:hidden;cursor:pointer;aspect-ratio:4/3;position:relative}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-item::after{content:'🔍';position:absolute;inset:0;background:rgba(28,63,94,.45);opacity:0;display:flex;align-items:center;justify-content:center;font-size:2rem;transition:opacity var(--t)}
+.gal-item:hover::after{opacity:1}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;display:none;align-items:center;justify-content:center;padding:20px}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:85vh;border-radius:8px;object-fit:contain}
+.lb-close{position:fixed;top:20px;right:24px;font-size:2rem;color:var(--cw);cursor:pointer;line-height:1;background:transparent;border:none;z-index:2001}
+.lb-prev,.lb-next{position:fixed;top:50%;transform:translateY(-50%);font-size:2rem;color:var(--cw);cursor:pointer;background:rgba(255,255,255,.12);border:none;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background var(--t)}
+.lb-prev{left:16px}
+.lb-next{right:16px}
+.lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,.25)}
+
+/* CONTACT */
+.contact-bg{background:var(--cp)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:64px;align-items:start}
+.contact-info{display:flex;flex-direction:column;gap:28px}
+.contact-info-title{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--cw);line-height:1.2}
+.contact-info-desc{font-size:.97rem;color:rgba(255,255,255,.78);line-height:1.7}
+.contact-detail{display:flex;flex-direction:column;gap:14px}
+.contact-row{display:flex;align-items:flex-start;gap:12px}
+.contact-ico{width:36px;height:36px;border-radius:50%;background:rgba(184,150,62,.2);border:1px solid rgba(184,150,62,.4);display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.contact-row-text{font-size:.9rem;color:rgba(255,255,255,.82);line-height:1.5}
+.contact-row-text strong{display:block;color:var(--cw);font-weight:700;margin-bottom:2px}
+.form-wrap{background:var(--cw);border-radius:var(--r);padding:40px;box-shadow:var(--shadow-h)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+.form-label{font-size:.82rem;font-weight:700;color:var(--cp);letter-spacing:.06em;text-transform:uppercase}
+.form-input{font-family:'Nunito',sans-serif;font-size:.95rem;color:var(--ct);padding:12px 16px;border:2px solid #e0ddd6;border-radius:8px;background:var(--cb);outline:none;transition:border-color var(--t),box-shadow var(--t);width:100%}
+.form-input:focus{border-color:var(--ca);box-shadow:0 0 0 3px rgba(184,150,62,.15)}
+textarea.form-input{resize:vertical;min-height:110px}
+.form-submit{width:100%;background:var(--ca);color:var(--cw);border:none;padding:15px;font-family:'Nunito',sans-serif;font-size:1rem;font-weight:700;border-radius:8px;cursor:pointer;transition:background var(--t),transform var(--t);display:flex;align-items:center;justify-content:center;gap:10px;min-height:52px}
+.form-submit:hover{background:#9a7c32;transform:translateY(-1px)}
+.form-success{display:none;background:#e8f5e9;border:1px solid #a5d6a7;border-radius:8px;padding:18px;text-align:center;color:#2e7d32;font-weight:700;font-size:.95rem}
+.form-success.show{display:block}
+.form-err{font-size:.78rem;color:var(--cr);margin-top:3px;display:none}
+.form-err.show{display:block}
+
+/* AVIS */
+.avis-bg{background:var(--cb)}
+.stars{color:var(--ca);font-size:1.2rem;letter-spacing:2px}
+.rating-big{font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:600;color:var(--cp);line-height:1}
+.rating-block{display:flex;flex-direction:column;align-items:center;gap:8px;padding:32px;background:var(--cw);border-radius:var(--r);box-shadow:var(--shadow);text-align:center;border-bottom:3px solid var(--ca)}
+.rating-sub{font-size:.85rem;color:#888;font-weight:600}
+.avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.avis-card{background:var(--cw);border-radius:var(--r);padding:28px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px}
+.avis-header{display:flex;align-items:center;gap:12px}
+.avis-avatar{width:44px;height:44px;border-radius:50%;background:var(--cp);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--ca);flex-shrink:0}
+.avis-name{font-weight:700;color:var(--ct);font-size:.95rem}
+.avis-date{font-size:.78rem;color:#aaa}
+.avis-text{font-size:.9rem;color:#555;line-height:1.65;font-style:italic}
+.avis-text::before{content:'"';color:var(--ca);font-size:1.4rem;font-family:'Cormorant Garamond',serif;line-height:.5;vertical-align:-.3em;margin-right:3px}
+.badges{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:48px}
+.badge-item{display:flex;align-items:center;gap:10px;background:var(--cw);border-radius:30px;padding:10px 22px;box-shadow:var(--shadow);font-weight:700;font-size:.88rem;color:var(--cp)}
+.badge-ico{font-size:1.2rem}
+
+/* FOOTER */
+footer{background:var(--cp);color:rgba(255,255,255,.8);padding:64px 24px 0}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.12)}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--cw);margin-bottom:14px}
+.footer-logo span{color:var(--ca)}
+.footer-about{font-size:.88rem;line-height:1.7;max-width:280px}
+.footer-socials{display:flex;gap:12px;margin-top:18px}
+.social-ico{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;transition:background var(--t),border-color var(--t)}
+.social-ico:hover{background:var(--ca);border-color:var(--ca)}
+.social-ico svg{width:20px;height:20px;fill:var(--cw)}
+.footer-h{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--cw);margin-bottom:16px;letter-spacing:.03em}
+.footer-links{display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-size:.88rem;color:rgba(255,255,255,.72);transition:color var(--t)}
+.footer-links a:hover{color:var(--ca)}
+.footer-address{font-size:.88rem;line-height:1.85}
+.footer-address a{color:rgba(255,255,255,.72);transition:color var(--t)}
+.footer-address a:hover{color:var(--ca)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding:18px 0;font-size:.8rem;color:rgba(255,255,255,.45);flex-wrap:wrap;gap:8px}
+.footer-bottom a{color:rgba(255,255,255,.55);transition:color var(--t)}
+.footer-bottom a:hover{color:var(--ca)}
+
+/* RESPONSIVE SECTIONS */
+@media(max-width:900px){
+.srv-grid{grid-template-columns:1fr 1fr}
+.metier-grid,.contact-grid,.footer-top{grid-template-columns:1fr;gap:32px}
+.metier-grid.rev{direction:ltr}
+.avis-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+.srv-grid,.gal-grid,.avis-grid{grid-template-columns:1fr}
+.form-row{grid-template-columns:1fr}
+.footer-top{grid-template-columns:1fr;gap:28px}
+.footer-bottom{flex-direction:column;text-align:center}
+.gal-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+.gal-grid{grid-template-columns:1fr}
+.form-wrap{padding:24px 16px}
+.badges{gap:10px}
+.badge-item{font-size:.8rem;padding:8px 16px}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s" id="services">
+  <div class="s-inner">
+    <div class="s-head">
+      <span class="s-tag">Nos prestations</span>
+      <h2 class="h2">Un savoir-faire pour chaque besoin</h2>
+      <div class="divider-gold"></div>
+      <p class="s-desc">Coupes, couleurs, soins et plus encore — chaque prestation est pensée pour sublimer votre chevelure et vous faire rayonner à Nouméa.</p>
+    </div>
+    <div class="srv-filter">
+      <button class="srv-btn active" data-cat="tous">Tout voir</button>
+      <button class="srv-btn" data-cat="coupe">Coupes</button>
+      <button class="srv-btn" data-cat="couleur">Couleurs</button>
+      <button class="srv-btn" data-cat="soin">Soins</button>
+      <button class="srv-btn" data-cat="coiffage">Coiffage</button>
+    </div>
+    <div class="srv-grid" id="srvGrid">
+      <div class="srv-card" data-cat="coupe">
+        <div class="srv-body">
+          <div class="srv-icon">✂️</div>
+          <span class="srv-cat">Coupe</span>
+          <div class="srv-title">Coupe Femme</div>
+          <p class="srv-desc">Coupe sur mesure adaptée à votre morphologie et vos envies — shampooing, brushing et finitions inclus.</p>
+          <div class="srv-meta">
+            <span class="srv-price">À partir de 4 500 XPF</span>
+            <span class="srv-dur">~45 min</span>
+          </div>
+          <a href="#contact" class="srv-cta">Réserver</a>
+        </div>
+      </div>
+      <div class="srv-card" data-cat="coupe">
+        <div class="srv-body">
+          <div class="srv-icon">💈</div>
+          <span class="srv-cat">Coupe</span>
+          <div class="srv-title">Coupe Homme</div>
+          <p class="srv-desc">Coupe précise et travaillée, avec finitions soignées. Du classique au contemporain, selon votre style.</p>
+          <div class="srv-meta">
+            <span class="srv-price">À partir de 2 800 XPF</span>
+            <span class="srv-dur">~30 min</span>
+          </div>
+          <a href="#contact" class="srv-cta">Réserver</a>
+        </div>
+      </div>
+      <div class="srv-card" data-cat="couleur">
+        <div class="srv-body">
+          <div class="srv-icon">🎨</div>
+          <span class="srv-cat">Couleur</span>
+          <div class="srv-title">Coloration</div>
+          <p class="srv-desc">Coloration pleine tête ou retouche racines, réalisée avec des produits respectueux de votre fibre capillaire.</p>
+          <div class="srv-meta">
+            <span class="srv-price">À partir de 6 500 XPF</span>
+            <span class="srv-dur">~1h30</span>
+          </div>
+          <a href="#contact" class="srv-cta">Réserver</a>
+        </div>
+      </div>
+      <div class="srv-card" data-cat="couleur">
+        <div class="srv-body">
+          <div class="srv-icon">✨</div>
+          <span class="srv-cat">Couleur</span>
+          <div class="srv-title">Balayage & Mèches</div>
+          <p class="srv-desc">Balayage naturel, mèches ensoleillées ou ombré hair — pour un résultat lumineux et harmonieux.</p>
+          <div class="srv-meta">
+            <span class="srv-price">À partir de 9 000 XPF</span>
+            <span class="srv-dur">~2h</span>
+          </div>
+          <a href="#contact" class="srv-cta">Réserver</a>
+        </div>
+      </div>
+      <div class="srv-card" data-cat="soin">
+        <div class="srv-body">
+          <div class="srv-icon">💆</div>
+          <span class="srv-cat">Soin</span>
+          <div class="srv-title">Soin Profond</div>
+          <p class="srv-desc">Masque nourrissant ou restructurant appliqué en cabine pour redonner vie et éclat à vos cheveux abîmés.</p>
+          <div class="srv-meta">
+            <span class="srv-price">À partir de 3 200 XPF</span>
+            <span class="srv-dur">~30 min</span>
+          </div>
+          <a href="#contact" class="srv-cta">Réserver</a>
+        </div>
+      </div>
+      <div class="srv-card" data-cat="coiffage">
+        <div class="srv-body">
+          <div class="srv-icon">💍</div>
+          <span class="srv-cat">Coiffage</span>
+          <div class="srv-title">Chignon & Mise en plis</div>
+          <p class="srv-desc">Chignon élaboré, mise en plis ou coiffure de cérémonie pour vos occasions spéciales à Nouméa.</p>
+          <div class="srv-meta">
+            <span class="srv-price">À partir de 5 500 XPF</span>
+            <span class="srv-dur">~1h</span>
+          </div>
+          <a href="#contact" class="srv-cta">Réserver</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s metier" id="metier">
+  <div class="s-inner">
+    <div class="metier-grid">
+      <div class="metier-img">
+        <img src="https://i.ibb.co/C5xLHdrt/C-Ludovik-1.jpg" alt="Intérieur du salon C.Ludovik, ambiance végétale et élégante" loading="lazy">
+      </div>
+      <div class="metier-text">
+        <span class="metier-tag">Notre philosophie</span>
+        <h2 class="h2">Un salon pensé pour vous, au cœur de Nouméa</h2>
+        <div class="divider-gold"></div>
+        <p class="metier-body">Chez C.Ludovik, chaque visite est un moment rien qu'à vous. Dans un cadre alliant murs vert forêt, mobilier noir mat et touches dorées, nous prenons le temps de comprendre votre chevelure, votre style de vie et vos envies avant de saisir le moindre outil.</p>
+        <p class="metier-body">Notre engagement : une écoute attentive, un diagnostic précis et un résultat qui vous ressemble — à chaque passage.</p>
+        <ul class="metier-list">
+          <li class="metier-item">
+            <div class="metier-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+            <span>Consultation personnalisée incluse à chaque rendez-vous</span>
+          </li>
+          <li class="metier-item">
+            <div class="metier-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+            <span>Produits professionnels adaptés à votre type de cheveux</span>
+          </li>
+          <li class="metier-item">
+            <div class="metier-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+            <span>Suivi de votre couleur et de votre coupe dans le temps</span>
+          </li>
+          <li class="metier-item">
+            <div class="metier-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+            <span>Atmosphère chaleureuse et accueil bienveillant, sans jugement</span>
+          </li>
+        </ul>
+        <a href="#contact" class="btn btn-primary btn-lg" style="">Prendre rendez-vous</a>
+      </div>
+    </div>
+    <div class="metier-grid rev" style="margin-top:72px">
+      <div class="metier-text">
+        <span class="metier-tag">L'expertise capillaire</span>
+        <h2 class="h2">La couleur comme signature, la coupe comme portrait</h2>
+        <div class="divider-gold"></div>
+        <p class="metier-body">De la coloration naturelle aux techniques de balayage les plus abouties, C.Ludovik maîtrise l'art de la transformation capillaire avec finesse. Chaque technique est choisie en fonction de l'état de vos cheveux et du résultat désiré.</p>
+        <ul class="metier-list">
+          <li class="metier-item">
+            <div class="metier-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+            <span>Techniques de couleur tendance et durables</span>
+          </li>
+          <li class="metier-item">
+            <div class="metier-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+            <span>Coupes femme, homme et enfant</span>
+          </li>
+          <li class="metier-item">
+            <div class="metier-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+            <span>Coiffures de cérémonie pour vos événements</span>
+          </li>
+        </ul>
+        <a href="#services" class="btn btn-primary btn-lg">Voir toutes les prestations</a>
+      </div>
+      <div class="metier-img">
+        <img src="https://i.ibb.co/m5hQRy8W/C-Ludovik-2.jpg" alt="Prestation de coiffure réalisée au salon C.Ludovik" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s gal-bg" id="galerie">
+  <div class="s-inner">
+    <div class="s-head">
+      <span class="s-tag">Galerie</span>
+      <h2 class="h2">Nos réalisations</h2>
+      <div class="divider-gold"></div>
+      <p class="s-desc">Un aperçu de l'ambiance du salon et de notre savoir-faire — chaque photo raconte une transformation réelle.</p>
+    </div>
+    <div class="gal-grid" id="galGrid">
+      <div class="gal-item" data-idx="0">
+        <img src="https://i.ibb.co/R44xNxT0/C-Ludovik-0.jpg" alt="Salon C.Ludovik - vue générale" loading="lazy">
+      </div>
+      <div class="gal-item" data-idx="1">
+        <img src="https://i.ibb.co/C5xLHdrt/C-Ludovik-1.jpg" alt="Salon C.Ludovik - intérieur végétal" loading="lazy">
+      </div>
+      <div class="gal-item" data-idx="2">
+        <img src="https://i.ibb.co/m5hQRy8W/C-Ludovik-2.jpg" alt="Salon C.Ludovik - prestation coiffure" loading="lazy">
+      </div>
+      <div class="gal-item" data-idx="3">
+        <img src="https://i.ibb.co/zhwN9qzH/C-Ludovik-3.jpg" alt="Salon C.Ludovik - réalisation" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lb">
+  <button class="lb-close" id="lbClose">✕</button>
+  <button class="lb-prev" id="lbPrev">‹</button>
+  <img class="lb-img" id="lbImg" src="" alt="Photo agrandie">
+  <button class="lb-next" id="lbNext">›</button>
+</div>
+
+<!-- FORMULAIRE -->
+<section class="s contact-bg" id="contact">
+  <div class="s-inner">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div>
+          <span class="s-tag" style="color:var(--ca)">Contact & Réservation</span>
+          <h2 class="contact-info-title" style="margin-top:10px">Prenons rendez-vous ensemble</h2>
+        </div>
+        <p class="contact-info-desc">Envoyez-nous un message et nous vous recontacterons rapidement pour confirmer votre créneau. Vous pouvez aussi nous appeler directement.</p>
+        <div class="contact-detail">
+          <div class="contact-row">
+            <div class="contact-ico">📍</div>
+            <div class="contact-row-text">
+              <strong>Adresse</strong>
+              19 rue Auguste Mercier, Bd Extérieur<br>Nouméa 98800, Nouvelle-Calédonie
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-ico">📞</div>
+            <div class="contact-row-text">
+              <strong>Téléphone</strong>
+              <a href="tel:+68735313">35.31.35</a>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-ico">🕐</div>
+            <div class="contact-row-text">
+              <strong>Horaires</strong>
+              Sur rendez-vous — contactez-nous pour disponibilités
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-wrap">
+        <div class="form-success" id="formSuccess">
+          ✅ Votre message a bien été envoyé ! Nous vous recontacterons très prochainement.
+        </div>
+        <form id="contactForm" action="#" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="fname">Prénom & Nom *</label>
+              <input class="form-input" type="text" id="fname" name="nom" placeholder="Marie Dupont" autocomplete="name">
+              <span class="form-err" id="errNom">Veuillez indiquer votre nom.</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="fphone">Téléphone *</label>
+              <input class="form-input" type="tel" id="fphone" name="telephone" placeholder="xx.xx.xx" autocomplete="tel">
+              <span class="form-err" id="errTel">Numéro requis.</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="femail">Email *</label>
+            <input class="form-input" type="email" id="femail" name="email" placeholder="marie@email.com" autocomplete="email">
+            <span class="form-err" id="errEmail">Email invalide.</span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fmsg">Votre message *</label>
+            <textarea class="form-input" id="fmsg" name="message" placeholder="Prestation souhaitée, date, questions..."></textarea>
+            <span class="form-err" id="errMsg">Veuillez rédiger un message.</span>
+          </div>
+          <button type="submit" class="form-submit" id="formBtn">
+            <span id="btnTxt">Envoyer ma demande</span>
+            <span id="btnLoad" style="display:none">⏳</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s avis-bg" id="avis">
+  <div class="s-inner">
+    <div class="s-head">
+      <span class="s-tag">Avis clients</span>
+      <h2 class="h2">Ce que disent nos clients</h2>
+      <div class="divider-gold"></div>
+    </div>
+    <div style="display:flex;justify-content:center;margin-bottom:40px">
+      <div class="rating-block">
+        <div class="rating-big">4.7</div>
+        <div class="stars">★★★★★</div>
+        <div class="rating-sub">sur 13 avis Google vérifiés</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" loading="lazy" style="height:20px;margin-top:8px;opacity:.7">
+      </div>
+    </div>
+    <div class="avis-grid">
+      <div class="avis-card">
+        <div class="avis-header">
+          <div class="avis-avatar">M</div>
+          <div>
+            <div class="avis-name">Marie-Cécile</div>
+            <div class="avis-date">Nouméa</div>
+          </div>
+        </div>
+        <div class="stars" style="font-size:.9rem">★★★★★</div>
+        <p class="avis-text">Une vraie expérience de qualité. L'accueil est chaleureux, le salon est magnifique et le résultat est exactement ce que je voulais. Je reviendrai sans hésiter !</p>
+      </div>
+      <div class="avis-card">
+        <div class="avis-header">
+          <div class="avis-avatar">J</div>
+          <div>
+            <div class="avis-name">Julien</div>
+            <div class="avis-date">Nouméa</div>
+          </div>
+        </div>
+        <div class="stars" style="font-size:.9rem">★★★★★</div>
+        <p class="avis-text">Coupe propre, précise et bien travaillée. L'ambiance du salon est super agréable. Je recommande à tous ceux qui cherchent un bon coiffeur à Nouméa.</p>
+      </div>
+      <div class="avis-card">
+        <div class="avis-header">
+          <div class="avis-avatar">S</div>
+          <div>
+            <div class="avis-name">Sophie</div>
+            <div class="avis-date">Nouméa</div>
+          </div>
+        </div>
+        <div class="stars" style="font-size:.9rem">★★★★☆</div>
+        <p class="avis-text">Très satisfaite de mon balayage — naturel et lumineux comme je le souhaitais. Le diagnostic avant la prestation est vraiment appréciable. Merci !</p>
+      </div>
+    </div>
+    <div class="badges">
+      <div class="badge-item"><span class="badge-ico">🏆</span> Salon de confiance à Nouméa</div>
+      <div class="badge-item"><span class="badge-ico">⭐</span> Note 4.7/5 Google</div>
+      <div class="badge-item"><span class="badge-ico">✂️</span> Expertise coupes & couleurs</div>
+      <div class="badge-item"><span class="badge-ico">💚</span> Cadre végétal & bien-être</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">C.<span>Ludovik</span></div>
+        <p class="footer-about">Salon de coiffure élégant et végétal au cœur de Nouméa — coupes, colorations, soins et coiffages réalisés avec soin et expertise pour chaque client.</p>
+        <div class="footer-socials">
+          <a class="social-ico" href="https://www.facebook.com/p/CLudovik-Coiffeur-100090621597447" target="_blank" rel="noopener" aria-label="Facebook C.Ludovik">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-h">Navigation</div>
+        <div class="footer-links">
+          <a href="#services">Nos prestations</a>
+          <a href="#metier">Notre philosophie</a>
+          <a href="#galerie">Galerie</a>
+          <a href="#avis">Avis clients</a>
+          <a href="#contact">Réservation</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-h">Nous trouver</div>
+        <address class="footer-address" style="font-style:normal">
+          19 rue Auguste Mercier<br>
+          Bd Extérieur<br>
+          Nouméa 98800<br>
+          Nouvelle-Calédonie<br><br>
+          <a href="tel:+68735313">📞 35.31.35</a>
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 C.Ludovik. Tous droits réservés.</span>
+      <a href="https://setup.nc" target="_blank" rel="noopener">Site réalisé par Setup NC</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+var hbg2=document.getElementById('hbg'),mob2=document.getElementById('mob');
+
+// FILTRE SERVICES
+document.querySelectorAll('.srv-btn').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.srv-btn').forEach(function(x){x.classList.remove('active');});
+    b.classList.add('active');
+    var cat=b.dataset.cat;
+    document.querySelectorAll('.srv-card').forEach(function(c){
+      c.style.display=(cat==='tous'||c.dataset.cat===cat)?'flex':'none';
+    });
+  });
+});
+
+// LIGHTBOX
+var imgs=['https://i.ibb.co/R44xNxT0/C-Ludovik-0.jpg','https://i.ibb.co/C5xLHdrt/C-Ludovik-1.jpg','https://i.ibb.co/m5hQRy8W/C-Ludovik-2.jpg','https://i.ibb.co/zhwN9qzH/C-Ludovik-3.jpg'];
+var lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),cur=0;
+function openLb(i){cur=i;lbImg.src=imgs[i];lb.classList.add('open');document.body.style.overflow='hidden';}
+function closeLb(){lb.classList.remove('open');document.body.style.overflow='';}
+document.querySelectorAll('.gal-item').forEach(function(el){el.addEventListener('click',function(){openLb(parseInt(el.dataset.idx));});});
+document.getElementById('lbClose').addEventListener('click',closeLb);
+document.getElementById('lbPrev').addEventListener('click',function(){cur=(cur-1+imgs.length)%imgs.length;lbImg.src=imgs[cur];});
+document.getElementById('lbNext').addEventListener('click',function(){cur=(cur+1)%imgs.length;lbImg.src=imgs[cur];});
+lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft'){cur=(cur-1+imgs.length)%imgs.length;lbImg.src=imgs[cur];}if(e.key==='ArrowRight'){cur=(cur+1)%imgs.length;lbImg.src=imgs[cur];}});
+
+// FORMULAIRE
+document.getElementById('contactForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var nom=document.getElementById('fname').value.trim();
+  var tel=document.getElementById('fphone').value.trim();
+  var email=document.getElementById('femail').value.trim();
+  var msg=document.getElementById('fmsg').value.trim();
+  var ok=true;
+  var re=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  document.getElementById('errNom').classList.toggle('show',!nom);
+  document.getElementById('errTel').classList.toggle('show',!tel);
+  document.getElementById('errEmail').classList.toggle('show',!re.test(email));
+  document.getElementById('errMsg').classList.toggle('show',!msg);
+  if(!nom||!tel||!re.test(email)||!msg)return;
+  var btn=document.getElementById('formBtn');
+  document.getElementById('btnTxt').style.display='none';
+  document.getElementById('btnLoad').style.display='inline';
+  btn.disabled=true;
+  setTimeout(function(){
+    document.getElementById('contactForm').style.display='none';
+    document.getElementById('formSuccess').classList.add('show');
+  },1200);
+});
+</script>
+</body>
+</html>
