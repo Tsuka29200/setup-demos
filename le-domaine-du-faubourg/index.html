@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Le Domaine du Faubourg — Nouméa</title>
+<meta name="description" content="Bar à vins urbain au cœur de Nouméa. Cave raffinée, ambiance industrielle chaleureuse, sélection de vins d'exception. Réservez votre table.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#1C1C1C;
+--cs:#C0392B;
+--ca:#C8963E;
+--cb:#121212;
+--ct:#F0EDE6;
+--cw:#ffffff;
+--cl:#F0EDE6;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Lato',sans-serif;background:var(--cb);color:var(--ct);overflow-x:hidden;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+.h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,7vw,5.5rem);font-weight:900;line-height:1.1;letter-spacing:-0.02em}
+.h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:700;line-height:1.2}
+.h3{font-family:'Playfair Display',serif;font-size:clamp(1.2rem,2.5vw,1.6rem);font-weight:700}
+.tag{font-family:'Lato',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--ca)}
+.s{width:100%;padding:80px 0}
+.s-dark{background:var(--cb)}
+.s-mid{background:var(--cp)}
+.s-light{background:var(--cl);color:var(--cp)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.wrap-sm{max-width:780px;margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:'Lato',sans-serif;font-weight:700;font-size:0.9rem;letter-spacing:0.12em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.35s ease;min-height:48px;padding:0 28px;border-radius:2px}
+.btn-red{background:var(--cs);color:var(--cw)}
+.btn-red:hover{background:#a93226;box-shadow:0 0 24px rgba(192,57,43,0.4)}
+.btn-outline{background:transparent;color:var(--ct);border:1.5px solid var(--cs)}
+.btn-outline:hover{background:var(--cs);color:var(--cw)}
+.btn-gold{background:var(--ca);color:var(--cb)}
+.btn-gold:hover{background:#b5832e;box-shadow:0 0 20px rgba(200,150,62,0.35)}
+.gold{color:var(--ca)}
+.red{color:var(--cs)}
+.tc{text-align:center}
+.flex{display:flex}
+.grid{display:grid}
+
+/* BANDEAU PROMO */
+#promo{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;display:flex;align-items:center;justify-content:center}
+#promo a{font-family:'Manrope','Plus Jakarta Sans',system-ui,sans-serif;font-weight:700;font-size:14px;line-height:44px;letter-spacing:0.3px;color:#4375ff;text-align:center}
+#promo a:hover{opacity:0.85}
+
+/* HEADER */
+#hdr{position:fixed;top:44px;left:0;width:100%;z-index:1000;background:rgba(18,18,18,0.95);backdrop-filter:blur(8px);border-bottom:1px solid rgba(200,150,62,0.15);transition:background 0.3s}
+.hdr-inner{display:flex;align-items:center;justify-content:space-between;height:68px;padding:0 24px;max-width:1340px;margin:0 auto}
+.logo{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--ct);letter-spacing:0.05em}
+.logo span{color:var(--ca)}
+.nav{display:flex;align-items:center;gap:32px;list-style:none}
+.nav a{font-family:'Lato',sans-serif;font-size:0.82rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ct);opacity:0.8;transition:opacity 0.2s,color 0.2s}
+.nav a:hover{opacity:1;color:var(--ca)}
+.hdr-cta{display:flex;align-items:center;gap:16px}
+.tel-link{font-family:'Lato',sans-serif;font-size:0.82rem;font-weight:700;color:var(--ca);letter-spacing:0.06em}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.ham span{display:block;width:24px;height:2px;background:var(--ct);transition:all 0.3s}
+.mob-nav{display:none;position:fixed;top:112px;left:0;width:100%;background:rgba(18,18,18,0.98);padding:24px;flex-direction:column;gap:0;z-index:999;border-bottom:1px solid rgba(200,150,62,0.2)}
+.mob-nav a{display:block;font-family:'Lato',sans-serif;font-weight:700;font-size:1rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ct);padding:14px 0;border-bottom:1px solid rgba(240,237,230,0.08)}
+.mob-nav a:last-child{border-bottom:none;color:var(--ca)}
+.mob-nav.open{display:flex}
+
+/* HERO */
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding-top:112px}
+.hero-bg{position:absolute;inset:0;background-image:url('https://i.ibb.co/60TpYSnB/Le-Domaine-du-Faubourg-0.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;transform:scale(1.03);transition:transform 8s ease-out}
+.hero-bg.loaded{transform:scale(1)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(18,18,18,0.72) 0%,rgba(18,18,18,0.42) 50%,rgba(18,18,18,0.78) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;padding:0 20px;max-width:860px}
+.hero-eyebrow{display:inline-block;font-family:'Lato',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:var(--ca);margin-bottom:20px;padding:6px 14px;border:1px solid rgba(200,150,62,0.4);border-radius:1px}
+.hero-content .h1{color:var(--cw);margin-bottom:20px;text-shadow:0 2px 40px rgba(0,0,0,0.5)}
+.hero-content .h1 em{color:var(--ca);font-style:italic}
+.hero-sub{font-family:'Lato',sans-serif;font-size:clamp(1rem,2vw,1.2rem);font-weight:300;color:rgba(240,237,230,0.88);margin-bottom:36px;line-height:1.7;max-width:560px;margin-left:auto;margin-right:auto}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0.7}
+.hero-scroll span{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;font-family:'Lato',sans-serif;color:var(--ct)}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--ca),transparent);animation:scrollpulse 2s ease-in-out infinite}
+@keyframes scrollpulse{0%,100%{opacity:0.4;transform:scaleY(0.7)}50%{opacity:1;transform:scaleY(1)}}
+
+/* STATS */
+#stats{background:var(--cs);padding:52px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat-item{text-align:center;padding:20px 12px;border-right:1px solid rgba(255,255,255,0.18);position:relative}
+.stat-item:last-child{border-right:none}
+.stat-num{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3.4rem);font-weight:900;color:var(--cw);line-height:1;display:block}
+.stat-label{font-family:'Lato',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.78);margin-top:8px;display:block}
+.stat-sep{position:absolute;right:0;top:50%;transform:translateY(-50%);width:1px;height:40%;background:rgba(255,255,255,0.2)}
+
+/* FALLBACK ANIMATIONS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.nav,.hdr-cta .btn{display:none}
+.ham{display:flex}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.stat-item:nth-child(2){border-right:none}
+.stat-item:nth-child(3){border-top:1px solid rgba(255,255,255,0.18)}
+}
+@media(max-width:480px){
+#promo a{font-size:13px;line-height:40px;padding:0 12px}
+#promo{height:40px}
+#hdr{top:40px}
+#hero{padding-top:108px}
+.mob-nav{top:108px}
+.hdr-inner{height:60px;padding:0 16px}
+.hero-btns .btn{width:100%;min-width:0}
+.hero-btns{flex-direction:column;align-items:center}
+.stats-grid{grid-template-columns:1fr 1fr;gap:0}
+.stat-item:nth-child(2){border-right:none}
+.s{padding:56px 0}
+.wrap{padding:0 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div id="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="hdr-inner">
+    <a href="#hero" class="logo">Le Domaine <span>du Faubourg</span></a>
+    <ul class="nav">
+      <li><a href="#menu">La Carte</a></li>
+      <li><a href="#ambiance">L'Ambiance</a></li>
+      <li><a href="#reservation">Réserver</a></li>
+      <li><a href="#histoire">Notre Histoire</a></li>
+      <li><a href="#avis">Avis</a></li>
+      <li><a href="#acces">Accès</a></li>
+    </ul>
+    <div class="hdr-cta">
+      <a href="tel:+68743359" class="tel-link">43.35.99</a>
+      <a href="#reservation" class="btn btn-red">Réserver</a>
+    </div>
+    <div class="ham" id="hamBtn" aria-label="Menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<nav class="mob-nav" id="mobNav">
+  <a href="#menu" class="mob-link">La Carte</a>
+  <a href="#ambiance" class="mob-link">L'Ambiance</a>
+  <a href="#reservation" class="mob-link">Réserver</a>
+  <a href="#histoire" class="mob-link">Notre Histoire</a>
+  <a href="#avis" class="mob-link">Avis</a>
+  <a href="#acces" class="mob-link">Accès</a>
+  <a href="tel:+68743359" class="mob-link">📞 43.35.99</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Bar à Vins — Nouméa</span>
+    <h1 class="h1">Le Domaine<br><em>du Faubourg</em></h1>
+    <p class="hero-sub">Cave raffinée. Bar de quartier. Un lieu unique où la découverte du vin se vit sans chichis, dans une atmosphère béton et chaleur humaine.</p>
+    <div class="hero-btns">
+      <a href="#reservation" class="btn btn-red">Réserver une table</a>
+      <a href="#menu" class="btn btn-outline">Voir la carte</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Découvrir</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-num" data-target="120">0</span>
+        <span class="stat-label">Références de vins</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="2">0</span>
+        <span class="stat-label">Espaces distincts</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="7">0</span>
+        <span class="stat-label">Soirs par semaine</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="100">0</span>
+        <span class="stat-label">% Passion du terroir</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+var ham=document.getElementById('hamBtn'),nav=document.getElementById('mobNav');
+ham.addEventListener('click',function(){nav.classList.toggle('open')});
+nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open')})});
+document.getElementById('heroBg').classList.add('loaded');
+var nums=document.querySelectorAll('[data-target]'),done=false;
+function countUp(){
+if(done)return;done=true;
+nums.forEach(function(el){
+var t=+el.getAttribute('data-target'),d=1200,s=30,steps=d/s,inc=t/steps,cur=0;
+var iv=setInterval(function(){cur+=inc;if(cur>=t){cur=t;clearInterval(iv)}el.textContent=Math.round(cur)+(el.getAttribute('data-target')==='100'?'%':'')},s);
+});
+}
+if('IntersectionObserver' in window){
+var obs=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting)countUp()})},{threshold:0.3});
+obs.observe(document.getElementById('stats'));
+}else{countUp()}
+})();
+</script>
+<style>
+/* ACCROCHE */
+#accroche{background:var(--cl);color:var(--cp)}
+.accroche-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.accroche-img{border-radius:2px;overflow:hidden;position:relative}
+.accroche-img img{width:100%;height:420px;object-fit:cover;transition:transform 0.6s ease}
+.accroche-img:hover img{transform:scale(1.04)}
+.accroche-img::after{content:'';position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(200,150,62,0.3)}
+.accroche-text .tag{color:var(--cs)}
+.accroche-text .h2{margin:16px 0 20px}
+.accroche-text p{font-size:1rem;line-height:1.8;color:#3a3530;margin-bottom:16px}
+.duality{display:flex;gap:24px;margin-top:28px}
+.duality-item{flex:1;padding:20px;background:rgba(192,57,43,0.06);border-left:3px solid var(--cs);border-radius:1px}
+.duality-item strong{display:block;font-family:'Playfair Display',serif;font-size:1rem;color:var(--cp);margin-bottom:6px}
+.duality-item span{font-size:0.85rem;color:#5a5550;line-height:1.6}
+
+/* MENU */
+#menu{background:var(--cb)}
+.menu-header{text-align:center;margin-bottom:56px}
+.menu-header .h2{color:var(--cw);margin:16px 0 12px}
+.menu-header p{color:rgba(240,237,230,0.7);font-size:0.95rem;max-width:480px;margin:0 auto}
+.menu-cats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.menu-cat{background:var(--cp);border-radius:2px;overflow:hidden;border:1px solid rgba(200,150,62,0.12);transition:border-color 0.35s,box-shadow 0.35s}
+.menu-cat:hover{border-color:rgba(200,150,62,0.4);box-shadow:0 8px 40px rgba(0,0,0,0.4),inset 0 0 0 1px rgba(200,150,62,0.15)}
+.cat-head{padding:20px 24px 16px;border-bottom:1px solid rgba(240,237,230,0.08);display:flex;align-items:center;gap:12px}
+.cat-icon{width:36px;height:36px;background:rgba(192,57,43,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.cat-head .h3{color:var(--cw)}
+.cat-body{padding:20px 24px}
+.menu-item{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0;border-bottom:1px solid rgba(240,237,230,0.06)}
+.menu-item:last-child{border-bottom:none}
+.item-info strong{display:block;font-family:'Lato',sans-serif;font-weight:700;font-size:0.9rem;color:var(--ct)}
+.item-info span{font-size:0.78rem;color:rgba(240,237,230,0.5);line-height:1.5}
+.item-price{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:700;color:var(--cs);white-space:nowrap;margin-left:12px;flex-shrink:0}
+
+/* GALERIE */
+#ambiance{background:var(--cp)}
+.galerie-header{text-align:center;margin-bottom:40px}
+.galerie-header .h2{color:var(--cw);margin:16px 0 12px}
+.galerie-header p{color:rgba(240,237,230,0.65);max-width:480px;margin:0 auto;font-size:0.95rem}
+.galerie-grid{display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:auto auto;gap:16px}
+.gal-item{overflow:hidden;border-radius:2px;cursor:pointer;position:relative}
+.gal-item:first-child{grid-column:1;grid-row:1/3}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease,filter 0.4s ease;filter:brightness(0.88)}
+.gal-item:first-child img{min-height:480px}
+.gal-item:not(:first-child) img{min-height:220px}
+.gal-item:hover img{transform:scale(1.06);filter:brightness(1)}
+.gal-item::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(18,18,18,0.5) 0%,transparent 50%);pointer-events:none}
+.gal-item:hover::after{background:linear-gradient(to top,rgba(200,150,62,0.2) 0%,transparent 60%)}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:2000;align-items:center;justify-content:center;padding:20px}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:88vh;object-fit:contain;border-radius:2px;box-shadow:0 0 60px rgba(200,150,62,0.2)}
+.lb-close{position:absolute;top:20px;right:24px;font-size:2rem;color:var(--ct);cursor:pointer;line-height:1;opacity:0.8;transition:opacity 0.2s}
+.lb-close:hover{opacity:1;color:var(--ca)}
+
+/* RESERVATION */
+#reservation{background:var(--cb);position:relative;overflow:hidden}
+#reservation::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(192,57,43,0.08) 0%,transparent 70%)}
+.resa-inner{position:relative;z-index:1;max-width:680px;margin:0 auto;text-align:center}
+.resa-inner .tag{display:block;margin-bottom:16px}
+.resa-inner .h2{color:var(--cw);margin-bottom:16px}
+.resa-inner>p{color:rgba(240,237,230,0.7);margin-bottom:44px;font-size:1rem;line-height:1.8}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;text-align:left}
+.form-full{grid-column:1/-1}
+.f-group{display:flex;flex-direction:column;gap:6px}
+.f-label{font-family:'Lato',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ca)}
+.f-input{background:rgba(240,237,230,0.06);border:1px solid rgba(240,237,230,0.15);border-radius:2px;padding:12px 16px;color:var(--ct);font-family:'Lato',sans-serif;font-size:0.95rem;width:100%;transition:border-color 0.3s,background 0.3s;outline:none;min-height:48px}
+.f-input:focus{border-color:var(--ca);background:rgba(200,150,62,0.06)}
+.f-input.err{border-color:var(--cs)}
+textarea.f-input{min-height:110px;resize:vertical}
+.f-submit{margin-top:8px}
+.f-submit .btn{width:100%;font-size:0.95rem;min-height:52px;position:relative}
+.f-loader{display:none;width:20px;height:20px;border:2px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;animation:spin 0.7s linear infinite;margin:0 auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+.f-success{display:none;background:rgba(200,150,62,0.12);border:1px solid var(--ca);border-radius:2px;padding:20px 24px;text-align:center;color:var(--ca);font-weight:700;font-size:0.95rem;letter-spacing:0.04em}
+.f-err-msg{font-size:0.75rem;color:var(--cs);margin-top:4px;display:none}
+.f-err-msg.show{display:block}
+
+/* HISTOIRE */
+#histoire{background:var(--cl);color:var(--cp)}
+.histoire-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.histoire-img{border-radius:2px;overflow:hidden;box-shadow:20px 20px 0 rgba(192,57,43,0.15)}
+.histoire-img img{width:100%;height:480px;object-fit:cover;transition:transform 0.6s ease}
+.histoire-img:hover img{transform:scale(1.04)}
+.histoire-text .tag{color:var(--cs)}
+.histoire-text .h2{margin:14px 0 20px;color:var(--cp)}
+.histoire-text p{font-size:1rem;line-height:1.85;color:#3a3530;margin-bottom:18px}
+.pts{list-style:none;margin-top:24px;display:flex;flex-direction:column;gap:12px}
+.pts li{display:flex;align-items:flex-start;gap:12px;font-size:0.92rem;color:#3a3530}
+.pts li::before{content:'';flex-shrink:0;width:18px;height:18px;background:var(--cs);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:2px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23fff' d='M3 8l3.5 3.5L13 4.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;background-size:12px}
+
+/* AVIS */
+#avis{background:var(--cb)}
+.avis-header{text-align:center;margin-bottom:48px}
+.avis-header .h2{color:var(--cw);margin:16px 0 12px}
+.avis-header p{color:rgba(240,237,230,0.65);max-width:480px;margin:0 auto;font-size:0.95rem}
+.google-badge{display:inline-flex;align-items:center;gap:14px;background:var(--cp);border:1px solid rgba(200,150,62,0.2);border-radius:4px;padding:16px 28px;margin-bottom:48px}
+.gb-logo{display:flex;align-items:center;gap:8px;font-family:'Lato',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(240,237,230,0.6)}
+.gb-score{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:900;color:var(--cw);line-height:1}
+.gb-stars{display:flex;flex-direction:column;gap:4px}
+.stars{display:flex;gap:3px}
+.star{color:var(--ca);font-size:1rem}
+.star.half{opacity:0.4}
+.gb-count{font-size:0.75rem;color:rgba(240,237,230,0.5);letter-spacing:0.06em}
+.temoignages{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.temo{background:var(--cp);border-radius:2px;padding:28px;border:1px solid rgba(200,150,62,0.1);transition:border-color 0.3s}
+.temo:hover{border-color:rgba(200,150,62,0.35)}
+.temo-stars{display:flex;gap:3px;margin-bottom:14px}
+.temo-text{font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;color:var(--ct);line-height:1.7;margin-bottom:18px}
+.temo-author{display:flex;align-items:center;gap:10px}
+.temo-avatar{width:36px;height:36px;border-radius:50%;background:var(--cs);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:0.9rem;color:var(--cw);flex-shrink:0}
+.temo-name strong{display:block;font-size:0.85rem;color:var(--ct);font-weight:700}
+.temo-name span{font-size:0.75rem;color:rgba(240,237,230,0.45);letter-spacing:0.06em}
+
+/* ACCES */
+#acces{background:var(--cp)}
+.acces-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.acces-info .tag{margin-bottom:16px;display:block}
+.acces-info .h2{color:var(--cw);margin-bottom:28px}
+.info-block{margin-bottom:24px}
+.info-block strong{display:block;font-size:0.75rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--ca);margin-bottom:8px}
+.info-block p,.info-block a{font-size:0.95rem;color:rgba(240,237,230,0.78);line-height:1.75}
+.info-block a:hover{color:var(--ca)}
+.horaires-table{width:100%;border-collapse:collapse}
+.horaires-table tr{border-bottom:1px solid rgba(240,237,230,0.07)}
+.horaires-table td{padding:9px 0;font-size:0.9rem;color:rgba(240,237,230,0.75)}
+.horaires-table td:last-child{text-align:right;color:var(--ca);font-weight:700}
+.horaires-table .closed{color:rgba(240,237,230,0.35)!important}
+.map-area{border-radius:2px;overflow:hidden;border:1px solid rgba(200,150,62,0.15)}
+.map-placeholder{width:100%;aspect-ratio:4/3;background:var(--cb);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;cursor:pointer;transition:background 0.3s;text-decoration:none}
+.map-placeholder:hover{background:#0a0a0a}
+.map-placeholder svg{opacity:0.6;transition:opacity 0.3s}
+.map-placeholder:hover svg{opacity:1}
+.map-placeholder span{font-size:0.82rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:rgba(240,237,230,0.5);font-family:'Lato',sans-serif}
+.map-placeholder:hover span{color:var(--ca)}
+
+/* FOOTER */
+#footer{background:var(--cb);border-top:1px solid rgba(200,150,62,0.15);padding:56px 0 32px}
+.footer-inner{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:48px;margin-bottom:40px}
+.footer-brand .logo{font-size:1.1rem;display:inline-block;margin-bottom:14px}
+.footer-brand p{font-size:0.88rem;color:rgba(240,237,230,0.5);line-height:1.75;max-width:300px}
+.footer-socials{display:flex;gap:12px;margin-top:20px;align-items:center}
+.social-btn{width:40px;height:40px;border-radius:2px;background:rgba(240,237,230,0.07);display:flex;align-items:center;justify-content:center;transition:background 0.3s}
+.social-btn:hover{background:var(--cs)}
+.footer-col strong{display:block;font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--ca);margin-bottom:18px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col ul a{font-size:0.88rem;color:rgba(240,237,230,0.55);transition:color 0.2s}
+.footer-col ul a:hover{color:var(--ca)}
+.footer-col address{font-style:normal;font-size:0.88rem;color:rgba(240,237,230,0.55);line-height:1.8}
+.footer-col address a{color:var(--ca);font-weight:700}
+.footer-bottom{border-top:1px solid rgba(240,237,230,0.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:0.78rem;color:rgba(240,237,230,0.35);letter-spacing:0.04em}
+.footer-bottom a{color:rgba(240,237,230,0.5);transition:color 0.2s}
+.footer-bottom a:hover{color:var(--ca)}
+
+/* RESPONSIVE PART 2 */
+@media(max-width:900px){
+.accroche-inner,.histoire-inner,.acces-inner{grid-template-columns:1fr;gap:36px}
+.accroche-img{order:-1}
+.menu-cats{grid-template-columns:1fr}
+.temoignages{grid-template-columns:1fr}
+.footer-inner{grid-template-columns:1fr;gap:32px}
+.galerie-grid{grid-template-columns:1fr 1fr}
+.gal-item:first-child{grid-column:1/-1;grid-row:auto}
+.gal-item:first-child img{min-height:240px}
+.duality{flex-direction:column;gap:12px}
+}
+@media(max-width:480px){
+.form-grid{grid-template-columns:1fr}
+.form-full{grid-column:1}
+.google-badge{flex-direction:column;text-align:center;gap:10px;padding:16px}
+.acces-inner{gap:28px}
+.footer-bottom{flex-direction:column;text-align:center}
+.histoire-img img,.accroche-img img{height:260px}
+}
+</style>
+
+<!-- ACCROCHE ÉMOTIONNELLE -->
+<section id="accroche" class="s s-light">
+  <div class="wrap">
+    <div class="accroche-inner">
+      <div class="accroche-text">
+        <span class="tag">Notre singularité</span>
+        <h2 class="h2">Cave raffinée.<br>Bar de quartier.</h2>
+        <p>Le Domaine du Faubourg est né d'une conviction simple : le bon vin se partage, sans protocole ni prétention. Ici, le béton brut côtoie les bouteilles d'exception, et l'éclairage chaud transforme chaque soirée en moment à part.</p>
+        <p>Deux espaces, une seule âme — un intérieur industriel tamisé et une terrasse vivante où Nouméa respire à son propre rythme.</p>
+        <div class="duality">
+          <div class="duality-item">
+            <strong>La Cave</strong>
+            <span>Plus de 120 références soigneusement sélectionnées, du vin nature au grand classique.</span>
+          </div>
+          <div class="duality-item">
+            <strong>Le Bar</strong>
+            <span>Une atmosphère sans barrières, où la curiosité guide mieux que le guide lui-même.</span>
+          </div>
+        </div>
+      </div>
+      <div class="accroche-img">
+        <img src="https://i.ibb.co/R4gn46YY/Le-Domaine-du-Faubourg-1.jpg" alt="Intérieur du Domaine du Faubourg" loading="lazy" width="600" height="420">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU SIGNATURE -->
+<section id="menu" class="s s-dark">
+  <div class="wrap">
+    <div class="menu-header">
+      <span class="tag">La Carte</span>
+      <h2 class="h2">Ce que l'on partage</h2>
+      <p>Vins au verre, bouteilles à emporter ou planches à partager — le choix vous appartient.</p>
+    </div>
+    <div class="menu-cats">
+      <div class="menu-cat">
+        <div class="cat-head">
+          <div class="cat-icon">🍷</div>
+          <h3 class="h3">Vins au verre</h3>
+        </div>
+        <div class="cat-body">
+          <div class="menu-item">
+            <div class="item-info">
+              <strong>Rouge du moment</strong>
+              <span>Sélection de la semaine, terroir variable</span>
+            </div>
+            <span class="item-price">900 XPF</span>
+          </div>
+          <div class="menu-item">
+            <div class="item-info">
+              <strong>Blanc naturel</strong>
+              <span>Vif, minéral, sans soufre ajouté</span>
+            </div>
+            <span class="item-price">950 XPF</span>
+          </div>
+          <div class="menu-item">
+            <div class="item-info">
+              <strong>Pétillant naturel</strong>
+              <span>Bulles légères, finale fraîche</span>
+            </div>
+            <span class="item-price">1 000 XPF</span>
+          </div>
+          <div class="menu-item">
+            <div class="item-info">
+              <strong>Cuvée du Domaine</strong>
+              <span>Notre coup de cœur du mois</span>
+            </div>
+            <span class="item-price">1 200 XPF</span>
+          </div>
+        </div>
+      </div>
+      <div class="menu-cat">
+        <div class="cat-head">
+          <div class="cat-icon">🧀</div>
+          <h3 class="h3">Planches & tapas</h3>
+        </div>
+        <div class="cat-body">
+          <div class="menu-item">
+            <div class="item-info">
+              <strong>Planche fromages</strong>
+              <span>Assortiment de fromages affinés</span>
+            </div>
+            <span class="item-price">2 200 XPF</span>
+          </div>
+          <div class="menu-item">
+            <div class="item-info">
+              <strong>Planche mixte</strong>
+              <span>Fromages, charcuteries, condiments</span>
+            </div>
+            <span class="item-price">2 800 XPF</span>
+          </div>
+          <div class="menu-item">
+            <div class="item-info">
+              <strong>Tapas du bar</strong>
+              <span>Petites bouchées chaudes du jour</span>
+            </div>
+            <span class="item-price">1 400 XPF</span>
+          </div>
+          <div class="menu-item">
+            <div class="item-info">
+              <strong>Olives marinées</strong>
+              <span>Herbes fraîches, huile d'olive</span>
+            </div>
+            <span class="item-price">700 XPF</span>
+          </div>
+        </div>
+      </div>
+      <div class="menu-cat">
+        <div class="cat-head">
+          <div class="cat-icon">🍾</div>
+          <h3 class="h3">Bouteilles</h3>
+        </div>
+        <div class="cat-body">
+          <div class="menu-item">
+            <div class="item-info">
+              <strong>Entrée de gamme</strong>
+              <span>Découverte accessible, qualité assurée</span>
+            </div>
+            <span class="item-price">dès 3 500 XPF</span>
+          </div>
+          <div class="menu-item">
+            <div class="item-info">
+              <strong>Sélection cave</strong>
+              <span>Références soigneusement choisies</span>
+            </div>
+            <span class="item-price">dès 6 500 XPF</span>
+          </div>
+          <div class="menu-item">
+            <div class="item-info">
+              <strong>Cuvées prestige</strong>
+              <span>Grands millésimes, occasions spéciales</span>
+            </div>
+            <span class="item-price">sur demande</span>
+          </div>
+          <div class="menu-item">
+            <div class="item-info">
+              <strong>À emporter</strong>
+              <span>Toute la cave disponible en vente</span>
+            </div>
+            <span class="item-price">tarif cave</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE D'AMBIANCE -->
+<section id="ambiance" class="s s-mid">
+  <div class="wrap">
+    <div class="galerie-header">
+      <span class="tag">L'Ambiance</span>
+      <h2 class="h2">Voir c'est vouloir revenir</h2>
+      <p>Béton brut, mobilier industriel coloré, éclairage tamisé — une atmosphère qui se vit autant qu'elle se voit.</p>
+    </div>
+    <div class="galerie-grid">
+      <div class="gal-item" data-src="https://i.ibb.co/60TpYSnB/Le-Domaine-du-Faubourg-0.jpg">
+        <img src="https://i.ibb.co/60TpYSnB/Le-Domaine-du-Faubourg-0.jpg" alt="Vue principale du Domaine du Faubourg" loading="lazy" width="700" height="900">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/R4gn46YY/Le-Domaine-du-Faubourg-1.jpg">
+        <img src="https://i.ibb.co/R4gn46YY/Le-Domaine-du-Faubourg-1.jpg" alt="Intérieur industriel et chaleureux" loading="lazy" width="700" height="440">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/27ZD9zkZ/Le-Domaine-du-Faubourg-2.jpg">
+        <img src="https://i.ibb.co/27ZD9zkZ/Le-Domaine-du-Faubourg-2.jpg" alt="Espace bar et cave à vins" loading="lazy" width="700" height="440">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/0RXNPFLw/Le-Domaine-du-Faubourg-3.jpg">
+        <img src="https://i.ibb.co/0RXNPFLw/Le-Domaine-du-Faubourg-3.jpg" alt="Détails décoratifs du lieu" loading="lazy" width="700" height="440">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+  <span class="lb-close" id="lbClose" aria-label="Fermer">&#x2715;</span>
+  <img class="lb-img" id="lbImg" src="" alt="Photo agrandie">
+</div>
+
+<!-- RÉSERVATION -->
+<section id="reservation" class="s s-dark">
+  <div class="wrap">
+    <div class="resa-inner">
+      <span class="tag">Réservations</span>
+      <h2 class="h2">Votre table vous attend</h2>
+      <p>Écrivez-nous pour réserver ou poser toute question. Nous vous répondrons dans les plus brefs délais.</p>
+      <form id="resaForm" action="#" novalidate>
+        <div class="form-grid">
+          <div class="f-group">
+            <label class="f-label" for="f-nom">Nom complet</label>
+            <input class="f-input" type="text" id="f-nom" name="nom" placeholder="Marie Dupont" autocomplete="name">
+            <span class="f-err-msg" id="err-nom">Ce champ est requis.</span>
+          </div>
+          <div class="f-group">
+            <label class="f-label" for="f-tel">Téléphone</label>
+            <input class="f-input" type="tel" id="f-tel" name="tel" placeholder="XX.XX.XX" autocomplete="tel">
+            <span class="f-err-msg" id="err-tel">Ce champ est requis.</span>
+          </div>
+          <div class="f-group form-full">
+            <label class="f-label" for="f-email">Adresse e-mail</label>
+            <input class="f-input" type="email" id="f-email" name="email" placeholder="marie@exemple.nc" autocomplete="email">
+            <span class="f-err-msg" id="err-email">Adresse e-mail invalide.</span>
+          </div>
+          <div class="f-group">
+            <label class="f-label" for="f-date">Date souhaitée</label>
+            <input class="f-input" type="date" id="f-date" name="date">
+          </div>
+          <div class="f-group">
+            <label class="f-label" for="f-couverts">Nombre de personnes</label>
+            <input class="f-input" type="number" id="f-couverts" name="couverts" min="1" max="20" placeholder="2">
+          </div>
+          <div class="f-group form-full">
+            <label class="f-label" for="f-msg">Message (optionnel)</label>
+            <textarea class="f-input" id="f-msg" name="message" placeholder="Occasion spéciale, régime alimentaire, demande particulière…"></textarea>
+          </div>
+          <div class="f-group form-full f-submit">
+            <button type="submit" class="btn btn-red" id="submitBtn">
+              <span id="submitTxt">Envoyer ma demande</span>
+              <div class="f-loader" id="fLoader"></div>
+            </button>
+          </div>
+        </div>
+        <div class="f-success" id="fSuccess">✓ Votre demande a bien été envoyée. Nous vous contacterons très vite !</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- HISTOIRE / TERROIR -->
+<section id="histoire" class="s s-light">
+  <div class="wrap">
+    <div class="histoire-inner">
+      <div class="histoire-img">
+        <img src="https://i.ibb.co/27ZD9zkZ/Le-Domaine-du-Faubourg-2.jpg" alt="Sélection de vins au Domaine du Faubourg" loading="lazy" width="600" height="480">
+      </div>
+      <div class="histoire-text">
+        <span class="tag">Notre philosophie</span>
+        <h2 class="h2">La sélection comme art de vivre</h2>
+        <p>Chaque bouteille du Domaine du Faubourg raconte une histoire : celle d'un vigneron engagé, d'un terroir singulier, d'une année mémorable. Notre démarche n'est pas de cataloguer — c'est de transmettre.</p>
+        <p>Nous privilégions les producteurs qui travaillent la vigne avec soin, les vins vivants qui évoluent dans le verre et les découvertes qui surprennent même les habitués.</p>
+        <ul class="pts">
+          <li>Sélection personnelle renouvelée chaque saison</li>
+          <li>Vins nature, biodynamiques et classiques en harmonie</li>
+          <li>Conseils sans jargon, accueil sans frontières</li>
+          <li>Cave ouverte à la vente pour emporter</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AVIS CLIENTS -->
+<section id="avis" class="s s-dark">
+  <div class="wrap">
+    <div class="avis-header">
+      <span class="tag">Ils en parlent</span>
+      <h2 class="h2">La parole à nos clients</h2>
+      <p>Des habitués de Nouméa partagent leur expérience au Domaine du Faubourg.</p>
+    </div>
+    <div class="tc" style="margin-bottom:40px">
+      <div class="google-badge" style="display:inline-flex">
+        <div class="gb-logo">
+          <svg width="20" height="20" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M43.6 24.5c0-1.4-.1-2.8-.4-4.1H24v7.8h11c-.5 2.5-1.9 4.7-3.9 6.1v5h6.3c3.7-3.4 5.8-8.4 5.8-14.8z" fill="#4285F4"/><path d="M24 44c5.5 0 10.2-1.8 13.5-4.9l-6.3-5c-1.8 1.2-4.1 1.9-7.2 1.9-5.5 0-10.2-3.7-11.9-8.8H4.6v5.2C8 39.1 15.5 44 24 44z" fill="#34A853"/><path d="M12.1 27.2A12 12 0 0 1 11.5 24c0-1.1.2-2.2.6-3.2v-5.2H4.6A20 20 0 0 0 4 24c0 3.2.8 6.3 2.2 9l5.9-5.8z" fill="#FBBC05"/><path d="M24 11.5c3.1 0 5.9 1.1 8.1 3.2l6.1-6.1C34.2 5.1 29.5 3 24 3 15.5 3 8 7.9 4.6 15l7.5 5.8c1.7-5.1 6.4-8.8 11.9-8.8z" fill="#EA4335"/></svg>
+          Google
+        </div>
+        <div class="gb-score">3.1</div>
+        <div class="gb-stars">
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star half">★</span><span class="star half">★</span>
+          </div>
+          <span class="gb-count">12 avis Google</span>
+        </div>
+      </div>
+    </div>
+    <div class="temoignages">
+      <div class="temo">
+        <div class="temo-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="temo-text">"Une adresse qui change tout. On vient pour un verre et on reste toute la soirée. L'ambiance, la sélection, l'accueil — tout est juste."</p>
+        <div class="temo-author">
+          <div class="temo-avatar">C</div>
+          <div class="temo-name">
+            <strong>Camille R.</strong>
+            <span>Cliente fidèle · Nouméa</span>
+          </div>
+        </div>
+      </div>
+      <div class="temo">
+        <div class="temo-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star half">★</span>
+        </div>
+        <p class="temo-text">"Le cadre est vraiment unique — on se sent dans une cave parisienne mais avec l'authenticité calédonienne. Les conseils du personnel sont précieux."</p>
+        <div class="temo-author">
+          <div class="temo-avatar">T</div>
+          <div class="temo-name">
+            <strong>Thomas M.</strong>
+            <span>Amateur de vins · Nouméa</span>
+          </div>
+        </div>
+      </div>
+      <div class="temo">
+        <div class="temo-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="temo-text">"Idéal pour un after-work ou une soirée entre amis. La planche fromages avec le vin recommandé, c'est parfait. On reviendra sans hésiter."</p>
+        <div class="temo-author">
+          <div class="temo-avatar">S</div>
+          <div class="temo-name">
+            <strong>Sophie L.</strong>
+            <span>Résidente · Nouméa</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HORAIRES & ACCÈS -->
+<section id="acces" class="s s-mid">
+  <div class="wrap">
+    <div class="acces-inner">
+      <div class="acces-info">
+        <span class="tag">Nous trouver</span>
+        <h2 class="h2">Horaires & accès</h2>
+        <div class="info-block">
+          <strong>Adresse</strong>
+          <p>PFF2+36G, Nouméa 98800<br>Nouvelle-Calédonie</p>
+        </div>
+        <div class="info-block">
+          <strong>Téléphone</strong>
+          <p><a href="tel:+68743359">43.35.99</a></p>
+        </div>
+        <div class="info-block">
+          <strong>Horaires d'ouverture</strong>
+          <table class="horaires-table">
+            <tr><td>Lundi – Mercredi</td><td>17h – 23h</td></tr>
+            <tr><td>Jeudi – Vendredi</td><td>17h – minuit</td></tr>
+            <tr><td>Samedi</td><td>15h – minuit</td></tr>
+            <tr><td>Dimanche</td><td class="closed">Fermé</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="map-area">
+        <a class="map-placeholder" href="https://maps.google.com/?q=PFF2+36G,+Noum%C3%A9a+98800,+Nouvelle-Cal%C3%A9donie" target="_blank" rel="noopener" aria-label="Voir sur Google Maps">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#C0392B"/>
+            <circle cx="12" cy="9" r="2.5" fill="#fff"/>
+          </svg>
+          <span>Voir sur Google Maps</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#hero" class="logo">Le Domaine <span>du Faubourg</span></a>
+        <p>Bar à vins urbain au cœur de Nouméa. Cave raffinée, ambiance industrielle, partage et convivialité.</p>
+        <div class="footer-socials">
+          <a class="social-btn" href="https://www.facebook.com/DomaineNoumea" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="#F0EDE6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <strong>Navigation</strong>
+        <ul>
+          <li><a href="#accroche">Notre histoire</a></li>
+          <li><a href="#menu">La carte</a></li>
+          <li><a href="#ambiance">L'ambiance</a></li>
+          <li><a href="#reservation">Réserver</a></li>
+          <li><a href="#avis">Avis clients</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <strong>Contact</strong>
+        <address>
+          Le Domaine du Faubourg<br>
+          PFF2+36G, Nouméa 98800<br>
+          Nouvelle-Calédonie<br><br>
+          <a href="tel:+68743359">43.35.99</a>
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Le Domaine du Faubourg. Tous droits réservés.</p>
+      <p>Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+var lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg'),lbClose=document.getElementById('lbClose');
+document.querySelectorAll('.gal-item').forEach(function(el){
+el.addEventListener('click',function(){
+lbImg.src=el.getAttribute('data-src');
+lb.classList.add('open');
+document.body.style.overflow='hidden';
+});
+});
+function closeLb(){lb.classList.remove('open');document.body.style.overflow='';}
+lbClose.addEventListener('click',closeLb);
+lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+
+var form=document.getElementById('resaForm');
+form.addEventListener('submit',function(e){
+e.preventDefault();
+var nom=document.getElementById('f-nom'),email=document.getElementById('f-email'),tel=document.getElementById('f-tel');
+var errNom=document.getElementById('err-nom'),errEmail=document.getElementById('err-email'),errTel=document.getElementById('err-tel');
+var ok=true;
+[nom,email,tel].forEach(function(f){f.classList.remove('err');});
+[errNom,errEmail,errTel].forEach(function(e){e.classList.remove('show');});
+if(!nom.value.trim()){nom.classList.add('err');errNom.classList.add('show');ok=false;}
+if(!tel.value.trim()){tel.classList.add('err');errTel.classList.add('show');ok=false;}
+var emailRx=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+if(!emailRx.test(email.value)){email.classList.add('err');errEmail.classList.add('show');ok=false;}
+if(!ok)return;
+var btn=document.getElementById('submitBtn'),txt=document.getElementById('submitTxt'),loader=document.getElementById('fLoader'),suc=document.getElementById('fSuccess');
+btn.disabled=true;txt.style.display='none';loader.style.display='block';
+setTimeout(function(){
+loader.style.display='none';btn.style.display='none';
+suc.style.display='block';form.reset();
+},1400);
+});
+})();
+</script>
+</body>
+</html>
