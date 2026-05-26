@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lemon Bay Cafe — Nouméa</title>
+<meta name="description" content="Lemon Bay Cafe à Nouméa — Specialty coffee, plats colorés et atmosphère ensoleillée sur la Promenade Roger Laroque. Réservez votre table.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#F4A7B9;
+--cs:#4A7C59;
+--ca:#F5A623;
+--cb:#FDF6F0;
+--ct:#1A1A1A;
+--cw:#ffffff;
+--cd:#1a1a1a;
+--f1:'Playfair Display',Georgia,serif;
+--f2:'Raleway',system-ui,sans-serif;
+--r:.75rem;
+--t:all .3s ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--f2);color:var(--ct);background:var(--cb);overflow-x:hidden;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+
+/* BANDEAU */
+.promo{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;display:flex;align-items:center;justify-content:center}
+.promo a{font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;letter-spacing:.3px;line-height:44px;text-align:center;display:block;width:100%}
+.promo a:hover{opacity:.85}
+
+/* HEADER */
+.hdr{position:fixed;top:44px;left:0;width:100%;z-index:1000;background:rgba(253,246,240,.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(244,167,185,.2);transition:var(--t)}
+.hdr-i{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:var(--f1);font-size:1.5rem;font-weight:700;color:var(--ct);letter-spacing:-.5px}
+.logo span{color:var(--cp)}
+.nav{display:flex;align-items:center;gap:2rem}
+.nav a{font-size:.875rem;font-weight:500;color:var(--ct);letter-spacing:.3px;position:relative;transition:var(--t)}
+.nav a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--cp);transition:width .3s}
+.nav a:hover::after{width:100%}
+.nav a:hover{color:var(--cs)}
+.hdr-cta{display:flex;align-items:center;gap:1rem}
+.tel-lnk{font-size:.875rem;font-weight:600;color:var(--cs)}
+.tel-lnk:hover{color:var(--ca)}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.6rem 1.4rem;border-radius:50px;font-family:var(--f2);font-weight:700;font-size:.875rem;cursor:pointer;border:none;transition:var(--t);min-height:44px}
+.btn-p{background:var(--ca);color:var(--cw)}
+.btn-p:hover{background:#e09520;transform:translateY(-1px);box-shadow:0 4px 16px rgba(245,166,35,.35)}
+.btn-o{background:transparent;border:2px solid var(--cw);color:var(--cw)}
+.btn-o:hover{background:var(--cw);color:var(--ct)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
+.burger span{display:block;width:24px;height:2px;background:var(--ct);transition:var(--t);border-radius:2px}
+
+/* MOB NAV */
+.mob-nav{display:none;position:fixed;top:112px;left:0;width:100%;background:var(--cb);z-index:999;padding:1.5rem 1rem 2rem;border-bottom:2px solid var(--cp);flex-direction:column;gap:1.25rem}
+.mob-nav a{font-size:1rem;font-weight:600;color:var(--ct);padding:.5rem 0;border-bottom:1px solid rgba(244,167,185,.2)}
+.mob-nav .btn{width:100%}
+.mob-nav.open{display:flex}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background-image:url('https://i.ibb.co/QvsXhPYg/Lemon-Bay-Cafe-0.jpg');background-size:cover;background-position:center;margin-top:112px}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.55) 0%,rgba(0,0,0,.35) 60%,rgba(0,0,0,.6) 100%)}
+.hero-cnt{position:relative;z-index:1;text-align:center;padding:2rem 1rem;max-width:800px;width:100%}
+.hero-tag{display:inline-block;background:var(--cp);color:var(--cw);font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:.35rem 1rem;border-radius:50px;margin-bottom:1.5rem}
+.h1{font-family:var(--f1);font-size:clamp(2.5rem,7vw,5rem);color:var(--cw);line-height:1.1;margin-bottom:1.25rem;font-weight:700}
+.hero-sub{font-size:clamp(1rem,2.5vw,1.25rem);color:rgba(255,255,255,.9);font-weight:300;max-width:540px;margin:0 auto 2rem;line-height:1.7}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.scroll-ind{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;cursor:pointer;z-index:1}
+.scroll-ind span{font-size:.7rem;color:rgba(255,255,255,.7);letter-spacing:2px;text-transform:uppercase;font-weight:500}
+.scroll-dot{width:30px;height:50px;border:2px solid rgba(255,255,255,.5);border-radius:15px;position:relative}
+.scroll-dot::after{content:'';position:absolute;top:6px;left:50%;transform:translateX(-50%);width:4px;height:8px;background:var(--cw);border-radius:2px;animation:scrollA 2s infinite}
+@keyframes scrollA{0%{top:6px;opacity:1}100%{top:28px;opacity:0}}
+
+/* STATS */
+.stats{background:var(--cs);padding:4rem 1rem}
+.stats-g{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center}
+.stat-n{font-family:var(--f1);font-size:clamp(2rem,5vw,3.5rem);color:var(--cw);font-weight:700;line-height:1}
+.stat-u{font-size:.75rem;color:rgba(255,255,255,.7);margin-left:2px;vertical-align:super;font-weight:600}
+.stat-l{font-size:.8rem;color:rgba(255,255,255,.75);margin-top:.4rem;font-weight:400;text-transform:uppercase;letter-spacing:1px}
+.stat-d{width:40px;height:2px;background:var(--cp);margin:.75rem auto 0;border-radius:1px}
+
+/* UTILS */
+.s{padding:5rem 1rem}
+.s-dark{background:var(--ct);color:var(--cw)}
+.s-cream{background:var(--cb)}
+.s-pink{background:#fdf0f3}
+.wrap{max-width:1200px;margin:0 auto}
+.tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--cp);margin-bottom:.75rem}
+.h2{font-family:var(--f1);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;line-height:1.2;margin-bottom:1rem}
+.h3{font-family:var(--f1);font-size:1.3rem;font-weight:700;line-height:1.3}
+.lead{font-size:1.05rem;font-weight:300;line-height:1.8;opacity:.85;max-width:600px}
+.divider{width:60px;height:3px;background:var(--cp);border-radius:2px;margin:1rem 0 2rem}
+.divider-gold{background:var(--ca)}
+.txt-c{text-align:center}
+.txt-c .lead{margin:0 auto}
+.txt-c .divider{margin:1rem auto 2rem}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+
+/* MENU */
+.menu-tabs{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem}
+.tab-btn{padding:.5rem 1.5rem;border-radius:50px;border:2px solid var(--cp);background:transparent;color:var(--ct);font-family:var(--f2);font-weight:600;font-size:.875rem;cursor:pointer;transition:var(--t)}
+.tab-btn.active,.tab-btn:hover{background:var(--cp);color:var(--cw)}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.mc{perspective:1000px}
+.mc-inner{position:relative;transition:transform .6s;transform-style:preserve-3d;min-height:320px}
+.mc:hover .mc-inner{transform:rotateY(180deg)}
+.mc-f,.mc-b{position:absolute;inset:0;backface-visibility:hidden;border-radius:var(--r);overflow:hidden}
+.mc-f{background:var(--cw);box-shadow:0 4px 20px rgba(0,0,0,.08)}
+.mc-f img{width:100%;height:180px;object-fit:cover}
+.mc-fi{padding:1.25rem}
+.mc-b{background:var(--cs);transform:rotateY(180deg);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem;text-align:center;color:var(--cw)}
+.mc-name{font-family:var(--f1);font-size:1.05rem;font-weight:700;margin-bottom:.4rem}
+.mc-desc{font-size:.8rem;opacity:.75;line-height:1.6;margin-bottom:.75rem}
+.mc-price{font-family:var(--f1);font-size:1.3rem;font-weight:700;color:var(--ca)}
+.mc-b .mc-name{font-size:1.1rem;margin-bottom:.75rem}
+.mc-b .mc-desc{font-size:.9rem;opacity:.85;margin-bottom:1rem}
+.mc-b .mc-price{font-size:1.6rem}
+.mc-tag{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;background:rgba(244,167,185,.2);color:var(--cp);padding:.2rem .6rem;border-radius:50px;margin-bottom:.5rem}
+
+/* AMBIANCE MASONRY */
+.masonry{display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:auto;gap:1rem;max-width:1000px;margin:0 auto}
+.mas-1{grid-column:1;grid-row:1/3}
+.mas-2{grid-column:2;grid-row:1}
+.mas-3{grid-column:2;grid-row:2}
+.mas-4{grid-column:1/3;grid-row:3}
+.mas-img{width:100%;height:100%;object-fit:cover;border-radius:var(--r);display:block;transition:transform .5s}
+.mas-1 .mas-img{min-height:400px}
+.mas-2 .mas-img,.mas-3 .mas-img{min-height:195px}
+.mas-4 .mas-img{height:260px}
+.mas-1:hover .mas-img,.mas-2:hover .mas-img,.mas-3:hover .mas-img,.mas-4:hover .mas-img{transform:scale(1.03)}
+.mas-wrap{overflow:hidden;border-radius:var(--r)}
+
+/* RESERVATION */
+.res-box{max-width:680px;margin:0 auto;background:var(--cw);border-radius:1.5rem;padding:3rem 2.5rem;box-shadow:0 8px 40px rgba(0,0,0,.1)}
+.res-form{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.f-group{display:flex;flex-direction:column;gap:.4rem}
+.f-group.full{grid-column:1/3}
+.f-label{font-size:.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--cs)}
+.f-input{padding:.75rem 1rem;border:2px solid rgba(244,167,185,.3);border-radius:.5rem;font-family:var(--f2);font-size:.9rem;color:var(--ct);background:var(--cb);transition:var(--t)}
+.f-input:focus{outline:none;border-color:var(--cp);background:var(--cw);box-shadow:0 0 0 3px rgba(244,167,185,.15)}
+textarea.f-input{resize:vertical;min-height:100px}
+.f-submit{background:var(--ca);color:var(--cw);width:100%;padding:1rem;font-size:1rem;font-weight:700;border-radius:50px;border:none;cursor:pointer;transition:var(--t);font-family:var(--f2);min-height:52px}
+.f-submit:hover{background:#e09520;transform:translateY(-2px);box-shadow:0 6px 20px rgba(245,166,35,.4)}
+.f-msg{display:none;text-align:center;padding:1.25rem;background:#e8f5e9;border-radius:.5rem;color:var(--cs);font-weight:600;margin-top:1rem}
+
+/* REVIEWS */
+.rev-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem}
+.rev-c{background:var(--cw);border-radius:var(--r);padding:1.75rem;box-shadow:0 2px 16px rgba(0,0,0,.06);position:relative;transition:var(--t)}
+.rev-c:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,.1)}
+.rev-stars{color:var(--ca);font-size:1.1rem;margin-bottom:.75rem}
+.rev-txt{font-size:.875rem;line-height:1.7;color:#444;margin-bottom:1rem;font-style:italic}
+.rev-auth{font-size:.8rem;font-weight:700;color:var(--cs)}
+.google-badge{display:inline-flex;align-items:center;gap:.75rem;background:var(--cw);border-radius:50px;padding:.75rem 1.5rem;box-shadow:0 4px 20px rgba(0,0,0,.1);margin-bottom:2rem}
+.g-score{font-family:var(--f1);font-size:2rem;font-weight:700;color:var(--ct)}
+.g-detail{display:flex;flex-direction:column;gap:.15rem}
+.g-stars{color:var(--ca);font-size:1rem}
+.g-count{font-size:.75rem;color:#666;font-weight:500}
+
+/* FOOTER */
+.footer{background:var(--ct);color:var(--cw);padding:4rem 1rem 2rem}
+.footer-g{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;max-width:1200px;margin:0 auto;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.1)}
+.footer-logo{font-family:var(--f1);font-size:1.75rem;font-weight:700;margin-bottom:1rem}
+.footer-logo span{color:var(--cp)}
+.footer-txt{font-size:.875rem;opacity:.65;line-height:1.8}
+.footer-h{font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cp);margin-bottom:1.25rem}
+.footer-links{display:flex;flex-direction:column;gap:.75rem}
+.footer-links a{font-size:.875rem;opacity:.7;transition:var(--t)}
+.footer-links a:hover{opacity:1;color:var(--cp)}
+.footer-social{display:flex;gap:.75rem;margin-top:1.5rem}
+.social-btn{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;transition:var(--t)}
+.social-btn:hover{background:var(--cp);border-color:var(--cp)}
+.social-btn svg{width:18px;height:18px;fill:var(--cw)}
+.footer-bottom{max-width:1200px;margin:2rem auto 0;display:flex;justify-content:space-between;align-items:center;font-size:.8rem;opacity:.5;flex-wrap:wrap;gap:.5rem}
+.setup-credit{opacity:.7;transition:var(--t)}
+.setup-credit:hover{opacity:1;color:var(--ca)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.vis{opacity:1;transform:none}
+
+/* FALLBACK */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.grid-2,.grid-3,.menu-grid,.rev-g,.footer-g{grid-template-columns:1fr}
+.stats-g{grid-template-columns:repeat(2,1fr)}
+.masonry{grid-template-columns:1fr 1fr}
+.mas-1,.mas-4{grid-column:1/3}
+.mas-4{display:none}
+.res-form{grid-template-columns:1fr}
+.f-group.full{grid-column:1}
+}
+@media(max-width:768px){
+.nav,.hdr-cta .btn,.tel-lnk{display:none}
+.burger{display:flex}
+.hero{margin-top:84px}
+.promo{height:40px}
+.promo a{font-size:13px;line-height:40px}
+.hdr{top:40px}
+.hdr-i{height:44px}
+.mob-nav{top:84px}
+.hero-btns .btn{width:100%}
+.hero-btns{flex-direction:column;align-items:center}
+}
+@media(max-width:480px){
+.s{padding:3.5rem 1rem}
+.stats-g{grid-template-columns:1fr 1fr;gap:1.25rem}
+.masonry{grid-template-columns:1fr}
+.mas-1,.mas-4{grid-column:1}
+.mas-1 .mas-img{min-height:260px}
+.res-box{padding:2rem 1.25rem}
+body{padding:0 0}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr" id="hdr">
+  <div class="hdr-i">
+    <a href="#" class="logo">Lemon Bay<span>.</span></a>
+    <nav class="nav">
+      <a href="#menu">Menu</a>
+      <a href="#ambiance">Ambiance</a>
+      <a href="#reservation">Réservation</a>
+      <a href="#avis">Avis</a>
+      <a href="#acces">Contact</a>
+    </nav>
+    <div class="hdr-cta">
+      <a href="tel:+687231449" class="tel-lnk">📞 23.14.49</a>
+      <a href="#reservation" class="btn btn-p">Réserver</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-nav" id="mob-nav">
+  <a href="#menu" onclick="closeMob()">Menu</a>
+  <a href="#ambiance" onclick="closeMob()">Ambiance</a>
+  <a href="#reservation" onclick="closeMob()">Réservation</a>
+  <a href="#avis" onclick="closeMob()">Avis</a>
+  <a href="#acces" onclick="closeMob()">Contact</a>
+  <a href="tel:+687231449" class="btn btn-p">📞 23.14.49</a>
+  <a href="#reservation" class="btn btn-o" style="background:var(--cs);color:#fff;border-color:var(--cs)" onclick="closeMob()">Réserver une table</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-cnt">
+    <span class="hero-tag">☀️ Nouméa · Promenade Roger Laroque</span>
+    <h1 class="h1">Un café où il fait<br>bon s'attarder</h1>
+    <p class="hero-sub">Specialty coffee, assiettes colorées et vue sur la baie — bienvenue au Lemon Bay Cafe, votre pause ensoleillée au cœur de Nouméa.</p>
+    <div class="hero-btns">
+      <a href="#reservation" class="btn btn-p" style="padding:.85rem 2rem;font-size:1rem">Réserver une table</a>
+      <a href="#menu" class="btn btn-o" style="padding:.85rem 2rem;font-size:1rem">Voir le menu</a>
+    </div>
+  </div>
+  <div class="scroll-ind" onclick="document.getElementById('stats').scrollIntoView({behavior:'smooth'})">
+    <div class="scroll-dot"></div>
+    <span>Découvrir</span>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="stats">
+  <div class="stats-g">
+    <div>
+      <div class="stat-n" data-target="213">0</div>
+      <div class="stat-l">Avis Google</div>
+      <div class="stat-d"></div>
+    </div>
+    <div>
+      <div class="stat-n" data-target="4.6">0<span class="stat-u">/5</span></div>
+      <div class="stat-l">Note moyenne</div>
+      <div class="stat-d"></div>
+    </div>
+    <div>
+      <div class="stat-n" data-target="100">0<span class="stat-u">%</span></div>
+      <div class="stat-l">Fait maison</div>
+      <div class="stat-d"></div>
+    </div>
+    <div>
+      <div class="stat-n" data-target="7">0</div>
+      <div class="stat-l">Jours sur 7</div>
+      <div class="stat-d"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+function closeMob(){document.getElementById('mob-nav').classList.remove('open')}
+document.getElementById('burger').addEventListener('click',function(){
+  document.getElementById('mob-nav').classList.toggle('open')
+})
+</script>
+<!-- SERVICES -->
+<section class="s s-cream" id="services">
+<div class="wrap">
+<div class="txt-c reveal">
+<span class="tag">Ce que nous offrons</span>
+<h2 class="h2">L'art du bien recevoir</h2>
+<div class="divider"></div>
+<p class="lead">Du premier café du matin à la pause gourmande de l'après-midi, le Lemon Bay Cafe vous accueille dans une atmosphère chaleureuse et sans chichi.</p>
+</div>
+<div class="grid-3" style="margin-top:3rem">
+<div class="svc-c reveal">
+<div class="svc-ico">☕</div>
+<h3 class="h3">Specialty Coffee</h3>
+<p class="svc-txt">Expressos, flat whites, cold brews — chaque tasse est préparée avec soin pour révéler le meilleur des grains sélectionnés.</p>
+</div>
+<div class="svc-c reveal">
+<div class="svc-ico">🥗</div>
+<h3 class="h3">Cuisine du marché</h3>
+<p class="svc-txt">Des assiettes colorées et généreuses à base de produits frais, préparées chaque jour selon l'arrivage du marché local.</p>
+</div>
+<div class="svc-c reveal">
+<div class="svc-ico">🍋</div>
+<h3 class="h3">Pâtisseries maison</h3>
+<p class="svc-txt">Gâteaux, tartes et douceurs préparés sur place chaque matin — la touche sucrée qui fait revenir nos habitués.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s s-dark" id="metier">
+<div class="wrap">
+<div class="grid-2">
+<div class="reveal">
+<span class="tag" style="color:var(--cp)">Notre histoire</span>
+<h2 class="h2" style="color:var(--cw)">Un café né de l'amour du bon</h2>
+<div class="divider"></div>
+<p class="lead" style="color:rgba(255,255,255,.8);max-width:100%">Installé sur la Promenade Roger Laroque avec vue sur la baie, le Lemon Bay Cafe est né d'une envie simple : créer un lieu où l'on prend le temps. Celui de savourer un café bien extrait, une assiette préparée avec intention, et une vue qui apaise.</p>
+<p class="lead" style="color:rgba(255,255,255,.8);max-width:100%;margin-top:1rem">Chaque détail compte — la lumière naturelle, les plantes vertes, le bois chaleureux et les sourires de l'équipe. Ici, la qualité n'est jamais prétentieuse.</p>
+<ul class="metier-list">
+<li><span class="chk">✓</span>Grains de café soigneusement sélectionnés</li>
+<li><span class="chk">✓</span>Produits frais travaillés chaque jour</li>
+<li><span class="chk">✓</span>Cadre lumineux en bord de promenade</li>
+<li><span class="chk">✓</span>Équipe attentionnée et passionnée</li>
+</ul>
+</div>
+<div class="reveal">
+<div class="met-img-wrap">
+<img src="https://i.ibb.co/5hx6WpbB/Lemon-Bay-Cafe-1.jpg" alt="Ambiance Lemon Bay Cafe" loading="lazy" class="met-img">
+<div class="met-badge">
+<span class="met-b-n">4.6</span>
+<span class="met-b-l">⭐ Google</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- MENU SIGNATURE -->
+<section class="s s-pink" id="menu">
+<div class="wrap">
+<div class="txt-c reveal">
+<span class="tag">Notre carte</span>
+<h2 class="h2">Les incontournables</h2>
+<div class="divider"></div>
+</div>
+<div class="menu-tabs reveal">
+<button class="tab-btn active" onclick="showTab('entrees',this)">Entrées</button>
+<button class="tab-btn" onclick="showTab('plats',this)">Plats</button>
+<button class="tab-btn" onclick="showTab('desserts',this)">Desserts</button>
+</div>
+<div id="entrees" class="menu-grid menu-pane">
+<div class="mc">
+<div class="mc-inner">
+<div class="mc-f">
+<img src="https://i.ibb.co/1Y4Z5hLj/Lemon-Bay-Cafe-2.jpg" alt="Salade fraîche" loading="lazy">
+<div class="mc-fi">
+<span class="mc-tag">Entrée</span>
+<div class="mc-name">Salade de saison</div>
+<div class="mc-desc">Légumes frais du marché, vinaigrette maison aux herbes</div>
+<div class="mc-price">1 450 XPF</div>
+</div>
+</div>
+<div class="mc-b">
+<div class="mc-name">Salade de saison</div>
+<div class="mc-desc">Croquante, colorée, préparée chaque matin selon l'arrivage — un classique revisité avec légèreté.</div>
+<div class="mc-price">1 450 XPF</div>
+</div>
+</div>
+</div>
+<div class="mc">
+<div class="mc-inner">
+<div class="mc-f">
+<img src="https://i.ibb.co/QvXcwpMp/Lemon-Bay-Cafe-3.jpg" alt="Tartine gourmande" loading="lazy">
+<div class="mc-fi">
+<span class="mc-tag">Entrée</span>
+<div class="mc-name">Tartine du moment</div>
+<div class="mc-desc">Pain artisanal grillé, garniture créative selon inspiration du jour</div>
+<div class="mc-price">1 200 XPF</div>
+</div>
+</div>
+<div class="mc-b">
+<div class="mc-name">Tartine du moment</div>
+<div class="mc-desc">La tartine qui change chaque jour, toujours généreuse, toujours savoureuse — demandez à l'équipe.</div>
+<div class="mc-price">1 200 XPF</div>
+</div>
+</div>
+</div>
+<div class="mc">
+<div class="mc-inner">
+<div class="mc-f">
+<img src="https://i.ibb.co/QvsXhPYg/Lemon-Bay-Cafe-0.jpg" alt="Soupe du jour" loading="lazy">
+<div class="mc-fi">
+<span class="mc-tag">Entrée</span>
+<div class="mc-name">Soupe du jour</div>
+<div class="mc-desc">Préparée maison chaque matin, servie avec pain grillé</div>
+<div class="mc-price">950 XPF</div>
+</div>
+</div>
+<div class="mc-b">
+<div class="mc-name">Soupe du jour</div>
+<div class="mc-desc">Réconfortante et parfumée, c'est la recette qui change chaque jour selon le marché.</div>
+<div class="mc-price">950 XPF</div>
+</div>
+</div>
+</div>
+</div>
+<div id="plats" class="menu-grid menu-pane" style="display:none">
+<div class="mc">
+<div class="mc-inner">
+<div class="mc-f">
+<img src="https://i.ibb.co/5hx6WpbB/Lemon-Bay-Cafe-1.jpg" alt="Poisson du jour" loading="lazy">
+<div class="mc-fi">
+<span class="mc-tag">Plat</span>
+<div class="mc-name">Poisson local du jour</div>
+<div class="mc-desc">Vivaneau ou thon jaune selon arrivage, légumes de saison</div>
+<div class="mc-price">2 800 XPF</div>
+</div>
+</div>
+<div class="mc-b">
+<div class="mc-name">Poisson local du jour</div>
+<div class="mc-desc">Pêche locale, cuisson soignée, accompagnements frais — la mer dans votre assiette.</div>
+<div class="mc-price">2 800 XPF</div>
+</div>
+</div>
+</div>
+<div class="mc">
+<div class="mc-inner">
+<div class="mc-f">
+<img src="https://i.ibb.co/QvXcwpMp/Lemon-Bay-Cafe-3.jpg" alt="Bowl coloré" loading="lazy">
+<div class="mc-fi">
+<span class="mc-tag">Plat</span>
+<div class="mc-name">Bowl Lemon Bay</div>
+<div class="mc-desc">Base céréales, légumes rôtis, sauce maison et graines croquantes</div>
+<div class="mc-price">2 200 XPF</div>
+</div>
+</div>
+<div class="mc-b">
+<div class="mc-name">Bowl Lemon Bay</div>
+<div class="mc-desc">Notre signature : coloré, équilibré, rassasiant — le plat qui revient le plus souvent dans les commandes.</div>
+<div class="mc-price">2 200 XPF</div>
+</div>
+</div>
+</div>
+<div class="mc">
+<div class="mc-inner">
+<div class="mc-f">
+<img src="https://i.ibb.co/1Y4Z5hLj/Lemon-Bay-Cafe-2.jpg" alt="Burger maison" loading="lazy">
+<div class="mc-fi">
+<span class="mc-tag">Plat</span>
+<div class="mc-name">Burger maison</div>
+<div class="mc-desc">Pain brioché, viande locale, cheddar fondu, sauce secrète</div>
+<div class="mc-price">2 500 XPF</div>
+</div>
+</div>
+<div class="mc-b">
+<div class="mc-name">Burger maison</div>
+<div class="mc-desc">Juteux, généreux, irrésistible — notre burger maison est un classique qui ne déçoit jamais.</div>
+<div class="mc-price">2 500 XPF</div>
+</div>
+</div>
+</div>
+</div>
+<div id="desserts" class="menu-grid menu-pane" style="display:none">
+<div class="mc">
+<div class="mc-inner">
+<div class="mc-f">
+<img src="https://i.ibb.co/QvsXhPYg/Lemon-Bay-Cafe-0.jpg" alt="Tarte citron" loading="lazy">
+<div class="mc-fi">
+<span class="mc-tag">Dessert</span>
+<div class="mc-name">Tarte citron maison</div>
+<div class="mc-desc">Pâte sablée, crème citron acidulée, meringue légère</div>
+<div class="mc-price">900 XPF</div>
+</div>
+</div>
+<div class="mc-b">
+<div class="mc-name">Tarte citron maison</div>
+<div class="mc-desc">Le dessert signature du Lemon Bay — frais, acidulé, comme une bouffée de soleil calédonien.</div>
+<div class="mc-price">900 XPF</div>
+</div>
+</div>
+</div>
+<div class="mc">
+<div class="mc-inner">
+<div class="mc-f">
+<img src="https://i.ibb.co/5hx6WpbB/Lemon-Bay-Cafe-1.jpg" alt="Fondant chocolat" loading="lazy">
+<div class="mc-fi">
+<span class="mc-tag">Dessert</span>
+<div class="mc-name">Fondant chocolat</div>
+<div class="mc-desc">Cœur coulant, boule de glace vanille, cacao intense</div>
+<div class="mc-price">950 XPF</div>
+</div>
+</div>
+<div class="mc-b">
+<div class="mc-name">Fondant chocolat</div>
+<div class="mc-desc">Un incontournable — cœur coulant, texture parfaite, servi chaud pour un pur moment de réconfort.</div>
+<div class="mc-price">950 XPF</div>
+</div>
+</div>
+</div>
+<div class="mc">
+<div class="mc-inner">
+<div class="mc-f">
+<img src="https://i.ibb.co/QvXcwpMp/Lemon-Bay-Cafe-3.jpg" alt="Panna cotta" loading="lazy">
+<div class="mc-fi">
+<span class="mc-tag">Dessert</span>
+<div class="mc-name">Panna cotta du moment</div>
+<div class="mc-desc">Onctueuse, légère, accompagnée d'un coulis de fruits frais</div>
+<div class="mc-price">850 XPF</div>
+</div>
+</div>
+<div class="mc-b">
+<div class="mc-name">Panna cotta du moment</div>
+<div class="mc-desc">Douce, crémeuse et parfumée selon les fruits du moment — la légèreté en guise de conclusion.</div>
+<div class="mc-price">850 XPF</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- AMBIANCE GALERIE -->
+<section class="s s-cream" id="ambiance">
+<div class="wrap">
+<div class="txt-c reveal">
+<span class="tag">L'atmosphère</span>
+<h2 class="h2">Entrez dans l'ambiance</h2>
+<div class="divider"></div>
+<p class="lead">Lumière naturelle, plantes vertes et bois chaleureux — un cadre qui invite à souffler et à rester un peu plus longtemps.</p>
+</div>
+<div class="masonry" style="margin-top:2.5rem">
+<div class="mas-1 mas-wrap reveal">
+<img class="mas-img" src="https://i.ibb.co/QvsXhPYg/Lemon-Bay-Cafe-0.jpg" alt="Lemon Bay Cafe ambiance" loading="lazy">
+</div>
+<div class="mas-2 mas-wrap reveal">
+<img class="mas-img" src="https://i.ibb.co/5hx6WpbB/Lemon-Bay-Cafe-1.jpg" alt="Lemon Bay Cafe plat" loading="lazy">
+</div>
+<div class="mas-3 mas-wrap reveal">
+<img class="mas-img" src="https://i.ibb.co/1Y4Z5hLj/Lemon-Bay-Cafe-2.jpg" alt="Lemon Bay Cafe détail" loading="lazy">
+</div>
+<div class="mas-4 mas-wrap reveal">
+<img class="mas-img" src="https://i.ibb.co/QvXcwpMp/Lemon-Bay-Cafe-3.jpg" alt="Lemon Bay Cafe terrasse" loading="lazy">
+</div>
+</div>
+</div>
+</section>
+
+<!-- RÉSERVATION -->
+<section class="s" id="reservation" style="background:linear-gradient(135deg,#f9edf1 0%,var(--cb) 100%)">
+<div class="wrap">
+<div class="txt-c reveal" style="margin-bottom:2.5rem">
+<span class="tag">Réserver</span>
+<h2 class="h2">On vous garde une table</h2>
+<div class="divider"></div>
+<p class="lead">Déjeuner en terrasse, brunch du dimanche ou simple pause café — dites-nous quand vous venez.</p>
+</div>
+<div class="res-box reveal">
+<form class="res-form" id="res-form" action="#" novalidate>
+<div class="f-group">
+<label class="f-label" for="rnom">Nom complet</label>
+<input class="f-input" type="text" id="rnom" name="nom" placeholder="Votre nom" required>
+</div>
+<div class="f-group">
+<label class="f-label" for="remail">Email</label>
+<input class="f-input" type="email" id="remail" name="email" placeholder="votre@email.com" required>
+</div>
+<div class="f-group">
+<label class="f-label" for="rtel">Téléphone</label>
+<input class="f-input" type="tel" id="rtel" name="tel" placeholder="XX.XX.XX">
+</div>
+<div class="f-group">
+<label class="f-label" for="rdate">Date souhaitée</label>
+<input class="f-input" type="date" id="rdate" name="date" required>
+</div>
+<div class="f-group">
+<label class="f-label" for="rheure">Heure</label>
+<select class="f-input" id="rheure" name="heure">
+<option value="">Choisir</option>
+<option>07h00</option><option>07h30</option><option>08h00</option>
+<option>08h30</option><option>09h00</option><option>09h30</option>
+<option>10h00</option><option>11h00</option><option>12h00</option>
+<option>12h30</option><option>13h00</option><option>13h30</option>
+<option>14h00</option><option>15h00</option><option>16h00</option>
+</select>
+</div>
+<div class="f-group">
+<label class="f-label" for="rcvts">Nombre de couverts</label>
+<select class="f-input" id="rcvts" name="couverts">
+<option value="">Choisir</option>
+<option>1</option><option>2</option><option>3</option><option>4</option>
+<option>5</option><option>6</option><option>7+</option>
+</select>
+</div>
+<div class="f-group full">
+<label class="f-label" for="rmsg">Message (optionnel)</label>
+<textarea class="f-input" id="rmsg" name="message" placeholder="Allergies, occasion spéciale, demande particulière…"></textarea>
+</div>
+<div class="f-group full">
+<button type="submit" class="f-submit" id="f-btn">Confirmer ma réservation</button>
+</div>
+</form>
+<div class="f-msg" id="f-msg">
+🎉 Merci ! Votre demande a bien été reçue. Nous vous confirmons votre réservation par téléphone ou email très rapidement.
+</div>
+</div>
+</div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s s-dark" id="avis">
+<div class="wrap">
+<div class="txt-c reveal">
+<span class="tag" style="color:var(--cp)">Ce qu'ils en disent</span>
+<h2 class="h2" style="color:var(--cw)">Ils ont posé leurs tasses ici</h2>
+<div class="divider divider-gold" style="margin:1rem auto 2rem"></div>
+<div class="google-badge">
+<span class="g-score">4.6</span>
+<div class="g-detail">
+<span class="g-stars">★★★★★</span>
+<span class="g-count">213 avis Google vérifiés</span>
+</div>
+</div>
+</div>
+<div class="rev-g">
+<div class="rev-c reveal">
+<div class="rev-stars">★★★★★</div>
+<p class="rev-txt">"Un endroit absolument charmant sur la promenade. Le café est excellent, les assiettes soignées et l'accueil vraiment chaleureux. On y revient chaque weekend !"</p>
+<div class="rev-auth">Marie-Claire T. · Nouméa</div>
+</div>
+<div class="rev-c reveal">
+<div class="rev-stars">★★★★★</div>
+<p class="rev-txt">"Le meilleur flat white de Nouméa, sans hésitation. L'ambiance lumineuse et végétale donne envie de rester des heures. Highly recommended !"</p>
+<div class="rev-auth">Julien M. · Nouméa</div>
+</div>
+<div class="rev-c reveal">
+<div class="rev-stars">★★★★☆</div>
+<p class="rev-txt">"Cadre magnifique avec vue sur la baie, plats frais et généreux. Le bowl maison est délicieux. Une adresse que je recommande à tous mes amis de passage."</p>
+<div class="rev-auth">Sophie R. · Touriste</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- HORAIRES & ACCÈS -->
+<section class="s s-cream" id="acces">
+<div class="wrap">
+<div class="grid-2">
+<div class="reveal">
+<span class="tag">Nous trouver</span>
+<h2 class="h2">Venez nous rendre visite</h2>
+<div class="divider"></div>
+<div class="info-block">
+<div class="info-row">
+<span class="info-ico">📍</span>
+<div>
+<strong>Adresse</strong>
+<p>Promenade Roger Laroque<br>Nouméa 98845, Nouvelle-Calédonie</p>
+</div>
+</div>
+<div class="info-row">
+<span class="info-ico">📞</span>
+<div>
+<strong>Téléphone</strong>
+<p><a href="tel:+687231449" class="tel-cta">23.14.49</a></p>
+</div>
+</div>
+<div class="info-row">
+<span class="info-ico">🕐</span>
+<div>
+<strong>Horaires</strong>
+<p>Lundi – Dimanche<br>7h00 – 16h00</p>
+</div>
+</div>
+</div>
+<a href="https://www.facebook.com/LemonbayCafe" target="_blank" rel="noopener" class="fb-lnk">
+<svg viewBox="0 0 24 24" width="20" height="20"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+Suivez-nous sur Facebook
+</a>
+</div>
+<div class="reveal">
+<div class="map-wrap">
+<iframe
+title="Lemon Bay Cafe sur la carte"
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3774.0!2d166.4416!3d-22.2758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDE2JzMyLjkiUyAxNjbCsDI2JzMwLjAiRQ!5e0!3m2!1sfr!2snc!4v1699900000000"
+width="100%"
+height="360"
+style="border:0;border-radius:var(--r)"
+allowfullscreen
+loading="lazy"
+referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="footer">
+<div class="footer-g">
+<div>
+<div class="footer-logo">Lemon Bay<span>.</span></div>
+<p class="footer-txt">Un café moderne et lumineux sur la Promenade Roger Laroque à Nouméa — specialty coffee, cuisine fraîche et accueil sincère, 7 jours sur 7.</p>
+<div class="footer-social">
+<a href="https://www.facebook.com/LemonbayCafe" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">
+<svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+</a>
+</div>
+</div>
+<div>
+<div class="footer-h">Navigation</div>
+<div class="footer-links">
+<a href="#menu">Notre menu</a>
+<a href="#ambiance">L'ambiance</a>
+<a href="#reservation">Réservation</a>
+<a href="#avis">Avis clients</a>
+<a href="#acces">Nous trouver</a>
+</div>
+</div>
+<div>
+<div class="footer-h">Contact</div>
+<div class="footer-links">
+<a href="tel:+687231449">📞 23.14.49</a>
+<a href="#acces">📍 Promenade Roger Laroque</a>
+<a href="#acces">Nouméa 98845, NC</a>
+<a href="#acces">🕐 7h00 – 16h00 · 7j/7</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<span>© 2026 Lemon Bay Cafe. Tous droits réservés.</span>
+<a href="https://setup.nc" target="_blank" rel="noopener" class="setup-credit" style="color:rgba(255,255,255,.5)">Site réalisé par Setup NC</a>
+</div>
+</footer>
+
+<style>
+.svc-c{background:var(--cw);border-radius:var(--r);padding:2.25rem 1.75rem;text-align:center;box-shadow:0 2px 20px rgba(0,0,0,.06);transition:var(--t)}
+.svc-c:hover{transform:translateY(-6px);box-shadow:0 10px 32px rgba(244,167,185,.25)}
+.svc-ico{font-size:2.5rem;margin-bottom:1rem;display:block}
+.svc-c .h3{margin-bottom:.75rem;color:var(--ct)}
+.svc-txt{font-size:.875rem;line-height:1.7;color:#555}
+.metier-list{margin-top:1.75rem;display:flex;flex-direction:column;gap:.9rem}
+.metier-list li{display:flex;align-items:flex-start;gap:.75rem;font-size:.9rem;color:rgba(255,255,255,.8)}
+.chk{background:var(--cp);color:var(--cw);width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;flex-shrink:0;margin-top:1px}
+.met-img-wrap{position:relative;border-radius:1rem;overflow:hidden}
+.met-img{width:100%;height:460px;object-fit:cover;border-radius:1rem;display:block}
+.met-badge{position:absolute;bottom:1.5rem;right:1.5rem;background:var(--cw);border-radius:.75rem;padding:.75rem 1.25rem;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.2)}
+.met-b-n{display:block;font-family:var(--f1);font-size:2rem;font-weight:700;color:var(--ct);line-height:1}
+.met-b-l{display:block;font-size:.75rem;font-weight:600;color:var(--ca);margin-top:.2rem}
+.info-block{display:flex;flex-direction:column;gap:1.5rem;margin-top:1rem}
+.info-row{display:flex;align-items:flex-start;gap:1rem}
+.info-ico{font-size:1.4rem;flex-shrink:0;margin-top:2px}
+.info-row strong{display:block;font-weight:700;font-size:.875rem;color:var(--cs);margin-bottom:.25rem}
+.info-row p{font-size:.9rem;color:#444;line-height:1.6}
+.tel-cta{color:var(--cs);font-weight:700;font-size:1.05rem;border-bottom:2px solid var(--cp);transition:var(--t)}
+.tel-cta:hover{color:var(--ca)}
+.fb-lnk{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.75rem;background:#1877f2;color:#fff;padding:.65rem 1.25rem;border-radius:50px;font-size:.875rem;font-weight:600;transition:var(--t)}
+.fb-lnk:hover{background:#1464d0;transform:translateY(-2px)}
+.fb-lnk svg{fill:#fff}
+.map-wrap{border-radius:var(--r);overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.1)}
+@media(max-width:768px){.met-img{height:280px}.grid-2{grid-template-columns:1fr}.menu-grid{grid-template-columns:1fr}.rev-g{grid-template-columns:1fr}.footer-g{grid-template-columns:1fr;gap:2rem}}
+@media(max-width:480px){.res-form{grid-template-columns:1fr}.f-group.full{grid-column:1}.mc-inner{min-height:280px}.mc-f img{height:140px}}
+</style>
+
+<script>
+(function(){
+var burger=document.getElementById('burger'),mob=document.getElementById('mob-nav');
+if(burger&&mob){burger.addEventListener('click',function(){mob.classList.toggle('open')})}
+
+function showTab(id,btn){
+document.querySelectorAll('.menu-pane').forEach(function(p){p.style.display='none'});
+document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active')});
+var el=document.getElementById(id);
+if(el){el.style.display='grid'}
+if(btn){btn.classList.add('active')}
+}
+
+var form=document.getElementById('res-form'),fbtn=document.getElementById('f-btn'),fmsg=document.getElementById('f-msg');
+if(form){
+form.addEventListener('submit',function(e){
+e.preventDefault();
+var nom=document.getElementById('rnom'),em=document.getElementById('remail');
+if(!nom.value.trim()||!em.value.trim()){
+nom.style.borderColor=nom.value.trim()?'':'#e74c3c';
+em.style.borderColor=em.value.trim()?'':'#e74c3c';
+return;
+}
+fbtn.textContent='Envoi en cours…';fbtn.disabled=true;
+setTimeout(function(){
+form.style.display='none';
+fmsg.style.display='block';
+},900);
+});
+}
+
+var stats=document.querySelectorAll('[data-target]');
+var animated=false;
+function animStats(){
+if(animated)return;
+animated=true;
+stats.forEach(function(el){
+var target=parseFloat(el.getAttribute('data-target'));
+var isFloat=target%1!==0;
+var unit=el.querySelector('.stat-u')?el.querySelector('.stat-u').outerHTML:'';
+var start=0,dur=1800,step=16;
+var inc=target/(dur/step);
+var t=setInterval(function(){
+start+=inc;
+if(start>=target){start=target;clearInterval(t)}
+el.innerHTML=(isFloat?start.toFixed(1):Math.round(start))+(unit?'<span class="stat-u">'+el.querySelector('span')?el.querySelectorAll('span')[0]?'':'' :'');
+var su=el.getAttribute('data-unit')||'';
+el.innerHTML=(isFloat?start.toFixed(1):Math.round(start))+unit;
+},step);
+});
+}
+
+var io=window.IntersectionObserver&&new IntersectionObserver(function(entries){
+entries.forEach(function(en){
+if(en.isIntersecting){
+if(en.target.id==='stats')animStats();
+en.target.classList.add('vis');
+}
+});
+},{threshold:.15});
+
+if(io){
+document.querySelectorAll('.reveal').forEach(function(el){
+el.classList.remove('vis');
+io.observe(el);
+});
+var st=document.getElementById('stats');
+if(st)io.observe(st);
+}
+})();
+</script>
+</body>
+</html>
