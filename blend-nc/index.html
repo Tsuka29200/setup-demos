@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Blend NC — Nouméa</title>
+<meta name="description" content="Specialty coffee au cœur de Nouméa. Blend NC, votre café de référence sur le Quai Jules Ferry.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#4DCFCF;
+--cs:#1A1A1A;
+--ca:#2BA8A8;
+--cb:#F5F0E8;
+--ct:#1A1A1A;
+--cw:#fff;
+--r:.4s ease-in-out;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',system-ui,sans-serif;color:var(--ct);background:var(--cw);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU */
+.promo-bar{position:sticky;top:0;z-index:1001;height:44px;background:#ffd500;text-align:center;display:flex;align-items:center;justify-content:center}
+.promo-bar a{font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;letter-spacing:.3px;line-height:44px;display:block;width:100%}
+.promo-bar a:hover{opacity:.85}
+
+/* HEADER */
+.hdr{position:sticky;top:44px;z-index:1000;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid rgba(77,207,207,.15);height:64px;display:flex;align-items:center;padding:0 24px;gap:24px}
+.hdr-logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--cs);flex:1;white-space:nowrap}
+.hdr-logo span{color:var(--cp)}
+.hdr-nav{display:flex;gap:28px;align-items:center}
+.hdr-nav a{font-size:.88rem;font-weight:500;color:var(--cs);letter-spacing:.3px;transition:color .3s ease-in-out}
+.hdr-nav a:hover{color:var(--ca)}
+.hdr-cta{background:var(--ca);color:var(--cw);font-size:.85rem;font-weight:700;padding:10px 20px;border-radius:40px;transition:background .3s ease-in-out,transform .3s ease-in-out;white-space:nowrap}
+.hdr-cta:hover{background:var(--cp);transform:translateY(-1px)}
+.hdr-tel{font-size:.85rem;font-weight:500;color:var(--ca);transition:color .3s ease-in-out}
+.hdr-tel:hover{color:var(--cp)}
+.hdr-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px}
+.hdr-burger span{display:block;width:22px;height:2px;background:var(--cs);border-radius:2px;transition:transform .3s ease-in-out,opacity .3s ease-in-out}
+.mob-nav{display:none;position:fixed;top:108px;left:0;right:0;background:#fff;z-index:999;padding:24px 20px 32px;flex-direction:column;gap:20px;border-bottom:2px solid var(--cp);box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.mob-nav a{font-size:1rem;font-weight:500;color:var(--cs);padding:8px 0;border-bottom:1px solid rgba(77,207,207,.15)}
+.mob-nav .hdr-cta{border:none;text-align:center;min-height:48px;display:flex;align-items:center;justify-content:center;width:100%}
+.mob-open{display:flex}
+
+/* HERO */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;background:url('https://i.ibb.co/bgR99j7F/Blend-NC-0.jpg') center/cover no-repeat}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(160deg,rgba(26,26,26,.65) 0%,rgba(26,26,26,.45) 60%,rgba(77,207,207,.15) 100%)}
+.hero-body{position:relative;z-index:2;padding:0 20px;max-width:760px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(77,207,207,.2);border:1px solid rgba(77,207,207,.5);color:#e0fafa;font-size:.78rem;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;padding:6px 16px;border-radius:40px;margin-bottom:24px}
+.hero-badge::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--cp)}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,6vw,4.8rem);font-weight:700;color:#fff;line-height:1.1;margin-bottom:20px;letter-spacing:-.5px}
+.hero h1 em{color:var(--cp);font-style:normal}
+.hero-sub{font-size:clamp(1rem,2vw,1.2rem);color:rgba(255,255,255,.82);font-weight:300;margin-bottom:36px;line-height:1.6}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-p{background:var(--ca);color:#fff;font-weight:700;font-size:.95rem;padding:14px 32px;border-radius:40px;border:none;cursor:pointer;transition:background .3s ease-in-out,transform .3s ease-in-out;min-height:48px;display:inline-flex;align-items:center}
+.btn-p:hover{background:var(--cp);transform:translateY(-2px)}
+.btn-o{background:transparent;color:#fff;font-weight:600;font-size:.95rem;padding:13px 30px;border-radius:40px;border:2px solid rgba(255,255,255,.6);cursor:pointer;transition:border-color .3s ease-in-out,background .3s ease-in-out;min-height:48px;display:inline-flex;align-items:center}
+.btn-o:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+.hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.6);font-size:.75rem;letter-spacing:1px;text-transform:uppercase;z-index:2}
+.hero-scroll-line{width:1px;height:36px;background:linear-gradient(to bottom,transparent,rgba(77,207,207,.8));animation:scrollpulse 2s ease-in-out infinite}
+@keyframes scrollpulse{0%,100%{opacity:.4;transform:scaleY(.8)}50%{opacity:1;transform:scaleY(1)}}
+
+/* STATS */
+.stats{background:var(--cp);padding:56px 24px}
+.stats-grid{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;text-align:center}
+.stat-n{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#fff;line-height:1}
+.stat-l{font-size:.82rem;font-weight:500;color:rgba(255,255,255,.78);margin-top:6px;letter-spacing:.4px;text-transform:uppercase}
+
+/* FALLBACK REVEAL */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.hdr-nav,.hdr-tel{display:none}
+.hdr-burger{display:flex}
+.stats-grid{grid-template-columns:repeat(2,1fr);gap:24px}
+}
+@media(max-width:480px){
+.hdr{padding:0 16px;height:56px}
+.promo-bar{height:40px}
+.promo-bar a{font-size:13px;line-height:40px}
+.mob-nav{top:96px}
+.hero-btns{flex-direction:column;align-items:stretch}
+.btn-p,.btn-o{width:100%;justify-content:center}
+.stats{padding:40px 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO SETUP NC -->
+<div class="promo-bar">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr">
+  <a href="#" class="hdr-logo">Blend<span>NC</span></a>
+  <nav class="hdr-nav">
+    <a href="#menu">Menu</a>
+    <a href="#ambiance">Ambiance</a>
+    <a href="#histoire">Histoire</a>
+    <a href="#avis">Avis</a>
+    <a href="#acces">Accès</a>
+  </nav>
+  <a href="tel:+687312007" class="hdr-tel hdr-nav">☎ 31.20.07</a>
+  <a href="#reservation" class="hdr-cta hdr-nav">Réserver</a>
+  <button class="hdr-burger" aria-label="Menu" onclick="document.querySelector('.mob-nav').classList.toggle('mob-open')">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-nav">
+  <a href="#menu" onclick="this.closest('.mob-nav').classList.remove('mob-open')">Menu</a>
+  <a href="#ambiance" onclick="this.closest('.mob-nav').classList.remove('mob-open')">Ambiance</a>
+  <a href="#histoire" onclick="this.closest('.mob-nav').classList.remove('mob-open')">Histoire</a>
+  <a href="#avis" onclick="this.closest('.mob-nav').classList.remove('mob-open')">Avis</a>
+  <a href="#acces" onclick="this.closest('.mob-nav').classList.remove('mob-open')">Accès</a>
+  <a href="tel:+687312007" style="color:var(--ca);font-weight:700">☎ 31.20.07</a>
+  <a href="#reservation" class="hdr-cta" onclick="this.closest('.mob-nav').classList.remove('mob-open')">Réserver une table</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-ov"></div>
+  <div class="hero-body">
+    <div class="hero-badge">Specialty Coffee · Nouméa</div>
+    <h1>Specialty Coffee.<br><em>Moment Présent.</em></h1>
+    <p class="hero-sub">Un café d'exception au cœur du Quai Jules Ferry.<br>Pour ceux qui choisissent la qualité, chaque matin.</p>
+    <div class="hero-btns">
+      <a href="#reservation" class="btn-p">Réserver une table</a>
+      <a href="#menu" class="btn-o">Découvrir la carte</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Défiler</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stats-grid">
+    <div>
+      <div class="stat-n" data-target="47">0</div>
+      <div class="stat-l">Avis clients</div>
+    </div>
+    <div>
+      <div class="stat-n" data-target="4.8" data-decimal="1">0</div>
+      <div class="stat-l">Note Google /5</div>
+    </div>
+    <div>
+      <div class="stat-n" data-target="100">0</div>
+      <div class="stat-l">% Arabica sélectionné</div>
+    </div>
+    <div>
+      <div class="stat-n" data-target="7">0</div>
+      <div class="stat-l">Jours sur 7</div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('[data-target]');
+  var done=false;
+  function run(){
+    if(done)return;
+    var r=document.querySelector('.stats').getBoundingClientRect();
+    if(r.top<window.innerHeight*.9){
+      done=true;
+      els.forEach(function(el){
+        var end=parseFloat(el.dataset.target);
+        var dec=parseInt(el.dataset.decimal||0);
+        var dur=1400,start=null;
+        function step(t){
+          if(!start)start=t;
+          var p=Math.min((t-start)/dur,1);
+          var v=p*end;
+          el.textContent=dec?v.toFixed(dec):Math.round(v);
+          if(p<1)requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }
+  }
+  window.addEventListener('scroll',run,{passive:true});
+  run();
+})();
+</script>
+<style>
+/* ACCROCHE */
+.accroche{background:var(--cb);padding:100px 24px;text-align:center}
+.accroche-inner{max-width:680px;margin:0 auto}
+.tag{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--ca);margin-bottom:16px}
+.h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:700;line-height:1.2;color:var(--cs)}
+.lead{font-size:1.05rem;font-weight:300;color:#444;line-height:1.8;margin-top:16px}
+
+/* MENU */
+.menu-s{padding:100px 24px;background:#fff}
+.sec-head{text-align:center;max-width:600px;margin:0 auto 56px}
+.menu-tabs{display:flex;justify-content:center;gap:12px;margin-bottom:48px;flex-wrap:wrap}
+.tab{padding:10px 24px;border-radius:40px;border:2px solid var(--cp);font-size:.85rem;font-weight:700;cursor:pointer;transition:background .3s ease-in-out,color .3s ease-in-out;background:transparent;color:var(--ca)}
+.tab.active,.tab:hover{background:var(--ca);color:#fff;border-color:var(--ca)}
+.menu-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.mc{background:var(--cb);border-radius:16px;padding:28px 24px;border:1px solid rgba(77,207,207,.2);transition:transform .3s ease-in-out,box-shadow .3s ease-in-out;position:relative;overflow:hidden}
+.mc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--cp),var(--ca))}
+.mc:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(77,207,207,.18)}
+.mc-icon{font-size:2rem;margin-bottom:12px}
+.mc-name{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--cs);margin-bottom:6px}
+.mc-desc{font-size:.88rem;color:#555;line-height:1.6;margin-bottom:16px}
+.mc-price{font-size:1rem;font-weight:700;color:var(--ca)}
+
+/* AMBIANCE */
+.ambiance{background:var(--cs);padding:100px 24px}
+.ambiance .h2{color:#fff}
+.ambiance .tag{color:var(--cp)}
+.amb-grid{max-width:1100px;margin:40px auto 0;display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:auto auto;gap:16px}
+.amb-img{border-radius:12px;overflow:hidden;position:relative}
+.amb-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease-in-out;display:block}
+.amb-img:hover img{transform:scale(1.03)}
+.amb-img.tall{grid-row:span 2}
+.amb-img.tall img{height:520px}
+.amb-img:not(.tall) img{height:248px}
+
+/* RESERVATION CTA */
+.res-cta{background:var(--cb);padding:100px 24px;text-align:center}
+.res-inner{max-width:640px;margin:0 auto}
+.res-inner .h2{margin-bottom:16px}
+.res-inner .lead{margin-bottom:40px}
+.res-form-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:24px}
+.inp{width:100%;padding:14px 18px;border:1.5px solid rgba(77,207,207,.35);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:.93rem;color:var(--cs);background:#fff;transition:border-color .3s ease-in-out;min-height:48px}
+.inp:focus{outline:none;border-color:var(--ca)}
+
+/* CHEF / HISTOIRE */
+.histoire{padding:100px 24px;background:#fff}
+.hist-inner{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.hist-img{border-radius:16px;overflow:hidden;position:relative}
+.hist-img img{width:100%;height:480px;object-fit:cover;display:block}
+.hist-img-badge{position:absolute;bottom:24px;left:24px;background:var(--cp);color:#fff;font-size:.8rem;font-weight:700;padding:8px 16px;border-radius:40px;letter-spacing:.5px}
+.hist-txt .tag{margin-bottom:12px}
+.hist-txt .h2{margin-bottom:20px}
+.hist-txt p{font-size:.97rem;color:#444;line-height:1.85;margin-bottom:16px;font-weight:300}
+.checks{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.checks li{display:flex;align-items:center;gap:10px;font-size:.9rem;font-weight:500;color:var(--cs)}
+.checks li::before{content:'';display:inline-block;width:18px;height:18px;border-radius:50%;background:var(--cp);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23fff' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;background-size:12px;flex-shrink:0}
+
+/* GALERIE */
+.galerie{background:var(--cb);padding:100px 24px}
+.gal-grid{max-width:1100px;margin:40px auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.gal-item{border-radius:12px;overflow:hidden;cursor:pointer;position:relative}
+.gal-item img{width:100%;height:220px;object-fit:cover;transition:transform .4s ease-in-out,filter .4s ease-in-out;display:block}
+.gal-item:hover img{transform:scale(1.04);filter:brightness(.85)}
+.gal-item::after{content:'⊕';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.8rem;opacity:0;transition:opacity .3s ease-in-out}
+.gal-item:hover::after{opacity:1}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center;padding:20px}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:88vh;border-radius:10px;object-fit:contain}
+.lb-close{position:absolute;top:20px;right:24px;color:#fff;font-size:2rem;cursor:pointer;line-height:1;background:none;border:none;opacity:.8;transition:opacity .3s ease-in-out}
+.lb-close:hover{opacity:1}
+
+/* FORMULAIRE */
+.contact{padding:100px 24px;background:#fff}
+.form-wrap{max-width:680px;margin:40px auto 0}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.frow-full{margin-bottom:16px}
+textarea.inp{resize:vertical;min-height:130px}
+.form-msg{display:none;background:#e6faf8;border:1px solid var(--cp);color:var(--ca);padding:16px 20px;border-radius:10px;font-weight:600;margin-top:16px;text-align:center}
+.form-msg.show{display:block}
+.btn-submit{background:var(--ca);color:#fff;border:none;font-family:'DM Sans',sans-serif;font-weight:700;font-size:1rem;padding:16px 40px;border-radius:40px;cursor:pointer;transition:background .3s ease-in-out,transform .3s ease-in-out;min-height:52px;width:100%}
+.btn-submit:hover{background:var(--cp);transform:translateY(-2px)}
+.err{font-size:.78rem;color:#c0392b;margin-top:4px;display:none}
+
+/* AVIS */
+.avis{background:var(--cb);padding:100px 24px}
+.avis-top{text-align:center;margin-bottom:56px}
+.note-badge{display:inline-flex;flex-direction:column;align-items:center;background:#fff;border-radius:20px;padding:28px 40px;box-shadow:0 4px 24px rgba(77,207,207,.15);border:1px solid rgba(77,207,207,.2);margin-bottom:40px}
+.note-n{font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:700;color:var(--ca);line-height:1}
+.stars{display:flex;gap:4px;margin:8px 0}
+.star{color:var(--cp);font-size:1.2rem}
+.note-sub{font-size:.82rem;color:#666;font-weight:500}
+.temoignages{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.tcard{background:#fff;border-radius:16px;padding:28px 24px;border:1px solid rgba(77,207,207,.15);transition:transform .3s ease-in-out,box-shadow .3s ease-in-out}
+.tcard:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(77,207,207,.14)}
+.tcard-stars{display:flex;gap:3px;margin-bottom:12px}
+.tcard-txt{font-size:.92rem;color:#444;line-height:1.7;font-style:italic;margin-bottom:16px;font-weight:300}
+.tcard-name{font-weight:700;font-size:.88rem;color:var(--cs)}
+.tcard-loc{font-size:.78rem;color:#888}
+
+/* HORAIRES / ACCES */
+.acces{background:var(--cs);padding:100px 24px}
+.acces .h2,.acces .tag,.acces-label{color:#fff}
+.acces .tag{color:var(--cp)}
+.acces-grid{max-width:960px;margin:40px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.acces-block{display:flex;flex-direction:column;gap:20px}
+.acces-label{font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--cp);margin-bottom:4px}
+.acces-val{font-size:.97rem;color:rgba(255,255,255,.82);line-height:1.7;font-weight:300}
+.acces-val a{color:var(--cp);transition:opacity .3s ease-in-out}
+.acces-val a:hover{opacity:.75}
+.hor-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:.9rem;color:rgba(255,255,255,.75)}
+.hor-row:last-child{border-bottom:none}
+.hor-row strong{color:#fff;font-weight:600}
+
+/* FOOTER */
+.footer{background:var(--cp);padding:56px 24px 32px}
+.footer-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr;gap:40px;align-items:start}
+.footer-brand{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:12px}
+.footer-addr{font-size:.88rem;color:rgba(255,255,255,.8);line-height:1.8;font-weight:300}
+.footer-addr a{color:#fff;font-weight:600}
+.footer-addr a:hover{opacity:.8}
+.footer-links{display:flex;flex-direction:column;gap:10px;align-items:flex-end}
+.footer-links a{font-size:.88rem;color:rgba(255,255,255,.85);font-weight:500;transition:opacity .3s ease-in-out}
+.footer-links a:hover{opacity:.65}
+.footer-social{display:flex;gap:14px;margin-top:8px;justify-content:flex-end}
+.soc-ic{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.15);transition:background .3s ease-in-out}
+.soc-ic:hover{background:rgba(255,255,255,.3)}
+.soc-ic svg{width:20px;height:20px;fill:#fff}
+.footer-bot{max-width:1000px;margin:32px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.2);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.footer-copy{font-size:.8rem;color:rgba(255,255,255,.7)}
+.footer-by{font-size:.8rem;color:rgba(255,255,255,.7)}
+.footer-by a{color:#fff;font-weight:700}
+.footer-by a:hover{opacity:.8}
+
+/* RESPONSIVE PART 2 */
+@media(max-width:900px){
+.menu-grid{grid-template-columns:1fr 1fr}
+.hist-inner{grid-template-columns:1fr;gap:40px}
+.hist-img img{height:320px}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.temoignages{grid-template-columns:1fr}
+.acces-grid{grid-template-columns:1fr;gap:32px}
+.footer-inner{grid-template-columns:1fr;gap:24px}
+.footer-links{align-items:flex-start}
+.footer-social{justify-content:flex-start}
+}
+@media(max-width:600px){
+.res-form-row{grid-template-columns:1fr;gap:14px}
+.frow{grid-template-columns:1fr}
+.amb-grid{grid-template-columns:1fr}
+.amb-img.tall{grid-row:auto}
+.amb-img.tall img,.amb-img:not(.tall) img{height:220px}
+.footer-bot{flex-direction:column;text-align:center}
+}
+@media(max-width:480px){
+.menu-grid{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+.accroche,.menu-s,.ambiance,.res-cta,.histoire,.galerie,.contact,.avis,.acces{padding:72px 16px}
+.footer{padding:48px 16px 24px}
+.note-badge{padding:20px 28px}
+}
+</style>
+
+<!-- ACCROCHE EMOTIONNELLE -->
+<section class="accroche" id="apropos">
+  <div class="accroche-inner">
+    <span class="tag">Le café de Nouméa</span>
+    <h2 class="h2">Un refuge urbain au bord du lagon</h2>
+    <p class="lead">Blend NC est né d'une conviction simple : chaque tasse mérite d'être pensée, sélectionnée et préparée avec soin. Sur le Quai Jules Ferry, nous accueillons les Nouméens exigeants qui savent que la pause fait partie du travail bien fait.</p>
+  </div>
+</section>
+
+<!-- MENU SIGNATURE -->
+<section class="menu-s" id="menu">
+  <div class="sec-head">
+    <span class="tag">Notre sélection</span>
+    <h2 class="h2">La carte Blend NC</h2>
+    <p class="lead">Des boissons pensées pour chaque moment de la journée, préparées avec des grains 100 % arabica.</p>
+  </div>
+  <div class="menu-tabs">
+    <button class="tab active">Cafés</button>
+    <button class="tab">Boissons froides</button>
+    <button class="tab">À manger</button>
+  </div>
+  <div class="menu-grid">
+    <div class="mc">
+      <div class="mc-icon">☕</div>
+      <div class="mc-name">Espresso Signature</div>
+      <div class="mc-desc">Notre blend maison, notes de cacao et agrumes, extraction soignée à chaque service.</div>
+      <div class="mc-price">À partir de 200 XPF</div>
+    </div>
+    <div class="mc">
+      <div class="mc-icon">🥛</div>
+      <div class="mc-name">Flat White</div>
+      <div class="mc-desc">Double ristretto, lait entier microtexturé. La douceur sans compromis sur l'intensité.</div>
+      <div class="mc-price">À partir de 350 XPF</div>
+    </div>
+    <div class="mc">
+      <div class="mc-icon">🌿</div>
+      <div class="mc-name">Latte Végétal</div>
+      <div class="mc-desc">Espresso allongé sur lait d'avoine ou d'amande, pour une alternative légère et savoureuse.</div>
+      <div class="mc-price">À partir de 380 XPF</div>
+    </div>
+    <div class="mc">
+      <div class="mc-icon">🧊</div>
+      <div class="mc-name">Cold Brew</div>
+      <div class="mc-desc">Infusion longue 18 heures, servi sur glace. Profond, doux et parfait sous la chaleur de Nouméa.</div>
+      <div class="mc-price">À partir de 420 XPF</div>
+    </div>
+    <div class="mc">
+      <div class="mc-icon">🍋</div>
+      <div class="mc-name">Citrus Tonic</div>
+      <div class="mc-desc">Espresso sur eau tonique et zeste de citron. Fraîcheur assurée, caractère intact.</div>
+      <div class="mc-price">À partir de 450 XPF</div>
+    </div>
+    <div class="mc">
+      <div class="mc-icon">🥐</div>
+      <div class="mc-name">Encas du jour</div>
+      <div class="mc-desc">Viennoiseries et snacks sélectionnés chaque matin, à découvrir sur place selon arrivage.</div>
+      <div class="mc-price">À partir de 250 XPF</div>
+    </div>
+  </div>
+</section>
+
+<!-- AMBIANCE GALERIE -->
+<section class="ambiance" id="ambiance">
+  <div style="text-align:center;margin-bottom:8px">
+    <span class="tag">L'endroit</span>
+    <h2 class="h2">L'ambiance Blend NC</h2>
+  </div>
+  <div class="amb-grid">
+    <div class="amb-img tall">
+      <img src="https://i.ibb.co/bgR99j7F/Blend-NC-0.jpg" alt="Café Blend NC ambiance comptoir" loading="lazy">
+    </div>
+    <div class="amb-img">
+      <img src="https://i.ibb.co/dsF379xf/Blend-NC-1.jpg" alt="Blend NC espace intérieur" loading="lazy">
+    </div>
+    <div class="amb-img">
+      <img src="https://i.ibb.co/pryt1gnF/Blend-NC-2.jpg" alt="Blend NC terrasse Quai Jules Ferry" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- RESERVATION CTA -->
+<section class="res-cta" id="reservation">
+  <div class="res-inner">
+    <span class="tag">Réservation</span>
+    <h2 class="h2">Réservez votre moment</h2>
+    <p class="lead">Pour un déjeuner entre collègues, une pause en tête-à-tête ou un rendez-vous de travail : appelez-nous directement ou écrivez-nous.</p>
+    <div class="res-form-row">
+      <input class="inp" type="date" aria-label="Date souhaitée">
+      <input class="inp" type="time" aria-label="Heure souhaitée" value="08:00">
+      <select class="inp" aria-label="Nombre de personnes">
+        <option value="">Personnes</option>
+        <option>1 personne</option>
+        <option>2 personnes</option>
+        <option>3 personnes</option>
+        <option>4 personnes ou plus</option>
+      </select>
+    </div>
+    <a href="tel:+687312007" class="btn-p" style="display:inline-flex;align-items:center;gap:10px;margin:0 auto">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.25 1.18 2 2 0 012.23 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      Appeler le 31.20.07
+    </a>
+  </div>
+</section>
+
+<!-- HISTOIRE & VALEURS -->
+<section class="histoire" id="histoire">
+  <div class="hist-inner">
+    <div class="hist-img">
+      <img src="https://i.ibb.co/LXz6pNmZ/Blend-NC-3.jpg" alt="Blend NC grains de café sélection" loading="lazy">
+      <div class="hist-img-badge">Depuis Nouméa, pour Nouméa</div>
+    </div>
+    <div class="hist-txt">
+      <span class="tag">Notre histoire</span>
+      <h2 class="h2">L'exigence comme ligne de conduite</h2>
+      <p>Blend NC est né de la volonté de proposer à Nouméa ce qui se fait de mieux en matière de café de spécialité. Chaque grain est sélectionné pour ses notes de dégustation, son origine et la régularité de sa torréfaction.</p>
+      <p>Notre comptoir du Quai Jules Ferry est un point fixe dans le quotidien des Nouméens : un endroit où la qualité est constante, le service attentionné et l'atmosphère propice à la concentration comme à la détente.</p>
+      <ul class="checks">
+        <li>Grains 100 % arabica, sélection rigoureuse</li>
+        <li>Baristas formés aux techniques specialty</li>
+        <li>Emplacement privilégié sur le front de mer</li>
+        <li>Ouvert 7 jours sur 7 pour votre quotidien</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE PHOTOS -->
+<section class="galerie" id="galerie">
+  <div class="sec-head">
+    <span class="tag">Galerie</span>
+    <h2 class="h2">Blend NC en images</h2>
+  </div>
+  <div class="gal-grid">
+    <div class="gal-item" data-src="https://i.ibb.co/bgR99j7F/Blend-NC-0.jpg">
+      <img src="https://i.ibb.co/bgR99j7F/Blend-NC-0.jpg" alt="Blend NC photo 1" loading="lazy">
+    </div>
+    <div class="gal-item" data-src="https://i.ibb.co/dsF379xf/Blend-NC-1.jpg">
+      <img src="https://i.ibb.co/dsF379xf/Blend-NC-1.jpg" alt="Blend NC photo 2" loading="lazy">
+    </div>
+    <div class="gal-item" data-src="https://i.ibb.co/pryt1gnF/Blend-NC-2.jpg">
+      <img src="https://i.ibb.co/pryt1gnF/Blend-NC-2.jpg" alt="Blend NC photo 3" loading="lazy">
+    </div>
+    <div class="gal-item" data-src="https://i.ibb.co/LXz6pNmZ/Blend-NC-3.jpg">
+      <img src="https://i.ibb.co/LXz6pNmZ/Blend-NC-3.jpg" alt="Blend NC photo 4" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lb" role="dialog" aria-modal="true">
+  <button class="lb-close" id="lb-close" aria-label="Fermer">✕</button>
+  <img class="lb-img" id="lb-img" src="" alt="Aperçu">
+</div>
+
+<!-- FORMULAIRE -->
+<section class="contact" id="contact">
+  <div class="sec-head">
+    <span class="tag">Nous écrire</span>
+    <h2 class="h2">Une question ? Un message ?</h2>
+    <p class="lead">Nous vous répondons dans les meilleurs délais.</p>
+  </div>
+  <form class="form-wrap" id="cform" action="#" novalidate>
+    <div class="frow">
+      <div>
+        <input class="inp" type="text" id="f-nom" placeholder="Votre nom *" autocomplete="name">
+        <div class="err" id="e-nom">Merci d'indiquer votre nom.</div>
+      </div>
+      <div>
+        <input class="inp" type="email" id="f-email" placeholder="Votre email *" autocomplete="email">
+        <div class="err" id="e-email">Adresse email invalide.</div>
+      </div>
+    </div>
+    <div class="frow-full">
+      <input class="inp" type="tel" id="f-tel" placeholder="Votre téléphone" autocomplete="tel">
+    </div>
+    <div class="frow-full">
+      <textarea class="inp" id="f-msg" placeholder="Votre message *"></textarea>
+      <div class="err" id="e-msg">Merci d'écrire un message.</div>
+    </div>
+    <button type="submit" class="btn-submit" id="fsub">Envoyer le message</button>
+    <div class="form-msg" id="fok">✓ Message envoyé ! Nous vous répondrons très bientôt.</div>
+  </form>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="avis" id="avis">
+  <div class="avis-top">
+    <span class="tag">Avis clients</span>
+    <h2 class="h2" style="margin-bottom:32px">Ce que disent les Nouméens</h2>
+    <div class="note-badge">
+      <div class="note-n">4.8</div>
+      <div class="stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <div class="note-sub">47 avis Google vérifiés</div>
+    </div>
+  </div>
+  <div class="temoignages">
+    <div class="tcard">
+      <div class="tcard-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+      <p class="tcard-txt">« Le meilleur flat white de Nouméa, sans hésitation. L'endroit est calme, bien situé et le personnel est aux petits soins. Je reviens chaque matin. »</p>
+      <div class="tcard-name">Marie-Claire T.</div>
+      <div class="tcard-loc">Nouméa, Nouvelle-Calédonie</div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+      <p class="tcard-txt">« Enfin un café de spécialité à la hauteur à Nouméa. Le cold brew est remarquable et la terrasse sur le Quai est parfaite pour travailler entre deux réunions. »</p>
+      <div class="tcard-name">Julien R.</div>
+      <div class="tcard-loc">Nouméa, Nouvelle-Calédonie</div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+      <p class="tcard-txt">« Cadre soigné, café irréprochable et accueil chaleureux. Blend NC est devenu mon incontournable du vendredi matin. Une adresse que je recommande sans réserve. »</p>
+      <div class="tcard-name">Sophie M.</div>
+      <div class="tcard-loc">Nouméa, Nouvelle-Calédonie</div>
+    </div>
+  </div>
+</section>
+
+<!-- HORAIRES & ACCES -->
+<section class="acces" id="acces">
+  <div class="sec-head" style="text-align:center">
+    <span class="tag">Nous trouver</span>
+    <h2 class="h2" style="color:#fff">Horaires & accès</h2>
+  </div>
+  <div class="acces-grid">
+    <div class="acces-block">
+      <div>
+        <div class="acces-label">Adresse</div>
+        <div class="acces-val">Quai Jules Ferry, Rue Jules Ferry<br>Nouméa 98800, Nouvelle-Calédonie</div>
+      </div>
+      <div>
+        <div class="acces-label">Téléphone</div>
+        <div class="acces-val"><a href="tel:+687312007">31.20.07</a></div>
+      </div>
+      <div>
+        <div class="acces-label">Retrouvez-nous</div>
+        <div class="acces-val"><a href="https://www.facebook.com/BLEND.NC" target="_blank" rel="noopener">Facebook — BLEND.NC</a></div>
+      </div>
+    </div>
+    <div class="acces-block">
+      <div class="acces-label">Horaires d'ouverture</div>
+      <div class="hor-row"><span>Lundi – Vendredi</span><strong>06h30 – 17h00</strong></div>
+      <div class="hor-row"><span>Samedi</span><strong>07h00 – 16h00</strong></div>
+      <div class="hor-row"><span>Dimanche</span><strong>07h30 – 14h00</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Blend NC</div>
+      <div class="footer-addr">
+        Quai Jules Ferry, Rue Jules Ferry<br>
+        Nouméa 98800, Nouvelle-Calédonie<br>
+        <a href="tel:+687312007">☎ 31.20.07</a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="#menu">Menu</a>
+      <a href="#histoire">Notre histoire</a>
+      <a href="#avis">Avis clients</a>
+      <a href="#contact">Contact</a>
+      <a href="#acces">Accès</a>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/BLEND.NC" target="_blank" rel="noopener" class="soc-ic" aria-label="Facebook Blend NC">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073C24 5.404 18.627 0 12 0S0 5.404 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <div class="footer-copy">© 2026 Blend NC. Tous droits réservés.</div>
+    <div class="footer-by">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var items=document.querySelectorAll('.gal-item');
+  var lb=document.getElementById('lb');
+  var lbi=document.getElementById('lb-img');
+  items.forEach(function(it){
+    it.addEventListener('click',function(){
+      lbi.src=it.dataset.src;
+      lb.classList.add('open');
+      document.body.style.overflow='hidden';
+    });
+  });
+  function closeLb(){lb.classList.remove('open');document.body.style.overflow='';}
+  document.getElementById('lb-close').addEventListener('click',closeLb);
+  lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+
+  var form=document.getElementById('cform');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var ok=true;
+    function chk(id,eid,fn){
+      var v=document.getElementById(id).value.trim();
+      var el=document.getElementById(eid);
+      if(!fn(v)){el.style.display='block';ok=false;}else{el.style.display='none';}
+    }
+    chk('f-nom','e-nom',function(v){return v.length>1;});
+    chk('f-email','e-email',function(v){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);});
+    chk('f-msg','e-msg',function(v){return v.length>4;});
+    if(!ok)return;
+    var btn=document.getElementById('fsub');
+    btn.textContent='Envoi…';btn.disabled=true;
+    setTimeout(function(){
+      document.getElementById('fok').classList.add('show');
+      form.reset();btn.textContent='Envoyer le message';btn.disabled=false;
+    },900);
+  });
+
+  var tabs=document.querySelectorAll('.tab');
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      tabs.forEach(function(x){x.classList.remove('active');});
+      t.classList.add('active');
+    });
+  });
+})();
+</script>
+</body>
+</html>
