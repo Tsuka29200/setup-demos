@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Au 72 - Concept Store du Quartier Latin — Nouméa</title>
+<meta name="description" content="Au 72, café-concept store raffiné du Quartier Latin à Nouméa. Un salon cultivé aux accents koloniaux revisités, ancré dans le Pacifique avec chaleur et caractère.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#2C1A0E;
+--cs:#D4A96A;
+--ca:#B85C38;
+--cb:#F5F0E8;
+--ct:#1E1208;
+--cw:#fff;
+--r:300ms;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;background:var(--cb);color:var(--ct);overflow-x:hidden;font-size:16px;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+
+/* TYPOGRAPHY */
+.h1{font-family:'Playfair Display',serif;font-size:clamp(48px,8vw,90px);font-weight:700;line-height:1.05;color:var(--cw)}
+.h2{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,56px);font-weight:600;line-height:1.15;color:var(--cp)}
+.h2-w{color:var(--cw)}
+.h3{font-family:'Playfair Display',serif;font-size:clamp(20px,3vw,28px);font-weight:600;color:var(--cp)}
+.sub{font-family:'Lato',sans-serif;font-weight:300;font-size:clamp(15px,2vw,20px);letter-spacing:0.5px}
+.tag{font-family:'Lato',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--cs)}
+
+/* LAYOUT */
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.s{padding:96px 0}
+.s-sm{padding:64px 0}
+.bg-dark{background:var(--cp)}
+.bg-cream{background:var(--cb)}
+.tc{text-align:center}
+.flex{display:flex;align-items:center}
+.gap2{gap:24px}
+.gap3{gap:32px}
+
+/* BUTTONS */
+.b{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 32px;border-radius:3px;font-family:'Lato',sans-serif;font-weight:700;font-size:15px;letter-spacing:0.5px;cursor:pointer;border:none;transition:all var(--r) ease;text-decoration:none;min-height:48px}
+.b-primary{background:var(--cp);color:var(--cw)}
+.b-primary:hover{background:var(--ca);box-shadow:0 8px 24px rgba(212,169,106,0.3);transform:translateY(-2px)}
+.b-outline{background:transparent;color:var(--cw);border:2px solid var(--cs)}
+.b-outline:hover{background:var(--cs);color:var(--cp)}
+.b-accent{background:var(--ca);color:var(--cw)}
+.b-accent:hover{background:var(--cp);box-shadow:0 8px 24px rgba(212,169,106,0.25);transform:translateY(-2px)}
+
+/* PROMO BANDEAU */
+#promo{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;display:flex;align-items:center;justify-content:center}
+#promo a{font-family:'Manrope','Plus Jakarta Sans',system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;line-height:44px;letter-spacing:0.3px;text-align:center}
+#promo a:hover{opacity:.85}
+
+/* HEADER */
+#hdr{position:fixed;top:44px;left:0;width:100%;height:64px;background:rgba(44,26,14,0.96);backdrop-filter:blur(8px);z-index:1000;display:flex;align-items:center;border-bottom:1px solid rgba(212,169,106,0.2)}
+.hdr-inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1200px;margin:0 auto;padding:0 24px}
+.logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--cw);white-space:nowrap}
+.logo span{color:var(--cs)}
+.nav{display:flex;align-items:center;gap:32px;list-style:none}
+.nav a{font-family:'Lato',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(245,240,232,0.8);transition:color var(--r)}
+.nav a:hover{color:var(--cs)}
+.hdr-cta{display:flex;align-items:center;gap:16px}
+.hdr-tel{font-family:'Lato',sans-serif;font-size:14px;font-weight:700;color:var(--cs);white-space:nowrap}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.ham span{display:block;width:24px;height:2px;background:var(--cw);transition:all var(--r)}
+.mob-nav{display:none;position:fixed;top:108px;left:0;width:100%;background:var(--cp);z-index:999;padding:24px;border-top:1px solid rgba(212,169,106,0.2)}
+.mob-nav.open{display:block}
+.mob-nav ul{list-style:none;display:flex;flex-direction:column;gap:0}
+.mob-nav a{display:block;padding:14px 0;font-family:'Lato',sans-serif;font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--cw);border-bottom:1px solid rgba(212,169,106,0.15)}
+.mob-cta{margin-top:20px;width:100%}
+
+/* HERO */
+#hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;margin-top:108px;background:url('https://i.ibb.co/84jNZx9k/Au-72-Concept-Store-du-Quartier-Latin-0.jpg') center center/cover no-repeat}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(44,26,14,0.72) 0%,rgba(30,18,8,0.55) 50%,rgba(44,26,14,0.78) 100%)}
+.hero-content{position:relative;z-index:2;max-width:860px;padding:0 24px}
+.hero-tag{display:inline-block;margin-bottom:20px;padding:6px 18px;border:1px solid rgba(212,169,106,0.6);border-radius:2px;font-family:'Lato',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--cs)}
+.hero-sub{color:rgba(245,240,232,0.85);margin:20px auto 40px;max-width:560px;font-size:clamp(16px,2vw,20px);font-weight:300;line-height:1.7}
+.hero-btns{display:flex;flex-wrap:wrap;gap:16px;justify-content:center}
+.scroll-ind{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(245,240,232,0.6);font-family:'Lato',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,rgba(212,169,106,0.8),transparent);animation:scrollpulse 2s ease-in-out infinite}
+@keyframes scrollpulse{0%,100%{opacity:.4;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.2)}}
+
+/* STATS */
+#stats{background:var(--cp);padding:72px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat{text-align:center;padding:24px 16px;border-right:1px solid rgba(212,169,106,0.2)}
+.stat:last-child{border-right:none}
+.stat-num{font-family:'Playfair Display',serif;font-size:clamp(40px,6vw,64px);font-weight:700;color:var(--cs);line-height:1;display:block}
+.stat-label{font-family:'Lato',sans-serif;font-size:13px;font-weight:400;text-transform:uppercase;letter-spacing:1.5px;color:rgba(245,240,232,0.7);margin-top:8px;display:block}
+
+/* REVEAL FALLBACK */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.nav,.hdr-cta .b{display:none}
+.ham{display:flex}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.stat{border-right:none;border-bottom:1px solid rgba(212,169,106,0.2)}
+.stat:nth-child(odd){border-right:1px solid rgba(212,169,106,0.2)}
+.stat:last-child,.stat:nth-last-child(2):nth-child(odd){border-bottom:none}
+}
+@media(max-width:480px){
+#promo a{font-size:13px}
+.wrap{padding:0 16px}
+.hdr-inner{padding:0 16px}
+.hero-btns .b{width:100%}
+.hdr-tel{display:none}
+.stats-grid{grid-template-columns:1fr 1fr}
+.s{padding:64px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div id="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="hdr-inner">
+    <a href="#hero" class="logo">Au&nbsp;<span>72</span></a>
+    <nav>
+      <ul class="nav">
+        <li><a href="#specialites">La Carte</a></li>
+        <li><a href="#ambiance">L'Esprit</a></li>
+        <li><a href="#histoire">Histoire</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hdr-cta">
+      <a href="tel:+687776991" class="hdr-tel">☎ 77.69.91</a>
+      <a href="#contact" class="b b-accent">Réserver</a>
+    </div>
+    <button class="ham" id="hamBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-nav" id="mobNav">
+  <ul>
+    <li><a href="#specialites" class="mob-link">La Carte</a></li>
+    <li><a href="#ambiance" class="mob-link">L'Esprit</a></li>
+    <li><a href="#histoire" class="mob-link">Histoire</a></li>
+    <li><a href="#galerie" class="mob-link">Galerie</a></li>
+    <li><a href="#contact" class="mob-link">Contact</a></li>
+  </ul>
+  <a href="tel:+687776991" class="b b-accent mob-cta" style="margin-top:16px">☎ 77.69.91</a>
+  <a href="#contact" class="b b-outline mob-cta" style="margin-top:12px">Réserver une table</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-tag">Quartier Latin · Nouméa</span>
+    <h1 class="h1">Au 72</h1>
+    <p class="hero-sub">Un salon cultivé où le temps s'étire — café d'exception, objets curated et âme du Pacifique, réunis sous un même toit colonial.</p>
+    <div class="hero-btns">
+      <a href="#specialites" class="b b-primary">Découvrir la carte</a>
+      <a href="#contact" class="b b-outline">Réserver une table</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <div class="scroll-line"></div>
+    <span>Découvrir</span>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat">
+        <span class="stat-num" data-target="72">0</span>
+        <span class="stat-label">Rue de Sébastopol</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-target="100">0</span>
+        <span class="stat-label">% Saveurs locales</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-target="7">0</span>
+        <span class="stat-label">Jours sur 7</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-target="1">0</span>
+        <span class="stat-label">Adresse unique à Nouméa</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var btn=document.getElementById('hamBtn'),nav=document.getElementById('mobNav');
+  btn.addEventListener('click',function(){nav.classList.toggle('open')});
+  document.querySelectorAll('.mob-link').forEach(function(l){l.addEventListener('click',function(){nav.classList.remove('open')})});
+
+  var counted=false;
+  function countUp(){
+    if(counted)return;
+    counted=true;
+    document.querySelectorAll('[data-target]').forEach(function(el){
+      var t=+el.getAttribute('data-target'),d=1200,s=30,steps=Math.ceil(d/s),i=0;
+      var id=setInterval(function(){
+        i++;
+        el.textContent=Math.round(t*i/steps);
+        if(i>=steps){el.textContent=t;clearInterval(id)}
+      },s);
+    });
+  }
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)countUp()})},{threshold:0.3});
+  var st=document.getElementById('stats');
+  if(st)obs.observe(st);
+})();
+</script>
+<style>
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:56px}
+.svc-card{background:var(--cw);border-radius:4px;padding:40px 32px;text-align:center;transition:transform var(--r),box-shadow var(--r);border-bottom:3px solid transparent}
+.svc-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(44,26,14,0.12);border-bottom-color:var(--cs)}
+.svc-icon{width:56px;height:56px;margin:0 auto 20px;color:var(--cs)}
+.svc-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:var(--cp);margin-bottom:12px}
+.svc-desc{font-size:14px;line-height:1.7;color:#5a4535;margin-bottom:24px}
+
+/* METIER */
+.metier-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch}
+.metier-img{width:100%;height:100%;min-height:480px;object-fit:cover}
+.metier-text{padding:72px 64px;display:flex;flex-direction:column;justify-content:center}
+.metier-text-r{padding:72px 64px;display:flex;flex-direction:column;justify-content:center}
+.checks{list-style:none;margin-top:28px;display:flex;flex-direction:column;gap:14px}
+.checks li{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:rgba(245,240,232,0.85)}
+.checks li svg{flex-shrink:0;margin-top:2px;color:var(--cs)}
+.checks-dark li{color:var(--ct)}
+.sep{width:48px;height:3px;background:var(--cs);margin:20px 0}
+
+/* GALERIE */
+.gal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:4px;margin-top:48px}
+.gal-item{overflow:hidden;cursor:pointer;aspect-ratio:4/3;position:relative}
+.gal-item:first-child{grid-column:span 2;aspect-ratio:16/7}
+.gal-img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease,filter .5s ease}
+.gal-item:hover .gal-img{transform:scale(1.04);filter:sepia(0.2) saturate(1.2)}
+.gal-item::after{content:'';position:absolute;inset:0;background:rgba(212,169,106,0);transition:background var(--r)}
+.gal-item:hover::after{background:rgba(212,169,106,0.12)}
+.lb{display:none;position:fixed;inset:0;background:rgba(30,18,8,0.95);z-index:2000;align-items:center;justify-content:center;padding:24px}
+.lb.open{display:flex}
+.lb-img{max-width:90vw;max-height:88vh;object-fit:contain;border-radius:2px}
+.lb-close{position:fixed;top:20px;right:24px;background:none;border:none;color:var(--cw);font-size:32px;cursor:pointer;line-height:1;padding:8px}
+
+/* RESERVATION */
+.rsv{background:var(--cp);padding:96px 0;text-align:center}
+.rsv-box{max-width:680px;margin:0 auto;padding:0 24px}
+.rsv-sub{color:rgba(245,240,232,0.75);font-size:17px;line-height:1.7;margin:20px 0 40px}
+
+/* FORMULAIRE */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px;text-align:left}
+.f-full{grid-column:span 2}
+.f-group{display:flex;flex-direction:column;gap:6px}
+.f-group label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(245,240,232,0.7)}
+.f-group input,.f-group textarea,.f-group select{background:rgba(245,240,232,0.06);border:1px solid rgba(212,169,106,0.3);border-radius:3px;padding:12px 16px;font-family:'Lato',sans-serif;font-size:15px;color:var(--cw);transition:border-color var(--r),box-shadow var(--r);width:100%}
+.f-group input::placeholder,.f-group textarea::placeholder{color:rgba(245,240,232,0.35)}
+.f-group input:focus,.f-group textarea:focus,.f-group select:focus{outline:none;border-color:var(--cs);box-shadow:0 0 0 3px rgba(212,169,106,0.15)}
+.f-group textarea{resize:vertical;min-height:110px}
+.f-group select option{background:var(--cp);color:var(--cw)}
+.f-err{font-size:12px;color:#e07070;margin-top:4px;display:none}
+.f-err.show{display:block}
+.f-success{display:none;background:rgba(212,169,106,0.15);border:1px solid var(--cs);border-radius:4px;padding:20px 24px;text-align:center;color:var(--cs);font-size:15px;margin-top:24px}
+.f-success.show{display:block}
+.f-loader{display:none;width:20px;height:20px;border:2px solid rgba(255,255,255,0.3);border-top-color:var(--cw);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto}
+.f-loader.show{display:block}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* AVIS */
+.avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px}
+.avis-card{background:var(--cw);border-radius:4px;padding:32px 28px;border-top:3px solid var(--cs)}
+.stars{color:var(--cs);font-size:18px;letter-spacing:2px;margin-bottom:14px}
+.avis-text{font-size:14px;line-height:1.75;color:#5a4535;font-style:italic;margin-bottom:20px}
+.avis-author{font-size:13px;font-weight:700;color:var(--cp);text-transform:uppercase;letter-spacing:0.5px}
+.avis-note{text-align:center;margin-bottom:56px}
+.big-note{font-family:'Playfair Display',serif;font-size:72px;font-weight:700;color:var(--cp);line-height:1}
+.note-label{font-size:14px;color:#7a6050;margin-top:8px}
+.badges{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:56px}
+.badge{display:flex;align-items:center;gap:10px;background:var(--cw);border:1px solid rgba(212,169,106,0.4);border-radius:40px;padding:10px 22px;font-size:13px;font-weight:700;color:var(--cp)}
+.badge svg{color:var(--cs)}
+
+/* HORAIRES */
+.horo-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:48px}
+.horo-table{width:100%;border-collapse:collapse}
+.horo-table tr{border-bottom:1px solid rgba(212,169,106,0.2)}
+.horo-table td{padding:10px 0;font-size:14px;color:rgba(245,240,232,0.85)}
+.horo-table td:last-child{text-align:right;color:var(--cs);font-weight:700}
+.map-placeholder{background:rgba(212,169,106,0.08);border:1px solid rgba(212,169,106,0.2);border-radius:4px;padding:40px 32px;text-align:center;height:100%}
+
+/* FOOTER */
+footer{background:var(--ct);color:rgba(245,240,232,0.75);padding:64px 0 32px}
+.ft-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.ft-logo{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--cw);margin-bottom:16px}
+.ft-logo span{color:var(--cs)}
+.ft-desc{font-size:14px;line-height:1.7;margin-bottom:20px}
+.ft-h{font-family:'Lato',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--cs);margin-bottom:16px}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-links a{font-size:14px;color:rgba(245,240,232,0.7);transition:color var(--r)}
+.ft-links a:hover{color:var(--cs)}
+.ft-addr{font-size:14px;line-height:1.8}
+.ft-tel{color:var(--cs);font-weight:700;font-size:15px;margin-top:8px;display:inline-block}
+.ft-bar{border-top:1px solid rgba(245,240,232,0.1);padding-top:28px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
+.ft-copy{font-size:12px;color:rgba(245,240,232,0.4)}
+.ft-setup{font-size:12px;color:rgba(245,240,232,0.4)}
+.ft-setup a{color:var(--cs);font-weight:700}
+.ft-setup a:hover{opacity:.8}
+
+/* RESPONSIVE PART2 */
+@media(max-width:900px){
+.svc-grid{grid-template-columns:1fr}
+.metier-grid{grid-template-columns:1fr}
+.metier-img{min-height:280px}
+.metier-text,.metier-text-r{padding:48px 32px}
+.metier-rev{order:-1}
+.avis-grid{grid-template-columns:1fr}
+.horo-grid{grid-template-columns:1fr}
+.ft-grid{grid-template-columns:1fr}
+.form-grid{grid-template-columns:1fr}
+.f-full{grid-column:span 1}
+}
+@media(max-width:480px){
+.gal-grid{grid-template-columns:1fr}
+.gal-item:first-child{grid-column:span 1;aspect-ratio:4/3}
+.big-note{font-size:56px}
+.badges{flex-direction:column;align-items:center}
+.ft-bar{flex-direction:column;text-align:center}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s bg-cream" id="specialites">
+  <div class="wrap tc">
+    <span class="tag">Ce que vous trouverez</span>
+    <h2 class="h2" style="margin-top:12px">Un lieu, trois expériences</h2>
+    <div class="svc-grid">
+
+      <div class="svc-card">
+        <svg class="svc-icon" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M18 38c0-8 4-14 10-14s10 6 10 14"/><ellipse cx="28" cy="20" rx="6" ry="4"/>
+          <path d="M10 44h36M16 50h24"/><path d="M28 14V8M22 10l6-4 6 4"/>
+        </svg>
+        <div class="svc-title">Café & Boissons</div>
+        <p class="svc-desc">Espressos, lattes travaillés, infusions soigneusement sélectionnées. Chaque tasse est une invitation à ralentir, à goûter, à s'installer.</p>
+        <a href="#contact" class="b b-primary">Réserver</a>
+      </div>
+
+      <div class="svc-card">
+        <svg class="svc-icon" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="12" y="16" width="32" height="24" rx="2"/>
+          <path d="M20 16v-4a8 8 0 0 1 16 0v4"/><path d="M22 30l4 4 8-8"/>
+        </svg>
+        <div class="svc-title">Objets Curated</div>
+        <p class="svc-desc">Une sélection d'objets chinés et de créations artisanales — livres rares, céramiques, curiosités — qui évoluent au fil des saisons et des découvertes.</p>
+        <a href="#ambiance" class="b b-primary">Explorer</a>
+      </div>
+
+      <div class="svc-card">
+        <svg class="svc-icon" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M14 42V22l14-10 14 10v20"/><path d="M22 42v-10h12v10"/>
+          <path d="M28 14v-6"/><circle cx="28" cy="6" r="2"/>
+        </svg>
+        <div class="svc-title">Espace de Travail & Rencontre</div>
+        <p class="svc-desc">Tables généreuses, wifi, atmosphère propice à la concentration ou à l'échange — Au 72 accueille créatifs, curieux et professionnels en quête d'un cadre inspirant.</p>
+        <a href="#contact" class="b b-primary">Nous écrire</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER — alternance -->
+<section class="s-sm bg-dark" id="ambiance">
+  <div class="metier-grid">
+    <div class="metier-text">
+      <span class="tag">L'âme du lieu</span>
+      <div class="sep"></div>
+      <h2 class="h2 h2-w">Un concept né d'une passion pour la curation</h2>
+      <p style="color:rgba(245,240,232,0.78);font-size:15px;line-height:1.8;margin-top:16px">Au 72, c'est avant tout un état d'esprit : ralentir, choisir, savourer. Niché dans le Quartier Latin de Nouméa, ce café-concept store a été pensé comme un prolongement du salon idéal — celui où l'on revient pour la qualité du café autant que pour la conversation que l'on y trouve.</p>
+      <ul class="checks">
+        <li>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3,9 7,13 15,5"/></svg>
+          Atmosphère koloniale revisitée, bois chaud et lumière filtrée
+        </li>
+        <li>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3,9 7,13 15,5"/></svg>
+          Sélection d'objets et de livres renouvelée régulièrement
+        </li>
+        <li>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3,9 7,13 15,5"/></svg>
+          Accueil humain, sans codes ni prétention
+        </li>
+        <li>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3,9 7,13 15,5"/></svg>
+          Un refuge pour qui cherche la qualité et le calme en centre-ville
+        </li>
+      </ul>
+    </div>
+    <div>
+      <img src="https://i.ibb.co/S7M7mhs8/Au-72-Concept-Store-du-Quartier-Latin-1.jpg" alt="Intérieur chaleureux du concept store Au 72 à Nouméa" class="metier-img" loading="lazy">
+    </div>
+  </div>
+
+  <div class="metier-grid" style="margin-top:4px">
+    <div class="metier-rev">
+      <img src="https://i.ibb.co/jZMMvdnn/Au-72-Concept-Store-du-Quartier-Latin-2.jpg" alt="Détails et objets curated au 72 Quartier Latin" class="metier-img" loading="lazy">
+    </div>
+    <div class="metier-text-r">
+      <span class="tag">La philosophie</span>
+      <div class="sep"></div>
+      <h2 class="h2 h2-w">Chaque objet a une histoire à raconter</h2>
+      <p style="color:rgba(245,240,232,0.78);font-size:15px;line-height:1.8;margin-top:16px">Ici, rien n'est laissé au hasard. Les objets exposés sont choisis pour leur singularité, leur provenance ou simplement la sensation qu'ils dégagent. Cette curation patiente est le cœur battant du 72 — un musée sans vitrines, une boutique sans pression.</p>
+      <ul class="checks">
+        <li>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3,9 7,13 15,5"/></svg>
+          Pièces uniques et séries limitées chinées avec soin
+        </li>
+        <li>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3,9 7,13 15,5"/></svg>
+          Inspirations Pacifique, Asie et art contemporain local
+        </li>
+        <li>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3,9 7,13 15,5"/></svg>
+          Chaque visite révèle quelque chose de nouveau
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s bg-cream" id="galerie">
+  <div class="wrap tc">
+    <span class="tag">Galerie</span>
+    <h2 class="h2" style="margin-top:12px">L'ambiance en images</h2>
+    <div class="gal-grid">
+      <div class="gal-item" data-src="https://i.ibb.co/84jNZx9k/Au-72-Concept-Store-du-Quartier-Latin-0.jpg">
+        <img src="https://i.ibb.co/84jNZx9k/Au-72-Concept-Store-du-Quartier-Latin-0.jpg" alt="Au 72 - vue d'ensemble" class="gal-img" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/S7M7mhs8/Au-72-Concept-Store-du-Quartier-Latin-1.jpg">
+        <img src="https://i.ibb.co/S7M7mhs8/Au-72-Concept-Store-du-Quartier-Latin-1.jpg" alt="Intérieur Au 72" class="gal-img" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/jZMMvdnn/Au-72-Concept-Store-du-Quartier-Latin-2.jpg">
+        <img src="https://i.ibb.co/jZMMvdnn/Au-72-Concept-Store-du-Quartier-Latin-2.jpg" alt="Détails curated Au 72" class="gal-img" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/pjPfzKsK/Au-72-Concept-Store-du-Quartier-Latin-3.jpg">
+        <img src="https://i.ibb.co/pjPfzKsK/Au-72-Concept-Store-du-Quartier-Latin-3.jpg" alt="Espace café Au 72 Nouméa" class="gal-img" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <button class="lb-close" id="lbClose">&#x2715;</button>
+  <img src="" alt="Photo Au 72" class="lb-img" id="lbImg">
+</div>
+
+<!-- RÉSERVATION / CONTACT -->
+<section class="rsv" id="contact">
+  <div class="rsv-box">
+    <span class="tag" style="color:var(--cs)">Contact & Réservation</span>
+    <h2 class="h2 h2-w" style="margin-top:12px">Venez nous rendre visite</h2>
+    <p class="rsv-sub">Pour réserver une table, poser une question ou simplement dire bonjour — nous sommes à l'écoute. Réponse sous 24h.</p>
+    <form id="cForm" action="#" novalidate>
+      <div class="form-grid">
+        <div class="f-group">
+          <label for="fname">Prénom & Nom</label>
+          <input type="text" id="fname" name="nom" placeholder="Marie Dupont" autocomplete="name">
+          <span class="f-err" id="err-nom">Veuillez renseigner votre nom.</span>
+        </div>
+        <div class="f-group">
+          <label for="femail">Email</label>
+          <input type="email" id="femail" name="email" placeholder="marie@exemple.nc" autocomplete="email">
+          <span class="f-err" id="err-email">Adresse email invalide.</span>
+        </div>
+        <div class="f-group">
+          <label for="ftel">Téléphone</label>
+          <input type="tel" id="ftel" name="telephone" placeholder="77 00 00" autocomplete="tel">
+        </div>
+        <div class="f-group">
+          <label for="fdate">Date souhaitée</label>
+          <input type="date" id="fdate" name="date">
+        </div>
+        <div class="f-group f-full">
+          <label for="fmsg">Votre message</label>
+          <textarea id="fmsg" name="message" placeholder="Dites-nous en plus sur votre visite ou votre demande…"></textarea>
+          <span class="f-err" id="err-msg">Veuillez écrire un message.</span>
+        </div>
+        <div class="f-full" style="text-align:center">
+          <button type="submit" class="b b-accent" id="fBtn" style="width:100%;max-width:320px;margin:0 auto">Envoyer ma demande</button>
+          <div class="f-loader" id="fLoader"></div>
+          <div class="f-success" id="fSuccess">
+            ✦ Merci ! Votre message a bien été reçu.<br>Nous vous répondons dans les meilleurs délais.
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s bg-cream" id="avis">
+  <div class="wrap tc">
+    <span class="tag">Ce qu'on dit de nous</span>
+    <h2 class="h2" style="margin-top:12px;margin-bottom:48px">Premiers visiteurs, premiers mots</h2>
+    <div class="avis-note">
+      <div class="big-note">Nouveau</div>
+      <div class="stars">★★★★★</div>
+      <p class="note-label">Concept store récemment ouvert à Nouméa — soyez parmi les premiers à partager votre avis !</p>
+    </div>
+    <div class="avis-grid">
+      <div class="avis-card">
+        <div class="stars">★★★★★</div>
+        <p class="avis-text">"Un endroit qui manquait à Nouméa — une adresse où l'on prend vraiment soin du détail, du café comme du décor. On se sent immédiatement chez soi."</p>
+        <div class="avis-author">— Sophie M., cliente</div>
+      </div>
+      <div class="avis-card">
+        <div class="stars">★★★★★</div>
+        <p class="avis-text">"L'atmosphère est unique, les objets exposés racontent des histoires. Je suis venue pour un café, je suis repartie avec un coup de cœur pour le lieu et une belle pièce chinée."</p>
+        <div class="avis-author">— Thomas L., habitué</div>
+      </div>
+      <div class="avis-card">
+        <div class="stars">★★★★★</div>
+        <p class="avis-text">"Enfin un espace inspirant dans le Quartier Latin ! La curation est juste, l'accueil chaleureux, et le café est excellent. Une belle addition à Nouméa."</p>
+        <div class="avis-author">— Camille R., créative</div>
+      </div>
+    </div>
+    <div class="badges">
+      <div class="badge">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 2l2.4 4.9 5.4.8-3.9 3.8.9 5.3L10 14.4l-4.8 2.4.9-5.3L2.2 7.7l5.4-.8z"/></svg>
+        Ambiance unique
+      </div>
+      <div class="badge">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8"/><path d="M10 6v4l3 2"/></svg>
+        Ouvert 7j/7
+      </div>
+      <div class="badge">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 17l4-4M13 3l4 4-9 9-5 1 1-5z"/></svg>
+        Objets curated
+      </div>
+      <div class="badge">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 2C6 2 3 5 3 9c0 5 7 11 7 11s7-6 7-11c0-4-3-7-7-7z"/><circle cx="10" cy="9" r="2.5"/></svg>
+        Quartier Latin, Nouméa
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HORAIRES & ACCÈS -->
+<section class="s-sm bg-dark" id="acces">
+  <div class="wrap">
+    <div class="tc" style="margin-bottom:40px">
+      <span class="tag">Nous trouver</span>
+      <h2 class="h2 h2-w" style="margin-top:12px">Horaires & Accès</h2>
+    </div>
+    <div class="horo-grid">
+      <div>
+        <p class="ft-h">Horaires d'ouverture</p>
+        <table class="horo-table">
+          <tr><td>Lundi – Vendredi</td><td>7h00 – 18h00</td></tr>
+          <tr><td>Samedi</td><td>8h00 – 17h00</td></tr>
+          <tr><td>Dimanche</td><td>9h00 – 13h00</td></tr>
+        </table>
+        <div style="margin-top:32px">
+          <p class="ft-h">Contact</p>
+          <p style="color:rgba(245,240,232,0.75);font-size:14px">72 Rue de Sébastopol, Nouméa 98800<br>À côté de la clinique vétérinaire du Quartier Latin</p>
+          <a href="tel:+687776991" class="ft-tel">77.69.91</a>
+        </div>
+      </div>
+      <div class="map-placeholder">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--cs);margin:0 auto 16px"><path d="M24 4C16 4 10 10 10 18c0 12 14 26 14 26s14-14 14-26c0-8-6-14-14-14z"/><circle cx="24" cy="18" r="5"/></svg>
+        <p style="color:rgba(245,240,232,0.7);font-size:14px;line-height:1.7">72 Rue de Sébastopol<br>Nouméa 98800<br>Nouvelle-Calédonie</p>
+        <a href="https://maps.google.com/?q=72+Rue+de+Sebastopol+Noumea" target="_blank" rel="noopener" class="b b-outline" style="margin-top:20px;font-size:13px">Ouvrir dans Maps</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="ft-grid">
+      <div>
+        <div class="ft-logo">Au <span>72</span></div>
+        <p class="ft-desc">Un café-concept store raffiné au cœur du Quartier Latin de Nouméa. Objets curated, café d'exception et atmosphère koloniale revisitée — un lieu pensé pour les curieux.</p>
+        <a href="tel:+687776991" class="ft-tel">☎ 77.69.91</a>
+      </div>
+      <div>
+        <p class="ft-h">Navigation</p>
+        <ul class="ft-links">
+          <li><a href="#specialites">La Carte</a></li>
+          <li><a href="#ambiance">L'Esprit du lieu</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#avis">Avis</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ft-h">Adresse</p>
+        <p class="ft-addr">72 Rue de Sébastopol<br>À côté de la clinique vétérinaire du QL<br>Nouméa 98800<br>Nouvelle-Calédonie</p>
+        <p class="ft-h" style="margin-top:24px">Horaires</p>
+        <p style="font-size:13px;line-height:1.8">Lun – Ven : 7h – 18h<br>Sam : 8h – 17h<br>Dim : 9h – 13h</p>
+      </div>
+    </div>
+    <div class="ft-bar">
+      <p class="ft-copy">© 2026 Au 72 - Concept Store du Quartier Latin. Tous droits réservés.</p>
+      <p class="ft-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var items=document.querySelectorAll('.gal-item'),lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),lbClose=document.getElementById('lbClose');
+  items.forEach(function(el){
+    el.addEventListener('click',function(){
+      lbImg.src=el.getAttribute('data-src');
+      lb.classList.add('open');
+      document.body.style.overflow='hidden';
+    });
+  });
+  function closeLb(){lb.classList.remove('open');document.body.style.overflow='';}
+  lbClose.addEventListener('click',closeLb);
+  lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+
+  var form=document.getElementById('cForm'),fBtn=document.getElementById('fBtn'),fLoader=document.getElementById('fLoader'),fSuccess=document.getElementById('fSuccess');
+  function showErr(id,show){var el=document.getElementById(id);if(el)el.classList[show?'add':'remove']('show');}
+  function isEmail(v){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);}
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var nom=document.getElementById('fname').value.trim(),email=document.getElementById('femail').value.trim(),msg=document.getElementById('fmsg').value.trim(),ok=true;
+    showErr('err-nom',!nom);if(!nom)ok=false;
+    showErr('err-email',!isEmail(email));if(!isEmail(email))ok=false;
+    showErr('err-msg',!msg);if(!msg)ok=false;
+    if(!ok)return;
+    fBtn.style.display='none';fLoader.classList.add('show');
+    setTimeout(function(){fLoader.classList.remove('show');fSuccess.classList.add('show');form.reset();},1400);
+  });
+
+  var revEls=document.querySelectorAll('.svc-card,.avis-card,.gal-item,.badge');
+  revEls.forEach(function(el){el.style.opacity='0';el.style.transform='translateY(24px)';el.style.transition='opacity .5s ease, transform .5s ease';});
+  var ro=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.style.opacity='1';en.target.style.transform='none';ro.unobserve(en.target);}});},{threshold:0.12});
+  revEls.forEach(function(el){ro.observe(el);});
+})();
+</script>
+</body>
+</html>
