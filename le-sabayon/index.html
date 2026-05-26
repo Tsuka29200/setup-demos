@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Sabayon — Nouméa</title>
+<meta name="description" content="Le Sabayon, boulangerie artisanale au cœur de Nouméa. Pain frais chaque matin, viennoiseries, pâtisseries et gourmandises pour toute la famille. 10 Rue Jules Garnier, Nouméa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#B5173A;
+--cs:#E8D472;
+--ca:#8B1A2F;
+--ct:#2C1A0E;
+--cb:#F7F2E8;
+--cw:#FFFFFF;
+--r:.5rem;
+--t:.3s ease-out;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Open Sans',sans-serif;color:var(--ct);background:var(--cb);overflow-x:hidden;line-height:1.6}
+h1,h2,h3,h4{font-family:'Playfair Display',serif;line-height:1.2}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+
+/* UTILITIES */
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.h{font-family:'Playfair Display',serif}
+.s{padding:80px 0}
+.s-alt{background:var(--cw)}
+.s-dark{background:var(--cp);color:var(--cw)}
+.tag{display:inline-block;background:var(--cs);color:var(--ct);font-size:.75rem;font-weight:600;padding:.25rem .75rem;border-radius:2rem;letter-spacing:.5px;text-transform:uppercase;margin-bottom:1rem}
+.sep{width:56px;height:3px;background:var(--cs);border-radius:2px;margin:1rem 0 1.5rem}
+
+/* BUTTONS */
+.b{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.85rem 2rem;border-radius:var(--r);font-family:'Open Sans',sans-serif;font-weight:600;font-size:.95rem;cursor:pointer;transition:background var(--t),transform var(--t),opacity var(--t);border:none;text-align:center;min-height:48px}
+.b-p{background:var(--cp);color:var(--cw)}
+.b-p:hover{background:var(--ca);transform:translateY(-1px)}
+.b-o{background:transparent;color:var(--cp);border:2px solid var(--cp)}
+.b-o:hover{background:var(--cp);color:var(--cw)}
+.b-w{background:var(--cw);color:var(--cp)}
+.b-w:hover{background:var(--cs);color:var(--ct)}
+
+/* BANDEAU PROMO */
+#promo{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;text-align:center}
+#promo a{font-family:'Manrope','Plus Jakarta Sans',system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;line-height:44px;letter-spacing:.3px;display:block;width:100%}
+#promo a:hover{opacity:.85}
+
+/* HEADER */
+#hdr{position:sticky;top:44px;z-index:1000;background:var(--cw);border-bottom:1px solid rgba(181,23,58,.12);transition:box-shadow var(--t)}
+#hdr.scrolled{box-shadow:0 2px 20px rgba(44,26,14,.1)}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;height:70px;gap:1rem}
+.logo{font-family:'Playfair Display',serif;font-weight:700;font-size:1.5rem;color:var(--cp);letter-spacing:-.5px;white-space:nowrap}
+.logo span{color:var(--ct)}
+nav{display:flex;align-items:center;gap:2rem}
+nav a{font-size:.875rem;font-weight:600;color:var(--ct);transition:color var(--t);white-space:nowrap}
+nav a:hover{color:var(--cp)}
+.hdr-cta{display:flex;align-items:center;gap:.75rem}
+.hdr-tel{font-weight:700;color:var(--cp);font-size:.9rem;white-space:nowrap}
+.hdr-tel:hover{color:var(--ca)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.burger span{display:block;width:24px;height:2px;background:var(--ct);border-radius:2px;transition:transform var(--t),opacity var(--t)}
+.mob-nav{display:none;position:fixed;top:114px;left:0;width:100%;background:var(--cw);border-bottom:2px solid var(--cp);z-index:999;padding:1.5rem 24px 2rem;flex-direction:column;gap:1.25rem;box-shadow:0 8px 24px rgba(44,26,14,.1)}
+.mob-nav a{font-size:1rem;font-weight:600;color:var(--ct);padding:.5rem 0;border-bottom:1px solid rgba(181,23,58,.1)}
+.mob-nav.open{display:flex}
+
+/* HERO */
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background:url('https://i.ibb.co/XZwZ2mDX/Le-Sabayon-0.jpg') center center/cover no-repeat}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(135deg,rgba(44,26,14,.78) 0%,rgba(139,26,47,.55) 60%,rgba(181,23,58,.3) 100%)}
+.hero-ct{position:relative;z-index:1;text-align:center;color:var(--cw);padding:2rem 24px;max-width:780px;margin:0 auto}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;background:rgba(232,212,114,.18);border:1px solid rgba(232,212,114,.4);border-radius:2rem;padding:.4rem 1.1rem;font-size:.8rem;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--cs);margin-bottom:1.5rem}
+.hero-ct h1{font-size:clamp(2.2rem,6vw,4rem);font-weight:700;margin-bottom:1.25rem;text-shadow:0 2px 12px rgba(0,0,0,.35)}
+.hero-ct h1 em{font-style:italic;color:var(--cs)}
+.hero-sub{font-size:clamp(1rem,2.5vw,1.2rem);max-width:560px;margin:0 auto 2.5rem;opacity:.92;font-weight:400;line-height:1.7}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.scroll-ind{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;color:var(--cw);opacity:.7;animation:bounce 2s infinite}
+.scroll-ind svg{width:20px;height:20px}
+.scroll-ind span{font-size:.7rem;letter-spacing:.8px;text-transform:uppercase}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+
+/* STATS BAND */
+#stats{background:var(--cp);color:var(--cw);padding:60px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center}
+.stat-nb{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3rem);font-weight:700;color:var(--cs);line-height:1;display:block}
+.stat-lbl{font-size:.85rem;opacity:.88;margin-top:.4rem;font-weight:500;line-height:1.4}
+.stat-item{padding:1rem 0;border-right:1px solid rgba(232,212,114,.2)}
+.stat-item:last-child{border-right:none}
+
+/* REVEAL ANIMATION */
+.reveal{transition:opacity .6s ease-out,transform .6s ease-out}
+.reveal.hidden{opacity:0;transform:translateY(28px)}
+
+/* FALLBACK — overridden by JS if observer works */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+nav{display:none}
+.burger{display:flex}
+.hdr-cta .b{display:none}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.stat-item:nth-child(2){border-right:none}
+.stat-item:nth-child(3){border-top:1px solid rgba(232,212,114,.2)}
+}
+@media(max-width:480px){
+#promo a{font-size:13px;line-height:40px}
+#promo{height:40px}
+#hdr{top:40px}
+.mob-nav{top:110px}
+.logo{font-size:1.25rem}
+.hdr-in{height:62px}
+.hero-btns .b{width:100%}
+.hero-btns{flex-direction:column;align-items:stretch;padding:0 1rem}
+.s{padding:56px 0}
+.stats-grid{grid-template-columns:1fr 1fr;gap:1.25rem}
+.stat-item{border-right:none;border-bottom:1px solid rgba(232,212,114,.15);padding-bottom:1.25rem}
+.stat-item:last-child{border-bottom:none}
+.wrap{padding:0 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div id="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="wrap hdr-in">
+    <a href="#" class="logo">Le&nbsp;<span>Sabayon</span></a>
+    <nav>
+      <a href="#services">Nos spécialités</a>
+      <a href="#metier">Notre histoire</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#avis">Avis</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="hdr-cta">
+      <a href="tel:+68728610​6" class="hdr-tel">☎ 28.61.06</a>
+      <a href="#contact" class="b b-p">Commander</a>
+    </div>
+    <button class="burger" id="burg" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<nav class="mob-nav" id="mobnav">
+  <a href="#services" class="mob-link">Nos spécialités</a>
+  <a href="#metier" class="mob-link">Notre histoire</a>
+  <a href="#galerie" class="mob-link">Galerie</a>
+  <a href="#avis" class="mob-link">Avis</a>
+  <a href="#contact" class="mob-link">Contact</a>
+  <a href="tel:+68728610​6" class="b b-p" style="margin-top:.5rem">☎ 28.61.06</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-ov"></div>
+  <div class="hero-ct">
+    <div class="hero-eyebrow">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v6l4 2"/></svg>
+      Boulangerie artisanale · Nouméa
+    </div>
+    <h1>Du pain frais chaque matin,<br><em>avec tout notre cœur</em></h1>
+    <p class="hero-sub">Depuis des années au 10 Rue Jules Garnier, Le Sabayon régale les familles nouméennes — viennoiseries dorées, pâtisseries maison et le sourire en prime.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="b b-w">Commander pour une occasion</a>
+      <a href="#services" class="b b-o" style="border-color:rgba(255,255,255,.6);color:#fff">Découvrir nos spécialités</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+    <span>Découvrir</span>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<section id="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <span class="stat-nb" data-target="41">0</span>
+        <p class="stat-lbl">Avis clients<br>Google</p>
+      </div>
+      <div class="stat-item reveal">
+        <span class="stat-nb" data-target="4">0</span>
+        <p class="stat-lbl">Note sur 5<br>étoiles</p>
+      </div>
+      <div class="stat-item reveal">
+        <span class="stat-nb" data-target="7">0</span>
+        <p class="stat-lbl">Jours sur 7<br>pour vous</p>
+      </div>
+      <div class="stat-item reveal">
+        <span class="stat-nb" data-target="100">0</span>
+        <p class="stat-lbl">% artisanal,<br>fait maison</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+var hdr=document.getElementById('hdr');
+var burg=document.getElementById('burg');
+var mobnav=document.getElementById('mobnav');
+window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>10)});
+burg.addEventListener('click',function(){mobnav.classList.toggle('open')});
+document.querySelectorAll('.mob-link').forEach(function(l){l.addEventListener('click',function(){mobnav.classList.remove('open')})});
+var counted=false;
+function countUp(){
+if(counted)return;counted=true;
+document.querySelectorAll('[data-target]').forEach(function(el){
+var end=+el.getAttribute('data-target'),dur=1400,step=16,steps=dur/step,inc=end/steps,cur=0;
+var t=setInterval(function(){cur+=inc;if(cur>=end){el.textContent=end;clearInterval(t);}else{el.textContent=Math.floor(cur);}},step);
+});
+}
+var so=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){countUp();so.disconnect();}})},{ threshold:.3});
+var statsEl=document.getElementById('stats');
+if(statsEl)so.observe(statsEl);
+var ro=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('hidden');ro.unobserve(e.target);}})},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('hidden');ro.observe(el);});
+</script>
+<style>
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.c{background:var(--cw);border-radius:.75rem;padding:2rem 1.75rem;box-shadow:0 2px 16px rgba(181,23,58,.07);transition:transform var(--t),box-shadow var(--t)}
+.c:hover{transform:scale(1.03);box-shadow:0 8px 32px rgba(181,23,58,.15)}
+.c-ico{width:56px;height:56px;background:rgba(232,212,114,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem}
+.c-ico svg{width:28px;height:28px;stroke:var(--cp)}
+.c h3{font-size:1.2rem;margin-bottom:.6rem;color:var(--ct)}
+.c p{font-size:.9rem;color:#5a3e2b;line-height:1.65}
+.c-cta{display:inline-block;margin-top:1.1rem;font-size:.85rem;font-weight:700;color:var(--cp);letter-spacing:.3px}
+.c-cta:hover{color:var(--ca)}
+.s-hd{text-align:center;max-width:620px;margin:0 auto 3.5rem}
+.s-hd h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:.5rem}
+.s-hd p{color:#5a3e2b;font-size:1rem}
+.met-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.met-grid.rev{direction:rtl}
+.met-grid.rev>*{direction:ltr}
+.met-img{border-radius:.75rem;overflow:hidden;box-shadow:0 6px 32px rgba(44,26,14,.14)}
+.met-img img{width:100%;height:340px;object-fit:cover}
+.met-txt h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:.75rem}
+.met-txt p{color:#5a3e2b;font-size:.95rem;line-height:1.75;margin-bottom:1.25rem}
+.chk-list{display:flex;flex-direction:column;gap:.65rem;margin-bottom:1.5rem}
+.chk-list li{display:flex;align-items:flex-start;gap:.65rem;font-size:.9rem;color:var(--ct)}
+.chk-list li svg{flex-shrink:0;margin-top:2px;width:18px;height:18px;stroke:var(--cp)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.gal-item{border-radius:.5rem;overflow:hidden;cursor:pointer;position:relative;aspect-ratio:1}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease-out}
+.gal-item:hover img{transform:scale(1.07)}
+.gal-item::after{content:'';position:absolute;inset:0;background:rgba(181,23,58,0);transition:background var(--t)}
+.gal-item:hover::after{background:rgba(181,23,58,.15)}
+#lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center}
+#lb.open{display:flex}
+#lb img{max-width:90vw;max-height:88vh;border-radius:.5rem;object-fit:contain}
+#lb-cl{position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;line-height:1}
+.frm-wrap{background:var(--cw);border-radius:.75rem;box-shadow:0 4px 24px rgba(44,26,14,.1);padding:2.5rem;max-width:680px;margin:0 auto}
+.frm-row{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.fld{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.25rem}
+.fld label{font-size:.82rem;font-weight:600;color:var(--ct);letter-spacing:.3px}
+.fld input,.fld textarea{width:100%;padding:.75rem 1rem;border:1.5px solid rgba(181,23,58,.2);border-radius:.4rem;font-family:'Open Sans',sans-serif;font-size:.92rem;color:var(--ct);background:var(--cb);transition:border-color var(--t)}
+.fld input:focus,.fld textarea:focus{outline:none;border-color:var(--cp)}
+.fld textarea{resize:vertical;min-height:130px}
+.frm-err{border-color:#c0392b!important}
+.frm-ok{display:none;background:rgba(181,23,58,.08);border:1.5px solid var(--cp);border-radius:.5rem;padding:1.25rem;text-align:center;color:var(--ca);font-weight:600;margin-top:1rem}
+.frm-ok.show{display:block}
+.avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;margin-top:2.5rem}
+.av-card{background:var(--cw);border-radius:.75rem;padding:1.75rem;box-shadow:0 2px 16px rgba(181,23,58,.07)}
+.stars{color:#e8a020;font-size:1rem;letter-spacing:2px;margin-bottom:.75rem}
+.av-card p{font-size:.9rem;color:#5a3e2b;line-height:1.65;font-style:italic}
+.av-card strong{display:block;margin-top:.85rem;font-size:.82rem;color:var(--ct);font-style:normal}
+.g-badge{display:flex;align-items:center;gap:1.25rem;background:var(--cw);border-radius:.75rem;padding:1.5rem 2rem;box-shadow:0 2px 16px rgba(181,23,58,.07);max-width:380px;margin:0 auto 3rem}
+.g-score{font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;color:var(--cp);line-height:1}
+.g-info{flex:1}
+.g-info p{font-size:.8rem;color:#5a3e2b;margin-top:.25rem}
+.bdg-row{display:flex;justify-content:center;gap:1.25rem;flex-wrap:wrap;margin-top:2.5rem}
+.bdg{display:flex;align-items:center;gap:.6rem;background:rgba(181,23,58,.07);border-radius:2rem;padding:.55rem 1.2rem;font-size:.82rem;font-weight:600;color:var(--ct)}
+.bdg svg{width:18px;height:18px;stroke:var(--cp);flex-shrink:0}
+footer{background:var(--ca);color:rgba(255,255,255,.9);padding:60px 0 0}
+.ft-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:3rem;padding-bottom:3rem}
+.ft-brand{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--cw);margin-bottom:.85rem}
+.ft-brand span{color:var(--cs)}
+.ft p{font-size:.88rem;line-height:1.7;color:rgba(255,255,255,.82)}
+.ft h4{font-size:.85rem;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--cs);margin-bottom:1rem}
+.ft ul{display:flex;flex-direction:column;gap:.55rem}
+.ft ul a{font-size:.88rem;color:rgba(255,255,255,.8);transition:color var(--t)}
+.ft ul a:hover{color:var(--cw)}
+.ft-tel{color:var(--cw);font-weight:700;font-size:1rem}
+.ft-tel:hover{color:var(--cs)}
+.soc-row{display:flex;gap:.85rem;margin-top:1.1rem}
+.soc-ico{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;transition:background var(--t)}
+.soc-ico:hover{background:rgba(255,255,255,.25)}
+.soc-ico svg{width:20px;height:20px;fill:var(--cw)}
+.ft-bot{border-top:1px solid rgba(255,255,255,.15);padding:1.25rem 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+.ft-bot p{font-size:.78rem;color:rgba(255,255,255,.6)}
+.ft-bot a{color:rgba(255,255,255,.75);font-weight:600;transition:color var(--t)}
+.ft-bot a:hover{color:var(--cw)}
+@media(max-width:900px){
+.svc-grid{grid-template-columns:1fr 1fr}
+.met-grid,.met-grid.rev{grid-template-columns:1fr;direction:ltr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.avis-grid{grid-template-columns:1fr 1fr}
+.ft-grid{grid-template-columns:1fr 1fr}
+.frm-row{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+.svc-grid{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.avis-grid{grid-template-columns:1fr}
+.ft-grid{grid-template-columns:1fr;gap:2rem}
+.ft-bot{flex-direction:column;text-align:center}
+.frm-wrap{padding:1.5rem 1rem}
+.frm-row{grid-template-columns:1fr}
+.g-badge{flex-direction:column;text-align:center;padding:1.25rem}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s s-alt" id="services">
+  <div class="wrap">
+    <div class="s-hd reveal">
+      <span class="tag">Nos spécialités</span>
+      <h2 class="h">Des gourmandises pour chaque moment</h2>
+      <p>Du comptoir à votre table, Le Sabayon prépare chaque jour ses classiques avec passion et générosité.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="c reveal">
+        <div class="c-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l1-4h16l1 4"/><path d="M2 11h20v2a8 8 0 01-8 8H10a8 8 0 01-8-8v-2z"/><path d="M7 11V7"/><path d="M12 11V6"/><path d="M17 11V7"/></svg>
+        </div>
+        <h3>Pains artisanaux</h3>
+        <p>Baguettes dorées, pains de campagne et spécialités cuites chaque matin pour accompagner vos petits-déjeuners et repas de famille.</p>
+        <a href="#contact" class="c-cta">Commander →</a>
+      </div>
+      <div class="c reveal">
+        <div class="c-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 00-5 5c0 1.5.65 2.85 1.68 3.78L5 21h14l-3.68-10.22A5 5 0 0012 2z"/></svg>
+        </div>
+        <h3>Viennoiseries</h3>
+        <p>Croissants feuilletés, pains au chocolat, brioches moelleuses — la parfaite excuse pour une pause café en toute sérénité.</p>
+        <a href="#contact" class="c-cta">Précommander →</a>
+      </div>
+      <div class="c reveal">
+        <div class="c-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <h3>Pâtisseries</h3>
+        <p>Tartes, gâteaux et entremets réalisés maison pour les goûters des enfants, les anniversaires et les moments de fête.</p>
+        <a href="#contact" class="c-cta">Passer commande →</a>
+      </div>
+      <div class="c reveal">
+        <div class="c-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3>Commandes sur mesure</h3>
+        <p>Pièces montées, gâteaux d'anniversaire, commandes pour les grandes occasions — contactez-nous pour un devis personnalisé.</p>
+        <a href="#contact" class="c-cta">Nous contacter →</a>
+      </div>
+      <div class="c reveal">
+        <div class="c-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        </div>
+        <h3>Sandwichs & snacking</h3>
+        <p>Des garnitures généreuses préparées avec soin pour vos pauses déjeuner — idéal pour les actifs du quartier et les familles pressées.</p>
+        <a href="#contact" class="c-cta">Voir la carte →</a>
+      </div>
+      <div class="c reveal">
+        <div class="c-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <h3>Douceurs & confiseries</h3>
+        <p>Biscuits maison, petits fours et douceurs à partager — de petits plaisirs du quotidien qui font toute la différence.</p>
+        <a href="#contact" class="c-cta">Découvrir →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s" id="metier">
+  <div class="wrap">
+    <div class="met-grid reveal">
+      <div class="met-img">
+        <img src="https://i.ibb.co/YTKrhdYQ/Le-Sabayon-1.jpg" alt="Intérieur de la boulangerie Le Sabayon" loading="lazy">
+      </div>
+      <div class="met-txt">
+        <span class="tag">Notre histoire</span>
+        <div class="sep"></div>
+        <h2 class="h">Une boulangerie de quartier, une institution nouméenne</h2>
+        <p>Installé au cœur de Nouméa, au 10 Rue Jules Garnier, Le Sabayon s'est imposé au fil des années comme un repère chaleureux pour les familles du quartier. Chaque matin, nos artisans boulangers pétrissent, façonnent et enfournent avec le même soin qu'au premier jour.</p>
+        <p>Notre comptoir vitré regorge de créations maison — des pains aux viennoiseries en passant par les pâtisseries — pour que chaque visite soit une petite célébration du quotidien.</p>
+        <ul class="chk-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Fabrication artisanale chaque matin</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Commandes spéciales pour vos occasions</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Équipe accueillante, service souriant</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Ouvert 7 jours sur 7 pour votre confort</li>
+        </ul>
+        <a href="#contact" class="b b-p">Nous contacter</a>
+      </div>
+    </div>
+
+    <div class="met-grid rev reveal" style="margin-top:5rem">
+      <div class="met-img">
+        <img src="https://i.ibb.co/nN5ND6BT/Le-Sabayon-3.jpg" alt="Pâtisseries et gourmandises du Sabayon" loading="lazy">
+      </div>
+      <div class="met-txt">
+        <span class="tag">Notre engagement</span>
+        <div class="sep"></div>
+        <h2 class="h">Le goût du fait maison, chaque jour renouvelé</h2>
+        <p>Chez Le Sabayon, rien n'est laissé au hasard. Chaque recette est pensée pour offrir le meilleur à nos clients — qu'il s'agisse d'une baguette du quotidien ou d'une pièce montée pour un mariage.</p>
+        <p>Votre pause-café du matin, le goûter des enfants après l'école, le gâteau d'anniversaire de toute la famille… Nous sommes là pour rendre ces instants encore plus savoureux.</p>
+        <a href="#services" class="b b-o">Voir nos spécialités</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s s-alt" id="galerie">
+  <div class="wrap">
+    <div class="s-hd reveal">
+      <span class="tag">Galerie</span>
+      <h2 class="h">La boutique en images</h2>
+      <p>Une sélection de nos créations et de l'ambiance chaleureuse du Sabayon.</p>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item reveal" data-src="https://i.ibb.co/XZwZ2mDX/Le-Sabayon-0.jpg">
+        <img src="https://i.ibb.co/XZwZ2mDX/Le-Sabayon-0.jpg" alt="Le Sabayon boulangerie" loading="lazy">
+      </div>
+      <div class="gal-item reveal" data-src="https://i.ibb.co/YTKrhdYQ/Le-Sabayon-1.jpg">
+        <img src="https://i.ibb.co/YTKrhdYQ/Le-Sabayon-1.jpg" alt="Intérieur Le Sabayon" loading="lazy">
+      </div>
+      <div class="gal-item reveal" data-src="https://i.ibb.co/VcR2TbRs/Le-Sabayon-2.jpg">
+        <img src="https://i.ibb.co/VcR2TbRs/Le-Sabayon-2.jpg" alt="Produits Le Sabayon" loading="lazy">
+      </div>
+      <div class="gal-item reveal" data-src="https://i.ibb.co/nN5ND6BT/Le-Sabayon-3.jpg">
+        <img src="https://i.ibb.co/nN5ND6BT/Le-Sabayon-3.jpg" alt="Pâtisseries Le Sabayon" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lb" role="dialog" aria-modal="true" aria-label="Image agrandie">
+  <button id="lb-cl" aria-label="Fermer">&times;</button>
+  <img id="lb-img" src="" alt="Aperçu galerie">
+</div>
+
+<!-- FORMULAIRE -->
+<section class="s" id="contact">
+  <div class="wrap">
+    <div class="s-hd reveal">
+      <span class="tag">Nous contacter</span>
+      <h2 class="h">Commander ou nous écrire</h2>
+      <p>Pour une commande spéciale, une question ou simplement dire bonjour — nous sommes à votre écoute.</p>
+    </div>
+    <div class="frm-wrap reveal">
+      <form id="frm" action="#" novalidate>
+        <div class="frm-row">
+          <div class="fld">
+            <label for="f-nom">Votre prénom et nom *</label>
+            <input type="text" id="f-nom" name="nom" placeholder="Marie Dupont" autocomplete="name">
+          </div>
+          <div class="fld">
+            <label for="f-tel">Téléphone *</label>
+            <input type="tel" id="f-tel" name="tel" placeholder="XX XX XX" autocomplete="tel">
+          </div>
+        </div>
+        <div class="fld">
+          <label for="f-email">Adresse e-mail *</label>
+          <input type="email" id="f-email" name="email" placeholder="marie@example.com" autocomplete="email">
+        </div>
+        <div class="fld">
+          <label for="f-msg">Votre message *</label>
+          <textarea id="f-msg" name="message" placeholder="Je souhaite commander un gâteau d'anniversaire pour samedi…"></textarea>
+        </div>
+        <button type="submit" class="b b-p" style="width:100%">Envoyer ma demande</button>
+        <div class="frm-ok" id="frm-ok" role="alert">
+          ✓ Merci ! Votre message a bien été envoyé. Nous vous répondrons très vite.
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s s-alt" id="avis">
+  <div class="wrap">
+    <div class="s-hd reveal">
+      <span class="tag">Ce que disent nos clients</span>
+      <h2 class="h">La confiance de tout un quartier</h2>
+    </div>
+    <div class="g-badge reveal">
+      <div class="g-score">4<span style="font-size:1.5rem;color:var(--ct)">/5</span></div>
+      <div class="g-info">
+        <div class="stars">★★★★☆</div>
+        <p><strong>41 avis Google</strong></p>
+        <p>Note de satisfaction client</p>
+      </div>
+    </div>
+    <div class="avis-grid">
+      <div class="av-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Le meilleur croissant de Nouméa, sans hésiter. On y va chaque dimanche matin en famille — c'est devenu un rituel."</p>
+        <strong>— Sophie M., Nouméa</strong>
+      </div>
+      <div class="av-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Accueil chaleureux, produits toujours frais et savoureux. Le gâteau d'anniversaire que j'ai commandé était magnifique !"</p>
+        <strong>— Patrick T., Nouméa</strong>
+      </div>
+      <div class="av-card reveal">
+        <div class="stars">★★★★☆</div>
+        <p>"Une boulangerie comme on les aime, avec de vrais produits artisanaux. L'équipe est souriante et de très bons conseils."</p>
+        <strong>— Valérie R., Nouméa</strong>
+      </div>
+    </div>
+    <div class="bdg-row">
+      <div class="bdg reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Fabrication maison
+      </div>
+      <div class="bdg reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Ouvert 7j/7
+      </div>
+      <div class="bdg reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        Clients fidèles
+      </div>
+      <div class="bdg reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Qualité garantie
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div>
+        <div class="ft-brand">Le <span>Sabayon</span></div>
+        <p>Boulangerie artisanale au cœur de Nouméa. Pain frais, viennoiseries et pâtisseries maison — chaque matin pour vous.</p>
+        <div class="soc-row">
+          <a href="https://www.facebook.com/boulangeriesabayonnoumea" target="_blank" rel="noopener" class="soc-ico" aria-label="Facebook Le Sabayon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4>Informations</h4>
+        <ul>
+          <li><p>10 Rue Jules Garnier</p></li>
+          <li><p>Nouméa 98800</p></li>
+          <li><p>Nouvelle-Calédonie</p></li>
+          <li style="margin-top:.5rem"><a href="tel:+68728606" class="ft-tel">☎ 28.61.06</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#services">Nos spécialités</a></li>
+          <li><a href="#metier">Notre histoire</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#avis">Avis clients</a></li>
+          <li><a href="#contact">Contact & commandes</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <p>© 2026 Le Sabayon. Tous droits réservés.</p>
+      <a href="https://setup.nc" target="_blank" rel="noopener">Site réalisé par Setup NC</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+var ro=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('hidden');ro.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('hidden');ro.observe(el);});
+
+var lb=document.getElementById('lb');
+var lbi=document.getElementById('lb-img');
+document.querySelectorAll('.gal-item').forEach(function(el){
+  el.addEventListener('click',function(){lbi.src=el.getAttribute('data-src');lb.classList.add('open');});
+});
+document.getElementById('lb-cl').addEventListener('click',function(){lb.classList.remove('open');lbi.src='';});
+lb.addEventListener('click',function(e){if(e.target===lb){lb.classList.remove('open');lbi.src='';}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){lb.classList.remove('open');lbi.src='';}});
+
+document.getElementById('frm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var ok=true;
+  var fs=[document.getElementById('f-nom'),document.getElementById('f-tel'),document.getElementById('f-email'),document.getElementById('f-msg')];
+  fs.forEach(function(f){f.classList.remove('frm-err');if(!f.value.trim()){f.classList.add('frm-err');ok=false;}});
+  var em=document.getElementById('f-email');
+  if(em.value&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value)){em.classList.add('frm-err');ok=false;}
+  if(!ok)return;
+  fs.forEach(function(f){f.value='';});
+  document.getElementById('frm-ok').classList.add('show');
+});
+</script>
+</body>
+</html>
