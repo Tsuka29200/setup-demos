@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Passion Macarons — Nouméa</title>
+<meta name="description" content="Passion Macarons, pâtisserie artisanale haut de gamme à Nouméa. Macarons faits main, savoir-faire français, créations sur mesure pour vos événements en Nouvelle-Calédonie.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#2C2C2C;
+--cs:#F2C4CE;
+--ca:#C9956B;
+--cb:#FAF6F3;
+--ct:#2C2C2C;
+--white:#fff;
+--font:'Cormorant Garamond',Georgia,serif;
+--font-ui:'Manrope','Plus Jakarta Sans',system-ui,sans-serif;
+--r:.4rem;
+--trans:opacity .35s ease,transform .35s ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font);background:var(--cb);color:var(--ct);overflow-x:hidden;line-height:1.65}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+
+/* BANDEAU PROMO */
+.promo-bar{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;display:flex;align-items:center;justify-content:center}
+.promo-bar a{font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;line-height:44px;letter-spacing:.3px;color:#4375ff;text-align:center;transition:opacity .2s}
+.promo-bar a:hover{opacity:.85}
+
+/* HEADER */
+.hd{position:fixed;top:44px;left:0;width:100%;background:rgba(44,44,44,.97);backdrop-filter:blur(8px);z-index:1000;height:68px;display:flex;align-items:center}
+.hd-inner{max-width:1200px;margin:0 auto;width:100%;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.hd-logo{font-family:var(--font);font-size:1.35rem;font-weight:600;color:var(--white);letter-spacing:.04em;white-space:nowrap}
+.hd-logo span{color:var(--cs);font-style:italic}
+.hd-nav{display:flex;align-items:center;gap:28px}
+.hd-nav a{font-family:var(--font-ui);font-size:.8rem;font-weight:700;color:rgba(255,255,255,.75);letter-spacing:.08em;text-transform:uppercase;transition:color .25s}
+.hd-nav a:hover{color:var(--cs)}
+.hd-right{display:flex;align-items:center;gap:16px}
+.hd-tel{font-family:var(--font-ui);font-size:.82rem;font-weight:700;color:var(--cs);letter-spacing:.04em;transition:opacity .2s}
+.hd-tel:hover{opacity:.8}
+.b{display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-ui);font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:var(--r);transition:background .3s,color .3s,box-shadow .3s;cursor:pointer;border:none}
+.b-p{background:var(--cs);color:var(--cp);font-size:.78rem;padding:.6rem 1.3rem;min-height:40px}
+.b-p:hover{background:var(--ca);color:var(--white)}
+.b-lg{font-size:.88rem;padding:.75rem 2rem;min-height:52px}
+.b-out{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.5);font-size:.88rem;padding:.72rem 1.8rem;min-height:52px}
+.b-out:hover{background:var(--white);color:var(--cp);border-color:var(--white)}
+.hd-ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
+.hd-ham span{width:24px;height:2px;background:var(--white);border-radius:2px;transition:var(--trans)}
+.mob-nav{display:none;position:fixed;top:112px;left:0;width:100%;background:rgba(44,44,44,.98);z-index:999;padding:24px 20px;flex-direction:column;gap:20px}
+.mob-nav a{font-family:var(--font-ui);font-size:1rem;font-weight:700;color:rgba(255,255,255,.85);text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:14px}
+.mob-nav.open{display:flex}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding-top:112px;background:url('https://i.ibb.co/67HNNZWN/Passion-Macarons-0.jpg') center center/cover no-repeat}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(160deg,rgba(44,44,44,.82) 0%,rgba(44,44,44,.55) 55%,rgba(201,149,107,.25) 100%);z-index:1}
+.hero-content{position:relative;z-index:2;max-width:860px;text-align:center;padding:0 20px}
+.hero-eyebrow{font-family:var(--font-ui);font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--cs);margin-bottom:1.2rem;opacity:.9}
+.h1{font-family:var(--font);font-size:clamp(2.6rem,6vw,5rem);font-weight:600;color:var(--white);line-height:1.12;margin-bottom:1.4rem}
+.h1 em{font-style:italic;color:var(--cs)}
+.hero-sub{font-family:var(--font);font-size:clamp(1.05rem,2vw,1.35rem);font-weight:300;color:rgba(255,255,255,.88);max-width:600px;margin:0 auto 2.4rem;line-height:1.7}
+.hero-ctas{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+.scroll-ind{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.7}
+.scroll-ind span{font-family:var(--font-ui);font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--white)}
+.scroll-dot{width:1px;height:48px;background:linear-gradient(to bottom,var(--cs),transparent);animation:scrollpulse 2s ease infinite}
+@keyframes scrollpulse{0%,100%{opacity:.4;transform:scaleY(1)}50%{opacity:1;transform:scaleY(.6)}}
+
+/* STATS */
+.stats{background:var(--cp);padding:64px 20px}
+.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+.stat-item{display:flex;flex-direction:column;align-items:center;text-align:center;padding:32px 20px;position:relative}
+.stat-item::after{content:'';position:absolute;right:0;top:20%;height:60%;width:1px;background:rgba(242,196,206,.2)}
+.stat-item:last-child::after{display:none}
+.stat-num{font-family:var(--font);font-size:clamp(2.4rem,4vw,3.8rem);font-weight:600;color:var(--cs);line-height:1;margin-bottom:.5rem}
+.stat-unit{font-size:.7em;font-weight:300;vertical-align:super}
+.stat-label{font-family:var(--font-ui);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+
+/* REVEAL */
+.reveal{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
+.reveal.hidden{opacity:0;transform:translateY(22px)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.hd-nav{display:none}
+.hd-ham{display:flex}
+.hd-tel{display:none}
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+.stat-item:nth-child(2)::after{display:none}
+.stat-item:nth-child(3)::after{display:none}
+}
+@media(max-width:480px){
+.promo-bar{height:40px}
+.promo-bar a{font-size:13px;line-height:40px}
+.hd{top:40px;height:60px}
+.mob-nav{top:100px}
+.hero{padding-top:100px}
+.hero-ctas{flex-direction:column;width:100%}
+.hero-ctas .b{width:100%}
+.stats-inner{grid-template-columns:1fr 1fr;gap:0}
+.stat-item{padding:24px 12px}
+.stat-item::after{display:none}
+.b-lg{font-size:.82rem;padding:.7rem 1.4rem}
+}
+
+/* FALLBACK ANIMATIONS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo-bar">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hd">
+  <div class="hd-inner">
+    <a href="#accueil" class="hd-logo">Passion <span>Macarons</span></a>
+    <nav class="hd-nav">
+      <a href="#services">Créations</a>
+      <a href="#metier">Notre métier</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="hd-right">
+      <a href="tel:+687313007" class="hd-tel">☎ 31.30.07</a>
+      <a href="#contact" class="b b-p">Commander</a>
+    </div>
+    <button class="hd-ham" id="ham" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-nav" id="mob-nav">
+  <a href="#services" onclick="closeMob()">Nos créations</a>
+  <a href="#metier" onclick="closeMob()">Notre métier</a>
+  <a href="#galerie" onclick="closeMob()">Galerie</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="tel:+687313007" style="color:#F2C4CE">☎ 31.30.07</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-ov"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Pâtisserie artisanale · Nouméa, Nouvelle-Calédonie</p>
+    <h1 class="h1">L'excellence française,<br><em>au cœur d'Anse Vata.</em></h1>
+    <p class="hero-sub">Des macarons façonnés avec patience, couleur et précision — pour les moments qui méritent l'exceptionnel.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="b b-p b-lg">Commander maintenant</a>
+      <a href="#galerie" class="b b-out b-lg">Découvrir la galerie</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>Découvrir</span>
+    <div class="scroll-dot"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="stats">
+  <div class="stats-inner">
+    <div class="stat-item reveal hidden">
+      <span class="stat-num" data-target="15">0</span>
+      <span class="stat-label">Ans de passion</span>
+    </div>
+    <div class="stat-item reveal hidden">
+      <span class="stat-num" data-target="30">0</span>
+      <span class="stat-label">Parfums créés</span>
+    </div>
+    <div class="stat-item reveal hidden">
+      <span class="stat-num" data-target="23">0</span>
+      <span class="stat-label">Avis clients</span>
+    </div>
+    <div class="stat-item reveal hidden">
+      <span class="stat-num" data-target="100">0<span class="stat-unit">%</span></span>
+      <span class="stat-label">Fait main chaque jour</span>
+    </div>
+  </div>
+</section>
+
+<script>
+var ham=document.getElementById('ham'),mob=document.getElementById('mob-nav'),open=false;
+function closeMob(){open=false;mob.classList.remove('open');}
+ham.addEventListener('click',function(){open=!open;mob.classList.toggle('open',open);});
+
+var counters=document.querySelectorAll('.stat-num[data-target]');
+var counted=false;
+function runCounters(){
+  if(counted)return;counted=true;
+  counters.forEach(function(el){
+    var t=+el.getAttribute('data-target'),u=el.querySelector('.stat-unit'),s=Math.ceil(t/40),c=0;
+    var iv=setInterval(function(){
+      c=Math.min(c+s,t);
+      el.textContent=c;
+      if(u)el.appendChild(u);
+      if(c>=t)clearInterval(iv);
+    },30);
+  });
+}
+
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      e.target.classList.remove('hidden');
+      if(e.target.closest('#stats'))runCounters();
+    }
+  });
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+</script>
+<style>
+.s{padding:96px 20px}
+.s-alt{background:#f5ede8}
+.s-inner{max-width:1100px;margin:0 auto}
+.s-tag{font-family:var(--font-ui);font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ca);margin-bottom:.8rem}
+.h2{font-family:var(--font);font-size:clamp(2rem,4vw,3.2rem);font-weight:600;color:var(--cp);line-height:1.15;margin-bottom:1.2rem}
+.h2 em{font-style:italic;color:var(--ca)}
+.lead{font-family:var(--font);font-size:clamp(1rem,1.8vw,1.2rem);font-weight:300;color:#555;max-width:640px;line-height:1.75;margin-bottom:2.8rem}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.c{background:var(--white);border-radius:8px;padding:36px 28px;transition:box-shadow .3s,transform .3s}
+.c:hover{box-shadow:0 12px 40px rgba(44,44,44,.1);transform:translateY(-4px)}
+.c-icon{width:52px;height:52px;background:var(--cs);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;transition:transform .3s,background .3s}
+.c:hover .c-icon{transform:scale(1.05);background:var(--ca)}
+.c-icon svg{width:24px;height:24px;stroke:var(--cp);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:stroke .3s}
+.c:hover .c-icon svg{stroke:var(--white)}
+.h3{font-family:var(--font);font-size:1.35rem;font-weight:600;color:var(--cp);margin-bottom:.7rem}
+.c p{font-family:var(--font);font-size:1rem;font-weight:300;color:#666;line-height:1.7;margin-bottom:1.2rem}
+.c-link{font-family:var(--font-ui);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ca);border-bottom:1px solid var(--ca);padding-bottom:2px;transition:opacity .2s}
+.c-link:hover{opacity:.7}
+.alt-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:72px}
+.alt-grid:last-child{margin-bottom:0}
+.alt-grid.rev{direction:rtl}
+.alt-grid.rev>*{direction:ltr}
+.alt-img{border-radius:8px;overflow:hidden;aspect-ratio:4/3;position:relative}
+.alt-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.alt-img:hover img{transform:scale(1.03)}
+.check-list{margin-top:1.4rem;display:flex;flex-direction:column;gap:.8rem}
+.check-list li{display:flex;align-items:flex-start;gap:.7rem;font-family:var(--font);font-size:1rem;font-weight:300;color:#555;line-height:1.55}
+.check-list li::before{content:'';width:18px;height:18px;min-width:18px;background:var(--cs);border-radius:50%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232C2C2C' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-size:12px;background-repeat:no-repeat;background-position:center;margin-top:2px}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal-item{border-radius:6px;overflow:hidden;aspect-ratio:1;cursor:pointer;position:relative}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s,filter .4s;filter:brightness(.96)}
+.gal-item:hover img{transform:scale(1.06);filter:brightness(1)}
+.gal-item::after{content:'+';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:2rem;color:var(--white);background:rgba(44,44,44,.0);transition:background .3s;font-family:var(--font)}
+.gal-item:hover::after{background:rgba(44,44,44,.35)}
+.lb{display:none;position:fixed;inset:0;background:rgba(20,20,20,.95);z-index:2000;align-items:center;justify-content:center}
+.lb.open{display:flex}
+.lb img{max-width:90vw;max-height:85vh;border-radius:8px;object-fit:contain}
+.lb-close{position:absolute;top:24px;right:28px;font-size:2rem;color:var(--white);cursor:pointer;line-height:1;background:none;border:none;font-family:var(--font)}
+.frm{background:var(--white);border-radius:10px;padding:48px 44px;max-width:620px;margin:0 auto;box-shadow:0 8px 48px rgba(44,44,44,.07)}
+.frm-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.fg{display:flex;flex-direction:column;gap:6px}
+.fg.full{grid-column:1/-1}
+.fg label{font-family:var(--font-ui);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#777}
+.fg input,.fg textarea{font-family:var(--font);font-size:1rem;font-weight:300;color:var(--ct);background:var(--cb);border:1.5px solid #e8ddd8;border-radius:var(--r);padding:.75rem 1rem;outline:none;transition:border .25s;width:100%}
+.fg input:focus,.fg textarea:focus{border-color:var(--ca)}
+.fg textarea{resize:vertical;min-height:120px}
+.frm-err{font-family:var(--font-ui);font-size:.72rem;color:#c0392b;margin-top:3px;display:none}
+.fg.err input,.fg.err textarea{border-color:#c0392b}
+.fg.err .frm-err{display:block}
+.frm-ok{display:none;text-align:center;padding:24px 0}
+.frm-ok .h3{color:var(--ca);margin-bottom:.5rem}
+.frm-ok p{font-family:var(--font);font-weight:300;color:#666}
+.frm-loader{display:none;width:20px;height:20px;border:2px solid rgba(44,44,44,.2);border-top-color:var(--cp);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+.stars{display:flex;gap:3px;margin-bottom:.5rem}
+.star{color:var(--ca);font-size:1.2rem}
+.star.empty{color:#ddd}
+.rating-box{background:var(--white);border-radius:10px;padding:36px 32px;text-align:center;box-shadow:0 4px 24px rgba(44,44,44,.07)}
+.rating-num{font-family:var(--font);font-size:3.5rem;font-weight:600;color:var(--cp);line-height:1}
+.rating-sub{font-family:var(--font-ui);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#999;margin-top:.4rem}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.testi{background:var(--white);border-radius:8px;padding:28px 24px;border-top:3px solid var(--cs)}
+.testi-text{font-family:var(--font);font-size:1.05rem;font-style:italic;font-weight:300;color:#555;line-height:1.7;margin-bottom:1rem}
+.testi-auth{font-family:var(--font-ui);font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#999}
+.badges{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:40px}
+.badge{display:flex;align-items:center;gap:10px;background:var(--white);border-radius:8px;padding:14px 22px;box-shadow:0 2px 12px rgba(44,44,44,.06)}
+.badge svg{width:20px;height:20px;fill:var(--ca)}
+.badge span{font-family:var(--font-ui);font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--cp)}
+.ft{background:var(--cp);padding:64px 20px 32px}
+.ft-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.ft-logo{font-family:var(--font);font-size:1.5rem;font-weight:600;color:var(--white);margin-bottom:1rem}
+.ft-logo span{color:var(--cs);font-style:italic}
+.ft p{font-family:var(--font);font-size:.95rem;font-weight:300;color:rgba(255,255,255,.6);line-height:1.75}
+.ft-h{font-family:var(--font-ui);font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:1.1rem}
+.ft-links{display:flex;flex-direction:column;gap:.7rem}
+.ft-links a{font-family:var(--font);font-size:.95rem;font-weight:300;color:rgba(255,255,255,.65);transition:color .2s}
+.ft-links a:hover{color:var(--cs)}
+.ft-social{display:flex;gap:14px;margin-top:1.2rem}
+.ft-social a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;transition:background .25s}
+.ft-social a:hover{background:var(--cs)}
+.ft-social svg{width:18px;height:18px;fill:rgba(255,255,255,.75)}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;max-width:1100px;margin:0 auto}
+.ft-bottom span{font-family:var(--font-ui);font-size:.72rem;color:rgba(255,255,255,.4);letter-spacing:.04em}
+.ft-bottom a{color:rgba(255,255,255,.55);font-family:var(--font-ui);font-size:.72rem;font-weight:700;transition:color .2s}
+.ft-bottom a:hover{color:var(--white)}
+@media(max-width:900px){
+.grid3{grid-template-columns:1fr}
+.alt-grid{grid-template-columns:1fr;gap:32px}
+.alt-grid.rev{direction:ltr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.testi-grid{grid-template-columns:1fr}
+.ft-inner{grid-template-columns:1fr;gap:32px}
+.frm{padding:32px 24px}
+.frm-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+.s{padding:64px 16px}
+.gal-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+.frm-grid{grid-template-columns:1fr}
+.frm{padding:24px 16px}
+.badges{flex-direction:column;align-items:center}
+.ft-bottom{flex-direction:column;text-align:center}
+.rating-box{padding:24px 16px}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s" id="services">
+  <div class="s-inner">
+    <p class="s-tag">Nos créations</p>
+    <h2 class="h2">Un savoir-faire, <em>mille occasions.</em></h2>
+    <p class="lead">De la dégustation intime au buffet d'exception, chaque macaron est une promesse de plaisir tenue avec rigueur et générosité.</p>
+    <div class="grid3">
+      <div class="c reveal hidden">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        </div>
+        <h3 class="h3">Macarons à la pièce</h3>
+        <p>Choisissez parmi une sélection de parfums soigneusement élaborés, disponibles à la boutique au quotidien. Chaque coque est lisse, chaque garniture précise.</p>
+        <a href="#contact" class="c-link">En savoir plus</a>
+      </div>
+      <div class="c reveal hidden">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 12h6M12 9v6"/></svg>
+        </div>
+        <h3 class="h3">Boîtes cadeaux</h3>
+        <p>Offrez une boîte composée selon vos envies — mariage, anniversaire, remerciement. Un écrin élégant pour des macarons qui marquent les esprits.</p>
+        <a href="#contact" class="c-link">Commander</a>
+      </div>
+      <div class="c reveal hidden">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3 class="h3">Événements & réceptions</h3>
+        <p>Mariages, cocktails d'entreprise, réceptions privées : nous élaborons des plateaux sur mesure adaptés à votre thème, vos couleurs, votre vision.</p>
+        <a href="#contact" class="c-link">Demander un devis</a>
+      </div>
+      <div class="c reveal hidden">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="h3">Créations personnalisées</h3>
+        <p>Parfums inédits, couleurs assorties à votre événement, message imprimé sur la coque : vos macarons deviennent une signature unique et mémorable.</p>
+        <a href="#contact" class="c-link">Nous contacter</a>
+      </div>
+      <div class="c reveal hidden">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+        </div>
+        <h3 class="h3">Cadeaux d'entreprise</h3>
+        <p>Offrez à vos clients et collaborateurs un présent raffiné qui reflète vos valeurs. Nous proposons des conditionnements professionnels avec votre identité.</p>
+        <a href="#contact" class="c-link">Demander un devis</a>
+      </div>
+      <div class="c reveal hidden">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3 class="h3">Commandes à emporter</h3>
+        <p>Passez commande à l'avance, récupérez vos macarons à la boutique. Une organisation sans surprise, pour que chaque dégustation soit parfaite.</p>
+        <a href="#contact" class="c-link">Commander</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s s-alt" id="metier">
+  <div class="s-inner">
+    <p class="s-tag">Notre métier</p>
+    <h2 class="h2">La rigueur de l'artisan,<br><em>la chaleur du geste.</em></h2>
+    <div class="alt-grid reveal hidden">
+      <div class="alt-img">
+        <img src="https://i.ibb.co/xKMk88Rm/Passion-Macarons-1.jpg" alt="Macarons artisanaux Passion Macarons Nouméa" loading="lazy">
+      </div>
+      <div>
+        <p class="s-tag">Le savoir-faire français</p>
+        <h3 class="h3">Chaque macaron, une cérémonie discrète.</h3>
+        <p style="font-family:var(--font);font-size:1.05rem;font-weight:300;color:#555;line-height:1.75;margin-bottom:1rem">Chez Passion Macarons, rien n'est laissé au hasard. La préparation commence tôt le matin, dans le silence de l'atelier baigné par la lumière de Nouméa. Les coques sont montées à la main, les ganaches élaborées avec des ingrédients choisis pour leur qualité et leur caractère.</p>
+        <p style="font-family:var(--font);font-size:1.05rem;font-weight:300;color:#555;line-height:1.75">C'est ce soin quotidien, invisible mais sensible, qui fait la différence dans chaque bouchée.</p>
+        <ul class="check-list">
+          <li>Fabrication artisanale, chaque jour en atelier</li>
+          <li>Ingrédients sélectionnés pour leur qualité</li>
+          <li>Maîtrise des techniques de la pâtisserie française</li>
+          <li>Attention portée à chaque détail, du visuel à la texture</li>
+        </ul>
+      </div>
+    </div>
+    <div class="alt-grid rev reveal hidden">
+      <div class="alt-img">
+        <img src="https://i.ibb.co/r2xgtK5s/Passion-Macarons-2.jpg" alt="Boutique Passion Macarons Nouméa" loading="lazy">
+      </div>
+      <div>
+        <p class="s-tag">Une boutique à votre image</p>
+        <h3 class="h3">Un écrin sobre où la douceur règne.</h3>
+        <p style="font-family:var(--font);font-size:1.05rem;font-weight:300;color:#555;line-height:1.75;margin-bottom:1rem">La façade sombre de la boutique de la Rue de la Havannah dissimule un intérieur chaleureux, teinté de rose poudré et de lumière filtrée. Un espace pensé pour que le choix d'un macaron devienne un moment en soi.</p>
+        <p style="font-family:var(--font);font-size:1.05rem;font-weight:300;color:#555;line-height:1.75">Venir chez Passion Macarons, c'est s'accorder une parenthèse de douceur au cœur de Nouméa.</p>
+        <ul class="check-list">
+          <li>Boutique accueillante au cœur de Nouméa</li>
+          <li>Présentation soignée des créations du jour</li>
+          <li>Conseil personnalisé pour chaque commande</li>
+          <li>Emballages élégants prêts à offrir</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s" id="galerie">
+  <div class="s-inner">
+    <p class="s-tag">Galerie</p>
+    <h2 class="h2">La beauté avant <em>la dégustation.</em></h2>
+    <p class="lead">Un aperçu de nos créations — car un macaron se savoure d'abord des yeux.</p>
+    <div class="gal-grid">
+      <div class="gal-item reveal hidden" data-src="https://i.ibb.co/67HNNZWN/Passion-Macarons-0.jpg">
+        <img src="https://i.ibb.co/67HNNZWN/Passion-Macarons-0.jpg" alt="Macarons Passion Macarons" loading="lazy">
+      </div>
+      <div class="gal-item reveal hidden" data-src="https://i.ibb.co/xKMk88Rm/Passion-Macarons-1.jpg">
+        <img src="https://i.ibb.co/xKMk88Rm/Passion-Macarons-1.jpg" alt="Macarons artisanaux Nouméa" loading="lazy">
+      </div>
+      <div class="gal-item reveal hidden" data-src="https://i.ibb.co/r2xgtK5s/Passion-Macarons-2.jpg">
+        <img src="https://i.ibb.co/r2xgtK5s/Passion-Macarons-2.jpg" alt="Boutique Passion Macarons" loading="lazy">
+      </div>
+      <div class="gal-item reveal hidden" data-src="https://i.ibb.co/45K1XC9/Passion-Macarons-3.jpg">
+        <img src="https://i.ibb.co/45K1XC9/Passion-Macarons-3.jpg" alt="Créations Passion Macarons" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <button class="lb-close" id="lb-close" aria-label="Fermer">&#215;</button>
+  <img src="" alt="Agrandissement photo" id="lb-img">
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section class="s s-alt" id="avis">
+  <div class="s-inner">
+    <p class="s-tag">Ils nous font confiance</p>
+    <h2 class="h2">Ce que nos clients <em>ressentent.</em></h2>
+    <div class="rating-box reveal hidden" style="max-width:320px;margin:0 auto 48px">
+      <div class="rating-num">3.1<span style="font-size:1.5rem;font-weight:300;color:#aaa">/5</span></div>
+      <div class="stars" style="justify-content:center;margin-top:.6rem">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span><span class="star empty">★</span>
+      </div>
+      <div class="rating-sub">23 avis Google</div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi reveal hidden">
+        <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="testi-text">"Des macarons délicieux, présentés avec soin. On retrouve le goût d'une vraie pâtisserie artisanale — rare à Nouméa. Je recommande vivement pour les cadeaux."</p>
+        <span class="testi-auth">— Client Google</span>
+      </div>
+      <div class="testi reveal hidden">
+        <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="testi-text">"Commandé pour un anniversaire, les invités ont été conquis. Les couleurs, les parfums, la présentation : tout était parfait. Une adresse à retenir absolument."</p>
+        <span class="testi-auth">— Client Google</span>
+      </div>
+      <div class="testi reveal hidden">
+        <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span></div>
+        <p class="testi-text">"Belle boutique, accueil attentionné et macarons savoureux. Le packaging est élégant, idéal pour offrir. Bonne continuation à toute l'équipe !"</p>
+        <span class="testi-auth">— Client Google</span>
+      </div>
+    </div>
+    <div class="badges">
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <span>Fabrication artisanale</span>
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Qualité garantie</span>
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 12h6M12 9v6"/></svg>
+        <span>Commandes sur mesure</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE -->
+<section class="s" id="contact">
+  <div class="s-inner">
+    <p class="s-tag" style="text-align:center">Nous contacter</p>
+    <h2 class="h2" style="text-align:center">Parlons de <em>votre projet.</em></h2>
+    <p class="lead" style="text-align:center;margin:0 auto 2.8rem">Une commande, une question, un événement à préparer ? Écrivez-nous ou appelez directement le <a href="tel:+687313007" style="color:var(--ca);border-bottom:1px solid var(--ca)">31.30.07</a>.</p>
+    <div class="frm">
+      <div class="frm-ok" id="frm-ok">
+        <h3 class="h3">Message envoyé !</h3>
+        <p>Merci pour votre message. Nous vous répondrons dans les plus brefs délais.</p>
+      </div>
+      <form id="frm" novalidate>
+        <div class="frm-grid">
+          <div class="fg" id="fg-nom">
+            <label for="f-nom">Nom complet</label>
+            <input type="text" id="f-nom" name="nom" placeholder="Marie Dupont" autocomplete="name">
+            <span class="frm-err">Veuillez indiquer votre nom.</span>
+          </div>
+          <div class="fg" id="fg-email">
+            <label for="f-email">Adresse email</label>
+            <input type="email" id="f-email" name="email" placeholder="marie@exemple.nc" autocomplete="email">
+            <span class="frm-err">Email invalide.</span>
+          </div>
+          <div class="fg" id="fg-tel">
+            <label for="f-tel">Téléphone</label>
+            <input type="tel" id="f-tel" name="tel" placeholder="XX.XX.XX" autocomplete="tel">
+            <span class="frm-err">Veuillez indiquer votre téléphone.</span>
+          </div>
+          <div class="fg" id="fg-sujet">
+            <label for="f-sujet">Sujet</label>
+            <input type="text" id="f-sujet" name="sujet" placeholder="Commande, événement…">
+            <span class="frm-err">Veuillez indiquer un sujet.</span>
+          </div>
+          <div class="fg full" id="fg-msg">
+            <label for="f-msg">Votre message</label>
+            <textarea id="f-msg" name="message" placeholder="Décrivez votre demande, la quantité souhaitée, la date…"></textarea>
+            <span class="frm-err">Veuillez écrire un message.</span>
+          </div>
+          <div class="fg full" style="align-items:center">
+            <button type="submit" class="b b-p b-lg" id="frm-btn" style="width:100%">Envoyer le message</button>
+            <div class="frm-loader" id="frm-loader"></div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ft">
+  <div class="ft-inner">
+    <div>
+      <div class="ft-logo">Passion <span>Macarons</span></div>
+      <p>Pâtisserie artisanale haut de gamme au cœur de Nouméa. Macarons façonnés chaque jour avec passion et précision.</p>
+      <div class="ft-social">
+        <a href="https://www.facebook.com/passionmacaronsnc" target="_blank" rel="noopener" aria-label="Facebook Passion Macarons">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <p class="ft-h">Navigation</p>
+      <div class="ft-links">
+        <a href="#services">Nos créations</a>
+        <a href="#metier">Notre métier</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#avis">Avis clients</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div>
+      <p class="ft-h">Nous trouver</p>
+      <div class="ft-links">
+        <a href="https://maps.google.com/?q=2+Rue+de+la+Havannah+Nouméa" target="_blank" rel="noopener">2 Rue de la Havannah<br>Nouméa 98800<br>Nouvelle-Calédonie</a>
+        <a href="tel:+687313007">☎ 31.30.07</a>
+        <a href="https://www.facebook.com/passionmacaronsnc" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <span>© 2026 Passion Macarons. Tous droits réservés.</span>
+    <a href="https://setup.nc" target="_blank" rel="noopener">Site réalisé par Setup NC</a>
+  </div>
+</footer>
+
+<script>
+var obs2=new IntersectionObserver(function(e){e.forEach(function(n){if(n.isIntersecting)n.target.classList.remove('hidden');});},{threshold:.12});
+document.querySelectorAll('.reveal.hidden').forEach(function(el){obs2.observe(el);});
+
+document.querySelectorAll('.gal-item').forEach(function(item){
+  item.addEventListener('click',function(){
+    var lb=document.getElementById('lb'),img=document.getElementById('lb-img');
+    img.src=item.getAttribute('data-src');
+    lb.classList.add('open');
+  });
+});
+document.getElementById('lb-close').addEventListener('click',function(){document.getElementById('lb').classList.remove('open');});
+document.getElementById('lb').addEventListener('click',function(e){if(e.target===this)this.classList.remove('open');});
+
+var frm=document.getElementById('frm');
+frm.addEventListener('submit',function(e){
+  e.preventDefault();
+  var ok=true;
+  var fields=[
+    {id:'f-nom',grp:'fg-nom',check:function(v){return v.trim().length>1;}},
+    {id:'f-email',grp:'fg-email',check:function(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);}},
+    {id:'f-tel',grp:'fg-tel',check:function(v){return v.trim().length>4;}},
+    {id:'f-sujet',grp:'fg-sujet',check:function(v){return v.trim().length>1;}},
+    {id:'f-msg',grp:'fg-msg',check:function(v){return v.trim().length>5;}}
+  ];
+  fields.forEach(function(f){
+    var el=document.getElementById(f.id),grp=document.getElementById(f.grp);
+    if(!f.check(el.value)){grp.classList.add('err');ok=false;}
+    else grp.classList.remove('err');
+  });
+  if(!ok)return;
+  var btn=document.getElementById('frm-btn'),ldr=document.getElementById('frm-loader');
+  btn.style.display='none';ldr.style.display='block';
+  setTimeout(function(){
+    ldr.style.display='none';
+    frm.style.display='none';
+    document.getElementById('frm-ok').style.display='block';
+  },1200);
+});
+</script>
+</body>
+</html>
