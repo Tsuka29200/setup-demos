@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MR COFFEE NC - Les Quais Ferry — Nouméa</title>
+<meta name="description" content="Café de quai face à la baie de Nouméa. Terrasse vue mer, café d'exception, sirops 1883 et latte art soigné aux Quais Ferry.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#3D2010;
+--cs:#2A6B8A;
+--ca:#C47B2B;
+--cb:#F5F0E8;
+--ct:#1C1410;
+--cw:#ffffff;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;color:var(--ct);background:var(--cb);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU PROMO */
+.promo{position:sticky;top:0;z-index:1001;background:#ffd500;height:44px;text-align:center}
+.promo a{font-family:"Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;line-height:44px;letter-spacing:.3px;display:block;height:44px}
+.promo a:hover{opacity:.85}
+
+/* HEADER */
+.hdr{position:sticky;top:44px;z-index:1000;background:rgba(61,32,16,.97);backdrop-filter:blur(8px);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px}
+.hdr-logo{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--cw);letter-spacing:.5px;line-height:1.2}
+.hdr-logo span{display:block;font-size:.65rem;font-weight:400;color:var(--ca);letter-spacing:2px;font-family:'Lato',sans-serif;text-transform:uppercase}
+.nav{display:flex;gap:28px;list-style:none}
+.nav a{font-family:'Lato',sans-serif;font-size:.85rem;color:rgba(255,255,255,.85);letter-spacing:.5px;text-transform:uppercase;transition:color .3s}
+.nav a:hover{color:var(--ca)}
+.hdr-cta{display:flex;align-items:center;gap:16px}
+.hdr-tel{font-family:'Lato',sans-serif;font-size:.85rem;color:var(--ca);font-weight:700;letter-spacing:.5px}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:'Lato',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.5px;text-transform:uppercase;border:none;cursor:pointer;border-radius:4px;transition:background .3s,transform .15s}
+.btn-primary{background:var(--ca);color:var(--cw);padding:10px 22px}
+.btn-primary:hover{background:var(--cp);transform:scale(1.02)}
+.btn-lg{font-size:1rem;padding:16px 36px;border-radius:6px}
+.btn-outline{background:transparent;color:var(--cw);border:2px solid var(--cw);padding:14px 32px;border-radius:6px}
+.btn-outline:hover{background:var(--cw);color:var(--cp)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--cw);transition:transform .3s,opacity .3s}
+.mob-nav{display:none;position:fixed;top:112px;left:0;right:0;background:var(--cp);z-index:999;padding:24px;flex-direction:column;gap:20px}
+.mob-nav a{font-family:'Lato',sans-serif;font-size:1rem;color:var(--cw);text-transform:uppercase;letter-spacing:.5px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.mob-nav.open{display:flex}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background:url('https://i.ibb.co/z3MdbGq/MR-COFFEE-NC-Les-Quais-Ferry-0.jpg') center/cover no-repeat}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(61,32,16,.75) 0%,rgba(28,20,16,.55) 50%,rgba(42,107,138,.45) 100%);z-index:1}
+.hero-inner{position:relative;z-index:2;text-align:center;padding:0 20px;max-width:780px}
+.hero-badge{display:inline-block;font-family:'Lato',sans-serif;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:var(--ca);border:1px solid var(--ca);padding:6px 18px;border-radius:2px;margin-bottom:24px}
+.h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:700;color:var(--cw);line-height:1.1;margin-bottom:16px}
+.hero-sub{font-family:'Lato',sans-serif;font-size:clamp(1rem,2.5vw,1.3rem);color:rgba(255,255,255,.9);font-weight:300;letter-spacing:.5px;margin-bottom:36px;line-height:1.6}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px}
+.scroll-ind span{font-family:'Lato',sans-serif;font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.scroll-arr{width:24px;height:24px;border-right:2px solid var(--ca);border-bottom:2px solid var(--ca);transform:rotate(45deg);animation:bounce 1.8s infinite}
+@keyframes bounce{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(6px)}}
+
+/* STATS */
+.stats{background:var(--cp);padding:64px 24px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);max-width:1000px;margin:0 auto;gap:16px}
+.stat{text-align:center;padding:16px}
+.stat-num{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:700;color:var(--ca);line-height:1}
+.stat-lbl{font-family:'Lato',sans-serif;font-size:.8rem;color:rgba(255,255,255,.75);text-transform:uppercase;letter-spacing:1.5px;margin-top:8px}
+.stat-div{width:40px;height:2px;background:var(--ca);margin:12px auto 0;opacity:.5}
+
+/* FALLBACK REVEAL */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+@media(max-width:900px){
+.nav,.hdr-cta .btn-primary{display:none}
+.hamburger{display:flex}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+.hdr{padding:0 16px;height:60px}
+.hdr-logo{font-size:1.05rem}
+.promo a{font-size:13px;line-height:40px}
+.promo{height:40px}
+.hdr{top:40px}
+.mob-nav{top:100px}
+.hero-btns .btn-lg{width:100%}
+.stats-grid{grid-template-columns:1fr 1fr;gap:8px}
+.stat-num{font-size:2rem}
+body{font-size:14px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr">
+  <a href="#" class="hdr-logo">
+    MR COFFEE NC
+    <span>Les Quais Ferry · Nouméa</span>
+  </a>
+  <nav aria-label="Navigation principale">
+    <ul class="nav">
+      <li><a href="#ambiance">Ambiance</a></li>
+      <li><a href="#menu">Carte</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#avis">Avis</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="hdr-cta">
+    <a href="tel:303077" class="hdr-tel">30.30.77</a>
+    <a href="#contact" class="btn btn-primary">Nous contacter</a>
+    <button class="hamburger" id="hbg" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<nav class="mob-nav" id="mobnav" aria-label="Navigation mobile">
+  <a href="#ambiance">Ambiance</a>
+  <a href="#menu">Carte</a>
+  <a href="#galerie">Galerie</a>
+  <a href="#avis">Avis</a>
+  <a href="#contact">Contact</a>
+  <a href="tel:303077" style="color:var(--ca)">📞 30.30.77</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" aria-label="Vue terrasse MR COFFEE NC">
+  <div class="hero-inner">
+    <div class="hero-badge">Quai Jules Ferry · Nouméa</div>
+    <h1 class="h1">MR COFFEE NC</h1>
+    <p class="hero-sub">Terrasse face à l'horizon.<br>Café d'exception, baie de Nouméa à vos pieds.</p>
+    <div class="hero-btns">
+      <a href="#menu" class="btn btn-primary btn-lg">Découvrir la carte</a>
+      <a href="#contact" class="btn btn-outline btn-lg">Nous trouver</a>
+    </div>
+  </div>
+  <div class="scroll-ind" aria-hidden="true">
+    <span>Découvrir</span>
+    <div class="scroll-arr"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stats-grid">
+    <div class="stat">
+      <div class="stat-num" id="s1" data-target="59">0</div>
+      <div class="stat-div"></div>
+      <div class="stat-lbl">Avis Google</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">4.3<small style="font-size:1.2rem">/5</small></div>
+      <div class="stat-div"></div>
+      <div class="stat-lbl">Note moyenne</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" id="s3" data-target="180">0</div>
+      <div class="stat-div"></div>
+      <div class="stat-lbl">Degrés de vue baie</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" id="s4" data-target="100">0</div>
+      <div class="stat-div"></div>
+      <div class="stat-lbl">% vue mer</div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var hbg=document.getElementById('hbg'),mn=document.getElementById('mobnav');
+  hbg.addEventListener('click',function(){
+    mn.classList.toggle('open');
+  });
+  mn.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){mn.classList.remove('open');});
+  });
+  function animCount(el){
+    var target=+el.dataset.target,dur=1800,start=null;
+    function step(ts){
+      if(!start)start=ts;
+      var p=Math.min((ts-start)/dur,1);
+      el.textContent=Math.floor(p*target);
+      if(p<1)requestAnimationFrame(step);
+      else el.textContent=target;
+    }
+    requestAnimationFrame(step);
+  }
+  var counters=document.querySelectorAll('[data-target]'),done=false;
+  var ob=new IntersectionObserver(function(entries){
+    if(done)return;
+    entries.forEach(function(e){
+      if(e.isIntersecting){done=true;counters.forEach(animCount);}
+    });
+  },{threshold:.3});
+  if(counters.length)ob.observe(counters[0]);
+})();
+</script>
+<style>
+/* SERVICES */
+.svc{background:var(--cb);padding:88px 24px}
+.sec-hd{text-align:center;margin-bottom:56px}
+.sec-tag{font-family:'Lato',sans-serif;font-size:.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--ca);display:block;margin-bottom:12px}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);color:var(--cp);line-height:1.2}
+.sec-line{width:48px;height:3px;background:var(--ca);margin:18px auto 0;border-radius:2px}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1100px;margin:0 auto}
+.svc-c{background:var(--cw);border-radius:8px;padding:40px 28px;text-align:center;box-shadow:0 4px 24px rgba(61,32,16,.08);transition:transform .3s,box-shadow .3s}
+.svc-c:hover{transform:translateY(-6px);box-shadow:0 12px 36px rgba(61,32,16,.14)}
+.svc-ico{width:56px;height:56px;margin:0 auto 20px;background:var(--cb);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.svc-ico svg{width:28px;height:28px;fill:var(--cp)}
+.svc-h{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--cp);margin-bottom:12px}
+.svc-p{font-family:'Lato',sans-serif;font-size:.92rem;color:var(--ct);line-height:1.7;opacity:.85}
+
+/* METIER */
+.met{background:var(--cp);padding:96px 24px}
+.met-wrap{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.met-txt .sec-title{color:var(--cw)}
+.met-txt .sec-tag{color:var(--ca)}
+.met-p{font-family:'Lato',sans-serif;font-size:1rem;color:rgba(255,255,255,.85);line-height:1.8;margin-top:20px}
+.met-pts{list-style:none;margin-top:28px;display:flex;flex-direction:column;gap:12px}
+.met-pts li{font-family:'Lato',sans-serif;font-size:.93rem;color:rgba(255,255,255,.9);display:flex;align-items:flex-start;gap:10px}
+.met-pts li::before{content:'';display:block;width:18px;height:18px;min-width:18px;background:var(--ca);border-radius:50%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='white' d='M6.5 11.5L3 8l1.4-1.4 2.1 2.1 4.6-4.6L12.5 5.5z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;background-size:14px;flex-shrink:0;margin-top:2px}
+.met-img{border-radius:8px;overflow:hidden;position:relative}
+.met-img img{width:100%;height:440px;object-fit:cover;display:block;transition:transform .6s ease}
+.met-img:hover img{transform:scale(1.04)}
+.met-img-badge{position:absolute;bottom:20px;left:20px;background:var(--ca);color:var(--cw);font-family:'Playfair Display',serif;font-size:.9rem;padding:8px 16px;border-radius:4px}
+
+/* AMBIANCE */
+.amb{background:var(--cb);padding:88px 24px}
+.amb-grid{display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:auto auto;gap:16px;max-width:1100px;margin:0 auto}
+.amb-it{border-radius:8px;overflow:hidden;position:relative}
+.amb-it img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.amb-it:hover img{transform:scale(1.05)}
+.amb-it:first-child{grid-row:span 2}
+.amb-it:first-child img{height:520px}
+.amb-it:not(:first-child) img{height:248px}
+.amb-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(61,32,16,.5) 0%,transparent 60%);opacity:0;transition:opacity .4s}
+.amb-it:hover .amb-ov{opacity:1}
+
+/* MENU */
+.menu-s{background:#1a0d06;padding:96px 24px}
+.menu-s .sec-title{color:var(--cw)}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1100px;margin:0 auto}
+.menu-c{perspective:1000px}
+.menu-inner{position:relative;transform-style:preserve-3d;transition:transform .6s ease;min-height:320px;cursor:pointer}
+.menu-c:hover .menu-inner{transform:rotateY(180deg)}
+.menu-face,.menu-back{position:absolute;inset:0;backface-visibility:hidden;border-radius:8px;padding:32px 24px;display:flex;flex-direction:column}
+.menu-face{background:rgba(255,255,255,.06);border:1px solid rgba(196,123,43,.2)}
+.menu-back{background:var(--ca);transform:rotateY(180deg);align-items:center;justify-content:center;text-align:center}
+.menu-cat{font-family:'Lato',sans-serif;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--ca);margin-bottom:16px}
+.menu-face h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--cw);margin-bottom:20px}
+.menu-items{list-style:none;display:flex;flex-direction:column;gap:14px;flex:1}
+.menu-items li{display:flex;justify-content:space-between;align-items:baseline;gap:8px;border-bottom:1px dotted rgba(255,255,255,.15);padding-bottom:10px}
+.menu-items li:last-child{border-bottom:none;padding-bottom:0}
+.mi-name{font-family:'Lato',sans-serif;font-size:.88rem;color:rgba(255,255,255,.85)}
+.mi-price{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--ca);white-space:nowrap}
+.menu-back h3{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--cw);margin-bottom:12px}
+.menu-back p{font-family:'Lato',sans-serif;font-size:.9rem;color:rgba(255,255,255,.9);line-height:1.6}
+
+/* GALERIE */
+.gal{background:var(--cb);padding:88px 24px}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:1200px;margin:0 auto}
+.gal-it{border-radius:6px;overflow:hidden;cursor:pointer;position:relative}
+.gal-it img{width:100%;height:220px;object-fit:cover;display:block;transition:transform .4s ease}
+.gal-ov{position:absolute;inset:0;background:rgba(196,123,43,0);display:flex;align-items:center;justify-content:center;transition:background .4s}
+.gal-ov svg{opacity:0;transition:opacity .4s;fill:var(--cw);width:32px;height:32px}
+.gal-it:hover img{transform:scale(1.06)}
+.gal-it:hover .gal-ov{background:rgba(196,123,43,.45)}
+.gal-it:hover .gal-ov svg{opacity:1}
+.lbx{display:none;position:fixed;inset:0;background:rgba(28,20,16,.95);z-index:2000;align-items:center;justify-content:center;padding:24px}
+.lbx.open{display:flex}
+.lbx-img{max-width:90vw;max-height:85vh;border-radius:8px;object-fit:contain;animation:lbxIn .35s ease}
+@keyframes lbxIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
+.lbx-cls{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--cw);font-size:2rem;cursor:pointer;line-height:1;opacity:.8}
+.lbx-cls:hover{opacity:1}
+
+/* RESERVATION CTA */
+.res{background:linear-gradient(135deg,var(--cs) 0%,var(--cp) 100%);padding:96px 24px;text-align:center}
+.res h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);color:var(--cw);margin-bottom:16px}
+.res p{font-family:'Lato',sans-serif;font-size:1.05rem;color:rgba(255,255,255,.88);max-width:520px;margin:0 auto 36px;line-height:1.7}
+
+/* FORMULAIRE */
+.frm{background:var(--cb);padding:88px 24px}
+.frm-wrap{max-width:640px;margin:0 auto;background:var(--cw);border-radius:10px;padding:48px 40px;box-shadow:0 8px 40px rgba(61,32,16,.1)}
+.fld{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
+.fld label{font-family:'Lato',sans-serif;font-size:.8rem;text-transform:uppercase;letter-spacing:1px;color:var(--cp);font-weight:700}
+.fld input,.fld textarea,.fld select{font-family:'Lato',sans-serif;font-size:.95rem;color:var(--ct);border:1.5px solid rgba(61,32,16,.2);border-radius:5px;padding:12px 14px;background:var(--cb);transition:border-color .25s;width:100%}
+.fld input:focus,.fld textarea:focus{outline:none;border-color:var(--ca)}
+.fld textarea{min-height:120px;resize:vertical}
+.frm-err{font-family:'Lato',sans-serif;font-size:.78rem;color:#c0392b;margin-top:4px;display:none}
+.frm-err.show{display:block}
+.frm-ok{background:#e8f5e9;border:1px solid #a5d6a7;border-radius:6px;padding:20px;text-align:center;font-family:'Lato',sans-serif;color:#2e7d32;display:none;margin-top:16px}
+.frm-ok.show{display:block}
+.btn-submit{width:100%;min-height:52px;background:var(--ca);color:var(--cw);border:none;border-radius:6px;font-family:'Lato',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;transition:background .3s,transform .15s}
+.btn-submit:hover{background:var(--cp)}
+.btn-submit:active{transform:scale(1.02)}
+
+/* AVIS */
+.avis{background:var(--cp);padding:88px 24px}
+.avis .sec-title{color:var(--cw)}
+.avis .sec-tag{color:var(--ca)}
+.stars-big{font-size:2.5rem;color:var(--ca);margin:8px 0 4px;letter-spacing:2px}
+.rating-note{font-family:'Playfair Display',serif;font-size:3.5rem;color:var(--cw);font-weight:700;line-height:1}
+.rating-sub{font-family:'Lato',sans-serif;font-size:.85rem;color:rgba(255,255,255,.65);margin-top:4px}
+.avis-hero{text-align:center;margin-bottom:56px}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto 48px}
+.testi-c{background:rgba(255,255,255,.07);border-radius:8px;padding:28px 24px;border:1px solid rgba(196,123,43,.18)}
+.testi-stars{color:var(--ca);font-size:1rem;margin-bottom:12px;letter-spacing:2px}
+.testi-txt{font-family:'Lato',sans-serif;font-size:.92rem;color:rgba(255,255,255,.88);line-height:1.7;font-style:italic;margin-bottom:16px}
+.testi-auth{font-family:'Playfair Display',serif;font-size:.9rem;color:var(--ca)}
+.badges{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.badge{background:rgba(255,255,255,.08);border:1px solid rgba(196,123,43,.25);border-radius:6px;padding:14px 24px;text-align:center;min-width:140px}
+.badge-val{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--ca)}
+.badge-lbl{font-family:'Lato',sans-serif;font-size:.72rem;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+
+/* FOOTER */
+.ftr{background:#1a0d06;padding:64px 24px 32px}
+.ftr-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;max-width:1100px;margin:0 auto 48px}
+.ftr-brand{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--cw);margin-bottom:12px}
+.ftr-brand span{display:block;font-family:'Lato',sans-serif;font-size:.7rem;letter-spacing:2px;color:var(--ca);text-transform:uppercase;margin-top:2px}
+.ftr-p{font-family:'Lato',sans-serif;font-size:.87rem;color:rgba(255,255,255,.6);line-height:1.7;margin-top:10px}
+.ftr-tel{display:inline-block;font-family:'Lato',sans-serif;font-weight:700;font-size:1rem;color:var(--ca);margin-top:12px}
+.ftr-h{font-family:'Playfair Display',serif;font-size:1rem;color:var(--cw);margin-bottom:16px}
+.ftr-ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ftr-ul li a{font-family:'Lato',sans-serif;font-size:.87rem;color:rgba(255,255,255,.6);transition:color .3s}
+.ftr-ul li a:hover{color:var(--ca)}
+.ftr-social{display:flex;gap:14px;margin-top:16px;align-items:center}
+.ftr-social a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(196,123,43,.25);transition:background .3s}
+.ftr-social a:hover{background:var(--ca)}
+.ftr-social svg{width:20px;height:20px;fill:rgba(255,255,255,.8)}
+.ftr-social a:hover svg{fill:var(--cw)}
+.ftr-bot{max-width:1100px;margin:0 auto;padding-top:28px;border-top:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.ftr-cp{font-family:'Lato',sans-serif;font-size:.78rem;color:rgba(255,255,255,.4)}
+.ftr-setup{font-family:'Lato',sans-serif;font-size:.78rem;color:rgba(255,255,255,.4)}
+.ftr-setup a{color:var(--ca);font-weight:700}
+.ftr-setup a:hover{text-decoration:underline}
+
+@media(max-width:900px){
+.svc-grid{grid-template-columns:1fr}
+.met-wrap{grid-template-columns:1fr;gap:36px}
+.met-img{order:-1}
+.menu-grid{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.testi-grid{grid-template-columns:1fr}
+.ftr-grid{grid-template-columns:1fr;gap:32px}
+.amb-grid{grid-template-columns:1fr}
+.amb-it:first-child{grid-row:auto}
+.amb-it:first-child img,.amb-it:not(:first-child) img{height:240px}
+}
+@media(max-width:480px){
+.frm-wrap{padding:28px 16px}
+.menu-c{min-height:auto}
+.menu-inner{min-height:360px}
+.gal-it img{height:160px}
+.met-img img{height:280px}
+.ftr-bot{flex-direction:column;text-align:center}
+.badges{flex-direction:column;align-items:center}
+.svc{padding:56px 16px}
+.met{padding:56px 16px}
+.menu-s{padding:56px 16px}
+.gal{padding:56px 16px}
+.frm{padding:56px 16px}
+.avis{padding:56px 16px}
+.ftr{padding:48px 16px 24px}
+.res{padding:64px 16px}
+.amb{padding:56px 16px}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="svc" id="services">
+  <div class="sec-hd">
+    <span class="sec-tag">Ce que nous offrons</span>
+    <h2 class="sec-title">Une pause d'exception face à la baie</h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="svc-grid">
+    <div class="svc-c">
+      <div class="svc-ico">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 3H4v10a4 4 0 004 4h6a4 4 0 004-4v-3h2a2 2 0 000-4zm0 4h-2V5h2v2zM4 19h16v2H4z"/></svg>
+      </div>
+      <h3 class="svc-h">Café d'exception</h3>
+      <p class="svc-p">Expressos soignés, lattes avec latte art, cappuccinos veloutés — chaque tasse est un moment pensé pour vous, préparée avec des grains sélectionnés et des sirops 1883.</p>
+    </div>
+    <div class="svc-c">
+      <div class="svc-ico">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/><path d="M0 0h24v24H0z" fill="none"/><path d="M17 12H7v-2h10v2z"/></svg>
+      </div>
+      <h3 class="svc-h">Terrasse vue baie</h3>
+      <p class="svc-p">Fauteuils cocon, terrasse en bois face à la baie de Nouméa — laissez-vous envelopper par la lumière dorée du matin ou les teintes de fin d'après-midi sur l'eau.</p>
+    </div>
+    <div class="svc-c">
+      <div class="svc-ico">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg>
+      </div>
+      <h3 class="svc-h">Restauration légère</h3>
+      <p class="svc-p">Snacks, sandwichs gourmands et douceurs sucrées pour accompagner votre café. Des propositions fraîches, idéales pour une pause déjeuner ou un goûter en bord de quai.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="met" id="ambiance">
+  <div class="met-wrap">
+    <div class="met-txt">
+      <span class="sec-tag">Notre histoire</span>
+      <h2 class="sec-title">L'art du café, ancré dans Nouméa</h2>
+      <p class="met-p">Au bout du Quai Jules Ferry, là où la ville respire face à la mer, MR COFFEE NC a ouvert ses portes avec une conviction simple : un bon café mérite un beau cadre. Ici, pas de précipitation — chaque commande est une invitation à souffler, regarder la baie, et savourer l'instant.</p>
+      <p class="met-p">Notre terrasse en bois est pensée comme un salon suspendu entre ciel et eau. Que vous soyez en pause professionnelle ou en flânerie dominicale, vous y trouverez votre espace.</p>
+      <ul class="met-pts">
+        <li>Café torréfié avec soin, préparé à la commande</li>
+        <li>Sirops 1883 pour personnaliser chaque boisson</li>
+        <li>Vue panoramique sur la baie de Nouméa</li>
+        <li>Fauteuils cocon et ambiance détendue</li>
+      </ul>
+    </div>
+    <div class="met-img">
+      <img src="https://i.ibb.co/jvHtdhgV/MR-COFFEE-NC-Les-Quais-Ferry-1.jpg" alt="Intérieur chaleureux MR COFFEE NC" loading="lazy">
+      <div class="met-img-badge">Quai Jules Ferry · Nouméa</div>
+    </div>
+  </div>
+</section>
+
+<!-- AMBIANCE MASONRY -->
+<section class="amb">
+  <div class="sec-hd">
+    <span class="sec-tag">L'atmosphère</span>
+    <h2 class="sec-title">Un lieu, une lumière, une vue</h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="amb-grid">
+    <div class="amb-it">
+      <img src="https://i.ibb.co/z3MdbGq/MR-COFFEE-NC-Les-Quais-Ferry-0.jpg" alt="Vue terrasse MR COFFEE NC face à la baie" loading="lazy">
+      <div class="amb-ov"></div>
+    </div>
+    <div class="amb-it">
+      <img src="https://i.ibb.co/MxGns82v/MR-COFFEE-NC-Les-Quais-Ferry-2.jpg" alt="Café latte art MR COFFEE NC" loading="lazy">
+      <div class="amb-ov"></div>
+    </div>
+    <div class="amb-it">
+      <img src="https://i.ibb.co/cK1b5x5T/MR-COFFEE-NC-Les-Quais-Ferry-3.jpg" alt="Ambiance quai café Nouméa" loading="lazy">
+      <div class="amb-ov"></div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu-s" id="menu">
+  <div class="sec-hd">
+    <span class="sec-tag">À la carte</span>
+    <h2 class="sec-title">Nos incontournables</h2>
+    <div class="sec-line"></div>
+    <p style="font-family:'Lato',sans-serif;font-size:.85rem;color:rgba(255,255,255,.5);margin-top:12px">Passez la carte au survol pour découvrir l'univers de chaque sélection.</p>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-c">
+      <div class="menu-inner">
+        <div class="menu-face">
+          <div class="menu-cat">Cafés chauds</div>
+          <h3>Expressions du grain</h3>
+          <ul class="menu-items">
+            <li><span class="mi-name">Espresso</span><span class="mi-price">350 XPF</span></li>
+            <li><span class="mi-name">Cappuccino</span><span class="mi-price">450 XPF</span></li>
+            <li><span class="mi-name">Latte art</span><span class="mi-price">500 XPF</span></li>
+            <li><span class="mi-name">Flat white</span><span class="mi-price">480 XPF</span></li>
+          </ul>
+        </div>
+        <div class="menu-back">
+          <h3>L'art du café chaud</h3>
+          <p>Du grain à la tasse, chaque préparation est réalisée avec passion. Personnalisez avec nos sirops 1883.</p>
+        </div>
+      </div>
+    </div>
+    <div class="menu-c">
+      <div class="menu-inner">
+        <div class="menu-face">
+          <div class="menu-cat">Boissons froides</div>
+          <h3>Fraîcheur & saveurs</h3>
+          <ul class="menu-items">
+            <li><span class="mi-name">Iced latte</span><span class="mi-price">520 XPF</span></li>
+            <li><span class="mi-name">Frappuccino maison</span><span class="mi-price">600 XPF</span></li>
+            <li><span class="mi-name">Smoothie du jour</span><span class="mi-price">550 XPF</span></li>
+            <li><span class="mi-name">Limonade artisanale</span><span class="mi-price">400 XPF</span></li>
+          </ul>
+        </div>
+        <div class="menu-back">
+          <h3>La fraîcheur du quai</h3>
+          <p>Idéal sous le soleil calédonien — nos boissons froides sont préparées à la commande, à siroter face à la baie.</p>
+        </div>
+      </div>
+    </div>
+    <div class="menu-c">
+      <div class="menu-inner">
+        <div class="menu-face">
+          <div class="menu-cat">Snacks & douceurs</div>
+          <h3>Petites faims</h3>
+          <ul class="menu-items">
+            <li><span class="mi-name">Croissant beurre</span><span class="mi-price">280 XPF</span></li>
+            <li><span class="mi-name">Sandwich du moment</span><span class="mi-price">650 XPF</span></li>
+            <li><span class="mi-name">Cookies maison</span><span class="mi-price">250 XPF</span></li>
+            <li><span class="mi-name">Muffin du jour</span><span class="mi-price">300 XPF</span></li>
+          </ul>
+        </div>
+        <div class="menu-back">
+          <h3>Accompagnements gourmands</h3>
+          <p>Des douceurs fraîches pour compléter votre pause. Parfaits pour un déjeuner léger ou un goûter en terrasse.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RÉSERVATION CTA -->
+<section class="res">
+  <h2>Réservez votre fauteuil face à la mer</h2>
+  <p>Que ce soit pour un café du matin ou une pause déjeuner, contactez-nous pour organiser votre moment suspendu face à la baie de Nouméa.</p>
+  <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+    <a href="tel:303077" class="btn btn-primary btn-lg">Appeler le 30.30.77</a>
+    <a href="#contact" class="btn btn-outline btn-lg">Envoyer un message</a>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="gal" id="galerie">
+  <div class="sec-hd">
+    <span class="sec-tag">Galerie</span>
+    <h2 class="sec-title">Le lieu en images</h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="gal-grid">
+    <div class="gal-it" data-src="https://i.ibb.co/z3MdbGq/MR-COFFEE-NC-Les-Quais-Ferry-0.jpg">
+      <img src="https://i.ibb.co/z3MdbGq/MR-COFFEE-NC-Les-Quais-Ferry-0.jpg" alt="Terrasse MR COFFEE NC vue baie" loading="lazy">
+      <div class="gal-ov"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+    </div>
+    <div class="gal-it" data-src="https://i.ibb.co/jvHtdhgV/MR-COFFEE-NC-Les-Quais-Ferry-1.jpg">
+      <img src="https://i.ibb.co/jvHtdhgV/MR-COFFEE-NC-Les-Quais-Ferry-1.jpg" alt="Intérieur café Nouméa" loading="lazy">
+      <div class="gal-ov"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+    </div>
+    <div class="gal-it" data-src="https://i.ibb.co/MxGns82v/MR-COFFEE-NC-Les-Quais-Ferry-2.jpg">
+      <img src="https://i.ibb.co/MxGns82v/MR-COFFEE-NC-Les-Quais-Ferry-2.jpg" alt="Café latte art Quais Ferry" loading="lazy">
+      <div class="gal-ov"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+    </div>
+    <div class="gal-it" data-src="https://i.ibb.co/cK1b5x5T/MR-COFFEE-NC-Les-Quais-Ferry-3.jpg">
+      <img src="https://i.ibb.co/cK1b5x5T/MR-COFFEE-NC-Les-Quais-Ferry-3.jpg" alt="Ambiance quai café Nouméa" loading="lazy">
+      <div class="gal-ov"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lbx" id="lbx" role="dialog" aria-modal="true" aria-label="Vue agrandie">
+  <button class="lbx-cls" id="lbxCls" aria-label="Fermer">&times;</button>
+  <img class="lbx-img" id="lbxImg" src="" alt="Photo agrandie">
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section class="avis" id="avis">
+  <div class="avis-hero">
+    <span class="sec-tag">Avis clients</span>
+    <div class="rating-note">4.3</div>
+    <div class="stars-big">★★★★☆</div>
+    <div class="rating-sub">Basé sur 59 avis Google vérifiés</div>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-c">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-txt">« Un endroit magique face à la baie. Le latte art est superbe et le cadre est vraiment reposant. On s'y attarde volontiers les pieds dans le vent marin. »</p>
+      <div class="testi-auth">— Marie-Laure G.</div>
+    </div>
+    <div class="testi-c">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-txt">« Meilleur café de Nouméa selon moi. La vue est incroyable, le service est sympa et les boissons sont vraiment bien préparées. Je reviens chaque semaine ! »</p>
+      <div class="testi-auth">— Christophe M.</div>
+    </div>
+    <div class="testi-c">
+      <div class="testi-stars">★★★★☆</div>
+      <p class="testi-txt">« Terrasse parfaite pour une pause entre collègues. Le cappuccino était excellent et l'ambiance décontractée face aux quais. Un vrai moment de détente en plein Nouméa. »</p>
+      <div class="testi-auth">— Sophie T.</div>
+    </div>
+  </div>
+  <div class="badges">
+    <div class="badge">
+      <div class="badge-val">4.3/5</div>
+      <div class="badge-lbl">Note Google</div>
+    </div>
+    <div class="badge">
+      <div class="badge-val">59</div>
+      <div class="badge-lbl">Avis vérifiés</div>
+    </div>
+    <div class="badge">
+      <div class="badge-val">Vue mer</div>
+      <div class="badge-lbl">Terrasse panoramique</div>
+    </div>
+    <div class="badge">
+      <div class="badge-val">Sirops 1883</div>
+      <div class="badge-lbl">Café haut de gamme</div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE -->
+<section class="frm" id="contact">
+  <div class="sec-hd">
+    <span class="sec-tag">Nous contacter</span>
+    <h2 class="sec-title">Écrivez-nous</h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="frm-wrap">
+    <form id="cfrm" action="#" novalidate>
+      <div class="fld">
+        <label for="fn">Votre nom</label>
+        <input type="text" id="fn" name="nom" placeholder="Prénom et nom" autocomplete="name">
+        <span class="frm-err" id="e-fn">Merci de renseigner votre nom.</span>
+      </div>
+      <div class="fld">
+        <label for="fe">Adresse e-mail</label>
+        <input type="email" id="fe" name="email" placeholder="votre@email.com" autocomplete="email">
+        <span class="frm-err" id="e-fe">Veuillez saisir une adresse e-mail valide.</span>
+      </div>
+      <div class="fld">
+        <label for="ft">Téléphone (facultatif)</label>
+        <input type="tel" id="ft" name="tel" placeholder="Ex : 30.30.77" autocomplete="tel">
+      </div>
+      <div class="fld">
+        <label for="fm">Votre message</label>
+        <textarea id="fm" name="message" placeholder="Dites-nous comment nous pouvons vous aider…"></textarea>
+        <span class="frm-err" id="e-fm">Merci de nous laisser un message.</span>
+      </div>
+      <button type="submit" class="btn-submit" id="fsub">Envoyer le message</button>
+      <div class="frm-ok" id="fok">✔ Votre message a bien été envoyé. Nous vous répondrons dans les plus brefs délais.</div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ftr">
+  <div class="ftr-grid">
+    <div>
+      <div class="ftr-brand">MR COFFEE NC<span>Les Quais Ferry · Nouméa</span></div>
+      <p class="ftr-p">Quai Jules Ferry, Rue Jules Ferry<br>Nouméa 98800, Nouvelle-Calédonie</p>
+      <a href="tel:303077" class="ftr-tel">30.30.77</a>
+      <div class="ftr-social">
+        <a href="https://www.facebook.com/p/Mr-Coffee-NC-Les-Quais-Ferry-61563094984066" target="_blank" rel="noopener" aria-label="Facebook MR COFFEE NC">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="ftr-h">Navigation</div>
+      <ul class="ftr-ul">
+        <li><a href="#ambiance">Notre ambiance</a></li>
+        <li><a href="#menu">La carte</a></li>
+        <li><a href="#galerie">Galerie photos</a></li>
+        <li><a href="#avis">Avis clients</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="ftr-h">Horaires</div>
+      <ul class="ftr-ul">
+        <li><a>Lundi – Vendredi</a></li>
+        <li><a>7h00 – 17h00</a></li>
+        <li><a>Samedi</a></li>
+        <li><a>8h00 – 15h00</a></li>
+        <li><a href="tel:303077">Infos : 30.30.77</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ftr-bot">
+    <div class="ftr-cp">© 2026 MR COFFEE NC - Les Quais Ferry. Tous droits réservés.</div>
+    <div class="ftr-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var gits=document.querySelectorAll('.gal-it'),lbx=document.getElementById('lbx'),lbxImg=document.getElementById('lbxImg'),lbxCls=document.getElementById('lbxCls');
+  gits.forEach(function(it){
+    it.addEventListener('click',function(){
+      lbxImg.src=it.dataset.src;
+      lbx.classList.add('open');
+      document.body.style.overflow='hidden';
+    });
+  });
+  function closeLbx(){lbx.classList.remove('open');document.body.style.overflow='';lbxImg.src='';}
+  lbxCls.addEventListener('click',closeLbx);
+  lbx.addEventListener('click',function(e){if(e.target===lbx)closeLbx();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLbx();});
+
+  var frm=document.getElementById('cfrm'),fsub=document.getElementById('fsub'),fok=document.getElementById('fok');
+  frm.addEventListener('submit',function(e){
+    e.preventDefault();
+    var fn=document.getElementById('fn'),fe=document.getElementById('fe'),fm=document.getElementById('fm');
+    var ok=true;
+    function chk(el,err,test){var show=!test;document.getElementById(err).classList.toggle('show',show);if(show)ok=false;}
+    chk(fn,'e-fn',fn.value.trim().length>1);
+    chk(fe,'e-fe',/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fe.value.trim()));
+    chk(fm,'e-fm',fm.value.trim().length>4);
+    if(!ok)return;
+    fsub.textContent='Envoi…';fsub.disabled=true;
+    setTimeout(function(){fok.classList.add('show');frm.reset();fsub.textContent='Envoyer le message';fsub.disabled=false;},900);
+  });
+})();
+</script>
+</body>
+</html>
