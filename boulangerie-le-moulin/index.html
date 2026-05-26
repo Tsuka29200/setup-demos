@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Boulangerie Le Moulin — Nouméa</title>
+<meta name="description" content="Boulangerie-pâtisserie artisanale au cœur de Nouméa. Pains frais, viennoiseries et pâtisseries généreux chaque matin. Venez nous rendre visite !">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@400;600;700&family=Manrope:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#C0392B;
+--cs:#D4A800;
+--ca:#E8C000;
+--bg:#FAF5EC;
+--tx:#2C1A0E;
+--wh:#fff;
+--dk:#1a0f06;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;color:var(--tx);background:var(--bg);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+
+/* BANDEAU PROMO */
+.promo-band{
+position:sticky;top:0;z-index:1001;
+background:#ffd500;
+height:44px;line-height:44px;
+text-align:center;
+font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;
+font-weight:700;font-size:14px;letter-spacing:.3px;
+}
+.promo-band a{color:#4375ff;opacity:1;transition:opacity .15s}
+.promo-band a:hover{opacity:.85}
+
+/* HEADER */
+.header{
+position:sticky;top:44px;z-index:1000;
+background:var(--wh);
+box-shadow:0 2px 12px rgba(0,0,0,.10);
+height:64px;display:flex;align-items:center;
+padding:0 24px;
+}
+.hd-inner{width:100%;max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:'Fredoka One',cursive;font-size:1.4rem;color:var(--cp);line-height:1}
+.logo span{color:var(--cs)}
+.nav{display:flex;gap:24px;list-style:none}
+.nav a{font-size:.9rem;font-weight:600;color:var(--tx);padding-bottom:2px;border-bottom:2px solid transparent;transition:border-color .2s,color .2s}
+.nav a:hover{color:var(--cp);border-color:var(--cs)}
+.hd-cta{display:flex;align-items:center;gap:12px}
+.tel{font-weight:700;font-size:.95rem;color:var(--cp)}
+.b{display:inline-flex;align-items:center;justify-content:center;font-family:'Fredoka One',cursive;font-size:1rem;font-weight:400;letter-spacing:.3px;border:none;cursor:pointer;border-radius:4px;transition:opacity .2s,transform .2s}
+.b-primary{background:var(--cp);color:var(--wh);padding:10px 22px;border-bottom:3px solid transparent;transition:border-color .2s,opacity .2s}
+.b-primary:hover{border-color:var(--cs);opacity:.9}
+.b-outline{background:transparent;color:var(--cp);border:2px solid var(--cp);padding:9px 20px}
+.b-outline:hover{background:var(--cp);color:var(--wh)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{width:24px;height:2px;background:var(--tx);border-radius:2px;transition:transform .25s,opacity .25s}
+.mob-nav{display:none;position:fixed;top:108px;left:0;right:0;background:var(--wh);z-index:999;padding:24px;box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.mob-nav.open{display:flex;flex-direction:column;gap:20px}
+.mob-nav a{font-size:1.1rem;font-weight:600;color:var(--tx);padding:8px 0;border-bottom:1px solid rgba(0,0,0,.07)}
+.mob-nav a:hover{color:var(--cp)}
+
+/* HERO */
+.hero{
+min-height:100vh;
+position:relative;
+display:flex;align-items:center;justify-content:center;
+background:url('https://i.ibb.co/gb73QGcT/Boulangerie-Le-Moulin-0.jpg') center/cover no-repeat;
+}
+.hero-overlay{
+position:absolute;inset:0;
+background:linear-gradient(to bottom,rgba(192,57,43,.55) 0%,rgba(44,26,14,.70) 100%);
+}
+.hero-content{
+position:relative;z-index:1;
+text-align:center;max-width:760px;padding:0 20px;
+}
+.hero h1{
+font-family:'Fredoka One',cursive;
+font-size:clamp(2.4rem,7vw,5rem);
+color:var(--wh);line-height:1.1;letter-spacing:.5px;
+text-shadow:0 2px 16px rgba(0,0,0,.35);
+}
+.hero h1 em{font-style:normal;color:var(--ca)}
+.hero-sub{
+font-family:'Playfair Display',serif;
+font-size:clamp(1rem,2.5vw,1.35rem);
+color:rgba(255,255,255,.9);
+margin:18px 0 32px;
+font-style:italic;line-height:1.5;
+}
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.b-hero{padding:14px 30px;font-size:1.05rem;min-height:52px}
+.scroll-ind{
+position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
+display:flex;flex-direction:column;align-items:center;gap:6px;
+color:rgba(255,255,255,.7);font-size:.75rem;letter-spacing:1px;text-transform:uppercase;
+}
+.scroll-ind svg{animation:bounce 1.8s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* STATS BAND */
+.stats{
+background:var(--cp);
+border-top:3px solid var(--cs);
+padding:48px 24px;
+}
+.stats-inner{
+max-width:1100px;margin:0 auto;
+display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+}
+.stat{text-align:center}
+.stat-num{
+font-family:'Fredoka One',cursive;
+font-size:clamp(2rem,5vw,3rem);
+color:var(--ca);line-height:1;
+}
+.stat-lbl{
+font-size:.9rem;color:rgba(255,255,255,.88);
+margin-top:6px;font-weight:600;letter-spacing:.4px;text-transform:uppercase;
+}
+
+/* UTIL */
+.s{padding:80px 24px;border-top:3px solid var(--cs)}
+.s-inner{max-width:1100px;margin:0 auto}
+.h{font-family:'Fredoka One',cursive}
+.h1{font-size:clamp(1.8rem,4vw,2.8rem);color:var(--cp)}
+.h2{font-size:clamp(1.4rem,3vw,2rem);color:var(--tx)}
+.h3{font-size:1.1rem;color:var(--tx)}
+.txt-center{text-align:center}
+.lead{font-family:'Playfair Display',serif;font-size:clamp(1rem,2vw,1.2rem);font-style:italic;color:var(--tx);opacity:.8;line-height:1.7}
+.c{background:var(--wh);border-radius:8px;box-shadow:0 4px 18px rgba(0,0,0,.07);transition:transform .2s,box-shadow .2s}
+.c:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.12);border-left:4px solid var(--cs)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.tag{display:inline-block;background:var(--ca);color:var(--tx);font-weight:700;font-size:.75rem;padding:3px 10px;border-radius:3px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px}
+
+/* FALLBACK ANIMATIONS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.nav,.hd-cta .b{display:none}
+.hamburger{display:flex}
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+.grid3{grid-template-columns:1fr 1fr}
+.grid2{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+.promo-band{height:40px;line-height:40px;font-size:13px}
+.header{top:40px;height:58px;padding:0 16px}
+.mob-nav{top:98px}
+.hero-content{padding:0 16px}
+.stats-inner{grid-template-columns:1fr 1fr;gap:16px}
+.stats{padding:32px 16px}
+.s{padding:56px 16px}
+.grid3{grid-template-columns:1fr}
+.b-primary,.b-outline{width:100%;min-height:48px}
+.hero-ctas{flex-direction:column;align-items:center}
+.tel{font-size:.85rem}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo-band">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="hd-inner">
+    <div class="logo">Le&nbsp;<span>Moulin</span></div>
+    <nav aria-label="Navigation principale">
+      <ul class="nav">
+        <li><a href="#metier">Notre histoire</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#avis">Avis</a></li>
+        <li><a href="#horaires">Horaires</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hd-cta">
+      <a class="tel" href="tel:298929">29.89.29</a>
+      <a class="b b-primary" href="#contact">Nous écrire</a>
+    </div>
+    <button class="hamburger" aria-label="Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-nav" id="mob-nav" aria-label="Menu mobile">
+  <a href="#metier" onclick="toggleMenu()">Notre histoire</a>
+  <a href="#galerie" onclick="toggleMenu()">Galerie</a>
+  <a href="#avis" onclick="toggleMenu()">Avis clients</a>
+  <a href="#horaires" onclick="toggleMenu()">Horaires</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <a href="tel:298929" class="b b-primary" style="margin-top:8px">📞 29.89.29</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil" aria-label="Accueil Boulangerie Le Moulin">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Boulangerie<br><em>Le Moulin</em></h1>
+    <p class="hero-sub">Pains dorés, viennoiseries généreuses et pâtisseries artisanales — chaque matin à Nouméa depuis des années.</p>
+    <div class="hero-ctas">
+      <a class="b b-primary b-hero" href="#galerie">Découvrir nos créations</a>
+      <a class="b b-outline b-hero" href="#horaires" style="color:#fff;border-color:#fff">Nos horaires</a>
+    </div>
+  </div>
+  <div class="scroll-ind" aria-hidden="true">
+    <span>Défiler</span>
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+      <path d="M5 8l5 5 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<section class="stats" aria-label="Chiffres clés">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-num" data-target="35">0</div>
+      <div class="stat-lbl">Avis clients</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-target="4" data-suffix=".1/5">0</div>
+      <div class="stat-lbl">Note Google</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-target="7" data-suffix="j/7">0</div>
+      <div class="stat-lbl">Jours d'ouverture</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-target="100" data-suffix="% artisan">0</div>
+      <div class="stat-lbl">Fait maison</div>
+    </div>
+  </div>
+</section>
+
+<script>
+function toggleMenu(){var n=document.getElementById('mob-nav');n.classList.toggle('open')}
+(function(){
+  var nums=document.querySelectorAll('.stat-num[data-target]');
+  var done=false;
+  function run(){
+    if(done)return;done=true;
+    nums.forEach(function(el){
+      var t=+el.getAttribute('data-target');
+      var s=el.getAttribute('data-suffix')||'';
+      var c=0,step=Math.ceil(t/40);
+      var iv=setInterval(function(){
+        c=Math.min(c+step,t);
+        el.textContent=c+s;
+        if(c>=t)clearInterval(iv);
+      },40);
+    });
+  }
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)run()})},{threshold:.3});
+    document.querySelector('.stats')&&obs.observe(document.querySelector('.stats'));
+  } else {run();}
+})();
+</script>
+<style>
+.srv-icon{width:56px;height:56px;background:var(--ca);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.srv-card{padding:32px 24px;text-align:center}
+.srv-card .h3{color:var(--cp);margin-bottom:8px;font-size:1.15rem}
+.srv-card p{font-size:.95rem;line-height:1.6;color:var(--tx);opacity:.85}
+.srv-card .b{margin-top:18px;font-size:.9rem;padding:9px 18px}
+.met-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.met-img{border-radius:10px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.13)}
+.met-img img{width:100%;height:340px;object-fit:cover}
+.met-text .h1{margin-bottom:16px}
+.met-text .lead{margin-bottom:20px}
+.met-text p{font-size:.97rem;line-height:1.75;color:var(--tx);opacity:.85;margin-bottom:14px}
+.check-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:18px}
+.check-list li{display:flex;align-items:flex-start;gap:10px;font-size:.95rem;font-weight:600}
+.check-list li::before{content:"✓";color:var(--wh);background:var(--cp);border-radius:50%;width:22px;height:22px;min-width:22px;display:flex;align-items:center;justify-content:center;font-size:.75rem;margin-top:1px}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal-item{border-radius:8px;overflow:hidden;cursor:pointer;position:relative}
+.gal-item img{width:100%;height:220px;object-fit:cover;transition:transform .3s}
+.gal-item:hover img{transform:scale(1.04)}
+.gal-overlay{position:absolute;inset:0;background:rgba(192,57,43,0);display:flex;align-items:center;justify-content:center;transition:background .25s}
+.gal-item:hover .gal-overlay{background:rgba(192,57,43,.35)}
+.gal-overlay svg{opacity:0;transition:opacity .25s}
+.gal-item:hover .gal-overlay svg{opacity:1}
+.lb{display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.88);align-items:center;justify-content:center;padding:24px}
+.lb.open{display:flex}
+.lb img{max-width:90vw;max-height:88vh;border-radius:6px;box-shadow:0 8px 48px rgba(0,0,0,.5)}
+.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;line-height:1}
+.frm-wrap{max-width:680px;margin:0 auto}
+.frm-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.frm-group{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+.frm-group label{font-size:.85rem;font-weight:700;color:var(--cp);text-transform:uppercase;letter-spacing:.5px}
+.frm-group input,.frm-group textarea{font-family:'Lato',sans-serif;font-size:.97rem;padding:12px 14px;border:2px solid rgba(192,57,43,.2);border-radius:5px;background:var(--wh);color:var(--tx);transition:border-color .2s;width:100%}
+.frm-group input:focus,.frm-group textarea:focus{outline:none;border-color:var(--cp)}
+.frm-group textarea{resize:vertical;min-height:120px}
+.frm-error{font-size:.8rem;color:var(--cp);margin-top:3px;display:none}
+.frm-success{display:none;background:#f0faf0;border:2px solid #2e8b57;color:#1a5c35;padding:18px 22px;border-radius:6px;font-weight:600;text-align:center;margin-top:16px}
+.frm-loader{display:none;text-align:center;margin-top:12px;color:var(--cp);font-weight:600}
+.social-proof{background:var(--cp);border-top:3px solid var(--cs)}
+.sp-inner{max-width:1100px;margin:0 auto;padding:80px 24px;text-align:center}
+.sp-inner .h1{color:var(--wh)}
+.stars{font-size:1.8rem;color:var(--ca);letter-spacing:4px;margin:12px 0 4px}
+.rating-val{font-family:'Fredoka One',cursive;font-size:3.5rem;color:var(--ca);line-height:1}
+.rating-sub{color:rgba(255,255,255,.8);font-size:.9rem;margin-top:4px}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.testi-card{background:rgba(255,255,255,.1);border-radius:8px;padding:24px 20px;text-align:left;border:1px solid rgba(255,255,255,.15)}
+.testi-stars{color:var(--ca);font-size:1rem;margin-bottom:10px}
+.testi-text{font-family:'Playfair Display',serif;font-style:italic;font-size:.97rem;color:rgba(255,255,255,.9);line-height:1.6;margin-bottom:12px}
+.testi-name{font-weight:700;font-size:.85rem;color:var(--ca)}
+.badges{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:40px}
+.badge{background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.25);border-radius:8px;padding:14px 22px;color:#fff;font-weight:700;font-size:.9rem;display:flex;align-items:center;gap:8px}
+.hr-box{background:var(--wh);border-radius:10px;box-shadow:0 4px 24px rgba(0,0,0,.09);padding:40px;max-width:680px;margin:0 auto}
+.hr-box .h1{text-align:center;margin-bottom:28px}
+.hr-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.hr-day{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(0,0,0,.07);font-size:.95rem}
+.hr-day:last-child{border-bottom:none}
+.hr-day strong{color:var(--cp)}
+.hr-day span{color:var(--tx);opacity:.8}
+.hr-addr{text-align:center;margin-top:28px;font-size:.95rem;line-height:1.7;color:var(--tx);opacity:.8}
+.hr-addr strong{color:var(--cp);font-size:1rem}
+.footer{background:var(--dk);padding:56px 24px 28px;border-top:3px solid var(--cs)}
+.ft-inner{max-width:1100px;margin:0 auto}
+.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.1)}
+.ft-brand .logo{font-size:1.7rem;color:var(--ca)}
+.ft-brand p{color:rgba(255,255,255,.65);font-size:.9rem;line-height:1.7;margin-top:12px;max-width:300px}
+.ft-col h4{font-family:'Fredoka One',cursive;font-size:1.05rem;color:var(--ca);margin-bottom:16px}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-col li a{color:rgba(255,255,255,.7);font-size:.9rem;transition:color .2s}
+.ft-col li a:hover{color:var(--ca)}
+.ft-col address{font-style:normal;color:rgba(255,255,255,.7);font-size:.9rem;line-height:1.7}
+.ft-col address a{color:var(--ca)}
+.ft-social{display:flex;gap:12px;margin-top:16px}
+.ft-social a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.1);transition:background .2s}
+.ft-social a:hover{background:var(--cs)}
+.ft-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:24px}
+.ft-bottom p{color:rgba(255,255,255,.45);font-size:.82rem}
+.ft-bottom a{color:var(--ca);font-weight:700}
+@media(max-width:900px){
+.met-grid{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:1fr 1fr}
+.testi-grid{grid-template-columns:1fr}
+.ft-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+.frm-row{grid-template-columns:1fr}
+.hr-grid{grid-template-columns:1fr}
+.ft-top{grid-template-columns:1fr}
+.ft-bottom{flex-direction:column;text-align:center}
+.gal-grid{grid-template-columns:1fr 1fr}
+.gal-item img{height:160px}
+.badges{flex-direction:column;align-items:center}
+.sp-inner{padding:56px 16px}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s" id="services" aria-label="Nos services">
+  <div class="s-inner">
+    <div class="txt-center" style="margin-bottom:48px">
+      <p class="tag">Ce que nous faisons</p>
+      <h2 class="h h1">Artisanat au quotidien</h2>
+      <p class="lead" style="max-width:560px;margin:14px auto 0">Du pain croustillant sorti du four à la pâtisserie préparée avec soin : chaque pièce est faite maison, chaque jour.</p>
+    </div>
+    <div class="grid3">
+      <div class="c srv-card">
+        <div class="srv-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2C1A0E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l1-7h16l1 7"/><path d="M3 11h18v8a2 2 0 01-2 2H5a2 2 0 01-2-2v-8z"/><path d="M9 21v-6a3 3 0 016 0v6"/></svg>
+        </div>
+        <h3 class="h h3">Pains & baguettes</h3>
+        <p>Baguettes tradition, pains de campagne et pains spéciaux préparés et cuits sur place chaque matin pour une fraîcheur garantie.</p>
+        <a class="b b-primary" href="#horaires">Passer nous voir</a>
+      </div>
+      <div class="c srv-card">
+        <div class="srv-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2C1A0E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12s1-3 4-3 4 3 4 3"/><path d="M9 8h.01M15 8h.01"/></svg>
+        </div>
+        <h3 class="h h3">Viennoiseries</h3>
+        <p>Croissants dorés, pains au chocolat et chaussons aux pommes feuilletés : la douceur du matin à deux pas de chez vous.</p>
+        <a class="b b-primary" href="#horaires">Nos horaires</a>
+      </div>
+      <div class="c srv-card">
+        <div class="srv-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2C1A0E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="12"/></svg>
+        </div>
+        <h3 class="h h3">Pâtisseries artisanales</h3>
+        <p>Tartes, éclairs, mille-feuilles et gâteaux individuels élaborés avec des ingrédients sélectionnés pour régaler petits et grands.</p>
+        <a class="b b-primary" href="#contact">Commande spéciale</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s" id="metier" style="background:#fff" aria-label="Notre histoire">
+  <div class="s-inner">
+    <div class="met-grid">
+      <div class="met-img">
+        <img src="https://i.ibb.co/Y4Hkyj9D/Boulangerie-Le-Moulin-1.jpg" alt="Intérieur de la Boulangerie Le Moulin à Nouméa" loading="lazy">
+      </div>
+      <div class="met-text">
+        <p class="tag">Notre histoire</p>
+        <h2 class="h h1">Une boulangerie ancrée dans Nouméa</h2>
+        <p class="lead">Derrière la façade rouge vif que tout Nouméa reconnaît, une équipe passionnée prépare chaque jour une fournée généreuse pour ses clients fidèles.</p>
+        <p>Le Moulin, c'est cette adresse de quartier où l'on s'arrête le matin pour une baguette chaude, où l'on revient l'après-midi pour un gâteau qui sent la vraie pâtisserie. Un repère chaleureux, abondant, fait pour partager.</p>
+        <ul class="check-list">
+          <li>Cuisson fraîche chaque matin dès l'ouverture</li>
+          <li>Pâtisseries préparées sur place sans compromis</li>
+          <li>Une vitrine colorée et généreuse, sept jours sur sept</li>
+          <li>Commandes spéciales et gâteaux sur mesure</li>
+        </ul>
+      </div>
+    </div>
+    <div class="met-grid" style="margin-top:64px">
+      <div class="met-text">
+        <p class="tag">Savoir-faire</p>
+        <h2 class="h h1">Le goût du fait maison</h2>
+        <p class="lead">Chaque recette est pensée pour rester fidèle aux codes de la boulangerie-pâtisserie artisanale, sans raccourci industriel.</p>
+        <p>Farines soigneusement choisies, feuilletages patiemment réalisés, crèmes préparées le jour même : au Moulin, la qualité se voit et se goûte dans chaque bouchée, de la baguette tradition au dessert du dimanche.</p>
+        <ul class="check-list">
+          <li>Recettes classiques respectées et maîtrisées</li>
+          <li>Ingrédients frais approvisionnés régulièrement</li>
+          <li>Équipe locale dédiée et passionnée</li>
+        </ul>
+      </div>
+      <div class="met-img">
+        <img src="https://i.ibb.co/7NbC0vFv/Boulangerie-Le-Moulin-2.jpg" alt="Pâtisseries artisanales du Moulin" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s" id="galerie" aria-label="Galerie photos">
+  <div class="s-inner">
+    <div class="txt-center" style="margin-bottom:36px">
+      <p class="tag">En images</p>
+      <h2 class="h h1">La vie au Moulin</h2>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item" onclick="openLb(0)" tabindex="0" role="button" aria-label="Voir photo 1">
+        <img src="https://i.ibb.co/gb73QGcT/Boulangerie-Le-Moulin-0.jpg" alt="Façade Boulangerie Le Moulin Nouméa" loading="lazy">
+        <div class="gal-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      </div>
+      <div class="gal-item" onclick="openLb(1)" tabindex="0" role="button" aria-label="Voir photo 2">
+        <img src="https://i.ibb.co/Y4Hkyj9D/Boulangerie-Le-Moulin-1.jpg" alt="Intérieur et vitrine de la boulangerie" loading="lazy">
+        <div class="gal-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      </div>
+      <div class="gal-item" onclick="openLb(2)" tabindex="0" role="button" aria-label="Voir photo 3">
+        <img src="https://i.ibb.co/7NbC0vFv/Boulangerie-Le-Moulin-2.jpg" alt="Pâtisseries artisanales du Moulin" loading="lazy">
+        <div class="gal-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      </div>
+      <div class="gal-item" onclick="openLb(3)" tabindex="0" role="button" aria-label="Voir photo 4">
+        <img src="https://i.ibb.co/9HV28jWk/Boulangerie-Le-Moulin-3.jpg" alt="Sélection de pains et viennoiseries" loading="lazy">
+        <div class="gal-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Agrandissement photo" onclick="closeLb()">
+  <button class="lb-close" aria-label="Fermer">&times;</button>
+  <img id="lb-img" src="" alt="">
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section class="social-proof" id="avis" aria-label="Avis clients">
+  <div class="sp-inner">
+    <p class="tag" style="background:rgba(255,255,255,.15);color:#fff">Avis Google</p>
+    <div class="rating-val">4.1</div>
+    <div class="stars">★★★★☆</div>
+    <p class="rating-sub">Basé sur 35 avis vérifiés Google</p>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">« La baguette est toujours bien cuite comme j'aime. Le personnel est sympa et la vitrine est pleine de belles choses le matin. Un vrai coup de cœur de quartier. »</p>
+        <span class="testi-name">— Marie-Jo B.</span>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★☆</div>
+        <p class="testi-text">« Je m'arrête chaque matin avant le boulot. Les croissants sont feuilletés et les pâtisseries du samedi sont franchement délicieuses. Bravo à l'équipe ! »</p>
+        <span class="testi-name">— Patrick N.</span>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">« Une boulangerie comme on les aime : généreuse, accueillante et toujours fraîche. La façade rouge est impossible à rater et l'intérieur sent bon le pain chaud. »</p>
+        <span class="testi-name">— Sandra K.</span>
+      </div>
+    </div>
+    <div class="badges">
+      <div class="badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        Note 4.1 / 5
+      </div>
+      <div class="badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        35 clients satisfaits
+      </div>
+      <div class="badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3H8a2 2 0 00-2 2v2h12V5a2 2 0 00-2-2z"/></svg>
+        Artisan boulanger
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE -->
+<section class="s" id="contact" style="background:#fff" aria-label="Nous contacter">
+  <div class="s-inner">
+    <div class="txt-center" style="margin-bottom:40px">
+      <p class="tag">Écrivez-nous</p>
+      <h2 class="h h1">Une question ? Un projet ?</h2>
+      <p class="lead" style="max-width:480px;margin:12px auto 0">Pour une commande spéciale, une question sur nos produits ou simplement pour nous dire bonjour — nous lisons tous les messages.</p>
+    </div>
+    <div class="frm-wrap">
+      <form id="frm" action="#" novalidate>
+        <div class="frm-row">
+          <div class="frm-group">
+            <label for="f-nom">Nom complet</label>
+            <input type="text" id="f-nom" name="nom" placeholder="Votre nom" autocomplete="name">
+            <span class="frm-error" id="e-nom">Veuillez saisir votre nom.</span>
+          </div>
+          <div class="frm-group">
+            <label for="f-tel">Téléphone</label>
+            <input type="tel" id="f-tel" name="tel" placeholder="Ex : 29 89 29" autocomplete="tel">
+            <span class="frm-error" id="e-tel">Numéro invalide.</span>
+          </div>
+        </div>
+        <div class="frm-group">
+          <label for="f-email">Adresse e-mail</label>
+          <input type="email" id="f-email" name="email" placeholder="votre@email.com" autocomplete="email">
+          <span class="frm-error" id="e-email">Adresse e-mail invalide.</span>
+        </div>
+        <div class="frm-group">
+          <label for="f-msg">Votre message</label>
+          <textarea id="f-msg" name="message" placeholder="Décrivez votre demande…"></textarea>
+          <span class="frm-error" id="e-msg">Merci d'écrire un message.</span>
+        </div>
+        <div class="txt-center">
+          <button type="submit" class="b b-primary" style="min-height:52px;padding:14px 40px;font-size:1.05rem;width:100%">Envoyer le message</button>
+        </div>
+        <div class="frm-loader" id="frm-loader">Envoi en cours…</div>
+        <div class="frm-success" id="frm-success">✔ Votre message a bien été envoyé ! Nous vous répondrons rapidement.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- HORAIRES & ACCÈS -->
+<section class="s" id="horaires" aria-label="Horaires et accès">
+  <div class="s-inner">
+    <div class="txt-center" style="margin-bottom:36px">
+      <p class="tag">Pratique</p>
+      <h2 class="h h1">Horaires & accès</h2>
+    </div>
+    <div class="hr-box">
+      <h3 class="h h1" style="text-align:center;font-size:1.4rem;margin-bottom:24px">Nous sommes ouverts</h3>
+      <div class="hr-grid">
+        <div>
+          <div class="hr-day"><strong>Lundi</strong><span>6h00 – 18h00</span></div>
+          <div class="hr-day"><strong>Mardi</strong><span>6h00 – 18h00</span></div>
+          <div class="hr-day"><strong>Mercredi</strong><span>6h00 – 18h00</span></div>
+          <div class="hr-day"><strong>Jeudi</strong><span>6h00 – 18h00</span></div>
+        </div>
+        <div>
+          <div class="hr-day"><strong>Vendredi</strong><span>6h00 – 18h00</span></div>
+          <div class="hr-day"><strong>Samedi</strong><span>6h00 – 18h00</span></div>
+          <div class="hr-day"><strong>Dimanche</strong><span>6h00 – 12h00</span></div>
+          <div class="hr-day"><strong>Jours fériés</strong><span>Selon affichage</span></div>
+        </div>
+      </div>
+      <div class="hr-addr">
+        <strong>Boulangerie Le Moulin</strong><br>
+        QC7W+R7F, Nouméa 98800, Nouvelle-Calédonie<br>
+        <a href="tel:298929" style="color:var(--cp);font-weight:700">📞 29.89.29</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" aria-label="Pied de page">
+  <div class="ft-inner">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <div class="logo">Le <span>Moulin</span></div>
+        <p>Boulangerie-pâtisserie artisanale au cœur de Nouméa. Pains frais, viennoiseries et pâtisseries généreux chaque matin, sept jours sur sept.</p>
+        <div class="ft-social">
+          <a href="https://www.facebook.com/LeMoulinBoulangerieNC" target="_blank" rel="noopener" aria-label="Facebook Boulangerie Le Moulin">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="ft-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#metier">Notre histoire</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#avis">Avis clients</a></li>
+          <li><a href="#horaires">Horaires</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Contact</h4>
+        <address>
+          Boulangerie Le Moulin<br>
+          QC7W+R7F<br>
+          Nouméa 98800<br>
+          Nouvelle-Calédonie<br><br>
+          <a href="tel:298929">29.89.29</a>
+        </address>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <p>© 2026 Boulangerie Le Moulin. Tous droits réservés.</p>
+      <p>Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+var lbImgs=['https://i.ibb.co/gb73QGcT/Boulangerie-Le-Moulin-0.jpg','https://i.ibb.co/Y4Hkyj9D/Boulangerie-Le-Moulin-1.jpg','https://i.ibb.co/7NbC0vFv/Boulangerie-Le-Moulin-2.jpg','https://i.ibb.co/9HV28jWk/Boulangerie-Le-Moulin-3.jpg'];
+var lbAlts=['Façade Boulangerie Le Moulin','Intérieur et vitrine','Pâtisseries artisanales','Pains et viennoiseries'];
+function openLb(i){var l=document.getElementById('lb'),im=document.getElementById('lb-img');im.src=lbImgs[i];im.alt=lbAlts[i];l.classList.add('open');document.body.style.overflow='hidden';}
+function closeLb(){document.getElementById('lb').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+(function(){
+var f=document.getElementById('frm');
+f.addEventListener('submit',function(e){
+e.preventDefault();
+var ok=true;
+function chk(id,eid,fn){var v=document.getElementById(id).value.trim();var err=document.getElementById(eid);if(!fn(v)){err.style.display='block';ok=false;}else{err.style.display='none';}}
+chk('f-nom','e-nom',function(v){return v.length>1;});
+chk('f-email','e-email',function(v){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);});
+chk('f-msg','e-msg',function(v){return v.length>3;});
+if(!ok)return;
+var ld=document.getElementById('frm-loader'),sc=document.getElementById('frm-success');
+ld.style.display='block';
+setTimeout(function(){ld.style.display='none';sc.style.display='block';f.reset();},1400);
+});
+})();
+</script>
+</body>
+</html>
