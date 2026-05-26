@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Amethyste — Nouméa</title>
+<meta name="description" content="Bijouterie Amethyste à Nouméa, Nouvelle-Calédonie. Créations joaillières d'exception, baignées de lumière tropicale et d'élégance calédonienne.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#C9A96E;
+--cs:#F5EFE6;
+--ca:#8B5E52;
+--cb:#FDFAF5;
+--ct:#2C2C2C;
+--cn:#F5EFE6;
+--fw:1200px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',system-ui,sans-serif;color:var(--ct);background:var(--cb);overflow-x:hidden;font-size:16px}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+
+/* BANDEAU PROMO */
+.promo-band{position:fixed;top:0;left:0;right:0;height:44px;background:#ffd500;z-index:1001;text-align:center}
+.promo-band a{display:block;line-height:44px;font-family:'Manrope','Plus Jakarta Sans',system-ui,sans-serif;font-weight:700;font-size:14px;letter-spacing:.3px;color:#4375ff;transition:opacity .2s}
+.promo-band a:hover{opacity:.85}
+
+/* HEADER */
+.hdr{position:fixed;top:44px;left:0;right:0;z-index:1000;background:rgba(253,250,245,.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(201,169,110,.15);transition:box-shadow .3s}
+.hdr.scrolled{box-shadow:0 4px 24px rgba(139,94,82,.1)}
+.hdr-inner{max-width:var(--fw);margin:0 auto;padding:0 24px;height:70px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--cp);letter-spacing:2px;white-space:nowrap}
+.logo span{color:var(--ca);font-style:italic}
+.nav{display:flex;align-items:center;gap:32px}
+.nav a{font-size:13px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--ct);position:relative;transition:color .25s}
+.nav a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--cp);transform:scaleX(0);transition:transform .3s cubic-bezier(.4,0,.2,1)}
+.nav a:hover{color:var(--cp)}
+.nav a:hover::after{transform:scaleX(1)}
+.hdr-cta{background:var(--cp);color:#fff;font-family:'Manrope',sans-serif;font-weight:700;font-size:13px;letter-spacing:.8px;text-transform:uppercase;padding:11px 22px;border-radius:2px;border:none;cursor:pointer;transition:background .25s,transform .2s;white-space:nowrap}
+.hdr-cta:hover{background:var(--ca);transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
+.hamburger span{display:block;width:24px;height:2px;background:var(--ct);transition:transform .3s,opacity .3s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mob-nav{display:none;position:fixed;top:114px;left:0;right:0;background:var(--cb);border-bottom:1px solid rgba(201,169,110,.2);z-index:999;padding:24px;flex-direction:column;gap:20px}
+.mob-nav.open{display:flex}
+.mob-nav a{font-size:15px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:var(--ct);padding:8px 0;border-bottom:1px solid var(--cs)}
+.mob-nav a:last-child{border:none}
+.mob-cta{background:var(--cp);color:#fff;font-weight:700;font-size:14px;letter-spacing:.6px;text-transform:uppercase;padding:14px;border-radius:2px;text-align:center;margin-top:4px}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:114px;position:relative}
+.hero-left{background:var(--cp);display:flex;align-items:center;padding:80px 64px;position:relative;overflow:hidden}
+.hero-left::before{content:'';position:absolute;top:-60px;left:-60px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.04);pointer-events:none}
+.hero-left::after{content:'';position:absolute;bottom:40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(139,94,82,.12);pointer-events:none}
+.hero-divider{width:4px;background:linear-gradient(to bottom,transparent,var(--ca) 20%,var(--ca) 80%,transparent);position:absolute;left:50%;transform:translateX(-50%);top:114px;bottom:0;z-index:2;opacity:.7}
+.hero-content{position:relative;z-index:1;max-width:480px}
+.hero-eyebrow{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:20px}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(42px,5vw,72px);font-weight:300;line-height:1.1;color:#fff;margin-bottom:12px}
+.hero-title em{font-style:italic;font-weight:400}
+.hero-subtitle{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,2vw,24px);font-weight:300;font-style:italic;color:rgba(255,255,255,.85);margin-bottom:32px;line-height:1.5}
+.hero-line{width:60px;height:1px;background:rgba(255,255,255,.4);margin-bottom:32px}
+.hero-desc{font-size:15px;line-height:1.75;color:rgba(255,255,255,.82);margin-bottom:40px}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{background:#fff;color:var(--cp);font-weight:700;font-size:13px;letter-spacing:.8px;text-transform:uppercase;padding:14px 28px;border-radius:2px;transition:background .25s,color .25s,transform .2s;cursor:pointer;border:none;display:inline-block}
+.btn-primary:hover{background:var(--ca);color:#fff;transform:translateY(-2px)}
+.btn-secondary{background:transparent;color:#fff;font-weight:700;font-size:13px;letter-spacing:.8px;text-transform:uppercase;padding:13px 28px;border-radius:2px;border:1px solid rgba(255,255,255,.5);transition:border-color .25s,background .25s,transform .2s;cursor:pointer;display:inline-block}
+.btn-secondary:hover{border-color:#fff;background:rgba(255,255,255,.1);transform:translateY(-2px)}
+.hero-right{position:relative;overflow:hidden}
+.hero-img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.4,0,.2,1),filter .4s}
+.hero-img-wrap{width:100%;height:100%;overflow:hidden}
+.hero-img-wrap:hover .hero-img{transform:scale(1.03);filter:brightness(1.05) saturate(1.1)}
+.hero-img-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,169,110,.15) 0%,transparent 60%);pointer-events:none}
+.scroll-ind{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;z-index:3}
+.scroll-ind span{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:600}
+.scroll-arrow{width:20px;height:20px;border-right:1px solid rgba(255,255,255,.5);border-bottom:1px solid rgba(255,255,255,.5);transform:rotate(45deg);animation:bounce 1.8s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(6px)}}
+
+/* STATS */
+.stats{background:var(--ct);padding:60px 24px;position:relative;overflow:hidden}
+.stats::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,169,110,.08) 0%,transparent 50%)}
+.stats-inner{max-width:var(--fw);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:40px;position:relative;z-index:1}
+.stat-item{text-align:center;padding:20px 0;border-right:1px solid rgba(201,169,110,.2)}
+.stat-item:last-child{border-right:none}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:clamp(42px,5vw,64px);font-weight:300;color:var(--cp);line-height:1;display:block;margin-bottom:8px}
+.stat-suffix{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3vw,40px);font-weight:300;color:var(--cp)}
+.stat-label{font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.stat-line{width:30px;height:1px;background:var(--ca);margin:12px auto}
+
+/* FALLBACK REVEAL */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.hero{grid-template-columns:1fr}
+.hero-right{height:50vw;min-height:280px}
+.hero-divider{display:none}
+.hero-left{padding:60px 32px}
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+.stat-item:nth-child(2){border-right:none}
+.stat-item{border-right:none;border-bottom:1px solid rgba(201,169,110,.2)}
+.stat-item:last-child{border-bottom:none}
+.nav{display:none}
+.hdr-cta{display:none}
+.hamburger{display:flex}
+}
+@media(max-width:480px){
+.hdr-inner{padding:0 16px;height:60px}
+.promo-band{height:40px}
+.promo-band a{line-height:40px;font-size:13px}
+.hdr{top:40px}
+.mob-nav{top:100px}
+.hero{padding-top:100px}
+.hero-left{padding:48px 16px}
+.hero-btns{flex-direction:column}
+.btn-primary,.btn-secondary{width:100%;text-align:center;min-height:48px;display:flex;align-items:center;justify-content:center}
+.stats{padding:40px 16px}
+.stats-inner{grid-template-columns:1fr 1fr;gap:24px}
+.stat-item:nth-child(odd){border-right:1px solid rgba(201,169,110,.2)}
+.stat-item{border-bottom:none}
+.logo{font-size:22px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo-band">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr" id="hdr">
+  <div class="hdr-inner">
+    <a href="#hero" class="logo">Améthyste<span>.</span></a>
+    <nav class="nav">
+      <a href="#services">Créations</a>
+      <a href="#metier">Savoir-faire</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#temoignages">Avis</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="hdr-cta">Prendre rendez-vous</a>
+    <button class="hamburger" id="ham" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- NAV MOBILE -->
+<nav class="mob-nav" id="mob-nav">
+  <a href="#services" onclick="closeMob()">Créations</a>
+  <a href="#metier" onclick="closeMob()">Savoir-faire</a>
+  <a href="#galerie" onclick="closeMob()">Galerie</a>
+  <a href="#temoignages" onclick="closeMob()">Avis</a>
+  <a href="#contact" class="mob-cta" onclick="closeMob()">Prendre rendez-vous</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-left">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Bijouterie · Nouméa</p>
+      <h1 class="hero-title">L'éclat <em>rare</em><br>de chaque<br>création</h1>
+      <p class="hero-subtitle">Là où l'or rencontre la lumière du lagon</p>
+      <div class="hero-line"></div>
+      <p class="hero-desc">Chaque pièce est une confidence murmurée par la matière : l'alliance de l'or chaud, de la pierre précieuse et d'un savoir-faire hérité, né sous le ciel de Nouvelle-Calédonie.</p>
+      <div class="hero-btns">
+        <a href="#services" class="btn-primary">Découvrir nos créations</a>
+        <a href="#contact" class="btn-secondary">Prendre rendez-vous</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-divider"></div>
+  <div class="hero-right">
+    <div class="hero-img-wrap">
+      <img src="https://i.ibb.co/wVJyZ2V/Amethyste-0.jpg" alt="Bijoux Amethyste Nouméa" class="hero-img" loading="eager">
+    </div>
+    <div class="hero-img-overlay"></div>
+  </div>
+  <div class="scroll-ind">
+    <span>Découvrir</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <span class="stat-num" data-target="20" data-suffix="+">0</span>
+      <div class="stat-line"></div>
+      <p class="stat-label">Années d'excellence</p>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="500" data-suffix="+">0</span>
+      <div class="stat-line"></div>
+      <p class="stat-label">Créations uniques</p>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="4.2" data-suffix="/5" data-decimal="1">0</span>
+      <div class="stat-line"></div>
+      <p class="stat-label">Note Google</p>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="100" data-suffix="%">0</span>
+      <div class="stat-line"></div>
+      <p class="stat-label">Satisfaction client</p>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var ham=document.getElementById('ham'),mob=document.getElementById('mob-nav'),hdr=document.getElementById('hdr');
+  function closeMob(){ham.classList.remove('open');mob.classList.remove('open')}
+  window.closeMob=closeMob;
+  ham.addEventListener('click',function(){ham.classList.toggle('open');mob.classList.toggle('open')});
+  window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>20)});
+  var nums=document.querySelectorAll('.stat-num[data-target]'),done=false;
+  function animateStats(){
+    if(done)return;done=true;
+    nums.forEach(function(el){
+      var target=parseFloat(el.dataset.target),suf=el.dataset.suffix||'',dec=parseInt(el.dataset.decimal||0),dur=1600,start=null;
+      function step(ts){
+        if(!start)start=ts;
+        var p=Math.min((ts-start)/dur,1),ease=1-Math.pow(1-p,3),val=target*ease;
+        el.textContent=(dec?val.toFixed(dec):Math.round(val))+suf;
+        if(p<1)requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)animateStats()})},{threshold:.3});
+  obs.observe(document.querySelector('.stats'));
+})();
+</script>
+<style>
+/* SERVICES */
+.svc{background:var(--cb);padding:100px 24px}
+.svc-inner{max-width:var(--fw);margin:0 auto}
+.sec-label{font-size:12px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--ca);margin-bottom:16px}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,58px);font-weight:300;color:var(--ct);line-height:1.15;margin-bottom:16px}
+.sec-title em{font-style:italic;color:var(--cp)}
+.sec-sub{font-size:15px;color:#6a6a6a;max-width:520px;line-height:1.7;margin-bottom:56px}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.svc-card{background:#fff;border-radius:4px;padding:40px 32px;border-top:4px solid var(--ca);box-shadow:0 4px 32px rgba(139,94,82,.07);transition:transform .3s cubic-bezier(.4,0,.2,1),box-shadow .3s}
+.svc-card:hover{transform:translateY(-6px);box-shadow:0 12px 48px rgba(139,94,82,.13)}
+.svc-icon{width:48px;height:48px;margin-bottom:24px;color:var(--cp)}
+.svc-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:500;color:var(--ct);margin-bottom:12px}
+.svc-desc{font-size:14px;line-height:1.75;color:#6a6a6a;margin-bottom:28px}
+.svc-link{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ca);display:inline-flex;align-items:center;gap:6px;transition:gap .25s,color .25s}
+.svc-link:hover{color:var(--cp);gap:10px}
+.svc-link svg{width:14px;height:14px}
+
+/* METIER */
+.met{background:var(--cs);padding:100px 24px}
+.met-inner{max-width:var(--fw);margin:0 auto}
+.met-row{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-bottom:80px}
+.met-row:last-child{margin-bottom:0}
+.met-row.rev{direction:rtl}
+.met-row.rev>*{direction:ltr}
+.met-text{}
+.met-img-wrap{border-radius:4px;overflow:hidden;position:relative}
+.met-img{width:100%;height:420px;object-fit:cover;transition:transform .6s cubic-bezier(.4,0,.2,1),filter .4s}
+.met-img-wrap:hover .met-img{transform:scale(1.04);filter:brightness(1.04) saturate(1.08)}
+.met-img-glow{position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,169,110,.12) 0%,transparent 60%);pointer-events:none;border-radius:4px}
+.met-eyebrow{font-size:11px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--ca);margin-bottom:20px}
+.met-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.5vw,48px);font-weight:300;line-height:1.2;color:var(--ct);margin-bottom:20px}
+.met-heading em{font-style:italic;color:var(--cp)}
+.met-p{font-size:15px;line-height:1.8;color:#5a5a5a;margin-bottom:32px}
+.met-checks{display:flex;flex-direction:column;gap:14px}
+.met-check{display:flex;align-items:flex-start;gap:14px;font-size:14px;color:var(--ct);line-height:1.5}
+.met-check svg{width:20px;height:20px;flex-shrink:0;color:var(--cp);margin-top:1px}
+
+/* GALERIE */
+.gal{background:var(--cb);padding:100px 24px}
+.gal-inner{max-width:var(--fw);margin:0 auto}
+.gal-head{text-align:center;margin-bottom:56px}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.gal-item{border-radius:4px;overflow:hidden;cursor:pointer;position:relative;aspect-ratio:3/4}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.4,0,.2,1),filter .4s}
+.gal-item:hover img{transform:scale(1.08);filter:brightness(1.06) saturate(1.12)}
+.gal-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(201,169,110,.45) 0%,transparent 60%);opacity:0;transition:opacity .35s}
+.gal-item:hover .gal-overlay{opacity:1}
+.gal-zoom{position:absolute;bottom:16px;right:16px;width:36px;height:36px;background:rgba(255,255,255,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;color:var(--ca)}
+.gal-item:hover .gal-zoom{opacity:1}
+.gal-zoom svg{width:16px;height:16px}
+.lightbox{position:fixed;inset:0;background:rgba(28,24,20,.94);z-index:2000;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
+.lightbox.open{opacity:1;visibility:visible}
+.lb-img{max-width:90vw;max-height:85vh;object-fit:contain;border-radius:4px;box-shadow:0 24px 80px rgba(0,0,0,.5)}
+.lb-close{position:absolute;top:24px;right:28px;background:none;border:none;cursor:pointer;color:#fff;opacity:.7;transition:opacity .2s}
+.lb-close:hover{opacity:1}
+.lb-close svg{width:28px;height:28px}
+
+/* FORMULAIRE */
+.frm{background:var(--cs);padding:100px 24px}
+.frm-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.frm-info{}
+.frm-detail{font-size:14px;line-height:1.8;color:#6a6a6a;margin-top:0;margin-bottom:32px}
+.frm-contact-item{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--ct);margin-bottom:16px;font-weight:500}
+.frm-contact-item svg{width:18px;height:18px;color:var(--cp);flex-shrink:0}
+.frm-form{}
+.frm-group{margin-bottom:20px}
+.frm-label{display:block;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ca);margin-bottom:8px}
+.frm-input{width:100%;padding:13px 16px;border:1px solid rgba(201,169,110,.35);border-radius:2px;background:#fff;font-family:'Manrope',sans-serif;font-size:14px;color:var(--ct);outline:none;transition:border-color .25s,box-shadow .25s}
+.frm-input:focus{border-color:var(--cp);box-shadow:0 0 0 3px rgba(201,169,110,.12)}
+.frm-input.err{border-color:#c0392b}
+textarea.frm-input{resize:vertical;min-height:120px}
+.frm-btn{background:var(--cp);color:#fff;font-family:'Manrope',sans-serif;font-weight:700;font-size:13px;letter-spacing:.8px;text-transform:uppercase;padding:15px 32px;border:none;border-radius:2px;cursor:pointer;width:100%;transition:background .25s,transform .2s;min-height:48px}
+.frm-btn:hover{background:var(--ca);transform:translateY(-1px)}
+.frm-success{display:none;background:rgba(201,169,110,.12);border:1px solid var(--cp);border-radius:4px;padding:20px;text-align:center;margin-top:16px}
+.frm-success p{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--ct)}
+.frm-success.show{display:block}
+
+/* PREUVE SOCIALE */
+.ps{background:var(--cb);padding:100px 24px}
+.ps-inner{max-width:var(--fw);margin:0 auto}
+.ps-head{text-align:center;margin-bottom:56px}
+.rating-block{display:flex;align-items:center;justify-content:center;gap:24px;margin-bottom:56px;flex-wrap:wrap}
+.rating-score{font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:300;color:var(--cp);line-height:1}
+.rating-details{}
+.stars{display:flex;gap:4px;margin-bottom:8px}
+.star{width:22px;height:22px;color:var(--cp)}
+.star.half{color:var(--ca)}
+.rating-count{font-size:13px;color:#8a8a8a;letter-spacing:.5px}
+.rating-src{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ca);margin-top:4px}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:56px}
+.testi-card{background:var(--cs);border-radius:4px;padding:36px 28px;position:relative}
+.testi-quote{font-family:'Cormorant Garamond',serif;font-size:72px;line-height:.6;color:var(--cp);opacity:.25;position:absolute;top:20px;left:20px;font-weight:300;pointer-events:none}
+.testi-text{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;line-height:1.65;color:var(--ct);margin-bottom:24px;position:relative;z-index:1}
+.testi-author{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ca)}
+.testi-stars{display:flex;gap:3px;margin-bottom:8px}
+.testi-star{width:14px;height:14px;color:var(--cp)}
+.badges{display:flex;justify-content:center;gap:32px;flex-wrap:wrap}
+.badge{display:flex;align-items:center;gap:10px;background:var(--cs);border:1px solid rgba(201,169,110,.3);border-radius:4px;padding:16px 24px}
+.badge svg{width:24px;height:24px;color:var(--cp)}
+.badge p{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ct)}
+.badge span{font-size:11px;color:#8a8a8a;font-weight:400;text-transform:none;letter-spacing:0;display:block;margin-top:2px}
+
+/* FOOTER */
+.ftr{background:var(--ct);padding:72px 24px 0}
+.ftr-inner{max-width:var(--fw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:64px;padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,.1)}
+.ftr-brand .logo{color:var(--cp);margin-bottom:20px;display:block;font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;letter-spacing:2px}
+.ftr-brand .logo span{color:rgba(201,169,110,.6);font-style:italic}
+.ftr-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:rgba(255,255,255,.55);line-height:1.6;margin-bottom:24px}
+.ftr-addr{font-size:13px;line-height:1.9;color:rgba(255,255,255,.55)}
+.ftr-addr strong{color:rgba(255,255,255,.8);font-weight:600}
+.ftr-col-title{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cp);margin-bottom:24px}
+.ftr-links{display:flex;flex-direction:column;gap:12px}
+.ftr-links a{font-size:14px;color:rgba(255,255,255,.55);transition:color .25s}
+.ftr-links a:hover{color:var(--cp)}
+.ftr-hours p{font-size:13px;color:rgba(255,255,255,.55);line-height:1.9}
+.ftr-hours strong{color:rgba(255,255,255,.8)}
+.ftr-bottom{max-width:var(--fw);margin:0 auto;padding:24px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.ftr-copy{font-size:12px;color:rgba(255,255,255,.35);letter-spacing:.3px}
+.ftr-setup{font-size:12px;color:rgba(255,255,255,.35);letter-spacing:.3px}
+.ftr-setup a{color:rgba(201,169,110,.6);transition:color .25s}
+.ftr-setup a:hover{color:var(--cp)}
+
+@media(max-width:900px){
+.svc-grid{grid-template-columns:1fr}
+.met-row,.met-row.rev{grid-template-columns:1fr;gap:40px;direction:ltr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.frm-inner{grid-template-columns:1fr;gap:40px}
+.testi-grid{grid-template-columns:1fr}
+.ftr-inner{grid-template-columns:1fr;gap:40px}
+.ftr-bottom{flex-direction:column;text-align:center}
+}
+@media(max-width:480px){
+.svc{padding:64px 16px}
+.met{padding:64px 16px}
+.gal{padding:64px 16px}
+.frm{padding:64px 16px}
+.ps{padding:64px 16px}
+.ftr{padding:56px 16px 0}
+.gal-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+.rating-score{font-size:60px}
+.badges{gap:16px}
+.badge{padding:12px 16px}
+.rating-block{gap:16px}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="svc" id="services">
+  <div class="svc-inner">
+    <p class="sec-label">Nos créations</p>
+    <h2 class="sec-title">L'art joaillier<br>au service de <em>vos émotions</em></h2>
+    <p class="sec-sub">De la bague de fiançailles à la parure de cérémonie, chaque pièce est conçue avec une attention absolue au détail, pour traverser le temps.</p>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M24 8 L38 18 L33 38 H15 L10 18 Z" stroke-linejoin="round"/>
+          <path d="M10 18 H38 M24 8 L15 18 M24 8 L33 18" opacity=".5"/>
+        </svg>
+        <h3 class="svc-name">Bijoux sur mesure</h3>
+        <p class="svc-desc">Votre vision, sublimée par nos artisans. Chaque pièce unique naît d'un dialogue entre votre désir et notre expertise, façonnée dans les métaux précieux de votre choix.</p>
+        <a href="#contact" class="svc-link">Nous contacter <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+      <div class="svc-card">
+        <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="24" cy="24" r="14"/>
+          <circle cx="24" cy="24" r="6"/>
+          <path d="M24 10 V6 M24 42 V38 M10 24 H6 M42 24 H38" stroke-linecap="round"/>
+        </svg>
+        <h3 class="svc-name">Bagues & alliances</h3>
+        <p class="svc-desc">Symboles d'un amour qui dure, nos alliances et bagues de fiançailles unissent la pureté du métal à la flamme de la pierre, dans une harmonie intemporelle.</p>
+        <a href="#contact" class="svc-link">Prendre rendez-vous <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+      <div class="svc-card">
+        <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M24 12 C24 12 14 20 14 28 A10 10 0 0 0 34 28 C34 20 24 12 24 12Z"/>
+          <path d="M24 36 V42" stroke-linecap="round"/>
+          <path d="M20 42 H28" stroke-linecap="round"/>
+        </svg>
+        <h3 class="svc-name">Pendentifs & colliers</h3>
+        <p class="svc-desc">Un écrin de lumière porté près du cœur. Nos pendentifs et colliers captent les reflets du lagon calédonien et les transforment en ornements d'une rare délicatesse.</p>
+        <a href="#contact" class="svc-link">Découvrir <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+      <div class="svc-card">
+        <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <ellipse cx="24" cy="20" rx="12" ry="8"/>
+          <path d="M12 20 C12 20 8 26 12 32 C16 38 32 38 36 32 C40 26 36 20 36 20"/>
+          <path d="M18 20 C18 24 30 24 30 20"/>
+        </svg>
+        <h3 class="svc-name">Bracelets & parures</h3>
+        <p class="svc-desc">De l'élégance sobre au raffinement absolu, nos bracelets et parures s'accordent à chaque silhouette, de la soirée calédonienne à la cérémonie la plus solennelle.</p>
+        <a href="#contact" class="svc-link">En savoir plus <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+      <div class="svc-card">
+        <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M16 12 L32 12 L36 24 L24 38 L12 24 Z" stroke-linejoin="round"/>
+          <path d="M16 12 L20 24 M32 12 L28 24 M12 24 H36"/>
+        </svg>
+        <h3 class="svc-name">Pierres précieuses</h3>
+        <p class="svc-desc">Diamants, améthystes, saphirs, rubis — nous sélectionnons chaque gemme pour sa clarté et son caractère, afin que chaque pièce soit portée avec fierté et émotion.</p>
+        <a href="#contact" class="svc-link">Nous consulter <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+      <div class="svc-card">
+        <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 36 L24 10 L36 36" stroke-linejoin="round"/>
+          <path d="M16 28 H32"/>
+          <circle cx="24" cy="40" r="2" fill="currentColor"/>
+        </svg>
+        <h3 class="svc-name">Réparation & restauration</h3>
+        <p class="svc-desc">Redonner vie à un bijou hérité, c'est honorer une mémoire. Nos artisans restaurent chaque pièce avec le même soin que lors de sa création originelle.</p>
+        <a href="#contact" class="svc-link">Apporter une pièce <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="met" id="metier">
+  <div class="met-inner">
+    <div class="met-row">
+      <div class="met-text">
+        <p class="met-eyebrow">Notre savoir-faire</p>
+        <h2 class="met-heading">Un héritage<br>d'<em>excellence</em><br>artisanale</h2>
+        <p class="met-p">Au cœur de Nouméa, la bijouterie Amethyste perpétue un art joaillier exigeant, où chaque geste compte. Nos artisans travaillent les métaux précieux avec une patience et une précision qui transforment la matière brute en œuvre d'art portée.</p>
+        <div class="met-checks">
+          <div class="met-check">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10l4 4 8-8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Matières premières sélectionnées pour leur pureté et leur origine</span>
+          </div>
+          <div class="met-check">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10l4 4 8-8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Chaque création façonnée avec soin, de l'esquisse à la finition</span>
+          </div>
+          <div class="met-check">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10l4 4 8-8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Conseil personnalisé pour chaque projet, du plus simple au plus ambitieux</span>
+          </div>
+        </div>
+      </div>
+      <div class="met-img-wrap">
+        <img src="https://i.ibb.co/JjRxvx4h/Amethyste-1.jpg" alt="Artisan bijoutier Amethyste Nouméa" class="met-img" loading="lazy">
+        <div class="met-img-glow"></div>
+      </div>
+    </div>
+    <div class="met-row rev">
+      <div class="met-text">
+        <p class="met-eyebrow">L'éclat calédonien</p>
+        <h2 class="met-heading">La lumière du<br>lagon, <em>capturée</em><br>dans l'or</h2>
+        <p class="met-p">La Nouvelle-Calédonie offre une lumière unique, celle d'un archipel baigné d'un lagon d'une pureté rare. Chez Amethyste, cette lumière inspire chaque courbe, chaque reflet, chaque choix de pierre. Nos créations portent en elles l'âme de cet environnement exceptionnel.</p>
+        <div class="met-checks">
+          <div class="met-check">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10l4 4 8-8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Design inspiré des teintes naturelles de Nouvelle-Calédonie</span>
+          </div>
+          <div class="met-check">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10l4 4 8-8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Bijoux pensés pour accompagner toutes les occasions de vie</span>
+          </div>
+          <div class="met-check">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10l4 4 8-8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Une boutique de prestige, à la Baie des Dames, à Nouméa</span>
+          </div>
+        </div>
+      </div>
+      <div class="met-img-wrap">
+        <img src="https://i.ibb.co/Mk9dq7Hk/Amethyste-2.jpg" alt="Bijoux inspirés du lagon calédonien" class="met-img" loading="lazy">
+        <div class="met-img-glow"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="gal" id="galerie">
+  <div class="gal-inner">
+    <div class="gal-head">
+      <p class="sec-label">Galerie</p>
+      <h2 class="sec-title">Éclats de <em>lumière</em></h2>
+      <p class="sec-sub" style="">Chaque pièce photographiée sous la lumière calédonienne, révélant l'âme de chaque création.</p>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item" data-src="https://i.ibb.co/wVJyZ2V/Amethyste-0.jpg" data-alt="Bijoux Amethyste">
+        <img src="https://i.ibb.co/wVJyZ2V/Amethyste-0.jpg" alt="Bijoux Amethyste Nouméa" loading="lazy">
+        <div class="gal-overlay"></div>
+        <div class="gal-zoom"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4"/><path d="M11 11l3 3" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/JjRxvx4h/Amethyste-1.jpg" data-alt="Création joaillière Amethyste">
+        <img src="https://i.ibb.co/JjRxvx4h/Amethyste-1.jpg" alt="Création joaillière Amethyste" loading="lazy">
+        <div class="gal-overlay"></div>
+        <div class="gal-zoom"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4"/><path d="M11 11l3 3" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/Mk9dq7Hk/Amethyste-2.jpg" data-alt="Bijou artisanal Nouméa">
+        <img src="https://i.ibb.co/Mk9dq7Hk/Amethyste-2.jpg" alt="Bijou artisanal Nouméa" loading="lazy">
+        <div class="gal-overlay"></div>
+        <div class="gal-zoom"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4"/><path d="M11 11l3 3" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/R4zvfhMB/Amethyste-3.jpg" data-alt="Parure Amethyste Nouvelle-Calédonie">
+        <img src="https://i.ibb.co/R4zvfhMB/Amethyste-3.jpg" alt="Parure Amethyste Nouvelle-Calédonie" loading="lazy">
+        <div class="gal-overlay"></div>
+        <div class="gal-zoom"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4"/><path d="M11 11l3 3" stroke-linecap="round"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lb" role="dialog" aria-modal="true">
+  <button class="lb-close" id="lb-close" aria-label="Fermer">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12" stroke-linecap="round"/></svg>
+  </button>
+  <img class="lb-img" id="lb-img" src="" alt="">
+</div>
+
+<!-- FORMULAIRE -->
+<section class="frm" id="contact">
+  <div class="frm-inner">
+    <div class="frm-info">
+      <p class="sec-label">Contact</p>
+      <h2 class="sec-title">Parlons de<br>votre <em>projet</em></h2>
+      <p class="frm-detail">Un bijou sur mesure, une restauration, un conseil — notre équipe vous accueille avec attention. Décrivez-nous votre projet, nous vous répondons dans les meilleurs délais.</p>
+      <div class="frm-contact-item">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 11.5A4.5 4.5 0 1 0 10 2.5a4.5 4.5 0 0 0 0 9z"/><path d="M3 17.5c0-3.314 3.134-6 7-6s7 2.686 7 6"/></svg>
+        <span>Route de la Baie des Dames, Nouméa</span>
+      </div>
+      <div class="frm-contact-item">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 4h14v12H3z" rx="2"/><path d="M3 4l7 8 7-8"/></svg>
+        <span>Formulaire de contact disponible</span>
+      </div>
+    </div>
+    <div class="frm-form">
+      <form id="form" action="#" novalidate>
+        <div class="frm-group">
+          <label class="frm-label" for="f-name">Nom complet</label>
+          <input class="frm-input" id="f-name" name="name" type="text" placeholder="Votre nom" autocomplete="name">
+        </div>
+        <div class="frm-group">
+          <label class="frm-label" for="f-email">Adresse email</label>
+          <input class="frm-input" id="f-email" name="email" type="email" placeholder="votre@email.com" autocomplete="email">
+        </div>
+        <div class="frm-group">
+          <label class="frm-label" for="f-tel">Téléphone</label>
+          <input class="frm-input" id="f-tel" name="tel" type="tel" placeholder="Votre numéro" autocomplete="tel">
+        </div>
+        <div class="frm-group">
+          <label class="frm-label" for="f-msg">Votre projet</label>
+          <textarea class="frm-input" id="f-msg" name="message" placeholder="Décrivez votre projet ou votre demande…"></textarea>
+        </div>
+        <button type="submit" class="frm-btn">Envoyer ma demande</button>
+        <div class="frm-success" id="frm-success">
+          <p>✦ Votre message a bien été envoyé. Nous vous répondons très prochainement.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="ps" id="temoignages">
+  <div class="ps-inner">
+    <div class="ps-head">
+      <p class="sec-label">Avis clients</p>
+      <h2 class="sec-title">Ce que disent<br>nos <em>clients</em></h2>
+    </div>
+    <div class="rating-block">
+      <span class="rating-score">4.2</span>
+      <div class="rating-details">
+        <div class="stars">
+          <svg class="star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.62l5.34-.78z"/></svg>
+          <svg class="star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.62l5.34-.78z"/></svg>
+          <svg class="star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.62l5.34-.78z"/></svg>
+          <svg class="star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.62l5.34-.78z"/></svg>
+          <svg class="star half" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.62l5.34-.78z" opacity=".4"/></svg>
+        </div>
+        <p class="rating-count">9 avis vérifiés</p>
+        <p class="rating-src">Google My Business</p>
+      </div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <span class="testi-quote">"</span>
+        <div class="testi-stars">
+          <svg class="testi-star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.62l5.34-.78z"/></svg>
+          <svg class="testi-star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.62l5.34-.78z"/></svg>
+          <svg class="testi-star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.62l5.34-.78z"/></svg>
+          <svg class="testi-star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.62l5.34-.78z"/></svg>
+          <svg class="testi-star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.62l5.34-.78z"/></svg>
+        </div>
+        <p class="testi-text">Une bague de fiançailles exceptionnelle, créée sur mesure avec une écoute parfaite de nos envies. Le résultat a dépassé toutes nos espérances — un bijou à la hauteur du moment.</p>
+        <p class="testi-author">— Marie-Christine L.</p>
+      </div>
+      <div class="testi-card">
+        <span class="testi-quote">"</span>
+        <div class="testi-stars">
+          <svg class="testi-star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.62l5.34-.78z"/></svg>
+          <svg class="testi-star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.62l5.34-.78z"/></svg>
+          <svg class="testi-star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.62l5.34-.78z"/></svg>
+          <svg class="testi-star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.62l5.34-.78z"/></svg>
+          <svg class="testi-star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.62l5.34-.78z"/></svg>
+        </div>
+        <p class="testi-text">Restauration d'un collier de famille avec une habileté remarquable. On aurait dit qu'il venait d'être fabriqué. Un vrai respect du travail d'origine, et une équipe chaleureuse.</p>
+        <p class="testi-author">— Jean-Paul V.</p>
+      </div>
+      <div class="testi-card">
+        <span class="testi-quote">"</span>
+        <div class="testi-stars">
+          <svg class="testi-star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.62l5.34-.78z"/></svg>
+          <svg class="testi-star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.62l5.34-.78z"/></svg>
+          <svg class="testi-star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.62l5.34-.78z"/></svg>
+          <svg class="testi-star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.62l5.34-.78z"/></svg>
+          <svg class="testi-star half" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.62l5.34-.78z" opacity=".35"/></svg>
+        </div>
+        <p class="testi-text">Un cadeau pour mon anniversaire, choisi avec les conseils bienveillants de la boutique. Le bracelet est d'une finesse remarquable, et l'écrin d'emballage ajoute encore à la magie du moment.</p>
+        <p class="testi-author">— Sophie M.</p>
+      </div>
+    </div>
+    <div class="badges">
+      <div class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <div><p>Artisan certifié<span>Bijouterie de prestige</span></p></div>
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div><p>Garantie qualité<span>Sur toutes nos créations</span></p></div>
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <div><p>Délai respecté<span>Commandes sur mesure</span></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ftr">
+  <div class="ftr-inner">
+    <div class="ftr-brand">
+      <span class="logo">Améthyste<span>.</span></span>
+      <p class="ftr-tagline">L'art joaillier, sublimé par la lumière de Nouvelle-Calédonie.</p>
+      <address class="ftr-addr" style="font-style:normal">
+        <strong>Amethyste</strong><br>
+        Route de la Baie des Dames<br>
+        Nouméa, Nouvelle-Calédonie
+      </address>
+    </div>
+    <div>
+      <p class="ftr-col-title">Navigation</p>
+      <nav class="ftr-links">
+        <a href="#services">Nos créations</a>
+        <a href="#metier">Savoir-faire</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#temoignages">Avis clients</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <div>
+      <p class="ftr-col-title">Horaires</p>
+      <div class="ftr-hours">
+        <p><strong>Lun – Ven</strong><br>9h00 – 18h00</p>
+        <p style="margin-top:12px"><strong>Samedi</strong><br>9h00 – 12h00</p>
+        <p style="margin-top:12px">Dimanche fermé</p>
+      </div>
+    </div>
+  </div>
+  <div class="ftr-bottom">
+    <p class="ftr-copy">© 2026 Amethyste. Tous droits réservés.</p>
+    <p class="ftr-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+var items=document.querySelectorAll('.gal-item'),lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img'),lbClose=document.getElementById('lb-close');
+function openLb(src,alt){lbImg.src=src;lbImg.alt=alt;lb.classList.add('open');document.body.style.overflow='hidden'}
+function closeLb(){lb.classList.remove('open');document.body.style.overflow='';lbImg.src=''}
+items.forEach(function(el){el.addEventListener('click',function(){openLb(el.dataset.src,el.dataset.alt)})});
+lbClose.addEventListener('click',closeLb);
+lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
+var form=document.getElementById('form'),suc=document.getElementById('frm-success');
+function req(id){return document.getElementById(id).value.trim()}
+form.addEventListener('submit',function(e){
+e.preventDefault();
+var ok=true;
+['f-name','f-email','f-msg'].forEach(function(id){
+var el=document.getElementById(id);
+if(!el.value.trim()){el.classList.add('err');ok=false}else{el.classList.remove('err')}
+});
+var em=document.getElementById('f-email');
+if(em.value&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value)){em.classList.add('err');ok=false}
+if(!ok)return;
+suc.classList.add('show');
+form.reset();
+setTimeout(function(){suc.classList.remove('show')},6000);
+});
+document.querySelectorAll('.frm-input').forEach(function(el){el.addEventListener('input',function(){el.classList.remove('err')})});
+})();
+</script>
+</body>
+</html>
