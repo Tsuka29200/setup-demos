@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Les Bijoux de Pims — Nouméa</title>
+<meta name="description" content="Bijouterie fine et artisanale à Nouméa, Nouvelle-Calédonie. Les Bijoux de Pims, créations uniques baignées de lumière tropicale, à La Boutique Partagée, 79 Route de l'Anse Vata.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Manrope:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#C9A96E;
+--cs:#2C2C2C;
+--ca:#E8CFA0;
+--cb:#FAF7F2;
+--ct:#1A1A1A;
+--cw:#fff;
+--ff:"Cormorant Garamond",Georgia,serif;
+--tr:0.35s ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--ff);background:var(--cb);color:var(--ct);overflow-x:hidden;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+
+/* BANDEAU */
+.promo-band{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;text-align:center}
+.promo-band a{font-family:"Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;line-height:44px;letter-spacing:0.3px;display:block;height:100%}
+.promo-band a:hover{opacity:0.85}
+
+/* HEADER */
+.hdr{position:fixed;top:44px;left:0;width:100%;z-index:1000;background:rgba(250,247,242,0.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(201,169,110,0.2);transition:box-shadow var(--tr)}
+.hdr.scrolled{box-shadow:0 2px 20px rgba(44,44,44,0.1)}
+.hdr-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--ff);font-size:1.45rem;font-weight:600;color:var(--cs);letter-spacing:0.04em;line-height:1.2;flex-shrink:0}
+.logo span{color:var(--cp);font-style:italic}
+.nav{display:flex;align-items:center;gap:32px;list-style:none}
+.nav a{font-size:0.9rem;font-weight:500;color:var(--cs);letter-spacing:0.06em;text-transform:uppercase;position:relative;padding-bottom:2px}
+.nav a::after{content:"";position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--cp);transition:width var(--tr)}
+.nav a:hover::after{width:100%}
+.hdr-cta{background:var(--cp);color:var(--cw);font-family:var(--ff);font-size:0.9rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:10px 22px;border:none;cursor:pointer;transition:background var(--tr),transform var(--tr);white-space:nowrap}
+.hdr-cta:hover{background:var(--cs);transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{width:24px;height:2px;background:var(--cs);border-radius:2px;transition:all var(--tr)}
+.mobile-nav{display:none;position:fixed;top:116px;left:0;width:100%;background:var(--cb);border-top:1px solid rgba(201,169,110,0.2);padding:24px;z-index:999;flex-direction:column;gap:0}
+.mobile-nav.open{display:flex}
+.mobile-nav a{font-size:1.1rem;font-weight:500;color:var(--cs);letter-spacing:0.06em;text-transform:uppercase;padding:14px 0;border-bottom:1px solid rgba(201,169,110,0.15)}
+.mobile-nav a:last-child{border-bottom:none}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background-image:url('https://i.ibb.co/Y752NLcZ/Les-Bijoux-de-Pims-0.jpg');background-size:cover;background-position:center;background-attachment:fixed;margin-top:116px}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(44,44,44,0.55) 0%,rgba(26,26,26,0.4) 50%,rgba(201,169,110,0.25) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;padding:48px 24px;max-width:780px}
+.hero-eyebrow{font-size:0.85rem;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--ca);margin-bottom:20px;display:block}
+.hero h1{font-family:var(--ff);font-size:clamp(2.6rem,7vw,5.2rem);font-weight:300;color:var(--cw);line-height:1.12;margin-bottom:20px;letter-spacing:0.02em}
+.hero h1 em{font-style:italic;color:var(--ca);font-weight:400}
+.hero-sub{font-size:clamp(1rem,2vw,1.25rem);color:rgba(255,255,255,0.85);font-weight:300;margin-bottom:40px;font-style:italic;line-height:1.7}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--cp);color:var(--cw);font-family:var(--ff);font-size:0.95rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:16px 36px;border:none;cursor:pointer;transition:background var(--tr),transform var(--tr),box-shadow var(--tr);display:inline-block;min-height:52px}
+.btn-primary:hover{background:var(--cw);color:var(--cs);transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,169,110,0.4)}
+.btn-outline{background:transparent;color:var(--cw);font-family:var(--ff);font-size:0.95rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:16px 36px;border:1px solid rgba(255,255,255,0.6);cursor:pointer;transition:all var(--tr);display:inline-block;min-height:52px}
+.btn-outline:hover{background:rgba(255,255,255,0.1);border-color:var(--ca);color:var(--ca)}
+.scroll-indicator{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer}
+.scroll-indicator span{font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.6)}
+.scroll-arrow{width:20px;height:20px;border-right:1px solid rgba(255,255,255,0.5);border-bottom:1px solid rgba(255,255,255,0.5);transform:rotate(45deg);animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(5px)}}
+
+/* STATS */
+.stats{background:var(--cs);padding:64px 24px}
+.stats-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
+.stat-item{display:flex;flex-direction:column;align-items:center;gap:8px}
+.stat-num{font-family:var(--ff);font-size:clamp(2.2rem,4vw,3.2rem);font-weight:300;color:var(--cp);line-height:1;letter-spacing:0.02em}
+.stat-label{font-size:0.8rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.65);font-weight:400}
+.stat-sep{width:1px;height:60px;background:rgba(201,169,110,0.25);align-self:center}
+
+/* UTILITIES */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.nav,.hdr-cta{display:none}
+.hamburger{display:flex}
+.hero{background-attachment:scroll;margin-top:84px}
+.hdr-inner{height:60px;padding:0 16px}
+.mobile-nav{top:104px}
+.stats-inner{grid-template-columns:repeat(2,1fr);gap:24px}
+.stat-sep{display:none}
+.promo-band{height:40px}
+.promo-band a{font-size:13px;line-height:40px}
+}
+@media(max-width:480px){
+.hero-btns{flex-direction:column;align-items:center}
+.btn-primary,.btn-outline{width:100%;text-align:center}
+.stats-inner{grid-template-columns:repeat(2,1fr);gap:20px}
+body{padding-left:0;padding-right:0}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo-band">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr" id="hdr">
+  <div class="hdr-inner">
+    <a href="#hero" class="logo">Les Bijoux<br><span>de Pims</span></a>
+    <nav aria-label="Navigation principale">
+      <ul class="nav">
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="#metier">Notre Métier</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#avis">Avis</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="#contact" class="hdr-cta">Nous contacter</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Navigation mobile">
+  <a href="#collections" class="mnav-link">Collections</a>
+  <a href="#metier" class="mnav-link">Notre Métier</a>
+  <a href="#galerie" class="mnav-link">Galerie</a>
+  <a href="#avis" class="mnav-link">Avis</a>
+  <a href="#contact" class="mnav-link">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero" aria-label="Accueil">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Bijouterie fine & artisanale — Nouméa</span>
+    <h1>L'éclat des <em>lagons</em>,<br>façonné pour vous</h1>
+    <p class="hero-sub">Des créations uniques nées de la lumière calédonienne,<br>disponibles à La Boutique Partagée, Anse Vata.</p>
+    <div class="hero-btns">
+      <a href="#collections" class="btn-primary">Découvrir les collections</a>
+      <a href="#contact" class="btn-outline">Nous rendre visite</a>
+    </div>
+  </div>
+  <a href="#stats" class="scroll-indicator" aria-label="Défiler">
+    <span>Découvrir</span>
+    <div class="scroll-arrow"></div>
+  </a>
+</section>
+
+<!-- BANDE STATS -->
+<section class="stats" id="stats" aria-label="Chiffres clés">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <span class="stat-num" data-target="5">0</span>
+      <span class="stat-label">Note Google /5</span>
+    </div>
+    <div class="stat-sep" aria-hidden="true"></div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="100">0</span>
+      <span class="stat-label">% Artisanal</span>
+    </div>
+    <div class="stat-sep" aria-hidden="true"></div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="1">0</span>
+      <span class="stat-label">Adresse exclusive</span>
+    </div>
+    <div class="stat-sep" aria-hidden="true"></div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="0">∞</span>
+      <span class="stat-label">Pièces sans égales</span>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+var hdr=document.getElementById('hdr'),
+    btn=document.getElementById('hamburger'),
+    nav=document.getElementById('mobileNav'),
+    links=nav.querySelectorAll('a');
+
+window.addEventListener('scroll',function(){
+  hdr.classList.toggle('scrolled',window.scrollY>20);
+});
+
+btn.addEventListener('click',function(){
+  var open=nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded',open);
+});
+
+links.forEach(function(l){
+  l.addEventListener('click',function(){
+    nav.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+  });
+});
+
+var nums=document.querySelectorAll('.stat-num[data-target]');
+var animated=false;
+function animateStats(){
+  if(animated)return;
+  var rect=document.querySelector('.stats').getBoundingClientRect();
+  if(rect.top<window.innerHeight-80){
+    animated=true;
+    nums.forEach(function(el){
+      var target=+el.getAttribute('data-target'),start=0,dur=1800,startTime=null;
+      function step(ts){
+        if(!startTime)startTime=ts;
+        var p=Math.min((ts-startTime)/dur,1);
+        var ease=1-Math.pow(1-p,3);
+        el.textContent=target===5?(ease*target).toFixed(1):Math.round(ease*target);
+        if(p<1)requestAnimationFrame(step);
+        else el.textContent=target===5?"5.0":target;
+      }
+      requestAnimationFrame(step);
+    });
+  }
+}
+window.addEventListener('scroll',animateStats,{passive:true});
+animateStats();
+})();
+</script>
+<style>
+.s{padding:96px 24px}
+.s-dark{background:var(--cs);color:var(--cw)}
+.s-light{background:var(--cb)}
+.s-cream{background:#F3EDE3}
+.s-title{font-family:var(--ff);font-size:clamp(2rem,4vw,3rem);font-weight:300;letter-spacing:0.04em;line-height:1.2;margin-bottom:16px}
+.s-eyebrow{font-size:0.78rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--cp);display:block;margin-bottom:14px;font-weight:500}
+.s-subtitle{font-size:1.1rem;font-weight:300;font-style:italic;opacity:0.75;margin-bottom:56px;line-height:1.7}
+.container{max-width:1100px;margin:0 auto}
+.text-center{text-align:center}
+
+/* SERVICES */
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:16px}
+.srv-card{background:var(--cw);padding:40px 32px;display:flex;flex-direction:column;align-items:flex-start;gap:16px;transition:transform var(--tr),box-shadow var(--tr);border-top:2px solid transparent}
+.srv-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(201,169,110,0.18);border-top-color:var(--cp)}
+.srv-icon{width:44px;height:44px;color:var(--cp)}
+.srv-card h3{font-family:var(--ff);font-size:1.3rem;font-weight:500;color:var(--cs);line-height:1.3}
+.srv-card p{font-size:1rem;font-weight:300;color:#555;line-height:1.7;flex:1}
+.srv-link{font-size:0.82rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--cp);font-weight:600;position:relative;padding-bottom:2px}
+.srv-link::after{content:"";position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--cp);transition:width var(--tr)}
+.srv-card:hover .srv-link::after{width:100%}
+
+/* METIER */
+.met-wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.met-wrap.reverse{direction:rtl}
+.met-wrap.reverse>*{direction:ltr}
+.met-text{display:flex;flex-direction:column;gap:20px}
+.met-text h2{font-family:var(--ff);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:300;line-height:1.25;letter-spacing:0.02em}
+.met-text p{font-size:1.05rem;font-weight:300;line-height:1.8;color:#4a4a4a}
+.s-dark .met-text p{color:rgba(255,255,255,0.75)}
+.s-dark .met-text h2{color:var(--cw)}
+.met-checks{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.met-checks li{display:flex;align-items:flex-start;gap:10px;font-size:1rem;font-weight:300;color:#4a4a4a}
+.s-dark .met-checks li{color:rgba(255,255,255,0.8)}
+.met-checks li svg{flex-shrink:0;margin-top:3px;color:var(--cp)}
+.met-img{position:relative;overflow:hidden}
+.met-img img{width:100%;height:480px;object-fit:cover;transition:transform 0.6s ease}
+.met-img:hover img{transform:scale(1.03)}
+.met-img::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,169,110,0.12),transparent 60%);pointer-events:none}
+
+/* GALERIE */
+.gal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.gal-item{overflow:hidden;cursor:pointer;position:relative}
+.gal-item img{width:100%;height:340px;object-fit:cover;transition:transform 0.5s ease,filter 0.5s ease}
+.gal-item:hover img{transform:scale(1.05);filter:brightness(1.08)}
+.gal-item::after{content:"";position:absolute;inset:0;background:rgba(201,169,110,0);transition:background 0.4s ease}
+.gal-item:hover::after{background:rgba(201,169,110,0.12)}
+.gal-zoom{position:absolute;bottom:16px;right:16px;width:36px;height:36px;background:rgba(255,255,255,0.9);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity var(--tr);color:var(--cs)}
+.gal-item:hover .gal-zoom{opacity:1}
+.lightbox{position:fixed;inset:0;background:rgba(26,26,26,0.96);z-index:2000;display:none;align-items:center;justify-content:center;padding:24px}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:85vh;object-fit:contain;box-shadow:0 24px 80px rgba(0,0,0,0.5)}
+.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;cursor:pointer;color:var(--cw);font-size:2rem;line-height:1;font-family:var(--ff);opacity:0.8;transition:opacity var(--tr)}
+.lb-close:hover{opacity:1}
+
+/* FORMULAIRE */
+.form-wrap{max-width:680px;margin:0 auto}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
+.form-group label{font-size:0.8rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--cp);font-weight:600}
+.form-group input,.form-group textarea{font-family:var(--ff);font-size:1rem;font-weight:300;background:transparent;border:none;border-bottom:1px solid rgba(201,169,110,0.4);padding:10px 0;color:var(--cw);outline:none;transition:border-color var(--tr);width:100%}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,0.3);font-style:italic}
+.form-group input:focus,.form-group textarea:focus{border-bottom-color:var(--cp)}
+.form-group textarea{resize:vertical;min-height:100px}
+.form-group input.err,.form-group textarea.err{border-bottom-color:#e07070}
+.form-err-msg{font-size:0.82rem;color:#e07070;margin-top:2px;display:none}
+.form-group.invalid .form-err-msg{display:block}
+.form-submit{width:100%;margin-top:8px;background:var(--cp);color:var(--cw);font-family:var(--ff);font-size:1rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:18px 24px;border:none;cursor:pointer;transition:background var(--tr),transform var(--tr);min-height:52px;position:relative}
+.form-submit:hover{background:var(--ca);color:var(--cs)}
+.form-success{display:none;text-align:center;padding:40px 24px;color:var(--cw)}
+.form-success svg{color:var(--cp);margin:0 auto 16px}
+.form-success h3{font-family:var(--ff);font-size:1.6rem;font-weight:300;margin-bottom:8px}
+.form-success p{font-size:1rem;font-weight:300;opacity:0.75;font-style:italic}
+
+/* PREUVE SOCIALE */
+.ps-star{color:var(--cp);font-size:1.4rem;letter-spacing:2px}
+.ps-score{font-family:var(--ff);font-size:3.5rem;font-weight:300;color:var(--cs);line-height:1}
+.ps-count{font-size:0.85rem;letter-spacing:0.12em;text-transform:uppercase;color:#888;margin-top:4px}
+.ps-hero{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:56px}
+.ps-google{display:flex;align-items:center;gap:8px;margin-top:8px}
+.ps-google svg{width:72px;height:auto;opacity:0.7}
+.tc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.tc-card{background:var(--cw);padding:32px;display:flex;flex-direction:column;gap:12px;border-bottom:2px solid var(--cp)}
+.tc-stars{color:var(--cp);font-size:1rem;letter-spacing:2px}
+.tc-text{font-size:1.05rem;font-weight:300;font-style:italic;line-height:1.75;color:#3a3a3a;flex:1}
+.tc-author{font-size:0.82rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--cp);font-weight:600}
+.badges{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-top:48px}
+.badge{display:flex;align-items:center;gap:10px;padding:14px 24px;border:1px solid rgba(201,169,110,0.3);font-size:0.88rem;letter-spacing:0.1em;text-transform:uppercase;color:#555;font-weight:500}
+.badge svg{color:var(--cp);flex-shrink:0}
+
+/* FOOTER */
+.footer{background:var(--cs);color:rgba(255,255,255,0.75);padding:72px 24px 32px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;max-width:1100px;margin:0 auto;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.1)}
+.ft-brand{display:flex;flex-direction:column;gap:16px}
+.ft-logo{font-family:var(--ff);font-size:1.5rem;font-weight:600;color:var(--cw);letter-spacing:0.04em;line-height:1.2}
+.ft-logo span{color:var(--cp);font-style:italic}
+.ft-tagline{font-size:0.95rem;font-weight:300;font-style:italic;opacity:0.65;line-height:1.6}
+.ft-addr{font-size:0.9rem;font-weight:300;line-height:1.8;opacity:0.75}
+.ft-col h4{font-family:var(--ff);font-size:1rem;font-weight:600;color:var(--cw);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-links a{font-size:0.9rem;font-weight:300;opacity:0.7;transition:opacity var(--tr),color var(--tr)}
+.ft-links a:hover{opacity:1;color:var(--cp)}
+.ft-bottom{max-width:1100px;margin:28px auto 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.ft-copy{font-size:0.8rem;opacity:0.5;letter-spacing:0.04em}
+.ft-setup{font-size:0.8rem;opacity:0.5;letter-spacing:0.04em}
+.ft-setup a{color:var(--cp);opacity:1;transition:opacity var(--tr)}
+.ft-setup a:hover{opacity:0.8}
+
+@media(max-width:900px){
+.srv-grid{grid-template-columns:1fr 1fr}
+.met-wrap,.met-wrap.reverse{grid-template-columns:1fr;direction:ltr}
+.met-img img{height:320px}
+.tc-grid{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+.srv-grid{grid-template-columns:1fr}
+.form-row{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:1fr}
+.gal-item img{height:260px}
+.footer-grid{grid-template-columns:1fr}
+.ft-bottom{flex-direction:column;text-align:center}
+.s{padding:64px 16px}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s s-light" id="collections">
+  <div class="container text-center">
+    <span class="s-eyebrow">Nos savoir-faire</span>
+    <h2 class="s-title">Des créations pensées pour vous</h2>
+    <p class="s-subtitle">Chaque pièce est imaginée avec soin, façonnée à la main<br>pour accompagner vos moments précieux.</p>
+    <div class="srv-grid">
+      <div class="srv-card">
+        <svg class="srv-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+          <circle cx="22" cy="22" r="10"/>
+          <path d="M22 8V4M22 40v-4M8 22H4M40 22h-4M12.1 12.1 9.3 9.3M34.7 34.7l-2.8-2.8M34.7 12.1l2.8-2.8M9.3 34.7l2.8-2.8"/>
+        </svg>
+        <h3>Bijoux sur mesure</h3>
+        <p>De l'esquisse à la pièce finale, nous donnons vie à vos désirs les plus précieux — bagues, colliers, bracelets façonnés avec attention.</p>
+        <a href="#contact" class="srv-link">Prendre contact →</a>
+      </div>
+      <div class="srv-card">
+        <svg class="srv-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+          <path d="M22 6 L28 16 L40 18 L31 27 L33 39 L22 33 L11 39 L13 27 L4 18 L16 16 Z"/>
+        </svg>
+        <h3>Collections permanentes</h3>
+        <p>Des lignes élégantes inspirées de la lumière et des paysages calédoniens, disponibles en boutique à l'Anse Vata.</p>
+        <a href="#galerie" class="srv-link">Voir la galerie →</a>
+      </div>
+      <div class="srv-card">
+        <svg class="srv-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+          <path d="M22 38c-8-6-16-12-16-20a8 8 0 0 1 16 0 8 8 0 0 1 16 0c0 8-8 14-16 20z"/>
+        </svg>
+        <h3>Cadeaux & occasions</h3>
+        <p>Anniversaires, mariages, moments d'exception — offrez une pièce unique qui traversera le temps avec ceux qui vous sont chers.</p>
+        <a href="#contact" class="srv-link">Nous consulter →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s s-dark" id="metier">
+  <div class="container">
+    <div class="met-wrap">
+      <div class="met-text">
+        <span class="s-eyebrow">L'atelier & l'inspiration</span>
+        <h2>Un savoir-faire né au cœur du Pacifique</h2>
+        <p>Les Bijoux de Pims puisent leur âme dans la beauté silencieuse de la Nouvelle-Calédonie — l'intensité du lagon, la douceur du sable, l'éclat discret des perles. Chaque création naît d'une rencontre entre la tradition artisanale et la sensibilité locale.</p>
+        <ul class="met-checks">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="2 8 6 12 14 4"/></svg>
+            Création artisanale, pièce par pièce
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="2 8 6 12 14 4"/></svg>
+            Matériaux choisis avec soin et éthique
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="2 8 6 12 14 4"/></svg>
+            Inspirée de la lumière et des formes calédoniennes
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="2 8 6 12 14 4"/></svg>
+            Accueil personnalisé en boutique à Nouméa
+          </li>
+        </ul>
+      </div>
+      <div class="met-img">
+        <img src="https://i.ibb.co/hxjVtX7D/Les-Bijoux-de-Pims-1.jpg" alt="Création artisanale Les Bijoux de Pims" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s s-cream">
+  <div class="container">
+    <div class="met-wrap reverse">
+      <div class="met-text">
+        <span class="s-eyebrow">La boutique</span>
+        <h2>Un écrin à l'Anse Vata</h2>
+        <p>Nichée au sein de La Boutique Partagée, notre espace vous invite à prendre le temps — celui de toucher, de comparer, de ressentir. Nos créations s'y dévoilent sous une lumière douce, fidèle à l'esprit de la maison.</p>
+        <p>Venez nous rendre visite au 79 Route de l'Anse Vata, au cœur d'un lieu dédié aux créateurs locaux. Nous serons heureux de vous accueillir et de vous guider vers la pièce qui vous ressemble.</p>
+      </div>
+      <div class="met-img">
+        <img src="https://i.ibb.co/nZwFVgF/Les-Bijoux-de-Pims-2.jpg" alt="Boutique Les Bijoux de Pims à Nouméa" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s s-light" id="galerie">
+  <div class="container text-center">
+    <span class="s-eyebrow">Galerie</span>
+    <h2 class="s-title">L'univers en images</h2>
+    <p class="s-subtitle">Des créations, une atmosphère, un lieu — un regard sur l'essence de la maison.</p>
+    <div class="gal-grid">
+      <div class="gal-item" data-src="https://i.ibb.co/Y752NLcZ/Les-Bijoux-de-Pims-0.jpg" tabindex="0" role="button" aria-label="Voir la photo 1 en grand">
+        <img src="https://i.ibb.co/Y752NLcZ/Les-Bijoux-de-Pims-0.jpg" alt="Les Bijoux de Pims — création signature" loading="lazy">
+        <div class="gal-zoom" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6.5" cy="6.5" r="4"/><line x1="10" y1="10" x2="14" y2="14"/></svg>
+        </div>
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/hxjVtX7D/Les-Bijoux-de-Pims-1.jpg" tabindex="0" role="button" aria-label="Voir la photo 2 en grand">
+        <img src="https://i.ibb.co/hxjVtX7D/Les-Bijoux-de-Pims-1.jpg" alt="Les Bijoux de Pims — détail artisanal" loading="lazy">
+        <div class="gal-zoom" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6.5" cy="6.5" r="4"/><line x1="10" y1="10" x2="14" y2="14"/></svg>
+        </div>
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/nZwFVgF/Les-Bijoux-de-Pims-2.jpg" tabindex="0" role="button" aria-label="Voir la photo 3 en grand">
+        <img src="https://i.ibb.co/nZwFVgF/Les-Bijoux-de-Pims-2.jpg" alt="Les Bijoux de Pims — ambiance boutique" loading="lazy">
+        <div class="gal-zoom" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6.5" cy="6.5" r="4"/><line x1="10" y1="10" x2="14" y2="14"/></svg>
+        </div>
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/zTQ8wdvm/Les-Bijoux-de-Pims-3.jpg" tabindex="0" role="button" aria-label="Voir la photo 4 en grand">
+        <img src="https://i.ibb.co/zTQ8wdvm/Les-Bijoux-de-Pims-3.jpg" alt="Les Bijoux de Pims — collection" loading="lazy">
+        <div class="gal-zoom" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6.5" cy="6.5" r="4"/><line x1="10" y1="10" x2="14" y2="14"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo agrandie">
+  <button class="lb-close" id="lbClose" aria-label="Fermer">&#x2715;</button>
+  <img class="lb-img" id="lbImg" src="" alt="">
+</div>
+
+<!-- FORMULAIRE -->
+<section class="s s-dark" id="contact">
+  <div class="container text-center">
+    <span class="s-eyebrow">Nous écrire</span>
+    <h2 class="s-title" style="">Un projet, une question ?</h2>
+    <p class="s-subtitle">Nous vous répondons avec plaisir. Décrivez votre envie,<br>nous saurons y apporter toute notre attention.</p>
+    <div class="form-wrap">
+      <form id="contactForm" action="#" novalidate>
+        <div class="form-row">
+          <div class="form-group" id="fg-name">
+            <label for="fname">Votre prénom & nom</label>
+            <input type="text" id="fname" name="name" placeholder="Marie Dupont" autocomplete="name">
+            <span class="form-err-msg">Veuillez indiquer votre nom.</span>
+          </div>
+          <div class="form-group" id="fg-email">
+            <label for="femail">Adresse e-mail</label>
+            <input type="email" id="femail" name="email" placeholder="marie@exemple.com" autocomplete="email">
+            <span class="form-err-msg">Veuillez entrer un e-mail valide.</span>
+          </div>
+        </div>
+        <div class="form-group" id="fg-tel">
+          <label for="ftel">Téléphone <span style="opacity:.5;font-weight:300">(facultatif)</span></label>
+          <input type="tel" id="ftel" name="tel" placeholder="+687 XX XX XX" autocomplete="tel">
+        </div>
+        <div class="form-group" id="fg-msg">
+          <label for="fmsg">Votre message</label>
+          <textarea id="fmsg" name="message" placeholder="Décrivez votre projet ou posez votre question…" rows="5"></textarea>
+          <span class="form-err-msg">Veuillez écrire un message.</span>
+        </div>
+        <button type="submit" class="form-submit" id="formBtn">Envoyer le message</button>
+      </form>
+      <div class="form-success" id="formSuccess">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="24" cy="24" r="20"/><polyline points="14 24 21 31 34 18"/></svg>
+        <h3>Message bien reçu</h3>
+        <p>Merci de votre confiance. Nous vous répondrons dans les plus brefs délais.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s s-light" id="avis">
+  <div class="container text-center">
+    <span class="s-eyebrow">Avis clients</span>
+    <h2 class="s-title">Ce que disent nos clients</h2>
+    <div class="ps-hero">
+      <div class="ps-score">5.0</div>
+      <div class="ps-star">★★★★★</div>
+      <div class="ps-count">Note Google — 5 / 5</div>
+      <div class="ps-google" aria-label="Avis Google">
+        <svg viewBox="0 0 72 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <text x="0" y="18" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#4285F4">G</text>
+          <text x="12" y="18" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#EA4335">o</text>
+          <text x="22" y="18" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#FBBC05">o</text>
+          <text x="32" y="18" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#4285F4">g</text>
+          <text x="42" y="18" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#34A853">l</text>
+          <text x="49" y="18" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#EA4335">e</text>
+        </svg>
+      </div>
+    </div>
+    <div class="tc-grid">
+      <div class="tc-card">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-text">"Une adresse rare à Nouméa. Les créations sont d'une finesse remarquable, chaque pièce semble raconter une histoire. J'y reviendrai sans hésiter."</p>
+        <span class="tc-author">— Cliente, Nouméa</span>
+      </div>
+      <div class="tc-card">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-text">"Un accueil chaleureux, des bijoux uniques qui allient élégance et âme locale. Le cadeau que j'ai offert a été accueilli avec une émotion sincère."</p>
+        <span class="tc-author">— Visiteur, Nouvelle-Calédonie</span>
+      </div>
+      <div class="tc-card">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-text">"Je cherchais quelque chose de différent, de vrai. Les Bijoux de Pims m'a offert exactement cela — une pièce qui me ressemble, façonnée avec passion."</p>
+        <span class="tc-author">— Cliente fidèle</span>
+      </div>
+    </div>
+    <div class="badges">
+      <div class="badge">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M10 2l1.8 5.5H17l-4.5 3.3 1.7 5.3L10 13l-4.2 3.1 1.7-5.3L3 7.5h5.2z"/></svg>
+        Créations artisanales
+      </div>
+      <div class="badge">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M10 6v4l3 2"/></svg>
+        Accueil personnalisé
+      </div>
+      <div class="badge">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M10 18s-7-5-7-10a7 7 0 0 1 14 0c0 5-7 10-7 10z"/><circle cx="10" cy="8" r="2.5"/></svg>
+        Boutique à Nouméa
+      </div>
+      <div class="badge">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="14" height="14" rx="2"/><path d="M7 10l2 2 4-4"/></svg>
+        Note 5 / 5 Google
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="footer">
+  <div class="footer-grid">
+    <div class="ft-brand">
+      <div class="ft-logo">Les Bijoux<br><span>de Pims</span></div>
+      <p class="ft-tagline">Bijouterie fine & artisanale,<br>baignée de lumière calédonienne.</p>
+      <address class="ft-addr" style="font-style:normal">
+        La Boutique Partagée<br>
+        79 Route de l'Anse Vata<br>
+        Nouméa, Nouvelle-Calédonie
+      </address>
+    </div>
+    <div class="ft-col">
+      <h4>Navigation</h4>
+      <ul class="ft-links">
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="#metier">Notre Métier</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#avis">Avis clients</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Nous trouver</h4>
+      <ul class="ft-links">
+        <li><a href="https://maps.google.com/?q=79+Route+de+l+Anse+Vata+Noumea" target="_blank" rel="noopener">Voir sur Google Maps</a></li>
+        <li><a href="#contact">Nous écrire</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <span class="ft-copy">© 2026 Les Bijoux de Pims. Tous droits réservés.</span>
+    <span class="ft-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+var items=document.querySelectorAll('.gal-item'),
+    lb=document.getElementById('lightbox'),
+    lbImg=document.getElementById('lbImg'),
+    lbClose=document.getElementById('lbClose');
+
+function openLb(src,alt){lbImg.src=src;lbImg.alt=alt||'';lb.classList.add('open');document.body.style.overflow='hidden';}
+function closeLb(){lb.classList.remove('open');document.body.style.overflow='';lbImg.src='';}
+
+items.forEach(function(el){
+  function trigger(){var img=el.querySelector('img');openLb(el.dataset.src,img?img.alt:'');}
+  el.addEventListener('click',trigger);
+  el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();trigger();}});
+});
+lbClose.addEventListener('click',closeLb);
+lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+
+var form=document.getElementById('contactForm'),
+    btn=document.getElementById('formBtn'),
+    succ=document.getElementById('formSuccess');
+
+function validate(){
+  var ok=true;
+  [['fg-name','fname',function(v){return v.trim().length>1;}],
+   ['fg-email','femail',function(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);}],
+   ['fg-msg','fmsg',function(v){return v.trim().length>4;}]
+  ].forEach(function(r){
+    var fg=document.getElementById(r[0]),inp=document.getElementById(r[1]);
+    if(!r[2](inp.value)){fg.classList.add('invalid');inp.classList.add('err');ok=false;}
+    else{fg.classList.remove('invalid');inp.classList.remove('err');}
+  });
+  return ok;
+}
+
+form.addEventListener('submit',function(e){
+  e.preventDefault();
+  if(!validate())return;
+  btn.textContent='Envoi…';btn.disabled=true;
+  setTimeout(function(){form.style.display='none';succ.style.display='block';},900);
+});
+})();
+</script>
+</body>
+</html>
