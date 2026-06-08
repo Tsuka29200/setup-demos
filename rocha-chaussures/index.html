@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ROCHA chaussures — Nouméa</title>
+<meta name="description" content="Boutique de chaussures familiale à Nouméa, Nouvelle-Calédonie. Chaussures enfants, femmes et hommes. Venez nous rendre visite au 41-43 Rue de Sébastopol.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&family=Manrope:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#1A1A1A;
+--cs:#F5F5F5;
+--ca:#B87C5A;
+--ct:#1A1A1A;
+--cb:#F5F5F5;
+--white:#fff;
+--radius:8px;
+--trans:300ms ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:var(--cb);color:var(--ct);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU SETUP NC */
+.setup-band{
+position:fixed;top:0;left:0;right:0;
+height:44px;background:#ffd500;
+z-index:1001;text-align:center;
+}
+.setup-band a{
+font-family:"Manrope","Poppins",sans-serif;
+font-weight:700;font-size:14px;
+color:#4375ff;letter-spacing:.3px;
+line-height:44px;display:block;
+transition:opacity var(--trans);
+}
+.setup-band a:hover{opacity:.85}
+
+/* HEADER */
+.hdr{
+position:sticky;top:44px;left:0;right:0;
+background:var(--cs);z-index:1000;
+border-bottom:1px solid #e0e0e0;
+}
+.hdr-inner{
+max-width:1200px;margin:0 auto;
+display:flex;align-items:center;
+justify-content:space-between;
+padding:0 24px;height:68px;
+}
+.logo{font-family:'Oswald',sans-serif;font-weight:700;font-size:22px;letter-spacing:2px;color:var(--cp)}
+.logo span{color:var(--ca)}
+.nav{display:flex;gap:28px;list-style:none}
+.nav a{font-family:'Oswald',sans-serif;font-size:14px;font-weight:500;letter-spacing:1px;color:var(--cp);transition:color var(--trans)}
+.nav a:hover{color:var(--ca)}
+.hdr-cta{
+display:flex;align-items:center;gap:16px;
+}
+.tel-link{font-family:'Oswald',sans-serif;font-weight:600;font-size:15px;color:var(--ca);letter-spacing:.5px}
+.btn{
+display:inline-flex;align-items:center;justify-content:center;
+font-family:'Oswald',sans-serif;font-weight:600;
+font-size:13px;letter-spacing:1.5px;
+padding:10px 22px;border-radius:var(--radius);
+border:2px solid var(--ca);
+background:var(--ca);color:var(--white);
+cursor:pointer;transition:background var(--trans),color var(--trans),border-color var(--trans);
+min-height:42px;
+}
+.btn:hover{background:var(--cp);border-color:var(--cp);color:var(--white)}
+.btn-outline{background:transparent;color:var(--ca)}
+.btn-outline:hover{background:var(--ca);color:var(--white)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--cp);transition:var(--trans)}
+.mob-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--cs);border-bottom:2px solid var(--ca);padding:16px 24px 24px;z-index:999}
+.mob-nav.open{display:block}
+.mob-nav ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.mob-nav a{font-family:'Oswald',sans-serif;font-size:16px;font-weight:500;color:var(--cp);display:block;padding:6px 0;border-bottom:1px solid #e8e8e8}
+
+/* HERO */
+.hero{
+position:relative;min-height:100vh;
+display:flex;align-items:center;
+background:url('https://i.ibb.co/Mx43Chb6/ROCHA-chaussures-0.jpg') center/cover no-repeat;
+margin-top:0;
+}
+.hero-overlay{
+position:absolute;inset:0;
+background:linear-gradient(135deg,rgba(26,26,26,.82) 0%,rgba(184,124,90,.45) 100%);
+}
+.hero-content{
+position:relative;z-index:1;
+max-width:1200px;margin:0 auto;
+padding:100px 24px 60px;
+width:100%;
+}
+.promo-badge{
+display:inline-flex;align-items:center;gap:8px;
+background:var(--ca);color:var(--white);
+font-family:'Oswald',sans-serif;font-size:12px;font-weight:700;
+letter-spacing:2px;padding:6px 16px;border-radius:4px;
+margin-bottom:20px;
+animation:pulse-badge 2s ease-in-out infinite;
+}
+@keyframes pulse-badge{
+0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(184,124,90,.5)}
+50%{transform:scale(1.03);box-shadow:0 0 0 8px rgba(184,124,90,0)}
+}
+.hero h1{
+font-family:'Oswald',sans-serif;font-weight:700;
+font-size:clamp(38px,6vw,76px);line-height:1.05;
+color:var(--white);letter-spacing:1px;
+margin-bottom:16px;
+}
+.hero h1 span{color:var(--ca)}
+.hero-sub{
+font-size:clamp(15px,2vw,18px);color:rgba(255,255,255,.88);
+max-width:540px;margin-bottom:32px;line-height:1.65;font-weight:300;
+}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px}
+.hero-btns .btn{padding:14px 32px;font-size:14px;min-height:52px}
+.hero-btns .btn-outline{border-color:var(--white);color:var(--white)}
+.hero-btns .btn-outline:hover{background:var(--white);color:var(--cp)}
+.promo-strip{
+display:inline-flex;align-items:center;gap:12px;
+background:rgba(255,255,255,.1);backdrop-filter:blur(8px);
+border:1px solid rgba(255,255,255,.2);border-radius:var(--radius);
+padding:12px 20px;
+}
+.promo-strip p{font-size:13px;color:rgba(255,255,255,.9);font-weight:400}
+.promo-strip strong{color:var(--ca);font-weight:600}
+.scroll-ind{
+position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
+display:flex;flex-direction:column;align-items:center;gap:6px;z-index:1;
+}
+.scroll-ind span{font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.6);font-family:'Oswald',sans-serif}
+.scroll-ind-arrow{
+width:22px;height:22px;border-right:2px solid rgba(255,255,255,.5);
+border-bottom:2px solid rgba(255,255,255,.5);
+transform:rotate(45deg);
+animation:bounce-arrow 1.5s ease-in-out infinite;
+}
+@keyframes bounce-arrow{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(5px)}}
+
+/* STATS BAND */
+.stats{background:var(--cp);padding:56px 24px}
+.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stat-item{text-align:center}
+.stat-num{
+font-family:'Oswald',sans-serif;font-weight:700;
+font-size:clamp(36px,4vw,52px);color:var(--ca);
+line-height:1;display:block;
+}
+.stat-label{font-size:13px;color:rgba(255,255,255,.75);margin-top:6px;letter-spacing:.5px;font-weight:300}
+.stat-divider{width:1px;background:rgba(255,255,255,.12);display:none}
+
+/* REVEAL ANIMATION */
+.reveal{opacity:1;transform:none}
+.reveal.hidden{opacity:0;transform:translateY(24px)}
+.reveal.visible{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.nav{display:none}
+.hdr-cta .btn{display:none}
+.hamburger{display:flex}
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+.setup-band a{font-size:13px;line-height:40px}
+.setup-band{height:40px}
+.hdr{top:40px}
+.hdr-inner{padding:0 16px;height:60px}
+.logo{font-size:18px}
+.tel-link{font-size:13px}
+.hero-content{padding:80px 16px 48px}
+.hero-btns .btn{width:100%;justify-content:center}
+.stats{padding:40px 16px}
+.stats-inner{grid-template-columns:repeat(2,1fr);gap:28px}
+}
+
+/* FALLBACK REVEAL */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU SETUP NC -->
+<div class="setup-band">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr" id="haut">
+  <div class="hdr-inner">
+    <a href="#haut" class="logo">ROCHA <span>chaussures</span></a>
+    <nav>
+      <ul class="nav">
+        <li><a href="#categories">Catégories</a></li>
+        <li><a href="#promos">Promotions</a></li>
+        <li><a href="#infos">Infos pratiques</a></li>
+        <li><a href="#avis">Avis</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hdr-cta">
+      <a href="tel:262610" class="tel-link">☎ 26.26.10</a>
+      <a href="#contact" class="btn">Nous écrire</a>
+      <div class="hamburger" id="hbg" aria-label="Menu" role="button" tabindex="0">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+  <div class="mob-nav" id="mobnav">
+    <ul>
+      <li><a href="#categories">Catégories</a></li>
+      <li><a href="#promos">Promotions</a></li>
+      <li><a href="#infos">Infos pratiques</a></li>
+      <li><a href="#avis">Avis clients</a></li>
+      <li><a href="#contact">Nous contacter</a></li>
+      <li><a href="tel:262610" style="color:var(--ca)">☎ 26.26.10</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="promo-badge">⭐ OFFRE SPÉCIALE EN COURS</div>
+    <h1>Chaussures pour<br><span>toute la famille</span></h1>
+    <p class="hero-sub">Du premier pas à l'école et au-delà — votre boutique familiale à Nouméa depuis des années, 41-43 Rue de Sébastopol.</p>
+    <div class="hero-btns">
+      <a href="#categories" class="btn">Découvrir nos modèles</a>
+      <a href="#promos" class="btn btn-outline">Voir les promotions</a>
+    </div>
+    <div class="promo-strip">
+      <p>📍 <strong>Retrait en boutique</strong> disponible · <strong>Stock limité</strong> sur les modèles en promotion</p>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>DÉCOUVRIR</span>
+    <div class="scroll-ind-arrow"></div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<section class="stats">
+  <div class="stats-inner">
+    <div class="stat-item reveal hidden">
+      <span class="stat-num" data-target="3">0</span>
+      <p class="stat-label">Catégories — Enfants, Femmes, Hommes</p>
+    </div>
+    <div class="stat-item reveal hidden">
+      <span class="stat-num" data-target="45" data-suffix="+">0</span>
+      <p class="stat-label">Modèles disponibles en boutique</p>
+    </div>
+    <div class="stat-item reveal hidden">
+      <span class="stat-num" data-prefix="4." data-target="5" data-suffix="/5">0</span>
+      <p class="stat-label">Note Google — Avis clients vérifiés</p>
+    </div>
+    <div class="stat-item reveal hidden">
+      <span class="stat-num" data-target="100" data-suffix="%">0</span>
+      <p class="stat-label">Service personnalisé à Nouméa</p>
+    </div>
+  </div>
+</section>
+
+<script>
+var hbg=document.getElementById('hbg'),mn=document.getElementById('mobnav');
+hbg.addEventListener('click',function(){mn.classList.toggle('open')});
+document.querySelectorAll('.mob-nav a').forEach(function(a){a.addEventListener('click',function(){mn.classList.remove('open')})});
+
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      e.target.classList.remove('hidden');
+      e.target.classList.add('visible');
+      var n=e.target.querySelector('.stat-num');
+      if(n){animNum(n)}
+      obs.unobserve(e.target);
+    }
+  });
+},{threshold:.2});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
+
+function animNum(el){
+  var t=parseInt(el.dataset.target||0),pre=el.dataset.prefix||'',suf=el.dataset.suffix||'',d=1200,st=null;
+  requestAnimationFrame(function step(ts){
+    if(!st)st=ts;
+    var p=Math.min((ts-st)/d,1),v=Math.round(p*t);
+    el.textContent=pre+v+suf;
+    if(p<1)requestAnimationFrame(step);
+  });
+}
+</script>
+<style>
+/* CATEGORIES */
+.s{padding:72px 24px}
+.s-inner{max-width:1200px;margin:0 auto}
+.s-title{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(28px,4vw,42px);color:var(--cp);letter-spacing:1px;margin-bottom:8px}
+.s-sub{font-size:15px;color:#666;margin-bottom:40px;font-weight:300}
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.cat-card{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:3/4;cursor:pointer}
+.cat-card img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.cat-card:hover img{transform:scale(1.05)}
+.cat-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,26,26,.75) 0%,transparent 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:20px}
+.cat-name{font-family:'Oswald',sans-serif;font-weight:700;font-size:22px;color:#fff;letter-spacing:1px}
+.cat-link{font-size:12px;color:var(--ca);letter-spacing:1px;font-weight:600;margin-top:4px}
+/* PROMOS */
+.promos-bg{background:#fff}
+.promo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.promo-card{background:var(--cs);border-radius:var(--radius);overflow:hidden;transition:transform var(--trans),box-shadow var(--trans)}
+.promo-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,.12)}
+.promo-img{position:relative;aspect-ratio:1/1;overflow:hidden}
+.promo-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.promo-card:hover .promo-img img{transform:scale(1.05)}
+.badge{position:absolute;top:12px;left:12px;background:var(--ca);color:#fff;font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;padding:4px 10px;border-radius:4px;letter-spacing:1px;animation:pulse-badge 2s ease-in-out infinite}
+.promo-info{padding:16px}
+.promo-name{font-family:'Oswald',sans-serif;font-size:16px;font-weight:600;color:var(--cp);margin-bottom:4px}
+.promo-desc{font-size:13px;color:#777;margin-bottom:10px;font-weight:300}
+.price-row{display:flex;align-items:center;gap:10px}
+.price-new{font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;color:var(--ca)}
+.price-old{font-size:14px;color:#aaa;text-decoration:line-through}
+/* SERVICES */
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.srv-card{background:#fff;border-radius:var(--radius);padding:32px 24px;text-align:center;border:1px solid #eee;transition:transform var(--trans),box-shadow var(--trans),border-color var(--trans)}
+.srv-card:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(0,0,0,.09);border-color:var(--ca)}
+.srv-icon{width:56px;height:56px;background:var(--ca);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.srv-icon svg{width:28px;height:28px;fill:#fff}
+.srv-card h3{font-family:'Oswald',sans-serif;font-size:18px;font-weight:600;color:var(--cp);margin-bottom:8px}
+.srv-card p{font-size:14px;color:#666;line-height:1.65;font-weight:300}
+/* METIER */
+.metier-bg{background:var(--cs)}
+.metier-row{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:56px}
+.metier-row:last-child{margin-bottom:0}
+.metier-row.reverse{direction:rtl}
+.metier-row.reverse>*{direction:ltr}
+.metier-img{border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3}
+.metier-img img{width:100%;height:100%;object-fit:cover}
+.metier-text h2{font-family:'Oswald',sans-serif;font-size:clamp(24px,3vw,36px);font-weight:700;color:var(--cp);margin-bottom:12px;line-height:1.15}
+.metier-text p{font-size:15px;color:#555;line-height:1.7;margin-bottom:20px;font-weight:300}
+.check-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.check-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#444}
+.check-list li::before{content:'';display:inline-block;width:18px;height:18px;min-width:18px;background:var(--ca);border-radius:50%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");background-size:12px;background-repeat:no-repeat;background-position:center}
+/* GALERIE */
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal-item{border-radius:var(--radius);overflow:hidden;cursor:pointer;aspect-ratio:1/1}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.gal-item:hover img{transform:scale(1.07)}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:2000;display:none;align-items:center;justify-content:center}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:88vh;border-radius:var(--radius);object-fit:contain}
+.lb-close{position:absolute;top:20px;right:24px;font-size:32px;color:#fff;cursor:pointer;line-height:1;background:none;border:none;font-family:'Oswald',sans-serif}
+/* FORMULAIRE */
+.form-bg{background:#fff}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.form-info h2{font-family:'Oswald',sans-serif;font-size:clamp(24px,3vw,36px);font-weight:700;color:var(--cp);margin-bottom:12px}
+.form-info p{font-size:15px;color:#666;line-height:1.7;margin-bottom:20px;font-weight:300}
+.form-detail{display:flex;flex-direction:column;gap:10px}
+.form-detail span{font-size:14px;color:#555;display:flex;align-items:flex-start;gap:8px}
+.form-el{display:flex;flex-direction:column;gap:6px}
+.form-el label{font-size:13px;font-weight:600;color:var(--cp);font-family:'Oswald',sans-serif;letter-spacing:.5px}
+.form-el input,.form-el textarea{width:100%;padding:12px 16px;border:1.5px solid #ddd;border-radius:var(--radius);font-family:'Poppins',sans-serif;font-size:14px;color:var(--cp);background:#fafafa;transition:border-color var(--trans);outline:none}
+.form-el input:focus,.form-el textarea:focus{border-color:var(--ca)}
+.form-el input.err,.form-el textarea.err{border-color:#e74c3c}
+.form-el textarea{min-height:120px;resize:vertical}
+.form-wrap{display:flex;flex-direction:column;gap:16px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-success{display:none;background:#f0faf4;border:1.5px solid #27ae60;border-radius:var(--radius);padding:20px;text-align:center}
+.form-success.show{display:block}
+.form-success p{color:#1a7a40;font-weight:600;font-family:'Oswald',sans-serif;font-size:16px}
+/* PREUVE SOCIALE */
+.avis-bg{background:var(--cs)}
+.rating-hero{text-align:center;margin-bottom:48px}
+.stars-big{font-size:36px;letter-spacing:4px;color:var(--ca)}
+.rating-num{font-family:'Oswald',sans-serif;font-size:56px;font-weight:700;color:var(--cp);line-height:1}
+.rating-base{font-size:16px;color:#888;margin-bottom:6px}
+.rating-count{font-size:14px;color:#aaa}
+.avis-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-bottom:40px}
+.avis-card{background:#fff;border-radius:var(--radius);padding:24px;border-left:3px solid var(--ca)}
+.avis-stars{font-size:16px;color:var(--ca);margin-bottom:8px}
+.avis-text{font-size:14px;color:#555;line-height:1.65;margin-bottom:12px;font-weight:300;font-style:italic}
+.avis-author{font-family:'Oswald',sans-serif;font-size:14px;font-weight:600;color:var(--cp)}
+.avis-date{font-size:12px;color:#aaa}
+.badges-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.badge-item{background:#fff;border:1.5px solid #eee;border-radius:var(--radius);padding:12px 20px;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;color:var(--cp)}
+.badge-icon{font-size:20px}
+/* INFOS PRATIQUES */
+.infos-bg{background:#fff}
+.infos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.info-block{background:var(--cs);border-radius:var(--radius);padding:28px 24px}
+.info-block h3{font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;color:var(--cp);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.info-block p,.info-block li{font-size:14px;color:#555;line-height:1.8;font-weight:300}
+.info-block ul{list-style:none;display:flex;flex-direction:column;gap:4px}
+.info-block li{display:flex;justify-content:space-between}
+.info-block li span:last-child{font-weight:600;color:var(--cp)}
+.info-accent{color:var(--ca);font-weight:600}
+/* FOOTER */
+.ftr{background:var(--cp);color:rgba(255,255,255,.8);padding:56px 24px 24px}
+.ftr-inner{max-width:1200px;margin:0 auto}
+.ftr-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.ftr-logo{font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;color:#fff;letter-spacing:2px;margin-bottom:12px}
+.ftr-logo span{color:var(--ca)}
+.ftr-desc{font-size:14px;line-height:1.7;margin-bottom:16px;font-weight:300}
+.ftr-social{display:flex;gap:12px;align-items:center}
+.ftr-social a{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;background:rgba(255,255,255,.1);border-radius:50%;transition:background var(--trans)}
+.ftr-social a:hover{background:var(--ca)}
+.ftr-social svg{width:20px;height:20px;fill:#fff}
+.ftr-col h4{font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;color:#fff;letter-spacing:1.5px;margin-bottom:14px;text-transform:uppercase}
+.ftr-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.ftr-col li a{font-size:14px;color:rgba(255,255,255,.7);transition:color var(--trans);font-weight:300}
+.ftr-col li a:hover{color:var(--ca)}
+.ftr-col address{font-style:normal;font-size:14px;line-height:1.8;font-weight:300}
+.ftr-col address a{color:rgba(255,255,255,.7);transition:color var(--trans)}
+.ftr-col address a:hover{color:var(--ca)}
+.ftr-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.ftr-copy{font-size:13px;color:rgba(255,255,255,.5)}
+.ftr-setup{font-size:13px;color:rgba(255,255,255,.5)}
+.ftr-setup a{color:var(--ca);font-weight:600}
+/* RESPONSIVE PART 2 */
+@media(max-width:900px){
+.cat-grid{grid-template-columns:1fr 1fr}
+.promo-grid{grid-template-columns:1fr 1fr}
+.srv-grid{grid-template-columns:1fr}
+.metier-row{grid-template-columns:1fr;gap:24px}
+.metier-row.reverse{direction:ltr}
+.form-grid{grid-template-columns:1fr}
+.avis-grid{grid-template-columns:1fr}
+.infos-grid{grid-template-columns:1fr}
+.ftr-top{grid-template-columns:1fr;gap:28px}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+.s{padding:48px 16px}
+.cat-grid{grid-template-columns:1fr}
+.promo-grid{grid-template-columns:1fr}
+.form-row{grid-template-columns:1fr}
+.ftr{padding:40px 16px 20px}
+.ftr-bottom{flex-direction:column;text-align:center}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.badges-row{flex-direction:column;align-items:center}
+}
+</style>
+
+<!-- CATEGORIES -->
+<section class="s" id="categories">
+  <div class="s-inner">
+    <h2 class="s-title">Nos catégories</h2>
+    <p class="s-sub">Des chaussures pour chaque membre de la famille, adaptées au climat tropical de Nouméa.</p>
+    <div class="cat-grid">
+      <a href="#promos" class="cat-card">
+        <img src="https://i.ibb.co/TBtpVdtj/ROCHA-chaussures-1.jpg" alt="Chaussures enfants" loading="lazy">
+        <div class="cat-overlay">
+          <span class="cat-name">Enfants</span>
+          <span class="cat-link">VOIR LA COLLECTION →</span>
+        </div>
+      </a>
+      <a href="#promos" class="cat-card">
+        <img src="https://i.ibb.co/nMkmhH8t/ROCHA-chaussures-2.jpg" alt="Chaussures femmes" loading="lazy">
+        <div class="cat-overlay">
+          <span class="cat-name">Femmes</span>
+          <span class="cat-link">VOIR LA COLLECTION →</span>
+        </div>
+      </a>
+      <a href="#promos" class="cat-card">
+        <img src="https://i.ibb.co/Lzj1tyvV/ROCHA-chaussures-3.jpg" alt="Chaussures hommes" loading="lazy">
+        <div class="cat-overlay">
+          <span class="cat-name">Hommes</span>
+          <span class="cat-link">VOIR LA COLLECTION →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PROMOTIONS -->
+<section class="s promos-bg" id="promos">
+  <div class="s-inner">
+    <h2 class="s-title">Offres du moment</h2>
+    <p class="s-sub">Sélection de modèles à prix réduits, disponibles en boutique uniquement — stocks limités.</p>
+    <div class="promo-grid">
+      <div class="promo-card reveal hidden">
+        <div class="promo-img">
+          <img src="https://i.ibb.co/TBtpVdtj/ROCHA-chaussures-1.jpg" alt="Promo enfants" loading="lazy">
+          <span class="badge">−20%</span>
+        </div>
+        <div class="promo-info">
+          <p class="promo-name">Modèles Enfants</p>
+          <p class="promo-desc">Sandales et chaussures légères, idéales pour le quotidien sous le soleil calédonien.</p>
+          <div class="price-row">
+            <span class="price-new">À partir de 3 990 XPF</span>
+          </div>
+        </div>
+      </div>
+      <div class="promo-card reveal hidden">
+        <div class="promo-img">
+          <img src="https://i.ibb.co/nMkmhH8t/ROCHA-chaussures-2.jpg" alt="Promo femmes" loading="lazy">
+          <span class="badge">−15%</span>
+        </div>
+        <div class="promo-info">
+          <p class="promo-name">Collection Femmes</p>
+          <p class="promo-desc">Confort et élégance pour toutes vos occasions, du marché à la sortie du soir.</p>
+          <div class="price-row">
+            <span class="price-new">À partir de 5 490 XPF</span>
+          </div>
+        </div>
+      </div>
+      <div class="promo-card reveal hidden">
+        <div class="promo-img">
+          <img src="https://i.ibb.co/Lzj1tyvV/ROCHA-chaussures-3.jpg" alt="Promo hommes" loading="lazy">
+          <span class="badge">NOUVEAUTÉ</span>
+        </div>
+        <div class="promo-info">
+          <p class="promo-name">Sélection Hommes</p>
+          <p class="promo-desc">Des modèles solides et respirants, pensés pour les journées actives à Nouméa.</p>
+          <div class="price-row">
+            <span class="price-new">À partir de 6 490 XPF</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="s" id="services">
+  <div class="s-inner">
+    <h2 class="s-title">Pourquoi choisir ROCHA ?</h2>
+    <p class="s-sub">Un service pensé pour les familles de Nouméa, avec le souci du détail à chaque visite.</p>
+    <div class="srv-grid">
+      <div class="srv-card reveal hidden">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        </div>
+        <h3>Retrait en boutique</h3>
+        <p>Commandez ou réservez par téléphone et venez essayer vos chaussures directement au 41-43 Rue de Sébastopol.</p>
+      </div>
+      <div class="srv-card reveal hidden">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+        </div>
+        <h3>Conseil personnalisé</h3>
+        <p>Notre équipe prend le temps d'accompagner chaque client — enfant, femme ou homme — pour trouver le modèle parfait.</p>
+      </div>
+      <div class="srv-card reveal hidden">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+        </div>
+        <h3>Paiement flexible</h3>
+        <p>Règlement en espèces ou par carte bancaire en boutique, dans un espace accueillant et climatisé.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s metier-bg" id="metier">
+  <div class="s-inner">
+    <div class="metier-row reveal hidden">
+      <div class="metier-img">
+        <img src="https://i.ibb.co/Mx43Chb6/ROCHA-chaussures-0.jpg" alt="Boutique ROCHA chaussures Nouméa" loading="lazy">
+      </div>
+      <div class="metier-text">
+        <h2>Une boutique familiale au cœur de Nouméa</h2>
+        <p>Chez ROCHA chaussures, chaque paire est choisie avec soin pour répondre aux besoins du quotidien calédonien. Notre vitrine soignée, baignée d'une lumière douce et chaleureuse, reflète l'accueil que nous réservons à chacun de nos clients.</p>
+        <ul class="check-list">
+          <li>Sélection de modèles adaptés au climat tropical</li>
+          <li>Chaussures confortables pour enfants, femmes et hommes</li>
+          <li>Équipe à l'écoute, disponible six jours sur sept</li>
+          <li>Emplacement central, facile d'accès à Nouméa</li>
+        </ul>
+      </div>
+    </div>
+    <div class="metier-row reverse reveal hidden">
+      <div class="metier-img">
+        <img src="https://i.ibb.co/TBtpVdtj/ROCHA-chaussures-1.jpg" alt="Chaussures enfants ROCHA" loading="lazy">
+      </div>
+      <div class="metier-text">
+        <h2>Des chaussures pour chaque étape de la vie</h2>
+        <p>Du premier pas d'un enfant aux chaussures du quotidien pour toute la famille, ROCHA accompagne les familles nouméennes avec une sélection pensée pour la durabilité, le confort et le style.</p>
+        <ul class="check-list">
+          <li>Modèles enfants testés pour le confort et la solidité</li>
+          <li>Styles variés pour toutes les occasions</li>
+          <li>Prix accessibles, promotions régulières</li>
+          <li>Essayage en boutique toujours conseillé</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s" id="galerie">
+  <div class="s-inner">
+    <h2 class="s-title">Notre boutique en images</h2>
+    <p class="s-sub">Découvrez l'ambiance chaleureuse de ROCHA chaussures, au 41-43 Rue de Sébastopol.</p>
+    <div class="gal-grid">
+      <div class="gal-item" data-src="https://i.ibb.co/Mx43Chb6/ROCHA-chaussures-0.jpg">
+        <img src="https://i.ibb.co/Mx43Chb6/ROCHA-chaussures-0.jpg" alt="ROCHA chaussures boutique" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/TBtpVdtj/ROCHA-chaussures-1.jpg">
+        <img src="https://i.ibb.co/TBtpVdtj/ROCHA-chaussures-1.jpg" alt="Chaussures enfants" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/nMkmhH8t/ROCHA-chaussures-2.jpg">
+        <img src="https://i.ibb.co/nMkmhH8t/ROCHA-chaussures-2.jpg" alt="Chaussures femmes" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/Lzj1tyvV/ROCHA-chaussures-3.jpg">
+        <img src="https://i.ibb.co/Lzj1tyvV/ROCHA-chaussures-3.jpg" alt="Chaussures hommes" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lb" role="dialog" aria-modal="true">
+  <button class="lb-close" id="lb-close" aria-label="Fermer">✕</button>
+  <img class="lb-img" id="lb-img" src="" alt="Photo agrandie">
+</div>
+
+<!-- INFOS PRATIQUES -->
+<section class="s infos-bg" id="infos">
+  <div class="s-inner">
+    <h2 class="s-title">Infos pratiques</h2>
+    <p class="s-sub">Tout ce qu'il faut savoir avant de venir nous rendre visite à Nouméa.</p>
+    <div class="infos-grid">
+      <div class="info-block reveal hidden">
+        <h3>🕐 Horaires d'ouverture</h3>
+        <ul>
+          <li><span>Lundi – Vendredi</span><span>8h00 – 17h30</span></li>
+          <li><span>Samedi</span><span>8h00 – 12h00</span></li>
+          <li><span>Dimanche</span><span class="info-accent">Fermé</span></li>
+        </ul>
+        <p style="margin-top:12px;font-size:13px;color:#999">Horaires en heure locale de Nouméa (UTC+11)</p>
+      </div>
+      <div class="info-block reveal hidden">
+        <h3>📍 Nous trouver</h3>
+        <address>
+          <p>41, 43 Rue de Sébastopol<br>Nouméa 98800<br>Nouvelle-Calédonie</p>
+          <p style="margin-top:10px">
+            <a href="tel:262610" class="info-accent">☎ 26.26.10</a><br>
+            <a href="https://www.facebook.com/chaussuresfemmesnc" target="_blank" rel="noopener" class="info-accent">Facebook</a>
+          </p>
+        </address>
+      </div>
+      <div class="info-block reveal hidden">
+        <h3>🚗 Modalités d'achat</h3>
+        <ul>
+          <li><span>Retrait boutique</span><span class="info-accent">✓ Disponible</span></li>
+          <li><span>Paiement carte</span><span class="info-accent">✓ Accepté</span></li>
+          <li><span>Paiement espèces</span><span class="info-accent">✓ Accepté</span></li>
+          <li><span>Réservation tél.</span><span class="info-accent">✓ Possible</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s avis-bg" id="avis">
+  <div class="s-inner">
+    <h2 class="s-title" style="text-align:center">Ce que disent nos clients</h2>
+    <p class="s-sub" style="text-align:center">Avis vérifiés Google — la confiance des familles nouméennes.</p>
+    <div class="rating-hero reveal hidden">
+      <div class="rating-num">4.5</div>
+      <div class="stars-big">★★★★½</div>
+      <p class="rating-base">sur 5 — Note Google</p>
+      <p class="rating-count">Basé sur les avis clients vérifiés</p>
+    </div>
+    <div class="avis-grid">
+      <div class="avis-card reveal hidden">
+        <div class="avis-stars">★★★★★</div>
+        <p class="avis-text">« Super boutique, accueil chaleureux et sélection de qualité. J'ai trouvé des chaussures pour toute ma famille en une seule visite. Je recommande vivement ! »</p>
+        <p class="avis-author">Marie-Laure T.</p>
+        <p class="avis-date">Cliente à Nouméa</p>
+      </div>
+      <div class="avis-card reveal hidden">
+        <div class="avis-stars">★★★★</div>
+        <p class="avis-text">« Très bon service, les vendeurs prennent le temps de conseiller. Bonne gamme de chaussures enfants, solides et confortables pour le quotidien. »</p>
+        <p class="avis-author">Jean-Paul M.</p>
+        <p class="avis-date">Client à Nouméa</p>
+      </div>
+    </div>
+    <div class="badges-row reveal hidden">
+      <div class="badge-item"><span class="badge-icon">🏆</span>Boutique familiale de confiance</div>
+      <div class="badge-item"><span class="badge-icon">📍</span>Établie à Nouméa</div>
+      <div class="badge-item"><span class="badge-icon">👟</span>Enfants · Femmes · Hommes</div>
+      <div class="badge-item"><span class="badge-icon">⭐</span>Note Google 4.5 / 5</div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE -->
+<section class="s form-bg" id="contact">
+  <div class="s-inner">
+    <div class="form-grid">
+      <div class="form-info">
+        <h2 class="s-title">Contactez-nous</h2>
+        <p>Une question sur un modèle, une réservation ou un renseignement ? Notre équipe vous répond rapidement.</p>
+        <div class="form-detail">
+          <span>📍 41, 43 Rue de Sébastopol, Nouméa 98800</span>
+          <span>☎ <a href="tel:262610" style="color:var(--ca);font-weight:600">26.26.10</a></span>
+          <span>🕐 Lun – Ven : 8h00 – 17h30 · Sam : 8h00 – 12h00</span>
+          <span>📘 <a href="https://www.facebook.com/chaussuresfemmesnc" target="_blank" rel="noopener" style="color:var(--ca);font-weight:600">Notre page Facebook</a></span>
+        </div>
+      </div>
+      <div>
+        <div class="form-success" id="fsuccess">
+          <p>✅ Message envoyé ! Nous vous répondrons très bientôt.</p>
+        </div>
+        <form class="form-wrap" id="cform" action="#" novalidate>
+          <div class="form-row">
+            <div class="form-el">
+              <label for="fname">Nom</label>
+              <input type="text" id="fname" name="nom" placeholder="Votre nom" autocomplete="name">
+            </div>
+            <div class="form-el">
+              <label for="ftel">Téléphone</label>
+              <input type="tel" id="ftel" name="tel" placeholder="Votre numéro" autocomplete="tel">
+            </div>
+          </div>
+          <div class="form-el">
+            <label for="femail">Email</label>
+            <input type="email" id="femail" name="email" placeholder="votre@email.com" autocomplete="email">
+          </div>
+          <div class="form-el">
+            <label for="fmsg">Message</label>
+            <textarea id="fmsg" name="message" placeholder="Votre demande, question ou réservation…"></textarea>
+          </div>
+          <button type="submit" class="btn" id="fsubmit" style="width:100%;font-size:14px;min-height:52px;letter-spacing:1.5px">ENVOYER MON MESSAGE</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ftr">
+  <div class="ftr-inner">
+    <div class="ftr-top">
+      <div>
+        <p class="ftr-logo">ROCHA <span>chaussures</span></p>
+        <p class="ftr-desc">Votre boutique de chaussures familiale à Nouméa, Nouvelle-Calédonie. Enfants, femmes et hommes — une sélection soignée dans un cadre chaleureux.</p>
+        <div class="ftr-social">
+          <a href="https://www.facebook.com/chaussuresfemmesnc" target="_blank" rel="noopener" aria-label="Facebook ROCHA chaussures">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="ftr-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#categories">Catégories</a></li>
+          <li><a href="#promos">Promotions</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#avis">Avis clients</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="ftr-col">
+        <h4>Nous trouver</h4>
+        <address>
+          ROCHA chaussures<br>
+          41, 43 Rue de Sébastopol<br>
+          Nouméa 98800<br>
+          Nouvelle-Calédonie<br><br>
+          <a href="tel:262610">☎ 26.26.10</a><br>
+          <a href="https://www.facebook.com/chaussuresfemmesnc" target="_blank" rel="noopener">Facebook</a>
+        </address>
+      </div>
+    </div>
+    <div class="ftr-bottom">
+      <p class="ftr-copy">© 2026 ROCHA chaussures. Tous droits réservés.</p>
+      <p class="ftr-setup">Site réalisé par <a href="https://www.setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+var gItems=document.querySelectorAll('.gal-item'),lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img'),lbClose=document.getElementById('lb-close');
+gItems.forEach(function(i){i.addEventListener('click',function(){lbImg.src=i.dataset.src;lb.classList.add('open')})});
+lbClose.addEventListener('click',function(){lb.classList.remove('open');lbImg.src=''});
+lb.addEventListener('click',function(e){if(e.target===lb){lb.classList.remove('open');lbImg.src=''}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('open')});
+
+var cf=document.getElementById('cform'),fs=document.getElementById('fsuccess'),fsub=document.getElementById('fsubmit');
+cf.addEventListener('submit',function(e){
+  e.preventDefault();
+  var fn=document.getElementById('fname'),fe=document.getElementById('femail'),fm=document.getElementById('fmsg'),ok=true;
+  [fn,fe,fm].forEach(function(f){f.classList.remove('err')});
+  if(!fn.value.trim()){fn.classList.add('err');ok=false}
+  if(!fe.value.trim()||!fe.value.includes('@')){fe.classList.add('err');ok=false}
+  if(!fm.value.trim()){fm.classList.add('err');ok=false}
+  if(!ok)return;
+  fsub.textContent='Envoi…';fsub.disabled=true;
+  setTimeout(function(){cf.style.display='none';fs.classList.add('show')},800);
+});
+
+var obs2=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.remove('hidden');e.target.classList.add('visible');obs2.unobserve(e.target)}
+  });
+},{threshold:.15});
+document.querySelectorAll('.reveal.hidden').forEach(function(el){obs2.observe(el)});
+</script>
+</body>
+</html>
