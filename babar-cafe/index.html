@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Babar Cafe — Nouméa</title>
+<meta name="description" content="Babar Café, le café pop-art incontournable de Nouméa. Sculptures d'éléphants couronnés, néons, street art et créations signature sur la Promenade Roger Laroque.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Bebas+Neue&family=Playfair+Display:ital,wght@0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#8B4A2A;
+--cs:#C0392B;
+--ca:#F5C518;
+--ct:#F5F5F5;
+--cb:#2C2C2C;
+--cw:#fff;
+--cd:#222;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;background:var(--cb);color:var(--ct);overflow-x:hidden;font-size:16px}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+
+/* BANDEAU PROMO */
+.promo-bar{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;display:flex;align-items:center;justify-content:center}
+.promo-bar a{font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;letter-spacing:.3px;line-height:44px;opacity:1;transition:opacity .2s}
+.promo-bar a:hover{opacity:.85}
+
+/* HEADER */
+.hdr{position:fixed;top:44px;left:0;width:100%;z-index:1000;background:rgba(44,44,44,.95);backdrop-filter:blur(8px);border-bottom:2px solid var(--cp);transition:background .3s}
+.hdr-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--ca);letter-spacing:2px;white-space:nowrap}
+.logo span{color:var(--cs)}
+nav{display:flex;gap:24px;align-items:center}
+nav a{font-family:'Lato',sans-serif;font-size:13px;font-weight:700;color:var(--ct);letter-spacing:1.5px;text-transform:uppercase;position:relative;padding:4px 0;transition:color .3s}
+nav a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--ca);transition:width .3s}
+nav a:hover{color:var(--ca)}
+nav a:hover::after{width:100%}
+.hdr-cta{font-family:'Lato',sans-serif;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;background:var(--cs);color:var(--cw);padding:10px 20px;border:none;cursor:pointer;transition:background .3s,transform .2s;white-space:nowrap}
+.hdr-cta:hover{background:var(--ca);color:var(--cd);transform:translateY(-1px)}
+.hdr-tel{font-family:'Lato',sans-serif;font-size:13px;font-weight:700;color:var(--ca);letter-spacing:1px;white-space:nowrap}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.burger span{display:block;width:24px;height:2px;background:var(--ct);transition:all .3s}
+.mob-nav{display:none;position:fixed;top:108px;left:0;width:100%;background:rgba(44,44,44,.98);z-index:999;flex-direction:column;padding:24px;gap:20px;border-top:2px solid var(--cp)}
+.mob-nav a{font-family:'Lato',sans-serif;font-size:15px;font-weight:700;color:var(--ct);letter-spacing:1.5px;text-transform:uppercase;padding:8px 0;border-bottom:1px solid rgba(245,197,24,.15)}
+.mob-nav.open{display:flex}
+
+/* HERO */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;padding-top:108px;background:url('https://i.ibb.co/cMwBXhv/Babar-Cafe-0.jpg') center/cover no-repeat fixed}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(44,44,44,.55) 0%,rgba(44,44,44,.75) 60%,rgba(44,44,44,.9) 100%)}
+.hero-content{position:relative;z-index:2;max-width:860px;padding:0 20px}
+.hero-label{font-family:'Lato',sans-serif;font-size:12px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--ca);margin-bottom:20px;display:inline-block}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,11vw,140px);line-height:.95;color:var(--cw);letter-spacing:4px;margin-bottom:8px}
+.hero h1 em{color:var(--ca);font-style:normal}
+.hero-sub{font-family:'Playfair Display',serif;font-size:clamp(16px,2.5vw,22px);color:rgba(245,245,245,.85);font-style:italic;margin-bottom:36px;line-height:1.5}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-primary{font-family:'Lato',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;background:var(--cs);color:var(--cw);padding:16px 36px;border:none;cursor:pointer;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s;display:inline-block}
+.btn-primary::before{content:'';position:absolute;inset:0;background:var(--ca);transform:translateX(-100%);transition:transform .3s}
+.btn-primary:hover::before{transform:translateX(0)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.4);color:var(--cd)}
+.btn-primary span{position:relative;z-index:1}
+.btn-secondary{font-family:'Lato',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;background:transparent;color:var(--cw);padding:14px 34px;border:2px solid var(--ca);cursor:pointer;transition:background .3s,color .3s,transform .3s;display:inline-block}
+.btn-secondary:hover{background:var(--ca);color:var(--cd);transform:translateY(-2px)}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px}
+.scroll-ind span{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(245,245,245,.6)}
+.scroll-arrow{width:2px;height:40px;background:linear-gradient(to bottom,var(--ca),transparent);animation:scrollpulse 2s infinite}
+@keyframes scrollpulse{0%,100%{opacity:.4;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+
+/* STATS BAR */
+.stats{background:var(--cp);padding:48px 24px}
+.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;text-align:center}
+.stat-item{padding:8px}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,6vw,72px);color:var(--ca);line-height:1;display:block}
+.stat-label{font-family:'Lato',sans-serif;font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(245,245,245,.8);margin-top:6px;display:block}
+.stat-sep{width:32px;height:2px;background:var(--ca);margin:10px auto 0}
+
+/* REVEAL FALLBACK */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+nav,.hdr-cta,.hdr-tel{display:none}
+.burger{display:flex}
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+.promo-bar{height:40px}
+.promo-bar a{font-size:13px;line-height:40px}
+.hdr-inner{padding:0 16px;height:56px}
+.logo{font-size:22px}
+.hero{background-attachment:scroll}
+.hero-btns{flex-direction:column;align-items:center}
+.btn-primary,.btn-secondary{width:100%;text-align:center;max-width:300px}
+.stats{padding:32px 16px}
+.stats-inner{grid-template-columns:repeat(2,1fr);gap:12px}
+.mob-nav{top:96px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo-bar">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-inner">
+    <a href="#hero" class="logo">Babar<span>Café</span></a>
+    <nav>
+      <a href="#menu">Menu</a>
+      <a href="#ambiance">Ambiance</a>
+      <a href="#reservation">Réservation</a>
+      <a href="#avis">Avis</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="tel:260870" class="hdr-tel">☎ 26.08.70</a>
+    <a href="#reservation" class="hdr-cta">Réserver</a>
+    <div class="burger" id="burger" aria-label="Menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<div class="mob-nav" id="mob-nav">
+  <a href="#menu" onclick="closeMenu()">Menu</a>
+  <a href="#ambiance" onclick="closeMenu()">Ambiance</a>
+  <a href="#reservation" onclick="closeMenu()">Réservation</a>
+  <a href="#avis" onclick="closeMenu()">Avis</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <a href="tel:260870" style="color:var(--ca)">☎ 26.08.70</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-label">☆ Nouméa, Promenade Roger Laroque ☆</span>
+    <h1>Babar<br><em>Café</em></h1>
+    <p class="hero-sub">Le café pop-art qui bouscule les conventions — et vous les fait aimer.</p>
+    <div class="hero-btns">
+      <a href="#reservation" class="btn-primary"><span>Réserver une table</span></a>
+      <a href="#menu" class="btn-secondary">Découvrir le menu</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>Scroll</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="stats">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <span class="stat-num" data-target="240">0</span>
+      <div class="stat-sep"></div>
+      <span class="stat-label">Avis Google</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="4">0</span>
+      <div class="stat-sep"></div>
+      <span class="stat-label">Note / 5</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="7">0</span>
+      <div class="stat-sep"></div>
+      <span class="stat-label">Jours sur 7</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="1">0</span>
+      <div class="stat-sep"></div>
+      <span class="stat-label">Lieu unique à Nouméa</span>
+    </div>
+  </div>
+</section>
+
+<script>
+var b=document.getElementById('burger'),mn=document.getElementById('mob-nav'),o=false;
+function closeMenu(){mn.classList.remove('open');o=false}
+b.addEventListener('click',function(){o=!o;o?mn.classList.add('open'):mn.classList.remove('open')});
+var nums=document.querySelectorAll('[data-target]');
+var ran=false;
+function animNums(){
+  if(ran)return;ran=true;
+  nums.forEach(function(el){
+    var t=+el.getAttribute('data-target'),s=0,d=Math.ceil(1200/t);
+    var iv=setInterval(function(){
+      s+=1;el.textContent=s;
+      if(s>=t)clearInterval(iv);
+    },d);
+  });
+}
+var so=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting)animNums()});
+},{threshold:.3});
+so.observe(document.querySelector('.stats'));
+</script>
+<style>
+.s{padding:80px 24px}
+.s-dark{background:var(--cb)}
+.s-light{background:#f5f0eb;color:var(--cd)}
+.s-rust{background:var(--cp);color:var(--cw)}
+.inner{max-width:1100px;margin:0 auto}
+.sec-label{font-family:'Lato',sans-serif;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--ca);margin-bottom:12px;display:block}
+.sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,6vw,72px);line-height:1;margin-bottom:16px}
+.sec-title.dark{color:var(--cd)}
+.sec-sub{font-family:'Lato',sans-serif;font-size:16px;line-height:1.7;opacity:.8;max-width:560px}
+.sec-sub.center{text-align:center;margin:0 auto 48px}
+.text-center{text-align:center}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:48px}
+.srv-card{background:#1a1a1a;padding:40px 28px;position:relative;overflow:hidden;transition:transform .3s}
+.srv-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--cs);transition:width .3s}
+.srv-card:hover{transform:translateY(-4px)}
+.srv-card:hover::before{width:100%;opacity:.08}
+.srv-icon{width:48px;height:48px;margin-bottom:20px}
+.srv-card h3{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--ca);margin-bottom:10px;letter-spacing:1px}
+.srv-card p{font-family:'Lato',sans-serif;font-size:14px;line-height:1.7;color:rgba(245,245,245,.75)}
+.metier-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:48px}
+.metier-grid.rev{direction:rtl}
+.metier-grid.rev>*{direction:ltr}
+.metier-img{position:relative;overflow:hidden}
+.metier-img img{width:100%;height:420px;object-fit:cover;transition:transform .6s}
+.metier-img:hover img{transform:scale(1.04)}
+.metier-img::after{content:'';position:absolute;inset:0;border:3px solid var(--ca);transform:translate(12px,12px);pointer-events:none}
+.metier-text h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,58px);line-height:1;margin-bottom:20px}
+.metier-text h2 em{color:var(--ca);font-style:normal}
+.metier-text p{font-family:'Lato',sans-serif;font-size:15px;line-height:1.8;margin-bottom:24px;opacity:.85}
+.checks{list-style:none;display:flex;flex-direction:column;gap:10px}
+.checks li{font-family:'Lato',sans-serif;font-size:14px;font-weight:700;letter-spacing:.5px;display:flex;align-items:center;gap:10px}
+.checks li::before{content:'';display:inline-block;width:20px;height:20px;min-width:20px;background:var(--cs);clip-path:polygon(14% 44%,0 65%,50% 100%,100% 16%,80% 0,43% 62%);background:var(--ca)}
+.gal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:4px;margin-top:48px}
+.gal-item{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:4/3}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-item::after{content:'⊕';position:absolute;inset:0;background:rgba(44,44,44,.5);display:flex;align-items:center;justify-content:center;font-size:40px;color:var(--ca);opacity:0;transition:opacity .3s}
+.gal-item:hover::after{opacity:1}
+.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center}
+.lb.open{display:flex}
+.lb img{max-width:90vw;max-height:90vh;object-fit:contain}
+.lb-close{position:absolute;top:20px;right:28px;font-size:36px;color:var(--ca);cursor:pointer;line-height:1}
+.form-wrap{max-width:640px;margin:48px auto 0}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.form-field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.form-field label{font-family:'Lato',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ca)}
+.form-field input,.form-field textarea{background:rgba(255,255,255,.06);border:1px solid rgba(245,197,24,.3);color:var(--ct);font-family:'Lato',sans-serif;font-size:15px;padding:14px 16px;outline:none;transition:border-color .3s;width:100%}
+.form-field input:focus,.form-field textarea:focus{border-color:var(--ca)}
+.form-field textarea{resize:vertical;min-height:120px}
+.form-submit{width:100%;background:var(--cs);color:var(--cw);font-family:'Lato',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:18px;border:none;cursor:pointer;transition:background .3s,transform .2s;position:relative}
+.form-submit:hover{background:var(--ca);color:var(--cd);transform:translateY(-2px)}
+.form-success{display:none;background:rgba(245,197,24,.1);border:2px solid var(--ca);padding:24px;text-align:center;margin-top:20px}
+.form-success p{font-family:'Lato',sans-serif;font-size:15px;color:var(--ca);font-weight:700}
+.avis-stars{color:var(--ca);font-size:28px;letter-spacing:4px;margin-bottom:8px}
+.avis-score{font-family:'Bebas Neue',sans-serif;font-size:80px;color:var(--ca);line-height:1}
+.avis-count{font-family:'Lato',sans-serif;font-size:14px;opacity:.7;margin-top:4px}
+.avis-hero{text-align:center;margin-bottom:56px}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.testi-card{background:#1a1a1a;padding:28px;border-top:3px solid var(--ca)}
+.testi-card .stars{color:var(--ca);font-size:14px;margin-bottom:12px}
+.testi-card blockquote{font-family:'Playfair Display',serif;font-size:15px;font-style:italic;line-height:1.7;color:rgba(245,245,245,.85);margin-bottom:16px}
+.testi-card cite{font-family:'Lato',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ca);font-style:normal}
+.badges{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:40px}
+.badge{background:rgba(245,197,24,.1);border:1px solid rgba(245,197,24,.35);padding:12px 20px;font-family:'Lato',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ca)}
+.ftr{background:var(--cp);color:var(--cw);padding:64px 24px 32px}
+.ftr-inner{max-width:1100px;margin:0 auto}
+.ftr-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.ftr-logo{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--ca);letter-spacing:3px;margin-bottom:16px}
+.ftr-logo span{color:var(--cw)}
+.ftr-addr{font-family:'Lato',sans-serif;font-size:14px;line-height:1.9;color:rgba(255,255,255,.8)}
+.ftr-addr a{color:rgba(255,255,255,.8);transition:color .2s}
+.ftr-addr a:hover{color:var(--ca)}
+.ftr-socials{display:flex;gap:12px;margin-top:20px}
+.ftr-social{width:40px;height:40px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;transition:background .3s}
+.ftr-social:hover{background:var(--ca)}
+.ftr-social:hover svg{fill:#222}
+.ftr-social svg{fill:#fff;transition:fill .3s}
+.ftr-col h4{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--ca);letter-spacing:2px;margin-bottom:16px}
+.ftr-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ftr-col ul li a{font-family:'Lato',sans-serif;font-size:14px;color:rgba(255,255,255,.75);transition:color .2s}
+.ftr-col ul li a:hover{color:var(--ca)}
+.ftr-col p{font-family:'Lato',sans-serif;font-size:14px;line-height:1.8;color:rgba(255,255,255,.75)}
+.ftr-bottom{border-top:1px solid rgba(255,255,255,.2);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:gap}
+.ftr-bottom p{font-family:'Lato',sans-serif;font-size:13px;color:rgba(255,255,255,.6)}
+.ftr-bottom a{color:rgba(255,255,255,.8);font-weight:700;transition:color .2s}
+.ftr-bottom a:hover{color:var(--ca)}
+@media(max-width:900px){
+.srv-grid{grid-template-columns:1fr}
+.metier-grid,.metier-grid.rev{grid-template-columns:1fr;direction:ltr;gap:32px}
+.testi-grid{grid-template-columns:1fr}
+.ftr-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+.s{padding:56px 16px}
+.form-row{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:1fr}
+.ftr-bottom{flex-direction:column;gap:12px;text-align:center}
+.metier-img img{height:240px}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s s-dark" id="services">
+  <div class="inner text-center">
+    <span class="sec-label">Ce qu'on fait bien</span>
+    <div class="sec-title">L'univers <em style="color:var(--ca)">Babar</em></div>
+    <p class="sec-sub center">Un espace hybride où le café, la cuisine et la culture urbaine se rencontrent sans se demander la permission.</p>
+    <div class="srv-grid">
+      <div class="srv-card">
+        <svg class="srv-icon" viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="24" r="20" stroke="#F5C518" stroke-width="2"/>
+          <path d="M16 30c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="#F5C518" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="24" cy="18" r="3" fill="#F5C518"/>
+          <path d="M12 34h24" stroke="#C0392B" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <h3>Café & Boissons</h3>
+        <p>Espressos serrés, lattés créatifs et boissons signature préparés avec soin — à savourer au comptoir ou en terrasse sur la Promenade.</p>
+      </div>
+      <div class="srv-card">
+        <svg class="srv-icon" viewBox="0 0 48 48" fill="none">
+          <rect x="8" y="28" width="32" height="4" rx="2" fill="#F5C518"/>
+          <path d="M14 28V20a10 10 0 0 1 20 0v8" stroke="#F5C518" stroke-width="2"/>
+          <circle cx="24" cy="14" r="4" stroke="#C0392B" stroke-width="2"/>
+          <path d="M8 36h32" stroke="#F5C518" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <h3>Cuisine du Jour</h3>
+        <p>Plats généreux mijotés chaque matin, sandwichs maison et assiettes composées avec les produits du marché local — une cuisine franche et sans chichis.</p>
+      </div>
+      <div class="srv-card">
+        <svg class="srv-icon" viewBox="0 0 48 48" fill="none">
+          <path d="M24 6l4 12h12l-10 7 4 12-10-7-10 7 4-12L8 18h12z" stroke="#F5C518" stroke-width="2" stroke-linejoin="round"/>
+          <circle cx="24" cy="24" r="6" fill="#C0392B" opacity=".4"/>
+        </svg>
+        <h3>Expérience & Décor</h3>
+        <p>Sculptures d'éléphants couronnés, néons pop-art, street art intérieur : le décor est une œuvre en soi. Venez pour le café, revenez pour les yeux.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION METIER -->
+<section class="s s-light" id="about">
+  <div class="inner">
+    <div class="metier-grid">
+      <div class="metier-img">
+        <img src="https://i.ibb.co/7dbpQSMT/Babar-Cafe-1.jpg" alt="Intérieur Babar Café — décor pop-art et sculptures" loading="lazy">
+      </div>
+      <div class="metier-text">
+        <span class="sec-label">Notre philosophie</span>
+        <h2 class="sec-title dark">Un café qui <em>ose</em> vraiment</h2>
+        <p>Babar Café est né d'un refus poli mais ferme de la banalité. Sur la Promenade Roger Laroque, en plein cœur de Nouméa, cet espace revendique le droit d'être à la fois beau, bizarre et délicieux.</p>
+        <p>L'éléphant couronné qui trône en maître des lieux n'est pas là par hasard : il symbolise la souveraineté de la créativité sur le conformisme. Chaque recoin du café raconte quelque chose — il suffit de regarder.</p>
+        <ul class="checks">
+          <li>Ambiance unique pop-art et street art</li>
+          <li>Produits frais préparés sur place chaque jour</li>
+          <li>Vue sur la Promenade Roger Laroque</li>
+          <li>Ouvert 7 jours sur 7</li>
+        </ul>
+      </div>
+    </div>
+    <div class="metier-grid rev" style="margin-top:64px">
+      <div class="metier-img">
+        <img src="https://i.ibb.co/V08gLrL2/Babar-Cafe-2.jpg" alt="Détails décoratifs Babar Café Nouméa" loading="lazy">
+      </div>
+      <div class="metier-text">
+        <span class="sec-label">L'esthétique avant tout</span>
+        <h2 class="sec-title dark">Manger avec <em>les yeux</em> aussi</h2>
+        <p>Le décor de Babar Café est pensé comme une installation permanente : chaque visite révèle un détail nouveau. Les néons, les objets chinés et les fresques murales créent une atmosphère qui résiste à toute classification.</p>
+        <p>Une adresse qui s'assume pleinement décalée, colorée, et fièrement nouméenne — parce que Nouméa mérite mieux que les murs blancs.</p>
+        <ul class="checks">
+          <li>Sculptures et objets iconoclastes</li>
+          <li>Néons et installations lumineuses</li>
+          <li>Fresques street art originales</li>
+          <li>Espace instagrammable assumé</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s s-dark" id="ambiance">
+  <div class="inner text-center">
+    <span class="sec-label">Dans les moindres détails</span>
+    <div class="sec-title">L'ambiance <em style="color:var(--ca)">en images</em></div>
+    <p class="sec-sub center">Quatre murs, mille histoires. Le décor de Babar Café parle plus fort que les mots.</p>
+    <div class="gal-grid">
+      <div class="gal-item" data-src="https://i.ibb.co/cMwBXhv/Babar-Cafe-0.jpg">
+        <img src="https://i.ibb.co/cMwBXhv/Babar-Cafe-0.jpg" alt="Babar Café Nouméa — vue générale" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/7dbpQSMT/Babar-Cafe-1.jpg">
+        <img src="https://i.ibb.co/7dbpQSMT/Babar-Cafe-1.jpg" alt="Babar Café — décor intérieur pop-art" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/V08gLrL2/Babar-Cafe-2.jpg">
+        <img src="https://i.ibb.co/V08gLrL2/Babar-Cafe-2.jpg" alt="Babar Café — ambiance et sculptures" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/bMR7qZJ7/Babar-Cafe-3.jpg">
+        <img src="https://i.ibb.co/bMR7qZJ7/Babar-Cafe-3.jpg" alt="Babar Café — détails décoratifs" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true">
+  <span class="lb-close" id="lb-close" aria-label="Fermer">×</span>
+  <img src="" alt="Photo Babar Café" id="lb-img">
+</div>
+
+<!-- FORMULAIRE -->
+<section class="s s-light" id="contact">
+  <div class="inner text-center">
+    <span class="sec-label">On vous attend</span>
+    <div class="sec-title dark">Réservez ou <em style="color:var(--cs)">contactez-nous</em></div>
+    <p class="sec-sub center" style="color:var(--cd)">Une table, une question, une idée folle ? Écrivez-nous ou appelez le <a href="tel:260870" style="color:var(--cs);font-weight:700">26.08.70</a>.</p>
+    <div class="form-wrap">
+      <form id="cf" action="#" novalidate>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="fname">Nom</label>
+            <input type="text" id="fname" name="nom" placeholder="Votre nom" required>
+          </div>
+          <div class="form-field">
+            <label for="femail">Email</label>
+            <input type="email" id="femail" name="email" placeholder="votre@email.com" required>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="ftel">Téléphone</label>
+          <input type="tel" id="ftel" name="telephone" placeholder="XX.XX.XX">
+        </div>
+        <div class="form-field">
+          <label for="fmsg">Message</label>
+          <textarea id="fmsg" name="message" placeholder="Votre message, demande de réservation…" required></textarea>
+        </div>
+        <button type="submit" class="form-submit" id="fsub">Envoyer le message</button>
+      </form>
+      <div class="form-success" id="fok">
+        <p>✓ Message envoyé — nous vous répondons très vite !</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s s-dark" id="avis">
+  <div class="inner text-center">
+    <span class="sec-label">Ce que Nouméa en pense</span>
+    <div class="sec-title">Ils ont <em style="color:var(--ca)">osé</em> venir</div>
+    <div class="avis-hero">
+      <div class="avis-stars">★★★★☆</div>
+      <div class="avis-score">4/5</div>
+      <div class="avis-count">Basé sur 240 avis Google vérifiés</div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Un endroit absolument unique à Nouméa. Le décor est dingue, les boissons sont bonnes, et on a envie de photographier chaque coin du café."</blockquote>
+        <cite>— Marie-Laure T.</cite>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★☆</div>
+        <blockquote>"L'éléphant couronné en impose ! L'ambiance pop-art est vraiment soignée, ça change totalement des cafés classiques. On y retourne avec plaisir."</blockquote>
+        <cite>— Romain D.</cite>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Le meilleur café branché de la Promenade, sans hésitation. Créatif, coloré, et on se sent bien. Une adresse incontournable à Nouméa."</blockquote>
+        <cite>— Anaïs K.</cite>
+      </div>
+    </div>
+    <div class="badges">
+      <div class="badge">★ 4/5 Google</div>
+      <div class="badge">240 avis vérifiés</div>
+      <div class="badge">Ouvert 7j/7</div>
+      <div class="badge">Promenade Roger Laroque</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ftr" id="footer">
+  <div class="ftr-inner">
+    <div class="ftr-grid">
+      <div>
+        <div class="ftr-logo">Babar<span>Café</span></div>
+        <div class="ftr-addr">
+          7, Promenade Roger Laroque<br>
+          Nouméa 98800, Nouvelle-Calédonie<br><br>
+          <a href="tel:260870">☎ 26.08.70</a>
+        </div>
+        <div class="ftr-socials">
+          <a href="https://www.facebook.com/BABARCAFENOUMEA" target="_blank" rel="noopener" class="ftr-social" aria-label="Facebook Babar Café">
+            <svg width="20" height="20" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="ftr-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#services">Le café</a></li>
+          <li><a href="#about">Notre histoire</a></li>
+          <li><a href="#ambiance">Ambiance</a></li>
+          <li><a href="#avis">Avis</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="ftr-col">
+        <h4>Horaires</h4>
+        <p>Lundi — Vendredi<br>7h00 – 17h00</p>
+        <p style="margin-top:12px">Samedi — Dimanche<br>8h00 – 17h00</p>
+        <p style="margin-top:16px;font-size:12px;opacity:.6">Horaires susceptibles de varier — appelez pour confirmer.</p>
+      </div>
+    </div>
+    <div class="ftr-bottom">
+      <p>© 2026 Babar Cafe. Tous droits réservés.</p>
+      <p>Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+var gi=document.querySelectorAll('.gal-item'),lb=document.getElementById('lb'),lbi=document.getElementById('lb-img');
+gi.forEach(function(el){el.addEventListener('click',function(){lbi.src=el.getAttribute('data-src');lb.classList.add('open')})});
+document.getElementById('lb-close').addEventListener('click',function(){lb.classList.remove('open')});
+lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('open')});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('open')});
+var cf=document.getElementById('cf'),fok=document.getElementById('fok'),fsub=document.getElementById('fsub');
+cf.addEventListener('submit',function(e){
+  e.preventDefault();
+  var n=document.getElementById('fname').value.trim(),em=document.getElementById('femail').value.trim(),msg=document.getElementById('fmsg').value.trim();
+  if(!n||!em||!msg){fsub.textContent='Remplissez les champs requis.';return}
+  fsub.textContent='Envoi…';fsub.disabled=true;
+  setTimeout(function(){cf.style.display='none';fok.style.display='block'},900);
+});
+</script>
+</body>
+</html>
