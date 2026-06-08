@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ginger LBTP NC — Nouméa</title>
+<meta name="description" content="Bureau d'études Ginger LBTP NC à Nouméa, Nouvelle-Calédonie. Expertise technique, réactivité locale, accompagnement sur mesure pour vos projets de construction et d'ingénierie.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#1C3F6E;
+--cs:#5BAD6F;
+--ca:#5BAD6F;
+--ct:#1C3F6E;
+--cb:#FFFFFF;
+--cg:#F5F5F5;
+--cd:#E8E8E8;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',system-ui,sans-serif;color:var(--ct);background:var(--cb);overflow-x:hidden;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU PROMO */
+.promo{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;text-align:center}
+.promo a{font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;line-height:44px;letter-spacing:.3px;color:#4375ff;display:block;width:100%}
+.promo a:hover{opacity:.85}
+
+/* HEADER */
+.header{position:fixed;top:44px;left:0;width:100%;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);z-index:1000;border-bottom:1px solid var(--cd);transition:box-shadow .3s}
+.header.scrolled{box-shadow:0 2px 20px rgba(28,63,110,.1)}
+.hinner{max-width:1200px;margin:0 auto;padding:0 24px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{font-weight:800;font-size:18px;color:var(--cp);letter-spacing:-.3px;flex-shrink:0}
+.logo span{color:var(--cs)}
+.nav{display:flex;align-items:center;gap:32px}
+.nav a{font-size:13px;font-weight:600;color:var(--cp);letter-spacing:.5px;text-transform:uppercase;position:relative;padding-bottom:2px}
+.nav a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--cs);transition:width .3s}
+.nav a:hover::after{width:100%}
+.hcta{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:.5px;padding:10px 20px;border-radius:4px;transition:all .3s;cursor:pointer;border:none;min-height:40px}
+.btn-outline{background:transparent;border:2px solid var(--cp);color:var(--cp)}
+.btn-outline:hover{background:var(--cp);color:#fff}
+.btn-primary{background:var(--cs);color:#fff}
+.btn-primary:hover{background:#4a9a5e;transform:translateY(-1px)}
+.btn-tel{font-size:13px;font-weight:700;color:var(--cp);display:flex;align-items:center;gap:6px}
+.btn-tel svg{flex-shrink:0}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--cp);transition:all .3s;border-radius:2px}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-nav{display:none;position:fixed;top:112px;left:0;width:100%;background:#fff;border-top:1px solid var(--cd);padding:24px;flex-direction:column;gap:20px;z-index:999;box-shadow:0 8px 24px rgba(28,63,110,.1)}
+.mobile-nav.open{display:flex}
+.mobile-nav a{font-size:15px;font-weight:600;color:var(--cp);padding:12px 0;border-bottom:1px solid var(--cd)}
+.mobile-nav .btn{width:100%;margin-top:8px;min-height:48px;font-size:15px}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding-top:112px;background-image:url('https://i.ibb.co/ksdZWTrh/Ginger-LBTP-NC-0.jpg');background-size:cover;background-position:center;background-repeat:no-repeat}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(28,63,110,.88) 0%,rgba(28,63,110,.65) 50%,rgba(28,63,110,.45) 100%)}
+.hero-inner{position:relative;max-width:1200px;margin:0 auto;padding:80px 24px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.hero-content{color:#fff}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(91,173,111,.2);border:1px solid rgba(91,173,111,.4);border-radius:24px;padding:6px 16px;font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#7ed49a;margin-bottom:24px}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--cs);display:block}
+.h1{font-size:clamp(32px,4vw,52px);font-weight:800;line-height:1.15;letter-spacing:-1px;margin-bottom:20px;color:#fff}
+.h1 span{color:#7ed49a}
+.hero-sub{font-size:clamp(15px,1.6vw,18px);font-weight:400;color:rgba(255,255,255,.85);margin-bottom:36px;max-width:520px;line-height:1.7}
+.hero-ctas{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.btn-hero-primary{background:var(--cs);color:#fff;padding:16px 32px;font-size:15px;font-weight:700;border-radius:4px;min-height:52px}
+.btn-hero-primary:hover{background:#4a9a5e;transform:translateY(-2px);box-shadow:0 8px 24px rgba(91,173,111,.3)}
+.btn-hero-outline{background:transparent;border:2px solid rgba(255,255,255,.6);color:#fff;padding:16px 32px;font-size:15px;font-weight:700;border-radius:4px;min-height:52px}
+.btn-hero-outline:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.hero-card{background:rgba(255,255,255,.08);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:32px;display:flex;flex-direction:column;gap:24px}
+.hero-stat{display:flex;align-items:flex-start;gap:16px}
+.hero-stat-icon{width:44px;height:44px;background:rgba(91,173,111,.2);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hero-stat-text strong{display:block;font-size:22px;font-weight:800;color:#fff;line-height:1}
+.hero-stat-text span{font-size:13px;color:rgba(255,255,255,.7);font-weight:500}
+.hero-divider{height:1px;background:rgba(255,255,255,.1)}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.5);font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase}
+.scroll-dot{width:1px;height:40px;background:rgba(255,255,255,.3);position:relative;overflow:hidden;border-radius:1px}
+.scroll-dot::after{content:'';position:absolute;top:-40px;left:0;width:100%;height:40px;background:rgba(255,255,255,.7);animation:scrolldown 2s infinite ease-in-out}
+@keyframes scrolldown{0%{top:-40px}100%{top:40px}}
+
+/* STATS BAND */
+.stats{background:var(--cp);padding:56px 24px}
+.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.stat-item{text-align:center;position:relative}
+.stat-item:not(:last-child)::after{content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);height:60%;width:1px;background:rgba(255,255,255,.15)}
+.stat-num{font-size:clamp(36px,4vw,52px);font-weight:800;color:#fff;line-height:1;letter-spacing:-2px;display:block}
+.stat-num span{color:var(--cs)}
+.stat-label{font-size:13px;font-weight:600;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:.8px;margin-top:8px;display:block}
+
+/* UTILS */
+.sr{max-width:1200px;margin:0 auto;padding:0 24px}
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+.hero-inner{grid-template-columns:1fr;gap:40px;text-align:center}
+.hero-sub{max-width:100%;margin-left:auto;margin-right:auto}
+.hero-ctas{justify-content:center}
+.hero-card{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.hero-divider{display:none}
+}
+@media(max-width:768px){
+.nav{display:none}
+.hcta .btn-outline,.hcta .btn-tel{display:none}
+.hamburger{display:flex}
+.promo a{font-size:13px;line-height:40px}
+.promo{height:40px}
+.header{top:40px}
+.mobile-nav{top:108px}
+.hero{padding-top:108px}
+.hero-inner{padding:48px 16px 80px}
+.hero-card{grid-template-columns:1fr}
+.btn-hero-primary,.btn-hero-outline{width:100%;justify-content:center}
+.stats-inner{grid-template-columns:repeat(2,1fr);gap:24px}
+.stat-item:not(:last-child)::after{display:none}
+}
+@media(max-width:480px){
+.hinner{padding:0 16px}
+.logo{font-size:16px}
+.stats{padding:40px 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="hinner">
+    <a href="#accueil" class="logo">Ginger<span> LBTP NC</span></a>
+    <nav class="nav">
+      <a href="#services">Services</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#processus">Méthode</a>
+      <a href="#equipe">Équipe</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="hcta">
+      <a href="tel:+68725070" class="btn-tel">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7a2 2 0 011.72 2.02z"/></svg>
+        25.00.70
+      </a>
+      <a href="#contact" class="btn btn-primary">Demander un devis</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="#services" class="mobile-link">Services</a>
+  <a href="#expertise" class="mobile-link">Expertise</a>
+  <a href="#processus" class="mobile-link">Méthode</a>
+  <a href="#equipe" class="mobile-link">Équipe</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+  <a href="tel:+68725070" class="btn btn-outline">📞 25.00.70</a>
+  <a href="#contact" class="btn btn-primary">Demander un devis</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">Bureau d'études · Nouméa</div>
+      <h1 class="h1">Vos projets techniques,<br><span>menés avec rigueur</span><br>en Nouvelle-Calédonie</h1>
+      <p class="hero-sub">Ginger LBTP NC accompagne collectivités et entreprises calédoniennes face aux contraintes réglementaires, au contexte insulaire et aux exigences de délais. Une expertise locale au service de vos enjeux.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-hero-primary">Obtenir un devis gratuit</a>
+        <a href="#services" class="btn btn-hero-outline">Découvrir nos services</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-stat">
+        <div class="hero-stat-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5BAD6F" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="hero-stat-text">
+          <strong>Réactivité locale</strong>
+          <span>Interlocuteur unique basé à Nouméa, disponible sur vos chantiers</span>
+        </div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5BAD6F" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="hero-stat-text">
+          <strong>Conformité garantie</strong>
+          <span>Maîtrise des normes et réglementations en vigueur en Nouvelle-Calédonie</span>
+        </div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5BAD6F" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="hero-stat-text">
+          <strong>Suivi rigoureux</strong>
+          <span>Études précises et rapports détaillés à chaque phase de votre projet</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>Découvrir</span>
+    <div class="scroll-dot"></div>
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<section class="stats" id="stats">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <strong class="stat-num" data-target="15"><span>0</span></strong>
+      <span class="stat-label">Années d'expérience</span>
+    </div>
+    <div class="stat-item">
+      <strong class="stat-num" data-target="200"><span>0</span></strong>
+      <span class="stat-label">Projets réalisés</span>
+    </div>
+    <div class="stat-item">
+      <strong class="stat-num" data-target="98"><span>0</span><span style="font-size:.6em;color:var(--cs)">%</span></strong>
+      <span class="stat-label">Clients satisfaits</span>
+    </div>
+    <div class="stat-item">
+      <strong class="stat-num" data-target="100"><span>0</span><span style="font-size:.6em;color:var(--cs)">%</span></strong>
+      <span class="stat-label">Ancrage calédonien</span>
+    </div>
+  </div>
+</section>
+
+<script>
+var hdr=document.getElementById('header');
+var hmb=document.getElementById('hamburger');
+var mnv=document.getElementById('mobile-nav');
+window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>10)});
+hmb.addEventListener('click',function(){
+  var o=hmb.classList.toggle('open');
+  mnv.classList.toggle('open',o);
+  hmb.setAttribute('aria-expanded',o);
+});
+mnv.querySelectorAll('a').forEach(function(l){l.addEventListener('click',function(){hmb.classList.remove('open');mnv.classList.remove('open');hmb.setAttribute('aria-expanded',false)})});
+(function(){
+  var els=document.querySelectorAll('[data-target]');
+  var done=false;
+  function run(){
+    if(done)return;
+    var r=document.querySelector('.stats').getBoundingClientRect();
+    if(r.top<window.innerHeight*.9){
+      done=true;
+      els.forEach(function(el){
+        var t=+el.getAttribute('data-target');
+        var s=el.querySelector('span');
+        var d=0;
+        var step=Math.ceil(t/40);
+        var iv=setInterval(function(){d=Math.min(d+step,t);s.textContent=d;if(d>=t)clearInterval(iv)},40);
+      });
+    }
+  }
+  window.addEventListener('scroll',run);
+  run();
+})();
+</script>
+<style>
+.s{padding:80px 24px}
+.sg{background:var(--cg)}
+.stitle{text-align:center;margin-bottom:56px}
+.stitle h2{font-size:clamp(26px,3vw,40px);font-weight:800;color:var(--cp);letter-spacing:-1px;line-height:1.2;margin-bottom:12px}
+.stitle p{font-size:15px;color:#555;max-width:560px;margin:0 auto;line-height:1.7}
+.stitle .accent-line{width:48px;height:3px;background:var(--cs);margin:16px auto 0;border-radius:2px}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1200px;margin:0 auto}
+.svc-card{background:#fff;border:1px solid var(--cd);border-radius:8px;padding:32px 28px;transition:all .3s;position:relative;overflow:hidden}
+.svc-card::before{content:'';position:absolute;bottom:0;left:0;width:100%;height:3px;background:var(--cs);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.svc-card:hover{box-shadow:0 12px 40px rgba(28,63,110,.1);transform:translateY(-4px)}
+.svc-card:hover::before{transform:scaleX(1)}
+.svc-ico{width:52px;height:52px;background:rgba(91,173,111,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.svc-card h3{font-size:17px;font-weight:700;color:var(--cp);margin-bottom:10px;line-height:1.3}
+.svc-card p{font-size:14px;color:#555;line-height:1.7;margin-bottom:20px}
+.svc-link{font-size:13px;font-weight:700;color:var(--cp);display:inline-flex;align-items:center;gap:6px;border-bottom:2px solid transparent;padding-bottom:2px;transition:border-color .3s}
+.svc-link:hover{border-color:var(--cs)}
+.svc-link svg{transition:transform .3s}
+.svc-link:hover svg{transform:translateX(4px)}
+.met-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.met-inner.rev{direction:rtl}
+.met-inner.rev>*{direction:ltr}
+.met-img{border-radius:8px;overflow:hidden;aspect-ratio:4/3;position:relative}
+.met-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.met-img:hover img{transform:scale(1.03)}
+.met-img-badge{position:absolute;bottom:20px;left:20px;background:var(--cp);color:#fff;padding:10px 16px;border-radius:6px;font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+.met-content h2{font-size:clamp(24px,2.5vw,36px);font-weight:800;color:var(--cp);line-height:1.25;letter-spacing:-.5px;margin-bottom:16px}
+.met-content p{font-size:15px;color:#444;line-height:1.8;margin-bottom:24px}
+.met-checks{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
+.met-checks li{display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#333;font-weight:500}
+.met-checks li svg{flex-shrink:0;margin-top:2px}
+.prob-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.prob-item{background:#fff;border-radius:8px;padding:28px 24px;border:1px solid var(--cd)}
+.prob-problem{display:flex;align-items:center;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px dashed var(--cd)}
+.prob-problem span{font-size:13px;font-weight:700;color:#c0392b}
+.prob-arrow{display:flex;justify-content:center;margin:8px 0;color:var(--cs)}
+.prob-solution{display:flex;align-items:center;gap:10px;margin-top:8px}
+.prob-solution span{font-size:13px;font-weight:700;color:var(--cs)}
+.proc-wrap{max-width:1000px;margin:0 auto}
+.proc-steps{display:flex;align-items:flex-start;gap:0;position:relative}
+.proc-steps::before{content:'';position:absolute;top:28px;left:28px;right:28px;height:2px;background:var(--cs);z-index:0}
+.proc-step{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;z-index:1}
+.proc-num{width:56px;height:56px;border-radius:50%;background:var(--cp);color:#fff;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;border:3px solid #fff;box-shadow:0 0 0 2px var(--cs)}
+.proc-step h4{font-size:14px;font-weight:700;color:var(--cp);margin-bottom:6px}
+.proc-step p{font-size:12px;color:#666;line-height:1.6;padding:0 8px}
+.gal-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.gal-item{border-radius:8px;overflow:hidden;cursor:pointer;aspect-ratio:1;position:relative}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-item::after{content:'';position:absolute;inset:0;background:rgba(28,63,110,0);transition:background .3s}
+.gal-item:hover::after{background:rgba(28,63,110,.2)}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;display:none;align-items:center;justify-content:center;padding:24px}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:85vh;object-fit:contain;border-radius:4px}
+.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:32px;cursor:pointer;line-height:1;opacity:.8;transition:opacity .2s}
+.lb-close:hover{opacity:1}
+.frm-wrap{max-width:720px;margin:0 auto}
+.frm-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+.frm-field{display:flex;flex-direction:column;gap:6px}
+.frm-field label{font-size:12px;font-weight:700;color:var(--cp);text-transform:uppercase;letter-spacing:.6px}
+.frm-field input,.frm-field textarea{font-family:'Montserrat',sans-serif;font-size:14px;color:var(--ct);background:#fff;border:1.5px solid var(--cd);border-radius:4px;padding:12px 14px;outline:none;transition:border-color .3s;width:100%}
+.frm-field input:focus,.frm-field textarea:focus{border-color:var(--cp)}
+.frm-field input.err,.frm-field textarea.err{border-color:#c0392b}
+.frm-field textarea{resize:vertical;min-height:120px}
+.frm-full{grid-column:1/-1}
+.frm-submit{display:flex;align-items:center;gap:16px;margin-top:8px;flex-wrap:wrap}
+.btn-submit{background:var(--cs);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;padding:16px 36px;border:none;border-radius:4px;cursor:pointer;transition:all .3s;min-height:52px;min-width:200px;display:flex;align-items:center;justify-content:center;gap:10px}
+.btn-submit:hover{background:#4a9a5e;transform:translateY(-1px)}
+.frm-note{font-size:12px;color:#888}
+.frm-success{display:none;background:rgba(91,173,111,.1);border:1.5px solid var(--cs);border-radius:8px;padding:24px 28px;text-align:center;margin-top:24px}
+.frm-success.show{display:block}
+.frm-success strong{font-size:17px;color:var(--cp);display:block;margin-bottom:6px}
+.frm-success span{font-size:14px;color:#555}
+.ps-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:56px;align-items:start}
+.ps-score{background:var(--cp);border-radius:12px;padding:36px 28px;text-align:center;color:#fff}
+.ps-num{font-size:64px;font-weight:800;line-height:1;color:#fff;display:block}
+.ps-stars{display:flex;justify-content:center;gap:4px;margin:8px 0 12px}
+.ps-star svg{fill:#ffd500;stroke:none}
+.ps-count{font-size:13px;color:rgba(255,255,255,.65);margin-bottom:24px;display:block}
+.ps-badges{display:flex;flex-direction:column;gap:10px;margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,.15)}
+.ps-badge{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:600;color:rgba(255,255,255,.85)}
+.ps-badge svg{flex-shrink:0}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.testi-card{background:#fff;border:1px solid var(--cd);border-radius:8px;padding:24px;position:relative}
+.testi-card::before{content:'\201C';position:absolute;top:12px;right:16px;font-size:48px;color:var(--cs);opacity:.3;font-family:Georgia,serif;line-height:1}
+.testi-stars{display:flex;gap:3px;margin-bottom:12px}
+.testi-stars svg{fill:#ffd500;stroke:none}
+.testi-text{font-size:14px;color:#444;line-height:1.7;margin-bottom:16px;font-style:italic}
+.testi-author{font-size:13px;font-weight:700;color:var(--cp)}
+.testi-role{font-size:12px;color:#888;display:block}
+.footer{background:var(--cp);padding:60px 24px 0;color:rgba(255,255,255,.85)}
+.ft-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;padding-bottom:48px}
+.ft-brand{font-size:20px;font-weight:800;color:#fff;margin-bottom:16px}
+.ft-brand span{color:var(--cs)}
+.ft-about{font-size:14px;line-height:1.8;margin-bottom:24px;color:rgba(255,255,255,.7)}
+.ft-contact-item{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.75);margin-bottom:12px}
+.ft-contact-item svg{flex-shrink:0;margin-top:2px}
+.ft-contact-item a{color:rgba(255,255,255,.75);transition:color .2s}
+.ft-contact-item a:hover{color:#fff}
+.ft-col-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#fff;margin-bottom:20px}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-links a{font-size:14px;color:rgba(255,255,255,.7);transition:color .2s;display:flex;align-items:center;gap:8px}
+.ft-links a::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--cs);display:block;flex-shrink:0}
+.ft-links a:hover{color:#fff}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.1);padding:20px 0;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;max-width:1200px;margin:0 auto}
+.ft-copy{font-size:12px;color:rgba(255,255,255,.5)}
+.ft-setup{font-size:12px;color:rgba(255,255,255,.5)}
+.ft-setup a{color:rgba(255,255,255,.7);font-weight:700;transition:color .2s}
+.ft-setup a:hover{color:#fff}
+@media(max-width:1024px){
+.met-inner{grid-template-columns:1fr;gap:40px}
+.met-inner.rev{direction:ltr}
+.prob-grid{grid-template-columns:1fr 1fr}
+.ps-inner{grid-template-columns:1fr;gap:32px}
+.testi-grid{grid-template-columns:1fr 1fr}
+.ft-inner{grid-template-columns:1fr 1fr;gap:32px}
+}
+@media(max-width:768px){
+.s{padding:60px 16px}
+.svc-grid{grid-template-columns:1fr}
+.met-inner{gap:28px}
+.prob-grid{grid-template-columns:1fr}
+.proc-steps{flex-direction:column;gap:0;padding:0 0 0 28px}
+.proc-steps::before{top:0;bottom:0;left:28px;right:auto;width:2px;height:auto}
+.proc-step{flex-direction:row;align-items:flex-start;text-align:left;gap:20px;padding-bottom:32px}
+.proc-num{flex-shrink:0;width:48px;height:48px;font-size:16px}
+.proc-step-text{padding-top:8px}
+.proc-step h4{margin-bottom:4px}
+.proc-step p{padding:0}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.frm-grid{grid-template-columns:1fr}
+.frm-full{grid-column:1}
+.testi-grid{grid-template-columns:1fr}
+.ft-inner{grid-template-columns:1fr}
+.ft-bottom{flex-direction:column;text-align:center;gap:8px}
+.btn-submit{width:100%}
+}
+@media(max-width:480px){
+.gal-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+.stitle{margin-bottom:36px}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s sg" id="services">
+  <div class="sr">
+    <div class="stitle">
+      <h2>Nos domaines d'intervention</h2>
+      <p>Un bureau d'études pluridisciplinaire au service de vos projets de construction et d'infrastructure en Nouvelle-Calédonie.</p>
+      <div class="accent-line"></div>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-ico">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5BAD6F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3>Études techniques &amp; ingénierie</h3>
+        <p>Conception et dimensionnement de structures, études de sol, analyses de faisabilité. Nous traduisons vos besoins en solutions techniques fiables et durables.</p>
+        <a href="#contact" class="svc-link">Nous consulter <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-ico">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5BAD6F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M4 20V10l8-7 8 7v10"/><path d="M10 20v-6h4v6"/></svg>
+        </div>
+        <h3>Maîtrise d'œuvre</h3>
+        <p>Coordination complète de votre projet : planification, suivi de chantier, coordination des intervenants et réception des travaux. Votre projet avance, sereinement.</p>
+        <a href="#contact" class="svc-link">Nous consulter <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-ico">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5BAD6F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <h3>Contrôle &amp; vérification</h3>
+        <p>Audit technique, vérifications réglementaires et diagnostics de structures. Nous identifions les risques avant qu'ils ne deviennent des problèmes.</p>
+        <a href="#contact" class="svc-link">Nous consulter <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-ico">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5BAD6F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <h3>Assistance à maîtrise d'ouvrage</h3>
+        <p>Conseil stratégique, aide à la décision et représentation de vos intérêts face aux entreprises. Vous gardez le contrôle, nous apportons l'expertise.</p>
+        <a href="#contact" class="svc-link">Nous consulter <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-ico">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5BAD6F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        </div>
+        <h3>Études environnementales</h3>
+        <p>Intégration des contraintes locales, évaluation d'impact et conformité aux exigences environnementales calédoniennes pour des projets respectueux du territoire.</p>
+        <a href="#contact" class="svc-link">Nous consulter <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-ico">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5BAD6F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3>Conseil &amp; accompagnement</h3>
+        <p>De l'esquisse au dossier de consultation, nous vous guidons à chaque étape administrative et technique, avec une connaissance précise du contexte réglementaire local.</p>
+        <a href="#contact" class="svc-link">Nous consulter <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLÈME / SOLUTION -->
+<section class="s" id="problemes">
+  <div class="sr">
+    <div class="stitle">
+      <h2>Des défis que nous connaissons bien</h2>
+      <p>Le contexte calédonien impose ses propres contraintes. Ginger LBTP NC les anticipe pour vous.</p>
+      <div class="accent-line"></div>
+    </div>
+    <div class="prob-grid">
+      <div class="prob-item">
+        <div class="prob-problem">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span>Réglementation complexe</span>
+        </div>
+        <div class="prob-arrow">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5BAD6F" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+        </div>
+        <div class="prob-solution">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5BAD6F" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Maîtrise des normes locales</span>
+        </div>
+      </div>
+      <div class="prob-item">
+        <div class="prob-problem">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span>Délais serrés sur site isolé</span>
+        </div>
+        <div class="prob-arrow">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5BAD6F" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+        </div>
+        <div class="prob-solution">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5BAD6F" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Réactivité &amp; suivi terrain Nouméa</span>
+        </div>
+      </div>
+      <div class="prob-item">
+        <div class="prob-problem">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span>Interlocuteurs multiples &amp; dispersés</span>
+        </div>
+        <div class="prob-arrow">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5BAD6F" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+        </div>
+        <div class="prob-solution">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5BAD6F" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Un seul point de contact dédié</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s sg" id="expertise">
+  <div class="sr">
+    <div class="met-inner">
+      <div class="met-img">
+        <img src="https://i.ibb.co/kgZtSkk7/Ginger-LBTP-NC-1.jpg" alt="Expertise terrain Ginger LBTP NC" loading="lazy">
+        <div class="met-img-badge">Expertise locale</div>
+      </div>
+      <div class="met-content">
+        <h2>Un bureau d'études ancré dans la réalité calédonienne</h2>
+        <p>Depuis Nouméa, Ginger LBTP NC intervient sur des projets de toutes natures en apportant une connaissance précise du territoire, des sols, des contraintes climatiques et des acteurs locaux.</p>
+        <ul class="met-checks">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5BAD6F" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Connaissance des spécificités géotechniques et climatiques de la Grande Terre
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5BAD6F" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Veille réglementaire permanente sur les normes en vigueur en Nouvelle-Calédonie
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5BAD6F" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Réseau d'entreprises et prestataires locaux qualifiés
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5BAD6F" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Capacité d'intervention rapide sur Nouméa et ses environs
+          </li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Parler de votre projet</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="methode2">
+  <div class="sr">
+    <div class="met-inner rev">
+      <div class="met-img">
+        <img src="https://i.ibb.co/xtFqr5Zn/Ginger-LBTP-NC-2.jpg" alt="Méthode de travail Ginger LBTP NC" loading="lazy">
+        <div class="met-img-badge">Méthode rigoureuse</div>
+      </div>
+      <div class="met-content">
+        <h2>Une méthode structurée, des livrables clairs</h2>
+        <p>Chaque mission suit un protocole éprouvé, de l'analyse initiale jusqu'à la remise des documents finaux. Vous savez exactement où en est votre projet, à chaque instant.</p>
+        <ul class="met-checks">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5BAD6F" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Cadrage précis des objectifs dès la première réunion
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5BAD6F" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Rapports d'avancement réguliers et accessibles
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5BAD6F" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Livrables documentés, archivés et transmis dans les délais
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5BAD6F" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Disponibilité et réponse sous 24h en phase active
+          </li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Demander un devis</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSUS -->
+<section class="s sg" id="processus">
+  <div class="sr">
+    <div class="stitle">
+      <h2>Notre processus de travail</h2>
+      <p>Quatre étapes claires pour transformer votre besoin en réalité technique, sans surprise.</p>
+      <div class="accent-line"></div>
+    </div>
+    <div class="proc-wrap">
+      <div class="proc-steps">
+        <div class="proc-step">
+          <div class="proc-num">1</div>
+          <div class="proc-step-text">
+            <h4>Analyse &amp; cadrage</h4>
+            <p>Écoute de vos besoins, étude de faisabilité et définition du périmètre de la mission</p>
+          </div>
+        </div>
+        <div class="proc-step">
+          <div class="proc-num">2</div>
+          <div class="proc-step-text">
+            <h4>Études &amp; conception</h4>
+            <p>Production des études techniques, calculs, plans et documents réglementaires nécessaires</p>
+          </div>
+        </div>
+        <div class="proc-step">
+          <div class="proc-num">3</div>
+          <div class="proc-step-text">
+            <h4>Suivi &amp; coordination</h4>
+            <p>Accompagnement sur le terrain, coordination des intervenants et vérification de la conformité</p>
+          </div>
+        </div>
+        <div class="proc-step">
+          <div class="proc-num">4</div>
+          <div class="proc-step-text">
+            <h4>Livraison &amp; réception</h4>
+            <p>Remise des livrables finaux, réception des travaux et clôture documentaire du projet</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s" id="galerie">
+  <div class="sr">
+    <div class="stitle">
+      <h2>Nos réalisations en images</h2>
+      <p>Un aperçu de nos interventions sur le terrain en Nouvelle-Calédonie.</p>
+      <div class="accent-line"></div>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item" data-src="https://i.ibb.co/ksdZWTrh/Ginger-LBTP-NC-0.jpg">
+        <img src="https://i.ibb.co/ksdZWTrh/Ginger-LBTP-NC-0.jpg" alt="Réalisation Ginger LBTP NC 1" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/kgZtSkk7/Ginger-LBTP-NC-1.jpg">
+        <img src="https://i.ibb.co/kgZtSkk7/Ginger-LBTP-NC-1.jpg" alt="Réalisation Ginger LBTP NC 2" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/xtFqr5Zn/Ginger-LBTP-NC-2.jpg">
+        <img src="https://i.ibb.co/xtFqr5Zn/Ginger-LBTP-NC-2.jpg" alt="Réalisation Ginger LBTP NC 3" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/3Y8gKzdb/Ginger-LBTP-NC-3.jpg">
+        <img src="https://i.ibb.co/3Y8gKzdb/Ginger-LBTP-NC-3.jpg" alt="Réalisation Ginger LBTP NC 4" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lb-close" aria-label="Fermer">&times;</button>
+  <img class="lb-img" id="lb-img" src="" alt="Vue agrandie">
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section class="s sg" id="avis">
+  <div class="sr">
+    <div class="stitle">
+      <h2>La confiance de nos clients</h2>
+      <p>Collectivités, entreprises et particuliers nous font confiance pour leurs projets en Nouvelle-Calédonie.</p>
+      <div class="accent-line"></div>
+    </div>
+    <div class="ps-inner">
+      <div class="ps-score">
+        <span class="ps-num">5</span>
+        <div class="ps-stars">
+          <svg class="ps-star" width="22" height="22" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="ps-star" width="22" height="22" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="ps-star" width="22" height="22" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="ps-star" width="22" height="22" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="ps-star" width="22" height="22" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <span class="ps-count">Note Google · Bureau d'études à Nouméa</span>
+        <div class="ps-badges">
+          <div class="ps-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5BAD6F" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Expertise technique certifiée
+          </div>
+          <div class="ps-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5BAD6F" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Réactivité &amp; respect des délais
+          </div>
+          <div class="ps-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5BAD6F" stroke-width="2.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            Ancré en Nouvelle-Calédonie
+          </div>
+        </div>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="testi-stars">
+            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testi-text">« Une équipe sérieuse, à l'écoute et qui connaît vraiment les contraintes locales. Notre dossier technique a été livré dans les délais malgré un planning serré. »</p>
+          <span class="testi-author">Responsable de projets</span>
+          <span class="testi-role">Entreprise de construction, Nouméa</span>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">
+            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testi-text">« La qualité des rapports et la clarté des échanges ont facilité nos prises de décision. Ginger LBTP NC est un partenaire technique de confiance pour nos projets d'infrastructure. »</p>
+          <span class="testi-author">Directeur technique</span>
+          <span class="testi-role">Collectivité locale, Nouvelle-Calédonie</span>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">
+            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testi-text">« Très bonne réactivité et vrai savoir-faire local. L'équipe a su adapter les solutions aux contraintes spécifiques de notre site, avec professionnalisme et rigueur. »</p>
+          <span class="testi-author">Maître d'ouvrage</span>
+          <span class="testi-role">Promoteur immobilier, Nouméa</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE CONTACT -->
+<section class="s" id="contact">
+  <div class="sr">
+    <div class="stitle">
+      <h2>Parlons de votre projet</h2>
+      <p>Décrivez-nous votre besoin, nous vous répondons sous 24h depuis Nouméa.</p>
+      <div class="accent-line"></div>
+    </div>
+    <div class="frm-wrap">
+      <form id="contact-form" action="#" novalidate>
+        <div class="frm-grid">
+          <div class="frm-field">
+            <label for="f-nom">Nom complet *</label>
+            <input type="text" id="f-nom" name="nom" placeholder="Votre nom" autocomplete="name">
+          </div>
+          <div class="frm-field">
+            <label for="f-email">Adresse e-mail *</label>
+            <input type="email" id="f-email" name="email" placeholder="votre@email.com" autocomplete="email">
+          </div>
+          <div class="frm-field">
+            <label for="f-tel">Téléphone</label>
+            <input type="tel" id="f-tel" name="tel" placeholder="Ex : 25.00.70" autocomplete="tel">
+          </div>
+          <div class="frm-field">
+            <label for="f-sujet">Sujet</label>
+            <input type="text" id="f-sujet" name="sujet" placeholder="Objet de votre demande">
+          </div>
+          <div class="frm-field frm-full">
+            <label for="f-msg">Décrivez votre projet *</label>
+            <textarea id="f-msg" name="message" placeholder="Parlez-nous de votre projet, des contraintes, des délais souhaités..."></textarea>
+          </div>
+        </div>
+        <div class="frm-submit">
+          <button type="submit" class="btn-submit" id="frm-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Envoyer ma demande
+          </button>
+          <span class="frm-note">* Champs obligatoires · Réponse sous 24h</span>
+        </div>
+      </form>
+      <div class="frm-success" id="frm-success">
+        <strong>✓ Message envoyé avec succès !</strong>
+        <span>Merci pour votre demande. Notre équipe vous contactera dans les 24h depuis Nouméa.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="footer">
+  <div class="ft-inner">
+    <div>
+      <div class="ft-brand">Ginger<span> LBTP NC</span></div>
+      <p class="ft-about">Bureau d'études pluridisciplinaire basé à Nouméa, Ginger LBTP NC accompagne collectivités et entreprises calédoniennes dans leurs projets de construction et d'ingénierie avec rigueur et réactivité.</p>
+      <div class="ft-contact-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>14, BP 821 Edouard Glasser, Nouméa 98845, Nouvelle-Calédonie</span>
+      </div>
+      <div class="ft-contact-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7a2 2 0 011.72 2.02z"/></svg>
+        <a href="tel:+68725070">25.00.70</a>
+      </div>
+    </div>
+    <div>
+      <div class="ft-col-title">Navigation</div>
+      <ul class="ft-links">
+        <li><a href="#services">Nos services</a></li>
+        <li><a href="#expertise">Notre expertise</a></li>
+        <li><a href="#processus">Notre méthode</a></li>
+        <li><a href="#galerie">Réalisations</a></li>
+        <li><a href="#avis">Témoignages</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="ft-col-title">Contact</div>
+      <ul class="ft-links">
+        <li><a href="#contact">Demander un devis</a></li>
+        <li><a href="tel:+68725070">Appeler le 25.00.70</a></li>
+      </ul>
+      <div class="ft-col-title" style="margin-top:28px">Localisation</div>
+      <p style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.7">Nouméa<br>Nouvelle-Calédonie</p>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <span class="ft-copy">© 2026 Ginger LBTP NC. Tous droits réservés.</span>
+    <span class="ft-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.gal-item').forEach(function(el){
+  el.addEventListener('click',function(){
+    var lb=document.getElementById('lightbox');
+    document.getElementById('lb-img').src=el.getAttribute('data-src');
+    lb.classList.add('open');
+  });
+});
+document.getElementById('lb-close').addEventListener('click',function(){document.getElementById('lightbox').classList.remove('open')});
+document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this)this.classList.remove('open')});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('lightbox').classList.remove('open')});
+document.getElementById('contact-form').addEventListener('submit',function(e){
+  e.preventDefault();
+  var n=document.getElementById('f-nom');
+  var em=document.getElementById('f-email');
+  var msg=document.getElementById('f-msg');
+  var ok=true;
+  [n,em,msg].forEach(function(f){f.classList.remove('err')});
+  if(!n.value.trim()){n.classList.add('err');ok=false}
+  if(!em.value.trim()||!em.value.includes('@')){em.classList.add('err');ok=false}
+  if(!msg.value.trim()){msg.classList.add('err');ok=false}
+  if(!ok)return;
+  var btn=document.getElementById('frm-btn');
+  btn.textContent='Envoi en cours…';
+  btn.disabled=true;
+  setTimeout(function(){
+    document.getElementById('contact-form').style.display='none';
+    document.getElementById('frm-success').classList.add('show');
+  },900);
+});
+document.querySelectorAll('.mobile-link').forEach(function(l){
+  l.addEventListener('click',function(){
+    document.getElementById('hamburger').classList.remove('open');
+    document.getElementById('mobile-nav').classList.remove('open');
+  });
+});
+</script>
+</body>
+</html>
