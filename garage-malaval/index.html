@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Garage Malaval — Nouméa</title>
+<meta name="description" content="Carrosserie professionnelle à Nouméa, Nouvelle-Calédonie. Devis gratuit, intervention rapide, équipe certifiée. Appelez le 27.43.37.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@400;500;600&family=Manrope:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#1A4FA0;
+--cs:#CC1E1E;
+--ca:#F5C800;
+--cb:#F2F2F2;
+--ct:#1A1A1A;
+--cw:#fff;
+--cdark:#0d1f3c;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ct);background:var(--cw);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+
+/* BANDEAU PROMO */
+.promo-bar{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;display:flex;align-items:center;justify-content:center}
+.promo-bar a{font-family:"Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;letter-spacing:.3px;color:#4375ff;line-height:44px;transition:opacity .2s}
+.promo-bar a:hover{opacity:.85}
+
+/* HEADER */
+.hdr{position:fixed;top:44px;left:0;width:100%;background:var(--cdark);z-index:1000;border-bottom:3px solid var(--cp)}
+.hdr-inner{max-width:1200px;margin:0 auto;padding:0 20px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:26px;color:var(--cw);letter-spacing:.5px;line-height:1}
+.logo span{color:var(--ca)}
+.nav{display:flex;gap:24px;list-style:none}
+.nav a{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:16px;color:rgba(255,255,255,.85);letter-spacing:.5px;transition:color .2s}
+.nav a:hover{color:var(--ca)}
+.hdr-cta{display:flex;align-items:center;gap:12px}
+.tel-link{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;color:var(--ca);letter-spacing:.5px;white-space:nowrap}
+.tel-link:hover{color:var(--cw)}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;letter-spacing:.5px;padding:10px 22px;border-radius:4px;cursor:pointer;border:none;transition:background .2s,color .2s;white-space:nowrap;min-height:44px}
+.btn-primary{background:var(--cs);color:var(--cw)}
+.btn-primary:hover{background:var(--cp)}
+.btn-accent{background:var(--ca);color:var(--ct)}
+.btn-accent:hover{background:var(--cs);color:var(--cw)}
+.btn-outline{background:transparent;color:var(--cw);border:2px solid var(--cw)}
+.btn-outline:hover{background:var(--cw);color:var(--ct)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{width:26px;height:3px;background:var(--cw);border-radius:2px;transition:transform .25s,opacity .25s}
+.hamburger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+.mob-nav{display:none;flex-direction:column;background:var(--cdark);padding:12px 20px 20px;border-top:1px solid rgba(255,255,255,.1)}
+.mob-nav a{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:18px;color:rgba(255,255,255,.9);padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08);letter-spacing:.5px}
+.mob-nav a:last-child{border:none}
+.mob-nav.open{display:flex}
+
+/* HERO */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;background:url('https://i.ibb.co/XZqrqGWq/Garage-Malaval-0.jpg') center center/cover no-repeat;margin-top:112px}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(100deg,rgba(13,31,60,.92) 45%,rgba(13,31,60,.4) 100%)}
+.hero-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:80px 20px 60px;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--ca);color:var(--ct);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;letter-spacing:.8px;padding:6px 16px;border-radius:2px;margin-bottom:24px;text-transform:uppercase}
+.hero-badge::before{content:'✓';font-size:14px}
+.h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(42px,7vw,80px);color:var(--cw);line-height:1.0;letter-spacing:1px;margin-bottom:16px;text-transform:uppercase}
+.h1 em{color:var(--ca);font-style:normal}
+.hero-sub{font-family:'Inter',sans-serif;font-size:clamp(16px,2vw,20px);color:rgba(255,255,255,.85);max-width:520px;line-height:1.6;margin-bottom:32px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px}
+.hero-ctas .btn{font-size:18px;padding:14px 30px;min-height:52px}
+.trust-row{display:flex;gap:20px;flex-wrap:wrap}
+.trust-badge{display:flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:15px;color:rgba(255,255,255,.9);letter-spacing:.3px}
+.trust-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--ca);flex-shrink:0}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.5);font-size:12px;letter-spacing:1px;font-family:'Barlow Condensed',sans-serif}
+.scroll-arr{width:20px;height:30px;border:2px solid rgba(255,255,255,.35);border-radius:10px;position:relative}
+.scroll-arr::after{content:'';position:absolute;top:6px;left:50%;transform:translateX(-50%);width:4px;height:8px;background:rgba(255,255,255,.5);border-radius:2px;animation:scrolldot 1.6s infinite}
+@keyframes scrolldot{0%,100%{opacity:1;transform:translateX(-50%) translateY(0)}60%{opacity:0;transform:translateX(-50%) translateY(8px)}}
+
+/* BANDE STATS */
+.stats{background:var(--cp);padding:60px 20px;position:relative;clip-path:polygon(0 16px,100% 0,100% calc(100% - 16px),0 100%)}
+.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stat-item{padding:16px 8px}
+.stat-num{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(48px,6vw,72px);color:var(--ca);line-height:1;display:block}
+.stat-plus{color:var(--cs)}
+.stat-label{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:15px;color:rgba(255,255,255,.85);letter-spacing:.8px;text-transform:uppercase;margin-top:6px;display:block}
+
+/* SECTIONS COMMUNES */
+.s{padding:80px 20px}
+.s-inner{max-width:1200px;margin:0 auto}
+.s-tag{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--cs);margin-bottom:10px}
+.h2{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(32px,5vw,52px);line-height:1.05;letter-spacing:.5px;text-transform:uppercase;margin-bottom:16px}
+.h2-light{color:var(--cw)}
+.h3{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(20px,3vw,26px);letter-spacing:.3px}
+.s-sub{font-size:16px;color:#444;max-width:600px;line-height:1.7;margin-bottom:48px}
+.s-dark{background:var(--cdark)}
+.s-gray{background:var(--cb)}
+
+/* CARDS SERVICES */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.c{background:var(--cw);border-radius:6px;padding:32px 24px;border-top:4px solid var(--cp);box-shadow:0 2px 16px rgba(0,0,0,.07);transition:transform .2s,box-shadow .2s}
+.c:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(26,79,160,.15)}
+.c-icon{width:56px;height:56px;background:var(--cp);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.c-icon svg{width:28px;height:28px;fill:var(--cw)}
+.c-tag{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:1.5px;color:var(--ca);text-transform:uppercase;margin-bottom:6px}
+.c p{font-size:15px;color:#555;line-height:1.6;margin:8px 0 16px}
+.c .btn{font-size:14px;padding:8px 18px;min-height:40px}
+
+/* PROCESSUS */
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.process-grid::before{content:'';position:absolute;top:40px;left:12.5%;width:75%;height:3px;background:linear-gradient(90deg,var(--cp),var(--ca));z-index:0}
+.step{text-align:center;padding:0 16px;position:relative;z-index:1}
+.step-num{width:80px;height:80px;border-radius:50%;background:var(--cp);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:28px;color:var(--cw);border:4px solid var(--cb)}
+.step:nth-child(2) .step-num{background:var(--cs)}
+.step:nth-child(3) .step-num{background:var(--cp)}
+.step:nth-child(4) .step-num{background:var(--ca);color:var(--ct)}
+.step h3{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:20px;margin-bottom:8px;color:var(--ct)}
+.step p{font-size:14px;color:#555;line-height:1.6}
+
+/* GALERIE */
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.gal-item{overflow:hidden;border-radius:4px;cursor:pointer;aspect-ratio:4/3}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.gal-item:hover img{transform:scale(1.06)}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9000;align-items:center;justify-content:center}
+.lightbox.open{display:flex}
+.lightbox img{max-width:90vw;max-height:90vh;border-radius:4px}
+.lb-close{position:absolute;top:20px;right:24px;font-size:36px;color:var(--cw);cursor:pointer;background:none;border:none;line-height:1}
+
+/* FORMULAIRE */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f-group{display:flex;flex-direction:column;gap:6px}
+.f-group label{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:15px;letter-spacing:.3px;color:var(--cw)}
+.f-group input,.f-group select,.f-group textarea{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:4px;padding:12px 16px;font-size:15px;color:var(--cw);outline:none;transition:border-color .2s;font-family:'Inter',sans-serif}
+.f-group input::placeholder,.f-group textarea::placeholder{color:rgba(255,255,255,.4)}
+.f-group input:focus,.f-group select:focus,.f-group textarea:focus{border-color:var(--ca)}
+.f-group.full{grid-column:1/-1}
+.f-group textarea{min-height:120px;resize:vertical}
+.f-group select option{background:var(--cdark);color:var(--cw)}
+.form-msg{display:none;padding:14px 20px;border-radius:4px;font-weight:600;font-family:'Barlow Condensed',sans-serif;font-size:16px;letter-spacing:.3px;margin-top:12px}
+.form-msg.ok{background:rgba(245,200,0,.15);color:var(--ca);border:1px solid var(--ca);display:block}
+.form-msg.err{background:rgba(204,30,30,.15);color:#ff6b6b;border:1px solid #ff6b6b;display:block}
+
+/* AVIS */
+.star{color:var(--cs);font-size:22px}
+.note-big{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:72px;color:var(--cp);line-height:1}
+.avis-card{background:var(--cw);border-radius:6px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.08);border-left:4px solid var(--ca)}
+.avis-card p{font-size:15px;line-height:1.7;color:#444;font-style:italic;margin-bottom:12px}
+.avis-card strong{font-family:'Barlow Condensed',sans-serif;font-size:16px;letter-spacing:.3px;color:var(--ct)}
+
+/* FOOTER */
+.ftr{background:#070f1c;padding:60px 20px 24px}
+.ftr-inner{max-width:1200px;margin:0 auto}
+.ftr-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:48px}
+.ftr-logo{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:28px;color:var(--cw);margin-bottom:12px}
+.ftr-logo span{color:var(--ca)}
+.ftr p{font-size:14px;color:rgba(255,255,255,.6);line-height:1.8}
+.ftr h4{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;color:var(--cw);letter-spacing:.5px;margin-bottom:16px;text-transform:uppercase}
+.ftr ul{list-style:none}
+.ftr ul li{margin-bottom:10px}
+.ftr ul li a{font-size:14px;color:rgba(255,255,255,.6);transition:color .2s}
+.ftr ul li a:hover{color:var(--ca)}
+.ftr-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.ftr-bottom p{font-size:13px;color:rgba(255,255,255,.4)}
+.ftr-bottom a{color:var(--ca);font-weight:600}
+.ftr-tel{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:24px;color:var(--ca);display:block;margin-bottom:8px}
+
+/* BADGES ANIMÉS */
+.badge-pulse{animation:pulse-gold 2.4s ease-in-out infinite}
+@keyframes pulse-gold{0%,100%{box-shadow:0 0 0 0 rgba(245,200,0,.5)}60%{box-shadow:0 0 0 8px rgba(245,200,0,0)}}
+
+/* REVEAL FALLBACK */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.grid-3{grid-template-columns:1fr 1fr}
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+.process-grid{grid-template-columns:repeat(2,1fr);gap:32px}
+.process-grid::before{display:none}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.ftr-grid{grid-template-columns:1fr 1fr}
+.nav{display:none}
+.hamburger{display:flex}
+}
+@media(max-width:600px){
+.grid-3{grid-template-columns:1fr}
+.grid-2{grid-template-columns:1fr}
+.hero-ctas .btn{width:100%}
+.form-grid{grid-template-columns:1fr}
+.hdr-inner{padding:0 16px}
+.stats-inner{grid-template-columns:1fr 1fr}
+.ftr-grid{grid-template-columns:1fr}
+.ftr-bottom{flex-direction:column;text-align:center}
+.promo-bar a{font-size:13px;line-height:40px}
+.promo-bar{height:40px}
+.hdr{top:40px}
+.hero{margin-top:108px}
+.stats{clip-path:polygon(0 8px,100% 0,100% calc(100% - 8px),0 100%)}
+.gal-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:375px){
+.h1{font-size:36px}
+.hero-inner{padding:60px 16px 48px}
+.s{padding:60px 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo-bar">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr" id="top">
+  <div class="hdr-inner">
+    <a href="#top" class="logo">MALAVAL<span>.</span></a>
+    <ul class="nav">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#processus">Processus</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#avis">Avis</a></li>
+      <li><a href="#devis">Devis</a></li>
+    </ul>
+    <div class="hdr-cta">
+      <a href="tel:274337" class="tel-link">☎ 27.43.37</a>
+      <a href="#devis" class="btn btn-primary">Devis gratuit</a>
+    </div>
+    <button class="hamburger" id="hbg" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mob-nav" id="mobnav">
+    <a href="#services" onclick="closeNav()">Services</a>
+    <a href="#processus" onclick="closeNav()">Processus</a>
+    <a href="#galerie" onclick="closeNav()">Galerie</a>
+    <a href="#avis" onclick="closeNav()">Avis</a>
+    <a href="#devis" onclick="closeNav()">Devis gratuit</a>
+    <a href="tel:274337" style="color:#F5C800;margin-top:4px">☎ 27.43.37</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-badge badge-pulse">Devis gratuit &amp; sans engagement</div>
+    <h1 class="h1">Carrosserie<br><em>Malaval</em><br>Vos véhicules<br>entre experts.</h1>
+    <p class="hero-sub">Depuis des années au cœur de Nouméa, nous redonnons à votre véhicule son état d'origine — avec rigueur, honnêteté et rapidité.</p>
+    <div class="hero-ctas">
+      <a href="tel:274337" class="btn btn-accent">☎ Appeler maintenant</a>
+      <a href="#devis" class="btn btn-outline">Demander un devis</a>
+    </div>
+    <div class="trust-row">
+      <span class="trust-badge"><span class="dot"></span>Intervention rapide</span>
+      <span class="trust-badge"><span class="dot"></span>Équipe certifiée</span>
+      <span class="trust-badge"><span class="dot"></span>Note Google 4.3/5</span>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>Découvrir</span>
+    <div class="scroll-arr"></div>
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<section class="stats" id="stats">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <span class="stat-num" data-target="20">0</span>
+      <span class="stat-plus" style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(36px,4vw,56px);color:#CC1E1E">+</span>
+      <span class="stat-label">Années d'expérience</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="1500">0</span>
+      <span class="stat-plus" style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(36px,4vw,56px);color:#CC1E1E">+</span>
+      <span class="stat-label">Véhicules réparés</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="4">0</span>
+      <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(36px,4vw,56px);color:#F5C800">.3/5</span>
+      <span class="stat-label">Note Google</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="13">0</span>
+      <span class="stat-plus" style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(36px,4vw,56px);color:#CC1E1E"> avis</span>
+      <span class="stat-label">Clients satisfaits</span>
+    </div>
+  </div>
+</section>
+
+<script>
+var hbg=document.getElementById('hbg'),mn=document.getElementById('mobnav');
+hbg.addEventListener('click',function(){hbg.classList.toggle('open');mn.classList.toggle('open')});
+function closeNav(){hbg.classList.remove('open');mn.classList.remove('open')}
+
+function animCount(el){
+var target=+el.dataset.target,dur=1800,start=null;
+function step(ts){
+if(!start)start=ts;
+var p=Math.min((ts-start)/dur,1),val=Math.floor(p*target);
+el.textContent=val.toLocaleString('fr-FR');
+if(p<1)requestAnimationFrame(step);
+}
+requestAnimationFrame(step);
+}
+var counted=false;
+var statsObs=new IntersectionObserver(function(entries){
+if(entries[0].isIntersecting&&!counted){
+counted=true;
+document.querySelectorAll('[data-target]').forEach(function(el){animCount(el)});
+}
+},{threshold:.3});
+statsObs.observe(document.getElementById('stats'));
+</script>
+<!-- SERVICES -->
+<section class="s s-gray" id="services">
+<div class="s-inner">
+<p class="s-tag">Nos prestations</p>
+<h2 class="h2">Ce que nous faisons,<br>nous le faisons bien.</h2>
+<p class="s-sub">Carrosserie, peinture, réparation : chaque intervention est réalisée avec soin dans notre atelier de Nouméa.</p>
+<div class="grid-3">
+<div class="c">
+<div class="c-icon">
+<svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 19.54L5.71 21l1-1.27c.44.7 1.2 1.27 2.29 1.27C11 21 11 19 13 19s2 2 4 2 2-2 2-2h1l1-5H6.5L7 11h13l-3-3z"/></svg>
+</div>
+<p class="c-tag">Sur devis</p>
+<h3 class="h3">Carrosserie générale</h3>
+<p>Réparation de chocs, débosselage, remplacement de pièces — nous remettons votre carrosserie en état d'origine.</p>
+<a href="#devis" class="btn btn-primary">Demander un devis</a>
+</div>
+<div class="c">
+<div class="c-icon" style="background:var(--cs)">
+<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/></svg>
+</div>
+<p class="c-tag">Sur devis</p>
+<h3 class="h3">Peinture &amp; finition</h3>
+<p>Retouche localisée ou peinture complète. Teintes ajustées au nuancier constructeur pour un rendu impeccable.</p>
+<a href="#devis" class="btn btn-primary">Demander un devis</a>
+</div>
+<div class="c">
+<div class="c-icon">
+<svg viewBox="0 0 24 24"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>
+</div>
+<p class="c-tag">Sur devis</p>
+<h3 class="h3">Débosselage sans peinture</h3>
+<p>Petits chocs et impacts traités sans repeinture grâce aux techniques de débosselage à froid. Rapide et économique.</p>
+<a href="#devis" class="btn btn-primary">Demander un devis</a>
+</div>
+<div class="c">
+<div class="c-icon" style="background:var(--cs)">
+<svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.85 7h10.29l1.08 3.11H5.77L6.85 7zM19 17H5v-5h14v5z"/><circle cx="7.5" cy="14.5" r="1.5"/><circle cx="16.5" cy="14.5" r="1.5"/></svg>
+</div>
+<p class="c-tag">Sur devis</p>
+<h3 class="h3">Pare-chocs &amp; optiques</h3>
+<p>Remplacement ou réparation de pare-chocs, rétroviseurs, phares et feux. Pièces adaptées à votre véhicule.</p>
+<a href="#devis" class="btn btn-primary">Demander un devis</a>
+</div>
+<div class="c">
+<div class="c-icon">
+<svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4l5 2.18V11c0 3.5-2.33 6.79-5 7.93-2.67-1.14-5-4.43-5-7.93V7.18L12 5z"/></svg>
+</div>
+<p class="c-tag">Sur devis</p>
+<h3 class="h3">Vitrage automobile</h3>
+<p>Remplacement de pare-brise, vitres latérales et lunette arrière. Intervention soignée, joints garantis.</p>
+<a href="#devis" class="btn btn-primary">Demander un devis</a>
+</div>
+<div class="c">
+<div class="c-icon" style="background:var(--cs)">
+<svg viewBox="0 0 24 24"><path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.58 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>
+</div>
+<p class="c-tag">Sur devis</p>
+<h3 class="h3">Expertise &amp; diagnostic</h3>
+<p>Évaluation complète des dommages après sinistre. Rapport détaillé pour votre assurance, sans frais cachés.</p>
+<a href="#devis" class="btn btn-primary">Demander un devis</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PROCESSUS -->
+<section class="s" id="processus">
+<div class="s-inner">
+<p class="s-tag">Notre méthode</p>
+<h2 class="h2">4 étapes, zéro surprise.</h2>
+<p class="s-sub">Du premier appel à la restitution de votre véhicule, nous vous tenons informé à chaque étape.</p>
+<div class="process-grid">
+<div class="step">
+<div class="step-num">1</div>
+<h3>Appel</h3>
+<p>Appelez-nous au 27.43.37. Nous évaluons votre situation et convenons d'un rendez-vous adapté.</p>
+</div>
+<div class="step">
+<div class="step-num">2</div>
+<h3>Diagnostic</h3>
+<p>Examen complet du véhicule en atelier. Devis gratuit, précis et sans engagement remis en main propre.</p>
+</div>
+<div class="step">
+<div class="step-num">3</div>
+<h3>Réparation</h3>
+<p>Nos techniciens interviennent avec les techniques et matériaux adaptés à votre modèle de véhicule.</p>
+</div>
+<div class="step">
+<div class="step-num">4</div>
+<h3>Restitution</h3>
+<p>Votre véhicule vous est restitué propre, contrôlé et conforme. On ne vous rend pas une voiture — on vous rend votre voiture.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s s-dark" id="metier">
+<div class="s-inner">
+<p class="s-tag" style="color:var(--ca)">Notre savoir-faire</p>
+<h2 class="h2 h2-light">Un garage ancré<br>à Nouméa.</h2>
+<div class="metier-grid">
+<div class="metier-txt">
+<p class="metier-p">Comme tous les véhicules de Nouméa, le vôtre subit le climat tropical — humidité, chaleur intense, rayonnement UV. Chez Garage Malaval, nous connaissons ces contraintes et adaptons nos techniques de peinture et de traitement en conséquence.</p>
+<p class="metier-p">Notre atelier de la Rue Réaumur accueille toutes les marques, tous les modèles. Pas de jargon inutile : nous vous expliquons ce qui est cassé, comment nous le réparons, et combien ça coûte — avant de toucher au véhicule.</p>
+<ul class="metier-list">
+<li><span class="chk">✓</span>Devis gratuit écrit avant toute intervention</li>
+<li><span class="chk">✓</span>Techniciens expérimentés, outillage professionnel</li>
+<li><span class="chk">✓</span>Peinture adaptée aux conditions climatiques calédoniennes</li>
+<li><span class="chk">✓</span>Suivi de dossier assurance pris en charge</li>
+</ul>
+<a href="tel:274337" class="btn btn-accent" style="margin-top:24px;display:inline-flex">☎ 27.43.37 — Appelez-nous</a>
+</div>
+<div class="metier-img">
+<img src="https://i.ibb.co/Y429pvZr/Garage-Malaval-1.jpg" alt="Atelier Garage Malaval Nouméa" loading="lazy">
+</div>
+</div>
+</div>
+</section>
+
+<!-- GALERIE -->
+<section class="s s-gray" id="galerie">
+<div class="s-inner">
+<p class="s-tag">Nos réalisations</p>
+<h2 class="h2">Le travail parle<br>de lui-même.</h2>
+<div class="gal-grid">
+<div class="gal-item" data-src="https://i.ibb.co/XZqrqGWq/Garage-Malaval-0.jpg">
+<img src="https://i.ibb.co/XZqrqGWq/Garage-Malaval-0.jpg" alt="Garage Malaval Nouméa" loading="lazy">
+</div>
+<div class="gal-item" data-src="https://i.ibb.co/Y429pvZr/Garage-Malaval-1.jpg">
+<img src="https://i.ibb.co/Y429pvZr/Garage-Malaval-1.jpg" alt="Carrosserie Malaval atelier" loading="lazy">
+</div>
+<div class="gal-item" data-src="https://i.ibb.co/tpdLYwCz/Garage-Malaval-2.jpg">
+<img src="https://i.ibb.co/tpdLYwCz/Garage-Malaval-2.jpg" alt="Réparation carrosserie Nouméa" loading="lazy">
+</div>
+<div class="gal-item" data-src="https://i.ibb.co/rfs2scvg/Garage-Malaval-3.jpg">
+<img src="https://i.ibb.co/rfs2scvg/Garage-Malaval-3.jpg" alt="Peinture automobile Garage Malaval" loading="lazy">
+</div>
+</div>
+</div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lb">
+<button class="lb-close" id="lb-close">✕</button>
+<img src="" id="lb-img" alt="Photo Garage Malaval">
+</div>
+
+<!-- FORMULAIRE -->
+<section class="s s-dark" id="devis">
+<div class="s-inner">
+<p class="s-tag" style="color:var(--ca)">Devis gratuit</p>
+<h2 class="h2 h2-light">Votre devis en<br>quelques lignes.</h2>
+<p class="s-sub" style="color:rgba(255,255,255,.75)">Décrivez votre véhicule et votre problème. Nous vous recontactons rapidement.</p>
+<form class="form-grid" id="frm" action="#" novalidate>
+<div class="f-group">
+<label for="fn">Votre nom</label>
+<input type="text" id="fn" name="nom" placeholder="Jean Dupont" required>
+</div>
+<div class="f-group">
+<label for="ft">Téléphone</label>
+<input type="tel" id="ft" name="tel" placeholder="27 XX XX" required>
+</div>
+<div class="f-group">
+<label for="fe">Email</label>
+<input type="email" id="fe" name="email" placeholder="votre@email.com">
+</div>
+<div class="f-group">
+<label for="fv">Marque &amp; modèle</label>
+<input type="text" id="fv" name="vehicule" placeholder="Ex : Toyota Hilux 2019">
+</div>
+<div class="f-group">
+<label for="fk">Kilométrage</label>
+<input type="text" id="fk" name="km" placeholder="Ex : 85 000 km">
+</div>
+<div class="f-group">
+<label for="fs">Type de prestation</label>
+<select id="fs" name="service">
+<option value="">Sélectionner...</option>
+<option>Carrosserie générale</option>
+<option>Peinture &amp; finition</option>
+<option>Débosselage sans peinture</option>
+<option>Pare-chocs &amp; optiques</option>
+<option>Vitrage automobile</option>
+<option>Expertise &amp; diagnostic</option>
+</select>
+</div>
+<div class="f-group full">
+<label for="fm">Décrivez le problème</label>
+<textarea id="fm" name="message" placeholder="Décrivez les dommages, les circonstances si sinistre..."></textarea>
+</div>
+<div class="full">
+<button type="submit" class="btn btn-accent" id="fsub" style="width:100%;font-size:18px;padding:16px 24px;min-height:56px">Envoyer ma demande de devis</button>
+<div class="form-msg" id="fmsg"></div>
+</div>
+</form>
+</div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s" id="avis">
+<div class="s-inner">
+<p class="s-tag">Avis clients</p>
+<h2 class="h2">Ce que disent<br>nos clients.</h2>
+<div class="avis-top">
+<div class="avis-score">
+<span class="note-big">4.3</span>
+<div class="avis-score-right">
+<div class="stars-row">
+<span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star" style="opacity:.45">★</span>
+</div>
+<p class="avis-count">13 avis Google vérifiés</p>
+<a href="https://www.google.com/maps/search/Garage+Malaval+Noum%C3%A9a" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:12px;font-size:15px;padding:10px 20px">Voir sur Google Maps</a>
+</div>
+</div>
+<div class="grid-3 avis-cards">
+<div class="avis-card">
+<div class="stars-row" style="margin-bottom:10px"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+<p>"Travail soigné, délai respecté et prix honnête. Mon véhicule est ressorti impeccable après un choc arrière important."</p>
+<strong>— Marie T., Nouméa</strong>
+</div>
+<div class="avis-card">
+<div class="stars-row" style="margin-bottom:10px"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+<p>"Équipe professionnelle et accueillante. Devis clair, sans mauvaises surprises. Je recommande sans hésiter."</p>
+<strong>— Patrick L., Nouméa</strong>
+</div>
+<div class="avis-card">
+<div class="stars-row" style="margin-bottom:10px"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star" style="opacity:.45">★</span></div>
+<p>"Bonne prise en charge, le résultat est là. La peinture est parfaitement assortie. Je reviendrai si besoin."</p>
+<strong>— Sandra K., Nouvelle-Calédonie</strong>
+</div>
+</div>
+</div>
+<div class="badges-row">
+<div class="trust-chip badge-pulse">
+<span class="chip-icon">✓</span>
+<span>Devis gratuit</span>
+</div>
+<div class="trust-chip badge-pulse" style="animation-delay:.6s">
+<span class="chip-icon">⚡</span>
+<span>Intervention rapide</span>
+</div>
+<div class="trust-chip badge-pulse" style="animation-delay:1.2s">
+<span class="chip-icon">★</span>
+<span>Note Google 4.3/5</span>
+</div>
+<div class="trust-chip badge-pulse" style="animation-delay:1.8s">
+<span class="chip-icon">🛡</span>
+<span>Prise en charge assurance</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ftr" id="contact">
+<div class="ftr-inner">
+<div class="ftr-grid">
+<div>
+<div class="ftr-logo">MALAVAL<span>.</span></div>
+<p>Carrosserie professionnelle au cœur de Nouméa.<br>Votre véhicule entre de bonnes mains.</p>
+<a href="tel:274337" class="ftr-tel" style="margin-top:16px">27.43.37</a>
+<p>Lun–Ven : 7h30–17h00<br>Sam : 7h30–12h00</p>
+</div>
+<div>
+<h4>Navigation</h4>
+<ul>
+<li><a href="#services">Nos services</a></li>
+<li><a href="#processus">Notre méthode</a></li>
+<li><a href="#galerie">Galerie</a></li>
+<li><a href="#avis">Avis clients</a></li>
+<li><a href="#devis">Devis gratuit</a></li>
+</ul>
+</div>
+<div>
+<h4>Nous trouver</h4>
+<p>Garage Malaval<br>14 bis, Rue Réaumur<br>Nouméa 98800<br>Nouvelle-Calédonie</p>
+<a href="https://www.google.com/maps/search/Garage+Malaval+Noum%C3%A9a" target="_blank" rel="noopener" class="ftr-map-link">Voir sur Google Maps →</a>
+</div>
+</div>
+<div class="ftr-bottom">
+<p>© 2026 Garage Malaval. Tous droits réservés.</p>
+<p>Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+</div>
+</div>
+</footer>
+
+<style>
+.metier-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.metier-txt{color:rgba(255,255,255,.85)}
+.metier-p{font-size:16px;line-height:1.8;margin-bottom:16px}
+.metier-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:8px}
+.metier-list li{font-size:15px;color:rgba(255,255,255,.85);display:flex;align-items:flex-start;gap:10px;line-height:1.5}
+.chk{color:var(--ca);font-weight:700;font-size:16px;flex-shrink:0;margin-top:1px}
+.metier-img{border-radius:6px;overflow:hidden;border:3px solid var(--cp)}
+.metier-img img{width:100%;height:100%;object-fit:cover;display:block}
+.avis-top{display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:start;margin-bottom:40px}
+.avis-score{display:flex;align-items:center;gap:20px}
+.avis-score-right{display:flex;flex-direction:column}
+.stars-row{display:flex;gap:2px}
+.avis-count{font-size:14px;color:#666;margin-top:4px;font-family:'Barlow Condensed',sans-serif;font-weight:600;letter-spacing:.3px}
+.avis-cards{margin-top:0}
+.badges-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:40px;justify-content:center}
+.trust-chip{display:flex;align-items:center;gap:10px;background:var(--cw);border:2px solid var(--ca);border-radius:40px;padding:10px 20px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;letter-spacing:.4px;color:var(--ct)}
+.chip-icon{color:var(--cs);font-size:18px;line-height:1}
+.ftr-map-link{display:inline-block;margin-top:12px;font-size:14px;color:var(--ca);font-family:'Barlow Condensed',sans-serif;font-weight:600;transition:opacity .2s}
+.ftr-map-link:hover{opacity:.75}
+@media(max-width:900px){
+.metier-grid{grid-template-columns:1fr;gap:32px}
+.avis-top{grid-template-columns:1fr;gap:24px}
+.avis-cards{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+.badges-row{gap:10px}
+.trust-chip{font-size:13px;padding:8px 14px}
+.metier-grid{gap:24px}
+.avis-score{flex-direction:column;align-items:flex-start;gap:10px}
+.note-big{font-size:56px}
+}
+</style>
+
+<script>
+var lb=document.getElementById('lb'),lbi=document.getElementById('lb-img'),lbc=document.getElementById('lb-close');
+document.querySelectorAll('.gal-item').forEach(function(el){
+el.addEventListener('click',function(){lbi.src=el.dataset.src;lb.classList.add('open')});
+});
+lbc.addEventListener('click',function(){lb.classList.remove('open')});
+lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('open')});
+
+document.getElementById('frm').addEventListener('submit',function(e){
+e.preventDefault();
+var msg=document.getElementById('fmsg'),btn=document.getElementById('fsub');
+var fn=document.getElementById('fn').value.trim(),ft=document.getElementById('ft').value.trim();
+if(!fn||!ft){msg.className='form-msg err';msg.textContent='Merci de renseigner votre nom et votre téléphone.';return;}
+btn.textContent='Envoi en cours...';btn.disabled=true;
+setTimeout(function(){
+btn.textContent='Envoyer ma demande de devis';btn.disabled=false;
+msg.className='form-msg ok';
+msg.textContent='✓ Votre demande a bien été envoyée. Nous vous recontactons rapidement au '+ft+'.';
+document.getElementById('frm').reset();
+},1200);
+});
+</script>
+</body>
+</html>
