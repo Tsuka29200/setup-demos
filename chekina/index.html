@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHEKINA — Nouméa</title>
+<meta name="description" content="CHEKINA, votre boutique de chaussures urbaines à Nouméa. Collections tendance, conseil personnalisé et style accessible au cœur de la Nouvelle-Calédonie.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Nunito:wght@400;600&family=Manrope:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#2B3A6B;
+--cs:#C8B99A;
+--ca:#D4762A;
+--cb:#F5F0E8;
+--ct:#1A2550;
+--cw:#ffffff;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Nunito',sans-serif;color:var(--ct);background:var(--cb);overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Josefin Sans',sans-serif;letter-spacing:0.04em}
+.lyr{font-family:'Cormorant Garamond',serif}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+
+/* BANDEAU PROMO */
+.promo-bar{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;display:flex;align-items:center;justify-content:center}
+.promo-bar a{font-family:'Manrope','Nunito',system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;letter-spacing:0.3px;line-height:44px;opacity:1;transition:opacity .2s}
+.promo-bar a:hover{opacity:.85}
+
+/* HEADER */
+.hdr{position:fixed;top:44px;left:0;width:100%;height:64px;background:var(--cp);z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 40px;transition:box-shadow .3s}
+.hdr.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.25)}
+.logo{font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:22px;color:var(--cw);letter-spacing:.12em}
+.logo span{color:var(--ca)}
+.nav{display:flex;align-items:center;gap:32px}
+.nav a{font-family:'Josefin Sans',sans-serif;font-size:13px;font-weight:600;color:var(--cs);letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+.nav a:hover{color:var(--cw)}
+.hdr-cta{background:var(--ca);color:var(--cw);font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:10px 22px;border-radius:6px;border:2px solid var(--ca);transition:background .2s,color .2s}
+.hdr-cta:hover{background:transparent;color:var(--ca)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.burger span{width:24px;height:2px;background:var(--cw);border-radius:2px;transition:transform .3s,opacity .3s}
+.mob-nav{display:none;position:fixed;top:108px;left:0;width:100%;background:var(--cp);padding:24px 24px 32px;z-index:999;flex-direction:column;gap:20px}
+.mob-nav a{font-family:'Josefin Sans',sans-serif;font-size:15px;font-weight:600;color:var(--cs);letter-spacing:.08em;text-transform:uppercase;padding:10px 0;border-bottom:1px solid rgba(200,185,154,.15)}
+.mob-nav .hdr-cta{margin-top:8px;text-align:center;width:100%}
+.mob-nav.open{display:flex}
+
+/* HERO */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;padding-top:108px}
+.hero-bg{position:absolute;inset:0;background-image:url('https://i.ibb.co/NgsJdftB/CHEKINA-0.jpg');background-size:cover;background-position:center;z-index:0}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(43,58,107,.92) 0%,rgba(43,58,107,.82) 45%,rgba(43,58,107,.30) 70%,rgba(43,58,107,.05) 100%);z-index:1}
+.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px;width:100%}
+.hero-txt{display:flex;flex-direction:column;gap:24px}
+.hero-tag{font-family:'Josefin Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--cs);display:flex;align-items:center;gap:10px}
+.hero-tag::before{content:'';width:32px;height:2px;background:var(--ca)}
+.hero-h1{font-size:clamp(2.4rem,5vw,4rem);font-weight:700;color:var(--cw);line-height:1.1;letter-spacing:.03em}
+.hero-h1 em{font-style:normal;color:var(--ca)}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,2vw,1.4rem);font-style:italic;color:var(--cs);line-height:1.6;max-width:420px}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px}
+.btn-p{background:var(--ca);color:var(--cw);font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:14px;letter-spacing:.08em;text-transform:uppercase;padding:14px 28px;border-radius:8px;border:2px solid var(--ca);transition:background .25s,color .25s;cursor:pointer;min-height:48px;display:inline-flex;align-items:center}
+.btn-p:hover{background:transparent;color:var(--ca)}
+.btn-s{background:transparent;color:var(--cw);font-family:'Josefin Sans',sans-serif;font-weight:600;font-size:14px;letter-spacing:.08em;text-transform:uppercase;padding:14px 28px;border-radius:8px;border:2px solid var(--cs);transition:border-color .25s,color .25s;cursor:pointer;min-height:48px;display:inline-flex;align-items:center}
+.btn-s:hover{border-color:var(--cw);color:var(--cw)}
+.hero-right{display:flex;align-items:center;justify-content:center}
+.hero-badge{display:flex;flex-direction:column;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(200,185,154,.3);border-radius:12px;padding:28px 32px;backdrop-filter:blur(8px)}
+.hero-badge .stars{color:var(--ca);font-size:20px;letter-spacing:2px}
+.hero-badge .note{font-family:'Josefin Sans',sans-serif;font-size:2rem;font-weight:700;color:var(--cw)}
+.hero-badge .label{font-size:12px;color:var(--cs);letter-spacing:.08em;text-align:center}
+.scroll-ind{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--cs);font-family:'Josefin Sans',sans-serif;font-size:11px;letter-spacing:.15em;text-transform:uppercase}
+.scroll-ind::after{content:'';width:1px;height:36px;background:linear-gradient(to bottom,var(--cs),transparent);animation:scrollpulse 1.8s ease-in-out infinite}
+@keyframes scrollpulse{0%,100%{opacity:.4;transform:scaleY(.8)}50%{opacity:1;transform:scaleY(1)}}
+
+/* STATS */
+.stats{background:var(--cp);padding:56px 40px}
+.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
+.stat-item{display:flex;flex-direction:column;align-items:center;gap:8px}
+.stat-num{font-family:'Josefin Sans',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--ca)}
+.stat-lbl{font-family:'Josefin Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--cs)}
+.stat-sep{width:32px;height:2px;background:rgba(200,185,154,.35);margin:0 auto}
+
+/* REVEAL FALLBACK */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.hero-inner{grid-template-columns:1fr;gap:32px}
+.hero-right{display:none}
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+.hdr{padding:0 20px}
+.nav{display:none}
+.burger{display:flex}
+}
+@media(max-width:480px){
+.promo-bar{height:40px}
+.promo-bar a{font-size:13px;line-height:40px;padding:0 12px;text-align:center}
+.hdr{height:60px;top:40px}
+.mob-nav{top:100px}
+.hero{padding-top:100px}
+.hero-inner{padding:0 16px}
+.hero-btns{flex-direction:column}
+.btn-p,.btn-s{width:100%;justify-content:center}
+.stats{padding:40px 16px}
+.stats-inner{grid-template-columns:repeat(2,1fr);gap:24px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo-bar">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr" id="hdr">
+  <a href="#" class="logo">CHE<span>K</span>INA</a>
+  <nav class="nav">
+    <a href="#services">Collections</a>
+    <a href="#galerie">Inspirations</a>
+    <a href="#equipe">Équipe</a>
+    <a href="#temoignages">Avis</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a href="tel:+687249044" class="hdr-cta nav">24.90.44</a>
+  <div class="burger" id="burger" aria-label="Menu" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-nav" id="mob-nav">
+  <a href="#services" class="mob-link">Collections</a>
+  <a href="#galerie" class="mob-link">Inspirations</a>
+  <a href="#equipe" class="mob-link">Équipe</a>
+  <a href="#temoignages" class="mob-link">Avis</a>
+  <a href="#contact" class="mob-link">Contact</a>
+  <a href="tel:+687249044" class="hdr-cta">Appeler — 24.90.44</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-txt">
+      <p class="hero-tag">Boutique à Nouméa</p>
+      <h1 class="hero-h1">Trouver <em>la paire</em><br>qui raconte<br>votre histoire</h1>
+      <p class="hero-sub">Des modèles colorés et tendance, sélectionnés pour les femmes urbaines de Nouvelle-Calédonie.</p>
+      <div class="hero-btns">
+        <a href="#services" class="btn-p">Découvrir les collections</a>
+        <a href="#contact" class="btn-s">Prendre rendez-vous</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-badge">
+        <div class="stars">★★★★★</div>
+        <div class="note">4,7 / 5</div>
+        <div class="label">Note Google<br>Avis clients Nouméa</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-ind">Découvrir</div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="stats">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <span class="stat-num" data-target="500">0</span>
+      <div class="stat-sep"></div>
+      <span class="stat-lbl">Modèles disponibles</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="4.7">0</span>
+      <div class="stat-sep"></div>
+      <span class="stat-lbl">Note Google / 5</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="10">0</span>
+      <div class="stat-sep"></div>
+      <span class="stat-lbl">Ans de style à Nouméa</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="100">0</span>
+      <div class="stat-sep"></div>
+      <span class="stat-lbl">% conseil personnalisé</span>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+var h=document.getElementById('hdr'),b=document.getElementById('burger'),mn=document.getElementById('mob-nav');
+window.addEventListener('scroll',function(){h.classList.toggle('scrolled',window.scrollY>20)});
+b.addEventListener('click',function(){mn.classList.toggle('open')});
+mn.querySelectorAll('.mob-link').forEach(function(l){l.addEventListener('click',function(){mn.classList.remove('open')})});
+var nums=document.querySelectorAll('.stat-num[data-target]'),done=false;
+function animate(){
+if(done)return;done=true;
+nums.forEach(function(el){
+var t=parseFloat(el.dataset.target),dec=t%1!==0,s=0,dur=1600,st=performance.now();
+function step(n){
+var p=Math.min((n-st)/dur,1),v=p*t;
+el.textContent=dec?v.toFixed(1):Math.floor(v)+(el===nums[1]?'':'+');
+if(p<1)requestAnimationFrame(step);else el.textContent=dec?t.toFixed(1):t+(el===nums[1]?'':'+');
+}
+requestAnimationFrame(step);
+});
+}
+var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)animate()})},{threshold:.4});
+obs.observe(document.querySelector('.stats'));
+})();
+</script>
+<style>
+.s{padding:80px 40px}
+.s-inner{max-width:1200px;margin:0 auto}
+.s-tag{font-family:'Josefin Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ca);display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.s-tag::before{content:'';width:32px;height:2px;background:var(--ca)}
+.s-h2{font-family:'Josefin Sans',sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:var(--ct);letter-spacing:.04em;margin-bottom:12px}
+.s-sub{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:#6b7a9e;margin-bottom:48px;max-width:560px}
+
+/* SERVICES */
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.srv-c{background:var(--cw);border-radius:12px;padding:36px 28px;border:1px solid rgba(200,185,154,.4);transition:box-shadow .3s,transform .3s;display:flex;flex-direction:column;gap:16px}
+.srv-c:hover{box-shadow:0 12px 36px rgba(43,58,107,.12);transform:translateY(-4px)}
+.srv-ico{width:48px;height:48px;background:rgba(212,118,42,.1);border-radius:8px;display:flex;align-items:center;justify-content:center}
+.srv-ico svg{width:24px;height:24px;stroke:var(--ca);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.srv-h3{font-family:'Josefin Sans',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ct)}
+.srv-p{font-size:.9rem;color:#5a6580;line-height:1.7}
+.srv-lnk{font-family:'Josefin Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ca);display:inline-flex;align-items:center;gap:6px;margin-top:auto;border-bottom:1px solid var(--ca);padding-bottom:2px;align-self:flex-start;transition:opacity .2s}
+.srv-lnk:hover{opacity:.7}
+
+/* METIER */
+.met{background:var(--cb)}
+.met-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.met-grid.rev{direction:rtl}
+.met-grid.rev>*{direction:ltr}
+.met-img{border-radius:12px;overflow:hidden;aspect-ratio:4/5}
+.met-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.met-img:hover img{transform:scale(1.03)}
+.met-txt{display:flex;flex-direction:column;gap:20px}
+.met-h3{font-family:'Josefin Sans',sans-serif;font-size:clamp(1.4rem,2.5vw,2rem);font-weight:700;color:var(--ct);letter-spacing:.04em}
+.met-body{font-size:.95rem;color:#5a6580;line-height:1.8}
+.met-pts{display:flex;flex-direction:column;gap:12px;margin-top:8px}
+.met-pt{display:flex;align-items:flex-start;gap:12px;font-size:.9rem;color:var(--ct)}
+.met-pt svg{width:18px;height:18px;flex-shrink:0;margin-top:2px;fill:var(--ca)}
+
+/* GALERIE */
+.gal{background:var(--cw)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.gal-item{border-radius:10px;overflow:hidden;cursor:pointer;aspect-ratio:3/4;position:relative}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gal-item:hover img{transform:scale(1.05)}
+.gal-item::after{content:'';position:absolute;inset:0;background:rgba(43,58,107,0);transition:background .3s}
+.gal-item:hover::after{background:rgba(43,58,107,.25)}
+.lb{display:none;position:fixed;inset:0;background:rgba(10,14,30,.92);z-index:2000;align-items:center;justify-content:center;padding:24px}
+.lb.open{display:flex}
+.lb-img{max-width:90vw;max-height:85vh;border-radius:10px;object-fit:contain}
+.lb-cls{position:absolute;top:20px;right:24px;background:none;border:none;cursor:pointer;color:var(--cw);font-size:32px;line-height:1;font-family:'Josefin Sans',sans-serif;opacity:.8;transition:opacity .2s}
+.lb-cls:hover{opacity:1}
+
+/* FORMULAIRE */
+.frm{background:var(--cp)}
+.frm .s-tag::before{background:var(--cs)}
+.frm .s-tag{color:var(--cs)}
+.frm .s-h2{color:var(--cw)}
+.frm .s-sub{color:var(--cs)}
+.frm-wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.frm-info{display:flex;flex-direction:column;gap:24px}
+.frm-info-item{display:flex;align-items:flex-start;gap:14px}
+.frm-info-item svg{width:20px;height:20px;stroke:var(--ca);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;margin-top:2px}
+.frm-info-item p{font-size:.9rem;color:var(--cs);line-height:1.6}
+.frm-info-item strong{color:var(--cw);font-family:'Josefin Sans',sans-serif;display:block;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+.form{display:flex;flex-direction:column;gap:16px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f-inp{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(200,185,154,.3);border-radius:8px;padding:14px 18px;color:var(--cw);font-family:'Nunito',sans-serif;font-size:.95rem;outline:none;transition:border-color .2s}
+.f-inp::placeholder{color:rgba(200,185,154,.5)}
+.f-inp:focus{border-color:var(--ca)}
+textarea.f-inp{resize:vertical;min-height:120px}
+.f-err{display:none;color:#ff8c69;font-size:.8rem;margin-top:-8px}
+.f-success{display:none;background:rgba(212,118,42,.15);border:1px solid var(--ca);border-radius:8px;padding:18px 22px;color:var(--cw);font-family:'Josefin Sans',sans-serif;font-size:.95rem;letter-spacing:.04em;text-align:center}
+
+/* PREUVE SOCIALE */
+.ps{background:var(--cb)}
+.ps-top{display:flex;align-items:center;gap:40px;margin-bottom:56px;flex-wrap:wrap}
+.ps-note{background:var(--cp);border-radius:12px;padding:28px 36px;display:flex;flex-direction:column;align-items:center;gap:8px;min-width:180px}
+.ps-note .big{font-family:'Josefin Sans',sans-serif;font-size:3rem;font-weight:700;color:var(--cw);line-height:1}
+.ps-note .stars{color:var(--ca);font-size:18px;letter-spacing:2px}
+.ps-note .lbl{font-size:.8rem;color:var(--cs);letter-spacing:.08em;text-align:center}
+.ps-badges{display:flex;flex-direction:column;gap:12px}
+.ps-badge{display:flex;align-items:center;gap:10px;font-family:'Josefin Sans',sans-serif;font-size:.82rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ct)}
+.ps-badge svg{width:20px;height:20px;flex-shrink:0;fill:var(--ca)}
+.tst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.tst-c{background:var(--cw);border-radius:12px;padding:28px;border:1px solid rgba(200,185,154,.35);display:flex;flex-direction:column;gap:12px}
+.tst-stars{color:var(--ca);font-size:14px;letter-spacing:1px}
+.tst-txt{font-size:.9rem;color:#5a6580;line-height:1.7;font-style:italic}
+.tst-auth{font-family:'Josefin Sans',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ct)}
+.tst-date{font-size:.78rem;color:#9aa0b4}
+
+/* FOOTER */
+.ftr{background:var(--cp);padding:56px 40px 32px}
+.ftr-inner{max-width:1200px;margin:0 auto}
+.ftr-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.ftr-logo{font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:20px;color:var(--cw);letter-spacing:.12em;margin-bottom:16px}
+.ftr-logo span{color:var(--ca)}
+.ftr-desc{font-size:.88rem;color:var(--cs);line-height:1.7;max-width:280px}
+.ftr-h4{font-family:'Josefin Sans',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cs);margin-bottom:16px;opacity:.7}
+.ftr-links{display:flex;flex-direction:column;gap:10px}
+.ftr-links a{font-size:.88rem;color:rgba(200,185,154,.7);transition:color .2s}
+.ftr-links a:hover{color:var(--cw)}
+.ftr-addr{font-size:.88rem;color:rgba(200,185,154,.7);line-height:1.7}
+.ftr-addr a{color:var(--ca);transition:opacity .2s}
+.ftr-addr a:hover{opacity:.7}
+.ftr-soc{display:flex;gap:14px;margin-top:20px;align-items:center}
+.ftr-soc a{width:40px;height:40px;border-radius:8px;border:1px solid rgba(200,185,154,.25);display:flex;align-items:center;justify-content:center;transition:border-color .2s,background .2s}
+.ftr-soc a:hover{background:rgba(212,118,42,.15);border-color:var(--ca)}
+.ftr-soc svg{width:20px;height:20px;fill:var(--cs)}
+.ftr-bot{border-top:1px solid rgba(200,185,154,.15);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.ftr-copy{font-size:.8rem;color:rgba(200,185,154,.5);letter-spacing:.04em}
+.ftr-setup{font-size:.8rem;color:rgba(200,185,154,.4);letter-spacing:.04em}
+.ftr-setup a{color:var(--ca);transition:opacity .2s}
+.ftr-setup a:hover{opacity:.7}
+
+@media(max-width:900px){
+.srv-grid{grid-template-columns:1fr}
+.met-grid,.met-grid.rev{grid-template-columns:1fr;gap:32px;direction:ltr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.frm-wrap{grid-template-columns:1fr}
+.tst-grid{grid-template-columns:1fr}
+.ftr-top{grid-template-columns:1fr;gap:32px}
+.ps-top{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:480px){
+.s{padding:56px 16px}
+.f-row{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+.ftr{padding:40px 16px 24px}
+.ftr-bot{flex-direction:column;align-items:flex-start}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s" id="services">
+  <div class="s-inner">
+    <p class="s-tag">Collections &amp; Conseils</p>
+    <h2 class="s-h2">Vos pieds méritent<br>du style au quotidien</h2>
+    <p class="s-sub">Sélection soignée, conseil humain, modèles pour chaque occasion.</p>
+    <div class="srv-grid">
+      <div class="srv-c">
+        <div class="srv-ico">
+          <svg viewBox="0 0 24 24"><path d="M3 17h18M3 17l2-7h14l2 7M8 17v2m8-2v2M6 10l1-5h10l1 5"/></svg>
+        </div>
+        <h3 class="srv-h3">Collections tendance</h3>
+        <p class="srv-p">Des modèles colorés et actuels, renouvelés régulièrement pour suivre les tendances mode tout en restant accessibles.</p>
+        <a href="#contact" class="srv-lnk">Découvrir →</a>
+      </div>
+      <div class="srv-c">
+        <div class="srv-ico">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </div>
+        <h3 class="srv-h3">Conseil personnalisé</h3>
+        <p class="srv-p">Nos conseillères vous accompagnent pour trouver la paire parfaite selon votre morphologie, vos habitudes et votre style.</p>
+        <a href="#contact" class="srv-lnk">Prendre rendez-vous →</a>
+      </div>
+      <div class="srv-c">
+        <div class="srv-ico">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        </div>
+        <h3 class="srv-h3">Style accessible</h3>
+        <p class="srv-p">Des chaussures pour toutes les bourses, du quotidien à la sortie, dans un registre féminin et urbain adapté au rythme nouméen.</p>
+        <a href="#contact" class="srv-lnk">Voir les collections →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s met" id="metier">
+  <div class="s-inner">
+    <div class="met-grid">
+      <div class="met-img">
+        <img src="https://i.ibb.co/KpHrwF8z/CHEKINA-1.jpg" alt="Boutique CHEKINA Nouméa" loading="lazy">
+      </div>
+      <div class="met-txt">
+        <p class="s-tag">Notre histoire</p>
+        <h3 class="met-h3">Une boutique pensée pour la femme urbaine de Nouméa</h3>
+        <p class="met-body">Au cœur de Nouméa, CHEKINA propose une sélection de chaussures qui allie style contemporain et confort du quotidien. Derrière la façade sobre aux marquises beige de la rue de Sébastopol se cache un univers coloré, accessible et authentiquement féminin.</p>
+        <div class="met-pts">
+          <div class="met-pt">
+            <svg viewBox="0 0 20 20"><path d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zm4.293 7.293l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L8.5 10.086l4.293-4.293a1 1 0 011.414 1.414z"/></svg>
+            <span>Modèles renouvelés chaque saison</span>
+          </div>
+          <div class="met-pt">
+            <svg viewBox="0 0 20 20"><path d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zm4.293 7.293l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L8.5 10.086l4.293-4.293a1 1 0 011.414 1.414z"/></svg>
+            <span>Conseil humain et sans pression</span>
+          </div>
+          <div class="met-pt">
+            <svg viewBox="0 0 20 20"><path d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zm4.293 7.293l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L8.5 10.086l4.293-4.293a1 1 0 011.414 1.414z"/></svg>
+            <span>Prix accessibles pour toutes les occasions</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="met-grid rev" style="margin-top:64px">
+      <div class="met-img">
+        <img src="https://i.ibb.co/dscm2Mt3/CHEKINA-2.jpg" alt="Collections chaussures CHEKINA" loading="lazy">
+      </div>
+      <div class="met-txt">
+        <p class="s-tag">Notre sélection</p>
+        <h3 class="met-h3">Des modèles colorés pour chaque moment de votre journée</h3>
+        <p class="met-body">Du déplacement urbain à la sortie en soirée, CHEKINA a sélectionné des modèles qui s'adaptent au rythme de la vie nouméenne — confort tropical, esthétique affirmée, sans compromis sur le style.</p>
+        <div class="met-pts">
+          <div class="met-pt">
+            <svg viewBox="0 0 20 20"><path d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zm4.293 7.293l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L8.5 10.086l4.293-4.293a1 1 0 011.414 1.414z"/></svg>
+            <span>Chaussures ouvertes et fermées adaptées au climat</span>
+          </div>
+          <div class="met-pt">
+            <svg viewBox="0 0 20 20"><path d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zm4.293 7.293l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L8.5 10.086l4.293-4.293a1 1 0 011.414 1.414z"/></svg>
+            <span>Palettes de coloris tendance et exclusives</span>
+          </div>
+          <div class="met-pt">
+            <svg viewBox="0 0 20 20"><path d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zm4.293 7.293l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L8.5 10.086l4.293-4.293a1 1 0 011.414 1.414z"/></svg>
+            <span>Du 35 au 42 pour toutes les pointures</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s gal" id="galerie">
+  <div class="s-inner">
+    <p class="s-tag">Inspirations Styles</p>
+    <h2 class="s-h2">La boutique en images</h2>
+    <p class="s-sub">Un aperçu de l'univers CHEKINA, entre collections colorées et ambiance boutique.</p>
+    <div class="gal-grid">
+      <div class="gal-item" data-src="https://i.ibb.co/NgsJdftB/CHEKINA-0.jpg">
+        <img src="https://i.ibb.co/NgsJdftB/CHEKINA-0.jpg" alt="CHEKINA Nouméa vitrine" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/KpHrwF8z/CHEKINA-1.jpg">
+        <img src="https://i.ibb.co/KpHrwF8z/CHEKINA-1.jpg" alt="Collections CHEKINA" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/dscm2Mt3/CHEKINA-2.jpg">
+        <img src="https://i.ibb.co/dscm2Mt3/CHEKINA-2.jpg" alt="Chaussures CHEKINA" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/LXSnBFkY/CHEKINA-3.jpg">
+        <img src="https://i.ibb.co/LXSnBFkY/CHEKINA-3.jpg" alt="Style CHEKINA Nouméa" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true">
+  <button class="lb-cls" id="lb-cls" aria-label="Fermer">×</button>
+  <img class="lb-img" id="lb-img" src="" alt="Photo agrandie">
+</div>
+
+<!-- FORMULAIRE -->
+<section class="s frm" id="contact">
+  <div class="s-inner">
+    <p class="s-tag">Nous contacter</p>
+    <h2 class="s-h2">Venez essayer, on vous conseille</h2>
+    <p class="s-sub">Réservez une consultation ou posez-nous vos questions.</p>
+    <div class="frm-wrap">
+      <div class="frm-info">
+        <div class="frm-info-item">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <p><strong>Adresse</strong>PCJV+C79, Rue de Sebastopol<br>Nouméa 98800, Nouvelle-Calédonie</p>
+        </div>
+        <div class="frm-info-item">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02z"/></svg>
+          <p><strong>Téléphone</strong><a href="tel:+687249044">24.90.44</a></p>
+        </div>
+        <div class="frm-info-item">
+          <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+          <p><strong>Disponibilités</strong>Du lundi au samedi<br>Venez essayer en boutique</p>
+        </div>
+      </div>
+      <div>
+        <form class="form" id="form" action="#" novalidate>
+          <div class="f-row">
+            <div>
+              <input class="f-inp" type="text" id="f-nom" name="nom" placeholder="Votre prénom" autocomplete="given-name">
+              <p class="f-err" id="err-nom">Prénom requis</p>
+            </div>
+            <div>
+              <input class="f-inp" type="email" id="f-email" name="email" placeholder="Votre e-mail" autocomplete="email">
+              <p class="f-err" id="err-email">E-mail invalide</p>
+            </div>
+          </div>
+          <input class="f-inp" type="tel" id="f-tel" name="tel" placeholder="Votre téléphone" autocomplete="tel">
+          <textarea class="f-inp" id="f-msg" name="message" placeholder="Votre message ou votre demande…"></textarea>
+          <p class="f-err" id="err-msg">Message requis</p>
+          <button type="submit" class="btn-p" id="f-btn">Envoyer ma demande</button>
+          <div class="f-success" id="f-success">✓ Message envoyé ! Nous vous répondrons très vite.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s ps" id="temoignages">
+  <div class="s-inner">
+    <p class="s-tag">Avis clients</p>
+    <h2 class="s-h2">Ce qu'elles disent de CHEKINA</h2>
+    <div class="ps-top">
+      <div class="ps-note">
+        <span class="big">4,7</span>
+        <span class="stars">★★★★★</span>
+        <span class="lbl">Note Google<br>Avis vérifiés</span>
+      </div>
+      <div class="ps-badges">
+        <div class="ps-badge">
+          <svg viewBox="0 0 20 20"><path d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zm4.293 7.293l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L8.5 10.086l4.293-4.293a1 1 0 011.414 1.414z"/></svg>
+          Boutique recommandée à Nouméa
+        </div>
+        <div class="ps-badge">
+          <svg viewBox="0 0 20 20"><path d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zm4.293 7.293l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L8.5 10.086l4.293-4.293a1 1 0 011.414 1.414z"/></svg>
+          Conseil personnalisé apprécié
+        </div>
+        <div class="ps-badge">
+          <svg viewBox="0 0 20 20"><path d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zm4.293 7.293l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L8.5 10.086l4.293-4.293a1 1 0 011.414 1.414z"/></svg>
+          Large choix de modèles colorés
+        </div>
+      </div>
+    </div>
+    <div class="tst-grid">
+      <div class="tst-c">
+        <div class="tst-stars">★★★★★</div>
+        <p class="tst-txt">« Un super choix de chaussures, des modèles qu'on ne trouve pas ailleurs à Nouméa. Le conseil est vraiment humain, sans pression. Je repars toujours avec la bonne paire ! »</p>
+        <span class="tst-auth">Maëva T.</span>
+        <span class="tst-date">Avis Google · Nouméa</span>
+      </div>
+      <div class="tst-c">
+        <div class="tst-stars">★★★★★</div>
+        <p class="tst-txt">« La boutique est bien rangée, les prix sont corrects et les vendeuses sont adorables. J'ai trouvé exactement ce que je cherchais en quelques minutes. »</p>
+        <span class="tst-auth">Sandra K.</span>
+        <span class="tst-date">Avis Google · Nouméa</span>
+      </div>
+      <div class="tst-c">
+        <div class="tst-stars">★★★★☆</div>
+        <p class="tst-txt">« Bonne adresse pour des chaussures tendance à Nouméa. Collections renouvelées régulièrement et service agréable. Je recommande ! »</p>
+        <span class="tst-auth">Claire M.</span>
+        <span class="tst-date">Avis Google · Nouméa</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ftr">
+  <div class="ftr-inner">
+    <div class="ftr-top">
+      <div>
+        <div class="ftr-logo">CHE<span>K</span>INA</div>
+        <p class="ftr-desc">Votre boutique de chaussures urbaines au cœur de Nouméa. Style accessible, conseil humain, collections tendance pour la femme calédonienne.</p>
+        <div class="ftr-soc">
+          <a href="https://www.facebook.com/chekina.nc" target="_blank" rel="noopener" aria-label="Facebook CHEKINA">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <p class="ftr-h4">Navigation</p>
+        <div class="ftr-links">
+          <a href="#services">Collections</a>
+          <a href="#galerie">Inspirations</a>
+          <a href="#temoignages">Avis clients</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div>
+        <p class="ftr-h4">Nous trouver</p>
+        <div class="ftr-addr">
+          <p>PCJV+C79, Rue de Sebastopol<br>Nouméa 98800<br>Nouvelle-Calédonie</p>
+          <br>
+          <a href="tel:+687249044">☎ 24.90.44</a>
+        </div>
+      </div>
+    </div>
+    <div class="ftr-bot">
+      <p class="ftr-copy">© 2026 CHEKINA. Tous droits réservés.</p>
+      <p class="ftr-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+var items=document.querySelectorAll('.gal-item'),lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img'),lbCls=document.getElementById('lb-cls');
+items.forEach(function(el){
+el.addEventListener('click',function(){
+lbImg.src=el.dataset.src;
+lb.classList.add('open');
+document.body.style.overflow='hidden';
+});
+});
+function closeLb(){lb.classList.remove('open');document.body.style.overflow='';}
+lbCls.addEventListener('click',closeLb);
+lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+var form=document.getElementById('form');
+form.addEventListener('submit',function(e){
+e.preventDefault();
+var nom=document.getElementById('f-nom'),email=document.getElementById('f-email'),msg=document.getElementById('f-msg');
+var ok=true;
+document.querySelectorAll('.f-err').forEach(function(el){el.style.display='none';});
+if(!nom.value.trim()){document.getElementById('err-nom').style.display='block';ok=false;}
+if(!email.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)){document.getElementById('err-email').style.display='block';ok=false;}
+if(!msg.value.trim()){document.getElementById('err-msg').style.display='block';ok=false;}
+if(!ok)return;
+var btn=document.getElementById('f-btn');
+btn.textContent='Envoi…';btn.disabled=true;
+setTimeout(function(){
+form.reset();
+btn.textContent='Envoyer ma demande';btn.disabled=false;
+document.getElementById('f-success').style.display='block';
+},900);
+});
+})();
+</script>
+</body>
+</html>
