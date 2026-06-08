@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Boutique AlexKa | Vêtements, Sacs & Accessoires pour femmes — Nouméa</title>
+<meta name="description" content="Boutique AlexKa à Nouméa — vêtements, sacs et accessoires pour femmes. Style contemporain et chic au cœur de la Nouvelle-Calédonie.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#1A1A1A;
+--cs:#C0C0C0;
+--ca:#B8860B;
+--cf:#F5F5F0;
+--ct:#1A1A1A;
+--cw:#ffffff;
+--r:.3s ease-out;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Nunito',system-ui,sans-serif;color:var(--ct);background:var(--cw);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU PROMO */
+#promo{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;text-align:center}
+#promo a{font-family:"Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;line-height:44px;letter-spacing:.3px;display:block;width:100%}
+#promo a:hover{opacity:.85}
+
+/* HEADER */
+.nav{position:fixed;top:44px;left:0;width:100%;height:64px;background:var(--cp);z-index:1000;display:flex;align-items:center;padding:0 24px;justify-content:space-between;border-bottom:1px solid rgba(192,192,192,.15)}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--cw);letter-spacing:2px}
+.nav-logo span{color:var(--ca)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-family:'Nunito',sans-serif;font-size:13px;font-weight:600;color:var(--cs);letter-spacing:.8px;text-transform:uppercase;transition:color var(--r)}
+.nav-links a:hover{color:var(--ca)}
+.nav-cta{font-family:'Nunito',sans-serif;font-size:13px;font-weight:600;background:var(--ca);color:var(--cw);padding:10px 20px;letter-spacing:.6px;text-transform:uppercase;transition:transform var(--r),opacity var(--r)}
+.nav-cta:hover{transform:scale(1.02);opacity:.92}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px}
+.hamburger span{width:24px;height:2px;background:var(--cw);transition:transform var(--r),opacity var(--r)}
+.mob-menu{display:none;position:fixed;top:108px;left:0;width:100%;background:var(--cp);z-index:999;padding:24px 24px 32px;flex-direction:column;gap:20px}
+.mob-menu a{font-family:'Nunito',sans-serif;font-size:15px;font-weight:600;color:var(--cs);text-transform:uppercase;letter-spacing:.8px;padding:8px 0;border-bottom:1px solid rgba(192,192,192,.1)}
+.mob-menu a:last-child{background:var(--ca);color:var(--cw);text-align:center;padding:14px;border:none;margin-top:8px}
+.mob-menu.open{display:flex}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:108px;position:relative;overflow:hidden}
+.hero-left{background:var(--cp);display:flex;flex-direction:column;justify-content:center;padding:64px 48px 64px 56px;position:relative;z-index:2}
+.hero-tag{font-family:'Nunito',sans-serif;font-size:12px;font-weight:600;color:var(--ca);letter-spacing:3px;text-transform:uppercase;margin-bottom:20px}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,7vw,96px);color:var(--cw);line-height:.95;letter-spacing:2px;margin-bottom:24px}
+.hero h1 em{color:var(--ca);font-style:normal;display:block}
+.hero-sub{font-family:'Nunito',sans-serif;font-size:15px;font-weight:300;color:var(--cs);line-height:1.7;max-width:340px;margin-bottom:36px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.b-gold{background:var(--ca);color:var(--cw);font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:14px 28px;display:inline-block;transition:transform var(--r),opacity var(--r)}
+.b-gold:hover{transform:scale(1.02);opacity:.9}
+.b-outline{border:1px solid var(--cs);color:var(--cs);font-family:'Nunito',sans-serif;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:14px 28px;display:inline-block;transition:border-color var(--r),color var(--r)}
+.b-outline:hover{border-color:var(--ca);color:var(--ca)}
+.hero-deco{position:absolute;bottom:40px;left:56px;display:flex;align-items:center;gap:10px}
+.hero-deco-line{width:40px;height:1px;background:var(--ca)}
+.hero-deco span{font-family:'Nunito',sans-serif;font-size:11px;color:var(--cs);letter-spacing:2px;text-transform:uppercase}
+.hero-right{position:relative;overflow:hidden}
+.hero-img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .6s ease}
+.hero-right:hover .hero-img{transform:scale(1.03)}
+.hero-badge{position:absolute;bottom:40px;right:32px;background:rgba(26,26,26,.85);backdrop-filter:blur(8px);border:1px solid var(--ca);padding:14px 20px;text-align:center}
+.hero-badge strong{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--ca);display:block;line-height:1}
+.hero-badge span{font-family:'Nunito',sans-serif;font-size:10px;color:var(--cs);letter-spacing:2px;text-transform:uppercase}
+
+/* SCROLL INDICATOR */
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;z-index:3}
+.scroll-ind span{font-family:'Nunito',sans-serif;font-size:10px;color:var(--cs);letter-spacing:2px;text-transform:uppercase}
+.scroll-dot{width:1px;height:40px;background:linear-gradient(to bottom,var(--ca),transparent);animation:sdrop 1.6s ease-in-out infinite}
+@keyframes sdrop{0%,100%{opacity:.3;transform:scaleY(.5) translateY(-10px)}50%{opacity:1;transform:scaleY(1) translateY(0)}}
+
+/* STATS */
+.stats{background:var(--cp);padding:56px 0}
+.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(192,192,192,.12)}
+.stat-item{background:var(--cp);padding:40px 24px;text-align:center;position:relative}
+.stat-item::after{content:'';position:absolute;right:0;top:25%;height:50%;width:1px;background:rgba(192,192,192,.2)}
+.stat-item:last-child::after{display:none}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:56px;color:var(--ca);line-height:1;display:block;letter-spacing:2px}
+.stat-label{font-family:'Nunito',sans-serif;font-size:12px;color:var(--cs);letter-spacing:2px;text-transform:uppercase;margin-top:8px}
+.stat-sub{font-family:'Nunito',sans-serif;font-size:11px;color:rgba(192,192,192,.5);margin-top:4px}
+
+/* SECTION BASE */
+.s{padding:96px 0}
+.s-alt{background:var(--cf)}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+.s-head{text-align:center;margin-bottom:64px}
+.s-tag{font-family:'Nunito',sans-serif;font-size:11px;font-weight:700;color:var(--ca);letter-spacing:3px;text-transform:uppercase;display:block;margin-bottom:12px}
+.h{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,64px);color:var(--cp);letter-spacing:2px;line-height:1}
+.h-line{display:inline-block;position:relative}
+.h-line::after{content:'';position:absolute;bottom:-6px;left:0;width:100%;height:2px;background:var(--ca)}
+.s-desc{font-family:'Nunito',sans-serif;font-size:15px;color:#666;line-height:1.8;max-width:520px;margin:20px auto 0}
+
+/* CARDS SERVICES */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.c{background:var(--cw);border:1px solid rgba(192,192,192,.25);padding:36px 28px;transition:transform var(--r),box-shadow var(--r),border-color var(--r)}
+.c:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.08);border-color:var(--cs)}
+.c-icon{width:44px;height:44px;margin-bottom:20px}
+.c-title{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--cp);letter-spacing:1px;margin-bottom:10px}
+.c-text{font-family:'Nunito',sans-serif;font-size:14px;color:#666;line-height:1.7}
+.c-link{font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;color:var(--ca);letter-spacing:1px;text-transform:uppercase;margin-top:16px;display:inline-block;border-bottom:1px solid var(--ca);padding-bottom:2px;transition:opacity var(--r)}
+.c-link:hover{opacity:.7}
+
+/* METIER */
+.metier-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.metier-img-wrap{position:relative}
+.metier-img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.metier-accent{position:absolute;bottom:-20px;right:-20px;width:160px;height:160px;background:var(--ca);opacity:.08;z-index:-1}
+.metier-content{}
+.metier-check{list-style:none;margin-top:28px;display:flex;flex-direction:column;gap:12px}
+.metier-check li{display:flex;align-items:flex-start;gap:12px;font-family:'Nunito',sans-serif;font-size:14px;color:#555;line-height:1.6}
+.chk{width:18px;height:18px;flex-shrink:0;margin-top:2px}
+
+/* GALERIE */
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+.g-item{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:1}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.g-item:hover img{transform:scale(1.05)}
+.g-overlay{position:absolute;inset:0;background:rgba(26,26,26,.5);opacity:0;transition:opacity var(--r);display:flex;align-items:center;justify-content:center}
+.g-item:hover .g-overlay{opacity:1}
+.g-overlay span{font-family:'Bebas Neue',sans-serif;font-size:13px;color:var(--cw);letter-spacing:3px;text-transform:uppercase}
+
+/* LIGHTBOX */
+.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;align-items:center;justify-content:center}
+.lb.open{display:flex}
+.lb img{max-width:90vw;max-height:85vh;object-fit:contain}
+.lb-close{position:absolute;top:24px;right:32px;font-size:32px;color:var(--cw);cursor:pointer;line-height:1;background:none;border:none;font-family:'Nunito',sans-serif}
+
+/* FORMULAIRE */
+.form-wrap{max-width:640px;margin:0 auto;background:var(--cw);border:1px solid rgba(192,192,192,.3);padding:56px 48px}
+.f-group{margin-bottom:28px;position:relative}
+.f-group label{font-family:'Nunito',sans-serif;font-size:11px;font-weight:700;color:var(--ca);letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:8px}
+.f-group input,.f-group textarea{width:100%;background:transparent;border:none;border-bottom:1px solid var(--cs);padding:10px 0;font-family:'Nunito',sans-serif;font-size:15px;color:var(--ct);outline:none;transition:border-color var(--r)}
+.f-group input:focus,.f-group textarea:focus{border-bottom-color:var(--ca)}
+.f-group textarea{resize:vertical;min-height:100px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.b-submit{background:var(--ca);color:var(--cw);font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;padding:16px 40px;cursor:pointer;width:100%;transition:opacity var(--r),transform var(--r)}
+.b-submit:hover{opacity:.88;transform:scale(1.01)}
+.form-msg{display:none;text-align:center;padding:16px;margin-top:16px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:600;color:var(--ca);background:rgba(184,134,11,.08);border:1px solid rgba(184,134,11,.3)}
+
+/* PREUVE SOCIALE */
+.reviews-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.review-c{border:1px solid rgba(192,192,192,.25);padding:32px;position:relative;background:var(--cw)}
+.review-quote{font-family:'Cormorant Garamond',serif;font-size:64px;color:var(--ca);line-height:.7;position:absolute;top:16px;left:24px;opacity:.4}
+.review-text{font-family:'Nunito',sans-serif;font-size:14px;color:#555;line-height:1.8;margin-top:28px;font-style:italic}
+.review-author{font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;color:var(--cp);letter-spacing:1px;text-transform:uppercase;margin-top:16px}
+.stars{color:var(--ca);font-size:16px;letter-spacing:2px;margin-bottom:8px}
+.google-badge{display:flex;align-items:center;gap:16px;background:var(--cp);padding:24px 32px;margin-bottom:48px;max-width:380px;margin-left:auto;margin-right:auto}
+.google-score{font-family:'Bebas Neue',sans-serif;font-size:56px;color:var(--cw);line-height:1}
+.google-info span{font-family:'Nunito',sans-serif;font-size:11px;color:var(--cs);letter-spacing:1px;display:block;margin-top:4px}
+
+/* FOOTER */
+footer{background:var(--cp);padding:64px 0 32px;border-top:2px solid var(--ca)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.ft-brand{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--cw);letter-spacing:2px;margin-bottom:14px}
+.ft-brand span{color:var(--ca)}
+.ft-text{font-family:'Nunito',sans-serif;font-size:13px;color:var(--cs);line-height:1.8}
+.ft-title{font-family:'Nunito',sans-serif;font-size:11px;font-weight:700;color:var(--ca);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-links a{font-family:'Nunito',sans-serif;font-size:13px;color:var(--cs);transition:color var(--r)}
+.ft-links a:hover{color:var(--ca)}
+.ft-social{display:flex;gap:12px;margin-top:20px}
+.ft-social a{width:36px;height:36px;border:1px solid rgba(192,192,192,.3);display:flex;align-items:center;justify-content:center;transition:border-color var(--r)}
+.ft-social a:hover{border-color:var(--ca)}
+.ft-social svg{width:16px;height:16px;fill:var(--cs)}
+.ft-bottom{border-top:1px solid rgba(192,192,192,.15);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ft-copy{font-family:'Nunito',sans-serif;font-size:12px;color:rgba(192,192,192,.5)}
+.ft-copy a{color:var(--ca)}
+
+/* FALLBACK ANIMATIONS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.hero{grid-template-columns:1fr;min-height:auto}
+.hero-left{padding:80px 32px 56px}
+.hero-right{height:56vw;max-height:420px}
+.hero-deco{display:none}
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+.stat-item:nth-child(2)::after{display:none}
+.grid-3{grid-template-columns:1fr 1fr}
+.metier-grid{grid-template-columns:1fr;gap:40px}
+.metier-img{aspect-ratio:16/9}
+.gallery-grid{grid-template-columns:repeat(2,1fr)}
+.reviews-grid{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+.form-wrap{padding:40px 32px}
+}
+@media(max-width:480px){
+#promo a{font-size:13px;line-height:40px}
+#promo{height:40px}
+.nav{top:40px;padding:0 16px;height:60px}
+.mob-menu{top:100px}
+.nav-links,.nav-cta{display:none}
+.hamburger{display:flex}
+.hero{padding-top:100px}
+.hero-left{padding:48px 16px 40px}
+.hero-btns{flex-direction:column}
+.b-gold,.b-outline{text-align:center;width:100%;padding:16px}
+.hero-right{height:70vw}
+.hero-badge{bottom:16px;right:16px;padding:10px 14px}
+.stats-inner{grid-template-columns:1fr 1fr}
+.stat-item::after{display:none}
+.stat-num{font-size:40px}
+.s{padding:64px 0}
+.grid-3{grid-template-columns:1fr}
+.gallery-grid{grid-template-columns:1fr 1fr}
+.form-wrap{padding:32px 20px}
+.form-row{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr}
+.ft-bottom{flex-direction:column;text-align:center}
+.reviews-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div id="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="nav">
+  <a href="#" class="nav-logo">Alex<span>Ka</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Collections</a></li>
+    <li><a href="#metier">Notre ADN</a></li>
+    <li><a href="#galerie">Galerie</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="tel:+687263363" class="nav-cta">26.33.63</a>
+  <button class="hamburger" id="hbg" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<nav class="mob-menu" id="mob">
+  <a href="#services">Collections</a>
+  <a href="#metier">Notre ADN</a>
+  <a href="#galerie">Galerie</a>
+  <a href="#contact">Contact</a>
+  <a href="tel:+687263363">26.33.63 — Appeler</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-left">
+    <p class="hero-tag">Nouméa, Nouvelle-Calédonie</p>
+    <h1>Mode<em>Féminine</em>Signature</h1>
+    <p class="hero-sub">Vêtements, sacs et accessoires sélectionnés pour la femme contemporaine de Nouméa. Une boutique, un style, une adresse.</p>
+    <div class="hero-btns">
+      <a href="#galerie" class="b-gold">Découvrir la galerie</a>
+      <a href="#contact" class="b-outline">Nous contacter</a>
+    </div>
+    <div class="hero-deco">
+      <div class="hero-deco-line"></div>
+      <span>20 Rue de Sébastopol</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img class="hero-img" src="https://i.ibb.co/XwhdLzD/Boutique-Alex-Ka-V-tements-Sacs-Accessoires-pour-femmes-0.jpg" alt="Boutique AlexKa — Vêtements et accessoires femmes Nouméa" loading="eager">
+    <div class="hero-badge">
+      <strong>★ 4/5</strong>
+      <span>Avis Google</span>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <span class="stat-num" data-target="3">0</span>
+      <p class="stat-label">Univers mode</p>
+      <p class="stat-sub">Vêtements · Sacs · Accessoires</p>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="4">0</span>
+      <p class="stat-label">Note Google</p>
+      <p class="stat-sub">Sur 5 étoiles</p>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="1">0</span>
+      <p class="stat-label">Adresse unique</p>
+      <p class="stat-sub">Au cœur de Nouméa</p>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="100">0</span>
+      <p class="stat-label">% Féminin</p>
+      <p class="stat-sub">Une boutique pour vous</p>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+var hbg=document.getElementById('hbg'),mob=document.getElementById('mob');
+hbg.addEventListener('click',function(){mob.classList.toggle('open')});
+var nums=document.querySelectorAll('.stat-num');
+var ran=false;
+function countUp(){
+if(ran)return;ran=true;
+nums.forEach(function(el){
+var t=+el.dataset.target,s=t/40,c=0;
+var iv=setInterval(function(){c=Math.min(c+s,t);el.textContent=Math.round(c);if(c>=t)clearInterval(iv)},30);
+});
+}
+if('IntersectionObserver' in window){
+var ob=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)countUp()})},{threshold:.3});
+ob.observe(document.querySelector('.stats'));
+}else{countUp();}
+})();
+</script>
+<!-- SERVICES -->
+<section class="s s-alt" id="services">
+  <div class="container">
+    <div class="s-head">
+      <span class="s-tag">Nos univers</span>
+      <h2 class="h"><span class="h-line">Collections</span></h2>
+      <p class="s-desc">De la silhouette au détail, AlexKa réunit vêtements, sacs et accessoires pour composer votre style au quotidien.</p>
+    </div>
+    <div class="grid-3">
+      <div class="c">
+        <svg class="c-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 12c2-3 5-5 8-5h8c3 0 6 2 8 5l4 8H6l4-8z" stroke="#B8860B" stroke-width="1.5" stroke-linejoin="round"/>
+          <rect x="6" y="20" width="32" height="16" rx="1" stroke="#1A1A1A" stroke-width="1.5"/>
+          <path d="M16 20v4a6 6 0 0 0 12 0v-4" stroke="#C0C0C0" stroke-width="1.5"/>
+        </svg>
+        <p class="c-title">Vêtements</p>
+        <p class="c-text">Pièces soigneusement sélectionnées pour la femme contemporaine — du casual chic à la tenue du soir, avec une attention portée à la coupe et à la matière.</p>
+        <a href="#contact" class="c-link">Découvrir →</a>
+      </div>
+      <div class="c">
+        <svg class="c-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 18h24l-2 18H12L10 18z" stroke="#1A1A1A" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M16 18c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#B8860B" stroke-width="1.5"/>
+          <path d="M10 18h24" stroke="#C0C0C0" stroke-width="1.5"/>
+        </svg>
+        <p class="c-title">Sacs</p>
+        <p class="c-text">Une sélection de sacs aux lignes épurées et aux finitions soignées — du cabas du quotidien à la pochette de soirée, pour chaque occasion.</p>
+        <a href="#contact" class="c-link">Découvrir →</a>
+      </div>
+      <div class="c">
+        <svg class="c-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="22" cy="22" r="10" stroke="#1A1A1A" stroke-width="1.5"/>
+          <circle cx="22" cy="22" r="5" stroke="#B8860B" stroke-width="1.5"/>
+          <path d="M22 8v4M22 32v4M8 22h4M32 22h4" stroke="#C0C0C0" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <p class="c-title">Accessoires</p>
+        <p class="c-text">Bijoux, ceintures, foulards et lunettes : les détails qui transforment une tenue et révèlent une personnalité. L'art de la touche finale.</p>
+        <a href="#contact" class="c-link">Découvrir →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s" id="metier">
+  <div class="container">
+    <div class="metier-grid">
+      <div class="metier-img-wrap">
+        <img class="metier-img" src="https://i.ibb.co/JwfF0N0z/Boutique-Alex-Ka-V-tements-Sacs-Accessoires-pour-femmes-1.jpg" alt="Intérieur boutique AlexKa Nouméa" loading="lazy">
+        <div class="metier-accent"></div>
+      </div>
+      <div class="metier-content">
+        <span class="s-tag">Notre ADN</span>
+        <h2 class="h"><span class="h-line">L'élégance,</span><br>accessible</h2>
+        <p class="metier-p">AlexKa est née d'une conviction simple : toute femme mérite un style qui lui ressemble. Implantée au cœur de Nouméa, la boutique propose une sélection pensée pour la vie réelle — des pièces que l'on porte, que l'on aime, que l'on garde.</p>
+        <p class="metier-p">Chaque article est choisi pour sa qualité, sa coupe et sa capacité à s'intégrer dans une garde-robe cohérente. Ici, la mode n'est pas une injonction — c'est une invitation.</p>
+        <ul class="metier-check">
+          <li>
+            <svg class="chk" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#B8860B" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Sélection soignée renouvelée régulièrement
+          </li>
+          <li>
+            <svg class="chk" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#B8860B" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Conseil personnalisé en boutique
+          </li>
+          <li>
+            <svg class="chk" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#B8860B" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Vêtements, sacs et accessoires sous un même toit
+          </li>
+          <li>
+            <svg class="chk" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#B8860B" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Adresse unique au 20 Rue de Sébastopol, Nouméa
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s s-alt" id="galerie">
+  <div class="container">
+    <div class="s-head">
+      <span class="s-tag">Univers AlexKa</span>
+      <h2 class="h"><span class="h-line">La Galerie</span></h2>
+      <p class="s-desc">Un aperçu de l'ambiance et des collections disponibles en boutique à Nouméa.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="g-item" data-src="https://i.ibb.co/XwhdLzD/Boutique-Alex-Ka-V-tements-Sacs-Accessoires-pour-femmes-0.jpg">
+        <img src="https://i.ibb.co/XwhdLzD/Boutique-Alex-Ka-V-tements-Sacs-Accessoires-pour-femmes-0.jpg" alt="Boutique AlexKa — vue collection" loading="lazy">
+        <div class="g-overlay"><span>Voir</span></div>
+      </div>
+      <div class="g-item" data-src="https://i.ibb.co/JwfF0N0z/Boutique-Alex-Ka-V-tements-Sacs-Accessoires-pour-femmes-1.jpg">
+        <img src="https://i.ibb.co/JwfF0N0z/Boutique-Alex-Ka-V-tements-Sacs-Accessoires-pour-femmes-1.jpg" alt="Boutique AlexKa — intérieur" loading="lazy">
+        <div class="g-overlay"><span>Voir</span></div>
+      </div>
+      <div class="g-item" data-src="https://i.ibb.co/LbDvMy4/Boutique-Alex-Ka-V-tements-Sacs-Accessoires-pour-femmes-2.jpg">
+        <img src="https://i.ibb.co/LbDvMy4/Boutique-Alex-Ka-V-tements-Sacs-Accessoires-pour-femmes-2.jpg" alt="Boutique AlexKa — sélection mode" loading="lazy">
+        <div class="g-overlay"><span>Voir</span></div>
+      </div>
+      <div class="g-item" data-src="https://i.ibb.co/Q3yVpgh2/Boutique-Alex-Ka-V-tements-Sacs-Accessoires-pour-femmes-3.jpg">
+        <img src="https://i.ibb.co/Q3yVpgh2/Boutique-Alex-Ka-V-tements-Sacs-Accessoires-pour-femmes-3.jpg" alt="Boutique AlexKa — accessoires et sacs" loading="lazy">
+        <div class="g-overlay"><span>Voir</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true">
+  <button class="lb-close" id="lb-close" aria-label="Fermer">✕</button>
+  <img id="lb-img" src="" alt="Aperçu galerie AlexKa">
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section class="s" id="avis">
+  <div class="container">
+    <div class="s-head">
+      <span class="s-tag">Ce qu'elles disent</span>
+      <h2 class="h"><span class="h-line">Avis clients</span></h2>
+    </div>
+    <div class="google-badge">
+      <div class="google-score">4/5</div>
+      <div class="google-info">
+        <div class="stars">★★★★☆</div>
+        <span>Note Google</span>
+        <span>2 avis vérifiés</span>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-c">
+        <div class="review-quote">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="review-text">Une boutique avec une belle sélection, des pièces qu'on ne trouve pas partout à Nouméa. L'accueil est chaleureux et le conseil, sincère. Je reviendrai.</p>
+        <p class="review-author">— Cliente AlexKa, Nouméa</p>
+      </div>
+      <div class="review-c">
+        <div class="review-quote">"</div>
+        <div class="stars">★★★☆☆</div>
+        <p class="review-text">Bonne ambiance en boutique, des articles variés entre vêtements et accessoires. Un endroit agréable pour faire ses emplettes en centre-ville.</p>
+        <p class="review-author">— Cliente AlexKa, Nouméa</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE -->
+<section class="s s-alt" id="contact">
+  <div class="container">
+    <div class="s-head">
+      <span class="s-tag">Nous écrire</span>
+      <h2 class="h"><span class="h-line">Contact</span></h2>
+      <p class="s-desc">Une question sur une pièce, une disponibilité ? Écrivez-nous ou appelez directement au <a href="tel:+687263363" class="s-tel">26.33.63</a>.</p>
+    </div>
+    <div class="form-wrap">
+      <form id="cform" action="#" novalidate>
+        <div class="form-row">
+          <div class="f-group">
+            <label for="fname">Prénom & Nom</label>
+            <input type="text" id="fname" name="name" placeholder="Alexandra M." required>
+          </div>
+          <div class="f-group">
+            <label for="ftel">Téléphone</label>
+            <input type="tel" id="ftel" name="tel" placeholder="26 XX XX">
+          </div>
+        </div>
+        <div class="f-group">
+          <label for="femail">Email</label>
+          <input type="email" id="femail" name="email" placeholder="vous@example.com" required>
+        </div>
+        <div class="f-group">
+          <label for="fmsg">Message</label>
+          <textarea id="fmsg" name="message" placeholder="Votre question ou demande..." required></textarea>
+        </div>
+        <button type="submit" class="b-submit">Envoyer le message</button>
+        <div class="form-msg" id="fmsg-ok">Merci ! Votre message a bien été envoyé. Nous vous répondrons très prochainement.</div>
+        <div class="form-err" id="fmsg-err">Merci de remplir tous les champs obligatoires.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="ft-brand">Alex<span>Ka</span></div>
+        <p class="ft-text">Vêtements, sacs & accessoires pour femmes.<br>20 Rue de Sébastopol, 98800 Nouméa<br>Nouvelle-Calédonie</p>
+        <p class="ft-text ft-mt"><a href="tel:+687263363" class="ft-phone">26.33.63</a></p>
+        <div class="ft-social">
+          <a href="https://www.facebook.com/alexkanoumea" target="_blank" rel="noopener" aria-label="Facebook AlexKa">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <p class="ft-title">Navigation</p>
+        <ul class="ft-links">
+          <li><a href="#services">Collections</a></li>
+          <li><a href="#metier">Notre ADN</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#avis">Avis clients</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ft-title">Boutique</p>
+        <ul class="ft-links">
+          <li><a href="#services">Vêtements</a></li>
+          <li><a href="#services">Sacs</a></li>
+          <li><a href="#services">Accessoires</a></li>
+          <li><a href="tel:+687263363">Appeler</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <p class="ft-copy">© 2026 Boutique AlexKa | Vêtements, Sacs & Accessoires pour femmes. Tous droits réservés.</p>
+      <p class="ft-copy">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+    </div>
+  </div>
+</footer>
+
+<style>
+.metier-p{font-family:'Nunito',sans-serif;font-size:15px;color:#555;line-height:1.8;margin-top:20px}
+.s-tel{color:var(--ca);border-bottom:1px solid var(--ca);transition:opacity var(--r)}
+.s-tel:hover{opacity:.7}
+.ft-mt{margin-top:12px}
+.ft-phone{color:var(--ca);font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;transition:opacity var(--r)}
+.ft-phone:hover{opacity:.75}
+.form-err{display:none;text-align:center;padding:12px;margin-top:12px;font-family:'Nunito',sans-serif;font-size:13px;color:#c0392b;background:rgba(192,57,43,.07);border:1px solid rgba(192,57,43,.2)}
+@media(max-width:480px){.gallery-grid{grid-template-columns:1fr 1fr}}
+</style>
+
+<script>
+(function(){
+var items=document.querySelectorAll('.g-item');
+var lb=document.getElementById('lb');
+var lbi=document.getElementById('lb-img');
+var lbc=document.getElementById('lb-close');
+items.forEach(function(el){
+  el.addEventListener('click',function(){
+    lbi.src=el.dataset.src;
+    lb.classList.add('open');
+  });
+});
+lbc.addEventListener('click',function(){lb.classList.remove('open')});
+lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('open')});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('open')});
+
+var form=document.getElementById('cform');
+var ok=document.getElementById('fmsg-ok');
+var err=document.getElementById('fmsg-err');
+form.addEventListener('submit',function(e){
+  e.preventDefault();
+  var n=document.getElementById('fname').value.trim();
+  var em=document.getElementById('femail').value.trim();
+  var msg=document.getElementById('fmsg').value.trim();
+  err.style.display='none';
+  ok.style.display='none';
+  if(!n||!em||!msg){err.style.display='block';return;}
+  var btn=form.querySelector('.b-submit');
+  btn.textContent='Envoi…';
+  btn.disabled=true;
+  setTimeout(function(){
+    ok.style.display='block';
+    form.reset();
+    btn.textContent='Envoyer le message';
+    btn.disabled=false;
+  },900);
+});
+})();
+</script>
+
+</body>
+</html>
