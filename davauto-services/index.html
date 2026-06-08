@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Davauto Services — Nouméa</title>
+<meta name="description" content="Carrosserie de confiance à Nouméa, Nouvelle-Calédonie. Devis gratuit en 24h. Réparation, peinture, débosselage. Appelez le 77.24.61.">
+<meta property="og:title" content="Davauto Services — Carrosserie Nouméa">
+<meta property="og:description" content="Votre carrosserie de confiance à Nouméa. Devis gratuit en 24h.">
+<meta property="og:image" content="https://i.ibb.co/Lz4tmcXg/Davauto-Services-0.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#CC2222;
+--cs:#1A1A1A;
+--ca:#CC2222;
+--ct:#1A1A1A;
+--cb:#F5F5F5;
+--cw:#ffffff;
+--fo:'Oswald',sans-serif;
+--ft:'Inter',sans-serif;
+--r:4px;
+--sh:0 4px 16px rgba(0,0,0,.12);
+--sha:0 12px 24px rgba(204,34,34,.15);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--ft);color:var(--ct);background:var(--cb);overflow-x:hidden;padding-top:88px}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+
+/* BANDEAU PROMO */
+.promo{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;display:flex;align-items:center;justify-content:center}
+.promo a{font-family:"Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;line-height:44px;letter-spacing:.3px;color:#4375ff;text-align:center;white-space:nowrap}
+.promo a:hover{opacity:.85}
+
+/* HEADER */
+.hdr{position:fixed;top:44px;left:0;width:100%;height:64px;background:rgba(26,26,26,.97);backdrop-filter:blur(8px);z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 32px;border-bottom:2px solid var(--cp)}
+.hdr-logo{font-family:var(--fo);font-weight:700;font-size:22px;color:var(--cw);letter-spacing:1px;text-transform:uppercase}
+.hdr-logo span{color:var(--cp)}
+.hdr-nav{display:flex;gap:28px;align-items:center}
+.hdr-nav a{font-family:var(--fo);font-size:14px;font-weight:500;color:rgba(255,255,255,.8);text-transform:uppercase;letter-spacing:.8px;transition:color .2s}
+.hdr-nav a:hover{color:var(--cp)}
+.hdr-cta{font-family:var(--fo);font-size:14px;font-weight:600;background:var(--cp);color:var(--cw);padding:10px 20px;border-radius:var(--r);text-transform:uppercase;letter-spacing:.8px;transition:opacity .2s,transform .2s;white-space:nowrap}
+.hdr-cta:hover{opacity:.88;transform:translateY(-1px)}
+.hdr-tel{font-family:var(--fo);font-size:15px;font-weight:600;color:var(--cp);letter-spacing:.5px;margin-right:8px}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.ham span{display:block;width:24px;height:2px;background:var(--cw);border-radius:2px;transition:all .3s}
+.mob-nav{display:none;position:fixed;top:108px;left:0;width:100%;background:var(--cs);z-index:999;flex-direction:column;padding:16px 0;border-bottom:2px solid var(--cp)}
+.mob-nav.open{display:flex}
+.mob-nav a{font-family:var(--fo);font-size:16px;font-weight:500;color:var(--cw);text-transform:uppercase;letter-spacing:.8px;padding:14px 24px;border-bottom:1px solid rgba(255,255,255,.06);transition:color .2s,background .2s}
+.mob-nav a:hover{color:var(--cp);background:rgba(204,34,34,.08)}
+.mob-nav .hdr-cta{margin:16px 24px 8px;text-align:center;border-radius:var(--r)}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background-image:url('https://i.ibb.co/Lz4tmcXg/Davauto-Services-0.jpg');background-size:cover;background-position:center;background-repeat:no-repeat}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(26,26,26,.92) 0%,rgba(26,26,26,.7) 50%,rgba(26,26,26,.4) 100%)}
+.hero-inner{position:relative;z-index:2;max-width:760px;padding:0 24px;text-align:left}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--cp);color:var(--cw);font-family:var(--fo);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1.2px;padding:8px 16px;border-radius:var(--r);margin-bottom:24px}
+.hero-badge::before{content:'';display:block;width:8px;height:8px;border-radius:50%;background:var(--cw);animation:pulse-dot 1.6s infinite}
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.7)}}
+.hero h1{font-family:var(--fo);font-weight:700;font-size:clamp(36px,6vw,72px);color:var(--cw);text-transform:uppercase;line-height:1.05;letter-spacing:1px;margin-bottom:20px}
+.hero h1 span{color:var(--cp)}
+.hero-sub{font-family:var(--ft);font-size:clamp(15px,2vw,18px);color:rgba(255,255,255,.82);line-height:1.65;max-width:560px;margin-bottom:36px}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.b-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--fo);font-size:15px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;background:var(--cp);color:var(--cw);padding:15px 28px;border-radius:var(--r);border:none;cursor:pointer;transition:opacity .2s,transform .2s;position:relative;overflow:hidden;min-height:48px}
+.b-primary::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.12);border-radius:var(--r);transform:scale(0);transition:transform .4s ease;border-radius:50%}
+.b-primary:hover::after{transform:scale(2.5)}
+.b-primary:hover{opacity:.9;transform:translateY(-2px)}
+.b-outline{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--fo);font-size:15px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;background:transparent;color:var(--cw);padding:14px 28px;border-radius:var(--r);border:2px solid rgba(255,255,255,.5);cursor:pointer;transition:border-color .2s,color .2s,transform .2s;min-height:48px}
+.b-outline:hover{border-color:var(--cp);color:var(--cp);transform:translateY(-2px)}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,.5);font-family:var(--fo);font-size:11px;letter-spacing:1.5px;text-transform:uppercase}
+.scroll-ind svg{animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* BANDE STATS */
+.stats{background:var(--cp);padding:56px 24px;clip-path:polygon(0 12px,100% 0,100% calc(100% - 12px),0 100%)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1100px;margin:0 auto;text-align:center}
+.stat-item{display:flex;flex-direction:column;align-items:center;gap:6px}
+.stat-n{font-family:var(--fo);font-weight:700;font-size:clamp(36px,5vw,58px);color:var(--cw);line-height:1;letter-spacing:-1px}
+.stat-l{font-family:var(--fo);font-size:13px;font-weight:500;color:rgba(255,255,255,.78);text-transform:uppercase;letter-spacing:1.5px;line-height:1.3;text-align:center}
+.stat-sep{width:2px;background:rgba(255,255,255,.2);height:60px;align-self:center}
+
+/* UTILITAIRES COMMUNS */
+.s{padding:80px 24px}
+.s-dark{background:var(--cs)}
+.s-light{background:var(--cb)}
+.s-white{background:var(--cw)}
+.container{max-width:1100px;margin:0 auto}
+.h{font-family:var(--fo);text-transform:uppercase;letter-spacing:.5px;line-height:1.1}
+.h1{font-size:clamp(28px,4vw,48px);font-weight:700}
+.h2{font-size:clamp(22px,3vw,36px);font-weight:700}
+.h3{font-size:clamp(17px,2vw,22px);font-weight:600}
+.tag{display:inline-block;font-family:var(--fo);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1.8px;color:var(--cp);margin-bottom:12px}
+.tag-dark{color:rgba(204,34,34,.9)}
+.text-white{color:var(--cw)}
+.text-muted{color:rgba(255,255,255,.65)}
+.c{background:var(--cw);border-radius:6px;box-shadow:var(--sh);overflow:hidden;transition:transform .25s,box-shadow .25s}
+.c:hover{transform:translateY(-5px);box-shadow:var(--sha)}
+
+/* FALLBACK ANIMATIONS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hdr-nav{display:none}
+  .hdr-tel{display:none}
+  .ham{display:flex}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .stat-sep{display:none}
+  body{padding-top:84px}
+  .hdr{height:60px;padding:0 20px}
+  .promo a{font-size:13px;line-height:40px}
+  .promo{height:40px}
+  body{padding-top:100px}
+  .mob-nav{top:100px}
+}
+@media(max-width:480px){
+  .hero-btns{flex-direction:column;width:100%}
+  .b-primary,.b-outline{width:100%}
+  .stats-grid{grid-template-columns:1fr 1fr;gap:16px}
+  .stats{padding:48px 16px}
+  .hdr-logo{font-size:18px}
+  .s{padding:60px 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr" id="top">
+  <a href="#top" class="hdr-logo">Dav<span>auto</span> Services</a>
+  <nav class="hdr-nav">
+    <a href="#services">Services</a>
+    <a href="#processus">Processus</a>
+    <a href="#galerie">Galerie</a>
+    <a href="#avis">Avis</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div style="display:flex;align-items:center;gap:12px">
+    <a href="tel:772461" class="hdr-tel">77.24.61</a>
+    <a href="#devis" class="hdr-cta">Devis gratuit</a>
+    <button class="ham" id="ham" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-nav" id="mob-nav">
+  <a href="#services" class="mob-link">Services</a>
+  <a href="#processus" class="mob-link">Processus</a>
+  <a href="#galerie" class="mob-link">Galerie</a>
+  <a href="#avis" class="mob-link">Avis</a>
+  <a href="#contact" class="mob-link">Contact</a>
+  <a href="tel:772461" class="mob-link" style="color:var(--cp)">📞 77.24.61</a>
+  <a href="#devis" class="hdr-cta mob-link">Devis gratuit</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="6" fill="white" opacity=".3"/></svg>
+      Devis gratuit en 24h
+    </div>
+    <h1 class="h h1">Votre carrosserie<br><span>de confiance</span><br>à Nouméa</h1>
+    <p class="hero-sub">Nous connaissons chaque route de Nouméa et chaque type de carrosserie qu'elle peut abîmer. Depuis des années, Davauto Services remet vos véhicules en état avec le soin d'un artisan local.</p>
+    <div class="hero-btns">
+      <a href="#devis" class="b-primary">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12h6M9 16h6M7 8h10M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z"/></svg>
+        Demander un devis
+      </a>
+      <a href="tel:772461" class="b-outline">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 4.18 2 2 0 015.09 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 9.91a16 16 0 006.99 6.99l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        77.24.61
+      </a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <svg width="20" height="20" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+    Découvrir
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<section class="stats" id="stats">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <span class="stat-n" data-target="15" data-suffix="+">0</span>
+      <span class="stat-l">Années<br>d'expérience</span>
+    </div>
+    <div class="stat-sep"></div>
+    <div class="stat-item">
+      <span class="stat-n" data-target="5" data-suffix="/5">0</span>
+      <span class="stat-l">Note Google<br>11 avis</span>
+    </div>
+    <div class="stat-sep"></div>
+    <div class="stat-item">
+      <span class="stat-n" data-target="500" data-suffix="+">0</span>
+      <span class="stat-l">Véhicules<br>traités</span>
+    </div>
+    <div class="stat-sep"></div>
+    <div class="stat-item">
+      <span class="stat-n" data-target="24" data-suffix="h">0</span>
+      <span class="stat-l">Délai devis<br>gratuit</span>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var ham=document.getElementById('ham'),mob=document.getElementById('mob-nav');
+  ham.addEventListener('click',function(){mob.classList.toggle('open')});
+  document.querySelectorAll('.mob-link').forEach(function(l){l.addEventListener('click',function(){mob.classList.remove('open')})});
+
+  var done=false;
+  function animStats(){
+    if(done)return;
+    var els=document.querySelectorAll('[data-target]');
+    var allVis=true;
+    els.forEach(function(el){var r=el.getBoundingClientRect();if(r.top>window.innerHeight)allVis=false;});
+    if(!allVis)return;
+    done=true;
+    els.forEach(function(el){
+      var target=+el.getAttribute('data-target'),suf=el.getAttribute('data-suffix')||'',dur=1400,start=null;
+      function step(ts){
+        if(!start)start=ts;
+        var p=Math.min((ts-start)/dur,1);
+        var val=Math.round(p*target);
+        el.textContent=val+suf;
+        if(p<1)requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  window.addEventListener('scroll',animStats,{passive:true});
+  animStats();
+})();
+</script>
+<style>
+/* SERVICES */
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.srv-card{background:var(--cw);border-radius:6px;padding:32px 24px;box-shadow:var(--sh);transition:transform .25s,box-shadow .25s;border-top:3px solid transparent;position:relative;overflow:hidden}
+.srv-card::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--cp);transition:width .35s ease}
+.srv-card:hover::after{width:100%}
+.srv-card:hover{transform:translateY(-5px);box-shadow:var(--sha);border-top-color:var(--cp)}
+.srv-icon{width:52px;height:52px;background:rgba(204,34,34,.08);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;transition:transform .25s,background .25s}
+.srv-card:hover .srv-icon{transform:rotate(3deg);background:rgba(204,34,34,.15)}
+.srv-title{font-family:var(--fo);font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--cs);margin-bottom:10px}
+.srv-desc{font-family:var(--ft);font-size:14px;color:#555;line-height:1.65;margin-bottom:18px}
+.srv-price{font-family:var(--fo);font-size:13px;font-weight:600;color:var(--cp);text-transform:uppercase;letter-spacing:.8px;margin-bottom:18px}
+.b-link{font-family:var(--fo);font-size:13px;font-weight:600;color:var(--cp);text-transform:uppercase;letter-spacing:.8px;display:inline-flex;align-items:center;gap:6px;transition:gap .2s}
+.b-link:hover{gap:10px}
+.b-link svg{transition:transform .2s}
+.b-link:hover svg{transform:translateX(3px)}
+
+/* SECTION METIER */
+.metier-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:48px}
+.metier-img{border-radius:8px;overflow:hidden;position:relative}
+.metier-img img{width:100%;height:400px;object-fit:cover;display:block;transition:transform .5s}
+.metier-img:hover img{transform:scale(1.03)}
+.metier-img-badge{position:absolute;bottom:20px;left:20px;background:var(--cp);color:var(--cw);font-family:var(--fo);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;padding:8px 16px;border-radius:var(--r)}
+.metier-text p{font-family:var(--ft);font-size:16px;color:#444;line-height:1.75;margin-bottom:24px}
+.check-list{display:flex;flex-direction:column;gap:14px;margin-top:8px}
+.check-item{display:flex;align-items:flex-start;gap:12px;font-family:var(--ft);font-size:15px;color:#333;line-height:1.5}
+.check-icon{flex-shrink:0;width:22px;height:22px;background:var(--cp);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:1px}
+
+/* PROCESSUS */
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:48px;position:relative}
+.proc-grid::before{content:'';position:absolute;top:36px;left:12.5%;width:75%;height:2px;background:rgba(255,255,255,.15);z-index:0}
+.proc-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 16px;position:relative;z-index:1}
+.proc-num{width:72px;height:72px;border-radius:50%;background:var(--cp);color:var(--cw);font-family:var(--fo);font-size:26px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:20px;box-shadow:0 0 0 4px rgba(204,34,34,.2)}
+.proc-label{font-family:var(--fo);font-size:16px;font-weight:600;color:var(--cw);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.proc-desc{font-family:var(--ft);font-size:13px;color:rgba(255,255,255,.6);line-height:1.6}
+
+/* GALERIE */
+.gal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:48px}
+.gal-item{border-radius:6px;overflow:hidden;cursor:pointer;position:relative;aspect-ratio:4/3}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gal-item:hover img{transform:scale(1.05)}
+.gal-overlay{position:absolute;inset:0;background:rgba(26,26,26,0);display:flex;align-items:center;justify-content:center;transition:background .3s}
+.gal-item:hover .gal-overlay{background:rgba(26,26,26,.45)}
+.gal-overlay svg{opacity:0;transform:scale(.8);transition:opacity .3s,transform .3s;color:#fff}
+.gal-item:hover .gal-overlay svg{opacity:1;transform:scale(1)}
+
+/* LIGHTBOX */
+.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center;padding:16px}
+.lb.active{display:flex}
+.lb-img{max-width:90vw;max-height:88vh;border-radius:6px;object-fit:contain;box-shadow:0 8px 40px rgba(0,0,0,.6)}
+.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:36px;cursor:pointer;line-height:1;transition:opacity .2s}
+.lb-close:hover{opacity:.7}
+
+/* FORMULAIRE */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f-group{display:flex;flex-direction:column;gap:6px}
+.f-group.full{grid-column:1/-1}
+.f-label{font-family:var(--fo);font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.8px;color:rgba(255,255,255,.7)}
+.f-input{font-family:var(--ft);font-size:15px;color:var(--cw);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:var(--r);padding:13px 16px;outline:none;transition:border-color .2s,background .2s;width:100%;min-height:48px}
+.f-input:focus{border-color:var(--cp);background:rgba(204,34,34,.06)}
+.f-input::placeholder{color:rgba(255,255,255,.3)}
+textarea.f-input{min-height:120px;resize:vertical}
+.f-submit{width:100%;margin-top:8px}
+.f-success{display:none;background:rgba(34,180,80,.12);border:1px solid rgba(34,180,80,.4);border-radius:var(--r);padding:16px 20px;font-family:var(--ft);font-size:15px;color:#5de08a;text-align:center;margin-top:12px}
+.f-success.show{display:block}
+.f-err{font-family:var(--ft);font-size:12px;color:#ff6b6b;margin-top:3px;display:none}
+.f-err.show{display:block}
+.f-input.invalid{border-color:#ff6b6b}
+
+/* AVIS */
+.avis-head{display:flex;align-items:center;gap:24px;margin-bottom:40px;flex-wrap:wrap}
+.avis-score{display:flex;align-items:center;gap:16px;background:var(--cs);border-radius:8px;padding:20px 28px}
+.avis-num{font-family:var(--fo);font-size:52px;font-weight:700;color:var(--cw);line-height:1}
+.avis-stars{display:flex;gap:3px;margin-bottom:4px}
+.avis-count{font-family:var(--ft);font-size:13px;color:rgba(255,255,255,.6)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.testi-card{background:var(--cw);border-radius:6px;padding:24px;box-shadow:var(--sh);border-left:3px solid var(--cp)}
+.testi-stars{display:flex;gap:3px;margin-bottom:12px}
+.testi-text{font-family:var(--ft);font-size:14px;color:#444;line-height:1.65;font-style:italic;margin-bottom:16px}
+.testi-name{font-family:var(--fo);font-size:14px;font-weight:600;color:var(--cs);text-transform:uppercase;letter-spacing:.5px}
+.badges-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:40px;justify-content:center}
+.badge-item{display:flex;align-items:center;gap:10px;background:rgba(204,34,34,.07);border:1px solid rgba(204,34,34,.2);border-radius:6px;padding:12px 20px;font-family:var(--fo);font-size:13px;font-weight:600;color:var(--cp);text-transform:uppercase;letter-spacing:.8px}
+
+/* FOOTER */
+.ftr{background:var(--cs);border-top:3px solid var(--cp);padding:56px 24px 0}
+.ftr-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;max-width:1100px;margin:0 auto;padding-bottom:40px}
+.ftr-logo{font-family:var(--fo);font-weight:700;font-size:22px;color:var(--cw);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px}
+.ftr-logo span{color:var(--cp)}
+.ftr-addr{font-family:var(--ft);font-size:14px;color:rgba(255,255,255,.6);line-height:1.8}
+.ftr-addr a{color:var(--cp);font-weight:600;transition:opacity .2s}
+.ftr-addr a:hover{opacity:.8}
+.ftr-socials{display:flex;gap:12px;margin-top:20px;align-items:center}
+.ftr-soc{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:6px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.8);transition:background .2s,color .2s,border-color .2s}
+.ftr-soc:hover{background:var(--cp);border-color:var(--cp);color:var(--cw)}
+.ftr-col-title{font-family:var(--fo);font-size:15px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--cw);margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.1)}
+.ftr-links{display:flex;flex-direction:column;gap:10px}
+.ftr-links a{font-family:var(--ft);font-size:14px;color:rgba(255,255,255,.6);transition:color .2s}
+.ftr-links a:hover{color:var(--cp)}
+.ftr-hours{font-family:var(--ft);font-size:14px;color:rgba(255,255,255,.6);line-height:1.9}
+.ftr-hours strong{color:rgba(255,255,255,.85);font-weight:500}
+.ftr-bottom{max-width:1100px;margin:0 auto;padding:20px 0;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:space-between;flex-wrap:gap}
+.ftr-copy{font-family:var(--ft);font-size:13px;color:rgba(255,255,255,.4)}
+.ftr-setup{font-family:var(--ft);font-size:13px;color:rgba(255,255,255,.4)}
+.ftr-setup a{color:rgba(255,255,255,.6);transition:color .2s}
+.ftr-setup a:hover{color:var(--cp)}
+
+/* DEVIS SECTION */
+.devis-wrap{max-width:760px;margin:0 auto}
+.devis-intro{font-family:var(--ft);font-size:16px;color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:36px;text-align:center}
+
+/* RESPONSIVE PART2 */
+@media(max-width:900px){
+  .srv-grid{grid-template-columns:1fr 1fr}
+  .metier-grid{grid-template-columns:1fr;gap:32px}
+  .metier-img img{height:300px}
+  .proc-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .proc-grid::before{display:none}
+  .testi-grid{grid-template-columns:1fr}
+  .ftr-grid{grid-template-columns:1fr 1fr}
+  .gal-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+  .srv-grid{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+  .f-group.full{grid-column:1}
+  .proc-grid{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:1fr 1fr}
+  .ftr-grid{grid-template-columns:1fr}
+  .ftr-bottom{flex-direction:column;gap:8px;text-align:center}
+  .avis-head{flex-direction:column;align-items:flex-start}
+  .testi-grid{grid-template-columns:1fr}
+  .badges-row{flex-direction:column;align-items:stretch}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s s-light" id="services">
+  <div class="container">
+    <p class="tag">Nos prestations</p>
+    <h2 class="h h1">Ce que nous faisons,<br>nous le faisons bien</h2>
+    <div class="srv-grid">
+
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg width="26" height="26" fill="none" stroke="#CC2222" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <div class="srv-title">Réparation carrosserie</div>
+        <p class="srv-desc">Bosses, impacts, déformations — nous remettons votre carrosserie dans son état d'origine avec des techniques adaptées à chaque type de dommage.</p>
+        <div class="srv-price">Sur devis gratuit</div>
+        <a href="#devis" class="b-link">Demander un devis <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+      </div>
+
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg width="26" height="26" fill="none" stroke="#CC2222" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <div class="srv-title">Peinture automobile</div>
+        <p class="srv-desc">Retouche localisée ou peinture complète, notre atelier respecte la teinte d'origine de votre véhicule pour un résultat invisible et durable.</p>
+        <div class="srv-price">Sur devis gratuit</div>
+        <a href="#devis" class="b-link">Demander un devis <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+      </div>
+
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg width="26" height="26" fill="none" stroke="#CC2222" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <div class="srv-title">Débosselage sans peinture</div>
+        <p class="srv-desc">Pour les petits chocs sans altération du vernis, le débosselage sans peinture (DSP) restaure votre carrosserie rapidement et à moindre coût.</p>
+        <div class="srv-price">Sur devis gratuit</div>
+        <a href="#devis" class="b-link">Demander un devis <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+      </div>
+
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg width="26" height="26" fill="none" stroke="#CC2222" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+        </div>
+        <div class="srv-title">Remplacement de pièces</div>
+        <p class="srv-desc">Aile, pare-choc, rétroviseur, capot — nous remplaçons toute pièce endommagée avec des fournitures adaptées à votre modèle.</p>
+        <div class="srv-price">Sur devis gratuit</div>
+        <a href="#devis" class="b-link">Demander un devis <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+      </div>
+
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg width="26" height="26" fill="none" stroke="#CC2222" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="srv-title">Traitement anti-corrosion</div>
+        <p class="srv-desc">Le climat maritime de Nouméa accélère la corrosion. Nos traitements protègent durablement les zones exposées à l'humidité et aux embruns salins.</p>
+        <div class="srv-price">Sur devis gratuit</div>
+        <a href="#devis" class="b-link">Demander un devis <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+      </div>
+
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg width="26" height="26" fill="none" stroke="#CC2222" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </div>
+        <div class="srv-title">Diagnostic & expertise</div>
+        <p class="srv-desc">Avant tout travail, nous réalisons un diagnostic complet de votre véhicule pour établir un devis précis, transparent et sans surprise.</p>
+        <div class="srv-price">Diagnostic gratuit</div>
+        <a href="#devis" class="b-link">Prendre contact <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSUS -->
+<section class="s s-dark" id="processus">
+  <div class="container">
+    <p class="tag" style="color:rgba(204,34,34,.9)">Comment ça marche</p>
+    <h2 class="h h1 text-white">4 étapes vers un véhicule<br>comme neuf</h2>
+    <div class="proc-grid">
+      <div class="proc-step">
+        <div class="proc-num">1</div>
+        <div class="proc-label">Appel & prise en charge</div>
+        <p class="proc-desc">Contactez-nous au 77.24.61. Nous prenons en compte votre situation et planifions votre passage à l'atelier.</p>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">2</div>
+        <div class="proc-label">Diagnostic & devis</div>
+        <p class="proc-desc">Examen minutieux de votre véhicule. Un devis écrit gratuit vous est remis sous 24h, sans engagement.</p>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">3</div>
+        <div class="proc-label">Réparation en atelier</div>
+        <p class="proc-desc">Nos techniciens interviennent avec soin, dans les délais convenus. Vous êtes informé à chaque étape.</p>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">4</div>
+        <div class="proc-label">Restitution & contrôle</div>
+        <p class="proc-desc">Votre véhicule vous est rendu propre, contrôlé, avec une vérification finale que vous validez avec nous.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION METIER -->
+<section class="s s-light" id="metier">
+  <div class="container">
+    <p class="tag">Notre savoir-faire</p>
+    <h2 class="h h1">Un atelier ancré à Nouméa,<br>des résultats qui durent</h2>
+    <div class="metier-grid">
+      <div class="metier-img">
+        <img src="https://i.ibb.co/S4KHKYP9/Davauto-Services-1.jpg" alt="Atelier carrosserie Davauto Services Nouméa" loading="lazy" width="600" height="400">
+        <div class="metier-img-badge">Atelier Nouméa</div>
+      </div>
+      <div class="metier-text">
+        <p>Chez Davauto Services, nous connaissons les exigences du quotidien nouméen : la chaleur intense, les routes côtières, l'humidité maritime qui s'attaque aux carrosseries. Notre atelier est équipé pour répondre à ces conditions spécifiques avec des produits et méthodes adaptés au contexte du Pacifique.</p>
+        <p>Chaque véhicule qui entre dans notre atelier est traité avec le même niveau d'exigence, qu'il s'agisse d'une simple retouche ou d'une remise en état complète après un choc. Notre équipe intervient avec précision, en respectant les délais et votre budget.</p>
+        <ul class="check-list">
+          <li class="check-item">
+            <div class="check-icon"><svg width="12" height="12" fill="none" stroke="#fff" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            Devis gratuit remis sous 24h, sans engagement
+          </li>
+          <li class="check-item">
+            <div class="check-icon"><svg width="12" height="12" fill="none" stroke="#fff" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            Peinture assortie à la teinte constructeur d'origine
+          </li>
+          <li class="check-item">
+            <div class="check-icon"><svg width="12" height="12" fill="none" stroke="#fff" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            Traitement anti-corrosion adapté au climat marin
+          </li>
+          <li class="check-item">
+            <div class="check-icon"><svg width="12" height="12" fill="none" stroke="#fff" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            Restitution contrôlée avec validation client
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="metier-grid" style="margin-top:48px">
+      <div class="metier-text">
+        <p>La proximité avec nos clients est au cœur de notre façon de travailler. Nous prenons le temps d'expliquer chaque intervention, de vous montrer l'état réel de votre véhicule, et de vous conseiller honnêtement sur les priorités de réparation.</p>
+        <p>Votre satisfaction ne s'arrête pas à la sortie de l'atelier. Si vous avez la moindre question après la restitution, nous restons disponibles pour vous répondre et assurer le suivi de votre véhicule.</p>
+      </div>
+      <div class="metier-img">
+        <img src="https://i.ibb.co/tPhkgNtM/Davauto-Services-2.jpg" alt="Réparation carrosserie Nouméa" loading="lazy" width="600" height="400">
+        <div class="metier-img-badge">Qualité garantie</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s s-dark" id="galerie">
+  <div class="container">
+    <p class="tag" style="color:rgba(204,34,34,.9)">Galerie</p>
+    <h2 class="h h1 text-white">Nos réalisations<br>en images</h2>
+    <div class="gal-grid">
+      <div class="gal-item" data-src="https://i.ibb.co/Lz4tmcXg/Davauto-Services-0.jpg" data-alt="Davauto Services Nouméa">
+        <img src="https://i.ibb.co/Lz4tmcXg/Davauto-Services-0.jpg" alt="Davauto Services" loading="lazy" width="600" height="450">
+        <div class="gal-overlay">
+          <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/S4KHKYP9/Davauto-Services-1.jpg" data-alt="Atelier carrosserie Davauto">
+        <img src="https://i.ibb.co/S4KHKYP9/Davauto-Services-1.jpg" alt="Atelier Davauto Services" loading="lazy" width="600" height="450">
+        <div class="gal-overlay">
+          <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/tPhkgNtM/Davauto-Services-2.jpg" data-alt="Réparation carrosserie Nouméa">
+        <img src="https://i.ibb.co/tPhkgNtM/Davauto-Services-2.jpg" alt="Réparation carrosserie" loading="lazy" width="600" height="450">
+        <div class="gal-overlay">
+          <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/QjkRv6y4/Davauto-Services-3.jpg" data-alt="Peinture automobile Davauto">
+        <img src="https://i.ibb.co/QjkRv6y4/Davauto-Services-3.jpg" alt="Peinture automobile" loading="lazy" width="600" height="450">
+        <div class="gal-overlay">
+          <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Agrandissement photo">
+  <button class="lb-close" id="lb-close" aria-label="Fermer">&times;</button>
+  <img src="" alt="" class="lb-img" id="lb-img">
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section class="s s-light" id="avis">
+  <div class="container">
+    <p class="tag">Avis clients</p>
+    <h2 class="h h1">Ils nous font confiance<br>à Nouméa</h2>
+    <div class="avis-head">
+      <div class="avis-score">
+        <div class="avis-num">5</div>
+        <div>
+          <div class="avis-stars">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="avis-count">11 avis Google vérifiés</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testi-text">"Excellent travail, ma voiture ressemble à du neuf après l'intervention. Équipe sérieuse et à l'écoute. Je recommande sans hésiter."</p>
+        <div class="testi-name">Client Google</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testi-text">"Devis rapide, délais tenus, résultat impeccable. Très bonne communication tout au long de la réparation. Parfait pour Nouméa."</p>
+        <div class="testi-name">Client Google</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testi-text">"Professionnels et honnêtes. Ils ont pris le temps d'expliquer les travaux nécessaires et le prix annoncé a été respecté. Vraiment satisfait."</p>
+        <div class="testi-name">Client Google</div>
+      </div>
+    </div>
+    <div class="badges-row">
+      <div class="badge-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#CC2222"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        Note Google 5/5
+      </div>
+      <div class="badge-item">
+        <svg width="20" height="20" fill="none" stroke="#CC2222" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Devis gratuit garanti
+      </div>
+      <div class="badge-item">
+        <svg width="20" height="20" fill="none" stroke="#CC2222" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Réponse sous 24h
+      </div>
+      <div class="badge-item">
+        <svg width="20" height="20" fill="none" stroke="#CC2222" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        Équipe locale Nouméa
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE DEVIS -->
+<section class="s s-dark" id="devis">
+  <div class="container">
+    <div class="devis-wrap">
+      <p class="tag" style="color:rgba(204,34,34,.9);text-align:center">Contact & devis</p>
+      <h2 class="h h1 text-white" style="text-align:center">Demandez votre devis<br>gratuit en 24h</h2>
+      <p class="devis-intro">Décrivez-nous votre véhicule et le problème constaté. Nous vous recontactons rapidement avec une évaluation claire et sans engagement.</p>
+      <form id="contact-form" action="#" novalidate>
+        <div class="form-grid">
+          <div class="f-group">
+            <label class="f-label" for="f-nom">Votre nom</label>
+            <input class="f-input" id="f-nom" name="nom" type="text" placeholder="Jean Dupont" autocomplete="name">
+            <span class="f-err" id="err-nom">Veuillez indiquer votre nom.</span>
+          </div>
+          <div class="f-group">
+            <label class="f-label" for="f-tel">Téléphone</label>
+            <input class="f-input" id="f-tel" name="telephone" type="tel" placeholder="77 XX XX" autocomplete="tel">
+            <span class="f-err" id="err-tel">Veuillez indiquer votre numéro.</span>
+          </div>
+          <div class="f-group full">
+            <label class="f-label" for="f-email">Email</label>
+            <input class="f-input" id="f-email" name="email" type="email" placeholder="jean@email.com" autocomplete="email">
+            <span class="f-err" id="err-email">Adresse email invalide.</span>
+          </div>
+          <div class="f-group full">
+            <label class="f-label" for="f-msg">Décrivez votre véhicule et la demande</label>
+            <textarea class="f-input" id="f-msg" name="message" placeholder="Ex : Toyota Hilux, choc sur l'aile avant droite, besoin d'un devis..."></textarea>
+            <span class="f-err" id="err-msg">Veuillez décrire votre demande.</span>
+          </div>
+        </div>
+        <button type="submit" class="b-primary f-submit" id="f-btn">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          Envoyer ma demande
+        </button>
+        <div class="f-success" id="f-success" role="alert">
+          ✅ Votre demande a bien été envoyée ! Nous vous recontactons sous 24h au numéro indiqué.
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ftr" id="contact">
+  <div class="ftr-grid">
+    <div>
+      <div class="ftr-logo">Dav<span>auto</span> Services</div>
+      <div class="ftr-addr">
+        4, Rue Claude Bernard<br>
+        Nouméa 98800, Nouvelle-Calédonie<br><br>
+        <a href="tel:772461">📞 77.24.61</a>
+      </div>
+      <div class="ftr-socials">
+        <a href="https://www.facebook.com/davautoservicesnc" class="ftr-soc" target="_blank" rel="noopener" aria-label="Facebook Davauto Services">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="ftr-col-title">Navigation</div>
+      <div class="ftr-links">
+        <a href="#services">Nos services</a>
+        <a href="#processus">Notre processus</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#avis">Avis clients</a>
+        <a href="#devis">Demander un devis</a>
+      </div>
+    </div>
+    <div>
+      <div class="ftr-col-title">Horaires</div>
+      <div class="ftr-hours">
+        <strong>Lundi – Vendredi</strong><br>
+        07h30 – 17h00<br><br>
+        <strong>Samedi</strong><br>
+        Sur rendez-vous<br><br>
+        <strong>Devis</strong><br>
+        Gratuit sous 24h
+      </div>
+    </div>
+  </div>
+  <div class="ftr-bottom">
+    <span class="ftr-copy">© 2026 Davauto Services. Tous droits réservés.</span>
+    <span class="ftr-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var gal=document.querySelectorAll('.gal-item'),lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img'),lbClose=document.getElementById('lb-close');
+  gal.forEach(function(el){
+    el.addEventListener('click',function(){
+      lbImg.src=el.getAttribute('data-src');
+      lbImg.alt=el.getAttribute('data-alt')||'';
+      lb.classList.add('active');
+      document.body.style.overflow='hidden';
+    });
+  });
+  function closeLb(){lb.classList.remove('active');document.body.style.overflow='';lbImg.src='';}
+  lbClose.addEventListener('click',closeLb);
+  lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+
+  var form=document.getElementById('contact-form');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var ok=true;
+    function val(id,errId,check){
+      var el=document.getElementById(id),err=document.getElementById(errId);
+      if(!check(el.value.trim())){el.classList.add('invalid');err.classList.add('show');ok=false;}
+      else{el.classList.remove('invalid');err.classList.remove('show');}
+    }
+    val('f-nom','err-nom',function(v){return v.length>1;});
+    val('f-tel','err-tel',function(v){return v.length>4;});
+    val('f-email','err-email',function(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);});
+    val('f-msg','err-msg',function(v){return v.length>5;});
+    if(!ok)return;
+    var btn=document.getElementById('f-btn');
+    btn.textContent='Envoi en cours…';
+    btn.disabled=true;
+    setTimeout(function(){
+      form.reset();
+      btn.textContent='Envoyer ma demande';
+      btn.disabled=false;
+      document.getElementById('f-success').classList.add('show');
+    },1200);
+  });
+
+  var inputs=document.querySelectorAll('.f-input');
+  inputs.forEach(function(inp){
+    inp.addEventListener('input',function(){
+      inp.classList.remove('invalid');
+    });
+  });
+})();
+</script>
+</body>
+</html>
