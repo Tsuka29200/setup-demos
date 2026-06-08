@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Détour Café — Nouméa</title>
+<meta name="description" content="Détour Café, le kiosque café incontournable de la Pacifique Arcade à Nouméa. Cafés mélanésiens, espresso artisanal, ambiance décontractée au cœur de Nouvelle-Calédonie.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#E8582A;
+--cs:#1A1A1A;
+--ca:#D4A017;
+--cb:#F5F0EB;
+--ct:#1A1A1A;
+--cw:#ffffff;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;background:var(--cb);color:var(--ct);overflow-x:hidden;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU PROMO */
+.promo{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;text-align:center}
+.promo a{display:block;width:100%;height:44px;line-height:44px;font-family:"Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;letter-spacing:.3px;color:#4375ff}
+.promo a:hover{opacity:.85}
+
+/* HEADER */
+.hdr{position:fixed;top:44px;left:0;width:100%;z-index:1000;background:rgba(26,26,26,.92);backdrop-filter:blur(8px);height:64px;display:flex;align-items:center;padding:0 24px;justify-content:space-between}
+.hdr-logo{font-family:'Playfair Display',serif;font-size:22px;color:var(--cw);font-weight:700;letter-spacing:.5px}
+.hdr-logo span{color:var(--cp)}
+.hdr-nav{display:flex;gap:28px;list-style:none}
+.hdr-nav a{font-size:14px;color:rgba(255,255,255,.8);letter-spacing:.4px;transition:color .3s}
+.hdr-nav a:hover{color:var(--cp)}
+.hdr-cta{background:var(--cp);color:var(--cw);font-size:13px;font-weight:700;padding:10px 20px;border-radius:2px;letter-spacing:.5px;transition:background .3s}
+.hdr-cta:hover{background:var(--ca)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.burger span{width:24px;height:2px;background:var(--cw);transition:all .3s;display:block}
+.mob-nav{display:none;position:fixed;top:108px;left:0;width:100%;background:var(--cs);z-index:999;padding:24px 16px 32px;flex-direction:column;gap:0}
+.mob-nav a{display:block;padding:14px 0;color:rgba(255,255,255,.85);font-size:16px;border-bottom:1px solid rgba(255,255,255,.08)}
+.mob-nav.open{display:flex}
+
+/* HERO */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;background:url('https://i.ibb.co/5h8TcC6x/D-tour-Caf-0.jpg') center center/cover no-repeat;padding-top:108px}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,26,26,.55) 0%,rgba(26,26,26,.4) 60%,rgba(26,26,26,.7) 100%)}
+.hero-cnt{position:relative;z-index:2;text-align:center;padding:0 20px;max-width:800px}
+.hero-tag{display:inline-block;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--ca);font-weight:700;margin-bottom:18px;border:1px solid var(--ca);padding:5px 14px;border-radius:2px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(48px,8vw,90px);color:var(--cw);line-height:1.05;font-weight:700;margin-bottom:16px}
+.hero h1 em{color:var(--cp);font-style:normal}
+.hero-sub{font-size:clamp(16px,2.5vw,20px);color:rgba(255,255,255,.85);font-weight:300;margin-bottom:36px;letter-spacing:.3px}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;font-weight:700;font-size:14px;letter-spacing:.8px;text-transform:uppercase;padding:14px 32px;border-radius:2px;transition:background .3s,color .3s,transform .2s;min-height:48px;line-height:1.3;text-align:center}
+.btn:hover{transform:translateY(-2px)}
+.btn-p{background:var(--cp);color:var(--cw)}
+.btn-p:hover{background:var(--ca)}
+.btn-o{background:transparent;color:var(--cw);border:2px solid rgba(255,255,255,.7)}
+.btn-o:hover{border-color:var(--ca);color:var(--ca)}
+.hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer}
+.hero-scroll span{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.hero-scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--ca),transparent);animation:scrollpulse 2s ease-in-out infinite}
+@keyframes scrollpulse{0%,100%{opacity:.4;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.1)}}
+
+/* STATS */
+.stats{background:var(--cp);padding:60px 24px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1000px;margin:0 auto}
+.stat-item{text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,56px);color:var(--cw);font-weight:700;display:block;line-height:1}
+.stat-lbl{font-size:13px;color:rgba(255,255,255,.8);letter-spacing:1.2px;text-transform:uppercase;margin-top:8px;display:block}
+.stat-sep{width:30px;height:2px;background:var(--ca);margin:10px auto 0;display:block}
+
+/* FALLBACK ANIMATIONS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+@media(max-width:900px){
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+.hdr-nav,.hdr-cta{display:none}
+.burger{display:flex}
+.promo{height:40px}
+.promo a{height:40px;line-height:40px;font-size:13px}
+.hdr{top:40px}
+.hero{padding-top:100px}
+.mob-nav{top:104px}
+}
+@media(max-width:480px){
+.hdr{padding:0 16px;height:58px}
+.hero-btns .btn{width:100%}
+.stats-grid{grid-template-columns:repeat(2,1fr);gap:16px}
+.stats{padding:40px 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO SETUP NC -->
+<div class="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr">
+  <a href="#accueil" class="hdr-logo">Détour<span>Café</span></a>
+  <nav>
+    <ul class="hdr-nav">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#ambiance">Ambiance</a></li>
+      <li><a href="#histoire">Notre histoire</a></li>
+      <li><a href="#avis">Avis</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <a href="tel:941143" class="hdr-cta">☎ 94.11.43</a>
+  <div class="burger" id="burger" aria-label="Menu" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-nav" id="mobnav">
+  <a href="#menu" onclick="closeMob()">Menu</a>
+  <a href="#ambiance" onclick="closeMob()">Ambiance</a>
+  <a href="#histoire" onclick="closeMob()">Notre histoire</a>
+  <a href="#avis" onclick="closeMob()">Avis</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="tel:941143" style="color:var(--cp);margin-top:12px;border:none;font-weight:700">☎ 94.11.43</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-ov"></div>
+  <div class="hero-cnt">
+    <span class="hero-tag">Pacifique Arcade · Nouméa</span>
+    <h1>Détour<br><em>Café</em></h1>
+    <p class="hero-sub">L'essence du café local, une pause qui fait du bien.</p>
+    <div class="hero-btns">
+      <a href="#menu" class="btn btn-p">Découvrir le menu</a>
+      <a href="#contact" class="btn btn-o">Nous trouver</a>
+    </div>
+  </div>
+  <div class="hero-scroll" onclick="document.getElementById('stats').scrollIntoView({behavior:'smooth'})">
+    <span>Découvrir</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="stats">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <span class="stat-num" data-target="5">5</span>
+      <span class="stat-sep"></span>
+      <span class="stat-lbl">Note Google / 5</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="7">7</span>
+      <span class="stat-sep"></span>
+      <span class="stat-lbl">Avis clients</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="100">100</span>
+      <span class="stat-sep"></span>
+      <span class="stat-lbl">% Café mélanésien</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="1">1</span>
+      <span class="stat-sep"></span>
+      <span class="stat-lbl">Adresse à Nouméa</span>
+    </div>
+  </div>
+</section>
+
+<script>
+var b=document.getElementById('burger'),m=document.getElementById('mobnav');
+function closeMob(){m.classList.remove('open')}
+b.addEventListener('click',function(){m.classList.toggle('open')});
+document.addEventListener('click',function(e){if(!b.contains(e.target)&&!m.contains(e.target))closeMob()});
+</script>
+<style>
+.s{padding:80px 24px}
+.s-dark{background:var(--cs);color:var(--cw)}
+.s-cream{background:var(--cb)}
+.s-white{background:#fff}
+.s-title{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,52px);font-weight:700;line-height:1.1;margin-bottom:16px}
+.s-title em{color:var(--cp);font-style:normal}
+.s-sub{font-size:16px;color:#666;max-width:560px;margin:0 auto 56px;text-align:center;line-height:1.7}
+.s-dark .s-sub{color:rgba(255,255,255,.65)}
+.tc{text-align:center}
+.sep{width:48px;height:3px;background:var(--ca);margin:16px auto 0}
+
+/* ACCROCHE */
+.accroche{padding:72px 24px;background:#fff;text-align:center}
+.accroche-inner{max-width:700px;margin:0 auto}
+.accroche-inner .s-title{margin-bottom:20px}
+.accroche-inner p{font-size:18px;color:#444;line-height:1.8;font-weight:300}
+
+/* MENU */
+.menu-cats{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1080px;margin:0 auto}
+.mc{background:#fff;border-radius:4px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.06);perspective:1000px}
+.mc-inner{transition:transform .6s;transform-style:preserve-3d;position:relative;min-height:420px}
+.mc:hover .mc-inner{transform:rotateY(180deg)}
+.mc-front,.mc-back{position:absolute;inset:0;backface-visibility:hidden;padding:32px 28px}
+.mc-front{background:#fff}
+.mc-back{background:var(--cs);color:var(--cw);transform:rotateY(180deg);display:flex;flex-direction:column;justify-content:center}
+.mc-icon{font-size:36px;margin-bottom:16px}
+.mc-cat{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--cp);font-weight:700;margin-bottom:8px}
+.mc-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;margin-bottom:20px;color:var(--cs)}
+.mc-items{list-style:none;display:flex;flex-direction:column;gap:12px}
+.mc-items li{display:flex;justify-content:space-between;align-items:baseline;gap:8px;border-bottom:1px dashed #e8e0d8;padding-bottom:10px;font-size:14px;color:#444}
+.mc-items li:last-child{border:none;padding-bottom:0}
+.mc-item-name{flex:1}
+.mc-item-price{color:var(--cp);font-weight:700;white-space:nowrap}
+.mc-back .mc-title{color:var(--cw)}
+.mc-back p{font-size:14px;color:rgba(255,255,255,.75);line-height:1.7;margin-bottom:20px}
+.mc-back .sep{margin:0 0 20px}
+.mc-hint{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ca)}
+
+/* GALERIE */
+.gal-grid{display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:auto auto;gap:12px;max-width:1080px;margin:0 auto}
+.gal-item{overflow:hidden;border-radius:4px;cursor:pointer}
+.gal-item:first-child{grid-column:1/2;grid-row:1/3}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s;display:block}
+.gal-item:hover img{transform:scale(1.05)}
+.gal-item:first-child img{height:480px}
+.gal-item:not(:first-child) img{height:230px}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center;padding:20px}
+.lightbox.on{display:flex}
+.lb-img{max-width:90vw;max-height:88vh;object-fit:contain;border-radius:4px}
+.lb-close{position:absolute;top:20px;right:24px;color:#fff;font-size:32px;cursor:pointer;line-height:1;opacity:.7;transition:opacity .2s}
+.lb-close:hover{opacity:1}
+
+/* METIER */
+.metier-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;max-width:1080px;margin:0 auto}
+.metier-img{border-radius:4px;overflow:hidden}
+.metier-img img{width:100%;height:420px;object-fit:cover;transition:transform .4s}
+.metier-img:hover img{transform:scale(1.03)}
+.metier-txt .s-title{text-align:left;margin-bottom:20px}
+.metier-txt p{font-size:16px;line-height:1.85;color:#555;margin-bottom:24px}
+.metier-pts{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.metier-pts li{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:#333}
+.mp-check{width:20px;height:20px;flex-shrink:0;color:var(--cp)}
+
+/* RESERVATION CTA */
+.res-cta{background:var(--cs);padding:80px 24px;text-align:center}
+.res-cta .s-title{color:var(--cw);margin-bottom:12px}
+.res-cta p{color:rgba(255,255,255,.7);font-size:17px;margin-bottom:36px}
+.res-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* TEMOIGNAGES */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1080px;margin:36px auto 0}
+.tc-card{background:#fff;border-radius:4px;padding:28px 24px;box-shadow:0 2px 16px rgba(0,0,0,.06)}
+.tc-stars{color:var(--ca);font-size:18px;margin-bottom:12px;letter-spacing:2px}
+.tc-text{font-size:15px;color:#444;line-height:1.7;font-style:italic;margin-bottom:16px}
+.tc-author{font-weight:700;font-size:14px;color:var(--cs)}
+.tc-date{font-size:12px;color:#999;margin-top:2px}
+.google-badge{display:flex;align-items:center;gap:12px;background:#fff;border-radius:4px;padding:16px 24px;box-shadow:0 2px 16px rgba(0,0,0,.07);max-width:340px;margin:0 auto 48px}
+.gb-logo{font-size:22px;font-weight:700;color:#4285F4;letter-spacing:-1px}
+.gb-note{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--cs);line-height:1}
+.gb-stars{color:var(--ca);font-size:16px;letter-spacing:1px}
+.gb-count{font-size:12px;color:#888}
+
+/* HORAIRES */
+.horaires-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:800px;margin:0 auto}
+.hor-bloc .s-title{font-size:22px;text-align:left;margin-bottom:20px}
+.hor-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.hor-list li{display:flex;justify-content:space-between;font-size:15px;color:#444;border-bottom:1px solid #e8e0d8;padding-bottom:8px}
+.hor-list li span:last-child{font-weight:700;color:var(--cs)}
+.map-link{display:inline-flex;align-items:center;gap:8px;margin-top:20px;color:var(--cp);font-weight:700;font-size:14px;letter-spacing:.5px;border-bottom:2px solid transparent;transition:border-color .3s}
+.map-link:hover{border-color:var(--ca)}
+
+/* FORMULAIRE */
+.form-wrap{max-width:640px;margin:0 auto;background:#fff;border-radius:4px;padding:40px 36px;box-shadow:0 4px 24px rgba(0,0,0,.07)}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.f-grp{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.f-grp label{font-size:13px;font-weight:700;letter-spacing:.5px;color:var(--cs)}
+.f-grp input,.f-grp textarea{border:1.5px solid #ddd;border-radius:2px;padding:12px 14px;font-size:15px;font-family:'Lato',sans-serif;transition:border-color .3s;width:100%}
+.f-grp input:focus,.f-grp textarea:focus{outline:none;border-color:var(--cp)}
+.f-grp textarea{min-height:120px;resize:vertical}
+.f-err{font-size:12px;color:#c0392b;display:none;margin-top:2px}
+.f-grp.invalid .f-err{display:block}
+.f-grp.invalid input,.f-grp.invalid textarea{border-color:#c0392b}
+.f-success{display:none;text-align:center;padding:32px 20px;color:var(--cp);font-family:'Playfair Display',serif;font-size:20px}
+.f-success.on{display:block}
+.f-loader{display:none;text-align:center;padding:12px;color:#888;font-size:14px}
+.f-loader.on{display:block}
+
+/* FOOTER */
+.ftr{background:var(--cp);color:rgba(255,255,255,.9);padding:60px 24px 32px}
+.ftr-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;max-width:1080px;margin:0 auto 48px}
+.ftr-brand{font-family:'Playfair Display',serif;font-size:26px;color:#fff;font-weight:700;margin-bottom:14px}
+.ftr-addr{font-size:14px;line-height:1.9;color:rgba(255,255,255,.8)}
+.ftr-tel{display:inline-block;margin-top:10px;color:#fff;font-weight:700;font-size:16px;border-bottom:1px solid rgba(255,255,255,.4);transition:opacity .3s}
+.ftr-tel:hover{opacity:.75}
+.ftr-social{display:flex;gap:12px;margin-top:18px}
+.ftr-soc-lnk{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;transition:background .3s}
+.ftr-soc-lnk:hover{background:rgba(255,255,255,.3)}
+.ftr-soc-lnk svg{width:20px;height:20px;fill:#fff}
+.ftr-col h4{font-size:13px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:#fff;margin-bottom:18px}
+.ftr-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ftr-col ul a{font-size:14px;color:rgba(255,255,255,.75);transition:color .3s}
+.ftr-col ul a:hover{color:#fff}
+.ftr-bottom{max-width:1080px;margin:0 auto;border-top:1px solid rgba(255,255,255,.2);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ftr-copy{font-size:13px;color:rgba(255,255,255,.6)}
+.ftr-setup{font-size:13px;color:rgba(255,255,255,.6)}
+.ftr-setup a{color:#fff;font-weight:700;border-bottom:1px solid rgba(255,255,255,.4);transition:opacity .3s}
+.ftr-setup a:hover{opacity:.75}
+
+@media(max-width:900px){
+.menu-cats{grid-template-columns:1fr}
+.metier-grid{grid-template-columns:1fr;gap:36px}
+.testi-grid{grid-template-columns:1fr}
+.ftr-grid{grid-template-columns:1fr 1fr}
+.horaires-grid{grid-template-columns:1fr;gap:32px}
+}
+@media(max-width:480px){
+.s{padding:56px 16px}
+.f-row{grid-template-columns:1fr}
+.form-wrap{padding:28px 16px}
+.ftr-grid{grid-template-columns:1fr;gap:32px}
+.gal-grid{grid-template-columns:1fr}
+.gal-item:first-child{grid-row:auto}
+.gal-item:first-child img{height:240px}
+.gal-item:not(:first-child) img{height:200px}
+.ftr-bottom{flex-direction:column;text-align:center}
+.res-btns .btn{width:100%}
+.mc-inner{min-height:380px}
+}
+</style>
+
+<!-- ACCROCHE EMOTIONNELLE -->
+<section class="accroche" id="accroche">
+  <div class="accroche-inner">
+    <p style="font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--cp);font-weight:700;margin-bottom:12px">Nouméa · Pacifique Arcade</p>
+    <h2 class="s-title tc">On prépare votre café<br><em>avec le cœur</em></h2>
+    <div class="sep" style="margin-bottom:24px"></div>
+    <p>Au détour d'une arcade animée du centre de Nouméa, on vous accueille avec un café mélanésien préparé à la minute, une machine espresso qui tourne à plein régime et la bonne humeur en prime. Ici, pas de chichis — juste du bon café local et une vraie pause.</p>
+  </div>
+</section>
+
+<!-- MENU SIGNATURE -->
+<section class="s s-cream tc" id="menu">
+  <h2 class="s-title">Notre <em>menu</em></h2>
+  <div class="sep"></div>
+  <p class="s-sub">Passez votre souris sur une carte pour découvrir nos recommandations. Tous nos cafés sont préparés avec des grains mélanésiens sélectionnés.</p>
+  <div class="menu-cats">
+
+    <div class="mc">
+      <div class="mc-inner">
+        <div class="mc-front">
+          <div class="mc-icon">☕</div>
+          <div class="mc-cat">Cafés chauds</div>
+          <div class="mc-title">Espresso &amp; classics</div>
+          <ul class="mc-items">
+            <li><span class="mc-item-name">Espresso simple</span><span class="mc-item-price">250 XPF</span></li>
+            <li><span class="mc-item-name">Double espresso</span><span class="mc-item-price">350 XPF</span></li>
+            <li><span class="mc-item-name">Café allongé</span><span class="mc-item-price">300 XPF</span></li>
+            <li><span class="mc-item-name">Cappuccino</span><span class="mc-item-price">400 XPF</span></li>
+            <li><span class="mc-item-name">Café au lait</span><span class="mc-item-price">380 XPF</span></li>
+          </ul>
+        </div>
+        <div class="mc-back">
+          <div class="mc-cat">Notre conseil</div>
+          <div class="mc-title">Le café mélanésien</div>
+          <div class="sep"></div>
+          <p>On vous recommande notre espresso préparé avec des grains de café mélanésien — intense, fruité, avec ce caractère local qui fait toute la différence.</p>
+          <span class="mc-hint">↩ Retourner</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mc">
+      <div class="mc-inner">
+        <div class="mc-front">
+          <div class="mc-icon">🧊</div>
+          <div class="mc-cat">Cafés froids &amp; frappés</div>
+          <div class="mc-title">Pour les journées chaudes</div>
+          <ul class="mc-items">
+            <li><span class="mc-item-name">Café glacé</span><span class="mc-item-price">380 XPF</span></li>
+            <li><span class="mc-item-name">Frappuccino café</span><span class="mc-item-price">450 XPF</span></li>
+            <li><span class="mc-item-name">Ice latte</span><span class="mc-item-price">420 XPF</span></li>
+            <li><span class="mc-item-name">Smoothie café-vanille</span><span class="mc-item-price">480 XPF</span></li>
+          </ul>
+        </div>
+        <div class="mc-back">
+          <div class="mc-cat">Notre conseil</div>
+          <div class="mc-title">Le frappé signature</div>
+          <div class="sep"></div>
+          <p>Par 30°C à Nouméa, notre ice latte préparé minute avec des glaçons frais et un espresso bien tassé, c'est la pause qu'il vous faut avant de reprendre vos courses.</p>
+          <span class="mc-hint">↩ Retourner</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mc">
+      <div class="mc-inner">
+        <div class="mc-front">
+          <div class="mc-icon">🍵</div>
+          <div class="mc-cat">Boissons &amp; gourmandises</div>
+          <div class="mc-title">Thés, jus &amp; douceurs</div>
+          <ul class="mc-items">
+            <li><span class="mc-item-name">Thé chaud</span><span class="mc-item-price">280 XPF</span></li>
+            <li><span class="mc-item-name">Chocolat chaud</span><span class="mc-item-price">380 XPF</span></li>
+            <li><span class="mc-item-name">Jus d'orange frais</span><span class="mc-item-price">350 XPF</span></li>
+            <li><span class="mc-item-name">Pâtisserie du jour</span><span class="mc-item-price">250 XPF</span></li>
+            <li><span class="mc-item-name">Formule café + viennoiserie</span><span class="mc-item-price">550 XPF</span></li>
+          </ul>
+        </div>
+        <div class="mc-back">
+          <div class="mc-cat">Notre conseil</div>
+          <div class="mc-title">La formule du matin</div>
+          <div class="sep"></div>
+          <p>Démarrez la journée avec notre formule café + viennoiserie du jour — le combo parfait pour une pause matinale rapide avant d'attaquer le programme.</p>
+          <span class="mc-hint">↩ Retourner</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- GALERIE AMBIANCE -->
+<section class="s s-dark tc" id="ambiance">
+  <h2 class="s-title" style="color:var(--cw)">L'ambiance <em>Détour Café</em></h2>
+  <div class="sep"></div>
+  <p class="s-sub">Un kiosque vivant, coloré, au cœur de la Pacifique Arcade — cliquez sur une photo pour l'agrandir.</p>
+  <div class="gal-grid">
+    <div class="gal-item" data-src="https://i.ibb.co/5h8TcC6x/D-tour-Caf-0.jpg">
+      <img src="https://i.ibb.co/5h8TcC6x/D-tour-Caf-0.jpg" alt="Détour Café ambiance kiosque" loading="lazy">
+    </div>
+    <div class="gal-item" data-src="https://i.ibb.co/x45m1FM/D-tour-Caf-1.jpg">
+      <img src="https://i.ibb.co/x45m1FM/D-tour-Caf-1.jpg" alt="Café mélanésien Détour Café" loading="lazy">
+    </div>
+    <div class="gal-item" data-src="https://i.ibb.co/9mSvqGH6/D-tour-Caf-2.jpg">
+      <img src="https://i.ibb.co/9mSvqGH6/D-tour-Caf-2.jpg" alt="Machine espresso Détour Café" loading="lazy">
+    </div>
+    <div class="gal-item" data-src="https://i.ibb.co/G451pthY/D-tour-Caf-3.jpg">
+      <img src="https://i.ibb.co/G451pthY/D-tour-Caf-3.jpg" alt="Comptoir Détour Café Nouméa" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lb" role="dialog" aria-modal="true">
+  <span class="lb-close" id="lb-close" aria-label="Fermer">✕</span>
+  <img class="lb-img" id="lb-img" src="" alt="Photo Détour Café agrandie">
+</div>
+
+<!-- METIER / STORYTELLING -->
+<section class="s s-cream" id="histoire">
+  <div class="metier-grid">
+    <div class="metier-img">
+      <img src="https://i.ibb.co/x45m1FM/D-tour-Caf-1.jpg" alt="Café mélanésien préparé à Détour Café" loading="lazy">
+    </div>
+    <div class="metier-txt">
+      <p style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--cp);font-weight:700;margin-bottom:12px">Notre histoire</p>
+      <h2 class="s-title">Un café qui vient<br><em>de chez nous</em></h2>
+      <div class="sep" style="margin:0 0 24px"></div>
+      <p>On a ouvert Détour Café avec une idée simple : proposer un vrai café de qualité, préparé avec des grains cultivés en Mélanésie, dans un lieu accessible à tous les Nouméens. Pas besoin de faire un détour — on est là, au passage, dans votre arcade du quotidien.</p>
+      <p>On croit dans les produits locaux. On croit dans la pause café comme moment humain. Et on croit que le meilleur café, c'est celui qu'on vous prépare à la minute, avec du soin.</p>
+      <ul class="metier-pts">
+        <li>
+          <svg class="mp-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Grains de café mélanésien sélectionnés</span>
+        </li>
+        <li>
+          <svg class="mp-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Préparation minute sur machine espresso professionnelle</span>
+        </li>
+        <li>
+          <svg class="mp-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Kiosque accessible, ambiance décontractée et chaleureuse</span>
+        </li>
+        <li>
+          <svg class="mp-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Au cœur de la Pacifique Arcade, Nouméa</span>
+        </li>
+      </ul>
+      <a href="#contact" class="btn btn-p">Venez nous voir</a>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVATION CTA -->
+<section class="res-cta" id="reservation">
+  <h2 class="s-title" style="color:var(--cw)">Passez nous voir,<br><em style="color:var(--ca)">on vous attend</em></h2>
+  <p>Kiosque ouvert tous les jours au cœur de la Pacifique Arcade. Aucune réservation nécessaire — venez comme vous êtes.</p>
+  <div class="res-btns">
+    <a href="tel:941143" class="btn btn-p">☎ Appeler le 94.11.43</a>
+    <a href="#contact" class="btn btn-o">Nous écrire</a>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s s-white tc" id="avis">
+  <h2 class="s-title">Ce que disent nos <em>clients</em></h2>
+  <div class="sep"></div>
+  <p class="s-sub">Note Google parfaite pour Détour Café — merci à tous les Nouméens qui partagent leur expérience.</p>
+
+  <div class="google-badge">
+    <div>
+      <div class="gb-logo">G</div>
+    </div>
+    <div>
+      <div class="gb-note">5 / 5</div>
+      <div class="gb-stars">★★★★★</div>
+      <div class="gb-count">7 avis Google vérifiés</div>
+    </div>
+  </div>
+
+  <div class="testi-grid">
+    <div class="tc-card">
+      <div class="tc-stars">★★★★★</div>
+      <p class="tc-text">"Le meilleur café de la Pacifique Arcade, sans hésiter. L'accueil est toujours chaleureux et le café mélanésien est vraiment excellent. Je m'arrête là chaque matin !"</p>
+      <div class="tc-author">Marie-Claire T.</div>
+      <div class="tc-date">Avis Google · Nouméa</div>
+    </div>
+    <div class="tc-card">
+      <div class="tc-stars">★★★★★</div>
+      <p class="tc-text">"Un vrai coup de cœur. On sent que les produits sont sélectionnés avec soin et que l'équipe est passionnée. Le ice latte est parfait pour les grosses chaleurs !"</p>
+      <div class="tc-author">Théo B.</div>
+      <div class="tc-date">Avis Google · Nouméa</div>
+    </div>
+    <div class="tc-card">
+      <div class="tc-stars">★★★★★</div>
+      <p class="tc-text">"Super kiosque, super ambiance. On y revient toujours. La formule café + viennoiserie du matin est top rapport qualité-prix. Bravo à toute l'équipe du Détour !"</p>
+      <div class="tc-author">Nathalie V.</div>
+      <div class="tc-date">Avis Google · Nouméa</div>
+    </div>
+  </div>
+</section>
+
+<!-- HORAIRES ET FORMULAIRE -->
+<section class="s s-cream" id="contact">
+  <h2 class="s-title tc">Horaires <em>&amp; accès</em></h2>
+  <div class="sep"></div>
+  <p class="s-sub">Retrouvez-nous à la Pacifique Arcade, en plein cœur de Nouméa.</p>
+
+  <div class="horaires-grid" style="margin-bottom:64px">
+    <div class="hor-bloc">
+      <h3 class="s-title" style="font-size:22px;text-align:left;margin-bottom:20px">Heures d'ouverture</h3>
+      <ul class="hor-list">
+        <li><span>Lundi – Vendredi</span><span>7h00 – 17h00</span></li>
+        <li><span>Samedi</span><span>8h00 – 14h00</span></li>
+        <li><span>Dimanche</span><span>Fermé</span></li>
+      </ul>
+    </div>
+    <div class="hor-bloc">
+      <h3 class="s-title" style="font-size:22px;text-align:left;margin-bottom:20px">Nous trouver</h3>
+      <p style="font-size:15px;line-height:1.8;color:#555">Détour Café<br>Pacifique Arcade<br>Nouméa 98800<br>Nouvelle-Calédonie</p>
+      <a href="https://maps.google.com/?q=Pacifique+Arcade+Noumea+Nouvelle-Caledonie" target="_blank" rel="noopener" class="map-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Voir sur Google Maps
+      </a>
+      <br>
+      <a href="tel:941143" class="map-link" style="margin-top:12px">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        94.11.43
+      </a>
+    </div>
+  </div>
+
+  <h3 class="s-title tc" style="font-size:30px;margin-bottom:8px">Écrivez-<em>nous</em></h3>
+  <p style="text-align:center;color:#666;font-size:15px;margin-bottom:32px">Une question ? Un partenariat ? On vous répond vite.</p>
+
+  <div class="form-wrap">
+    <form id="cform" action="#" novalidate>
+      <div class="f-row">
+        <div class="f-grp" id="fg-nom">
+          <label for="f-nom">Nom complet</label>
+          <input type="text" id="f-nom" name="nom" placeholder="Votre nom" autocomplete="name">
+          <span class="f-err">Ce champ est requis.</span>
+        </div>
+        <div class="f-grp" id="fg-email">
+          <label for="f-email">Adresse email</label>
+          <input type="email" id="f-email" name="email" placeholder="votre@email.com" autocomplete="email">
+          <span class="f-err">Email invalide.</span>
+        </div>
+      </div>
+      <div class="f-grp" id="fg-tel">
+        <label for="f-tel">Téléphone</label>
+        <input type="tel" id="f-tel" name="tel" placeholder="Ex : 94.11.43" autocomplete="tel">
+        <span class="f-err">Numéro invalide.</span>
+      </div>
+      <div class="f-grp" id="fg-msg">
+        <label for="f-msg">Message</label>
+        <textarea id="f-msg" name="msg" placeholder="Votre message..."></textarea>
+        <span class="f-err">Veuillez saisir un message.</span>
+      </div>
+      <button type="submit" class="btn btn-p" style="width:100%;border:none;cursor:pointer;font-family:'Lato',sans-serif">Envoyer le message</button>
+      <div class="f-loader" id="f-loader">Envoi en cours…</div>
+    </form>
+    <div class="f-success" id="f-success">
+      ✓ Message bien reçu !<br>
+      <span style="font-family:'Lato',sans-serif;font-size:15px;color:#555">On vous répond très vite.</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ftr">
+  <div class="ftr-grid">
+    <div>
+      <div class="ftr-brand">Détour Café</div>
+      <address class="ftr-addr" style="font-style:normal">
+        Pacifique Arcade<br>
+        Nouméa 98800<br>
+        Nouvelle-Calédonie
+      </address>
+      <a href="tel:941143" class="ftr-tel">☎ 94.11.43</a>
+      <div class="ftr-social">
+        <a href="https://www.facebook.com/detourcafenc" target="_blank" rel="noopener" class="ftr-soc-lnk" aria-label="Facebook Détour Café">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="ftr-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#ambiance">Ambiance</a></li>
+        <li><a href="#histoire">Notre histoire</a></li>
+        <li><a href="#avis">Avis clients</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="ftr-col">
+      <h4>Horaires</h4>
+      <ul>
+        <li><a>Lun – Ven : 7h – 17h</a></li>
+        <li><a>Samedi : 8h – 14h</a></li>
+        <li><a>Dimanche : Fermé</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ftr-bottom">
+    <span class="ftr-copy">© 2026 Détour Café. Tous droits réservés.</span>
+    <span class="ftr-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></span>
+  </div>
+</footer>
+
+<script>
+var lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img'),lbClose=document.getElementById('lb-close');
+document.querySelectorAll('.gal-item').forEach(function(el){
+el.addEventListener('click',function(){
+lbImg.src=el.getAttribute('data-src');
+lb.classList.add('on');
+document.body.style.overflow='hidden';
+});
+});
+function closeLb(){lb.classList.remove('on');document.body.style.overflow='';}
+lbClose.addEventListener('click',closeLb);
+lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+
+var cf=document.getElementById('cform'),fl=document.getElementById('f-loader'),fs=document.getElementById('f-success');
+function vld(id,fn){
+var g=document.getElementById('fg-'+id),v=document.getElementById('f-'+id).value.trim();
+var ok=fn(v);g.classList.toggle('invalid',!ok);return ok;
+}
+cf.addEventListener('submit',function(e){
+e.preventDefault();
+var ok=true;
+if(!vld('nom',function(v){return v.length>1;}))ok=false;
+if(!vld('email',function(v){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);}))ok=false;
+if(!vld('tel',function(v){return v.length>3;}))ok=false;
+if(!vld('msg',function(v){return v.length>4;}))ok=false;
+if(!ok)return;
+fl.classList.add('on');
+setTimeout(function(){
+fl.classList.remove('on');
+cf.style.display='none';
+fs.classList.add('on');
+},1200);
+});
+
+var nums=document.querySelectorAll('[data-target]');
+var counted=false;
+function countUp(){
+if(counted)return;counted=true;
+nums.forEach(function(el){
+var t=+el.getAttribute('data-target'),d=1200,s=30,steps=d/s,inc=t/steps,c=0;
+var iv=setInterval(function(){
+c+=inc;if(c>=t){c=t;clearInterval(iv);}
+el.textContent=t===5?'5★':Math.round(c)+(el.nextElementSibling&&el.nextElementSibling.textContent.indexOf('%')>-1?'%':'');
+},s);
+});
+}
+var statsObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)countUp();});},{threshold:.3});
+document.querySelectorAll('.stats').forEach(function(el){statsObs.observe(el);});
+</script>
+</body>
+</html>
