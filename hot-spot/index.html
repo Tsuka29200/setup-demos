@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hot Spot — Nouméa</title>
+<meta name="description" content="Hot Spot, ta référence sneakers et streetwear à Nouméa. Découvre les dernières collections, exclusivités et éditions limitées au cœur de la Nouvelle-Calédonie.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Barlow:wght@400;500;600&family=Manrope:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#CC2200;
+--cs:#1A1A1A;
+--ca:#E8A020;
+--ct:#F0F0F0;
+--cb:#111111;
+--cw:#ffffff;
+--cgold:#E8A020;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cb);color:var(--ct);font-family:'Barlow Condensed',sans-serif;overflow-x:hidden;font-size:16px}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+
+/* BANDEAU SETUP NC */
+#setup-band{
+position:fixed;top:0;left:0;width:100%;height:44px;
+background:#ffd500;
+z-index:1001;
+text-align:center;
+}
+#setup-band a{
+font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;
+font-weight:700;font-size:14px;
+color:#4375ff;
+line-height:44px;
+letter-spacing:0.3px;
+display:block;width:100%;height:100%;
+}
+#setup-band a:hover{opacity:0.85}
+
+/* HEADER */
+.hdr{
+position:fixed;top:44px;left:0;width:100%;
+background:rgba(17,17,17,0.97);
+backdrop-filter:blur(8px);
+border-bottom:2px solid var(--cp);
+z-index:1000;
+padding:0 24px;
+height:64px;
+display:flex;align-items:center;justify-content:space-between;
+}
+.hdr-logo{
+font-size:28px;font-weight:900;
+letter-spacing:2px;text-transform:uppercase;
+color:var(--cw);
+line-height:1;
+}
+.hdr-logo span{color:var(--cp)}
+.hdr-nav{display:flex;align-items:center;gap:28px}
+.hdr-nav a{
+font-size:14px;font-weight:700;
+letter-spacing:1px;text-transform:uppercase;
+color:var(--ct);
+transition:color .2s;
+}
+.hdr-nav a:hover{color:var(--cp)}
+.hdr-cta{
+background:var(--cp);color:var(--cw);
+font-size:13px;font-weight:700;
+letter-spacing:1px;text-transform:uppercase;
+padding:10px 20px;
+border:none;cursor:pointer;
+transition:background .2s,transform .15s;
+}
+.hdr-cta:hover{background:#a81c00;transform:translateY(-1px)}
+.hdr-tel{
+font-size:16px;font-weight:700;
+color:var(--ca);
+letter-spacing:1px;
+}
+.hdr-tel:hover{color:var(--cw)}
+.hamburger{
+display:none;
+flex-direction:column;gap:5px;
+background:none;border:none;cursor:pointer;padding:4px;
+}
+.hamburger span{width:26px;height:2px;background:var(--ct);display:block;transition:all .3s}
+.mob-nav{
+display:none;
+position:fixed;top:108px;left:0;width:100%;
+background:#1A1A1A;
+border-bottom:2px solid var(--cp);
+z-index:999;
+flex-direction:column;
+padding:16px 0;
+}
+.mob-nav a{
+display:block;padding:14px 24px;
+font-size:18px;font-weight:700;
+letter-spacing:1px;text-transform:uppercase;
+color:var(--ct);
+border-bottom:1px solid #2a2a2a;
+}
+.mob-nav a:hover{color:var(--cp);padding-left:32px}
+.mob-nav.open{display:flex}
+
+/* HERO */
+.hero{
+position:relative;
+min-height:100vh;
+background:url('https://i.ibb.co/bjbrBvJm/Hot-Spot-0.jpg') center center/cover no-repeat;
+display:flex;align-items:flex-end;
+padding-top:108px;
+}
+.hero-overlay{
+position:absolute;inset:0;
+background:linear-gradient(135deg,rgba(17,17,17,0.92) 0%,rgba(204,34,0,0.15) 50%,rgba(17,17,17,0.85) 100%);
+}
+.hero-inner{
+position:relative;z-index:2;
+width:100%;max-width:1200px;
+margin:0 auto;
+padding:0 24px 80px;
+}
+.hero-badge{
+display:inline-flex;align-items:center;gap:8px;
+background:var(--cp);
+color:var(--cw);
+font-size:12px;font-weight:700;
+letter-spacing:2px;text-transform:uppercase;
+padding:6px 14px;
+margin-bottom:20px;
+animation:pulse-badge 2s ease-in-out infinite;
+}
+@keyframes pulse-badge{
+0%,100%{box-shadow:0 0 0 0 rgba(204,34,0,0.7)}
+50%{box-shadow:0 0 0 10px rgba(204,34,0,0)}
+}
+.hero-eyebrow{
+font-size:14px;font-weight:600;
+letter-spacing:3px;text-transform:uppercase;
+color:var(--ca);
+margin-bottom:12px;
+}
+.hero h1{
+font-size:clamp(52px,9vw,110px);
+font-weight:900;
+line-height:0.92;
+text-transform:uppercase;
+color:var(--cw);
+letter-spacing:-1px;
+margin-bottom:8px;
+}
+.hero h1 em{
+font-style:italic;
+color:var(--cp);
+}
+.hero-sub{
+font-size:clamp(18px,2.5vw,26px);
+font-weight:600;
+color:var(--ct);
+opacity:0.85;
+margin-bottom:8px;
+max-width:600px;
+}
+.hero-accent-line{
+width:80px;height:4px;
+background:linear-gradient(90deg,var(--cp),var(--ca));
+margin:20px 0 28px;
+}
+.hero-desc{
+font-family:'Barlow',sans-serif;
+font-size:clamp(15px,1.8vw,18px);
+color:var(--ct);
+opacity:0.75;
+max-width:520px;
+margin-bottom:36px;
+line-height:1.6;
+font-weight:400;
+}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.btn-primary{
+display:inline-block;
+background:var(--cp);
+color:var(--cw);
+font-size:16px;font-weight:800;
+letter-spacing:2px;text-transform:uppercase;
+padding:16px 36px;
+border:2px solid var(--cp);
+cursor:pointer;
+transition:all .25s cubic-bezier(.4,0,.2,1);
+min-height:56px;
+line-height:1.2;
+}
+.btn-primary:hover{background:transparent;color:var(--cp);transform:translateY(-3px);box-shadow:0 12px 30px rgba(204,34,0,0.4)}
+.btn-secondary{
+display:inline-block;
+background:transparent;
+color:var(--ca);
+font-size:16px;font-weight:800;
+letter-spacing:2px;text-transform:uppercase;
+padding:16px 36px;
+border:2px solid var(--ca);
+cursor:pointer;
+transition:all .25s cubic-bezier(.4,0,.2,1);
+min-height:56px;
+line-height:1.2;
+}
+.btn-secondary:hover{background:var(--ca);color:var(--cs);transform:translateY(-3px)}
+.hero-urgency{
+display:flex;align-items:center;gap:10px;
+margin-top:24px;
+}
+.hero-urgency-dot{
+width:8px;height:8px;
+background:var(--cp);
+border-radius:50%;
+animation:blink 1.4s ease-in-out infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
+.hero-urgency-text{
+font-size:13px;font-weight:700;
+letter-spacing:1.5px;text-transform:uppercase;
+color:var(--ct);opacity:0.7;
+}
+.scroll-ind{
+position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+display:flex;flex-direction:column;align-items:center;gap:6px;
+z-index:2;
+}
+.scroll-ind span{
+font-size:11px;font-weight:700;
+letter-spacing:2px;text-transform:uppercase;
+color:var(--ct);opacity:0.45;
+}
+.scroll-arrow{
+width:20px;height:20px;
+border-right:2px solid var(--cp);
+border-bottom:2px solid var(--cp);
+transform:rotate(45deg);
+animation:bounce-down 1.5s ease-in-out infinite;
+}
+@keyframes bounce-down{
+0%,100%{transform:rotate(45deg) translateY(0)}
+50%{transform:rotate(45deg) translateY(6px)}
+}
+
+/* PROMO TICKER */
+.ticker-wrap{
+background:var(--cp);
+padding:0;height:38px;
+overflow:hidden;
+position:relative;
+}
+.ticker-inner{
+display:flex;align-items:center;height:100%;
+animation:ticker 22s linear infinite;
+white-space:nowrap;
+}
+.ticker-inner span{
+font-size:13px;font-weight:800;
+letter-spacing:2px;text-transform:uppercase;
+color:var(--cw);
+padding:0 40px;
+}
+.ticker-inner span::after{content:" ★ ";color:var(--ca);padding:0 10px}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* STATS BAND */
+.stats{
+background:var(--cs);
+border-top:3px solid var(--cp);
+border-bottom:3px solid var(--cp);
+padding:48px 24px;
+}
+.stats-inner{
+max-width:1200px;margin:0 auto;
+display:grid;grid-template-columns:repeat(4,1fr);
+gap:0;
+}
+.stat-item{
+text-align:center;
+padding:24px 16px;
+position:relative;
+}
+.stat-item:not(:last-child)::after{
+content:'';
+position:absolute;right:0;top:20%;height:60%;
+width:1px;background:rgba(232,160,32,0.3);
+}
+.stat-num{
+font-size:clamp(42px,5vw,72px);
+font-weight:900;
+color:var(--cp);
+line-height:1;
+letter-spacing:-1px;
+display:block;
+}
+.stat-num span{color:var(--ca)}
+.stat-label{
+font-size:14px;font-weight:700;
+letter-spacing:2px;text-transform:uppercase;
+color:var(--ct);
+opacity:0.65;
+margin-top:8px;
+display:block;
+}
+.stat-sub{
+font-size:12px;
+color:var(--ca);
+opacity:0.8;
+margin-top:4px;
+font-weight:600;
+letter-spacing:1px;
+}
+
+/* FALLBACK REVEAL */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.hdr-nav,.hdr-cta,.hdr-tel{display:none}
+.hamburger{display:flex}
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+.stat-item:nth-child(2)::after{display:none}
+}
+@media(max-width:480px){
+#setup-band{height:40px}
+#setup-band a{font-size:13px;line-height:40px}
+.hdr{top:40px;height:56px;padding:0 16px}
+.mob-nav{top:96px}
+.hero{padding-top:96px}
+.hero-inner{padding:0 16px 60px}
+.hero-ctas{flex-direction:column;align-items:flex-start}
+.btn-primary,.btn-secondary{width:100%;text-align:center}
+.stats{padding:32px 16px}
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+.stat-item::after{display:none}
+.ticker-inner span{font-size:11px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU SETUP NC -->
+<div id="setup-band">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr">
+  <a href="#" class="hdr-logo">HOT<span>SPOT</span></a>
+  <nav class="hdr-nav">
+    <a href="#categories">Catégories</a>
+    <a href="#promos">Promos</a>
+    <a href="#bestsellers">Bestsellers</a>
+    <a href="#infos">Infos</a>
+    <a href="#avis">Avis</a>
+  </nav>
+  <div style="display:flex;align-items:center;gap:20px">
+    <a href="tel:313535" class="hdr-tel">☎ 31.35.35</a>
+    <a href="#infos" class="hdr-cta">Nous trouver</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-nav" id="mob-nav">
+  <a href="#categories" onclick="closeMob()">Catégories</a>
+  <a href="#promos" onclick="closeMob()">Promos</a>
+  <a href="#bestsellers" onclick="closeMob()">Bestsellers</a>
+  <a href="#infos" onclick="closeMob()">Infos pratiques</a>
+  <a href="#avis" onclick="closeMob()">Avis clients</a>
+  <a href="tel:313535" onclick="closeMob()" style="color:var(--ca)">☎ 31.35.35</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">🔴 Nouvelle arrivée — Stock limité</div>
+    <p class="hero-eyebrow">Nouméa · Rue de Sébastopol</p>
+    <h1>LA<br><em>CULTURE</em><br>STREET</h1>
+    <p class="hero-sub">Sneakers, streetwear et culture urbaine — au cœur de Nouméa.</p>
+    <div class="hero-accent-line"></div>
+    <p class="hero-desc">Tes sneakers attendaient ce moment. Collections exclusives, éditions limitées et styles NBA directement disponibles en boutique à Nouméa.</p>
+    <div class="hero-ctas">
+      <a href="#categories" class="btn-primary">Explorer les collections</a>
+      <a href="#promos" class="btn-secondary">Offres du moment</a>
+    </div>
+    <div class="hero-urgency">
+      <div class="hero-urgency-dot"></div>
+      <span class="hero-urgency-text">Stocks limités · Nouvelles arrivées chaque semaine</span>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>Scroll</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- TICKER PROMO -->
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-inner">
+    <span>Nouvelles arrivées</span>
+    <span>Éditions limitées disponibles</span>
+    <span>Sneakers exclusives</span>
+    <span>Styles NBA</span>
+    <span>Streetwear urbain</span>
+    <span>Boutique à Nouméa</span>
+    <span>Nouvelles arrivées</span>
+    <span>Éditions limitées disponibles</span>
+    <span>Sneakers exclusives</span>
+    <span>Styles NBA</span>
+    <span>Streetwear urbain</span>
+    <span>Boutique à Nouméa</span>
+  </div>
+</div>
+
+<!-- STATS BAND -->
+<section class="stats" id="stats">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <span class="stat-num" data-target="25">0</span>
+      <span class="stat-label">Avis Google</span>
+      <span class="stat-sub">Note 4.3 / 5 ★</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="100"><span>+</span>100</span>
+      <span class="stat-label">Modèles en stock</span>
+      <span class="stat-sub">Sneakers & streetwear</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="1">N°<span>1</span></span>
+      <span class="stat-label">Boutique street</span>
+      <span class="stat-sub">Référence à Nouméa</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">7<span>/7</span></span>
+      <span class="stat-label">Jours ouverts</span>
+      <span class="stat-sub">Centre de Nouméa</span>
+    </div>
+  </div>
+</section>
+
+<script>
+var hbg=document.getElementById('hamburger'),mn=document.getElementById('mob-nav');
+function closeMob(){mn.classList.remove('open')}
+hbg.addEventListener('click',function(){mn.classList.toggle('open')});
+var nums=document.querySelectorAll('[data-target]');
+var animated=false;
+function animNums(){
+if(animated)return;
+animated=true;
+nums.forEach(function(el){
+var target=parseInt(el.getAttribute('data-target'));
+var start=0;
+var dur=1800;
+var t0=performance.now();
+function step(t){
+var p=Math.min((t-t0)/dur,1);
+var ease=1-Math.pow(1-p,3);
+el.textContent=Math.round(start+(target-start)*ease);
+if(p<1)requestAnimationFrame(step);
+}
+requestAnimationFrame(step);
+});
+}
+var obs=new IntersectionObserver(function(entries){
+entries.forEach(function(e){if(e.isIntersecting)animNums()});
+},{threshold:0.3});
+var statsEl=document.getElementById('stats');
+if(statsEl)obs.observe(statsEl);
+</script>
+<style>
+/* CATEGORIES */
+.s-cat{padding:80px 24px;background:var(--cb)}
+.s-cat h2,.s-promo h2,.s-best h2,.s-info h2,.s-avis h2,.s-met h2{font-size:clamp(36px,5vw,60px);font-weight:900;text-transform:uppercase;letter-spacing:-1px;color:var(--cw);margin-bottom:8px}
+.section-sub{font-size:16px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--ca);margin-bottom:40px}
+.sec-line{width:60px;height:4px;background:linear-gradient(90deg,var(--cp),var(--ca));margin:12px 0 32px}
+.cat-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cat-card{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:3/4;background:var(--cs)}
+.cat-card img{width:100%;height:100%;object-fit:cover;transition:transform .4s cubic-bezier(.4,0,.2,1)}
+.cat-card:hover img{transform:scale(1.08)}
+.cat-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(17,17,17,.9) 0%,rgba(17,17,17,.1) 60%)}
+.cat-overlay:hover{background:linear-gradient(to top,rgba(204,34,0,.85) 0%,rgba(17,17,17,.2) 70%)}
+.cat-card:hover .cat-overlay{background:linear-gradient(to top,rgba(204,34,0,.85) 0%,rgba(17,17,17,.2) 70%)}
+.cat-info{position:absolute;bottom:0;left:0;right:0;padding:24px 20px}
+.cat-badge{display:inline-block;background:var(--cp);color:var(--cw);font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:4px 10px;margin-bottom:10px}
+.cat-name{font-size:clamp(22px,3vw,32px);font-weight:900;text-transform:uppercase;color:var(--cw);letter-spacing:-0.5px;line-height:1}
+.cat-link{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ca)}
+.cat-card:first-child{grid-row:span 2;aspect-ratio:auto}
+
+/* PROMOS */
+.s-promo{padding:80px 24px;background:var(--cs);border-top:3px solid var(--cp)}
+.promo-inner{max-width:1200px;margin:0 auto}
+.promo-banner{background:var(--cp);padding:20px 32px;display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:12px}
+.promo-banner-txt{font-size:clamp(18px,3vw,28px);font-weight:900;text-transform:uppercase;letter-spacing:1px;color:var(--cw)}
+.promo-banner-badge{background:var(--cw);color:var(--cp);font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:8px 18px}
+.promo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pc{background:var(--cb);border:1px solid #2a2a2a;overflow:hidden;transition:transform .25s cubic-bezier(.4,0,.2,1),box-shadow .25s}
+.pc:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(204,34,0,0.3)}
+.pc-img{position:relative;overflow:hidden;aspect-ratio:1/1}
+.pc-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.pc:hover .pc-img img{transform:scale(1.05)}
+.pc-discount{position:absolute;top:12px;left:12px;background:var(--cp);color:var(--cw);font-size:13px;font-weight:800;letter-spacing:1px;padding:5px 10px;animation:pulse-badge 2s ease-in-out infinite}
+.pc-body{padding:20px}
+.pc-brand{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ca);margin-bottom:6px}
+.pc-name{font-size:20px;font-weight:800;text-transform:uppercase;color:var(--cw);line-height:1.1;margin-bottom:12px}
+.pc-prices{display:flex;align-items:center;gap:12px}
+.pc-old{font-size:15px;font-weight:600;color:var(--ct);opacity:0.4;text-decoration:line-through}
+.pc-new{font-size:26px;font-weight:900;color:var(--ca)}
+.pc-cta{display:block;width:100%;background:var(--cp);color:var(--cw);font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:12px;text-align:center;border:none;cursor:pointer;margin-top:16px;transition:background .2s}
+.pc-cta:hover{background:#a81c00}
+
+/* BESTSELLERS */
+.s-best{padding:80px 24px;background:var(--cb)}
+.best-inner{max-width:1200px;margin:0 auto}
+.best-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.bc{background:var(--cs);overflow:hidden;transition:transform .25s cubic-bezier(.4,0,.2,1),box-shadow .25s;position:relative}
+.bc:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(204,34,0,0.25)}
+.bc-img{aspect-ratio:1/1;overflow:hidden;position:relative}
+.bc-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.bc:hover .bc-img img{transform:scale(1.06)}
+.bc-hot{position:absolute;top:10px;right:10px;background:var(--ca);color:var(--cs);font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:4px 8px}
+.bc-body{padding:16px}
+.bc-brand{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ca);margin-bottom:4px}
+.bc-name{font-size:17px;font-weight:800;text-transform:uppercase;color:var(--cw);line-height:1.1;margin-bottom:10px}
+.bc-stars{color:var(--ca);font-size:14px;letter-spacing:1px;margin-bottom:8px}
+.bc-review{font-family:'Barlow',sans-serif;font-size:12px;color:var(--ct);opacity:0.55;margin-bottom:12px}
+.bc-price{font-size:24px;font-weight:900;color:var(--ca)}
+.bc-price-old{font-size:14px;font-weight:600;color:var(--ct);opacity:0.4;text-decoration:line-through;margin-left:8px}
+
+/* INFOS PRATIQUES */
+.s-info{padding:80px 24px;background:var(--cs);border-top:3px solid var(--ca)}
+.info-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.info-block{display:flex;flex-direction:column;gap:24px}
+.info-row{display:flex;gap:16px;align-items:flex-start}
+.info-icon{width:48px;height:48px;background:var(--cp);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.info-text h4{font-size:16px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--cw);margin-bottom:4px}
+.info-text p{font-family:'Barlow',sans-serif;font-size:15px;color:var(--ct);opacity:0.75;line-height:1.6}
+.info-text a{color:var(--ca);font-weight:700}
+.hours-table{width:100%;border-collapse:collapse}
+.hours-table tr{border-bottom:1px solid #2a2a2a}
+.hours-table td{font-family:'Barlow',sans-serif;font-size:15px;padding:10px 0;color:var(--ct);opacity:0.8}
+.hours-table td:last-child{text-align:right;color:var(--ca);font-weight:700;opacity:1}
+.hours-table tr.today td{color:var(--cw);opacity:1;font-weight:700}
+.hours-table tr.today td:last-child{color:var(--cp)}
+
+/* GALERIE */
+.s-gal{padding:80px 24px;background:var(--cb)}
+.gal-inner{max-width:1200px;margin:0 auto}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.gal-item{overflow:hidden;cursor:pointer;aspect-ratio:1/1;position:relative}
+.gal-item:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s cubic-bezier(.4,0,.2,1)}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-item::after{content:'+';position:absolute;inset:0;background:rgba(204,34,0,0);display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:900;color:transparent;transition:all .3s}
+.gal-item:hover::after{background:rgba(204,34,0,0.4);color:var(--cw)}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:2000;align-items:center;justify-content:center}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:90vh;object-fit:contain}
+.lb-close{position:absolute;top:20px;right:28px;font-size:40px;color:var(--cw);cursor:pointer;line-height:1;background:none;border:none;opacity:0.7;transition:opacity .2s}
+.lb-close:hover{opacity:1}
+
+/* FORMULAIRE */
+.s-form{padding:80px 24px;background:var(--cs)}
+.form-inner{max-width:700px;margin:0 auto}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fg{display:flex;flex-direction:column;gap:6px}
+.fg.full{grid-column:span 2}
+.fg label{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ca)}
+.fg input,.fg textarea{background:#1f1f1f;border:1px solid #333;border-radius:0;color:var(--cw);font-family:'Barlow Condensed',sans-serif;font-size:16px;padding:14px 16px;transition:border-color .2s;outline:none;width:100%}
+.fg input:focus,.fg textarea:focus{border-color:var(--cp)}
+.fg textarea{min-height:120px;resize:vertical}
+.fg input.err,.fg textarea.err{border-color:var(--cp)}
+.form-msg{display:none;background:var(--cp);color:var(--cw);padding:16px 20px;font-size:16px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-top:16px}
+.form-msg.show{display:block}
+.btn-submit{background:var(--cp);color:var(--cw);font-size:16px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:18px 40px;border:none;cursor:pointer;width:100%;min-height:56px;transition:background .2s,transform .15s;margin-top:8px;font-family:'Barlow Condensed',sans-serif}
+.btn-submit:hover{background:#a81c00;transform:translateY(-2px)}
+
+/* AVIS */
+.s-avis{padding:80px 24px;background:var(--cb)}
+.avis-inner{max-width:1200px;margin:0 auto}
+.avis-hero{display:flex;align-items:center;gap:40px;background:var(--cs);padding:40px;margin-bottom:48px;border-left:6px solid var(--cp)}
+.avis-score{text-align:center;flex-shrink:0}
+.avis-num{font-size:80px;font-weight:900;color:var(--cp);line-height:1}
+.avis-stars{font-size:28px;color:var(--ca);letter-spacing:4px;margin:4px 0}
+.avis-count{font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ct);opacity:0.6}
+.avis-sep{width:2px;height:100px;background:linear-gradient(to bottom,var(--cp),var(--ca));flex-shrink:0}
+.avis-badges{display:flex;flex-wrap:wrap;gap:12px}
+.avis-badge{background:var(--cb);border:1px solid #333;padding:10px 16px;display:flex;align-items:center;gap:8px}
+.avis-badge-icon{font-size:20px}
+.avis-badge-txt{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ct)}
+.temoignages{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tcard{background:var(--cs);padding:28px;border-top:3px solid transparent;transition:border-color .25s}
+.tcard:hover{border-color:var(--cp)}
+.tcard-stars{color:var(--ca);font-size:16px;letter-spacing:2px;margin-bottom:14px}
+.tcard-text{font-family:'Barlow',sans-serif;font-size:15px;color:var(--ct);opacity:0.8;line-height:1.7;margin-bottom:20px}
+.tcard-author{display:flex;align-items:center;gap:12px}
+.tcard-avatar{width:40px;height:40px;background:var(--cp);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900;color:var(--cw);flex-shrink:0}
+.tcard-name{font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--cw)}
+.tcard-date{font-size:12px;color:var(--ct);opacity:0.45}
+
+/* FOOTER */
+.footer{background:var(--cp);padding:60px 24px 0}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.25)}
+.footer-logo{font-size:36px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--cw);margin-bottom:16px}
+.footer-logo em{font-style:normal;opacity:0.6}
+.footer-desc{font-family:'Barlow',sans-serif;font-size:15px;color:rgba(255,255,255,0.75);line-height:1.7;margin-bottom:20px}
+.footer-addr{font-family:'Barlow',sans-serif;font-size:14px;color:rgba(255,255,255,0.7);line-height:1.8}
+.footer-addr a{color:var(--cw);font-weight:700;text-decoration:none}
+.footer-addr a:hover{opacity:0.8}
+.footer-socials{display:flex;gap:12px;margin-top:20px}
+.social-link{width:44px;height:44px;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;transition:background .2s}
+.social-link:hover{background:rgba(255,255,255,0.3)}
+.footer-col h4{font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--cw);margin-bottom:20px;opacity:0.9}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-family:'Barlow',sans-serif;font-size:15px;color:rgba(255,255,255,0.7);transition:color .2s}
+.footer-links a:hover{color:var(--cw)}
+.footer-bottom{max-width:1200px;margin:0 auto;padding:20px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.footer-copy{font-family:'Barlow',sans-serif;font-size:13px;color:rgba(255,255,255,0.6)}
+.footer-setup{font-family:'Barlow',sans-serif;font-size:13px;color:rgba(255,255,255,0.6)}
+.footer-setup a{color:rgba(255,255,255,0.9);font-weight:700}
+.footer-setup a:hover{color:var(--cw)}
+
+/* RESPONSIVE PART 2 */
+@media(max-width:900px){
+.cat-grid{grid-template-columns:1fr 1fr}
+.cat-card:first-child{grid-row:span 1;aspect-ratio:3/4}
+.promo-grid{grid-template-columns:1fr 1fr}
+.best-grid{grid-template-columns:1fr 1fr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.gal-item:first-child{grid-column:span 2;grid-row:span 1}
+.info-inner{grid-template-columns:1fr}
+.temoignages{grid-template-columns:1fr 1fr}
+.footer-inner{grid-template-columns:1fr 1fr}
+.avis-hero{flex-direction:column;align-items:flex-start}
+.avis-sep{width:100%;height:1px}
+}
+@media(max-width:480px){
+.s-cat,.s-promo,.s-best,.s-info,.s-gal,.s-form,.s-avis,.footer{padding-left:16px;padding-right:16px}
+.cat-grid{grid-template-columns:1fr}
+.promo-grid{grid-template-columns:1fr}
+.best-grid{grid-template-columns:1fr 1fr}
+.bc-name{font-size:15px}
+.gal-grid{grid-template-columns:1fr 1fr}
+.gal-item:first-child{grid-column:span 2}
+.form-grid{grid-template-columns:1fr}
+.fg.full{grid-column:span 1}
+.temoignages{grid-template-columns:1fr}
+.footer-inner{grid-template-columns:1fr}
+.footer-bottom{flex-direction:column;text-align:center}
+.info-inner{gap:32px}
+}
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+</style>
+
+<!-- CATEGORIES -->
+<section class="s-cat" id="categories">
+  <div style="max-width:1200px;margin:0 auto">
+    <p class="section-sub">Nos univers</p>
+    <h2>Explore les<br><span style="color:var(--cp)">Collections</span></h2>
+    <div class="sec-line"></div>
+    <div class="cat-grid">
+      <div class="cat-card">
+        <img src="https://i.ibb.co/bjbrBvJm/Hot-Spot-0.jpg" alt="Sneakers" loading="lazy">
+        <div class="cat-overlay"></div>
+        <div class="cat-info">
+          <div class="cat-badge">Incontournable</div>
+          <div class="cat-name">Sneakers</div>
+          <div class="cat-link">Voir les modèles →</div>
+        </div>
+      </div>
+      <div class="cat-card">
+        <img src="https://i.ibb.co/LzYR7gQS/Hot-Spot-1.jpg" alt="Streetwear" loading="lazy">
+        <div class="cat-overlay"></div>
+        <div class="cat-info">
+          <div class="cat-badge">New Drop</div>
+          <div class="cat-name">Streetwear</div>
+          <div class="cat-link">Découvrir →</div>
+        </div>
+      </div>
+      <div class="cat-card">
+        <img src="https://i.ibb.co/RGDH5S34/Hot-Spot-2.jpg" alt="NBA & Sport" loading="lazy">
+        <div class="cat-overlay"></div>
+        <div class="cat-info">
+          <div class="cat-badge">Culture Basket</div>
+          <div class="cat-name">NBA & Sport</div>
+          <div class="cat-link">Explorer →</div>
+        </div>
+      </div>
+      <div class="cat-card">
+        <img src="https://i.ibb.co/k6zJKkbC/Hot-Spot-3.jpg" alt="Accessoires" loading="lazy">
+        <div class="cat-overlay"></div>
+        <div class="cat-info">
+          <div class="cat-badge">Complet le look</div>
+          <div class="cat-name">Accessoires</div>
+          <div class="cat-link">Voir tout →</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMOS -->
+<section class="s-promo" id="promos">
+  <div class="promo-inner">
+    <p class="section-sub">Deals exclusifs</p>
+    <h2>Offres du <span style="color:var(--ca)">Moment</span></h2>
+    <div class="sec-line"></div>
+    <div class="promo-banner">
+      <span class="promo-banner-txt">🔥 Stocks limités — Ces prix ne dureront pas</span>
+      <span class="promo-banner-badge">Offres valables en boutique</span>
+    </div>
+    <div class="promo-grid">
+      <div class="pc">
+        <div class="pc-img">
+          <img src="https://i.ibb.co/LzYR7gQS/Hot-Spot-1.jpg" alt="Veste streetwear" loading="lazy">
+          <div class="pc-discount">−20%</div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-brand">Streetwear</div>
+          <div class="pc-name">Veste Urban Capsule</div>
+          <div class="pc-prices">
+            <span class="pc-old">8 990 F</span>
+            <span class="pc-new">7 190 F</span>
+          </div>
+          <a href="#infos" class="pc-cta">Disponible en boutique</a>
+        </div>
+      </div>
+      <div class="pc">
+        <div class="pc-img">
+          <img src="https://i.ibb.co/RGDH5S34/Hot-Spot-2.jpg" alt="Sneakers édition limitée" loading="lazy">
+          <div class="pc-discount">−15%</div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-brand">Sneakers Exclusives</div>
+          <div class="pc-name">Air Drop Nouméa</div>
+          <div class="pc-prices">
+            <span class="pc-old">17 500 F</span>
+            <span class="pc-new">14 875 F</span>
+          </div>
+          <a href="#infos" class="pc-cta">Disponible en boutique</a>
+        </div>
+      </div>
+      <div class="pc">
+        <div class="pc-img">
+          <img src="https://i.ibb.co/k6zJKkbC/Hot-Spot-3.jpg" alt="Pack accessoires" loading="lazy">
+          <div class="pc-discount">−25%</div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-brand">Accessoires</div>
+          <div class="pc-name">Pack Street Essentiel</div>
+          <div class="pc-prices">
+            <span class="pc-old">4 500 F</span>
+            <span class="pc-new">3 375 F</span>
+          </div>
+          <a href="#infos" class="pc-cta">Disponible en boutique</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BESTSELLERS -->
+<section class="s-best" id="bestsellers">
+  <div class="best-inner">
+    <p class="section-sub">Les plus demandés</p>
+    <h2>Best<span style="color:var(--cp)">sellers</span></h2>
+    <div class="sec-line"></div>
+    <div class="best-grid">
+      <div class="bc">
+        <div class="bc-img">
+          <img src="https://i.ibb.co/bjbrBvJm/Hot-Spot-0.jpg" alt="Sneaker signature" loading="lazy">
+          <div class="bc-hot">Top vente</div>
+        </div>
+        <div class="bc-body">
+          <div class="bc-brand">Sneakers</div>
+          <div class="bc-name">Court Classic Low</div>
+          <div class="bc-stars">★★★★★</div>
+          <div class="bc-review">"Les meilleures en ville"</div>
+          <span class="bc-price">12 900 F</span>
+        </div>
+      </div>
+      <div class="bc">
+        <div class="bc-img">
+          <img src="https://i.ibb.co/LzYR7gQS/Hot-Spot-1.jpg" alt="Hoodie street" loading="lazy">
+          <div class="bc-hot">Favori</div>
+        </div>
+        <div class="bc-body">
+          <div class="bc-brand">Streetwear</div>
+          <div class="bc-name">Hoodie Urban Washed</div>
+          <div class="bc-stars">★★★★☆</div>
+          <div class="bc-review">"Style et confort au top"</div>
+          <span class="bc-price">6 500 F</span><span class="bc-price-old">7 900 F</span>
+        </div>
+      </div>
+      <div class="bc">
+        <div class="bc-img">
+          <img src="https://i.ibb.co/RGDH5S34/Hot-Spot-2.jpg" alt="Jersey NBA" loading="lazy">
+          <div class="bc-hot">NBA</div>
+        </div>
+        <div class="bc-body">
+          <div class="bc-brand">Culture Basket</div>
+          <div class="bc-name">Jersey Team Edition</div>
+          <div class="bc-stars">★★★★★</div>
+          <div class="bc-review">"Authentique et qualitatif"</div>
+          <span class="bc-price">9 800 F</span>
+        </div>
+      </div>
+      <div class="bc">
+        <div class="bc-img">
+          <img src="https://i.ibb.co/k6zJKkbC/Hot-Spot-3.jpg" alt="Casquette snapback" loading="lazy">
+          <div class="bc-hot">Nouveau</div>
+        </div>
+        <div class="bc-body">
+          <div class="bc-brand">Accessoires</div>
+          <div class="bc-name">Snapback Street Drop</div>
+          <div class="bc-stars">★★★★☆</div>
+          <div class="bc-review">"Le détail qui change tout"</div>
+          <span class="bc-price">3 200 F</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFOS PRATIQUES -->
+<section class="s-info" id="infos">
+  <div class="info-inner">
+    <div>
+      <p class="section-sub">Où nous trouver</p>
+      <h2 class="s-info">Infos <span style="color:var(--ca)">Pratiques</span></h2>
+      <div class="sec-line"></div>
+      <div class="info-block">
+        <div class="info-row">
+          <div class="info-icon">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z" fill="#fff"/></svg>
+          </div>
+          <div class="info-text">
+            <h4>Adresse</h4>
+            <p>19 Rue de Sébastopol<br>Nouméa 98800, Nouvelle-Calédonie</p>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z" fill="#fff"/></svg>
+          </div>
+          <div class="info-text">
+            <h4>Téléphone</h4>
+            <p><a href="tel:313535">31.35.35</a></p>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" fill="#fff"/></svg>
+          </div>
+          <div class="info-text">
+            <h4>Nous contacter</h4>
+            <p>Via notre <a href="#contact">formulaire en ligne</a><br>ou en passant directement en boutique.</p>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M20 8H4V6h16v2zm1 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V10h18zm-9 3H8v2h4v-2zm4 0h-2v2h2v-2z" fill="#fff"/></svg>
+          </div>
+          <div class="info-text">
+            <h4>Livraison</h4>
+            <p>Vente en boutique uniquement à Nouméa.<br>Pas d'envoi postal disponible actuellement.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h4 style="font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--ca);margin-bottom:20px">Horaires d'ouverture</h4>
+      <table class="hours-table">
+        <tr><td>Lundi</td><td>08h00 – 18h00</td></tr>
+        <tr><td>Mardi</td><td>08h00 – 18h00</td></tr>
+        <tr><td>Mercredi</td><td>08h00 – 18h00</td></tr>
+        <tr class="today"><td>Jeudi</td><td>08h00 – 18h00</td></tr>
+        <tr><td>Vendredi</td><td>08h00 – 18h00</td></tr>
+        <tr><td>Samedi</td><td>08h00 – 17h00</td></tr>
+        <tr><td>Dimanche</td><td>09h00 – 13h00</td></tr>
+      </table>
+      <a href="tel:313535" class="btn-primary" style="margin-top:28px;display:block;text-align:center;width:100%">☎ Appeler le 31.35.35</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s-gal" id="galerie">
+  <div class="gal-inner">
+    <p class="section-sub">L'ambiance Hot Spot</p>
+    <h2>La <span style="color:var(--cp)">Boutique</span></h2>
+    <div class="sec-line"></div>
+    <div class="gal-grid">
+      <div class="gal-item" data-src="https://i.ibb.co/bjbrBvJm/Hot-Spot-0.jpg">
+        <img src="https://i.ibb.co/bjbrBvJm/Hot-Spot-0.jpg" alt="Hot Spot boutique" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/LzYR7gQS/Hot-Spot-1.jpg">
+        <img src="https://i.ibb.co/LzYR7gQS/Hot-Spot-1.jpg" alt="Hot Spot streetwear" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/RGDH5S34/Hot-Spot-2.jpg">
+        <img src="https://i.ibb.co/RGDH5S34/Hot-Spot-2.jpg" alt="Hot Spot sneakers" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/k6zJKkbC/Hot-Spot-3.jpg">
+        <img src="https://i.ibb.co/k6zJKkbC/Hot-Spot-3.jpg" alt="Hot Spot ambiance" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lb" role="dialog" aria-modal="true">
+  <button class="lb-close" id="lb-close" aria-label="Fermer">✕</button>
+  <img class="lb-img" id="lb-img" src="" alt="Photo Hot Spot">
+</div>
+
+<!-- FORMULAIRE -->
+<section class="s-form" id="contact">
+  <div class="form-inner">
+    <p class="section-sub">Une question ?</p>
+    <h2 style="font-size:clamp(36px,5vw,60px);font-weight:900;text-transform:uppercase;letter-spacing:-1px;color:var(--cw);margin-bottom:8px">Nous <span style="color:var(--ca)">Contacter</span></h2>
+    <div class="sec-line"></div>
+    <p style="font-family:'Barlow',sans-serif;font-size:16px;color:var(--ct);opacity:0.7;margin-bottom:32px;line-height:1.6">Renseigne-toi sur la dispo d'un modèle, un partenariat ou une commande spéciale. On te répond vite.</p>
+    <form id="cform" action="#" novalidate>
+      <div class="form-grid">
+        <div class="fg">
+          <label for="f-nom">Nom</label>
+          <input type="text" id="f-nom" name="nom" placeholder="Ton prénom et nom" autocomplete="name">
+        </div>
+        <div class="fg">
+          <label for="f-email">Email</label>
+          <input type="email" id="f-email" name="email" placeholder="ton@email.com" autocomplete="email">
+        </div>
+        <div class="fg">
+          <label for="f-tel">Téléphone</label>
+          <input type="tel" id="f-tel" name="tel" placeholder="Ex : 31.35.35" autocomplete="tel">
+        </div>
+        <div class="fg full">
+          <label for="f-msg">Message</label>
+          <textarea id="f-msg" name="message" placeholder="Ton message, une question sur un modèle..."></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn-submit">Envoyer le message</button>
+      <div class="form-msg" id="form-msg">✔ Message envoyé ! On te répond rapidement.</div>
+    </form>
+  </div>
+</section>
+
+<!-- AVIS -->
+<section class="s-avis" id="avis">
+  <div class="avis-inner">
+    <p class="section-sub">Ce qu'ils en disent</p>
+    <h2>Avis <span style="color:var(--ca)">Clients</span></h2>
+    <div class="sec-line"></div>
+    <div class="avis-hero">
+      <div class="avis-score">
+        <div class="avis-num">4.3</div>
+        <div class="avis-stars">★★★★☆</div>
+        <div class="avis-count">25 avis Google</div>
+      </div>
+      <div class="avis-sep"></div>
+      <div class="avis-badges">
+        <div class="avis-badge"><span class="avis-badge-icon">🏆</span><span class="avis-badge-txt">Référence sneakers à Nouméa</span></div>
+        <div class="avis-badge"><span class="avis-badge-icon">⚡</span><span class="avis-badge-txt">Service rapide en boutique</span></div>
+        <div class="avis-badge"><span class="avis-badge-icon">🎯</span><span class="avis-badge-txt">Conseils experts</span></div>
+        <div class="avis-badge"><span class="avis-badge-icon">🔥</span><span class="avis-badge-txt">Sélection exclusive</span></div>
+      </div>
+    </div>
+    <div class="temoignages">
+      <div class="tcard">
+        <div class="tcard-stars">★★★★★</div>
+        <p class="tcard-text">"La seule boutique à Nouméa où je trouve vraiment ce que je cherche en sneakers. L'ambiance est au top, on se sent dans un vrai spot street."</p>
+        <div class="tcard-author">
+          <div class="tcard-avatar">K</div>
+          <div>
+            <div class="tcard-name">Kévin M.</div>
+            <div class="tcard-date">Il y a 2 semaines</div>
+          </div>
+        </div>
+      </div>
+      <div class="tcard">
+        <div class="tcard-stars">★★★★★</div>
+        <p class="tcard-text">"Staff au top, ils connaissent vraiment leur truc. J'ai trouvé un modèle que je cherchais depuis longtemps. Hot Spot c'est la référence ici en Calédonie."</p>
+        <div class="tcard-author">
+          <div class="tcard-avatar">L</div>
+          <div>
+            <div class="tcard-name">Lena T.</div>
+            <div class="tcard-date">Il y a 1 mois</div>
+          </div>
+        </div>
+      </div>
+      <div class="tcard">
+        <div class="tcard-stars">★★★★☆</div>
+        <p class="tcard-text">"Super choix de fringues et de chaussures. Les prix sont corrects pour Nouméa et la boutique a vraiment une belle ambiance. Je recommande !"</p>
+        <div class="tcard-author">
+          <div class="tcard-avatar">R</div>
+          <div>
+            <div class="tcard-name">Ryan P.</div>
+            <div class="tcard-date">Il y a 3 semaines</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">HOT<em>SPOT</em></div>
+      <p class="footer-desc">Sneakers, streetwear et culture urbaine. La référence basket et street à Nouméa depuis des années, au cœur de la Nouvelle-Calédonie.</p>
+      <div class="footer-addr">
+        19 Rue de Sébastopol<br>
+        Nouméa 98800, Nouvelle-Calédonie<br>
+        <a href="tel:313535">☎ 31.35.35</a>
+      </div>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/hotspotnc" target="_blank" rel="noopener" class="social-link" aria-label="Facebook Hot Spot">
+          <svg width="20" height="20" fill="#fff" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3V2z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul class="footer-links">
+        <li><a href="#categories">Catégories</a></li>
+        <li><a href="#promos">Offres du moment</a></li>
+        <li><a href="#bestsellers">Bestsellers</a></li>
+        <li><a href="#avis">Avis clients</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Horaires</h4>
+      <ul class="footer-links">
+        <li><a href="#infos">Lun–Ven : 08h–18h</a></li>
+        <li><a href="#infos">Samedi : 08h–17h</a></li>
+        <li><a href="#infos">Dimanche : 09h–13h</a></li>
+        <li><a href="#contact">Nous contacter</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Hot Spot. Tous droits réservés.</span>
+    <span class="footer-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></span>
+  </div>
+</footer>
+
+<script>
+var hbg=document.getElementById('hamburger'),mn=document.getElementById('mob-nav');
+function closeMob(){mn.classList.remove('open')}
+hbg&&hbg.addEventListener('click',function(){mn.classList.toggle('open')});
+var gi=document.querySelectorAll('.gal-item'),lb=document.getElementById('lb'),lbi=document.getElementById('lb-img'),lbc=document.getElementById('lb-close');
+gi.forEach(function(el){
+  el.addEventListener('click',function(){
+    lbi.src=el.getAttribute('data-src');
+    lb.classList.add('open');
+  });
+});
+function closeLb(){lb.classList.remove('open');lbi.src=''}
+lbc&&lbc.addEventListener('click',closeLb);
+lb&&lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
+var cf=document.getElementById('cform'),fm=document.getElementById('form-msg');
+cf&&cf.addEventListener('submit',function(e){
+  e.preventDefault();
+  var ok=true;
+  var fields=[document.getElementById('f-nom'),document.getElementById('f-email'),document.getElementById('f-msg')];
+  fields.forEach(function(f){
+    f.classList.remove('err');
+    if(!f.value.trim()){f.classList.add('err');ok=false;}
+  });
+  var em=document.getElementById('f-email');
+  if(em.value&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value)){em.classList.add('err');ok=false;}
+  if(ok){cf.style.opacity='0.5';setTimeout(function(){cf.style.opacity='1';fm.classList.add('show');cf.reset();},600);}
+});
+var nums=document.querySelectorAll('[data-target]');
+var animated=false;
+function animNums(){
+  if(animated)return;animated=true;
+  nums.forEach(function(el){
+    var t=parseInt(el.getAttribute('data-target'));
+    var t0=performance.now();
+    (function step(now){
+      var p=Math.min((now-t0)/1800,1),e=1-Math.pow(1-p,3);
+      el.textContent=Math.round(t*e);
+      if(p<1)requestAnimationFrame(step);
+    })(t0);
+  });
+}
+var so=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting)animNums()});},{threshold:0.3});
+var st=document.getElementById('stats');
+if(st)so.observe(st);
+</script>
+</body>
+</html>
