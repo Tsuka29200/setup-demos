@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aux Saveurs Du Mont-Dore — Mont-Dore</title>
+<meta name="description" content="Épicerie générale au cœur de Mont-Dore, Nouvelle-Calédonie. Produits frais, spécialités locales et ambiance familiale authentique au pied du Mont-Dore.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#2A7A2E;
+--cs:#F5C800;
+--ca:#E8401C;
+--bg:#F9F6F0;
+--tx:#1A1A1A;
+--wh:#fff;
+--rd:12px;
+--shadow:0 4px 24px rgba(42,122,46,.13);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+
+/* BANDEAU SETUP NC */
+.setup-band{
+position:fixed;top:0;left:0;width:100%;height:44px;
+background:#ffd500;z-index:1001;
+display:flex;align-items:center;justify-content:center;
+}
+.setup-band a{
+font-family:'Manrope','Nunito',system-ui,sans-serif;
+font-weight:700;font-size:14px;letter-spacing:.3px;
+color:#4375ff;line-height:44px;
+transition:opacity .2s;
+}
+.setup-band a:hover{opacity:.85}
+
+/* HEADER */
+.hdr{
+position:fixed;top:44px;left:0;width:100%;
+background:rgba(249,246,240,.97);backdrop-filter:blur(8px);
+z-index:1000;border-bottom:2px solid var(--cp);
+padding:0 24px;height:64px;
+display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.hdr-logo{font-size:1.15rem;font-weight:900;color:var(--cp);line-height:1.2;flex-shrink:0}
+.hdr-logo span{color:var(--ca)}
+.hdr-nav{display:flex;gap:20px;align-items:center}
+.hdr-nav a{font-size:.88rem;font-weight:700;color:var(--tx);transition:color .2s}
+.hdr-nav a:hover{color:var(--cp)}
+.hdr-cta{
+background:var(--cp);color:var(--wh);
+font-weight:800;font-size:.85rem;
+padding:9px 18px;border-radius:50px;
+transition:background .25s,transform .2s;flex-shrink:0;
+}
+.hdr-cta:hover{background:var(--ca);transform:scale(1.04)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
+.hamburger span{display:block;width:24px;height:2.5px;background:var(--cp);border-radius:2px;transition:all .3s}
+.mob-nav{
+display:none;position:fixed;top:108px;left:0;width:100%;
+background:var(--wh);z-index:999;
+padding:20px 24px;flex-direction:column;gap:14px;
+border-bottom:3px solid var(--cp);box-shadow:0 8px 24px rgba(0,0,0,.1);
+}
+.mob-nav a{font-weight:700;font-size:1rem;color:var(--tx);padding:6px 0;border-bottom:1px solid #eee}
+.mob-nav.open{display:flex}
+
+/* HERO */
+.hero{
+min-height:100vh;
+background:url('https://i.ibb.co/JWbtBB9Y/Aux-Saveurs-Du-Mont-Dore-0.jpg') center/cover no-repeat;
+display:flex;align-items:center;justify-content:center;
+position:relative;padding-top:108px;
+}
+.hero-overlay{
+position:absolute;inset:0;
+background:linear-gradient(135deg,rgba(42,122,46,.82) 0%,rgba(26,26,26,.65) 100%);
+}
+.hero-inner{
+position:relative;z-index:2;text-align:center;
+max-width:760px;padding:0 20px;
+}
+.hero-badge{
+display:inline-block;background:var(--ca);color:var(--wh);
+font-weight:800;font-size:.78rem;letter-spacing:1.2px;text-transform:uppercase;
+padding:6px 16px;border-radius:50px;margin-bottom:18px;
+animation:badgePop .6s ease both;
+}
+.hero h1{
+font-size:clamp(2rem,6vw,3.6rem);font-weight:900;color:var(--wh);
+line-height:1.1;margin-bottom:16px;
+animation:fadeUp .7s .15s ease both;
+}
+.hero h1 em{color:var(--cs);font-style:normal}
+.hero-sub{
+font-size:clamp(1rem,2.5vw,1.2rem);color:rgba(255,255,255,.92);
+font-weight:600;margin-bottom:32px;
+animation:fadeUp .7s .3s ease both;
+}
+.hero-btns{
+display:flex;gap:14px;justify-content:center;flex-wrap:wrap;
+animation:fadeUp .7s .45s ease both;
+}
+.btn{
+display:inline-flex;align-items:center;justify-content:center;
+font-family:inherit;font-weight:800;font-size:.95rem;
+padding:14px 28px;border-radius:50px;border:none;cursor:pointer;
+transition:transform .2s,background .25s,box-shadow .25s;min-height:48px;
+}
+.btn-primary{background:var(--cs);color:#222}
+.btn-primary:hover{background:var(--wh);transform:scale(1.05);box-shadow:0 6px 20px rgba(245,200,0,.4)}
+.btn-outline{background:transparent;color:var(--wh);border:2.5px solid rgba(255,255,255,.8)}
+.btn-outline:hover{background:rgba(255,255,255,.12);transform:scale(1.05)}
+.scroll-ind{
+position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+display:flex;flex-direction:column;align-items:center;gap:6px;z-index:2;
+color:rgba(255,255,255,.7);font-size:.75rem;font-weight:600;letter-spacing:.5px;
+animation:bounce 2s infinite;
+}
+.scroll-ind svg{width:20px;height:20px;stroke:currentColor;fill:none}
+
+/* BANDE PROMO FLASH */
+.promo-flash{
+background:var(--ca);color:var(--wh);
+text-align:center;padding:10px 16px;
+font-weight:800;font-size:.9rem;letter-spacing:.3px;
+overflow:hidden;position:relative;
+}
+.promo-flash span{animation:slideIn .5s ease}
+
+/* STATS */
+.stats{background:var(--cp);padding:52px 24px}
+.stats-grid{
+display:grid;grid-template-columns:repeat(4,1fr);
+gap:24px;max-width:960px;margin:0 auto;text-align:center;
+}
+.stat-item{padding:8px 0}
+.stat-num{
+font-size:clamp(2rem,4vw,2.8rem);font-weight:900;color:var(--cs);
+line-height:1;display:block;
+}
+.stat-lbl{font-size:.88rem;font-weight:700;color:rgba(255,255,255,.88);margin-top:6px}
+
+/* CATEGORIES */
+.s{padding:72px 24px}
+.s-title{
+font-size:clamp(1.5rem,4vw,2.2rem);font-weight:900;color:var(--cp);
+text-align:center;margin-bottom:8px;
+}
+.s-sub{text-align:center;color:#555;font-size:.95rem;font-weight:600;margin-bottom:40px}
+.cat-grid{
+display:grid;grid-template-columns:repeat(3,1fr);
+gap:20px;max-width:1040px;margin:0 auto;
+}
+.cat-card{
+border-radius:var(--rd);overflow:hidden;position:relative;
+height:220px;cursor:pointer;
+box-shadow:var(--shadow);
+transition:transform .25s,box-shadow .25s;
+}
+.cat-card:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(42,122,46,.22)}
+.cat-card img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.cat-card:hover img{transform:scale(1.06)}
+.cat-overlay{
+position:absolute;inset:0;
+background:linear-gradient(0deg,rgba(42,122,46,.82) 0%,rgba(0,0,0,.2) 100%);
+display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
+padding:20px;
+}
+.cat-name{font-size:1.1rem;font-weight:900;color:var(--wh);text-align:center}
+.cat-link{
+display:inline-block;margin-top:8px;
+background:var(--cs);color:#222;font-weight:800;font-size:.78rem;
+padding:5px 14px;border-radius:50px;
+transition:background .2s;
+}
+.cat-card:hover .cat-link{background:var(--wh)}
+
+/* PROMOS */
+.promo-band{background:var(--cs);text-align:center;padding:14px 16px}
+.promo-band p{font-weight:900;font-size:1.05rem;color:#222;letter-spacing:.3px}
+.promo-grid{
+display:grid;grid-template-columns:repeat(3,1fr);
+gap:20px;max-width:1040px;margin:0 auto;
+}
+.p-card{
+background:var(--wh);border-radius:var(--rd);overflow:hidden;
+box-shadow:var(--shadow);position:relative;
+transition:transform .25s,box-shadow .25s;
+}
+.p-card:hover{transform:translateY(-5px);box-shadow:0 12px 28px rgba(42,122,46,.18)}
+.p-badge{
+position:absolute;top:12px;right:12px;
+background:var(--ca);color:var(--wh);
+font-weight:900;font-size:.78rem;
+padding:4px 10px;border-radius:50px;
+transform:rotate(2deg);
+animation:pulse 2.2s infinite;
+}
+.p-card img{width:100%;height:160px;object-fit:cover}
+.p-body{padding:16px}
+.p-name{font-weight:800;font-size:1rem;color:var(--tx);margin-bottom:4px}
+.p-desc{font-size:.82rem;color:#666;margin-bottom:12px}
+.p-prices{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.p-old{font-size:.85rem;color:#999;text-decoration:line-through}
+.p-new{font-size:1.15rem;font-weight:900;color:var(--ca)}
+.btn-sm{
+display:inline-flex;align-items:center;justify-content:center;
+background:var(--cp);color:var(--wh);font-weight:800;font-size:.82rem;
+padding:9px 18px;border-radius:50px;border:none;cursor:pointer;width:100%;min-height:44px;
+transition:background .2s,transform .2s;
+}
+.btn-sm:hover{background:var(--ca);transform:scale(1.03)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes badgePop{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
+@keyframes slideIn{from{opacity:0;transform:translateX(-20px)}to{opacity:1;transform:none}}
+@keyframes statCount{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* SCROLL REVEAL FALLBACK */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.cat-grid{grid-template-columns:repeat(2,1fr)}
+.promo-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+.hdr-nav{display:none}
+.hdr-cta{display:none}
+.hamburger{display:flex}
+.hdr{padding:0 16px}
+.stats-grid{grid-template-columns:repeat(2,1fr);gap:16px}
+.cat-grid{grid-template-columns:1fr 1fr;gap:14px}
+.cat-card{height:160px}
+.promo-grid{grid-template-columns:1fr;max-width:400px}
+.hero-btns .btn{width:100%}
+.s{padding:52px 16px}
+.setup-band a{font-size:13px}
+.setup-band{height:40px}
+.setup-band a{line-height:40px}
+.hdr{top:40px}
+.mob-nav{top:104px}
+.hero{padding-top:104px}
+}
+@media(max-width:375px){
+.cat-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU SETUP NC -->
+<div class="setup-band">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">
+    Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.
+  </a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr" id="top">
+  <a href="#top" class="hdr-logo">🌿 Aux Saveurs<span><br>du Mont-Dore</span></a>
+  <nav class="hdr-nav">
+    <a href="#categories">Nos rayons</a>
+    <a href="#promos">Promos</a>
+    <a href="#livraison">Infos pratiques</a>
+    <a href="#avis">Avis</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a href="#contact" class="hdr-cta">Nous contacter</a>
+  <button class="hamburger" id="burger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-nav" id="mobNav">
+  <a href="#categories" onclick="closeMob()">Nos rayons</a>
+  <a href="#promos" onclick="closeMob()">Promos</a>
+  <a href="#livraison" onclick="closeMob()">Infos pratiques</a>
+  <a href="#avis" onclick="closeMob()">Avis clients</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">🛒 Frais du jour — Mont-Dore</div>
+    <h1>Votre épicerie de <em>quartier</em>,<br>au cœur du Mont-Dore</h1>
+    <p class="hero-sub">Épicerie générale, produits frais et spécialités locales<br>au pied du Mont-Dore, Nouvelle-Calédonie</p>
+    <div class="hero-btns">
+      <a href="#promos" class="btn btn-primary">🌟 Voir les promos</a>
+      <a href="#categories" class="btn btn-outline">Nos rayons →</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>Découvrir</span>
+    <svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
+
+<!-- BANDE PROMO FLASH -->
+<div class="promo-flash">
+  <span>🔥 Offres spéciales chaque semaine — Produits frais, épicerie et spécialités locales à petits prix !</span>
+</div>
+
+<!-- BANDE STATS -->
+<section class="stats" id="stats">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <span class="stat-num" data-target="4.7">0</span>
+      <div class="stat-lbl">⭐ Note Google / 5</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="6">0</span>
+      <div class="stat-lbl">🗓️ Jours d'ouverture / sem.</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="100">0</span>
+      <div class="stat-lbl">📦 Références en rayon</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="1">0</span>
+      <div class="stat-lbl">📍 Adresse Mont-Dore</div>
+    </div>
+  </div>
+</section>
+
+<!-- CATÉGORIES -->
+<section class="s" id="categories">
+  <h2 class="s-title">Nos rayons</h2>
+  <p class="s-sub">Tout ce qu'il vous faut, à deux pas de chez vous</p>
+  <div class="cat-grid">
+    <div class="cat-card">
+      <img src="https://i.ibb.co/TDQGc6SZ/Aux-Saveurs-Du-Mont-Dore-1.jpg" alt="Épicerie générale" loading="lazy">
+      <div class="cat-overlay">
+        <div class="cat-name">🛒 Épicerie générale</div>
+        <a href="#promos" class="cat-link">Voir →</a>
+      </div>
+    </div>
+    <div class="cat-card">
+      <img src="https://i.ibb.co/HZrkrSZ/Aux-Saveurs-Du-Mont-Dore-2.jpg" alt="Produits frais" loading="lazy">
+      <div class="cat-overlay">
+        <div class="cat-name">🥬 Produits frais</div>
+        <a href="#promos" class="cat-link">Voir →</a>
+      </div>
+    </div>
+    <div class="cat-card">
+      <img src="https://i.ibb.co/ccZjWyv9/Aux-Saveurs-Du-Mont-Dore-3.jpg" alt="Spécialités locales" loading="lazy">
+      <div class="cat-overlay">
+        <div class="cat-name">🌺 Spécialités locales</div>
+        <a href="#promos" class="cat-link">Voir →</a>
+      </div>
+    </div>
+    <div class="cat-card">
+      <img src="https://i.ibb.co/JWbtBB9Y/Aux-Saveurs-Du-Mont-Dore-0.jpg" alt="Boissons & snacks" loading="lazy">
+      <div class="cat-overlay">
+        <div class="cat-name">🥤 Boissons & snacks</div>
+        <a href="#promos" class="cat-link">Voir →</a>
+      </div>
+    </div>
+    <div class="cat-card" style="grid-column:span 2">
+      <img src="https://i.ibb.co/TDQGc6SZ/Aux-Saveurs-Du-Mont-Dore-1.jpg" alt="Produits du marché local" loading="lazy">
+      <div class="cat-overlay">
+        <div class="cat-name">🌿 Produits du marché local</div>
+        <a href="#promos" class="cat-link">Découvrir →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMOS -->
+<div class="promo-band"><p>🏷️ Offres du moment — Valables cette semaine seulement !</p></div>
+<section class="s" id="promos" style="background:var(--wh);padding-top:52px">
+  <h2 class="s-title">Nos meilleures offres</h2>
+  <p class="s-sub">Des prix doux pour les familles du quartier</p>
+  <div class="promo-grid">
+    <div class="p-card">
+      <span class="p-badge">-15%</span>
+      <img src="https://i.ibb.co/HZrkrSZ/Aux-Saveurs-Du-Mont-Dore-2.jpg" alt="Produits frais du jour" loading="lazy">
+      <div class="p-body">
+        <div class="p-name">Panier fruits & légumes</div>
+        <div class="p-desc">Sélection de saison, fraîcheur garantie chaque matin.</div>
+        <div class="p-prices">
+          <span class="p-old">1 490 F</span>
+          <span class="p-new">1 265 F</span>
+        </div>
+        <button class="btn-sm">Demander en boutique</button>
+      </div>
+    </div>
+    <div class="p-card">
+      <span class="p-badge">-20%</span>
+      <img src="https://i.ibb.co/ccZjWyv9/Aux-Saveurs-Du-Mont-Dore-3.jpg" alt="Spécialités locales" loading="lazy">
+      <div class="p-body">
+        <div class="p-name">Spécialités du Mont-Dore</div>
+        <div class="p-desc">Produits locaux sélectionnés avec soin par notre équipe.</div>
+        <div class="p-prices">
+          <span class="p-old">2 200 F</span>
+          <span class="p-new">1 760 F</span>
+        </div>
+        <button class="btn-sm">Demander en boutique</button>
+      </div>
+    </div>
+    <div class="p-card">
+      <span class="p-badge">-10%</span>
+      <img src="https://i.ibb.co/TDQGc6SZ/Aux-Saveurs-Du-Mont-Dore-1.jpg" alt="Épicerie du quotidien" loading="lazy">
+      <div class="p-body">
+        <div class="p-name">Épicerie du quotidien</div>
+        <div class="p-desc">Indispensables de la semaine à petits prix pour toute la famille.</div>
+        <div class="p-prices">
+          <span class="p-old">3 500 F</span>
+          <span class="p-new">3 150 F</span>
+        </div>
+        <button class="btn-sm">Demander en boutique</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+var burger=document.getElementById('burger'),mob=document.getElementById('mobNav');
+burger.addEventListener('click',function(){mob.classList.toggle('open')});
+function closeMob(){mob.classList.remove('open')}
+
+// Stats counter
+var nums=document.querySelectorAll('.stat-num'),done=false;
+function runCount(){
+  if(done)return;done=true;
+  nums.forEach(function(el){
+    var target=parseFloat(el.dataset.target),dec=target%1!==0,dur=1400,start=null;
+    function step(ts){
+      if(!start)start=ts;
+      var p=Math.min((ts-start)/dur,1);
+      var v=p*target;
+      el.textContent=dec?v.toFixed(1):Math.floor(v)+(target>=100?'+':'');
+      if(p<1)requestAnimationFrame(step);
+      else el.textContent=dec?target.toFixed(1):target+(target>=100?'+':'');
+    }
+    requestAnimationFrame(step);
+  });
+}
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)runCount()})},{threshold:.3});
+var statsEl=document.getElementById('stats');
+if(statsEl)obs.observe(statsEl);
+</script>
+<style>
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1040px;margin:0 auto}
+.svc-card{background:var(--wh);border-radius:var(--rd);padding:32px 24px;text-align:center;box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s}
+.svc-card:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(42,122,46,.18)}
+.svc-icon{font-size:2.4rem;margin-bottom:14px;display:block}
+.svc-title{font-size:1.05rem;font-weight:800;color:var(--cp);margin-bottom:8px}
+.svc-desc{font-size:.88rem;color:#555;line-height:1.6;margin-bottom:16px}
+.svc-cta{display:inline-block;background:var(--cp);color:var(--wh);font-weight:800;font-size:.82rem;padding:8px 18px;border-radius:50px;transition:background .2s,transform .2s}
+.svc-cta:hover{background:var(--ca);transform:scale(1.04)}
+
+/* SECTION MÉTIER */
+.metier{background:var(--wh)}
+.metier-inner{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;max-width:1040px;margin:0 auto}
+.metier-inner.rev{direction:rtl}
+.metier-inner.rev>*{direction:ltr}
+.metier-img{border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.metier-img img{width:100%;height:340px;object-fit:cover;display:block;transition:transform .4s}
+.metier-img:hover img{transform:scale(1.04)}
+.metier-tag{display:inline-block;background:var(--cs);color:#222;font-weight:800;font-size:.75rem;letter-spacing:1px;text-transform:uppercase;padding:5px 14px;border-radius:50px;margin-bottom:14px}
+.metier-h{font-size:clamp(1.4rem,3vw,2rem);font-weight:900;color:var(--cp);margin-bottom:14px;line-height:1.2}
+.metier-p{font-size:.93rem;color:#444;margin-bottom:20px;line-height:1.7}
+.check-list{display:flex;flex-direction:column;gap:10px}
+.check-list li{display:flex;align-items:flex-start;gap:10px;font-size:.9rem;font-weight:600;color:var(--tx)}
+.check-list li::before{content:"✓";background:var(--cp);color:var(--wh);border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:900;flex-shrink:0;margin-top:1px}
+
+/* GALERIE */
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:1040px;margin:0 auto}
+.gal-item{border-radius:10px;overflow:hidden;cursor:pointer;aspect-ratio:1;box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s}
+.gal-item:hover{transform:scale(1.04);box-shadow:0 10px 28px rgba(42,122,46,.22)}
+.gal-item img{width:100%;height:100%;object-fit:cover;display:block}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:2000;display:none;align-items:center;justify-content:center;padding:20px}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:85vh;border-radius:12px;object-fit:contain;box-shadow:0 8px 48px rgba(0,0,0,.5)}
+.lb-close{position:absolute;top:20px;right:24px;background:var(--ca);color:var(--wh);border:none;cursor:pointer;font-size:1.4rem;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;transition:transform .2s}
+.lb-close:hover{transform:scale(1.12)}
+
+/* INFOS PRATIQUES */
+.infos{background:var(--bg)}
+.infos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1040px;margin:0 auto}
+.info-card{background:var(--wh);border-radius:var(--rd);padding:28px 24px;box-shadow:var(--shadow);text-align:center}
+.info-icon{font-size:2rem;margin-bottom:12px;display:block}
+.info-title{font-size:1rem;font-weight:900;color:var(--cp);margin-bottom:10px}
+.info-body{font-size:.88rem;color:#555;line-height:1.7}
+.info-body strong{color:var(--tx);font-weight:700}
+.info-body a{color:var(--cp);font-weight:700}
+
+/* FORMULAIRE */
+.form-wrap{background:var(--wh);border-radius:16px;box-shadow:var(--shadow);padding:40px 36px;max-width:640px;margin:0 auto}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.field label{font-size:.85rem;font-weight:700;color:var(--cp)}
+.field input,.field textarea,.field select{font-family:inherit;font-size:.93rem;padding:12px 14px;border:2px solid #ddd;border-radius:8px;transition:border-color .2s;outline:none;width:100%}
+.field input:focus,.field textarea:focus{border-color:var(--cp)}
+.field textarea{resize:vertical;min-height:110px}
+.field.err input,.field.err textarea{border-color:var(--ca)}
+.err-msg{font-size:.78rem;color:var(--ca);font-weight:600;margin-top:2px;display:none}
+.field.err .err-msg{display:block}
+.btn-submit{background:var(--cp);color:var(--wh);font-family:inherit;font-weight:800;font-size:1rem;padding:14px 32px;border:none;border-radius:50px;cursor:pointer;width:100%;min-height:50px;transition:background .25s,transform .2s}
+.btn-submit:hover{background:var(--ca);transform:scale(1.03)}
+.form-success{display:none;text-align:center;padding:32px 20px}
+.form-success .tick{font-size:3rem;margin-bottom:12px}
+.form-success p{font-weight:700;color:var(--cp);font-size:1.05rem}
+
+/* PREUVE SOCIALE */
+.social-proof{background:var(--wh)}
+.rating-big{text-align:center;margin-bottom:40px}
+.stars-big{font-size:2rem;letter-spacing:2px;color:var(--cs)}
+.rating-num{font-size:3.5rem;font-weight:900;color:var(--cp);line-height:1;display:block}
+.rating-lbl{font-size:.9rem;color:#666;font-weight:600;margin-top:4px}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1040px;margin:0 auto 40px}
+.testi{background:var(--bg);border-radius:var(--rd);padding:24px;box-shadow:0 2px 12px rgba(42,122,46,.08)}
+.testi-stars{color:var(--cs);font-size:1rem;margin-bottom:8px}
+.testi-txt{font-size:.88rem;color:#444;font-style:italic;line-height:1.6;margin-bottom:14px}
+.testi-author{font-weight:800;font-size:.85rem;color:var(--cp)}
+.badges-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:12px}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--bg);border:2px solid var(--cp);border-radius:50px;padding:8px 18px;font-weight:800;font-size:.82rem;color:var(--cp)}
+
+/* HORAIRES dans infos pratiques */
+.horaires-list{text-align:left;margin-top:8px}
+.horaires-list li{display:flex;justify-content:space-between;gap:12px;padding:5px 0;border-bottom:1px solid #f0ede7;font-size:.85rem}
+.horaires-list li:last-child{border-bottom:none}
+.horaires-list .day{font-weight:700;color:var(--tx)}
+.horaires-list .hrs{color:#555}
+
+/* FOOTER */
+.footer{background:var(--cp);color:rgba(255,255,255,.9);padding:56px 24px 28px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;max-width:1040px;margin:0 auto 40px}
+.ft-logo{font-size:1.2rem;font-weight:900;color:var(--wh);margin-bottom:12px}
+.ft-logo span{color:var(--cs)}
+.ft-tagline{font-size:.85rem;color:rgba(255,255,255,.75);line-height:1.6;margin-bottom:16px}
+.ft-social{display:flex;gap:12px;align-items:center;margin-top:4px}
+.ft-social a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;background:rgba(255,255,255,.13);border-radius:50%;transition:background .2s,transform .2s}
+.ft-social a:hover{background:var(--cs);transform:scale(1.1)}
+.ft-social svg{width:20px;height:20px;fill:var(--wh)}
+.ft-h{font-size:.88rem;font-weight:900;color:var(--cs);letter-spacing:.6px;text-transform:uppercase;margin-bottom:14px}
+.ft-list{display:flex;flex-direction:column;gap:8px}
+.ft-list a{font-size:.88rem;color:rgba(255,255,255,.8);font-weight:600;transition:color .2s}
+.ft-list a:hover{color:var(--cs)}
+.ft-addr{font-size:.88rem;color:rgba(255,255,255,.8);line-height:1.8}
+.ft-addr a{color:rgba(255,255,255,.9);font-weight:700}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.18);padding-top:20px;max-width:1040px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.ft-copy{font-size:.8rem;color:rgba(255,255,255,.6)}
+.ft-setup{font-size:.8rem;color:rgba(255,255,255,.6)}
+.ft-setup a{color:var(--cs);font-weight:700;transition:opacity .2s}
+.ft-setup a:hover{opacity:.8}
+
+/* RESPONSIVE PART 2 */
+@media(max-width:900px){
+.svc-grid{grid-template-columns:1fr 1fr}
+.metier-inner{grid-template-columns:1fr;gap:32px}
+.metier-inner.rev{direction:ltr}
+.infos-grid{grid-template-columns:1fr}
+.testi-grid{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr 1fr;gap:28px}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+.svc-grid{grid-template-columns:1fr}
+.form-row{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr}
+.form-wrap{padding:28px 18px}
+.gal-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+.ft-bottom{flex-direction:column;text-align:center}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s" id="services" style="background:var(--bg)">
+  <h2 class="s-title">Ce qu'on vous propose</h2>
+  <p class="s-sub">Une épicerie complète, pensée pour votre quotidien</p>
+  <div class="svc-grid">
+    <div class="svc-card">
+      <span class="svc-icon">🥦</span>
+      <div class="svc-title">Produits frais du jour</div>
+      <p class="svc-desc">Fruits, légumes et produits laitiers renouvelés chaque matin pour vous garantir fraîcheur et qualité.</p>
+      <a href="#promos" class="svc-cta">Voir les offres →</a>
+    </div>
+    <div class="svc-card">
+      <span class="svc-icon">🌺</span>
+      <div class="svc-title">Spécialités locales</div>
+      <p class="svc-desc">Sélection de produits calédoniens et du Pacifique, pour retrouver les saveurs authentiques de chez vous.</p>
+      <a href="#categories" class="svc-cta">Découvrir →</a>
+    </div>
+    <div class="svc-card">
+      <span class="svc-icon">🛒</span>
+      <div class="svc-title">Épicerie générale</div>
+      <p class="svc-desc">Tout l'essentiel du quotidien : conserves, condiments, boissons, produits ménagers et bien plus encore.</p>
+      <a href="#categories" class="svc-cta">Explorer →</a>
+    </div>
+    <div class="svc-card">
+      <span class="svc-icon">💳</span>
+      <div class="svc-title">Paiement facilité</div>
+      <p class="svc-desc">Règlement en espèces ou par carte accepté pour simplifier vos achats au quotidien.</p>
+      <a href="#contact" class="svc-cta">Nous contacter →</a>
+    </div>
+    <div class="svc-card">
+      <span class="svc-icon">🤝</span>
+      <div class="svc-title">Service de proximité</div>
+      <p class="svc-desc">Une équipe familiale à votre écoute, prête à vous conseiller et à rendre votre passage agréable.</p>
+      <a href="#contact" class="svc-cta">Nous écrire →</a>
+    </div>
+    <div class="svc-card">
+      <span class="svc-icon">📍</span>
+      <div class="svc-title">Au cœur du Mont-Dore</div>
+      <p class="svc-desc">Idéalement situés sur la Route de la Corniche, à portée de main pour tous les habitants du secteur.</p>
+      <a href="#infos" class="svc-cta">Nous trouver →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s metier" id="metier">
+  <div class="metier-inner">
+    <div class="metier-img">
+      <img src="https://i.ibb.co/TDQGc6SZ/Aux-Saveurs-Du-Mont-Dore-1.jpg" alt="L'épicerie Aux Saveurs du Mont-Dore" loading="lazy">
+    </div>
+    <div class="metier-txt">
+      <span class="metier-tag">Notre histoire</span>
+      <h2 class="metier-h">Une épicerie familiale,<br>un lien de quartier</h2>
+      <p class="metier-p">Aux Saveurs du Mont-Dore, c'est bien plus qu'une simple épicerie. C'est un lieu de vie ancré dans la communauté locale, où chaque client est accueilli comme un voisin.</p>
+      <ul class="check-list">
+        <li>Produits frais sélectionnés chaque jour</li>
+        <li>Ambiance chaleureuse et familiale</li>
+        <li>Équipe disponible et à l'écoute</li>
+        <li>Rayon de spécialités du Pacifique</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="metier-inner rev" style="margin-top:64px">
+    <div class="metier-img">
+      <img src="https://i.ibb.co/HZrkrSZ/Aux-Saveurs-Du-Mont-Dore-2.jpg" alt="Rayon produits frais" loading="lazy">
+    </div>
+    <div class="metier-txt">
+      <span class="metier-tag">Notre engagement</span>
+      <h2 class="metier-h">La fraîcheur, chaque matin sans exception</h2>
+      <p class="metier-p">Nous nous approvisionnons régulièrement pour vous proposer des produits de qualité à des prix accessibles. Votre satisfaction est notre priorité au quotidien.</p>
+      <ul class="check-list">
+        <li>Réassort quotidien des rayons frais</li>
+        <li>Prix adaptés aux familles du quartier</li>
+        <li>Conseil personnalisé en magasin</li>
+        <li>Ouvert 6 jours sur 7</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s" id="galerie" style="background:var(--bg)">
+  <h2 class="s-title">Notre boutique en images</h2>
+  <p class="s-sub">Venez nous rendre visite au Mont-Dore</p>
+  <div class="gal-grid">
+    <div class="gal-item" data-src="https://i.ibb.co/JWbtBB9Y/Aux-Saveurs-Du-Mont-Dore-0.jpg">
+      <img src="https://i.ibb.co/JWbtBB9Y/Aux-Saveurs-Du-Mont-Dore-0.jpg" alt="Aux Saveurs du Mont-Dore" loading="lazy">
+    </div>
+    <div class="gal-item" data-src="https://i.ibb.co/TDQGc6SZ/Aux-Saveurs-Du-Mont-Dore-1.jpg">
+      <img src="https://i.ibb.co/TDQGc6SZ/Aux-Saveurs-Du-Mont-Dore-1.jpg" alt="Épicerie générale" loading="lazy">
+    </div>
+    <div class="gal-item" data-src="https://i.ibb.co/HZrkrSZ/Aux-Saveurs-Du-Mont-Dore-2.jpg">
+      <img src="https://i.ibb.co/HZrkrSZ/Aux-Saveurs-Du-Mont-Dore-2.jpg" alt="Produits frais" loading="lazy">
+    </div>
+    <div class="gal-item" data-src="https://i.ibb.co/ccZjWyv9/Aux-Saveurs-Du-Mont-Dore-3.jpg">
+      <img src="https://i.ibb.co/ccZjWyv9/Aux-Saveurs-Du-Mont-Dore-3.jpg" alt="Spécialités locales" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lb">
+  <button class="lb-close" id="lbClose" aria-label="Fermer">✕</button>
+  <img class="lb-img" id="lbImg" src="" alt="Photo agrandie">
+</div>
+
+<!-- INFOS PRATIQUES -->
+<section class="s infos" id="infos">
+  <h2 class="s-title">Infos pratiques</h2>
+  <p class="s-sub">Tout ce qu'il faut savoir avant de passer</p>
+  <div class="infos-grid">
+    <div class="info-card">
+      <span class="info-icon">🕐</span>
+      <div class="info-title">Horaires d'ouverture</div>
+      <ul class="horaires-list">
+        <li><span class="day">Lundi</span><span class="hrs">7h00 – 19h00</span></li>
+        <li><span class="day">Mardi</span><span class="hrs">7h00 – 19h00</span></li>
+        <li><span class="day">Mercredi</span><span class="hrs">7h00 – 19h00</span></li>
+        <li><span class="day">Jeudi</span><span class="hrs">7h00 – 19h00</span></li>
+        <li><span class="day">Vendredi</span><span class="hrs">7h00 – 19h00</span></li>
+        <li><span class="day">Samedi</span><span class="hrs">7h00 – 18h00</span></li>
+        <li><span class="day">Dimanche</span><span class="hrs">Fermé</span></li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <span class="info-icon">📍</span>
+      <div class="info-title">Nous trouver</div>
+      <div class="info-body">
+        <strong>Aux Saveurs du Mont-Dore</strong><br>
+        3157 Route de la Corniche<br>
+        Le Mont-Dore<br>
+        Nouvelle-Calédonie<br><br>
+        <a href="https://www.google.com/maps/search/3157+Route+De+La+Corniche+Mont-Dore" target="_blank" rel="noopener">📌 Voir sur Google Maps →</a>
+      </div>
+    </div>
+    <div class="info-card">
+      <span class="info-icon">🚗</span>
+      <div class="info-title">Accès & stationnement</div>
+      <div class="info-body">
+        Accès facile depuis la Route de la Corniche.<br><br>
+        Stationnement disponible à proximité de la boutique.<br><br>
+        <strong>Votre épicerie de quartier,<br>à deux pas de chez vous !</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE CONTACT -->
+<section class="s" id="contact" style="background:var(--wh)">
+  <h2 class="s-title">Nous contacter</h2>
+  <p class="s-sub">Une question ? Écrivez-nous, on vous répond vite !</p>
+  <div class="form-wrap">
+    <div class="form-success" id="formOk">
+      <div class="tick">🎉</div>
+      <p>Merci ! Votre message a bien été envoyé.<br>Nous vous répondrons dans les plus brefs délais.</p>
+    </div>
+    <form id="contactForm" novalidate>
+      <div class="form-row">
+        <div class="field" id="fNom">
+          <label for="nom">Votre nom *</label>
+          <input type="text" id="nom" name="nom" placeholder="Jean Dupont" autocomplete="name">
+          <span class="err-msg">Veuillez indiquer votre nom.</span>
+        </div>
+        <div class="field" id="fEmail">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" placeholder="jean@exemple.nc" autocomplete="email">
+          <span class="err-msg">Email invalide.</span>
+        </div>
+      </div>
+      <div class="field" id="fTel">
+        <label for="tel">Téléphone</label>
+        <input type="tel" id="tel" name="tel" placeholder="Ex : 26 00 00" autocomplete="tel">
+        <span class="err-msg">Numéro invalide.</span>
+      </div>
+      <div class="field" id="fMsg">
+        <label for="msg">Votre message *</label>
+        <textarea id="msg" name="msg" placeholder="Bonjour, je souhaite..."></textarea>
+        <span class="err-msg">Merci d'écrire votre message.</span>
+      </div>
+      <button type="submit" class="btn-submit" id="submitBtn">Envoyer mon message ✉️</button>
+    </form>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s social-proof" id="avis">
+  <h2 class="s-title">Ce que disent nos clients</h2>
+  <p class="s-sub">La confiance de notre communauté, notre plus belle récompense</p>
+  <div class="rating-big">
+    <span class="rating-num">4.7</span>
+    <div class="stars-big">★★★★★</div>
+    <div class="rating-lbl">Note Google — 3 avis clients</div>
+  </div>
+  <div class="testi-grid">
+    <div class="testi">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-txt">"Une épicerie vraiment pratique et bien achalandée. L'équipe est souriante et les produits frais sont de qualité. Je ne vais plus ailleurs !"</p>
+      <div class="testi-author">— Marie T., Mont-Dore</div>
+    </div>
+    <div class="testi">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-txt">"Toujours agréable de passer ici. On trouve facilement tout ce dont on a besoin, et l'ambiance familiale fait vraiment la différence."</p>
+      <div class="testi-author">— Patrice K., Mont-Dore</div>
+    </div>
+    <div class="testi">
+      <div class="testi-stars">★★★★☆</div>
+      <p class="testi-txt">"Très bon commerce de proximité, bien situé sur la Corniche. Les produits locaux sont une belle attention. Je recommande vivement !"</p>
+      <div class="testi-author">— Sonia V., Mont-Dore</div>
+    </div>
+  </div>
+  <div class="badges-row">
+    <div class="badge">⭐ Note Google 4.7/5</div>
+    <div class="badge">🌿 Commerce local NC</div>
+    <div class="badge">🤝 Service familial</div>
+    <div class="badge">🏆 Coup de cœur quartier</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="ft-logo">🌿 Aux Saveurs <span>du Mont-Dore</span></div>
+      <p class="ft-tagline">Votre épicerie générale de quartier au cœur du Mont-Dore. Produits frais, spécialités locales et accueil chaleureux, 6 jours sur 7.</p>
+      <div class="ft-social">
+        <a href="https://www.facebook.com/Aux-Saveurs-du-Mont-Dore-126053538013528" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="ft-h">Navigation</div>
+      <ul class="ft-list">
+        <li><a href="#categories">Nos rayons</a></li>
+        <li><a href="#promos">Offres du moment</a></li>
+        <li><a href="#services">Nos services</a></li>
+        <li><a href="#galerie">La boutique</a></li>
+        <li><a href="#avis">Avis clients</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="ft-h">Nous trouver</div>
+      <div class="ft-addr">
+        <strong style="color:#fff">Aux Saveurs du Mont-Dore</strong><br>
+        3157 Route de la Corniche<br>
+        Le Mont-Dore<br>
+        Nouvelle-Calédonie<br><br>
+        <a href="https://www.google.com/maps/search/3157+Route+De+La+Corniche+Mont-Dore" target="_blank" rel="noopener">📌 Voir sur Google Maps</a><br><br>
+        <strong style="color:rgba(255,255,255,.9)">Ouvert Lun–Ven :</strong> 7h – 19h<br>
+        <strong style="color:rgba(255,255,255,.9)">Samedi :</strong> 7h – 18h<br>
+        <strong style="color:rgba(255,255,255,.9)">Dimanche :</strong> Fermé
+      </div>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <div class="ft-copy">© 2026 Aux Saveurs Du Mont-Dore. Tous droits réservés.</div>
+    <div class="ft-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></div>
+  </div>
+</footer>
+
+<script>
+var burger=document.getElementById('burger'),mob=document.getElementById('mobNav');
+if(burger)burger.addEventListener('click',function(){mob.classList.toggle('open')});
+function closeMob(){if(mob)mob.classList.remove('open')}
+
+// Lightbox
+var lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg');
+document.querySelectorAll('.gal-item').forEach(function(el){
+  el.addEventListener('click',function(){
+    lbImg.src=el.dataset.src;
+    lb.classList.add('open');
+  });
+});
+document.getElementById('lbClose').addEventListener('click',function(){lb.classList.remove('open')});
+lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('open')});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('open')});
+
+// Formulaire
+var form=document.getElementById('contactForm'),formOk=document.getElementById('formOk');
+function vld(id,ok){var f=document.getElementById(id);if(ok)f.classList.remove('err');else f.classList.add('err');return ok}
+if(form)form.addEventListener('submit',function(e){
+  e.preventDefault();
+  var nom=document.getElementById('nom').value.trim();
+  var email=document.getElementById('email').value.trim();
+  var msg=document.getElementById('msg').value.trim();
+  var emailRe=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  var ok=true;
+  if(!vld('fNom',nom.length>1))ok=false;
+  if(!vld('fEmail',emailRe.test(email)))ok=false;
+  if(!vld('fMsg',msg.length>4))ok=false;
+  if(!ok)return;
+  var btn=document.getElementById('submitBtn');
+  btn.textContent='Envoi en cours…';btn.disabled=true;
+  setTimeout(function(){
+    form.style.display='none';
+    formOk.style.display='block';
+  },1000);
+});
+
+// Stats counter
+var nums=document.querySelectorAll('.stat-num'),done=false;
+function runCount(){
+  if(done)return;done=true;
+  nums.forEach(function(el){
+    var target=parseFloat(el.dataset.target),dec=target%1!==0,dur=1400,start=null;
+    function step(ts){
+      if(!start)start=ts;
+      var p=Math.min((ts-start)/dur,1),v=p*target;
+      el.textContent=dec?v.toFixed(1):Math.floor(v)+(target>=100?'+':'');
+      if(p<1)requestAnimationFrame(step);
+      else el.textContent=dec?target.toFixed(1):target+(target>=100?'+':'');
+    }
+    requestAnimationFrame(step);
+  });
+}
+var statsEl=document.getElementById('stats');
+if(statsEl){
+  var so=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)runCount()})},{threshold:.3});
+  so.observe(statsEl);
+}
+</script>
+</body>
+</html>
