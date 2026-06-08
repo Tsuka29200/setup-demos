@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LOUKA — Nouméa</title>
+<meta name="description" content="LOUKA, votre boutique de chaussures à Nouméa, Nouvelle-Calédonie. Qualité, confort et service local au 33 Rue Jean Jaurès.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600&family=Manrope:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#2C3E50;
+--cs:#34495E;
+--ca:#E67E22;
+--ct:#2C2C2C;
+--cb:#fff;
+--bg2:#F5F7FA;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ct);background:var(--cb);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU PROMO */
+.promo-bar{
+position:fixed;top:0;left:0;width:100%;height:44px;
+background:#ffd500;z-index:1001;
+text-align:center;
+}
+.promo-bar a{
+font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;
+font-weight:700;font-size:14px;letter-spacing:.3px;
+color:#4375ff;line-height:44px;display:block;width:100%;
+transition:opacity .2s;
+}
+.promo-bar a:hover{opacity:.85}
+
+/* HEADER */
+.hdr{
+position:fixed;top:44px;left:0;width:100%;
+background:rgba(44,62,80,.97);backdrop-filter:blur(8px);
+z-index:1000;height:64px;
+display:flex;align-items:center;
+}
+.hdr-inner{
+width:100%;max-width:1200px;margin:0 auto;
+padding:0 24px;display:flex;align-items:center;justify-content:space-between;
+}
+.logo{
+font-family:'Barlow Condensed',sans-serif;
+font-size:28px;font-weight:800;letter-spacing:1px;
+color:#fff;
+}
+.logo span{color:var(--ca)}
+.nav{display:flex;align-items:center;gap:28px;list-style:none}
+.nav a{
+font-size:13px;font-weight:500;color:rgba(255,255,255,.8);
+letter-spacing:.4px;transition:color .2s;text-transform:uppercase;
+}
+.nav a:hover{color:var(--ca)}
+.hdr-cta{
+background:var(--ca);color:#fff;
+font-family:'Inter',sans-serif;font-weight:600;font-size:13px;
+padding:10px 20px;border-radius:4px;letter-spacing:.3px;
+transition:opacity .2s;white-space:nowrap;
+}
+.hdr-cta:hover{opacity:.88}
+.hamburger{
+display:none;flex-direction:column;gap:5px;cursor:pointer;
+background:none;border:none;padding:4px;
+}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
+.mob-nav{
+display:none;position:fixed;top:108px;left:0;width:100%;
+background:rgba(44,62,80,.98);z-index:999;
+padding:20px 24px 28px;flex-direction:column;gap:0;
+}
+.mob-nav.open{display:flex}
+.mob-nav a{
+color:rgba(255,255,255,.85);font-size:15px;font-weight:500;
+padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);
+display:block;
+}
+.mob-nav a:last-child{border:none}
+.mob-cta{
+display:block;margin-top:16px;background:var(--ca);
+color:#fff;text-align:center;padding:14px;
+border-radius:4px;font-weight:600;font-size:15px;
+}
+
+/* HERO */
+.hero{
+position:relative;min-height:100vh;
+display:flex;align-items:center;justify-content:center;
+background-image:url('https://i.ibb.co/jkJD8s45/LOUKA-0.jpg');
+background-size:cover;background-position:center;
+padding-top:108px;
+}
+.hero-overlay{
+position:absolute;inset:0;
+background:linear-gradient(135deg,rgba(44,62,80,.82) 0%,rgba(44,62,80,.60) 60%,rgba(230,126,34,.25) 100%);
+}
+.hero-content{
+position:relative;z-index:1;text-align:center;
+max-width:760px;padding:0 20px;
+}
+.hero-badge{
+display:inline-flex;align-items:center;gap:8px;
+background:var(--ca);color:#fff;
+font-size:12px;font-weight:700;letter-spacing:1px;
+text-transform:uppercase;padding:7px 18px;border-radius:100px;
+margin-bottom:24px;animation:pulse-badge 2.4s ease-in-out infinite;
+}
+@keyframes pulse-badge{
+0%,100%{box-shadow:0 0 0 0 rgba(230,126,34,.5)}
+50%{box-shadow:0 0 0 10px rgba(230,126,34,0)}
+}
+.h1{
+font-family:'Barlow Condensed',sans-serif;
+font-size:clamp(40px,7vw,76px);font-weight:800;
+color:#fff;line-height:1.05;letter-spacing:.5px;
+margin-bottom:20px;
+}
+.h1 em{color:var(--ca);font-style:normal}
+.hero-sub{
+font-size:clamp(15px,2.2vw,18px);color:rgba(255,255,255,.88);
+line-height:1.65;max-width:560px;margin:0 auto 36px;
+}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-primary{
+background:var(--ca);color:#fff;
+font-weight:700;font-size:15px;letter-spacing:.3px;
+padding:15px 34px;border-radius:4px;
+transition:opacity .2s,transform .2s;
+border:none;cursor:pointer;display:inline-block;
+}
+.btn-primary:hover{opacity:.88;transform:translateY(-2px)}
+.btn-outline{
+background:transparent;color:#fff;
+font-weight:600;font-size:15px;letter-spacing:.3px;
+padding:14px 32px;border-radius:4px;
+border:2px solid rgba(255,255,255,.6);
+transition:border-color .2s,background .2s;
+display:inline-block;
+}
+.btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+.hero-trust{
+display:flex;gap:24px;justify-content:center;flex-wrap:wrap;
+margin-top:44px;
+}
+.trust-item{
+display:flex;align-items:center;gap:8px;
+color:rgba(255,255,255,.75);font-size:13px;font-weight:500;
+}
+.trust-icon{
+width:32px;height:32px;background:rgba(255,255,255,.12);
+border-radius:50%;display:flex;align-items:center;justify-content:center;
+flex-shrink:0;
+}
+.trust-icon svg{width:16px;height:16px;fill:#fff}
+.scroll-ind{
+position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
+display:flex;flex-direction:column;align-items:center;gap:6px;
+color:rgba(255,255,255,.5);font-size:11px;letter-spacing:1px;text-transform:uppercase;
+animation:scroll-bounce 2s ease-in-out infinite;
+}
+@keyframes scroll-bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+.scroll-ind svg{width:20px;height:20px;stroke:rgba(255,255,255,.5);fill:none}
+
+/* BANDE STATS */
+.stats{
+background:var(--cp);padding:60px 24px;position:relative;
+clip-path:polygon(0 12px,100% 0,100% calc(100% - 12px),0 100%);
+}
+.stats-inner{
+max-width:1100px;margin:0 auto;
+display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center;
+}
+.stat-item{padding:8px 0}
+.stat-num{
+font-family:'Barlow Condensed',sans-serif;
+font-size:clamp(40px,5vw,60px);font-weight:800;
+color:var(--ca);line-height:1;
+}
+.stat-label{
+color:rgba(255,255,255,.75);font-size:13px;font-weight:500;
+margin-top:8px;letter-spacing:.3px;line-height:1.4;
+}
+.stat-divider{
+width:36px;height:3px;background:var(--ca);
+margin:10px auto 0;border-radius:2px;opacity:.6;
+}
+
+/* FALLBACK ANIMATIONS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:700px){
+.nav,.hdr-cta{display:none}
+.hamburger{display:flex}
+}
+@media(max-width:480px){
+.promo-bar{height:40px}
+.promo-bar a{font-size:13px;line-height:40px}
+.hdr{top:40px;height:56px}
+.hero{padding-top:96px}
+.mob-nav{top:96px}
+.hero-btns .btn-primary,.hero-btns .btn-outline{width:100%;text-align:center;padding:15px}
+.hero-btns{flex-direction:column;gap:10px}
+.stats-inner{grid-template-columns:repeat(2,1fr);gap:20px}
+.stat-num{font-size:38px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO SETUP NC -->
+<div class="promo-bar">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-inner">
+    <a href="#" class="logo">LOU<span>KA</span></a>
+    <ul class="nav">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#metier">Notre histoire</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#avis">Avis</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="hdr-cta">Nous contacter</a>
+    <button class="hamburger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-nav" id="mobNav">
+  <a href="#services" onclick="closeMob()">Services</a>
+  <a href="#metier" onclick="closeMob()">Notre histoire</a>
+  <a href="#galerie" onclick="closeMob()">Galerie</a>
+  <a href="#avis" onclick="closeMob()">Avis</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="#contact" class="mob-cta" onclick="closeMob()">Nous contacter</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Boutique locale — Nouméa
+    </span>
+    <h1 class="h1">La chaussure<br>qui <em>vous ressemble</em>,<br>ici en Calédonie</h1>
+    <p class="hero-sub">Chez LOUKA, on choisit des chaussures pensées pour votre vie à Nouméa : confort, durabilité et style adaptés au quotidien calédonien.</p>
+    <div class="hero-btns">
+      <a href="#services" class="btn-primary">Découvrir nos services</a>
+      <a href="#contact" class="btn-outline">Nous contacter</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        </div>
+        33 Rue Jean Jaurès, Nouméa
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        </div>
+        Service local authentique
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+        </div>
+        Livraison sur Nouméa
+      </div>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    Découvrir
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<section class="stats">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num" data-target="5">0</div>
+      <div class="stat-label">Ans d'ancrage<br>à Nouméa</div>
+      <div class="stat-divider"></div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="500">0</div>
+      <div class="stat-label">Clients satisfaits<br>en Calédonie</div>
+      <div class="stat-divider"></div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="100">0</div>
+      <div class="stat-label">Modèles<br>disponibles</div>
+      <div class="stat-divider"></div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="1">0</div>
+      <div class="stat-label">Adresse locale<br>de confiance</div>
+      <div class="stat-divider"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+var burger=document.getElementById('burger'),mob=document.getElementById('mobNav');
+burger.addEventListener('click',function(){mob.classList.toggle('open')});
+function closeMob(){mob.classList.remove('open')}
+(function(){
+var nums=document.querySelectorAll('.stat-num[data-target]');
+var done=false;
+function run(){
+if(done)return;
+done=true;
+nums.forEach(function(el){
+var target=+el.getAttribute('data-target'),start=0,dur=1600,step=16;
+var inc=target/(dur/step);
+var t=setInterval(function(){
+start+=inc;
+if(start>=target){start=target;clearInterval(t)}
+el.textContent=Math.round(start)+(target>=100?'+':'');
+},step);
+});
+}
+var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)run()})},{threshold:.3});
+var sec=document.querySelector('.stats');
+if(sec)obs.observe(sec);
+})();
+</script>
+<style>
+.s{padding:80px 24px}
+.s-alt{background:var(--bg2)}
+.s-dark{background:var(--cp)}
+.inner{max-width:1100px;margin:0 auto}
+.sec-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ca);margin-bottom:12px}
+.h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(32px,5vw,52px);font-weight:800;color:var(--cp);line-height:1.1;margin-bottom:16px}
+.h2-w{color:#fff}
+.lead{font-size:16px;color:#555;line-height:1.7;max-width:580px;margin-bottom:48px}
+.lead-w{color:rgba(255,255,255,.78)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.c{background:#fff;border-radius:8px;padding:32px 28px;box-shadow:0 2px 16px rgba(44,62,80,.07);transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden}
+.c::before{content:'';position:absolute;left:0;top:0;width:3px;height:0;background:var(--ca);transition:height .3s;border-radius:0 0 2px 2px}
+.c:hover::before{height:100%}
+.c:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(44,62,80,.13)}
+.c-icon{width:52px;height:52px;background:rgba(230,126,34,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.c-icon svg{width:26px;height:26px;fill:var(--ca)}
+.c-title{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;color:var(--cp);margin-bottom:10px}
+.c-text{font-size:14px;color:#666;line-height:1.65}
+.c-cta{display:inline-block;margin-top:16px;font-size:13px;font-weight:600;color:var(--ca);letter-spacing:.3px}
+.c-cta:hover{opacity:.75}
+.metier-img{border-radius:10px;overflow:hidden;position:relative}
+.metier-img img{width:100%;height:420px;object-fit:cover;transition:transform .4s}
+.metier-img:hover img{transform:scale(1.04)}
+.metier-badge{display:inline-flex;align-items:center;gap:6px;background:var(--ca);color:#fff;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:20px}
+.check-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:24px}
+.check-list li{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:var(--ct);line-height:1.5}
+.check-list li svg{width:18px;height:18px;fill:var(--ca);flex-shrink:0;margin-top:2px}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.g-item{border-radius:8px;overflow:hidden;cursor:pointer;aspect-ratio:1;position:relative}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.g-item:hover img{transform:scale(1.07)}
+.g-item::after{content:'';position:absolute;inset:0;background:rgba(44,62,80,0);transition:background .3s}
+.g-item:hover::after{background:rgba(44,62,80,.25)}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:2000;align-items:center;justify-content:center;padding:20px}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:88vh;border-radius:6px;object-fit:contain}
+.lb-close{position:absolute;top:20px;right:24px;color:#fff;font-size:32px;cursor:pointer;line-height:1;background:none;border:none;font-family:inherit}
+.form-wrap{background:#fff;border-radius:12px;padding:44px 40px;box-shadow:0 4px 32px rgba(44,62,80,.10);max-width:620px;margin:0 auto}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:13px;font-weight:600;color:var(--cp);letter-spacing:.3px}
+.field input,.field textarea,.field select{
+border:1.5px solid #dde2e8;border-radius:5px;padding:12px 14px;
+font-family:'Inter',sans-serif;font-size:14px;color:var(--ct);
+transition:border-color .2s;background:#fafbfc;width:100%;
+}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--ca);background:#fff}
+.field textarea{resize:vertical;min-height:110px}
+.form-full{margin-bottom:18px}
+.btn-submit{
+width:100%;background:var(--ca);color:#fff;
+font-weight:700;font-size:15px;letter-spacing:.3px;
+padding:15px;border:none;border-radius:5px;cursor:pointer;
+transition:opacity .2s,transform .2s;font-family:'Inter',sans-serif;
+}
+.btn-submit:hover{opacity:.88;transform:translateY(-1px)}
+.success-msg{display:none;text-align:center;padding:28px 0}
+.success-msg svg{width:52px;height:52px;fill:var(--ca);margin:0 auto 14px}
+.success-msg p{font-size:16px;color:var(--cp);font-weight:600}
+.success-msg span{font-size:14px;color:#666;display:block;margin-top:6px}
+.social-section{text-align:center}
+.rating-box{display:inline-flex;flex-direction:column;align-items:center;gap:6px;background:#fff;border-radius:12px;padding:28px 40px;box-shadow:0 2px 20px rgba(44,62,80,.09);margin-bottom:48px}
+.stars{display:flex;gap:4px}
+.stars svg{width:28px;height:28px;fill:#F4B942}
+.rating-num{font-family:'Barlow Condensed',sans-serif;font-size:52px;font-weight:800;color:var(--cp);line-height:1}
+.rating-label{font-size:13px;color:#888;font-weight:500}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px}
+.testi-c{background:#fff;border-radius:10px;padding:28px 24px;box-shadow:0 2px 16px rgba(44,62,80,.07)}
+.testi-stars{display:flex;gap:3px;margin-bottom:12px}
+.testi-stars svg{width:16px;height:16px;fill:#F4B942}
+.testi-text{font-size:14px;color:#555;line-height:1.7;font-style:italic;margin-bottom:16px}
+.testi-author{font-size:13px;font-weight:600;color:var(--cp)}
+.testi-loc{font-size:12px;color:#999;font-weight:400}
+.badges-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(230,126,34,.1);border:1.5px solid rgba(230,126,34,.25);color:var(--ca);font-size:13px;font-weight:700;padding:10px 20px;border-radius:100px;letter-spacing:.3px}
+.badge svg{width:16px;height:16px;fill:var(--ca)}
+.footer{background:var(--cp);padding:56px 24px 28px}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;margin-bottom:44px}
+.footer-logo{font-family:'Barlow Condensed',sans-serif;font-size:30px;font-weight:800;color:#fff;margin-bottom:12px}
+.footer-logo span{color:var(--ca)}
+.footer-desc{font-size:14px;color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:20px}
+.footer-social{display:flex;gap:12px}
+.f-soc{width:38px;height:38px;border-radius:6px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;transition:background .2s}
+.f-soc:hover{background:var(--ca)}
+.f-soc svg{width:20px;height:20px;fill:#fff}
+.footer-h{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:16px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-size:14px;color:rgba(255,255,255,.7);transition:color .2s}
+.footer-links a:hover{color:var(--ca)}
+.footer-addr{font-size:14px;color:rgba(255,255,255,.7);line-height:1.9}
+.footer-addr a{color:rgba(255,255,255,.7);transition:color .2s}
+.footer-addr a:hover{color:var(--ca)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:13px;color:rgba(255,255,255,.45)}
+.footer-copy a{color:rgba(255,255,255,.6);transition:color .2s}
+.footer-copy a:hover{color:#fff}
+@media(max-width:900px){
+.grid3{grid-template-columns:1fr 1fr}
+.grid2{grid-template-columns:1fr;gap:36px}
+.testi-grid{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+.gallery-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+.s{padding:56px 16px}
+.grid3{grid-template-columns:1fr}
+.form-row{grid-template-columns:1fr}
+.gallery-grid{grid-template-columns:1fr 1fr}
+.footer-grid{grid-template-columns:1fr}
+.footer-bottom{flex-direction:column;text-align:center}
+.form-wrap{padding:28px 18px}
+.rating-box{padding:20px 28px}
+.testi-grid{grid-template-columns:1fr}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s" id="services">
+  <div class="inner">
+    <div style="text-align:center;max-width:640px;margin:0 auto">
+      <span class="sec-tag">Ce que nous faisons</span>
+      <h2 class="h2">Des services pensés<br>pour votre confort</h2>
+      <p class="lead" style="margin:0 auto 48px">À Nouméa, le climat tropical use les chaussures plus vite. Chez LOUKA, on vous accompagne de A à Z pour que vos pieds soient toujours bien chaussés.</p>
+    </div>
+    <div class="grid3">
+      <div class="c">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 6.5c0-1.93-3.57-3.5-8-3.5S5 4.57 5 6.5v11c0 1.93 3.57 3.5 8 3.5s8-1.57 8-3.5v-11zm-8-1.5c3.86 0 6 1.3 6 2s-2.14 2-6 2-6-1.3-6-2 2.14-2 6-2zm0 14c-3.86 0-6-1.3-6-2v-1.7c1.45.8 3.6 1.2 6 1.2s4.55-.4 6-1.2V17c0 .7-2.14 2-6 2z"/></svg>
+        </div>
+        <div class="c-title">Vente de chaussures</div>
+        <p class="c-text">Une sélection de modèles adaptés à la vie calédonienne — confort, solidité et style pour tous les jours à Nouméa.</p>
+        <a href="#contact" class="c-cta">Nous contacter →</a>
+      </div>
+      <div class="c">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><path d="M12.37 2.05L6.26 7.5H4c-1.1 0-2 .9-2 2v5c0 1.1.9 2 2 2h2.26l6.11 5.45c.63.57 1.63.12 1.63-.73V2.78c0-.85-1-1.3-1.63-.73zM19.5 12c0-2.04-.95-3.86-2.43-5.07l-1.43 1.43C16.6 9.28 17.5 10.56 17.5 12s-.9 2.72-1.86 3.64l1.43 1.43C18.55 15.86 19.5 14.04 19.5 12zm2.5 0c0-3.54-1.64-6.71-4.2-8.77l-1.43 1.43C18.54 6.35 20 9.01 20 12s-1.46 5.65-3.63 7.34l1.43 1.43C20.36 18.71 22 15.54 22 12z"/></svg>
+        </div>
+        <div class="c-title">Conseil personnalisé</div>
+        <p class="c-text">Notre équipe vous guide vers la chaussure qui correspond vraiment à votre morphologie, vos habitudes et votre style de vie.</p>
+        <a href="#contact" class="c-cta">Prendre conseil →</a>
+      </div>
+      <div class="c">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><path d="M19.3 5.71a.996.996 0 00-1.41 0L9 14.59l-2.89-2.9a.996.996 0 10-1.41 1.41l3.59 3.6c.39.39 1.02.39 1.41 0l9.6-9.58a.996.996 0 000-1.41z"/></svg>
+        </div>
+        <div class="c-title">Réparation & entretien</div>
+        <p class="c-text">Ressemellage, nettoyage professionnel, réparation des coutures — prolongez la vie de vos paires préférées avec notre service spécialisé.</p>
+        <a href="#contact" class="c-cta">En savoir plus →</a>
+      </div>
+      <div class="c">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+        </div>
+        <div class="c-title">Livraison sur Nouméa</div>
+        <p class="c-text">Commandez depuis chez vous et recevez vos chaussures directement à domicile dans la région de Nouméa, rapidement et en toute sécurité.</p>
+        <a href="#contact" class="c-cta">Commander →</a>
+      </div>
+      <div class="c">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+        </div>
+        <div class="c-title">Customisation</div>
+        <p class="c-text">Donnez une identité unique à vos chaussures. Personnalisation sur mesure pour exprimer votre style calédonien avec originalité.</p>
+        <a href="#contact" class="c-cta">Découvrir →</a>
+      </div>
+      <div class="c">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+        </div>
+        <div class="c-title">Avis & accompagnement</div>
+        <p class="c-text">Besoin d'aide pour trouver la taille idéale ou choisir entre deux modèles ? Notre équipe vous répond en boutique ou via nos réseaux.</p>
+        <a href="#contact" class="c-cta">Nous joindre →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s s-alt" id="metier">
+  <div class="inner">
+    <div class="grid2">
+      <div>
+        <span class="sec-tag">Notre histoire</span>
+        <h2 class="h2">LOUKA, né à Nouméa<br>pour les Calédoniens</h2>
+        <p style="font-size:15px;color:#555;line-height:1.75;margin-bottom:8px">LOUKA est une boutique de chaussures ancrée au cœur de Nouméa, au 33 Rue Jean Jaurès. Nous avons fait le choix de la proximité : être là, disponibles, pour chaque client qui pousse notre porte.</p>
+        <p style="font-size:15px;color:#555;line-height:1.75">En Nouvelle-Calédonie, la chaleur et l'humidité sollicitent les chaussures bien plus qu'ailleurs. C'est pourquoi nous sélectionnons des modèles résistants, confortables et adaptés à ce quotidien tropical unique.</p>
+        <ul class="check-list">
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            Sélection de modèles adaptés au climat tropical calédonien
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            Conseil humain et personnalisé en boutique à Nouméa
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            Service rapide, livraison locale et suivi client attentif
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            Une boutique de confiance, recommandée par les Nouméens
+          </li>
+        </ul>
+      </div>
+      <div class="metier-img">
+        <span class="metier-badge">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Boutique authentique NC
+        </span>
+        <img src="https://i.ibb.co/ymSXcxG0/LOUKA-1.jpg" alt="Boutique LOUKA Nouméa" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s" id="galerie">
+  <div class="inner">
+    <div style="text-align:center;margin-bottom:40px">
+      <span class="sec-tag">Notre univers</span>
+      <h2 class="h2">Découvrez LOUKA<br>en images</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="g-item" onclick="openLb(this)">
+        <img src="https://i.ibb.co/jkJD8s45/LOUKA-0.jpg" alt="LOUKA Nouméa" loading="lazy">
+      </div>
+      <div class="g-item" onclick="openLb(this)">
+        <img src="https://i.ibb.co/ymSXcxG0/LOUKA-1.jpg" alt="Chaussures LOUKA" loading="lazy">
+      </div>
+      <div class="g-item" onclick="openLb(this)">
+        <img src="https://i.ibb.co/twhWqMBf/LOUKA-2.jpg" alt="Collection LOUKA" loading="lazy">
+      </div>
+      <div class="g-item" onclick="openLb(this)">
+        <img src="https://i.ibb.co/tpT1yVfR/LOUKA-3.jpg" alt="LOUKA boutique" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLb()">
+  <button class="lb-close" onclick="closeLb()">&#215;</button>
+  <img class="lb-img" id="lbImg" src="" alt="Photo LOUKA">
+</div>
+
+<!-- FORMULAIRE -->
+<section class="s s-alt" id="contact">
+  <div class="inner">
+    <div style="text-align:center;margin-bottom:40px">
+      <span class="sec-tag">Nous contacter</span>
+      <h2 class="h2">Une question ?<br>On vous répond vite.</h2>
+      <p class="lead" style="margin:0 auto">Que ce soit pour une commande, un conseil ou un renseignement, l'équipe LOUKA est à votre écoute à Nouméa.</p>
+    </div>
+    <div class="form-wrap">
+      <form id="contactForm" action="#" novalidate>
+        <div class="form-row">
+          <div class="field">
+            <label for="fname">Nom complet *</label>
+            <input type="text" id="fname" name="nom" placeholder="Votre nom" required>
+          </div>
+          <div class="field">
+            <label for="fmail">Email *</label>
+            <input type="email" id="fmail" name="email" placeholder="votre@email.com" required>
+          </div>
+        </div>
+        <div class="form-full field">
+          <label for="ftel">Téléphone</label>
+          <input type="tel" id="ftel" name="telephone" placeholder="Ex : 79 00 00">
+        </div>
+        <div class="form-full field">
+          <label for="fmsg">Message *</label>
+          <textarea id="fmsg" name="message" placeholder="Votre demande, votre question..." required></textarea>
+        </div>
+        <button type="submit" class="btn-submit" id="submitBtn">Envoyer mon message</button>
+      </form>
+      <div class="success-msg" id="successMsg">
+        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        <p>Message envoyé avec succès !</p>
+        <span>L'équipe LOUKA vous répondra très prochainement.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s social-section" id="avis">
+  <div class="inner">
+    <span class="sec-tag">Ce qu'ils en disent</span>
+    <h2 class="h2" style="margin-bottom:8px">La confiance,<br>ça se mérite</h2>
+    <p class="lead" style="margin:0 auto 36px">LOUKA construit sa réputation à Nouméa jour après jour, grâce à un service sincère et des produits de qualité.</p>
+    <div class="rating-box">
+      <div class="rating-num">5.0</div>
+      <div class="stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <div class="rating-label">Note Google · Nouvelle boutique à découvrir</div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-c">
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testi-text">« Super boutique à Nouméa ! J'ai trouvé exactement ce que je cherchais. L'accueil est vraiment sympa et les conseils sont précieux. »</p>
+        <div class="testi-author">Marie T. <span class="testi-loc">· Nouméa</span></div>
+      </div>
+      <div class="testi-c">
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testi-text">« Livraison rapide sur Nouméa et qualité au rendez-vous. On sent que c'est une boutique qui connaît bien les besoins des Calédoniens. »</p>
+        <div class="testi-author">Kevin R. <span class="testi-loc">· Nouvelle-Calédonie</span></div>
+      </div>
+      <div class="testi-c">
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testi-text">« Enfin une boutique locale qui propose de vraies chaussures de qualité à Nouméa. Le service client est top et on se sent bien accueilli. »</p>
+        <div class="testi-author">Sophie M. <span class="testi-loc">· Nouméa</span></div>
+      </div>
+    </div>
+    <div class="badges-row">
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        Choix Nouméa
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        Boutique authentique NC
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        Service local de confiance
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+        Livraison Nouméa
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">LOU<span>KA</span></div>
+        <p class="footer-desc">Votre boutique de chaussures à Nouméa. Qualité, confort et service local pour tous les Calédoniens, depuis le 33 Rue Jean Jaurès.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/LoukaNoumea" target="_blank" rel="noopener" class="f-soc" aria-label="Facebook LOUKA">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-h">Navigation</div>
+        <ul class="footer-links">
+          <li><a href="#services">Nos services</a></li>
+          <li><a href="#metier">Notre histoire</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#avis">Avis clients</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-h">Nous trouver</div>
+        <div class="footer-addr">
+          LOUKA<br>
+          33 Rue Jean Jaurès<br>
+          Nouméa, Nouvelle-Calédonie<br><br>
+          <a href="https://www.facebook.com/LoukaNoumea" target="_blank" rel="noopener">Facebook · LoukaNoumea</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 LOUKA. Tous droits réservés.</p>
+      <p class="footer-copy">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+function openLb(el){
+  var s=el.querySelector('img').src;
+  document.getElementById('lbImg').src=s;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLb(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
+document.getElementById('contactForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var f=this,n=f.nom.value.trim(),m=f.email.value.trim(),msg=f.message.value.trim();
+  if(!n||!m||!msg){
+    var first=!n?f.nom:(!m?f.email:f.message);
+    first.focus();return;
+  }
+  var btn=document.getElementById('submitBtn');
+  btn.textContent='Envoi en cours…';btn.disabled=true;
+  setTimeout(function(){
+    f.style.display='none';
+    document.getElementById('successMsg').style.display='block';
+  },900);
+});
+</script>
+</body>
+</html>
