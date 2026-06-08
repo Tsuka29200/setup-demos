@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Opticien Krys-Noumea Victoire — Nouméa</title>
+<meta name="description" content="Opticien Krys à Nouméa Victoire — Lunettes de vue, solaires, lentilles et accessoires. Conseil personnalisé, expertise locale, Avenue de la Victoire, Nouméa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#1DA0D8;
+--cs:#FFFFFF;
+--ca:#1DA0D8;
+--cb:#1888BC;
+--ct:#1A1A1A;
+--bg:#F5F5F5;
+--r:12px;
+--t:.25s ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;color:var(--ct);background:var(--bg);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+
+/* BANDEAU SETUP NC */
+.setup-band{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;text-align:center}
+.setup-band a{font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;line-height:44px;letter-spacing:.3px;color:#4375ff;display:block;width:100%}
+.setup-band a:hover{opacity:.85}
+
+/* HEADER */
+.header{position:sticky;top:44px;z-index:1000;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:38px;height:38px;background:var(--cp);border-radius:8px;display:flex;align-items:center;justify-content:center}
+.logo-icon svg{width:22px;height:22px}
+.logo-text{font-size:17px;font-weight:800;color:var(--ct);line-height:1.2}
+.logo-text span{color:var(--cp)}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{font-size:14px;font-weight:700;color:var(--ct);transition:color var(--t)}
+.nav a:hover{color:var(--cp)}
+.hdr-cta{background:var(--cp);color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;padding:10px 22px;border-radius:50px;border:none;cursor:pointer;transition:background var(--t)}
+.hdr-cta:hover{background:var(--cb)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{width:24px;height:2px;background:var(--ct);border-radius:2px;transition:var(--t)}
+.mob-nav{display:none;position:fixed;top:112px;left:0;width:100%;background:#fff;z-index:999;padding:16px;flex-direction:column;gap:4px;box-shadow:0 8px 24px rgba(0,0,0,.1)}
+.mob-nav a{font-size:15px;font-weight:700;color:var(--ct);padding:12px 16px;border-radius:8px;display:block}
+.mob-nav a:hover{background:var(--bg);color:var(--cp)}
+.mob-nav.open{display:flex}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;background-image:url('https://i.ibb.co/RkQ1M3Q5/Opticien-Krys-Noumea-Victoire-0.jpg');background-size:cover;background-position:center;background-repeat:no-repeat}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(29,160,216,.88) 0%,rgba(29,160,216,.55) 45%,rgba(10,40,70,.65) 100%)}
+.hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:120px 24px 80px;display:flex;flex-direction:column;gap:28px;max-width:680px;margin-left:max(24px,calc(50vw - 560px))}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.18);border:1.5px solid rgba(255,255,255,.5);color:#fff;font-size:13px;font-weight:800;letter-spacing:.6px;padding:7px 16px;border-radius:50px;text-transform:uppercase;width:fit-content;animation:pulse-badge 2.5s ease-in-out infinite}
+@keyframes pulse-badge{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,255,255,.3)}50%{transform:scale(1.03);box-shadow:0 0 0 8px rgba(255,255,255,0)}}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:900;color:#fff;line-height:1.15}
+.hero h1 em{font-style:normal;color:#ffe066}
+.hero-sub{font-size:clamp(1rem,2vw,1.2rem);font-weight:600;color:rgba(255,255,255,.92);line-height:1.6;max-width:520px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px}
+.btn-primary{background:#fff;color:var(--cp);font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;padding:14px 32px;border-radius:50px;border:none;cursor:pointer;transition:var(--t);display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{background:#ffe066;color:#1a1a1a}
+.btn-outline{background:transparent;color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;padding:13px 30px;border-radius:50px;border:2px solid rgba(255,255,255,.7);cursor:pointer;transition:var(--t);display:inline-flex;align-items:center;gap:8px}
+.btn-outline:hover{background:rgba(255,255,255,.15);border-color:#fff}
+.hero-promo-card{background:rgba(255,255,255,.12);backdrop-filter:blur(10px);border:1.5px solid rgba(255,255,255,.3);border-radius:16px;padding:18px 24px;display:flex;align-items:center;gap:16px;width:fit-content;max-width:420px}
+.promo-badge{background:#ff4d4d;color:#fff;font-size:22px;font-weight:900;border-radius:10px;padding:8px 14px;flex-shrink:0;animation:pulse-badge 2s ease-in-out infinite}
+.promo-info{color:#fff}
+.promo-info strong{font-size:15px;font-weight:800;display:block}
+.promo-info span{font-size:13px;opacity:.85}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,.7);font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+.scroll-dot{width:28px;height:44px;border:2px solid rgba(255,255,255,.5);border-radius:14px;position:relative}
+.scroll-dot::after{content:'';width:6px;height:6px;background:#fff;border-radius:50%;position:absolute;top:7px;left:50%;transform:translateX(-50%);animation:scroll-bounce 1.8s ease-in-out infinite}
+@keyframes scroll-bounce{0%,100%{top:7px;opacity:1}80%{top:22px;opacity:.3}}
+
+/* STATS BAND */
+.stats{background:var(--cp);padding:48px 24px}
+.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stat{text-align:center;color:#fff}
+.stat-num{font-size:clamp(2rem,4vw,3rem);font-weight:900;line-height:1;display:block}
+.stat-lbl{font-size:13px;font-weight:700;opacity:.88;margin-top:6px;text-transform:uppercase;letter-spacing:.5px}
+
+/* CATEGORIES */
+.s{padding:72px 24px}
+.s-inner{max-width:1200px;margin:0 auto}
+.h{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;color:var(--ct);text-align:center;margin-bottom:8px}
+.h-sub{text-align:center;font-size:15px;font-weight:600;color:#666;margin-bottom:40px}
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.c{background:#fff;border-radius:var(--r);border:1.5px solid rgba(29,160,216,.18);overflow:hidden;transition:var(--t);cursor:pointer}
+.c:hover{border-color:var(--cp);box-shadow:0 8px 28px rgba(29,160,216,.18);transform:scale(1.025)}
+.c-img{height:180px;overflow:hidden;background:var(--bg)}
+.c-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.c:hover .c-img img{transform:scale(1.06)}
+.c-body{padding:20px}
+.c-icon{width:42px;height:42px;background:rgba(29,160,216,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;transition:transform var(--t)}
+.c:hover .c-icon{transform:rotate(8deg)}
+.c-title{font-size:16px;font-weight:800;color:var(--ct);margin-bottom:4px}
+.c-desc{font-size:13px;color:#666;font-weight:600;line-height:1.5}
+.c-link{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:13px;font-weight:800;color:var(--cp)}
+
+/* PROMO */
+.s-promo{background:#fff;padding:72px 24px}
+.promo-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:36px;flex-wrap:wrap;gap:16px}
+.promo-title{font-size:clamp(1.5rem,3vw,2rem);font-weight:900;color:var(--ct)}
+.promo-title span{color:var(--cp)}
+.promo-badge-live{background:#ff4d4d;color:#fff;font-size:12px;font-weight:800;padding:5px 12px;border-radius:50px;text-transform:uppercase;letter-spacing:.5px;animation:pulse-badge 2s ease-in-out infinite}
+.promo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pc{background:var(--bg);border-radius:var(--r);overflow:hidden;border:1.5px solid transparent;transition:var(--t);position:relative}
+.pc:hover{border-color:var(--cp);box-shadow:0 8px 24px rgba(29,160,216,.15);transform:scale(1.03)}
+.pc-badge{position:absolute;top:14px;left:14px;background:#ff4d4d;color:#fff;font-size:13px;font-weight:900;padding:5px 11px;border-radius:8px;z-index:2}
+.pc-img{height:200px;overflow:hidden}
+.pc-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.pc:hover .pc-img img{transform:scale(1.06)}
+.pc-body{padding:16px}
+.pc-brand{font-size:11px;font-weight:800;color:var(--cp);text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px}
+.pc-name{font-size:15px;font-weight:800;color:var(--ct);margin-bottom:8px}
+.pc-price{display:flex;align-items:baseline;gap:8px}
+.pc-price strong{font-size:20px;font-weight:900;color:var(--cp)}
+.pc-price del{font-size:13px;color:#999;font-weight:600}
+.pc-cta{width:100%;background:var(--cp);color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;padding:11px;border:none;border-radius:8px;cursor:pointer;margin-top:12px;transition:background var(--t)}
+.pc-cta:hover{background:var(--cb)}
+
+/* BESTSELLERS */
+.bs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.bc{background:#fff;border-radius:var(--r);border:1.5px solid rgba(29,160,216,.12);overflow:hidden;transition:var(--t)}
+.bc:hover{border-color:var(--cp);box-shadow:0 6px 20px rgba(29,160,216,.15);transform:scale(1.025)}
+.bc-img{height:160px;overflow:hidden;background:var(--bg)}
+.bc-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.bc:hover .bc-img img{transform:scale(1.06)}
+.bc-body{padding:14px}
+.bc-name{font-size:14px;font-weight:800;color:var(--ct);margin-bottom:6px}
+.stars{display:flex;gap:2px;margin-bottom:8px}
+.stars span{color:#ffc107;font-size:13px}
+.stars em{font-style:normal;font-size:12px;color:#999;font-weight:700;margin-left:4px}
+.bc-price{font-size:17px;font-weight:900;color:var(--cp)}
+
+/* LIVRAISON */
+.s-livr{background:var(--cp);padding:56px 24px}
+.livr-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.livr-item{text-align:center;color:#fff}
+.livr-icon{width:56px;height:56px;background:rgba(255,255,255,.2);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.livr-title{font-size:16px;font-weight:800;margin-bottom:6px}
+.livr-desc{font-size:13px;opacity:.88;font-weight:600;line-height:1.5}
+
+/* AVIS */
+.s-avis{background:var(--bg);padding:72px 24px}
+.rating-hero{text-align:center;margin-bottom:48px}
+.rating-num{font-size:clamp(3rem,6vw,4.5rem);font-weight:900;color:var(--cp);line-height:1}
+.rating-stars{display:flex;justify-content:center;gap:6px;margin:10px 0}
+.rating-stars span{font-size:28px;color:#ffc107}
+.rating-count{font-size:14px;font-weight:700;color:#666}
+.avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.av{background:#fff;border-radius:var(--r);padding:24px;border:1.5px solid rgba(29,160,216,.1);transition:var(--t)}
+.av:hover{border-color:var(--cp);box-shadow:0 6px 20px rgba(29,160,216,.12)}
+.av-header{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.av-avatar{width:44px;height:44px;border-radius:50%;background:var(--cp);display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:900;color:#fff;flex-shrink:0}
+.av-name{font-size:14px;font-weight:800;color:var(--ct)}
+.av-date{font-size:12px;color:#999;font-weight:600}
+.av-stars{display:flex;gap:2px;margin-bottom:2px}
+.av-stars span{color:#ffc107;font-size:12px}
+.av-text{font-size:14px;color:#444;font-weight:600;line-height:1.6}
+
+/* HORAIRES */
+.s-horaires{background:#fff;padding:72px 24px}
+.hor-box{background:var(--cp);border-radius:20px;padding:40px;max-width:800px;margin:0 auto;color:#fff}
+.hor-title{font-size:1.6rem;font-weight:900;margin-bottom:28px;text-align:center}
+.hor-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:28px}
+.hor-row{display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.15);padding:11px 16px;border-radius:10px}
+.hor-day{font-size:14px;font-weight:800}
+.hor-time{font-size:14px;font-weight:700;opacity:.9}
+.hor-closed{opacity:.6;font-style:italic}
+.hor-infos{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+.hor-info{background:rgba(255,255,255,.15);border-radius:12px;padding:16px;display:flex;align-items:flex-start;gap:12px}
+.hor-info svg{flex-shrink:0;margin-top:2px}
+.hor-info p{font-size:13px;font-weight:700;line-height:1.5;opacity:.95}
+
+/* FORMULAIRE */
+.s-form{background:var(--bg);padding:72px 24px}
+.form-wrap{max-width:640px;margin:0 auto;background:#fff;border-radius:20px;padding:40px;box-shadow:0 8px 32px rgba(0,0,0,.07)}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.fg label{font-size:13px;font-weight:800;color:var(--ct)}
+.fg input,.fg textarea{border:1.5px solid #e0e0e0;border-radius:8px;padding:12px 14px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:600;color:var(--ct);transition:border-color var(--t);background:#fff}
+.fg input:focus,.fg textarea:focus{outline:none;border-color:var(--cp)}
+.fg textarea{resize:vertical;min-height:110px}
+.f-submit{width:100%;background:var(--cp);color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:16px;padding:15px;border:none;border-radius:50px;cursor:pointer;transition:background var(--t);margin-top:8px}
+.f-submit:hover{background:var(--cb)}
+.f-success{display:none;text-align:center;padding:20px;background:rgba(29,160,216,.1);border-radius:12px;color:var(--cp);font-weight:800;font-size:15px;margin-top:16px}
+
+/* FOOTER */
+footer{background:#0a1e2e;color:#fff;padding:56px 24px 28px}
+.ft-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.ft-logo{font-size:20px;font-weight:900;margin-bottom:14px}
+.ft-logo span{color:var(--cp)}
+.ft-desc{font-size:13px;font-weight:600;color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:20px}
+.ft-h{font-size:14px;font-weight:900;color:var(--cp);text-transform:uppercase;letter-spacing:.6px;margin-bottom:14px}
+.ft-links{display:flex;flex-direction:column;gap:8px}
+.ft-links a{font-size:13px;font-weight:600;color:rgba(255,255,255,.7);transition:color var(--t)}
+.ft-links a:hover{color:#fff}
+.ft-contact p{font-size:13px;font-weight:600;color:rgba(255,255,255,.7);display:flex;align-items:flex-start;gap:8px;margin-bottom:10px;line-height:1.5}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ft-copy{font-size:12px;color:rgba(255,255,255,.5);font-weight:600}
+.ft-setup{font-size:12px;color:rgba(255,255,255,.5);font-weight:600}
+.ft-setup a{color:var(--cp);font-weight:800}
+
+/* FALLBACK ANIMATIONS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.cat-grid,.promo-grid,.bs-grid{grid-template-columns:repeat(2,1fr)}
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+.livr-inner{grid-template-columns:1fr}
+.avis-grid{grid-template-columns:1fr}
+.ft-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+.setup-band a{font-size:13px;line-height:40px}
+.setup-band{height:40px}
+.header{top:40px}
+.mob-nav{top:108px}
+.nav{display:none}
+.hamburger{display:flex}
+.hdr-cta{display:none}
+.header-inner{height:60px}
+.hero-ctas{flex-direction:column}
+.btn-primary,.btn-outline{width:100%;justify-content:center;min-height:48px}
+.hero-promo-card{width:100%}
+.cat-grid,.promo-grid,.bs-grid,.stats-inner{grid-template-columns:1fr}
+.hor-grid,.hor-infos{grid-template-columns:1fr}
+.ft-inner{grid-template-columns:1fr}
+.f-row{grid-template-columns:1fr}
+.ft-bottom{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU SETUP NC -->
+<div class="setup-band">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="8" cy="12" r="4" stroke="#fff" stroke-width="2"/>
+          <circle cx="16" cy="12" r="4" stroke="#fff" stroke-width="2"/>
+          <path d="M12 12h0" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+          <path d="M4 12C4 12 2 11 1 12" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+          <path d="M20 12C20 12 22 11 23 12" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="logo-text">Krys <span>Victoire</span></div>
+    </a>
+    <nav class="nav">
+      <a href="#categories">Catégories</a>
+      <a href="#promos">Promos</a>
+      <a href="#bestsellers">Bestsellers</a>
+      <a href="#horaires">Horaires</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="hdr-cta">Prendre RDV</a>
+    <button class="hamburger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mob-nav" id="mobnav">
+    <a href="#categories" onclick="closeMob()">Catégories</a>
+    <a href="#promos" onclick="closeMob()">Promos</a>
+    <a href="#bestsellers" onclick="closeMob()">Bestsellers</a>
+    <a href="#horaires" onclick="closeMob()">Horaires</a>
+    <a href="#contact" onclick="closeMob()">Prendre RDV</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" fill="#ffe066"/></svg>
+      Nouvelle Collection Été 2024
+    </div>
+    <h1>Votre vision,<br><em>notre passion</em></h1>
+    <p class="hero-sub">Lunettes de vue, solaires et lentilles de qualité — conseil personnalisé par votre opticien de confiance à Nouméa, Avenue de la Victoire.</p>
+    <div class="hero-ctas">
+      <a href="#categories" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.35-4.35M17 11A6 6 0 111 11a6 6 0 0116 0z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+        Découvrir nos collections
+      </a>
+      <a href="#contact" class="btn-outline">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Prendre rendez-vous
+      </a>
+    </div>
+    <div class="hero-promo-card">
+      <div class="promo-badge">-30%</div>
+      <div class="promo-info">
+        <strong>Offre de lancement — Été 2024</strong>
+        <span>Sur une sélection de montures solaires &amp; de vue</span>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <div class="scroll-dot"></div>
+    <span>Défiler</span>
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<section class="stats">
+  <div class="stats-inner">
+    <div class="stat">
+      <span class="stat-num" data-target="20">0</span>
+      <div class="stat-lbl">Ans d'expertise</div>
+    </div>
+    <div class="stat">
+      <span class="stat-num" data-target="500">0</span>
+      <div class="stat-lbl">Montures en boutique</div>
+    </div>
+    <div class="stat">
+      <span class="stat-num" data-target="4.5" data-decimal="1">0</span>
+      <div class="stat-lbl">Note Google / 5</div>
+    </div>
+    <div class="stat">
+      <span class="stat-num" data-target="100">0</span>
+      <div class="stat-lbl">% Conseil personnalisé</div>
+    </div>
+  </div>
+</section>
+<!-- CATEGORIES -->
+<section class="s" id="categories">
+  <div class="s-inner">
+    <h2 class="h">Nos catégories</h2>
+    <p class="h-sub">Tout ce qu'il faut pour prendre soin de votre vue sous le soleil de Nouméa</p>
+    <div class="cat-grid">
+      <div class="c" onclick="location.href='#contact'">
+        <div class="c-img">
+          <img src="https://i.ibb.co/d4grV5BN/Opticien-Krys-Noumea-Victoire-1.jpg" alt="Lunettes de vue" loading="lazy">
+        </div>
+        <div class="c-body">
+          <div class="c-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="12" r="4" stroke="#1DA0D8" stroke-width="2"/><circle cx="16" cy="12" r="4" stroke="#1DA0D8" stroke-width="2"/><path d="M1 12c1-1 3-1 4 0M19 12c1-1 3-1 4 0" stroke="#1DA0D8" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div class="c-title">Lunettes de vue</div>
+          <div class="c-desc">Montures tendance et verres correcteurs de qualité, adaptés à chaque visage.</div>
+          <span class="c-link">Explorer →</span>
+        </div>
+      </div>
+      <div class="c" onclick="location.href='#contact'">
+        <div class="c-img">
+          <img src="https://i.ibb.co/ynkYPQyq/Opticien-Krys-Noumea-Victoire-2.jpg" alt="Lunettes solaires" loading="lazy">
+        </div>
+        <div class="c-body">
+          <div class="c-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" stroke="#1DA0D8" stroke-width="2"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="#1DA0D8" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div class="c-title">Lunettes solaires</div>
+          <div class="c-desc">Protection UV certifiée pour profiter du soleil tropical calédonien en toute sécurité.</div>
+          <span class="c-link">Explorer →</span>
+        </div>
+      </div>
+      <div class="c" onclick="location.href='#contact'">
+        <div class="c-img">
+          <img src="https://i.ibb.co/QFbqwXcF/Opticien-Krys-Noumea-Victoire-3.jpg" alt="Lentilles de contact" loading="lazy">
+        </div>
+        <div class="c-body">
+          <div class="c-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="7" stroke="#1DA0D8" stroke-width="2"/><circle cx="12" cy="12" r="3" stroke="#1DA0D8" stroke-width="2"/></svg>
+          </div>
+          <div class="c-title">Lentilles de contact</div>
+          <div class="c-desc">Lentilles journalières, mensuelles et colorées — confort optimal pour votre quotidien.</div>
+          <span class="c-link">Explorer →</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMOS -->
+<section class="s-promo" id="promos">
+  <div class="s-inner">
+    <div class="promo-header">
+      <h2 class="promo-title">Offres du <span>moment</span></h2>
+      <span class="promo-badge-live">En cours</span>
+    </div>
+    <div class="promo-grid">
+      <div class="pc">
+        <div class="pc-badge">-30%</div>
+        <div class="pc-img">
+          <img src="https://i.ibb.co/d4grV5BN/Opticien-Krys-Noumea-Victoire-1.jpg" alt="Montures été 2024" loading="lazy">
+        </div>
+        <div class="pc-body">
+          <div class="pc-brand">Collection Été 2024</div>
+          <div class="pc-name">Montures tendance — sélection estivale</div>
+          <div class="pc-price"><strong>Dès 89 000 XPF</strong><del>127 000 XPF</del></div>
+          <button class="pc-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Je profite de l'offre</button>
+        </div>
+      </div>
+      <div class="pc">
+        <div class="pc-badge">-20%</div>
+        <div class="pc-img">
+          <img src="https://i.ibb.co/ynkYPQyq/Opticien-Krys-Noumea-Victoire-2.jpg" alt="Solaires protection UV" loading="lazy">
+        </div>
+        <div class="pc-body">
+          <div class="pc-brand">Solaires</div>
+          <div class="pc-name">Protection UV 400 — top vendeurs</div>
+          <div class="pc-price"><strong>Dès 12 000 XPF</strong><del>15 000 XPF</del></div>
+          <button class="pc-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Je profite de l'offre</button>
+        </div>
+      </div>
+      <div class="pc">
+        <div class="pc-badge">Offre duo</div>
+        <div class="pc-img">
+          <img src="https://i.ibb.co/QFbqwXcF/Opticien-Krys-Noumea-Victoire-3.jpg" alt="Pack lentilles" loading="lazy">
+        </div>
+        <div class="pc-body">
+          <div class="pc-brand">Lentilles</div>
+          <div class="pc-name">Pack 3 mois — 2 achetés, 1 offert</div>
+          <div class="pc-price"><strong>Offre spéciale</strong></div>
+          <button class="pc-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Je profite de l'offre</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BESTSELLERS -->
+<section class="s" id="bestsellers">
+  <div class="s-inner">
+    <h2 class="h">Nos bestsellers</h2>
+    <p class="h-sub">Les modèles préférés de nos clients à Nouméa</p>
+    <div class="bs-grid">
+      <div class="bc">
+        <div class="bc-img">
+          <img src="https://i.ibb.co/RkQ1M3Q5/Opticien-Krys-Noumea-Victoire-0.jpg" alt="Monture classique" loading="lazy">
+        </div>
+        <div class="bc-body">
+          <div class="bc-name">Monture fine acétate</div>
+          <div class="stars"><span>★★★★★</span><em>5/5</em></div>
+          <div class="bc-price">Dès 45 000 XPF</div>
+        </div>
+      </div>
+      <div class="bc">
+        <div class="bc-img">
+          <img src="https://i.ibb.co/d4grV5BN/Opticien-Krys-Noumea-Victoire-1.jpg" alt="Solaires aviateur" loading="lazy">
+        </div>
+        <div class="bc-body">
+          <div class="bc-name">Solaires style aviateur</div>
+          <div class="stars"><span>★★★★★</span><em>5/5</em></div>
+          <div class="bc-price">Dès 14 000 XPF</div>
+        </div>
+      </div>
+      <div class="bc">
+        <div class="bc-img">
+          <img src="https://i.ibb.co/ynkYPQyq/Opticien-Krys-Noumea-Victoire-2.jpg" alt="Lentilles journalières" loading="lazy">
+        </div>
+        <div class="bc-body">
+          <div class="bc-name">Lentilles journalières</div>
+          <div class="stars"><span>★★★★☆</span><em>4/5</em></div>
+          <div class="bc-price">Dès 8 500 XPF/boîte</div>
+        </div>
+      </div>
+      <div class="bc">
+        <div class="bc-img">
+          <img src="https://i.ibb.co/QFbqwXcF/Opticien-Krys-Noumea-Victoire-3.jpg" alt="Monture sport" loading="lazy">
+        </div>
+        <div class="bc-body">
+          <div class="bc-name">Monture sport légère</div>
+          <div class="stars"><span>★★★★★</span><em>5/5</em></div>
+          <div class="bc-price">Dès 52 000 XPF</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVRAISON / INFOS PRATIQUES -->
+<section class="s-livr" id="livraison">
+  <div class="livr-inner">
+    <div class="livr-item">
+      <div class="livr-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><path d="M9 22V12h6v10" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="livr-title">Retrait en boutique</div>
+      <div class="livr-desc">Venez récupérer vos commandes directement Avenue de la Victoire, à Nouméa.</div>
+    </div>
+    <div class="livr-item">
+      <div class="livr-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="1" y="3" width="15" height="13" rx="1" stroke="#fff" stroke-width="2"/><path d="M16 8h4l3 4v5h-7V8z" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><circle cx="5.5" cy="18.5" r="1.5" stroke="#fff" stroke-width="2"/><circle cx="18.5" cy="18.5" r="1.5" stroke="#fff" stroke-width="2"/></svg>
+      </div>
+      <div class="livr-title">Livraison à Nouméa</div>
+      <div class="livr-desc">Nous livrons vos équipements optiques dans le Grand Nouméa — renseignez-vous en boutique.</div>
+    </div>
+    <div class="livr-item">
+      <div class="livr-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4M22 12A10 10 0 112 12a10 10 0 0120 0z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="livr-title">Garantie qualité Krys</div>
+      <div class="livr-desc">Tous nos verres et montures sont garantis. Votre satisfaction est notre engagement.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="s" id="services">
+  <div class="s-inner">
+    <h2 class="h">Nos services</h2>
+    <p class="h-sub">Un accompagnement complet pour votre santé visuelle</p>
+    <div class="srv-grid">
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="#1DA0D8" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="#1DA0D8" stroke-width="2"/></svg>
+        </div>
+        <h3 class="srv-title">Examen de vue</h3>
+        <p class="srv-desc">Bilan visuel complet réalisé par notre opticien diplômé pour une correction précise et adaptée.</p>
+        <a href="#contact" class="srv-lnk">Prendre RDV →</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="12" r="4" stroke="#1DA0D8" stroke-width="2"/><circle cx="16" cy="12" r="4" stroke="#1DA0D8" stroke-width="2"/><path d="M1 12c1-1 3-1 4 0M19 12c1-1 3-1 4 0" stroke="#1DA0D8" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="srv-title">Conseil montures</h3>
+        <p class="srv-desc">Nos experts vous guident pour choisir la monture qui correspond à votre visage, votre style et votre budget.</p>
+        <a href="#contact" class="srv-lnk">Nous contacter →</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="7" stroke="#1DA0D8" stroke-width="2"/><circle cx="12" cy="12" r="3" stroke="#1DA0D8" stroke-width="2"/></svg>
+        </div>
+        <h3 class="srv-title">Adaptation lentilles</h3>
+        <p class="srv-desc">Bilan d'adaptation personnalisé pour les lentilles de contact — journalières, mensuelles ou spéciales.</p>
+        <a href="#contact" class="srv-lnk">En savoir plus →</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M14.7 6.3a1 1 0 010 1.4L7.4 15l-3 1 1-3 7.3-7.3a1 1 0 011.4 0zM3 21h18" stroke="#1DA0D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="srv-title">Réparations & ajustements</h3>
+        <p class="srv-desc">Remontage, remplacement de branches, ajustement de plaquettes — intervention rapide en boutique.</p>
+        <a href="#contact" class="srv-lnk">Nous contacter →</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#1DA0D8" stroke-width="2" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="srv-title">Prise en charge mutuelle</h3>
+        <p class="srv-desc">Nous vous accompagnons dans vos démarches de remboursement auprès de votre mutuelle santé.</p>
+        <a href="#contact" class="srv-lnk">Nous contacter →</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke="#1DA0D8" stroke-width="2" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="srv-title">Suivi personnalisé</h3>
+        <p class="srv-desc">Un accompagnement sur la durée pour vous et votre famille — votre vision évolue, nous évoluons avec vous.</p>
+        <a href="#contact" class="srv-lnk">Prendre RDV →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION METIER -->
+<section class="s-metier" id="metier">
+  <div class="s-inner">
+    <div class="met-row">
+      <div class="met-text">
+        <span class="met-tag">Notre expertise</span>
+        <h2 class="h met-h">Votre opticien de confiance à Nouméa</h2>
+        <p class="met-p">Implantés Avenue de la Victoire au cœur de Nouméa, nous accompagnons les habitants de la ville et du Grand Nouméa dans tous leurs besoins optiques. Notre équipe diplômée allie expertise technique et écoute humaine pour vous offrir un conseil sincère et adapté.</p>
+        <ul class="met-list">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#1DA0D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Opticiens diplômés d'État</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#1DA0D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Réseau national Krys — qualité garantie</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#1DA0D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Large choix de montures pour tous les budgets</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#1DA0D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Conseil adapté au mode de vie calédonien</li>
+        </ul>
+        <a href="#contact" class="btn-met">Prendre rendez-vous</a>
+      </div>
+      <div class="met-img-wrap">
+        <img src="https://i.ibb.co/d4grV5BN/Opticien-Krys-Noumea-Victoire-1.jpg" alt="Boutique Krys Victoire Nouméa" loading="lazy" class="met-img">
+      </div>
+    </div>
+    <div class="met-row met-row-rev">
+      <div class="met-img-wrap">
+        <img src="https://i.ibb.co/ynkYPQyq/Opticien-Krys-Noumea-Victoire-2.jpg" alt="Conseil optique personnalisé" loading="lazy" class="met-img">
+      </div>
+      <div class="met-text">
+        <span class="met-tag">Notre engagement</span>
+        <h2 class="h met-h">Vos yeux méritent le meilleur</h2>
+        <p class="met-p">Sous le soleil intense de Nouvelle-Calédonie, la protection de vos yeux est primordiale. Nous sélectionnons des verres et montures adaptés aux conditions locales : lumière intense, activités nautiques, vie en extérieur. Chaque équipement est choisi pour vous durer.</p>
+        <ul class="met-list">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#1DA0D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Verres anti-UV hautes performances</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#1DA0D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Montures résistantes pour usage sport & mer</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#1DA0D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Entretien et réparation rapide</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#1DA0D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Satisfait ou nous trouvons une solution</li>
+        </ul>
+        <a href="#contact" class="btn-met">Découvrir nos services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s" id="galerie" style="background:var(--bg)">
+  <div class="s-inner">
+    <h2 class="h">Notre boutique</h2>
+    <p class="h-sub">Un espace moderne et lumineux au cœur de Nouméa</p>
+    <div class="gal-grid">
+      <div class="gal-item" onclick="openLb(0)">
+        <img src="https://i.ibb.co/RkQ1M3Q5/Opticien-Krys-Noumea-Victoire-0.jpg" alt="Opticien Krys Victoire Nouméa" loading="lazy">
+        <div class="gal-ov"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.35-4.35M17 11A6 6 0 112 11a6 6 0 0115 0z" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gal-item" onclick="openLb(1)">
+        <img src="https://i.ibb.co/d4grV5BN/Opticien-Krys-Noumea-Victoire-1.jpg" alt="Collections lunettes Krys" loading="lazy">
+        <div class="gal-ov"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.35-4.35M17 11A6 6 0 112 11a6 6 0 0115 0z" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gal-item" onclick="openLb(2)">
+        <img src="https://i.ibb.co/ynkYPQyq/Opticien-Krys-Noumea-Victoire-2.jpg" alt="Conseil optique Nouméa" loading="lazy">
+        <div class="gal-ov"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.35-4.35M17 11A6 6 0 112 11a6 6 0 0115 0z" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gal-item" onclick="openLb(3)">
+        <img src="https://i.ibb.co/QFbqwXcF/Opticien-Krys-Noumea-Victoire-3.jpg" alt="Montures et accessoires Krys" loading="lazy">
+        <div class="gal-ov"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.35-4.35M17 11A6 6 0 112 11a6 6 0 0115 0z" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" onclick="closeLb()">
+  <button class="lb-close" onclick="closeLb()">✕</button>
+  <button class="lb-prev" onclick="lbNav(-1,event)">&#8249;</button>
+  <img id="lb-img" src="" alt="Photo boutique Krys">
+  <button class="lb-next" onclick="lbNav(1,event)">&#8250;</button>
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section class="s-avis" id="avis">
+  <div class="s-inner">
+    <h2 class="h">Ce que disent nos clients</h2>
+    <div class="rating-hero">
+      <div class="rating-num">4.5</div>
+      <div class="rating-stars"><span>★★★★½</span></div>
+      <div class="rating-count">Basé sur 4 avis Google vérifiés</div>
+    </div>
+    <div class="avis-grid">
+      <div class="av">
+        <div class="av-header">
+          <div class="av-avatar">M</div>
+          <div>
+            <div class="av-name">Marie T.</div>
+            <div class="av-stars"><span>★★★★★</span></div>
+            <div class="av-date">Il y a 2 semaines</div>
+          </div>
+        </div>
+        <p class="av-text">Accueil chaleureux, conseil très professionnel. J'ai trouvé exactement les lunettes qu'il me fallait. Je recommande vivement cet opticien à Nouméa&nbsp;!</p>
+      </div>
+      <div class="av">
+        <div class="av-header">
+          <div class="av-avatar">J</div>
+          <div>
+            <div class="av-name">Jean-Pierre L.</div>
+            <div class="av-stars"><span>★★★★★</span></div>
+            <div class="av-date">Il y a 1 mois</div>
+          </div>
+        </div>
+        <p class="av-text">Équipe à l'écoute, large choix de montures. Le délai de fabrication a été respecté. Super expérience chez Krys Victoire.</p>
+      </div>
+      <div class="av">
+        <div class="av-header">
+          <div class="av-avatar">S</div>
+          <div>
+            <div class="av-name">Sophie K.</div>
+            <div class="av-stars"><span>★★★★☆</span></div>
+            <div class="av-date">Il y a 2 mois</div>
+          </div>
+        </div>
+        <p class="av-text">Très bonne boutique, personnel compétent. Les lentilles que j'ai commandées sont parfaites. Seul bémol&nbsp;: un peu d'attente le samedi.</p>
+      </div>
+    </div>
+    <div class="badges-row">
+      <div class="badge-item">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#1DA0D8" stroke-width="2" stroke-linejoin="round"/></svg>
+        <span>Réseau Krys certifié</span>
+      </div>
+      <div class="badge-item">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4M22 12A10 10 0 112 12a10 10 0 0120 0z" stroke="#1DA0D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Opticiens diplômés</span>
+      </div>
+      <div class="badge-item">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke="#1DA0D8" stroke-width="2" stroke-linejoin="round"/></svg>
+        <span>Service client local</span>
+      </div>
+      <div class="badge-item">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#1DA0D8" stroke-width="2"/><path d="M12 6v6l4 2" stroke="#1DA0D8" stroke-width="2" stroke-linecap="round"/></svg>
+        <span>Réponse rapide</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HORAIRES -->
+<section class="s-horaires" id="horaires">
+  <div class="s-inner">
+    <h2 class="h">Infos pratiques</h2>
+    <p class="h-sub">Retrouvez-nous Avenue de la Victoire, Nouméa</p>
+    <div class="hor-box">
+      <div class="hor-title">Horaires d'ouverture</div>
+      <div class="hor-grid">
+        <div class="hor-row"><span class="hor-day">Lundi</span><span class="hor-time">8h00 – 12h00 / 13h30 – 17h30</span></div>
+        <div class="hor-row"><span class="hor-day">Mardi</span><span class="hor-time">8h00 – 12h00 / 13h30 – 17h30</span></div>
+        <div class="hor-row"><span class="hor-day">Mercredi</span><span class="hor-time">8h00 – 12h00 / 13h30 – 17h30</span></div>
+        <div class="hor-row"><span class="hor-day">Jeudi</span><span class="hor-time">8h00 – 12h00 / 13h30 – 17h30</span></div>
+        <div class="hor-row"><span class="hor-day">Vendredi</span><span class="hor-time">8h00 – 12h00 / 13h30 – 17h30</span></div>
+        <div class="hor-row"><span class="hor-day">Samedi</span><span class="hor-time">8h00 – 12h00</span></div>
+        <div class="hor-row"><span class="hor-day">Dimanche</span><span class="hor-time hor-closed">Fermé</span></div>
+      </div>
+      <div class="hor-infos">
+        <div class="hor-info">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1118 0z" stroke="#fff" stroke-width="2"/><circle cx="12" cy="10" r="3" stroke="#fff" stroke-width="2"/></svg>
+          <p>Avenue de la Victoire<br>Nouméa, Nouvelle-Calédonie</p>
+        </div>
+        <div class="hor-info">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 4.18 2 2 0 015.07 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg>
+          <p>Appelez-nous pour toute<br>demande d'information</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE CONTACT -->
+<section class="s-form" id="contact">
+  <div class="s-inner">
+    <h2 class="h">Contactez-nous</h2>
+    <p class="h-sub">Posez vos questions ou prenez rendez-vous — nous vous répondrons rapidement</p>
+    <div class="form-wrap">
+      <form id="cform" action="#" novalidate>
+        <div class="f-row">
+          <div class="fg">
+            <label for="fname">Prénom et nom *</label>
+            <input type="text" id="fname" name="fname" placeholder="Marie Dupont" required>
+          </div>
+          <div class="fg">
+            <label for="femail">Email *</label>
+            <input type="email" id="femail" name="femail" placeholder="marie@email.com" required>
+          </div>
+        </div>
+        <div class="fg">
+          <label for="ftel">Téléphone</label>
+          <input type="tel" id="ftel" name="ftel" placeholder="XX XX XX XX">
+        </div>
+        <div class="fg">
+          <label for="fmsg">Votre message *</label>
+          <textarea id="fmsg" name="fmsg" placeholder="Ex : Je souhaite prendre rendez-vous pour un bilan visuel..." required></textarea>
+        </div>
+        <button type="submit" class="f-submit" id="fsub">Envoyer ma demande</button>
+        <div class="f-success" id="fsuccess">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="display:inline;vertical-align:middle;margin-right:8px"><path d="M20 6L9 17l-5-5" stroke="#1DA0D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Message envoyé ! Nous vous contacterons très prochainement.
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-inner">
+    <div>
+      <div class="ft-logo">Krys <span>Victoire</span></div>
+      <p class="ft-desc">Votre opticien de confiance au cœur de Nouméa — lunettes de vue, solaires, lentilles et conseil personnalisé par une équipe diplômée.</p>
+    </div>
+    <div>
+      <div class="ft-h">Navigation</div>
+      <div class="ft-links">
+        <a href="#accueil">Accueil</a>
+        <a href="#categories">Catégories</a>
+        <a href="#promos">Promotions</a>
+        <a href="#services">Services</a>
+        <a href="#horaires">Horaires</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div>
+      <div class="ft-h">Nous trouver</div>
+      <div class="ft-contact">
+        <p>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1118 0z" stroke="rgba(255,255,255,.6)" stroke-width="2"/><circle cx="12" cy="10" r="3" stroke="rgba(255,255,255,.6)" stroke-width="2"/></svg>
+          Avenue de la Victoire<br>Nouméa, Nouvelle-Calédonie
+        </p>
+        <p>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,.6)" stroke-width="2"/><path d="M12 6v6l4 2" stroke="rgba(255,255,255,.6)" stroke-width="2" stroke-linecap="round"/></svg>
+          Lun–Ven : 8h–12h / 13h30–17h30<br>Sam : 8h–12h
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <span class="ft-copy">© 2026 Opticien Krys-Noumea Victoire. Tous droits réservés.</span>
+    <span class="ft-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></span>
+  </div>
+</footer>
+
+<style>
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.srv-card{background:#fff;border-radius:var(--r);border:1.5px solid rgba(29,160,216,.15);padding:28px 24px;transition:var(--t)}
+.srv-card:hover{border-color:var(--cp);box-shadow:0 8px 28px rgba(29,160,216,.15);transform:scale(1.025)}
+.srv-icon{width:52px;height:52px;background:rgba(29,160,216,.1);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;transition:transform var(--t)}
+.srv-card:hover .srv-icon{transform:rotate(8deg)}
+.srv-title{font-size:16px;font-weight:800;color:var(--ct);margin-bottom:8px}
+.srv-desc{font-size:13px;color:#555;font-weight:600;line-height:1.6;margin-bottom:14px}
+.srv-lnk{font-size:13px;font-weight:800;color:var(--cp)}
+.s-metier{background:#fff;padding:72px 24px}
+.met-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-bottom:64px}
+.met-row-rev{direction:rtl}
+.met-row-rev>*{direction:ltr}
+.met-tag{display:inline-block;background:rgba(29,160,216,.12);color:var(--cp);font-size:12px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;padding:5px 14px;border-radius:50px;margin-bottom:14px}
+.met-h{text-align:left;margin-bottom:14px}
+.met-p{font-size:15px;font-weight:600;color:#555;line-height:1.7;margin-bottom:20px}
+.met-list{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.met-list li{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:700;color:var(--ct)}
+.btn-met{display:inline-flex;align-items:center;background:var(--cp);color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;padding:12px 28px;border-radius:50px;transition:background var(--t)}
+.btn-met:hover{background:var(--cb)}
+.met-img-wrap{border-radius:20px;overflow:hidden;box-shadow:0 16px 48px rgba(29,160,216,.15)}
+.met-img{width:100%;height:380px;object-fit:cover}
+.gal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.gal-item{position:relative;border-radius:var(--r);overflow:hidden;cursor:pointer;aspect-ratio:16/10}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-ov{position:absolute;inset:0;background:rgba(29,160,216,.45);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity var(--t)}
+.gal-item:hover .gal-ov{opacity:1}
+.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center}
+.lb.open{display:flex}
+.lb img{max-width:90vw;max-height:85vh;border-radius:12px;object-fit:contain}
+.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:28px;cursor:pointer;z-index:2001}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);border:none;color:#fff;font-size:40px;cursor:pointer;padding:8px 16px;border-radius:8px;z-index:2001;transition:background var(--t)}
+.lb-prev{left:16px}
+.lb-next{right:16px}
+.lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,.3)}
+.badges-row{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-top:48px}
+.badge-item{display:flex;align-items:center;gap:10px;background:#fff;border-radius:50px;padding:12px 22px;border:1.5px solid rgba(29,160,216,.2);font-size:13px;font-weight:800;color:var(--ct)}
+@media(max-width:900px){
+.srv-grid{grid-template-columns:repeat(2,1fr)}
+.met-row{grid-template-columns:1fr;gap:32px}
+.met-row-rev{direction:ltr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+.srv-grid{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:1fr}
+.badges-row{gap:12px}
+.badge-item{font-size:12px;padding:10px 16px}
+.met-img{height:220px}
+.lb-prev{left:4px}
+.lb-next{right:4px}
+}
+</style>
+
+<script>
+var burger=document.getElementById('burger'),mob=document.getElementById('mobnav');
+burger.addEventListener('click',function(){mob.classList.toggle('open')});
+function closeMob(){mob.classList.remove('open')}
+
+var lbImgs=['https://i.ibb.co/RkQ1M3Q5/Opticien-Krys-Noumea-Victoire-0.jpg','https://i.ibb.co/d4grV5BN/Opticien-Krys-Noumea-Victoire-1.jpg','https://i.ibb.co/ynkYPQyq/Opticien-Krys-Noumea-Victoire-2.jpg','https://i.ibb.co/QFbqwXcF/Opticien-Krys-Noumea-Victoire-3.jpg'];
+var lbIdx=0;
+function openLb(i){lbIdx=i;document.getElementById('lb-img').src=lbImgs[i];document.getElementById('lb').classList.add('open')}
+function closeLb(){document.getElementById('lb').classList.remove('open')}
+function lbNav(d,e){e.stopPropagation();lbIdx=(lbIdx+d+lbImgs.length)%lbImgs.length;document.getElementById('lb-img').src=lbImgs[lbIdx]}
+
+document.getElementById('cform').addEventListener('submit',function(e){
+e.preventDefault();
+var n=document.getElementById('fname').value.trim(),em=document.getElementById('femail').value.trim(),msg=document.getElementById('fmsg').value.trim();
+if(!n||!em||!msg){alert('Merci de remplir les champs obligatoires.');return;}
+var btn=document.getElementById('fsub');
+btn.textContent='Envoi en cours…';btn.disabled=true;
+setTimeout(function(){btn.style.display='none';document.getElementById('fsuccess').style.display='block';},900);
+});
+
+var nums=document.querySelectorAll('.stat-num');
+var counted=false;
+function countUp(){if(counted)return;counted=true;nums.forEach(function(el){var t=parseFloat(el.dataset.target),dec=parseInt(el.dataset.decimal||0),d=30,s=t/60;var c=0;var iv=setInterval(function(){c+=s;if(c>=t){c=t;clearInterval(iv);}el.textContent=dec?c.toFixed(dec):Math.round(c);},d);})}
+var obs=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting)countUp();})},{threshold:.3});
+obs.observe(document.querySelector('.stats'));
+</script>
+</body>
+</html>
