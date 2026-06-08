@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coin du Cuir — Nouméa</title>
+<meta name="description" content="Coin du Cuir, votre boutique de chaussures et maroquinerie artisanale au cœur de Nouméa. Qualité, authenticité et savoir-faire depuis des années.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#E8650A;
+--cs:#7B3A10;
+--ca:#F0A030;
+--cb:#F5F0E8;
+--ct:#2C1A0E;
+--cw:#FFFFFF;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',system-ui,sans-serif;color:var(--ct);background:var(--cb);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU */
+#promo{position:sticky;top:0;z-index:1001;background:#ffd500;height:44px;text-align:center}
+#promo a{display:block;line-height:44px;font-family:'Manrope','Lato',system-ui,sans-serif;font-weight:700;font-size:14px;letter-spacing:.3px;color:#4375ff}
+#promo a:hover{opacity:.85}
+
+/* HEADER */
+#hdr{position:sticky;top:44px;z-index:1000;background:var(--cw);border-bottom:2px solid var(--cp);padding:0 24px}
+.hdr-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:'Playfair Display',serif;font-weight:900;font-size:1.4rem;color:var(--cs);letter-spacing:.5px}
+.logo span{color:var(--cp)}
+nav{display:flex;gap:28px;align-items:center}
+nav a{font-size:.85rem;font-weight:700;color:var(--ct);letter-spacing:.4px;text-transform:uppercase;position:relative}
+nav a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:2px;background:var(--cp);transition:width .3s}
+nav a:hover::after{width:100%}
+.hdr-cta{background:var(--cp);color:var(--cw);font-weight:700;font-size:.85rem;padding:10px 20px;border-radius:4px;letter-spacing:.3px;transition:background .3s,transform .2s}
+.hdr-cta:hover{background:var(--cs);transform:translateY(-1px)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.burger span{display:block;width:24px;height:2px;background:var(--ct);transition:all .3s}
+.mob-nav{display:none;position:fixed;top:108px;left:0;right:0;background:var(--cw);border-bottom:3px solid var(--cp);padding:20px;z-index:999;flex-direction:column;gap:16px}
+.mob-nav a{font-weight:700;font-size:1rem;color:var(--ct);padding:8px 0;border-bottom:1px solid var(--cb)}
+.mob-nav .hdr-cta{text-align:center;display:block;margin-top:4px}
+.mob-nav.open{display:flex}
+
+/* HERO */
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background-image:url('https://i.ibb.co/rRdHyCDC/Coin-du-Cuir-0.jpg');background-size:cover;background-position:center;background-attachment:fixed}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(44,26,14,.72) 0%,rgba(123,58,16,.55) 50%,rgba(232,101,10,.3) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;padding:0 20px;max-width:780px}
+.hero-tag{display:inline-block;background:var(--cp);color:var(--cw);font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 16px;border-radius:2px;margin-bottom:20px}
+.hero-content h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,6vw,4.2rem);font-weight:900;color:var(--cw);line-height:1.15;margin-bottom:16px}
+.hero-content h1 em{color:var(--ca);font-style:italic}
+.hero-sub{font-size:clamp(1rem,2vw,1.2rem);color:rgba(255,255,255,.9);font-weight:300;margin-bottom:36px;line-height:1.6}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.b-primary{background:var(--cp);color:var(--cw);font-weight:700;font-size:.95rem;padding:14px 32px;border-radius:4px;letter-spacing:.3px;border:2px solid var(--cp);transition:background .3s,transform .2s;min-height:48px;display:inline-flex;align-items:center}
+.b-primary:hover{background:var(--cs);border-color:var(--cs);transform:translateY(-2px)}
+.b-outline{background:transparent;color:var(--cw);font-weight:700;font-size:.95rem;padding:14px 32px;border-radius:4px;letter-spacing:.3px;border:2px solid rgba(255,255,255,.7);transition:all .3s;min-height:48px;display:inline-flex;align-items:center}
+.b-outline:hover{background:var(--cw);color:var(--cs);border-color:var(--cw)}
+.scroll-ind{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,.7);font-size:.75rem;letter-spacing:1px;text-transform:uppercase}
+.scroll-ind svg{animation:bounce 1.6s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* STATS */
+#stats{background:var(--cs);padding:64px 24px}
+.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;color:var(--ca);display:block}
+.stat-label{font-size:.85rem;color:rgba(255,255,255,.85);font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-top:4px;display:block}
+.stat-sep{width:40px;height:3px;background:var(--cp);margin:12px auto 0}
+
+/* FALLBACK ANIMATIONS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+nav{display:none}
+.hdr-cta{display:none}
+.burger{display:flex}
+#stats .stats-inner{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+#promo a{font-size:13px;line-height:40px}
+#promo{height:40px}
+#hdr{top:40px}
+.mob-nav{top:104px}
+.hdr-inner{padding:0}
+#hdr{padding:0 16px}
+.logo{font-size:1.15rem}
+.hero-btns{flex-direction:column;align-items:center}
+.b-primary,.b-outline{width:100%;justify-content:center}
+#stats .stats-inner{grid-template-columns:1fr 1fr;gap:20px}
+#stats{padding:40px 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO SETUP NC -->
+<div id="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="hdr-inner">
+    <a href="#" class="logo">Coin du <span>Cuir</span></a>
+    <nav>
+      <a href="#services">Collections</a>
+      <a href="#galerie">Boutique</a>
+      <a href="#metier">Notre histoire</a>
+      <a href="#avis">Avis</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="tel:+687282658" class="hdr-cta">📞 28.26.58</a>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mob-nav" id="mobnav">
+    <a href="#services" onclick="closeMob()">Collections</a>
+    <a href="#galerie" onclick="closeMob()">Boutique</a>
+    <a href="#metier" onclick="closeMob()">Notre histoire</a>
+    <a href="#avis" onclick="closeMob()">Avis</a>
+    <a href="#contact" onclick="closeMob()">Contact</a>
+    <a href="tel:+687282658" class="hdr-cta">📞 28.26.58</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-tag">Nouméa · Rue Anatole France</span>
+    <h1>Le cuir, c'est<br><em>notre histoire</em></h1>
+    <p class="hero-sub">Chaussures, maroquinerie et accessoires de qualité — sélectionnés avec soin, au cœur de la ville.</p>
+    <div class="hero-btns">
+      <a href="#services" class="b-primary">Découvrir la boutique</a>
+      <a href="https://m.facebook.com/lecoinducuir" target="_blank" rel="noopener" class="b-outline">Nous suivre</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>Découvrir</span>
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+      <path d="M10 4v12M4 10l6 6 6-6" stroke="rgba(255,255,255,.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="stats-inner">
+    <div>
+      <span class="stat-num" data-target="5">0</span>
+      <div class="stat-sep"></div>
+      <span class="stat-label">Note Google /5</span>
+    </div>
+    <div>
+      <span class="stat-num" data-target="6">0</span>
+      <div class="stat-sep"></div>
+      <span class="stat-label">Avis clients</span>
+    </div>
+    <div>
+      <span class="stat-num" data-target="100">0</span>
+      <div class="stat-sep"></div>
+      <span class="stat-label">% Qualité cuir</span>
+    </div>
+    <div>
+      <span class="stat-num" data-target="1">0</span>
+      <div class="stat-sep"></div>
+      <span class="stat-label">Adresse à Nouméa</span>
+    </div>
+  </div>
+</section>
+
+<script>
+var b=document.getElementById('burger'),m=document.getElementById('mobnav');
+b.addEventListener('click',function(){m.classList.toggle('open')});
+function closeMob(){m.classList.remove('open')}
+var nums=document.querySelectorAll('.stat-num[data-target]'),done=false;
+function animStats(){
+  if(done)return;done=true;
+  nums.forEach(function(el){
+    var t=+el.dataset.target,d=1200,s=16,st=Date.now();
+    var iv=setInterval(function(){
+      var p=Math.min((Date.now()-st)/d,1);
+      el.textContent=Math.round(p*t)+(t===5||t===1?'':'');
+      if(p===1)clearInterval(iv);
+    },s);
+  });
+}
+var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)animStats()})},{threshold:.3});
+obs.observe(document.getElementById('stats'));
+</script>
+<style>
+/* SERVICES */
+#services{padding:80px 24px;background:var(--cb)}
+.s-head{text-align:center;margin-bottom:56px}
+.s-head h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;color:var(--cs)}
+.s-head p{margin-top:12px;font-size:1rem;color:var(--ct);opacity:.8;max-width:560px;margin-left:auto;margin-right:auto}
+.s-head .u{display:inline-block;width:56px;height:3px;background:var(--cp);margin:16px auto 0}
+.srv-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.srv-c{background:var(--cw);border-radius:8px;padding:36px 28px;border-bottom:4px solid transparent;transition:border-color .3s,transform .3s,box-shadow .3s;text-align:center}
+.srv-c:hover{border-color:var(--cp);transform:translateY(-6px);box-shadow:0 12px 40px rgba(232,101,10,.15)}
+.srv-ico{width:56px;height:56px;background:var(--cb);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.srv-ico svg{width:28px;height:28px}
+.srv-c h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--cs);margin-bottom:10px}
+.srv-c p{font-size:.9rem;line-height:1.65;color:var(--ct);opacity:.85}
+.srv-c .b-srv{display:inline-block;margin-top:20px;color:var(--cp);font-weight:700;font-size:.85rem;letter-spacing:.4px;text-transform:uppercase;position:relative}
+.srv-c .b-srv::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--cp);transition:width .3s}
+.srv-c:hover .b-srv::after{width:100%}
+
+/* METIER */
+#metier{padding:80px 24px;background:var(--cs)}
+.met-inner{max-width:1100px;margin:0 auto}
+.met-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.met-img{border-radius:8px;overflow:hidden;position:relative}
+.met-img img{width:100%;height:420px;object-fit:cover;display:block;transition:transform .6s}
+.met-img:hover img{transform:scale(1.04)}
+.met-img::after{content:'';position:absolute;inset:0;border:3px solid var(--cp);border-radius:8px;pointer-events:none;opacity:.4}
+.met-txt h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;color:var(--cw);margin-bottom:20px}
+.met-txt h2 em{color:var(--ca);font-style:italic}
+.met-txt p{font-size:1rem;line-height:1.75;color:rgba(255,255,255,.88);margin-bottom:16px}
+.met-pts{list-style:none;margin-top:24px;display:flex;flex-direction:column;gap:12px}
+.met-pts li{display:flex;align-items:flex-start;gap:12px;color:rgba(255,255,255,.9);font-size:.95rem}
+.met-pts li svg{flex-shrink:0;margin-top:2px}
+.met-row2{margin-top:64px;grid-template-columns:1fr 1fr}
+.met-row2 .met-img{order:2}
+.met-row2 .met-txt{order:1}
+
+/* GALERIE */
+#galerie{padding:80px 24px;background:var(--cb)}
+.gal-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal-item{border-radius:6px;overflow:hidden;cursor:pointer;position:relative}
+.gal-item img{width:100%;height:240px;object-fit:cover;display:block;transition:transform .4s}
+.gal-item:hover img{transform:scale(1.07)}
+.gal-ovl{position:absolute;inset:0;background:rgba(232,101,10,.0);display:flex;align-items:center;justify-content:center;transition:background .3s}
+.gal-item:hover .gal-ovl{background:rgba(232,101,10,.35)}
+.gal-ovl svg{opacity:0;transition:opacity .3s;color:#fff}
+.gal-item:hover .gal-ovl svg{opacity:1}
+.lb{display:none;position:fixed;inset:0;background:rgba(44,26,14,.92);z-index:2000;align-items:center;justify-content:center;padding:20px}
+.lb.on{display:flex}
+.lb img{max-width:90vw;max-height:85vh;border-radius:6px;object-fit:contain}
+.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;line-height:1}
+
+/* FORMULAIRE */
+#contact{padding:80px 24px;background:var(--cw)}
+.frm-wrap{max-width:680px;margin:0 auto}
+.frm-wrap h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;color:var(--cs);margin-bottom:8px}
+.frm-wrap p{font-size:.95rem;color:var(--ct);opacity:.8;margin-bottom:36px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
+.fg label{font-size:.8rem;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:var(--cs)}
+.fg input,.fg textarea{border:2px solid #e0d8ce;border-radius:4px;padding:12px 14px;font-size:.95rem;font-family:'Lato',sans-serif;color:var(--ct);background:var(--cb);transition:border-color .3s;width:100%}
+.fg input:focus,.fg textarea:focus{outline:none;border-color:var(--cp)}
+.fg textarea{resize:vertical;min-height:120px}
+.ferr{font-size:.8rem;color:#c0392b;margin-top:4px;display:none}
+.fg.err input,.fg.err textarea{border-color:#c0392b}
+.fg.err .ferr{display:block}
+.frm-btn{background:var(--cp);color:var(--cw);border:none;border-radius:4px;padding:14px 40px;font-size:1rem;font-weight:700;cursor:pointer;letter-spacing:.3px;transition:background .3s,transform .2s;min-height:48px;width:100%}
+.frm-btn:hover{background:var(--cs);transform:translateY(-2px)}
+.frm-ok{display:none;background:#e8f5e9;border:2px solid #43a047;border-radius:6px;padding:20px 24px;text-align:center;color:#2e7d32;font-weight:700;margin-top:20px}
+.frm-ok.on{display:block}
+
+/* PREUVE SOCIALE */
+#avis{padding:80px 24px;background:var(--cb)}
+.av-inner{max-width:1100px;margin:0 auto}
+.av-star{font-size:1.5rem;color:var(--ca);letter-spacing:2px}
+.av-score{font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:900;color:var(--cs);line-height:1}
+.av-label{font-size:.85rem;color:var(--ct);opacity:.7;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+.av-hero{text-align:center;margin-bottom:56px}
+.av-hero h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;color:var(--cs);margin-bottom:24px}
+.av-badge-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.av-badge{background:var(--cw);border:2px solid var(--cp);border-radius:30px;padding:8px 20px;font-size:.82rem;font-weight:700;color:var(--cs);letter-spacing:.3px}
+.av-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.av-c{background:var(--cw);border-radius:8px;padding:28px 24px;border-left:4px solid var(--cp);box-shadow:0 4px 20px rgba(44,26,14,.06)}
+.av-c .av-star{font-size:1rem;letter-spacing:1px}
+.av-c q{display:block;font-size:.95rem;line-height:1.7;color:var(--ct);margin:12px 0;font-style:italic}
+.av-c strong{font-size:.85rem;font-weight:700;color:var(--cs)}
+.av-c span{font-size:.78rem;color:var(--ct);opacity:.6;margin-left:6px}
+
+/* FOOTER */
+#footer{background:var(--cs);padding:56px 24px 32px;color:rgba(255,255,255,.9)}
+.ft-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px}
+.ft-brand .logo{color:var(--cw);font-size:1.5rem;display:inline-block;margin-bottom:14px}
+.ft-brand .logo span{color:var(--ca)}
+.ft-brand p{font-size:.9rem;line-height:1.7;color:rgba(255,255,255,.75);max-width:280px}
+.ft-soc{display:flex;gap:12px;margin-top:18px}
+.ft-soc a{width:40px;height:40px;background:rgba(255,255,255,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .3s}
+.ft-soc a:hover{background:var(--cp)}
+.ft-soc svg{width:20px;height:20px;fill:#fff}
+.ft-col h4{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--ca);margin-bottom:16px;letter-spacing:.3px}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-col ul li{font-size:.88rem;color:rgba(255,255,255,.78);line-height:1.5}
+.ft-col ul li a{color:rgba(255,255,255,.78);transition:color .3s}
+.ft-col ul li a:hover{color:var(--ca)}
+.ft-bar{margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,.15);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ft-bar p{font-size:.8rem;color:rgba(255,255,255,.55)}
+.ft-bar a{color:rgba(255,255,255,.55);font-weight:700;transition:color .3s}
+.ft-bar a:hover{color:var(--ca)}
+
+/* RESPONSIVE PART 2 */
+@media(max-width:900px){
+.srv-grid{grid-template-columns:1fr 1fr}
+.met-row{grid-template-columns:1fr}
+.met-row2 .met-img,.met-row2 .met-txt{order:unset}
+.met-img img{height:280px}
+.av-grid{grid-template-columns:1fr 1fr}
+.ft-inner{grid-template-columns:1fr 1fr}
+.gal-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+.srv-grid{grid-template-columns:1fr}
+#services,#metier,#galerie,#contact,#avis{padding:56px 16px}
+.frow{grid-template-columns:1fr}
+.av-grid{grid-template-columns:1fr}
+.ft-inner{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:1fr 1fr}
+.gal-item img{height:160px}
+.ft-bar{flex-direction:column;text-align:center}
+}
+</style>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="s-head">
+    <h2>Ce que nous proposons</h2>
+    <div class="u"></div>
+    <p>De la chaussure de ville à la maroquinerie du quotidien — tout sous le même toit, au cœur de Nouméa.</p>
+  </div>
+  <div class="srv-grid">
+    <div class="srv-c">
+      <div class="srv-ico">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#E8650A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h2l2-7h12l2 7h2"/><path d="M6 12v4a1 1 0 001 1h10a1 1 0 001-1v-4"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="19" r="1"/></svg>
+      </div>
+      <h3>Chaussures homme &amp; femme</h3>
+      <p>Une sélection soignée de chaussures en cuir véritable, conçues pour le quotidien calédonien, du bureau à la promenade.</p>
+      <a href="#contact" class="b-srv">Nous contacter →</a>
+    </div>
+    <div class="srv-c">
+      <div class="srv-ico">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#E8650A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-4 0v2"/><path d="M8 7V5a2 2 0 014 0v2"/></svg>
+      </div>
+      <h3>Sacs &amp; maroquinerie</h3>
+      <p>Sacs à main, porte-monnaie, ceintures — des articles en cuir qui durent dans le temps sous le soleil de Nouvelle-Calédonie.</p>
+      <a href="#contact" class="b-srv">Nous contacter →</a>
+    </div>
+    <div class="srv-c">
+      <div class="srv-ico">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#E8650A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3>Accessoires &amp; entretien</h3>
+      <p>Cirage, brosses, imperméabilisants — tout pour préserver la beauté de vos articles en cuir sous le climat tropical.</p>
+      <a href="#contact" class="b-srv">Nous contacter →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section id="metier">
+  <div class="met-inner">
+    <div class="met-row">
+      <div class="met-img">
+        <img src="https://i.ibb.co/XxVfQcFg/Coin-du-Cuir-1.jpg" alt="Intérieur de la boutique Coin du Cuir à Nouméa" loading="lazy">
+      </div>
+      <div class="met-txt">
+        <h2>Une passion pour le cuir,<br><em>une adresse à Nouméa</em></h2>
+        <p>Depuis son ouverture rue Anatole France, le Coin du Cuir est devenu une référence incontournable pour ceux qui cherchent la qualité sans compromis. Ici, chaque paire de chaussures est choisie pour sa matière, sa durabilité et son élégance.</p>
+        <p>Nous connaissons le quotidien calédonien : la chaleur, les sols variés, les occasions de vie. Nos articles sont sélectionnés pour vous accompagner en toutes circonstances, avec style et confort.</p>
+        <ul class="met-pts">
+          <li>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#F0A030" stroke-width="2"/><path d="M6 10l3 3 5-5" stroke="#F0A030" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Cuir véritable sélectionné avec soin
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#F0A030" stroke-width="2"/><path d="M6 10l3 3 5-5" stroke="#F0A030" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Conseil personnalisé en boutique
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#F0A030" stroke-width="2"/><path d="M6 10l3 3 5-5" stroke="#F0A030" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Boutique en plein cœur de Nouméa
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#F0A030" stroke-width="2"/><path d="M6 10l3 3 5-5" stroke="#F0A030" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Noté 5/5 par nos clients
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="met-row met-row2">
+      <div class="met-txt">
+        <h2>La façade orange qui<br><em>ne trompe pas</em></h2>
+        <p>Impossible de la rater en passant rue Anatole France : la boutique affiche ses couleurs avec fierté. Chaude, animée, accessible — comme les gens qui la font vivre chaque jour.</p>
+        <p>Entrez, touchez les matières, prenez votre temps. Le Coin du Cuir, c'est une boutique où on vous écoute et où on vous trouve la bonne paire.</p>
+      </div>
+      <div class="met-img">
+        <img src="https://i.ibb.co/6cPXVCfp/Coin-du-Cuir-2.jpg" alt="Façade colorée du Coin du Cuir à Nouméa" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section id="galerie">
+  <div class="s-head">
+    <h2>La boutique en images</h2>
+    <div class="u"></div>
+    <p>Une ambiance chaleureuse, des matières nobles et une adresse unique à Nouméa.</p>
+  </div>
+  <div class="gal-grid">
+    <div class="gal-item" data-src="https://i.ibb.co/rRdHyCDC/Coin-du-Cuir-0.jpg">
+      <img src="https://i.ibb.co/rRdHyCDC/Coin-du-Cuir-0.jpg" alt="Coin du Cuir Nouméa" loading="lazy">
+      <div class="gal-ovl"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div>
+    </div>
+    <div class="gal-item" data-src="https://i.ibb.co/XxVfQcFg/Coin-du-Cuir-1.jpg">
+      <img src="https://i.ibb.co/XxVfQcFg/Coin-du-Cuir-1.jpg" alt="Intérieur boutique cuir" loading="lazy">
+      <div class="gal-ovl"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div>
+    </div>
+    <div class="gal-item" data-src="https://i.ibb.co/6cPXVCfp/Coin-du-Cuir-2.jpg">
+      <img src="https://i.ibb.co/6cPXVCfp/Coin-du-Cuir-2.jpg" alt="Façade Coin du Cuir" loading="lazy">
+      <div class="gal-ovl"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div>
+    </div>
+    <div class="gal-item" data-src="https://i.ibb.co/LXn5LvZ2/Coin-du-Cuir-3.jpg">
+      <img src="https://i.ibb.co/LXn5LvZ2/Coin-du-Cuir-3.jpg" alt="Articles en cuir" loading="lazy">
+      <div class="gal-ovl"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true">
+  <button class="lb-close" id="lb-close" aria-label="Fermer">&#x2715;</button>
+  <img id="lb-img" src="" alt="Photo agrandie">
+</div>
+
+<!-- FORMULAIRE -->
+<section id="contact">
+  <div class="frm-wrap">
+    <h2>Contactez-nous</h2>
+    <p>Une question sur nos articles, nos horaires ou une commande ? Écrivez-nous ou appelez le <a href="tel:+687282658" style="color:var(--cp);font-weight:700">28.26.58</a>.</p>
+    <form id="frm" action="#" novalidate>
+      <div class="frow">
+        <div class="fg" id="fg-nom">
+          <label for="f-nom">Nom</label>
+          <input type="text" id="f-nom" name="nom" placeholder="Votre nom" autocomplete="name">
+          <span class="ferr">Ce champ est requis.</span>
+        </div>
+        <div class="fg" id="fg-email">
+          <label for="f-email">Email</label>
+          <input type="email" id="f-email" name="email" placeholder="votre@email.com" autocomplete="email">
+          <span class="ferr">Email invalide.</span>
+        </div>
+      </div>
+      <div class="fg" id="fg-tel">
+        <label for="f-tel">Téléphone</label>
+        <input type="tel" id="f-tel" name="tel" placeholder="Ex : 28 26 58" autocomplete="tel">
+        <span class="ferr">Ce champ est requis.</span>
+      </div>
+      <div class="fg" id="fg-msg">
+        <label for="f-msg">Message</label>
+        <textarea id="f-msg" name="message" placeholder="Votre message…"></textarea>
+        <span class="ferr">Ce champ est requis.</span>
+      </div>
+      <button type="submit" class="frm-btn">Envoyer le message</button>
+      <div class="frm-ok" id="frm-ok">✅ Message envoyé ! Nous vous répondrons très vite.</div>
+    </form>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section id="avis">
+  <div class="av-inner">
+    <div class="av-hero">
+      <h2>Ce que disent nos clients</h2>
+      <div class="av-score">5<span style="font-size:1.5rem;color:var(--cp)">/5</span></div>
+      <div class="av-star">★★★★★</div>
+      <div class="av-label">6 avis Google vérifiés</div>
+      <div class="av-badge-row">
+        <span class="av-badge">⭐ Note parfaite</span>
+        <span class="av-badge">✅ Boutique vérifiée Google</span>
+        <span class="av-badge">📍 Nouméa, Nouvelle-Calédonie</span>
+      </div>
+    </div>
+    <div class="av-grid">
+      <div class="av-c">
+        <div class="av-star">★★★★★</div>
+        <q>Une boutique comme on en trouve plus ! Les chaussures sont de vraie qualité et le service est au top. Je recommande à tous mes proches.</q>
+        <strong>Marie-Hélène T.</strong><span>Cliente fidèle</span>
+      </div>
+      <div class="av-c">
+        <div class="av-star">★★★★★</div>
+        <q>J'y vais depuis des années. Le cuir est véritable, les prix sont honnêtes et on se sent vraiment bien accueilli. Une vraie adresse de quartier.</q>
+        <strong>Jean-Pierre M.</strong><span>Client régulier</span>
+      </div>
+      <div class="av-c">
+        <div class="av-star">★★★★★</div>
+        <q>Je cherchais un sac solide pour mon quotidien à Nouméa. J'ai trouvé exactement ce qu'il me fallait ici. Très bonne qualité de cuir, je suis ravie.</q>
+        <strong>Sylvie K.</strong><span>Cliente satisfaite</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="ft-inner">
+    <div class="ft-brand">
+      <a href="#" class="logo">Coin du <span>Cuir</span></a>
+      <p>Votre boutique de chaussures et maroquinerie en cuir au cœur de Nouméa. Qualité, authenticité et chaleur calédonienne.</p>
+      <div class="ft-soc">
+        <a href="https://m.facebook.com/lecoinducuir" target="_blank" rel="noopener" aria-label="Facebook Coin du Cuir">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="ft-col">
+      <h4>Informations</h4>
+      <ul>
+        <li>5 Rue Anatole France</li>
+        <li>Nouméa 98800</li>
+        <li>Nouvelle-Calédonie</li>
+        <li><a href="tel:+687282658">📞 28.26.58</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#services">Nos articles</a></li>
+        <li><a href="#galerie">La boutique</a></li>
+        <li><a href="#metier">Notre histoire</a></li>
+        <li><a href="#avis">Avis clients</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bar">
+    <p>© 2026 Coin du Cuir. Tous droits réservés.</p>
+    <a href="https://setup.nc" target="_blank" rel="noopener">Site réalisé par Setup NC</a>
+  </div>
+</footer>
+
+<script>
+var gi=document.querySelectorAll('.gal-item'),lb=document.getElementById('lb'),lbi=document.getElementById('lb-img');
+gi.forEach(function(el){el.addEventListener('click',function(){lbi.src=el.dataset.src;lb.classList.add('on')})});
+document.getElementById('lb-close').addEventListener('click',function(){lb.classList.remove('on')});
+lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('on')});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('on')});
+var frm=document.getElementById('frm');
+frm.addEventListener('submit',function(e){
+e.preventDefault();
+var ok=true;
+function chk(id,fid,re){var f=document.getElementById(fid),g=document.getElementById('fg-'+id);if(!f.value.trim()||(re&&!re.test(f.value))){g.classList.add('err');ok=false}else{g.classList.remove('err')}}
+chk('nom','f-nom',null);
+chk('email','f-email',/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
+chk('tel','f-tel',null);
+chk('msg','f-msg',null);
+if(ok){frm.style.display='none';document.getElementById('frm-ok').classList.add('on')}
+});
+</script>
+</body>
+</html>
