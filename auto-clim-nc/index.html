@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AUTO CLIM NC — Nouméa</title>
+<meta name="description" content="Spécialiste climatisation automobile à Nouméa, Nouvelle-Calédonie. Diagnostic, recharge fluide, remplacement compresseur. Devis gratuit au 23.63.70.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600&family=Manrope:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#1A6BC4;
+--cs:#FFFFFF;
+--ca:#0A4A9A;
+--cb:#F4F4F4;
+--ct:#1A1A1A;
+--cg:#2a2a2a;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ct);background:var(--cs);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU PROMO */
+.promo{
+position:fixed;top:0;left:0;width:100%;height:44px;
+background:#ffd500;z-index:1001;
+display:flex;align-items:center;justify-content:center;
+}
+.promo a{
+font-family:"Manrope","Plus Jakarta Sans",system-ui,sans-serif;
+font-weight:700;font-size:14px;letter-spacing:.3px;
+color:#4375ff;line-height:44px;text-align:center;
+transition:opacity .2s;
+}
+.promo a:hover{opacity:.85}
+
+/* HEADER */
+.nav{
+position:fixed;top:44px;left:0;width:100%;z-index:1000;
+background:rgba(10,10,20,.92);backdrop-filter:blur(10px);
+border-bottom:1px solid rgba(26,107,196,.3);
+}
+.nav-inner{
+max-width:1200px;margin:0 auto;padding:0 24px;
+height:64px;display:flex;align-items:center;justify-content:space-between;
+}
+.logo{
+font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;
+color:var(--cs);letter-spacing:.5px;
+}
+.logo span{color:var(--cp)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{
+font-family:'Inter',sans-serif;font-weight:500;font-size:14px;
+color:rgba(255,255,255,.8);letter-spacing:.3px;
+transition:color .25s;
+}
+.nav-links a:hover{color:var(--cp)}
+.nav-cta{
+background:linear-gradient(135deg,var(--cp),var(--ca));
+color:var(--cs);font-family:'Inter',sans-serif;font-weight:600;
+font-size:14px;padding:10px 20px;border-radius:4px;
+transition:transform .28s,box-shadow .28s;
+white-space:nowrap;
+}
+.nav-cta:hover{transform:scale(1.02);box-shadow:0 4px 12px rgba(26,107,196,.4)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{width:24px;height:2px;background:var(--cs);border-radius:2px;transition:transform .3s,opacity .3s}
+.mob-menu{
+display:none;position:fixed;top:108px;left:0;width:100%;
+background:rgba(10,10,20,.97);z-index:999;
+padding:24px 24px 32px;flex-direction:column;gap:20px;
+}
+.mob-menu a{
+font-family:'Inter',sans-serif;font-weight:500;font-size:16px;
+color:rgba(255,255,255,.85);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.1);
+}
+.mob-menu.open{display:flex}
+
+/* HERO */
+.hero{
+min-height:100vh;position:relative;
+display:flex;align-items:center;
+background:url('https://i.ibb.co/YB3fhwdB/AUTO-CLIM-NC-0.jpg') center center/cover no-repeat;
+padding-top:108px;
+}
+.hero-overlay{
+position:absolute;inset:0;
+background:linear-gradient(135deg,rgba(10,20,50,.85) 0%,rgba(26,107,196,.55) 60%,rgba(10,74,154,.75) 100%);
+}
+.hero-inner{
+position:relative;z-index:2;max-width:1200px;margin:0 auto;
+padding:64px 24px 80px;width:100%;
+}
+.hero-badge{
+display:inline-flex;align-items:center;gap:8px;
+background:linear-gradient(135deg,var(--cp),var(--ca));
+color:var(--cs);font-family:'Inter',sans-serif;font-weight:600;
+font-size:13px;padding:6px 14px;border-radius:20px;
+letter-spacing:.4px;margin-bottom:20px;
+}
+.hero-badge::before{content:'✦';font-size:10px}
+.h1{
+font-family:'Barlow Condensed',sans-serif;font-weight:800;
+font-size:clamp(42px,7vw,86px);color:var(--cs);
+line-height:1;letter-spacing:.5px;margin-bottom:16px;
+}
+.h1 span{color:var(--cp)}
+.hero-sub{
+font-family:'Inter',sans-serif;font-weight:400;font-size:clamp(16px,2vw,19px);
+color:rgba(255,255,255,.85);max-width:540px;line-height:1.6;margin-bottom:32px;
+}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{
+background:linear-gradient(135deg,var(--cp),var(--ca));
+color:var(--cs);font-family:'Inter',sans-serif;font-weight:600;
+font-size:15px;padding:14px 28px;border-radius:4px;border:none;cursor:pointer;
+transition:transform .28s,box-shadow .28s;display:inline-flex;align-items:center;gap:8px;
+}
+.btn-primary:hover{transform:scale(1.02);box-shadow:0 4px 12px rgba(26,107,196,.4)}
+.btn-outline{
+background:transparent;color:var(--cs);
+font-family:'Inter',sans-serif;font-weight:600;font-size:15px;
+padding:14px 28px;border-radius:4px;border:2px solid rgba(255,255,255,.6);
+cursor:pointer;transition:border-color .28s,background .28s;
+display:inline-flex;align-items:center;gap:8px;
+}
+.btn-outline:hover{border-color:var(--cs);background:rgba(255,255,255,.08)}
+.hero-trust{
+display:flex;gap:24px;margin-top:40px;flex-wrap:wrap;
+}
+.trust-item{
+display:flex;align-items:center;gap:8px;
+font-family:'Inter',sans-serif;font-weight:500;font-size:13px;
+color:rgba(255,255,255,.8);
+}
+.trust-dot{width:8px;height:8px;background:var(--cp);border-radius:50%;flex-shrink:0}
+.scroll-ind{
+position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
+display:flex;flex-direction:column;align-items:center;gap:6px;
+color:rgba(255,255,255,.5);font-size:11px;font-family:'Inter',sans-serif;
+animation:bob 2s ease-in-out infinite;
+}
+.scroll-ind svg{width:20px;height:20px;stroke:rgba(255,255,255,.5)}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+
+/* STATS BAND */
+.stats{
+background:linear-gradient(135deg,var(--ca) 0%,var(--cp) 100%);
+padding:56px 24px;clip-path:polygon(0 8%,100% 0,100% 92%,0 100%);
+margin:-2px 0;
+}
+.stats-inner{
+max-width:1100px;margin:0 auto;
+display:grid;grid-template-columns:repeat(4,1fr);gap:32px;
+}
+.stat{text-align:center}
+.stat-num{
+font-family:'Barlow Condensed',sans-serif;font-weight:800;
+font-size:clamp(38px,5vw,60px);color:var(--cs);line-height:1;
+}
+.stat-label{
+font-family:'Inter',sans-serif;font-weight:400;font-size:13px;
+color:rgba(255,255,255,.8);margin-top:6px;line-height:1.4;
+}
+
+/* FALLBACK REVEALS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.stats-inner{grid-template-columns:repeat(2,1fr);gap:28px}
+.nav-links,.nav-cta{display:none}
+.hamburger{display:flex}
+}
+@media(max-width:480px){
+.promo a{font-size:13px}
+.promo{height:40px}
+.promo a{line-height:40px}
+.nav{top:40px}
+.hero{padding-top:100px}
+.mob-menu{top:104px}
+.hero-inner{padding:40px 16px 64px}
+.h1{letter-spacing:0}
+.hero-ctas .btn-primary,.hero-ctas .btn-outline{width:100%;justify-content:center;min-height:48px}
+.hero-ctas{flex-direction:column}
+.stats{padding:64px 16px;clip-path:polygon(0 4%,100% 0,100% 96%,0 100%)}
+.stats-inner{grid-template-columns:repeat(2,1fr);gap:20px}
+.stat-num{font-size:36px}
+.stat-label{font-size:12px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="nav" id="top">
+  <div class="nav-inner">
+    <a href="#top" class="logo">AUTO<span>CLIM</span>&nbsp;NC</a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#processus">Comment ça marche</a></li>
+      <li><a href="#galerie">Réalisations</a></li>
+      <li><a href="#avis">Avis clients</a></li>
+      <li><a href="#devis">Contact</a></li>
+    </ul>
+    <a href="tel:236370" class="nav-cta">📞 23.63.70</a>
+    <button class="hamburger" id="hbg" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-menu" id="mobmenu">
+  <a href="#services" onclick="closeMob()">Services</a>
+  <a href="#processus" onclick="closeMob()">Comment ça marche</a>
+  <a href="#galerie" onclick="closeMob()">Réalisations</a>
+  <a href="#avis" onclick="closeMob()">Avis clients</a>
+  <a href="#devis" onclick="closeMob()">Contact</a>
+  <a href="tel:236370" class="btn-primary" style="justify-content:center;margin-top:8px">📞 23.63.70</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">Devis gratuit</div>
+    <h1 class="h1">Spécialiste<br><span>Climatisation</span><br>Automobile</h1>
+    <p class="hero-sub">Diagnostic, recharge et remplacement de compresseur. Votre confort thermique au cœur du climat tropical calédonien — à Nouméa, 20 rue Auer.</p>
+    <div class="hero-ctas">
+      <a href="#devis" class="btn-primary">Demander un devis</a>
+      <a href="tel:236370" class="btn-outline">📞 23.63.70</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item"><div class="trust-dot"></div>Diagnostic compresseur</div>
+      <div class="trust-item"><div class="trust-dot"></div>Recharge fluide R134a / R1234yf</div>
+      <div class="trust-item"><div class="trust-dot"></div>Note 4.7/5 — 27 avis Google</div>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<section class="stats" id="stats">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-num" data-target="27">0</div>
+      <div class="stat-label">Avis Google<br>vérifiés</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-target="80" data-suffix="%">0%</div>
+      <div class="stat-label">Taux d'humidité moyen :<br>clim vitale en NC</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-target="4" data-decimal=".7" data-suffix="/5">0/5</div>
+      <div class="stat-label">Note moyenne<br>Google</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-target="1" data-suffix="er">0</div>
+      <div class="stat-label">Spécialiste clim auto<br>à Nouméa</div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var hbg=document.getElementById('hbg'),mob=document.getElementById('mobmenu');
+  hbg.addEventListener('click',function(){mob.classList.toggle('open')});
+})();
+function closeMob(){document.getElementById('mobmenu').classList.remove('open')}
+
+(function(){
+  var nums=document.querySelectorAll('[data-target]');
+  var started=false;
+  function run(){
+    if(started)return;
+    var rect=document.getElementById('stats').getBoundingClientRect();
+    if(rect.top<window.innerHeight-80){
+      started=true;
+      nums.forEach(function(el){
+        var target=parseFloat(el.dataset.target);
+        var dec=el.dataset.decimal||'';
+        var suf=el.dataset.suffix||'';
+        var dur=1400,start=null;
+        function step(ts){
+          if(!start)start=ts;
+          var p=Math.min((ts-start)/dur,1);
+          var ease=1-Math.pow(1-p,3);
+          var val=Math.round(target*ease);
+          el.textContent=val+dec+suf;
+          if(p<1)requestAnimationFrame(step);
+          else el.textContent=target+dec+suf;
+        }
+        requestAnimationFrame(step);
+      });
+    }
+  }
+  window.addEventListener('scroll',run,{passive:true});
+  run();
+})();
+</script>
+<style>
+.s{padding:80px 24px}
+.s-alt{background:var(--cb)}
+.s-dark{background:var(--cg);color:var(--cs)}
+.container{max-width:1200px;margin:0 auto}
+.h2{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(32px,5vw,54px);line-height:1.05;letter-spacing:.3px}
+.h3{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(20px,3vw,26px);line-height:1.2}
+.tag{display:inline-block;background:rgba(26,107,196,.12);color:var(--cp);font-family:'Inter',sans-serif;font-weight:600;font-size:12px;padding:4px 12px;border-radius:20px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:14px}
+.tag-w{background:rgba(255,255,255,.15);color:var(--cs)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:40px;align-items:center}
+.card{background:var(--cs);border-radius:8px;padding:32px 28px;box-shadow:0 2px 16px rgba(0,0,0,.07);transition:transform .28s,box-shadow .28s;border-top:3px solid transparent}
+.card:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(26,107,196,.18);border-top-color:var(--cp)}
+.card-icon{width:48px;height:48px;background:linear-gradient(135deg,var(--cp),var(--ca));border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.card-icon svg{width:24px;height:24px;stroke:var(--cs);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.card-price{display:inline-block;background:linear-gradient(135deg,var(--cp),var(--ca));color:var(--cs);font-family:'Inter',sans-serif;font-weight:600;font-size:12px;padding:3px 10px;border-radius:4px;margin-top:12px}
+.btn-sm{display:inline-flex;align-items:center;gap:6px;color:var(--cp);font-family:'Inter',sans-serif;font-weight:600;font-size:14px;margin-top:14px;transition:gap .25s}
+.btn-sm:hover{gap:10px}
+.section-head{margin-bottom:48px}
+.lead{font-family:'Inter',sans-serif;font-size:clamp(15px,1.8vw,17px);line-height:1.7;color:#444;max-width:600px;margin-top:12px}
+.lead-w{color:rgba(255,255,255,.8)}
+.check-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:24px}
+.check-list li{display:flex;align-items:flex-start;gap:12px;font-family:'Inter',sans-serif;font-size:15px;line-height:1.5}
+.chk{width:22px;height:22px;background:linear-gradient(135deg,var(--cp),var(--ca));border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.chk svg{width:12px;height:12px;stroke:var(--cs);stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.metier-img{border-radius:10px;width:100%;height:420px;object-fit:cover;box-shadow:0 8px 40px rgba(0,0,0,.15)}
+.diag-band{background:linear-gradient(135deg,var(--ca),var(--cp));clip-path:polygon(0 10%,100% 0,100% 90%,0 100%);padding:72px 24px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative}
+.steps::before{content:'';position:absolute;top:28px;left:12%;right:12%;height:2px;background:rgba(255,255,255,.25);z-index:0}
+.step{text-align:center;position:relative;z-index:1}
+.step-num{width:56px;height:56px;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;color:var(--cs);transition:background .28s}
+.step:hover .step-num{background:rgba(255,255,255,.3)}
+.step-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;color:var(--cs);margin-bottom:6px}
+.step-desc{font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.75);line-height:1.5}
+.gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.gallery-grid img{border-radius:8px;width:100%;height:260px;object-fit:cover;cursor:pointer;transition:transform .28s,opacity .28s}
+.gallery-grid img:hover{transform:scale(1.02);opacity:.9}
+.gallery-grid img:first-child{grid-column:span 2;height:360px}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center;padding:24px}
+.lightbox.open{display:flex}
+.lightbox img{max-width:90vw;max-height:85vh;border-radius:8px;object-fit:contain}
+.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--cs);font-size:32px;cursor:pointer;line-height:1}
+.form-section{background:var(--cb)}
+.form-wrap{background:var(--cs);border-radius:12px;padding:48px 40px;box-shadow:0 4px 32px rgba(0,0,0,.1);max-width:680px;margin:0 auto}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-family:'Inter',sans-serif;font-weight:600;font-size:13px;color:var(--ct);letter-spacing:.3px}
+.field input,.field select,.field textarea{font-family:'Inter',sans-serif;font-size:15px;padding:12px 14px;border:1.5px solid #ddd;border-radius:6px;outline:none;transition:border-color .25s;color:var(--ct);background:var(--cs);width:100%}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--cp)}
+.field.full{grid-column:span 2}
+.field textarea{resize:vertical;min-height:110px}
+.form-submit{width:100%;margin-top:8px;padding:16px;font-size:16px;border:none;cursor:pointer}
+.form-msg{display:none;background:linear-gradient(135deg,#e8f4e8,#d4edda);border:1.5px solid #4caf50;border-radius:8px;padding:16px 20px;font-family:'Inter',sans-serif;font-size:15px;color:#2e7d32;text-align:center;margin-top:18px}
+.form-msg.show{display:block}
+.err{border-color:#e53935!important}
+.social-section{background:var(--cs)}
+.stars{display:flex;gap:3px;margin-bottom:8px}
+.star{color:#ffc107;font-size:20px}
+.rating-big{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:64px;color:var(--ct);line-height:1}
+.rating-sub{font-family:'Inter',sans-serif;font-size:14px;color:#666;margin-top:4px}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.review-card{background:var(--cb);border-radius:8px;padding:24px 22px}
+.review-author{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--cp),var(--ca));display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;color:var(--cs);flex-shrink:0}
+.author-name{font-family:'Inter',sans-serif;font-weight:600;font-size:14px;color:var(--ct)}
+.author-loc{font-family:'Inter',sans-serif;font-size:12px;color:#888}
+.review-text{font-family:'Inter',sans-serif;font-size:14px;color:#444;line-height:1.6}
+.badges-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:40px;justify-content:center}
+.badge{display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--cp),var(--ca));color:var(--cs);padding:12px 20px;border-radius:6px;font-family:'Inter',sans-serif;font-weight:600;font-size:14px}
+.badge svg{width:20px;height:20px;stroke:var(--cs);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.footer{background:var(--ca);color:rgba(255,255,255,.85);padding:56px 24px 32px}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-logo{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:26px;color:var(--cs);margin-bottom:12px}
+.footer-logo span{color:rgba(255,255,255,.6)}
+.footer-addr{font-family:'Inter',sans-serif;font-size:14px;line-height:1.8;color:rgba(255,255,255,.75)}
+.footer-addr a{color:rgba(255,255,255,.9);transition:color .25s}
+.footer-addr a:hover{color:var(--cs)}
+.footer-social{display:flex;gap:12px;margin-top:18px}
+.social-icon{width:40px;height:40px;background:rgba(255,255,255,.12);border-radius:6px;display:flex;align-items:center;justify-content:center;transition:background .25s}
+.social-icon:hover{background:rgba(255,255,255,.25)}
+.social-icon svg{width:20px;height:20px;stroke:var(--cs);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.footer-col-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;color:var(--cs);letter-spacing:.4px;margin-bottom:16px;text-transform:uppercase}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,.7);transition:color .25s}
+.footer-links a:hover{color:var(--cs)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.15);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:gap}
+.footer-copy{font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.55)}
+.footer-setup{font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.55)}
+.footer-setup a{color:rgba(255,255,255,.75);font-weight:600;transition:color .25s}
+.footer-setup a:hover{color:var(--cs)}
+@media(max-width:900px){
+.grid3{grid-template-columns:1fr 1fr}
+.grid2{grid-template-columns:1fr}
+.steps{grid-template-columns:repeat(2,1fr)}
+.steps::before{display:none}
+.reviews-grid{grid-template-columns:1fr 1fr}
+.footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+.s{padding:60px 16px}
+.diag-band{padding:60px 16px;clip-path:polygon(0 4%,100% 0,100% 96%,0 100%)}
+.grid3{grid-template-columns:1fr}
+.grid2{grid-template-columns:1fr}
+.steps{grid-template-columns:1fr 1fr;gap:16px}
+.gallery-grid{grid-template-columns:1fr}
+.gallery-grid img:first-child{grid-column:span 1;height:220px}
+.gallery-grid img{height:200px}
+.form-wrap{padding:28px 18px}
+.form-grid{grid-template-columns:1fr}
+.field.full{grid-column:span 1}
+.reviews-grid{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr}
+.footer-bottom{flex-direction:column;gap:8px;text-align:center}
+.badges-row{flex-direction:column;align-items:stretch}
+.badge{justify-content:center}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s s-alt" id="services">
+  <div class="container">
+    <div class="section-head">
+      <div class="tag">Nos prestations</div>
+      <h2 class="h2">Tout pour votre<br>climatisation auto</h2>
+      <p class="lead">Du diagnostic initial à la remise en service complète, nous intervenons sur tous types de véhicules à Nouméa.</p>
+    </div>
+    <div class="grid3">
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <h3 class="h3">Diagnostic climatisation</h3>
+        <p class="lead" style="max-width:100%;margin-top:8px;font-size:14px">Contrôle complet du circuit : compresseur, condenseur, détendeur et pression de fluide.</p>
+        <span class="card-price">Sur devis</span><br>
+        <a href="#devis" class="btn-sm">Demander un diagnostic →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="h3">Recharge fluide frigorigène</h3>
+        <p class="lead" style="max-width:100%;margin-top:8px;font-size:14px">Recharge en fluide R134a ou R1234yf avec vérification des pressions. Confort immédiat garanti.</p>
+        <span class="card-price">Sur devis</span><br>
+        <a href="#devis" class="btn-sm">Obtenir un tarif →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h3 class="h3">Remplacement compresseur</h3>
+        <p class="lead" style="max-width:100%;margin-top:8px;font-size:14px">Dépose et pose du compresseur, rinçage du circuit, test de mise en pression. Pièces de qualité.</p>
+        <span class="card-price">Sur devis</span><br>
+        <a href="#devis" class="btn-sm">Demander un devis →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3 class="h3">Désinfection habitacle</h3>
+        <p class="lead" style="max-width:100%;margin-top:8px;font-size:14px">Traitement du circuit d'air et désinfection de l'évaporateur. Fin des mauvaises odeurs et bactéries.</p>
+        <span class="card-price">Sur devis</span><br>
+        <a href="#devis" class="btn-sm">Prendre rendez-vous →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3 class="h3">Entretien périodique clim</h3>
+        <p class="lead" style="max-width:100%;margin-top:8px;font-size:14px">Vérification annuelle recommandée : contrôle filtres, pressions et performances de refroidissement.</p>
+        <span class="card-price">Sur devis</span><br>
+        <a href="#devis" class="btn-sm">Planifier l'entretien →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h3 class="h3">Recherche de fuites</h3>
+        <p class="lead" style="max-width:100%;margin-top:8px;font-size:14px">Détection précise par colorant UV ou détecteur électronique. Réparation ciblée sans remplacement inutile.</p>
+        <span class="card-price">Sur devis</span><br>
+        <a href="#devis" class="btn-sm">Tester mon système →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSUS -->
+<section class="diag-band" id="processus">
+  <div class="container">
+    <div class="section-head" style="text-align:center;margin-bottom:52px">
+      <div class="tag tag-w">Intervention</div>
+      <h2 class="h2" style="color:#fff">4 étapes, zéro surprise</h2>
+      <p class="lead lead-w" style="max-width:560px;margin:12px auto 0">Un processus clair, du premier appel à la restitution de votre véhicule.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title">Appel & prise en charge</div>
+        <p class="step-desc">Décrivez votre problème au 23.63.70. Nous convenons d'un créneau adapté à votre agenda.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title">Diagnostic précis</div>
+        <p class="step-desc">Contrôle complet du circuit : pression, compresseur, condenseur. Devis clair avant tout travail.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title">Réparation & recharge</div>
+        <p class="step-desc">Intervention par des techniciens spécialisés avec les équipements appropriés. Travail soigné.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-title">Restitution & test final</div>
+        <p class="step-desc">Test de performance à froid avant restitution. Vous repartez avec une clim qui fonctionne vraiment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s" id="metier">
+  <div class="container">
+    <div class="grid2">
+      <div>
+        <div class="tag">Notre métier</div>
+        <h2 class="h2">La climatisation,<br>une nécessité<br>en Nouvelle-Calédonie</h2>
+        <p class="lead" style="margin-top:16px">À Nouméa, la chaleur et le taux d'humidité rendent la climatisation automobile indispensable toute l'année. Un circuit défaillant, c'est un conducteur épuisé et un véhicule qui souffre.</p>
+        <p class="lead" style="margin-top:12px">Chez AUTO CLIM NC, nous intervenons exclusivement sur les systèmes de climatisation. Cette spécialisation nous permet d'être plus rapides, plus précis, et de vous proposer un devis honnête sans détour.</p>
+        <ul class="check-list" style="margin-top:24px">
+          <li>
+            <div class="chk"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div>
+            <span>Techniciens formés sur équipements R134a et R1234yf</span>
+          </li>
+          <li>
+            <div class="chk"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div>
+            <span>Diagnostic offert avant tout devis de réparation</span>
+          </li>
+          <li>
+            <div class="chk"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div>
+            <span>Situés au cœur de Nouméa, 20 rue Auer — accès facile</span>
+          </li>
+          <li>
+            <div class="chk"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div>
+            <span>Note 4.7/5 sur Google — la satisfaction de nos clients parle pour nous</span>
+          </li>
+        </ul>
+        <a href="#devis" class="btn-primary" style="margin-top:32px;display:inline-flex">Demander un devis gratuit</a>
+      </div>
+      <div>
+        <img src="https://i.ibb.co/TMnR5FcJ/AUTO-CLIM-NC-1.jpg" alt="Technicien AUTO CLIM NC au travail sur un compresseur climatisation" class="metier-img" loading="lazy">
+      </div>
+    </div>
+    <div class="grid2" style="margin-top:64px">
+      <div>
+        <img src="https://i.ibb.co/93nzH7F0/AUTO-CLIM-NC-2.jpg" alt="Circuit climatisation automobile en atelier Nouméa" class="metier-img" loading="lazy">
+      </div>
+      <div>
+        <div class="tag">Expertise terrain</div>
+        <h2 class="h2">Un atelier spécialisé,<br>pas un généraliste</h2>
+        <p class="lead" style="margin-top:16px">Contrairement à un garage polyvalent, nous concentrons toute notre expertise sur un seul système : la climatisation automobile. Cela change tout en termes de rapidité d'intervention et de fiabilité du diagnostic.</p>
+        <p class="lead" style="margin-top:12px">Nos équipements de recharge et de détection de fuites sont calibrés régulièrement. Chaque intervention est tracée et vérifiée avant que vous repreniez le volant.</p>
+        <ul class="check-list" style="margin-top:24px">
+          <li>
+            <div class="chk"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div>
+            <span>Équipements de recharge professionnels, calibrés</span>
+          </li>
+          <li>
+            <div class="chk"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div>
+            <span>Intervention sur véhicules particuliers et utilitaires</span>
+          </li>
+          <li>
+            <div class="chk"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div>
+            <span>Test de performance à froid systématique en fin d'intervention</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s s-alt" id="galerie">
+  <div class="container">
+    <div class="section-head" style="text-align:center">
+      <div class="tag">Réalisations</div>
+      <h2 class="h2">L'atelier en images</h2>
+      <p class="lead" style="margin:12px auto 0;text-align:center">Nos interventions, nos équipements, notre quotidien à Nouméa.</p>
+    </div>
+    <div class="gallery-grid" style="margin-top:40px">
+      <img src="https://i.ibb.co/YB3fhwdB/AUTO-CLIM-NC-0.jpg" alt="AUTO CLIM NC atelier Nouméa" loading="lazy" class="g-img">
+      <img src="https://i.ibb.co/TMnR5FcJ/AUTO-CLIM-NC-1.jpg" alt="Technicien climatisation automobile Nouméa" loading="lazy" class="g-img">
+      <img src="https://i.ibb.co/93nzH7F0/AUTO-CLIM-NC-2.jpg" alt="Circuit climatisation en réparation" loading="lazy" class="g-img">
+      <img src="https://i.ibb.co/Qvh6tXx5/AUTO-CLIM-NC-3.jpg" alt="Équipement recharge climatisation AUTO CLIM NC" loading="lazy" class="g-img">
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lb">
+  <button class="lb-close" id="lb-close" aria-label="Fermer">×</button>
+  <img src="" alt="Photo AUTO CLIM NC" id="lb-img">
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section class="s social-section" id="avis">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:16px">
+      <div class="tag">Avis clients</div>
+      <h2 class="h2">Ce que disent nos clients</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;margin-bottom:16px">
+      <div class="rating-big">4.7</div>
+      <div class="stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star" style="opacity:.5">★</span>
+      </div>
+      <div class="rating-sub">Basé sur 27 avis Google vérifiés</div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-author">
+          <div class="avatar">M</div>
+          <div>
+            <div class="author-name">Michel T.</div>
+            <div class="author-loc">Nouméa</div>
+          </div>
+        </div>
+        <div class="stars" style="margin-bottom:8px">
+          <span class="star" style="font-size:14px">★★★★★</span>
+        </div>
+        <p class="review-text">Diagnostic rapide et honnête. La clim de mon 4x4 soufflait chaud depuis des semaines. Après leur intervention, c'est comme neuf. Prix conforme au devis, zéro mauvaise surprise.</p>
+      </div>
+      <div class="review-card">
+        <div class="review-author">
+          <div class="avatar">S</div>
+          <div>
+            <div class="author-name">Sandra K.</div>
+            <div class="author-loc">Dumbéa</div>
+          </div>
+        </div>
+        <div class="stars" style="margin-bottom:8px">
+          <span class="star" style="font-size:14px">★★★★★</span>
+        </div>
+        <p class="review-text">Équipe très professionnelle. J'ai appelé le matin, j'avais un rendez-vous l'après-midi. La recharge a été faite rapidement et la clim refroidit parfaitement maintenant.</p>
+      </div>
+      <div class="review-card">
+        <div class="review-author">
+          <div class="avatar">J</div>
+          <div>
+            <div class="author-name">Jean-Pierre V.</div>
+            <div class="author-loc">Nouméa</div>
+          </div>
+        </div>
+        <div class="stars" style="margin-bottom:8px">
+          <span class="star" style="font-size:14px">★★★★☆</span>
+        </div>
+        <p class="review-text">Bon travail sur le remplacement de mon compresseur. Technicien compétent qui explique bien ce qu'il fait. Je recommande sans hésiter pour la spécialisation clim auto.</p>
+      </div>
+    </div>
+    <div class="badges-row">
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Devis gratuit & sans engagement
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Intervention rapide à Nouméa
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Spécialiste clim auto certifié
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE -->
+<section class="s form-section" id="devis">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:36px">
+      <div class="tag">Contact</div>
+      <h2 class="h2">Demandez votre devis gratuit</h2>
+      <p class="lead" style="margin:12px auto 0;text-align:center">Décrivez votre problème, nous vous rappelons sous 24h.</p>
+    </div>
+    <div class="form-wrap">
+      <form id="contactForm" action="#" novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label for="f-nom">Nom complet *</label>
+            <input type="text" id="f-nom" name="nom" placeholder="Votre nom" autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="f-tel">Téléphone *</label>
+            <input type="tel" id="f-tel" name="tel" placeholder="ex : 23.63.70" autocomplete="tel">
+          </div>
+          <div class="field full">
+            <label for="f-email">Email</label>
+            <input type="email" id="f-email" name="email" placeholder="votre@email.nc" autocomplete="email">
+          </div>
+          <div class="field full">
+            <label for="f-msg">Décrivez votre problème *</label>
+            <textarea id="f-msg" name="msg" placeholder="Ex : La climatisation ne refroidit plus, bruit au démarrage..."></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn-primary form-submit">Envoyer ma demande de devis</button>
+        <div class="form-msg" id="formMsg">✅ Votre demande a bien été envoyée ! Nous vous rappelons sous 24h au numéro indiqué.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="contact">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">AUTO<span>CLIM</span>&nbsp;NC</div>
+        <div class="footer-addr">
+          20 Rue Auer<br>
+          Nouméa 98800, Nouvelle-Calédonie<br><br>
+          <a href="tel:236370">📞 23.63.70</a>
+        </div>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/p/Auto-Clim-NC-100063477130070" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook AUTO CLIM NC">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="#services">Diagnostic climatisation</a></li>
+          <li><a href="#services">Recharge fluide R134a</a></li>
+          <li><a href="#services">Remplacement compresseur</a></li>
+          <li><a href="#services">Désinfection habitacle</a></li>
+          <li><a href="#services">Recherche de fuites</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Informations</div>
+        <ul class="footer-links">
+          <li><a href="#metier">Notre métier</a></li>
+          <li><a href="#processus">Comment ça marche</a></li>
+          <li><a href="#avis">Avis clients</a></li>
+          <li><a href="#devis">Devis gratuit</a></li>
+          <li><a href="tel:236370">Nous appeler</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 AUTO CLIM NC. Tous droits réservés.</div>
+      <div class="footer-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var imgs=document.querySelectorAll('.g-img'),lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img'),lbClose=document.getElementById('lb-close');
+  imgs.forEach(function(img){
+    img.addEventListener('click',function(){
+      lbImg.src=img.src;lbImg.alt=img.alt;
+      lb.classList.add('open');document.body.style.overflow='hidden';
+    });
+  });
+  function closeLb(){lb.classList.remove('open');document.body.style.overflow='';}
+  lbClose.addEventListener('click',closeLb);
+  lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+})();
+
+(function(){
+  var form=document.getElementById('contactForm'),msg=document.getElementById('formMsg');
+  function validate(id){
+    var el=document.getElementById(id);
+    var ok=el.value.trim()!=='';
+    el.classList.toggle('err',!ok);
+    return ok;
+  }
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var ok=validate('f-nom')&validate('f-tel')&validate('f-msg');
+    if(!ok)return;
+    var btn=form.querySelector('.form-submit');
+    btn.textContent='Envoi en cours…';btn.disabled=true;
+    setTimeout(function(){
+      msg.classList.add('show');
+      btn.textContent='Demande envoyée ✓';
+      form.querySelectorAll('input,textarea').forEach(function(f){f.value='';f.classList.remove('err');});
+    },900);
+  });
+})();
+</script>
+</body>
+</html>
