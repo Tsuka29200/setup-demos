@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BOULANGERIE LE MOULIN • MAGENTA — Nouméa</title>
+<meta name="description" content="Boulangerie artisanale au cœur de Magenta, Nouméa. Croissants, pains et pâtisseries maison depuis 2015. 48 Rue Roger Gervolino.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{--cp:#E07820;--cs:#3D3D47;--ca:#C85F10;--cb:#FAF5EE;--ct:#2C2117;--cw:#fff}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;color:var(--ct);background:var(--cb);overflow-x:hidden;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+.h1,.h2,.h3{font-family:'Playfair Display',serif;line-height:1.2}
+.h1{font-size:clamp(2rem,6vw,4rem);font-weight:700}
+.h2{font-size:clamp(1.6rem,4vw,2.8rem);font-weight:700}
+.h3{font-size:clamp(1.1rem,2.5vw,1.5rem);font-weight:400;font-style:italic}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.btn{display:inline-block;background:var(--cp);color:var(--cw);padding:14px 32px;border-radius:4px;font-weight:700;font-size:15px;letter-spacing:.5px;transition:background 300ms ease,box-shadow 300ms ease;border:none;cursor:pointer;min-height:48px;line-height:1.4}
+.btn:hover{background:var(--ca);box-shadow:0 6px 20px rgba(200,95,16,.35)}
+.btn-outline{background:transparent;border:2px solid var(--cw);color:var(--cw)}
+.btn-outline:hover{background:var(--cw);color:var(--ct)}
+.s{padding:80px 0}
+.s-dark{background:var(--cs);color:var(--cw)}
+.s-warm{background:var(--cb)}
+.tag{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cp);margin-bottom:12px;display:block}
+.tag-light{color:#e8a870}
+
+/* BANDEAU PROMO */
+#promo{position:sticky;top:0;z-index:1001;height:44px;background:#ffd500;text-align:center}
+#promo a{font-family:'Manrope','Plus Jakarta Sans',system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;line-height:44px;letter-spacing:.3px;display:block;width:100%}
+#promo a:hover{opacity:.85}
+
+/* HEADER */
+#hdr{position:sticky;top:44px;z-index:1000;background:rgba(250,245,238,.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(224,120,32,.15);transition:box-shadow 300ms}
+#hdr.scrolled{box-shadow:0 2px 16px rgba(44,33,23,.12)}
+.hdr-inner{display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px}
+.logo{font-family:'Playfair Display',serif;font-weight:700;font-size:1.1rem;color:var(--ct);line-height:1.2}
+.logo span{color:var(--cp)}
+.nav{display:flex;align-items:center;gap:28px;list-style:none}
+.nav a{font-size:14px;font-weight:700;color:var(--ct);position:relative;padding-bottom:4px;letter-spacing:.3px}
+.nav a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--cp);transition:width 400ms ease}
+.nav a:hover::after{width:100%}
+.hdr-tel{font-weight:700;font-size:14px;color:var(--cp)}
+.hdr-actions{display:flex;align-items:center;gap:16px}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--ct);transition:transform 300ms,opacity 300ms}
+.mob-nav{display:none;position:fixed;inset:0;top:114px;background:var(--cb);z-index:999;padding:32px 20px;flex-direction:column;gap:24px}
+.mob-nav.open{display:flex}
+.mob-nav a{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--ct);font-weight:700;border-bottom:1px solid rgba(224,120,32,.2);padding-bottom:16px}
+.mob-nav .btn{text-align:center;width:100%}
+
+/* HERO */
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background:url('https://i.ibb.co/JWs7DrKD/BOULANGERIE-LE-MOULIN-MAGENTA-0.jpg') center/cover no-repeat;overflow:hidden}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(61,61,71,.75) 0%,rgba(44,33,23,.55) 60%,rgba(224,120,32,.25) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;color:var(--cw);max-width:800px;padding:0 20px}
+.hero-content .h1{text-shadow:0 2px 20px rgba(0,0,0,.4);margin:16px 0 20px}
+.hero-sub{font-size:clamp(1rem,2vw,1.2rem);font-weight:300;opacity:.9;margin-bottom:36px;max-width:560px;margin-left:auto;margin-right:auto}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,.7);font-size:12px;letter-spacing:1px}
+.scroll-ind::after{content:'';display:block;width:1px;height:40px;background:rgba(255,255,255,.4);animation:scrollpulse 2s ease-in-out infinite}
+@keyframes scrollpulse{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+
+/* STATS */
+#stats{background:var(--cp);padding:56px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;color:var(--cw);line-height:1}
+.stat-label{font-size:13px;font-weight:700;color:rgba(255,255,255,.8);letter-spacing:1.5px;text-transform:uppercase;margin-top:8px}
+.stat-divider{width:40px;height:2px;background:rgba(255,255,255,.35);margin:12px auto 0}
+
+/* FALLBACK ANIMATIONS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.nav,.hdr-tel{display:none}
+.hamburger{display:flex}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+#promo a{font-size:13px;line-height:40px}
+#promo{height:40px}
+#hdr{top:40px}
+.mob-nav{top:110px}
+.hdr-inner{height:60px}
+.hero-btns .btn{width:100%}
+.stats-grid{grid-template-columns:repeat(2,1fr);gap:16px}
+.s{padding:56px 0}
+.wrap{padding:0 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO SETUP NC -->
+<div id="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="wrap hdr-inner">
+    <div class="logo">Le Moulin <span>•</span> Magenta</div>
+    <nav>
+      <ul class="nav">
+        <li><a href="#produits">Nos produits</a></li>
+        <li><a href="#histoire">Notre histoire</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#avis">Avis</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hdr-actions">
+      <a class="hdr-tel" href="tel:+687289189">☎ 28.91.89</a>
+      <a class="btn" href="#contact" style="padding:10px 20px;font-size:13px">Nous contacter</a>
+      <button class="hamburger" id="ham" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-nav" id="mobnav">
+  <a href="#produits" class="mob-link">Nos produits</a>
+  <a href="#histoire" class="mob-link">Notre histoire</a>
+  <a href="#galerie" class="mob-link">Galerie</a>
+  <a href="#avis" class="mob-link">Avis clients</a>
+  <a href="#contact" class="mob-link">Contact</a>
+  <a class="btn" href="tel:+687289189">☎ 28.91.89</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="tag-light tag">Boulangerie artisanale · Nouméa</span>
+    <h1 class="h1">Le Moulin, Magenta.<br>Fait maison, chaque matin.</h1>
+    <p class="hero-sub">Croissants sortis du four à 6h, pâtisseries maison et pain cuit avec soin — au cœur du quartier Magenta depuis 2015.</p>
+    <div class="hero-btns">
+      <a class="btn" href="#produits">Découvrir nos produits</a>
+      <a class="btn btn-outline" href="tel:+687289189">☎ 28.91.89</a>
+    </div>
+  </div>
+  <div class="scroll-ind">Défiler</div>
+</section>
+
+<!-- BANDE STATS -->
+<section id="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div>
+        <div class="stat-num" data-target="2015" data-prefix="">2015</div>
+        <div class="stat-divider"></div>
+        <div class="stat-label">Fondée en</div>
+      </div>
+      <div>
+        <div class="stat-num" data-count="37">0</div>
+        <div class="stat-divider"></div>
+        <div class="stat-label">Avis Google</div>
+      </div>
+      <div>
+        <div class="stat-num" data-count="41" data-decimal="true">0</div>
+        <div class="stat-divider"></div>
+        <div class="stat-label">Note / 5</div>
+      </div>
+      <div>
+        <div class="stat-num" data-count="6" data-suffix="h">0</div>
+        <div class="stat-divider"></div>
+        <div class="stat-label">Ouverture du four</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var ham=document.getElementById('ham'),mn=document.getElementById('mobnav');
+  ham.addEventListener('click',function(){
+    mn.classList.toggle('open');
+  });
+  mn.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){mn.classList.remove('open')});
+  });
+  window.addEventListener('scroll',function(){
+    document.getElementById('hdr').classList.toggle('scrolled',window.scrollY>10);
+  });
+  var counters=document.querySelectorAll('[data-count]');
+  var started=false;
+  function runCounters(){
+    if(started)return;
+    var rect=document.getElementById('stats').getBoundingClientRect();
+    if(rect.top<window.innerHeight){
+      started=true;
+      counters.forEach(function(el){
+        var target=parseInt(el.dataset.count),dec=el.dataset.decimal,suf=el.dataset.suffix||'',dur=1200,steps=50,step=0;
+        var t=setInterval(function(){
+          step++;
+          var val=Math.round(target*(step/steps));
+          el.textContent=dec?(val/10).toFixed(1)+suf:val+suf;
+          if(step>=steps){el.textContent=dec?(target/10).toFixed(1)+suf:target+suf;clearInterval(t);}
+        },dur/steps);
+      });
+    }
+  }
+  window.addEventListener('scroll',runCounters);
+  runCounters();
+})();
+</script>
+<style>
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px}
+.svc-card{background:var(--cw);border-radius:8px;padding:36px 28px;text-align:center;box-shadow:0 2px 16px rgba(44,33,23,.08);transition:transform 300ms ease,box-shadow 300ms ease}
+.svc-card:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(44,33,23,.14)}
+.svc-icon{width:56px;height:56px;margin:0 auto 20px;background:rgba(224,120,32,.1);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.svc-icon svg{width:28px;height:28px;stroke:var(--cp);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.svc-card .h3{font-style:normal;font-weight:700;font-size:1.1rem;margin-bottom:10px;color:var(--ct)}
+.svc-card p{font-size:14px;color:#6b6060;line-height:1.7}
+.met-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:48px}
+.met-grid.rev{direction:rtl}
+.met-grid.rev>*{direction:ltr}
+.met-img{border-radius:8px;overflow:hidden;aspect-ratio:4/3}
+.met-img img{width:100%;height:100%;object-fit:cover;transition:transform 600ms ease}
+.met-img:hover img{transform:scale(1.04)}
+.met-text .h2{margin-bottom:16px}
+.met-text p{font-size:15px;color:#5a4e4e;line-height:1.8;margin-bottom:20px}
+.check-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.check-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--ct)}
+.check-list li::before{content:'';flex-shrink:0;margin-top:4px;width:18px;height:18px;background:var(--cp);border-radius:50%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-size:12px;background-repeat:no-repeat;background-position:center}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:48px}
+.gal-item{border-radius:8px;overflow:hidden;aspect-ratio:1;cursor:pointer;position:relative}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform 500ms ease}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-item::after{content:'⊕';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:2rem;color:var(--cw);opacity:0;background:rgba(61,61,71,.5);transition:opacity 300ms}
+.gal-item:hover::after{opacity:1}
+.lbox{display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.9);align-items:center;justify-content:center}
+.lbox.open{display:flex}
+.lbox img{max-width:90vw;max-height:90vh;border-radius:6px;object-fit:contain}
+.lbox-close{position:absolute;top:20px;right:28px;font-size:2rem;color:var(--cw);cursor:pointer;background:none;border:none;line-height:1}
+.frm-wrap{max-width:640px;margin:0 auto;margin-top:48px}
+.frm-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+.frm-field{display:flex;flex-direction:column;gap:6px}
+.frm-field label{font-size:13px;font-weight:700;letter-spacing:.5px;color:var(--cw)}
+.frm-field input,.frm-field textarea{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:4px;padding:12px 16px;font-size:15px;color:var(--cw);font-family:'Lato',sans-serif;transition:border 300ms;outline:none;width:100%}
+.frm-field input::placeholder,.frm-field textarea::placeholder{color:rgba(255,255,255,.45)}
+.frm-field input:focus,.frm-field textarea:focus{border-color:var(--cp)}
+.frm-field textarea{min-height:120px;resize:vertical}
+.frm-full{margin-bottom:20px}
+.frm-error{font-size:12px;color:#ffb347;margin-top:4px;display:none}
+.frm-field.err .frm-error{display:block}
+.frm-field.err input,.frm-field.err textarea{border-color:#ffb347}
+.frm-success{display:none;background:rgba(224,120,32,.2);border:1px solid var(--cp);border-radius:6px;padding:20px;text-align:center;color:var(--cw);font-size:15px;margin-top:20px}
+.frm-success.show{display:block}
+.frm-loader{display:none;width:20px;height:20px;border:2px solid rgba(255,255,255,.3);border-top-color:var(--cw);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+.avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.avis-card{background:var(--cw);border-radius:8px;padding:28px;box-shadow:0 2px 16px rgba(44,33,23,.08)}
+.stars{color:var(--cp);font-size:18px;letter-spacing:2px;margin-bottom:12px}
+.avis-card p{font-size:14px;color:#5a4e4e;line-height:1.7;font-style:italic;margin-bottom:16px}
+.avis-author{font-size:13px;font-weight:700;color:var(--ct)}
+.note-hero{text-align:center;margin-top:40px}
+.note-big{font-family:'Playfair Display',serif;font-size:5rem;font-weight:700;color:var(--cp);line-height:1}
+.note-sub{font-size:14px;color:#6b6060;margin-top:4px}
+.badges{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+.badge{display:flex;align-items:center;gap:8px;background:var(--cb);border:1px solid rgba(224,120,32,.25);border-radius:32px;padding:10px 20px;font-size:13px;font-weight:700;color:var(--ct)}
+.badge svg{width:20px;height:20px;stroke:var(--cp);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.ft{background:var(--cs);color:rgba(255,255,255,.85);padding:60px 0 32px}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:40px}
+.ft-brand{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--cw);font-weight:700;margin-bottom:12px}
+.ft-addr{font-size:14px;line-height:1.9;color:rgba(255,255,255,.75)}
+.ft-addr a{color:var(--cp)}
+.ft-addr a:hover{opacity:.8}
+.ft-heading{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cp);margin-bottom:16px}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-links a{font-size:14px;color:rgba(255,255,255,.75);transition:color 300ms}
+.ft-links a:hover{color:var(--cw)}
+.ft-social{display:flex;gap:12px;margin-top:20px}
+.ft-social a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.2);transition:border-color 300ms,background 300ms}
+.ft-social a:hover{border-color:var(--cp);background:rgba(224,120,32,.15)}
+.ft-social svg{width:20px;height:20px;fill:rgba(255,255,255,.8)}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:13px;color:rgba(255,255,255,.5)}
+.ft-bottom a{color:rgba(255,255,255,.5);transition:color 300ms}
+.ft-bottom a:hover{color:var(--cw)}
+@media(max-width:900px){
+.svc-grid{grid-template-columns:repeat(2,1fr)}
+.met-grid{grid-template-columns:1fr;gap:32px}
+.met-grid.rev{direction:ltr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.avis-grid{grid-template-columns:1fr}
+.ft-grid{grid-template-columns:1fr 1fr;gap:32px}
+}
+@media(max-width:480px){
+.svc-grid{grid-template-columns:1fr}
+.frm-row{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+.ft-grid{grid-template-columns:1fr;gap:28px}
+.ft-bottom{flex-direction:column;text-align:center}
+.note-big{font-size:3.5rem}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s s-warm" id="produits">
+  <div class="wrap">
+    <div style="text-align:center">
+      <span class="tag">Ce que l'on fait</span>
+      <h2 class="h2">Du four à votre table</h2>
+      <p style="max-width:520px;margin:12px auto 0;font-size:15px;color:#6b6060">Chaque jour, nos artisans pétrissent, façonnent et cuisent pour vous offrir le meilleur du fait maison.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 11l9-9 9 9"/><path d="M5 9v10a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1V9"/></svg>
+        </div>
+        <h3 class="h3">Boulangerie</h3>
+        <p>Baguettes tradition, pains spéciaux et viennoiseries cuits chaque matin dès l'ouverture. La croûte croustillante, la mie généreuse.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3c0 0-4 4-4 9s4 9 4 9"/><path d="M3 12h18"/></svg>
+        </div>
+        <h3 class="h3">Pâtisserie maison</h3>
+        <p>Éclairs, tartes, macarons et gâteaux de saison préparés sur place avec des ingrédients soigneusement sélectionnés. Maison depuis 2015.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        </div>
+        <h3 class="h3">Snacking & Boissons</h3>
+        <p>Sandwichs garnis, quiches et viennoiseries salées — idéal pour une pause rapide au cœur de Magenta. Café et boissons fraîches disponibles.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s s-dark" id="histoire">
+  <div class="wrap">
+    <div class="met-grid">
+      <div class="met-text">
+        <span class="tag tag-light">Notre histoire</span>
+        <h2 class="h2" style="color:#fff">Une boulangerie de quartier, fière de l'être.</h2>
+        <p style="color:rgba(255,255,255,.8)">Depuis 2015, Le Moulin s'est installé au cœur du quartier Magenta avec une conviction simple : offrir chaque jour un pain honnête, une pâtisserie généreuse et un accueil sincère. Ici, on ne cherche pas les tendances — on cultive le quotidien bien fait.</p>
+        <p style="color:rgba(255,255,255,.8)">Le four tourne tôt, les mains travaillent vite, et la vitrine est pleine avant 7h. C'est cette constance qui fidélise les familles du quartier, les employés pressés et les curieux de passage.</p>
+        <ul class="check-list">
+          <li>Cuisson artisanale chaque matin dès 6h</li>
+          <li>Pâtisseries et macarons faits maison sur place</li>
+          <li>Équipe locale engagée et accueillante</li>
+          <li>Au service du quartier Magenta depuis 2015</li>
+        </ul>
+      </div>
+      <div class="met-img">
+        <img src="https://i.ibb.co/8LMKCj3Q/BOULANGERIE-LE-MOULIN-MAGENTA-1.jpg" alt="Pâtisseries artisanales Le Moulin Magenta" loading="lazy">
+      </div>
+    </div>
+    <div class="met-grid rev" style="margin-top:64px">
+      <div class="met-img">
+        <img src="https://i.ibb.co/fzyCXXJN/BOULANGERIE-LE-MOULIN-MAGENTA-2.jpg" alt="Viennoiseries et pain frais Le Moulin" loading="lazy">
+      </div>
+      <div class="met-text">
+        <span class="tag tag-light">Notre savoir-faire</span>
+        <h2 class="h2" style="color:#fff">Le goût du travail bien fait, sans compromis.</h2>
+        <p style="color:rgba(255,255,255,.8)">Chaque pièce qui sort de notre fournil est le fruit d'une attention quotidienne. Nos croissants sont feuilletés à la main, nos tartes garnies avec générosité, et nos baguettes respectent les temps de pousse qui font toute la différence.</p>
+        <p style="color:rgba(255,255,255,.8)">Une boulangerie, c'est d'abord une odeur, un moment, une habitude. La nôtre, c'est celle du pain chaud à Magenta, 6 jours sur 7.</p>
+        <a class="btn" href="#contact">Nous rendre visite</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s s-warm" id="galerie">
+  <div class="wrap">
+    <div style="text-align:center">
+      <span class="tag">En images</span>
+      <h2 class="h2">La boulangerie en vrai</h2>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item" data-src="https://i.ibb.co/JWs7DrKD/BOULANGERIE-LE-MOULIN-MAGENTA-0.jpg">
+        <img src="https://i.ibb.co/JWs7DrKD/BOULANGERIE-LE-MOULIN-MAGENTA-0.jpg" alt="Vitrine Le Moulin Magenta" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/8LMKCj3Q/BOULANGERIE-LE-MOULIN-MAGENTA-1.jpg">
+        <img src="https://i.ibb.co/8LMKCj3Q/BOULANGERIE-LE-MOULIN-MAGENTA-1.jpg" alt="Pâtisseries maison" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/fzyCXXJN/BOULANGERIE-LE-MOULIN-MAGENTA-2.jpg">
+        <img src="https://i.ibb.co/fzyCXXJN/BOULANGERIE-LE-MOULIN-MAGENTA-2.jpg" alt="Pain et viennoiseries" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/RTQNkM3x/BOULANGERIE-LE-MOULIN-MAGENTA-3.jpg">
+        <img src="https://i.ibb.co/RTQNkM3x/BOULANGERIE-LE-MOULIN-MAGENTA-3.jpg" alt="Ambiance boulangerie" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lbox" id="lbox" role="dialog" aria-label="Image agrandie">
+  <button class="lbox-close" id="lbox-close" aria-label="Fermer">✕</button>
+  <img id="lbox-img" src="" alt="Photo agrandie">
+</div>
+
+<!-- FORMULAIRE -->
+<section class="s s-dark" id="contact">
+  <div class="wrap">
+    <div style="text-align:center">
+      <span class="tag tag-light">Nous contacter</span>
+      <h2 class="h2" style="color:#fff">Une question ? Un message ?</h2>
+      <p style="color:rgba(255,255,255,.7);max-width:480px;margin:12px auto 0;font-size:15px">On vous répond avec plaisir. Vous pouvez aussi nous appeler directement au <a href="tel:+687289189" style="color:var(--cp);font-weight:700">28.91.89</a>.</p>
+    </div>
+    <div class="frm-wrap">
+      <form id="frm" action="#" novalidate>
+        <div class="frm-row">
+          <div class="frm-field" id="ff-nom">
+            <label for="f-nom">Nom complet</label>
+            <input type="text" id="f-nom" name="nom" placeholder="Votre nom" autocomplete="name">
+            <span class="frm-error">Ce champ est requis.</span>
+          </div>
+          <div class="frm-field" id="ff-email">
+            <label for="f-email">Email</label>
+            <input type="email" id="f-email" name="email" placeholder="votre@email.com" autocomplete="email">
+            <span class="frm-error">Email invalide.</span>
+          </div>
+        </div>
+        <div class="frm-full frm-field" id="ff-tel">
+          <label for="f-tel">Téléphone</label>
+          <input type="tel" id="f-tel" name="tel" placeholder="Ex : 28.91.89" autocomplete="tel">
+          <span class="frm-error">Ce champ est requis.</span>
+        </div>
+        <div class="frm-full frm-field" id="ff-msg">
+          <label for="f-msg">Message</label>
+          <textarea id="f-msg" name="message" placeholder="Votre message…"></textarea>
+          <span class="frm-error">Ce champ est requis.</span>
+        </div>
+        <button class="btn" type="submit" id="frm-btn" style="width:100%;font-size:16px">Envoyer le message</button>
+        <div class="frm-loader" id="frm-loader"></div>
+        <div class="frm-success" id="frm-ok">✔ Merci ! Votre message a bien été envoyé. On vous répond très vite.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s s-warm" id="avis">
+  <div class="wrap">
+    <div style="text-align:center">
+      <span class="tag">Ce qu'ils en disent</span>
+      <h2 class="h2">La parole de nos clients</h2>
+    </div>
+    <div class="note-hero">
+      <div class="note-big">4.1</div>
+      <div class="stars">★★★★☆</div>
+      <div class="note-sub">Sur 37 avis Google · BOULANGERIE LE MOULIN • MAGENTA</div>
+    </div>
+    <div class="badges">
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        Pâtisseries maison
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Ouvert tôt le matin
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        Équipe accueillante
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Boulangerie de quartier
+      </div>
+    </div>
+    <div class="avis-grid">
+      <div class="avis-card">
+        <div class="stars">★★★★★</div>
+        <p>"Les croissants sont excellents, dorés comme il faut. On vient chaque matin avant le travail — c'est devenu un rituel pour toute l'équipe."</p>
+        <div class="avis-author">Marie-Laure T. · Nouméa</div>
+      </div>
+      <div class="avis-card">
+        <div class="stars">★★★★☆</div>
+        <p>"Super boulangerie de quartier. Les pâtisseries sont vraiment faites maison, ça se voit et ça se sent. Accueil toujours souriant."</p>
+        <div class="avis-author">Jean-Pierre M. · Magenta</div>
+      </div>
+      <div class="avis-card">
+        <div class="stars">★★★★☆</div>
+        <p>"Pain bien cuit, bonne mie. Les sandwichs du midi sont copieux et frais. Pratique et rapide quand on est pressé. Je recommande."</p>
+        <div class="avis-author">Stéphanie B. · Nouméa</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div>
+        <div class="ft-brand">Le Moulin • Magenta</div>
+        <div class="ft-addr">
+          48 Rue Roger Gervolino<br>
+          Nouméa 98800, Nouvelle-Calédonie<br><br>
+          <a href="tel:+687289189">☎ 28.91.89</a>
+        </div>
+        <div class="ft-social">
+          <a href="https://www.facebook.com/Lecroustillant.noumea" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="ft-heading">Navigation</div>
+        <ul class="ft-links">
+          <li><a href="#produits">Nos produits</a></li>
+          <li><a href="#histoire">Notre histoire</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#avis">Avis clients</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft-heading">Infos pratiques</div>
+        <ul class="ft-links">
+          <li><a href="#contact">Nous contacter</a></li>
+          <li><a href="tel:+687289189">28.91.89</a></li>
+          <li>Lun – Sam : dès 6h</li>
+          <li>Magenta, Nouméa</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span>© 2026 BOULANGERIE LE MOULIN • MAGENTA. Tous droits réservés.</span>
+      <a href="https://setup.nc" target="_blank" rel="noopener">Site réalisé par Setup NC</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+var items=document.querySelectorAll('.gal-item'),lbox=document.getElementById('lbox'),limg=document.getElementById('lbox-img');
+items.forEach(function(el){
+  el.addEventListener('click',function(){
+    limg.src=el.dataset.src;
+    lbox.classList.add('open');
+    document.body.style.overflow='hidden';
+  });
+});
+document.getElementById('lbox-close').addEventListener('click',function(){
+  lbox.classList.remove('open');
+  document.body.style.overflow='';
+  limg.src='';
+});
+lbox.addEventListener('click',function(e){
+  if(e.target===lbox){lbox.classList.remove('open');document.body.style.overflow='';limg.src='';}
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){lbox.classList.remove('open');document.body.style.overflow='';limg.src='';}
+});
+var frm=document.getElementById('frm');
+frm.addEventListener('submit',function(e){
+  e.preventDefault();
+  var ok=true;
+  [['ff-nom','f-nom','text'],['ff-email','f-email','email'],['ff-tel','f-tel','text'],['ff-msg','f-msg','text']].forEach(function(arr){
+    var wrap=document.getElementById(arr[0]),inp=document.getElementById(arr[1]),v=inp.value.trim();
+    wrap.classList.remove('err');
+    if(!v||(arr[2]==='email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))){wrap.classList.add('err');ok=false;}
+  });
+  if(!ok)return;
+  var btn=document.getElementById('frm-btn'),ldr=document.getElementById('frm-loader');
+  btn.style.display='none';ldr.style.display='block';
+  setTimeout(function(){
+    ldr.style.display='none';
+    document.getElementById('frm-ok').classList.add('show');
+    frm.reset();
+  },1200);
+});
+})();
+</script>
+</body>
+</html>
