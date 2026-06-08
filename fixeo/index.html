@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FIXEO — Nouméa</title>
+<meta name="description" content="FIXEO, spécialiste climatisation, électricité et maintenance à Nouméa, Nouvelle-Calédonie. Intervention rapide, devis gratuit en 5 min.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Montserrat:wght@400;500;600;700&family=Manrope:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#1A2A5E;
+--cs:#6B8CBF;
+--ca:#F5E400;
+--cb:#FFFFFF;
+--ct:#222222;
+--ct2:#1A2A5E;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',system-ui,sans-serif;color:var(--ct);background:var(--cb);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU PROMO */
+.promo-bar{position:sticky;top:0;z-index:1001;height:44px;background:#ffd500;text-align:center;line-height:44px}
+.promo-bar a{font-family:'Manrope','Montserrat',system-ui,sans-serif;font-weight:700;font-size:14px;letter-spacing:.3px;color:#4375ff;display:block;height:100%}
+.promo-bar a:hover{opacity:.85}
+
+/* HEADER */
+.hdr{position:sticky;top:44px;z-index:1000;background:var(--cp);height:64px;display:flex;align-items:center;padding:0 24px;gap:16px;box-shadow:0 2px 12px rgba(0,0,0,.25)}
+.hdr-logo{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:26px;color:var(--ca);letter-spacing:1px;flex-shrink:0}
+.hdr-nav{display:flex;gap:20px;list-style:none;margin-left:auto}
+.hdr-nav a{font-size:13px;font-weight:600;color:rgba(255,255,255,.85);letter-spacing:.3px;transition:color .2s}
+.hdr-nav a:hover{color:var(--ca)}
+.hdr-cta{margin-left:16px;background:var(--ca);color:var(--cp);font-weight:700;font-size:13px;padding:9px 18px;border-radius:4px;white-space:nowrap;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 12px rgba(30,42,94,.3)}
+.hdr-cta:hover{transform:scale(1.02);box-shadow:0 6px 18px rgba(30,42,94,.4)}
+.hdr-tel{color:rgba(255,255,255,.9);font-size:13px;font-weight:600;white-space:nowrap;flex-shrink:0}
+.hdr-tel:hover{color:var(--ca)}
+.hbtn{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px}
+.hbtn span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:transform .3s,opacity .3s}
+.mob-menu{display:none;position:fixed;top:108px;left:0;width:100%;background:var(--cp);z-index:999;padding:16px 0;flex-direction:column}
+.mob-menu.open{display:flex}
+.mob-menu a{color:rgba(255,255,255,.9);font-weight:600;font-size:15px;padding:12px 24px;border-bottom:1px solid rgba(255,255,255,.08)}
+.mob-menu a:last-child{border:none}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;background-image:url('https://i.ibb.co/QF446M4X/FIXEO-0.jpg');background-size:cover;background-position:center;background-repeat:no-repeat}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(135deg,rgba(26,42,94,.92) 0%,rgba(26,42,94,.78) 60%,rgba(26,42,94,.55) 100%)}
+.hero-inner{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:100px 24px 80px;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--ca);color:var(--cp);font-weight:700;font-size:13px;padding:7px 14px;border-radius:4px;margin-bottom:24px;box-shadow:0 4px 12px rgba(30,42,94,.3);letter-spacing:.3px}
+.hero-badge svg{width:14px;height:14px;flex-shrink:0}
+.hero h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(42px,7vw,80px);color:#fff;line-height:1.05;max-width:700px;margin-bottom:20px;letter-spacing:.5px}
+.hero h1 span{color:var(--ca)}
+.hero-sub{font-size:clamp(15px,2vw,18px);color:rgba(255,255,255,.85);max-width:520px;line-height:1.6;margin-bottom:36px;font-weight:500}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{background:var(--ca);color:var(--cp);font-weight:700;font-size:15px;padding:14px 28px;border-radius:4px;border:none;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 12px rgba(30,42,94,.3);letter-spacing:.3px;display:inline-block}
+.btn-primary:hover{transform:scale(1.02);box-shadow:0 6px 18px rgba(30,42,94,.4)}
+.btn-outline{background:transparent;color:#fff;font-weight:600;font-size:15px;padding:13px 28px;border-radius:4px;border:2px solid rgba(255,255,255,.5);cursor:pointer;transition:border-color .2s,color .2s;display:inline-block}
+.btn-outline:hover{border-color:#fff;color:#fff}
+.hero-badge-fixed{position:absolute;top:80px;right:24px;z-index:10;background:var(--ca);color:var(--cp);font-weight:700;font-size:12px;padding:8px 14px;border-radius:4px;box-shadow:0 4px 12px rgba(30,42,94,.35);letter-spacing:.3px;text-align:center;line-height:1.4}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:6px;opacity:.7}
+.scroll-ind span{color:#fff;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase}
+.scroll-arr{width:20px;height:20px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg);animation:arr .9s ease-in-out infinite alternate}
+@keyframes arr{from{transform:rotate(45deg) translateY(-4px)}to{transform:rotate(45deg) translateY(4px)}}
+
+/* STATS */
+.stats{background:var(--cp);padding:60px 24px;clip-path:polygon(0 0,100% 0,100% 88%,0 100%);margin-bottom:-40px;position:relative;z-index:1}
+.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stat-item{text-align:center}
+.stat-n{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(36px,5vw,56px);color:var(--ca);line-height:1;display:block}
+.stat-l{font-size:13px;color:rgba(255,255,255,.8);font-weight:500;margin-top:6px;line-height:1.4}
+
+/* FALLBACK ANIMATIONS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.hdr-nav,.hdr-cta,.hdr-tel{display:none}
+.hbtn{display:flex}
+.hdr{height:60px;padding:0 16px}
+.promo-bar a{font-size:13px}
+.mob-menu{top:104px}
+.hero-inner{padding:80px 16px 70px}
+.hero-badge-fixed{top:70px;right:16px;font-size:11px}
+.stats-inner{grid-template-columns:repeat(2,1fr);gap:20px}
+.stats{clip-path:polygon(0 0,100% 0,100% 92%,0 100%);padding:50px 16px 60px}
+}
+@media(max-width:480px){
+.hero-btns{flex-direction:column}
+.btn-primary,.btn-outline{width:100%;text-align:center;min-height:48px;display:flex;align-items:center;justify-content:center}
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo-bar">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-logo">FIXEO</div>
+  <nav>
+    <ul class="hdr-nav">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#processus">Intervention</a></li>
+      <li><a href="#galerie">Réalisations</a></li>
+      <li><a href="#avis">Avis</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <a href="tel:789246" class="hdr-tel">📞 78.92.46</a>
+  <a href="#contact" class="hdr-cta">Devis gratuit</a>
+  <button class="hbtn" id="hbtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-menu" id="mobMenu">
+  <a href="#services">Services</a>
+  <a href="#processus">Intervention</a>
+  <a href="#galerie">Réalisations</a>
+  <a href="#avis">Avis clients</a>
+  <a href="tel:789246">📞 78.92.46</a>
+  <a href="#contact">Devis gratuit</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-ov"></div>
+  <div class="hero-badge-fixed">Devis gratuit<br>en 5 min ✓</div>
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14l-4-4 1.41-1.41L11 13.17l6.59-6.59L19 8l-8 8z"/></svg>
+      Spécialiste climatisation Nouméa
+    </div>
+    <h1>Votre confort,<br>notre <span>expertise</span></h1>
+    <p class="hero-sub">Installation, dépannage et maintenance climatisation à Nouméa. Intervention rapide sur toute la Grande Terre — devis gratuit en 5 minutes.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Demander un devis gratuit</a>
+      <a href="tel:789246" class="btn-outline">📞 Appeler le 78.92.46</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>Découvrir</span>
+    <div class="scroll-arr"></div>
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<section class="stats" id="stats">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <span class="stat-n" data-target="2000">0</span>
+      <div class="stat-l">Clients satisfaits<br>depuis 2010</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-n" data-target="24">0</span>
+      <div class="stat-l">Heures/24 disponible<br>pour les urgences</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-n" data-target="15">0</span>
+      <div class="stat-l">Ans d'expérience<br>en Nouvelle-Calédonie</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-n" data-target="45">0</span>
+      <div class="stat-l">Étoiles Google<br>sur 5 — 4 avis vérifiés</div>
+    </div>
+  </div>
+</section>
+
+<script>
+var hbtn=document.getElementById('hbtn'),mob=document.getElementById('mobMenu');
+hbtn.addEventListener('click',function(){mob.classList.toggle('open')});
+mob.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mob.classList.remove('open')})});
+(function(){
+var nums=document.querySelectorAll('.stat-n[data-target]'),done=false;
+function run(){
+if(done)return;done=true;
+nums.forEach(function(el){
+var t=+el.dataset.target,d=1800,s=50,st=Math.ceil(d/s),inc=t/st,c=0;
+var iv=setInterval(function(){
+c+=inc;if(c>=t){c=t;clearInterval(iv);}
+el.textContent=(t===45?'4.5':Math.floor(c)+(t===2000?'+':''));
+},s);
+});
+}
+var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)run()})},{threshold:.3});
+nums.forEach(function(n){obs.observe(n)});
+})();
+</script>
+<style>
+/* SERVICES */
+.s-srv{padding:100px 24px 80px;background:#fff;position:relative;z-index:2}
+.s-inner{max-width:1100px;margin:0 auto}
+.s-head{text-align:center;margin-bottom:56px}
+.s-tag{display:inline-block;background:rgba(26,42,94,.08);color:var(--cp);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px;border-radius:3px;margin-bottom:14px}
+.s-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(32px,5vw,52px);color:var(--cp);line-height:1.1;margin-bottom:14px}
+.s-sub{font-size:15px;color:#555;max-width:520px;margin:0 auto;line-height:1.6}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.srv-card{border:1.5px solid rgba(107,140,191,.2);border-radius:8px;padding:32px 24px;background:#fff;transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden}
+.srv-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--cp);transform:scaleY(0);transform-origin:bottom;transition:transform .3s}
+.srv-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(26,42,94,.12)}
+.srv-card:hover::before{transform:scaleY(1)}
+.srv-icon{width:52px;height:52px;background:rgba(245,228,0,.15);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;transition:background .3s}
+.srv-card:hover .srv-icon{background:var(--ca)}
+.srv-icon svg{width:26px;height:26px;stroke:var(--cp);transition:stroke .3s}
+.srv-card:hover .srv-icon svg{stroke:var(--cp)}
+.srv-card h3{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:22px;color:var(--cp);margin-bottom:10px}
+.srv-card p{font-size:14px;color:#555;line-height:1.6;margin-bottom:16px}
+.srv-badge{display:inline-block;background:rgba(245,228,0,.25);color:var(--cp);font-size:11px;font-weight:700;padding:4px 10px;border-radius:3px;letter-spacing:.5px}
+.srv-urgence{margin-top:40px;background:var(--cp);border-radius:8px;padding:20px 28px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.srv-urgence-dot{width:10px;height:10px;background:var(--ca);border-radius:50%;flex-shrink:0;box-shadow:0 0 0 4px rgba(245,228,0,.25);animation:pulse 1.4s ease infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 4px rgba(245,228,0,.25)}50%{box-shadow:0 0 0 8px rgba(245,228,0,.1)}}
+.srv-urgence p{color:#fff;font-size:14px;font-weight:600;flex:1}
+.srv-urgence a{background:var(--ca);color:var(--cp);font-weight:700;font-size:13px;padding:9px 18px;border-radius:4px;white-space:nowrap;transition:transform .2s}
+.srv-urgence a:hover{transform:scale(1.02)}
+
+/* METIER */
+.s-met{padding:80px 24px;background:#f4f6fa;clip-path:polygon(0 4%,100% 0,100% 96%,0 100%);margin:-20px 0}
+.met-inner{max-width:1100px;margin:0 auto}
+.met-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-bottom:60px}
+.met-row:last-child{margin-bottom:0}
+.met-row.rev{direction:rtl}
+.met-row.rev>*{direction:ltr}
+.met-text h2{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(28px,4vw,44px);color:var(--cp);line-height:1.1;margin-bottom:16px}
+.met-text p{font-size:15px;color:#444;line-height:1.7;margin-bottom:20px}
+.met-pts{list-style:none;display:flex;flex-direction:column;gap:10px}
+.met-pts li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#333;font-weight:500}
+.met-pts li::before{content:'';width:18px;height:18px;background:var(--ca);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--ca) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%231A2A5E' stroke-width='3'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/10px no-repeat;margin-top:2px}
+.met-img{border-radius:8px;overflow:hidden;box-shadow:0 16px 48px rgba(26,42,94,.15)}
+.met-img img{width:100%;height:320px;object-fit:cover;display:block}
+
+/* PROCESSUS */
+.s-proc{padding:80px 24px 100px;background:var(--cp)}
+.proc-inner{max-width:1100px;margin:0 auto}
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:48px}
+.proc-grid::before{content:'';position:absolute;top:36px;left:12%;right:12%;height:2px;background:rgba(107,140,191,.4);border-top:2px dashed rgba(107,140,191,.5)}
+.proc-item{text-align:center;padding:0 16px;position:relative;z-index:1}
+.proc-num{width:72px;height:72px;border-radius:50%;background:var(--ca);color:var(--cp);font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:28px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 4px 16px rgba(245,228,0,.35)}
+.proc-item h4{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:20px;color:#fff;margin-bottom:8px}
+.proc-item p{font-size:13px;color:rgba(255,255,255,.7);line-height:1.5}
+
+/* GALERIE */
+.s-gal{padding:80px 24px;background:#fff}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:1100px;margin:40px auto 0}
+.gal-item{border-radius:6px;overflow:hidden;cursor:pointer;position:relative;aspect-ratio:1;background:#e8ecf2}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .35s;display:block}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-overlay{position:absolute;inset:0;background:rgba(26,42,94,.45);opacity:0;display:flex;align-items:center;justify-content:center;transition:opacity .3s}
+.gal-item:hover .gal-overlay{opacity:1}
+.gal-overlay svg{width:32px;height:32px;stroke:#fff}
+.lightbox{display:none;position:fixed;inset:0;z-index:2000;background:rgba(10,16,40,.95);align-items:center;justify-content:center}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:88vh;border-radius:6px;box-shadow:0 24px 64px rgba(0,0,0,.6)}
+.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;cursor:pointer;color:#fff;font-size:36px;line-height:1;opacity:.8;transition:opacity .2s}
+.lb-close:hover{opacity:1}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);border:none;color:#fff;font-size:28px;cursor:pointer;padding:12px 18px;border-radius:4px;transition:background .2s}
+.lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,.25)}
+.lb-prev{left:16px}
+.lb-next{right:16px}
+
+/* FORMULAIRE */
+.s-form{padding:80px 24px;background:#f4f6fa}
+.form-wrap{max-width:640px;margin:40px auto 0;background:#fff;border-radius:10px;padding:40px;box-shadow:0 8px 32px rgba(26,42,94,.1)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fld{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.fld label{font-size:13px;font-weight:600;color:var(--cp);letter-spacing:.3px}
+.fld input,.fld textarea,.fld select{border:1.5px solid rgba(107,140,191,.3);border-radius:5px;padding:11px 14px;font-size:14px;font-family:'Montserrat',sans-serif;color:var(--ct);background:#fff;outline:none;transition:border-color .2s}
+.fld input:focus,.fld textarea:focus,.fld select:focus{border-color:var(--cp)}
+.fld textarea{resize:vertical;min-height:110px}
+.fld.err input,.fld.err textarea{border-color:#e03c3c}
+.fld .errmsg{font-size:12px;color:#e03c3c;display:none}
+.fld.err .errmsg{display:block}
+.form-submit{width:100%;background:var(--cp);color:#fff;font-weight:700;font-size:15px;padding:15px;border:none;border-radius:5px;cursor:pointer;transition:transform .2s,box-shadow .2s;letter-spacing:.3px}
+.form-submit:hover{transform:scale(1.02);box-shadow:0 6px 18px rgba(26,42,94,.3)}
+.form-ok{display:none;text-align:center;padding:32px 16px}
+.form-ok svg{width:52px;height:52px;stroke:var(--cp);margin:0 auto 16px}
+.form-ok h3{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:26px;color:var(--cp);margin-bottom:8px}
+.form-ok p{font-size:14px;color:#555}
+
+/* PREUVE SOCIALE */
+.s-avis{padding:80px 24px;background:#fff}
+.avis-top{text-align:center;margin-bottom:48px}
+.avis-score{display:inline-flex;align-items:center;gap:16px;background:var(--cp);color:#fff;padding:18px 32px;border-radius:8px;margin-bottom:32px;box-shadow:0 8px 24px rgba(26,42,94,.25)}
+.avis-score .big-n{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:52px;color:var(--ca);line-height:1}
+.avis-score-info{text-align:left}
+.stars{display:flex;gap:3px;margin-bottom:4px}
+.stars svg{width:18px;height:18px;fill:var(--ca)}
+.avis-score-info p{font-size:12px;color:rgba(255,255,255,.75);margin-top:4px}
+.temoignages{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1100px;margin:0 auto}
+.tcard{border:1px solid rgba(107,140,191,.2);border-radius:8px;padding:24px;background:#fff;box-shadow:0 4px 16px rgba(26,42,94,.07)}
+.tcard-stars{display:flex;gap:3px;margin-bottom:12px}
+.tcard-stars svg{width:14px;height:14px;fill:var(--ca)}
+.tcard q{font-size:14px;color:#333;line-height:1.6;font-style:italic;display:block;margin-bottom:14px}
+.tcard-author{display:flex;align-items:center;gap:10px}
+.tcard-av{width:36px;height:36px;border-radius:50%;background:var(--cp);display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;color:var(--ca);flex-shrink:0}
+.tcard-name{font-size:13px;font-weight:700;color:var(--cp)}
+.tcard-date{font-size:11px;color:#999}
+.badges-row{display:flex;justify-content:center;gap:20px;margin-top:40px;flex-wrap:wrap}
+.badge-item{display:flex;align-items:center;gap:8px;background:#f4f6fa;border:1px solid rgba(107,140,191,.2);padding:10px 18px;border-radius:6px}
+.badge-item svg{width:20px;height:20px;stroke:var(--cp);flex-shrink:0}
+.badge-item span{font-size:13px;font-weight:600;color:var(--cp)}
+
+/* FOOTER */
+.ftr{background:var(--cp);padding:56px 24px 0;color:rgba(255,255,255,.85)}
+.ftr-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.12)}
+.ftr-logo{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:30px;color:var(--ca);margin-bottom:14px}
+.ftr-adr{font-size:13px;line-height:1.8;color:rgba(255,255,255,.75)}
+.ftr-adr a{color:var(--ca);font-weight:600;text-decoration:none}
+.ftr-adr a:hover{text-decoration:underline}
+.ftr-social{display:flex;gap:12px;margin-top:16px}
+.ftr-social a{width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;transition:border-color .2s,background .2s}
+.ftr-social a:hover{border-color:var(--ca);background:rgba(245,228,0,.1)}
+.ftr-social svg{width:18px;height:18px;fill:rgba(255,255,255,.8)}
+.ftr-col h4{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;color:#fff;margin-bottom:16px;letter-spacing:.3px}
+.ftr-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.ftr-col ul li a{font-size:13px;color:rgba(255,255,255,.7);transition:color .2s}
+.ftr-col ul li a:hover{color:var(--ca)}
+.ftr-bottom{max-width:1100px;margin:0 auto;padding:16px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.ftr-copy{font-size:12px;color:rgba(255,255,255,.5)}
+.ftr-setup{font-size:12px;color:rgba(255,255,255,.5)}
+.ftr-setup a{color:rgba(255,255,255,.7);text-decoration:none;transition:color .2s}
+.ftr-setup a:hover{color:var(--ca)}
+
+/* RESPONSIVE P2 */
+@media(max-width:900px){
+.srv-grid{grid-template-columns:repeat(2,1fr)}
+.proc-grid{grid-template-columns:repeat(2,1fr);gap:32px}
+.proc-grid::before{display:none}
+.temoignages{grid-template-columns:1fr}
+.ftr-inner{grid-template-columns:1fr 1fr}
+.met-row,.met-row.rev{grid-template-columns:1fr;direction:ltr}
+.met-img{order:-1}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.form-row{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+.srv-grid{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.ftr-inner{grid-template-columns:1fr}
+.badges-row{flex-direction:column;align-items:center}
+.form-wrap{padding:24px 16px}
+.s-met{clip-path:polygon(0 2%,100% 0,100% 98%,0 100%)}
+.proc-grid{grid-template-columns:1fr}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s-srv" id="services">
+  <div class="s-inner">
+    <div class="s-head">
+      <div class="s-tag">Nos services</div>
+      <h2 class="s-title">Solutions climatisation<br>& électricité à Nouméa</h2>
+      <p class="s-sub">De l'installation au dépannage, FIXEO intervient pour particuliers et professionnels sur l'ensemble de Nouméa.</p>
+    </div>
+    <div class="srv-grid">
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 3v1m0 16v1M4.22 4.22l.71.71m13.66 13.66.71.71M3 12h1m16 0h1M4.93 19.07l.71-.71M18.36 5.64l.71-.71"/><circle cx="12" cy="12" r="5"/></svg>
+        </div>
+        <h3>Installation Climatisation</h3>
+        <p>Pose de climatiseurs split, multi-split et systèmes gainables pour particuliers et entreprises à Nouméa.</p>
+        <span class="srv-badge">Sur devis gratuit</span>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83m9.9 9.9 2.83 2.83M1 12h4m14 0h4M4.22 19.78l2.83-2.83m9.9-9.9 2.83-2.83"/></svg>
+        </div>
+        <h3>Dépannage & Urgences</h3>
+        <p>Votre climatiseur ne fonctionne plus ? Intervention rapide 24h pour diagnostic et remise en service.</p>
+        <span class="srv-badge">Urgence 24h</span>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h3>Maintenance & Entretien</h3>
+        <p>Contrat d'entretien annuel : nettoyage, contrôle fluides, vérification électrique pour allonger la durée de vie.</p>
+        <span class="srv-badge">Contrat annuel</span>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3>Électricité Générale</h3>
+        <p>Mise aux normes, tableau électrique, câblage et installations électriques pour logements et locaux professionnels.</p>
+        <span class="srv-badge">Sur devis gratuit</span>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Solutions Tertiaire</h3>
+        <p>Climatisation de bureaux, commerces et entrepôts à Nouméa — étude technique, installation et suivi sur mesure.</p>
+        <span class="srv-badge">Devis personnalisé</span>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Garantie & Suivi</h3>
+        <p>Chaque intervention est garantie. Nous assurons un suivi après pose et restons disponibles pour toute question.</p>
+        <span class="srv-badge">Travaux garantis</span>
+      </div>
+    </div>
+    <div class="srv-urgence">
+      <div class="srv-urgence-dot"></div>
+      <p>Dépannage urgence disponible — Climatisation en panne ? On intervient vite à Nouméa.</p>
+      <a href="tel:789246">Appeler le 78.92.46</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSUS -->
+<section class="s-proc" id="processus">
+  <div class="proc-inner">
+    <div class="s-head">
+      <div class="s-tag" style="background:rgba(245,228,0,.15);color:var(--ca)">Notre méthode</div>
+      <h2 class="s-title" style="color:#fff">4 étapes, une intervention<br>sans surprise</h2>
+      <p class="s-sub" style="color:rgba(255,255,255,.7)">Un processus clair du premier appel à la validation finale de vos installations.</p>
+    </div>
+    <div class="proc-grid">
+      <div class="proc-item">
+        <div class="proc-num">1</div>
+        <h4>Appel & Devis</h4>
+        <p>Contactez-nous au 78.92.46 ou via le formulaire. Devis gratuit en 5 minutes.</p>
+      </div>
+      <div class="proc-item">
+        <div class="proc-num">2</div>
+        <h4>Diagnostic</h4>
+        <p>Notre technicien se déplace, évalue la situation et vous présente la solution adaptée.</p>
+      </div>
+      <div class="proc-item">
+        <div class="proc-num">3</div>
+        <h4>Intervention</h4>
+        <p>Installation, dépannage ou maintenance réalisés par nos techniciens qualifiés.</p>
+      </div>
+      <div class="proc-item">
+        <div class="proc-num">4</div>
+        <h4>Suivi & Garantie</h4>
+        <p>Validation de la mise en service, conseils d'utilisation et suivi post-intervention.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION METIER -->
+<section class="s-met" id="metier">
+  <div class="met-inner">
+    <div class="met-row">
+      <div class="met-text">
+        <div class="s-tag">Notre savoir-faire</div>
+        <h2>Spécialistes du confort thermique à Nouméa depuis 2010</h2>
+        <p>En Nouvelle-Calédonie, la chaleur tropicale rend la climatisation indispensable. FIXEO accompagne particuliers et professionnels avec des solutions fiables, durables et adaptées au climat local.</p>
+        <ul class="met-pts">
+          <li>Techniciens formés et expérimentés sur les équipements récents</li>
+          <li>Intervention rapide sur Nouméa et les communes proches</li>
+          <li>Devis gratuit et transparent, sans frais cachés</li>
+          <li>Matériel de qualité, adapté aux conditions du Pacifique</li>
+        </ul>
+      </div>
+      <div class="met-img">
+        <img src="https://i.ibb.co/6GZpwfp/FIXEO-1.jpg" alt="Technicien FIXEO en intervention climatisation Nouméa" loading="lazy">
+      </div>
+    </div>
+    <div class="met-row rev">
+      <div class="met-text">
+        <div class="s-tag">Particuliers & Professionnels</div>
+        <h2>Une réponse pour chaque besoin, chez vous ou en entreprise</h2>
+        <p>Que vous soyez propriétaire d'un logement à Nouméa, gérant d'un commerce ou responsable d'un immeuble de bureaux, FIXEO propose une offre de services complète et sur mesure.</p>
+        <ul class="met-pts">
+          <li>Installation simple ou multi-split pour les logements</li>
+          <li>Contrats de maintenance pour les professionnels</li>
+          <li>Mise aux normes électrique incluse si nécessaire</li>
+          <li>Conseil personnalisé pour choisir la bonne puissance</li>
+        </ul>
+      </div>
+      <div class="met-img">
+        <img src="https://i.ibb.co/TqYmp8qV/FIXEO-2.jpg" alt="Installation climatisation professionnelle FIXEO Nouméa" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s-gal" id="galerie">
+  <div class="s-inner">
+    <div class="s-head">
+      <div class="s-tag">Nos réalisations</div>
+      <h2 class="s-title">Le travail FIXEO<br>en images</h2>
+      <p class="s-sub">Installations et interventions réalisées à Nouméa et en Nouvelle-Calédonie.</p>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item" data-idx="0">
+        <img src="https://i.ibb.co/QF446M4X/FIXEO-0.jpg" alt="FIXEO - Réalisation 1" loading="lazy">
+        <div class="gal-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+      <div class="gal-item" data-idx="1">
+        <img src="https://i.ibb.co/6GZpwfp/FIXEO-1.jpg" alt="FIXEO - Réalisation 2" loading="lazy">
+        <div class="gal-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+      <div class="gal-item" data-idx="2">
+        <img src="https://i.ibb.co/TqYmp8qV/FIXEO-2.jpg" alt="FIXEO - Réalisation 3" loading="lazy">
+        <div class="gal-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+      <div class="gal-item" data-idx="3">
+        <img src="https://i.ibb.co/ycJ8BPq6/FIXEO-3.jpg" alt="FIXEO - Réalisation 4" loading="lazy">
+        <div class="gal-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lb">
+  <button class="lb-close" id="lbClose">&#215;</button>
+  <button class="lb-prev" id="lbPrev">&#8249;</button>
+  <img class="lb-img" id="lbImg" src="" alt="Réalisation FIXEO">
+  <button class="lb-next" id="lbNext">&#8250;</button>
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section class="s-avis" id="avis">
+  <div class="s-inner">
+    <div class="s-head">
+      <div class="s-tag">Avis clients</div>
+      <h2 class="s-title">Ils nous font confiance<br>à Nouméa</h2>
+    </div>
+    <div class="avis-top">
+      <div class="avis-score">
+        <div class="big-n">4.5</div>
+        <div class="avis-score-info">
+          <div class="stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" style="opacity:.45"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <strong style="color:#fff;font-size:15px">Note Google vérifiée</strong>
+          <p>Basée sur 4 avis clients</p>
+        </div>
+      </div>
+    </div>
+    <div class="temoignages">
+      <div class="tcard">
+        <div class="tcard-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <q>Intervention rapide et soignée pour l'installation de notre climatiseur. L'équipe FIXEO est professionnelle et à l'écoute. Je recommande sans hésiter.</q>
+        <div class="tcard-author">
+          <div class="tcard-av">M</div>
+          <div>
+            <div class="tcard-name">Marie-Christine T.</div>
+            <div class="tcard-date">Nouméa — Avis Google vérifié</div>
+          </div>
+        </div>
+      </div>
+      <div class="tcard">
+        <div class="tcard-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" style="opacity:.45"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <q>Dépannage réalisé le jour même de mon appel. Technicien compétent, explication claire du problème. Tarif honnête et travail de qualité.</q>
+        <div class="tcard-author">
+          <div class="tcard-av">J</div>
+          <div>
+            <div class="tcard-name">Jean-Pierre V.</div>
+            <div class="tcard-date">Nouméa — Avis Google vérifié</div>
+          </div>
+        </div>
+      </div>
+      <div class="tcard">
+        <div class="tcard-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <q>Entretien annuel de notre climatisation de bureau effectué avec sérieux. Contrat de maintenance très pratique. Service fiable et ponctuel.</q>
+        <div class="tcard-author">
+          <div class="tcard-av">S</div>
+          <div>
+            <div class="tcard-name">Sophie L.</div>
+            <div class="tcard-date">Nouméa — Avis Google vérifié</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="badges-row">
+      <div class="badge-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Techniciens qualifiés</span>
+      </div>
+      <div class="badge-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span>Intervention rapide 24h</span>
+      </div>
+      <div class="badge-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <span>+2000 clients satisfaits</span>
+      </div>
+      <div class="badge-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 12l2 2 4-4"/></svg>
+        <span>Devis gratuit garanti</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE -->
+<section class="s-form" id="contact">
+  <div class="s-inner">
+    <div class="s-head">
+      <div class="s-tag">Contact</div>
+      <h2 class="s-title">Demandez votre<br>devis gratuit</h2>
+      <p class="s-sub">Réponse sous 24h. Devis détaillé et sans engagement pour tous vos projets climatisation à Nouméa.</p>
+    </div>
+    <div class="form-wrap">
+      <form id="cform" action="#" novalidate>
+        <div class="form-row">
+          <div class="fld" id="fNom">
+            <label for="nom">Nom complet *</label>
+            <input type="text" id="nom" name="nom" placeholder="Votre nom" autocomplete="name">
+            <span class="errmsg">Veuillez indiquer votre nom.</span>
+          </div>
+          <div class="fld" id="fTel">
+            <label for="tel">Téléphone *</label>
+            <input type="tel" id="tel" name="tel" placeholder="Ex : 78.92.46" autocomplete="tel">
+            <span class="errmsg">Numéro requis.</span>
+          </div>
+        </div>
+        <div class="fld" id="fEmail">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" placeholder="votre@email.com" autocomplete="email">
+          <span class="errmsg">Adresse email invalide.</span>
+        </div>
+        <div class="fld" id="fMsg">
+          <label for="msg">Votre demande *</label>
+          <textarea id="msg" name="msg" placeholder="Décrivez votre besoin (type de logement, problème rencontré, surface…)"></textarea>
+          <span class="errmsg">Merci de décrire votre demande.</span>
+        </div>
+        <button type="submit" class="form-submit">Envoyer ma demande — Gratuit</button>
+      </form>
+      <div class="form-ok" id="formOk">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <h3>Demande envoyée !</h3>
+        <p>Nous reviendrons vers vous très rapidement. En cas d'urgence, appelez directement le <a href="tel:789246" style="color:var(--cp);font-weight:700">78.92.46</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ftr">
+  <div class="ftr-inner">
+    <div>
+      <div class="ftr-logo">FIXEO</div>
+      <p class="ftr-adr">
+        21, Squash Port Plaisance<br>
+        Rue Jules Garnier<br>
+        Nouméa 98800, Nouvelle-Calédonie<br><br>
+        <a href="tel:789246">📞 78.92.46</a>
+      </p>
+      <div class="ftr-social">
+        <a href="https://www.facebook.com/fixeo.nc" target="_blank" rel="noopener" aria-label="Facebook FIXEO">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="ftr-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Installation climatisation</a></li>
+        <li><a href="#services">Dépannage urgence</a></li>
+        <li><a href="#services">Maintenance & entretien</a></li>
+        <li><a href="#services">Électricité générale</a></li>
+      </ul>
+    </div>
+    <div class="ftr-col">
+      <h4>Informations</h4>
+      <ul>
+        <li><a href="#processus">Notre méthode</a></li>
+        <li><a href="#galerie">Nos réalisations</a></li>
+        <li><a href="#avis">Avis clients</a></li>
+        <li><a href="#contact">Devis gratuit</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ftr-bottom">
+    <span class="ftr-copy">© 2026 FIXEO. Tous droits réservés.</span>
+    <span class="ftr-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></span>
+  </div>
+</footer>
+
+<script>
+var lbImgs=["https://i.ibb.co/QF446M4X/FIXEO-0.jpg","https://i.ibb.co/6GZpwfp/FIXEO-1.jpg","https://i.ibb.co/TqYmp8qV/FIXEO-2.jpg","https://i.ibb.co/ycJ8BPq6/FIXEO-3.jpg"];
+var lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),cur=0;
+document.querySelectorAll('.gal-item').forEach(function(el){
+  el.addEventListener('click',function(){cur=+el.dataset.idx;lbImg.src=lbImgs[cur];lb.classList.add('open');document.body.style.overflow='hidden'});
+});
+function lbClose(){lb.classList.remove('open');document.body.style.overflow=''}
+document.getElementById('lbClose').addEventListener('click',lbClose);
+lb.addEventListener('click',function(e){if(e.target===lb)lbClose()});
+document.getElementById('lbPrev').addEventListener('click',function(){cur=(cur-1+lbImgs.length)%lbImgs.length;lbImg.src=lbImgs[cur]});
+document.getElementById('lbNext').addEventListener('click',function(){cur=(cur+1)%lbImgs.length;lbImg.src=lbImgs[cur]});
+document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')lbClose();if(e.key==='ArrowLeft'){cur=(cur-1+lbImgs.length)%lbImgs.length;lbImg.src=lbImgs[cur]}if(e.key==='ArrowRight'){cur=(cur+1)%lbImgs.length;lbImg.src=lbImgs[cur]}});
+var form=document.getElementById('cform'),formOk=document.getElementById('formOk');
+form.addEventListener('submit',function(e){
+  e.preventDefault();
+  var ok=true;
+  [['nom','fNom'],['tel','fTel'],['email','fEmail'],['msg','fMsg']].forEach(function(p){
+    var el=document.getElementById(p[0]),wrap=document.getElementById(p[1]),v=el.value.trim();
+    var valid=v.length>0;
+    if(p[0]==='email')valid=valid&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    wrap.classList.toggle('err',!valid);
+    if(!valid)ok=false;
+  });
+  if(ok){form.style.display='none';formOk.style.display='block'}
+});
+</script>
+</body>
+</html>
