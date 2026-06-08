@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Caprio — Nouméa</title>
+<meta name="description" content="Caprio, votre magasin de chaussures à Nouméa. Meilleures marques, meilleurs prix pour toute la famille. 30 Rue d'Austerlitz, centre-ville.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Manrope:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#1A3A8C;
+--cs:#E8231A;
+--ca:#2DB34A;
+--ct:#1A1A1A;
+--bg:#fff;
+--ff:'Barlow Condensed',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--ff);color:var(--ct);background:var(--bg);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU SETUP NC */
+#setup-band{
+position:sticky;top:0;z-index:1001;
+background:#ffd500;height:44px;
+display:flex;align-items:center;justify-content:center;
+font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;
+font-weight:700;font-size:14px;letter-spacing:.3px;line-height:44px;
+text-align:center;
+}
+#setup-band a{color:#4375ff;opacity:1;transition:opacity .2s}
+#setup-band a:hover{opacity:.85}
+
+/* HEADER */
+.hd{
+position:sticky;top:44px;z-index:1000;
+background:var(--cp);
+display:flex;align-items:center;justify-content:space-between;
+padding:0 24px;height:64px;
+box-shadow:0 2px 8px rgba(0,0,0,.25);
+}
+.hd-logo{font-size:32px;font-weight:900;color:#fff;letter-spacing:2px;text-transform:uppercase}
+.hd-logo span{color:var(--cs)}
+.hd-nav{display:flex;gap:24px;list-style:none}
+.hd-nav a{color:#fff;font-size:15px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;opacity:.9;transition:opacity .2s}
+.hd-nav a:hover{opacity:1;color:#ffd500}
+.hd-cta{
+background:var(--cs);color:#fff;
+font-family:var(--ff);font-weight:700;font-size:15px;
+padding:10px 20px;border-radius:3px;
+letter-spacing:.5px;text-transform:uppercase;
+transition:opacity .2s;white-space:nowrap;
+}
+.hd-cta:hover{opacity:.85}
+.hd-tel{color:#fff;font-weight:700;font-size:16px;margin-right:12px;opacity:.9}
+.hd-tel:hover{opacity:1}
+.hd-right{display:flex;align-items:center;gap:8px}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hbg span{width:26px;height:3px;background:#fff;border-radius:2px;transition:all .3s}
+.mob-nav{display:none;position:fixed;top:108px;left:0;right:0;z-index:999;background:var(--cp);padding:16px 24px;flex-direction:column;gap:0}
+.mob-nav a{color:#fff;font-size:18px;font-weight:700;text-transform:uppercase;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.15);display:block}
+.mob-nav.open{display:flex}
+
+/* HERO */
+.hero{
+position:relative;min-height:100vh;
+display:flex;align-items:center;justify-content:center;
+background:url('https://i.ibb.co/mFR59dsr/Caprio-0.jpg') center/cover no-repeat;
+overflow:hidden;
+}
+.hero-ov{
+position:absolute;inset:0;
+background:linear-gradient(135deg,rgba(26,58,140,.82) 0%,rgba(26,58,140,.55) 60%,rgba(232,35,26,.25) 100%);
+}
+.hero-body{position:relative;z-index:2;text-align:center;padding:0 16px;max-width:860px}
+.hero-badge{
+display:inline-block;background:var(--cs);color:#fff;
+font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;
+padding:6px 18px;border-radius:2px;margin-bottom:18px;
+animation:pulse-badge 3s ease-in-out infinite;
+}
+@keyframes pulse-badge{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.h1{font-size:clamp(42px,8vw,80px);font-weight:900;color:#fff;line-height:1;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px}
+.h1 em{color:#ffd500;font-style:normal}
+.hero-sub{font-size:clamp(18px,3vw,26px);color:rgba(255,255,255,.9);font-weight:600;margin-bottom:32px;letter-spacing:.3px}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-pri{
+background:var(--cs);color:#fff;
+font-family:var(--ff);font-size:18px;font-weight:800;
+padding:16px 36px;border-radius:3px;text-transform:uppercase;letter-spacing:.5px;
+position:relative;overflow:hidden;transition:transform .2s,opacity .2s;
+border:none;cursor:pointer;
+}
+.btn-pri::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:#ffd500;animation:line-anim 2s ease-in-out infinite}
+@keyframes line-anim{0%,100%{transform:scaleX(.3);opacity:.7}50%{transform:scaleX(1);opacity:1}}
+.btn-pri:hover{transform:translateY(-2px);opacity:.92}
+.btn-sec{
+background:transparent;color:#fff;
+font-family:var(--ff);font-size:18px;font-weight:700;
+padding:14px 34px;border-radius:3px;text-transform:uppercase;letter-spacing:.5px;
+border:2px solid rgba(255,255,255,.7);transition:border-color .2s,background .2s;
+cursor:pointer;
+}
+.btn-sec:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+.hero-line{
+position:absolute;bottom:0;left:0;right:0;height:5px;
+background:linear-gradient(90deg,var(--cp),var(--cs),var(--ca),var(--cs),var(--cp));
+background-size:300%;animation:stripe 4s linear infinite;
+}
+@keyframes stripe{0%{background-position:0%}100%{background-position:300%}}
+.scroll-ind{
+position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+z-index:3;display:flex;flex-direction:column;align-items:center;gap:6px;
+color:rgba(255,255,255,.7);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;
+animation:bob .2s ease-in-out infinite alternate;
+}
+.scroll-ind svg{animation:bob 1.2s ease-in-out infinite alternate}
+@keyframes bob{0%{transform:translateY(0)}100%{transform:translateY(6px)}}
+
+/* BANDE STATS */
+.stats{background:var(--cp);padding:48px 0}
+.stats-grid{
+display:grid;grid-template-columns:repeat(4,1fr);
+max-width:1100px;margin:0 auto;padding:0 24px;gap:16px;
+}
+.stat-item{text-align:center;padding:16px 8px;border-right:1px solid rgba(255,255,255,.2)}
+.stat-item:last-child{border-right:none}
+.stat-num{font-size:clamp(36px,5vw,60px);font-weight:900;color:#ffd500;line-height:1;display:block}
+.stat-lbl{font-size:15px;font-weight:600;color:rgba(255,255,255,.85);margin-top:6px;text-transform:uppercase;letter-spacing:.5px}
+
+/* FALLBACK REVEAL */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.hd-nav{display:none}
+.hbg{display:flex}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.stat-item:nth-child(2){border-right:none}
+.stat-item:nth-child(3){border-right:1px solid rgba(255,255,255,.2)}
+.stat-item:last-child{border-right:none}
+}
+@media(max-width:480px){
+#setup-band{font-size:13px;line-height:40px;height:40px}
+.hd{top:40px;padding:0 16px;height:56px}
+.hd-logo{font-size:26px}
+.mob-nav{top:96px}
+.hero-btns{flex-direction:column;align-items:center}
+.btn-pri,.btn-sec{width:100%;max-width:320px;text-align:center;font-size:16px;padding:14px 24px}
+.stats-grid{grid-template-columns:repeat(2,1fr);gap:0}
+.stat-item{border-right:1px solid rgba(255,255,255,.2);border-bottom:1px solid rgba(255,255,255,.2);padding:20px 8px}
+.stat-item:nth-child(2){border-right:none}
+.stat-item:nth-child(3){border-right:1px solid rgba(255,255,255,.2);border-bottom:none}
+.stat-item:last-child{border-right:none;border-bottom:none}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU SETUP NC -->
+<div id="setup-band">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hd">
+  <a href="#hero" class="hd-logo">Cap<span>rio</span></a>
+  <nav>
+    <ul class="hd-nav">
+      <li><a href="#categories">Catégories</a></li>
+      <li><a href="#promos">Promos</a></li>
+      <li><a href="#bestsellers">Bestsellers</a></li>
+      <li><a href="#infos">Horaires</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="hd-right">
+    <a href="tel:272026" class="hd-tel">☎ 27.20.26</a>
+    <a href="#contact" class="hd-cta">Nous contacter</a>
+    <div class="hbg" id="hbg" aria-label="Menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+<nav class="mob-nav" id="mob-nav">
+  <a href="#categories" onclick="closeMob()">Catégories</a>
+  <a href="#promos" onclick="closeMob()">Promos</a>
+  <a href="#bestsellers" onclick="closeMob()">Bestsellers</a>
+  <a href="#infos" onclick="closeMob()">Horaires</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="tel:272026" style="color:#ffd500">☎ 27.20.26</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-ov"></div>
+  <div class="hero-body">
+    <span class="hero-badge">🏪 Centre-ville de Nouméa</span>
+    <h1 class="h1">Les meilleures<br>chaussures à <em>Nouméa</em></h1>
+    <p class="hero-sub">Toutes les marques populaires pour toute la famille<br>30 Rue d'Austerlitz — Prix accessibles, qualité garantie</p>
+    <div class="hero-btns">
+      <a href="#categories" class="btn-pri">Voir les collections</a>
+      <a href="#promos" class="btn-sec">Offres du moment</a>
+    </div>
+  </div>
+  <div class="hero-line"></div>
+  <div class="scroll-ind">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<section class="stats" id="stats">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <span class="stat-num" data-target="500">0</span>
+      <p class="stat-lbl">Modèles disponibles</p>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="20">0</span>
+      <p class="stat-lbl">Marques populaires</p>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="30">0</span>
+      <p class="stat-lbl">Ans de présence à Nouméa</p>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="4">0</span>
+      <p class="stat-lbl">⭐ Note Google / 5</p>
+    </div>
+  </div>
+</section>
+
+<script>
+var hbg=document.getElementById('hbg'),mn=document.getElementById('mob-nav');
+function closeMob(){mn.classList.remove('open')}
+hbg.addEventListener('click',function(){mn.classList.toggle('open')});
+var nums=document.querySelectorAll('.stat-num');
+var io=new IntersectionObserver(function(e){
+e.forEach(function(n){
+if(n.isIntersecting){
+var el=n.target,t=+el.dataset.target,d=1200,s=30,st=Math.ceil(d/s),i=0;
+var tm=setInterval(function(){
+i++;el.textContent=Math.round(t*(i/st));
+if(i>=st){el.textContent=t;clearInterval(tm)}
+},s);
+io.unobserve(el);
+}
+});
+},{threshold:.3});
+nums.forEach(function(n){io.observe(n)});
+</script>
+<style>
+/* PART 2 CSS */
+.s{padding:72px 0}
+.s-alt{background:#f4f6fb}
+.s-inner{max-width:1100px;margin:0 auto;padding:0 24px}
+.s-title{font-size:clamp(30px,5vw,48px);font-weight:900;text-transform:uppercase;color:var(--cp);letter-spacing:1px;margin-bottom:8px}
+.s-title span{color:var(--cs)}
+.s-sub{font-size:17px;color:#555;margin-bottom:40px;font-weight:600}
+.tag-line{display:inline-block;background:var(--cs);color:#fff;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:4px 14px;border-radius:2px;margin-bottom:12px}
+
+/* CATEGORIES */
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cat-card{position:relative;overflow:hidden;border-radius:4px;min-height:200px;cursor:pointer;display:flex;align-items:flex-end}
+.cat-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.cat-card:hover img{transform:scale(1.06)}
+.cat-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,58,140,.85) 0%,rgba(26,58,140,.2) 60%)}
+.cat-info{position:relative;z-index:2;padding:20px 16px;width:100%}
+.cat-info h3{font-size:24px;font-weight:900;color:#fff;text-transform:uppercase;letter-spacing:1px}
+.cat-info p{font-size:13px;color:rgba(255,255,255,.8);font-weight:600;margin-top:2px}
+.cat-card.big{grid-row:span 2;min-height:416px}
+.cat-card.blue .cat-ov{background:linear-gradient(to top,rgba(26,58,140,.88) 0%,rgba(26,58,140,.2) 60%)}
+.cat-card.red .cat-ov{background:linear-gradient(to top,rgba(232,35,26,.85) 0%,rgba(232,35,26,.2) 60%)}
+.cat-card.green .cat-ov{background:linear-gradient(to top,rgba(45,179,74,.85) 0%,rgba(45,179,74,.2) 60%)}
+
+/* PROMOS */
+.promo-band{background:var(--cs);padding:18px 24px;display:flex;align-items:center;justify-content:space-between;border-radius:4px;margin-bottom:32px;flex-wrap:wrap;gap:12px}
+.promo-band p{color:#fff;font-size:20px;font-weight:800;text-transform:uppercase;letter-spacing:.5px}
+.promo-band span{background:#ffd500;color:var(--ct);font-size:13px;font-weight:700;padding:6px 16px;border-radius:2px;text-transform:uppercase;letter-spacing:.5px}
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.prod-card{background:#fff;border-radius:4px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.08);transition:transform .25s,box-shadow .25s;position:relative}
+.prod-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.14)}
+.prod-img{width:100%;height:180px;object-fit:cover;display:block}
+.prod-badge{position:absolute;top:10px;right:10px;background:var(--cs);color:#fff;font-size:12px;font-weight:800;padding:4px 10px;border-radius:2px;text-transform:uppercase;animation:pulse-badge 3s ease-in-out infinite}
+.prod-badge.green{background:var(--ca)}
+.prod-body{padding:14px}
+.prod-name{font-size:16px;font-weight:800;color:var(--ct);text-transform:uppercase;margin-bottom:4px}
+.prod-cat{font-size:12px;color:#888;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+.prod-price{font-size:22px;font-weight:900;color:var(--cs)}
+.prod-price-old{font-size:14px;color:#aaa;text-decoration:line-through;margin-left:6px;font-weight:600}
+.prod-cta{display:block;width:100%;background:var(--cp);color:#fff;font-family:var(--ff);font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:11px 8px;border:none;border-radius:3px;cursor:pointer;margin-top:12px;transition:opacity .2s}
+.prod-cta:hover{opacity:.85}
+
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.svc-card{background:#fff;border-radius:4px;padding:32px 24px;box-shadow:0 2px 16px rgba(0,0,0,.07);border-top:4px solid var(--cp);text-align:center;transition:transform .25s}
+.svc-card:hover{transform:translateY(-4px)}
+.svc-icon{width:56px;height:56px;background:var(--cp);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.svc-icon svg{width:28px;height:28px}
+.svc-h{font-size:20px;font-weight:800;color:var(--cp);text-transform:uppercase;margin-bottom:8px}
+.svc-p{font-size:15px;color:#555;font-weight:500;line-height:1.5}
+
+/* METIER */
+.metier-row{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:64px}
+.metier-row:last-child{margin-bottom:0}
+.metier-row.rev{direction:rtl}
+.metier-row.rev>*{direction:ltr}
+.metier-img{border-radius:4px;overflow:hidden;height:340px}
+.metier-img img{width:100%;height:100%;object-fit:cover}
+.metier-tag{display:inline-block;background:var(--ca);color:#fff;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:4px 12px;border-radius:2px;margin-bottom:12px}
+.metier-h{font-size:clamp(26px,4vw,38px);font-weight:900;color:var(--cp);text-transform:uppercase;line-height:1.1;margin-bottom:14px}
+.metier-p{font-size:16px;color:#444;line-height:1.6;margin-bottom:20px;font-weight:500}
+.check-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.check-list li{display:flex;align-items:flex-start;gap:10px;font-size:15px;font-weight:600;color:var(--ct)}
+.check-list li::before{content:'✔';color:var(--ca);font-size:16px;flex-shrink:0;margin-top:1px}
+
+/* GALERIE */
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.gal-item{overflow:hidden;border-radius:3px;cursor:pointer;aspect-ratio:1}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.gal-item:hover img{transform:scale(1.07)}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:88vh;border-radius:4px;object-fit:contain}
+.lb-close{position:absolute;top:20px;right:24px;color:#fff;font-size:36px;cursor:pointer;font-weight:700;line-height:1;opacity:.8;transition:opacity .2s}
+.lb-close:hover{opacity:1}
+
+/* FORMULAIRE */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f-full{grid-column:1/-1}
+.f-field{display:flex;flex-direction:column;gap:6px}
+.f-label{font-size:13px;font-weight:700;color:var(--cp);text-transform:uppercase;letter-spacing:.5px}
+.f-input{font-family:var(--ff);font-size:16px;padding:13px 16px;border:2px solid #ddd;border-radius:3px;color:var(--ct);background:#fff;transition:border-color .2s;width:100%}
+.f-input:focus{outline:none;border-color:var(--cp)}
+.f-input.err{border-color:var(--cs)}
+textarea.f-input{resize:vertical;min-height:120px}
+.f-submit{background:var(--cp);color:#fff;font-family:var(--ff);font-size:18px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;padding:16px 40px;border:none;border-radius:3px;cursor:pointer;transition:opacity .2s;display:flex;align-items:center;gap:10px;justify-content:center}
+.f-submit:hover{opacity:.87}
+.f-ok{display:none;background:#eafaf0;border:2px solid var(--ca);border-radius:4px;padding:20px 24px;text-align:center;margin-top:16px}
+.f-ok p{color:var(--ca);font-size:18px;font-weight:800;text-transform:uppercase}
+.loader{display:none;width:20px;height:20px;border:3px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* PREUVE SOCIALE */
+.stars{color:#ffd500;font-size:28px;letter-spacing:2px;margin-bottom:8px}
+.rating-big{font-size:64px;font-weight:900;color:var(--cp);line-height:1}
+.rating-lbl{font-size:15px;color:#666;font-weight:600;margin-top:4px}
+.rating-box{text-align:center;padding:32px;background:#fff;border-radius:4px;box-shadow:0 2px 16px rgba(0,0,0,.07);border-top:4px solid #ffd500}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.rev-card{background:#fff;border-radius:4px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.07)}
+.rev-stars{color:#ffd500;font-size:16px;margin-bottom:8px}
+.rev-text{font-size:15px;color:#444;line-height:1.5;font-weight:500;margin-bottom:14px;font-style:italic}
+.rev-name{font-size:14px;font-weight:800;color:var(--cp);text-transform:uppercase}
+.badges-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:32px}
+.bdg{display:flex;align-items:center;gap:10px;background:#fff;border:2px solid #e8e8e8;border-radius:4px;padding:12px 20px;font-size:14px;font-weight:700;color:var(--ct)}
+.bdg svg{flex-shrink:0}
+
+/* HORAIRES */
+.hor-table{width:100%;border-collapse:collapse}
+.hor-table tr{border-bottom:1px solid #eee}
+.hor-table td{padding:12px 0;font-size:16px;font-weight:600}
+.hor-table td:last-child{text-align:right;color:var(--cp);font-weight:800}
+.hor-today{background:#fff8e1}
+.hor-today td{color:var(--cs) !important}
+.hor-closed td:last-child{color:#aaa !important}
+.hor-alert{background:var(--cs);color:#fff;padding:14px 20px;border-radius:3px;font-size:15px;font-weight:700;text-align:center;margin-top:16px}
+.map-link{display:inline-flex;align-items:center;gap:8px;background:var(--cp);color:#fff;font-family:var(--ff);font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:13px 24px;border-radius:3px;margin-top:20px;transition:opacity .2s}
+.map-link:hover{opacity:.85}
+
+/* FOOTER */
+.ft{background:var(--cp);padding:56px 0 0;color:rgba(255,255,255,.85)}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;max-width:1100px;margin:0 auto;padding:0 24px}
+.ft-logo{font-size:36px;font-weight:900;color:#fff;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.ft-logo span{color:var(--cs)}
+.ft-p{font-size:14px;line-height:1.7;color:rgba(255,255,255,.7);margin-bottom:16px}
+.ft-tel{color:#ffd500;font-size:18px;font-weight:800;display:inline-flex;align-items:center;gap:6px}
+.ft-tel:hover{opacity:.85}
+.ft-h{font-size:14px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;border-bottom:2px solid var(--cs);padding-bottom:8px}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-links a{font-size:14px;color:rgba(255,255,255,.7);font-weight:600;transition:color .2s}
+.ft-links a:hover{color:#ffd500}
+.ft-soc{display:flex;gap:12px;margin-top:16px}
+.ft-soc a{width:40px;height:40px;background:rgba(255,255,255,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.ft-soc a:hover{background:var(--cs)}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.15);margin-top:40px;padding:20px 24px;max-width:1100px;margin-left:auto;margin-right:auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:gap;gap:8px}
+.ft-copy{font-size:13px;color:rgba(255,255,255,.5)}
+.ft-setup{font-size:13px;color:rgba(255,255,255,.5)}
+.ft-setup a{color:rgba(255,255,255,.7);font-weight:700;transition:color .2s}
+.ft-setup a:hover{color:#ffd500}
+
+/* INFO PRATIQUES layout */
+.infos-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+
+@media(max-width:900px){
+.cat-grid{grid-template-columns:1fr 1fr}
+.cat-card.big{grid-row:auto;min-height:200px}
+.prod-grid{grid-template-columns:repeat(2,1fr)}
+.svc-grid{grid-template-columns:1fr 1fr}
+.metier-row{grid-template-columns:1fr;gap:24px}
+.metier-row.rev{direction:ltr}
+.metier-img{height:260px}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.form-grid{grid-template-columns:1fr}
+.reviews-grid{grid-template-columns:1fr 1fr}
+.infos-grid{grid-template-columns:1fr}
+.ft-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+.s{padding:48px 0}
+.s-inner{padding:0 16px}
+.cat-grid{grid-template-columns:1fr}
+.cat-card.big{min-height:220px}
+.prod-grid{grid-template-columns:1fr 1fr;gap:10px}
+.prod-img{height:140px}
+.svc-grid{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.reviews-grid{grid-template-columns:1fr}
+.badges-row{flex-direction:column}
+.ft-grid{grid-template-columns:1fr}
+.ft-bottom{flex-direction:column;text-align:center}
+.f-submit{width:100%;font-size:16px}
+}
+</style>
+
+<!-- CATÉGORIES -->
+<section class="s s-alt" id="categories">
+  <div class="s-inner">
+    <span class="tag-line">Collections</span>
+    <h2 class="s-title">Nos <span>catégories</span></h2>
+    <p class="s-sub">Pour toute la famille, à prix accessibles au centre-ville de Nouméa</p>
+    <div class="cat-grid">
+      <div class="cat-card big blue">
+        <img src="https://i.ibb.co/tpJd2yzg/Caprio-1.jpg" alt="Chaussures Hommes" loading="lazy">
+        <div class="cat-ov"></div>
+        <div class="cat-info">
+          <h3>Hommes</h3>
+          <p>Sport, ville &amp; soirée</p>
+        </div>
+      </div>
+      <div class="cat-card red">
+        <img src="https://i.ibb.co/0R0yqJg0/Caprio-2.jpg" alt="Chaussures Femmes" loading="lazy">
+        <div class="cat-ov"></div>
+        <div class="cat-info">
+          <h3>Femmes</h3>
+          <p>Tendances &amp; confort</p>
+        </div>
+      </div>
+      <div class="cat-card green">
+        <img src="https://i.ibb.co/LzkLW4ph/Caprio-3.jpg" alt="Chaussures Enfants" loading="lazy">
+        <div class="cat-ov"></div>
+        <div class="cat-info">
+          <h3>Enfants</h3>
+          <p>Résistantes &amp; colorées</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMOTIONS -->
+<section class="s" id="promos">
+  <div class="s-inner">
+    <div class="promo-band">
+      <p>🔥 Offres du moment — Promotions en cours</p>
+      <span>Jusqu'à -30%</span>
+    </div>
+    <div class="prod-grid">
+      <div class="prod-card">
+        <img class="prod-img" src="https://i.ibb.co/tpJd2yzg/Caprio-1.jpg" alt="Sneakers Hommes" loading="lazy">
+        <span class="prod-badge">-20%</span>
+        <div class="prod-body">
+          <p class="prod-cat">Homme</p>
+          <p class="prod-name">Sneakers Urbains</p>
+          <div><span class="prod-price">5 990 F</span><span class="prod-price-old">7 490 F</span></div>
+          <button class="prod-cta">Voir en boutique</button>
+        </div>
+      </div>
+      <div class="prod-card">
+        <img class="prod-img" src="https://i.ibb.co/0R0yqJg0/Caprio-2.jpg" alt="Sandales Femmes" loading="lazy">
+        <span class="prod-badge">-30%</span>
+        <div class="prod-body">
+          <p class="prod-cat">Femme</p>
+          <p class="prod-name">Sandales Été</p>
+          <div><span class="prod-price">3 490 F</span><span class="prod-price-old">4 990 F</span></div>
+          <button class="prod-cta">Voir en boutique</button>
+        </div>
+      </div>
+      <div class="prod-card">
+        <img class="prod-img" src="https://i.ibb.co/LzkLW4ph/Caprio-3.jpg" alt="Baskets Enfants" loading="lazy">
+        <span class="prod-badge green">En stock</span>
+        <div class="prod-body">
+          <p class="prod-cat">Enfant</p>
+          <p class="prod-name">Baskets Sport</p>
+          <div><span class="prod-price">4 290 F</span></div>
+          <button class="prod-cta">Voir en boutique</button>
+        </div>
+      </div>
+      <div class="prod-card">
+        <img class="prod-img" src="https://i.ibb.co/mFR59dsr/Caprio-0.jpg" alt="Chaussures ville" loading="lazy">
+        <span class="prod-badge">-15%</span>
+        <div class="prod-body">
+          <p class="prod-cat">Homme / Femme</p>
+          <p class="prod-name">Chaussures Ville</p>
+          <div><span class="prod-price">6 790 F</span><span class="prod-price-old">7 990 F</span></div>
+          <button class="prod-cta">Voir en boutique</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="s s-alt" id="services">
+  <div class="s-inner">
+    <span class="tag-line">Pourquoi Caprio</span>
+    <h2 class="s-title">Un commerce <span>au service</span> de tous</h2>
+    <p class="s-sub">Accessibilité, choix et accueil chaleureux au cœur de Nouméa</p>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        </div>
+        <h3 class="svc-h">En plein centre-ville</h3>
+        <p class="svc-p">Situé au 30 Rue d'Austerlitz, Caprio est facilement accessible à pied depuis tout le quartier commerçant de Nouméa.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="12.01"/></svg>
+        </div>
+        <h3 class="svc-h">Prix abordables</h3>
+        <p class="svc-p">Des chaussures de qualité à des prix accessibles pour tous les budgets — des enfants aux adultes, sans compromis sur le style.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3 class="svc-h">Pour toute la famille</h3>
+        <p class="svc-p">Hommes, femmes, enfants — toute la famille trouve chaussure à son pied chez Caprio, avec des collections renouvelées régulièrement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s" id="metier">
+  <div class="s-inner">
+    <span class="tag-line">Notre histoire</span>
+    <h2 class="s-title">Caprio, <span>l'adresse chaussures</span> de Nouméa</h2>
+    <p class="s-sub">Un commerce populaire, ancré dans le quotidien des Nouméens</p>
+    <div class="metier-row">
+      <div class="metier-img">
+        <img src="https://i.ibb.co/tpJd2yzg/Caprio-1.jpg" alt="Boutique Caprio Nouméa" loading="lazy">
+      </div>
+      <div>
+        <span class="metier-tag">Notre engagement</span>
+        <h3 class="metier-h">Des chaussures pour chaque occasion</h3>
+        <p class="metier-p">Depuis son implantation rue d'Austerlitz, Caprio s'est imposée comme la référence chaussures du centre-ville de Nouméa. Sport, sortie, école ou travail — chaque paire est choisie pour correspondre à la vie calédonienne.</p>
+        <ul class="check-list">
+          <li>Large choix de modèles pour hommes, femmes et enfants</li>
+          <li>Marques populaires à prix accessibles</li>
+          <li>Renouvellement régulier des collections</li>
+          <li>Accueil convivial et conseils personnalisés</li>
+        </ul>
+      </div>
+    </div>
+    <div class="metier-row rev">
+      <div class="metier-img">
+        <img src="https://i.ibb.co/0R0yqJg0/Caprio-2.jpg" alt="Sélection Caprio" loading="lazy">
+      </div>
+      <div>
+        <span class="metier-tag">Notre sélection</span>
+        <h3 class="metier-h">Le style urbain, accessible à tous</h3>
+        <p class="metier-p">Caprio, c'est l'énergie du commerce de rue calédonien : une façade vive, une signalétique claire, et surtout des produits qui répondent aux attentes d'une clientèle pluriculturelle et exigeante.</p>
+        <ul class="check-list">
+          <li>Sneakers, sandales, chaussures de ville et de sport</li>
+          <li>Toutes les pointures disponibles en boutique</li>
+          <li>Promotions régulières toute l'année</li>
+          <li>Idéal pour un budget maîtrisé en famille</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s s-alt" id="galerie">
+  <div class="s-inner">
+    <span class="tag-line">Galerie</span>
+    <h2 class="s-title">Caprio <span>en images</span></h2>
+    <p class="s-sub">Découvrez l'ambiance de notre boutique du centre-ville</p>
+    <div class="gal-grid">
+      <div class="gal-item" onclick="openLb('https://i.ibb.co/mFR59dsr/Caprio-0.jpg')">
+        <img src="https://i.ibb.co/mFR59dsr/Caprio-0.jpg" alt="Caprio Nouméa" loading="lazy">
+      </div>
+      <div class="gal-item" onclick="openLb('https://i.ibb.co/tpJd2yzg/Caprio-1.jpg')">
+        <img src="https://i.ibb.co/tpJd2yzg/Caprio-1.jpg" alt="Caprio collection" loading="lazy">
+      </div>
+      <div class="gal-item" onclick="openLb('https://i.ibb.co/0R0yqJg0/Caprio-2.jpg')">
+        <img src="https://i.ibb.co/0R0yqJg0/Caprio-2.jpg" alt="Caprio boutique" loading="lazy">
+      </div>
+      <div class="gal-item" onclick="openLb('https://i.ibb.co/LzkLW4ph/Caprio-3.jpg')">
+        <img src="https://i.ibb.co/LzkLW4ph/Caprio-3.jpg" alt="Caprio chaussures" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+<div class="lightbox" id="lb" onclick="closeLb()">
+  <span class="lb-close" onclick="closeLb()">✕</span>
+  <img class="lb-img" id="lb-img" src="" alt="Photo agrandie">
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section class="s" id="avis">
+  <div class="s-inner">
+    <span class="tag-line">Avis clients</span>
+    <h2 class="s-title">Ce que disent <span>nos clients</span></h2>
+    <p class="s-sub">4 avis Google — Une clientèle satisfaite au cœur de Nouméa</p>
+    <div class="rating-box" style="max-width:320px">
+      <div class="stars">★★★★☆</div>
+      <div class="rating-big">4<span style="font-size:32px;color:#aaa">/5</span></div>
+      <p class="rating-lbl">Note moyenne sur Google</p>
+      <p class="rating-lbl">Basé sur 4 avis vérifiés</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Super boutique, grand choix pour toute la famille et des prix vraiment accessibles. Je reviendrai !"</p>
+        <p class="rev-name">Marie T. — Nouméa</p>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★☆</div>
+        <p class="rev-text">"Bien situé en centre-ville, bon accueil. J'ai trouvé des chaussures de sport pour mes enfants à bon prix."</p>
+        <p class="rev-name">Patrice M. — Nouméa</p>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"L'adresse incontournable pour les chaussures à Nouméa. Vendeurs sympas, magasin bien achalandé."</p>
+        <p class="rev-name">Sophie K. — Nouméa</p>
+      </div>
+    </div>
+    <div class="badges-row">
+      <div class="bdg">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2DB34A" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Commerce de confiance à Nouméa
+      </div>
+      <div class="bdg">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A3A8C" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Ouvert 6 jours sur 7
+      </div>
+      <div class="bdg">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8231A" stroke-width="2.2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        Chaussures pour toute la famille
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HORAIRES & CONTACT -->
+<section class="s s-alt" id="infos">
+  <div class="s-inner">
+    <span class="tag-line">Infos pratiques</span>
+    <h2 class="s-title">Horaires &amp; <span>accès</span></h2>
+    <p class="s-sub">Venez nous rendre visite au 30 Rue d'Austerlitz, Nouméa</p>
+    <div class="infos-grid">
+      <div>
+        <table class="hor-table">
+          <tr><td>Lundi</td><td>8h00 – 19h00</td></tr>
+          <tr><td>Mardi</td><td>8h00 – 19h00</td></tr>
+          <tr><td>Mercredi</td><td>8h00 – 19h00</td></tr>
+          <tr><td>Jeudi</td><td>8h00 – 19h00</td></tr>
+          <tr><td>Vendredi</td><td>8h00 – 19h00</td></tr>
+          <tr><td>Samedi</td><td>8h00 – 18h00</td></tr>
+          <tr class="hor-closed"><td>Dimanche</td><td>Fermé</td></tr>
+        </table>
+        <p class="hor-alert">⏰ Visitez-nous jusqu'à 19h aujourd'hui !</p>
+        <a href="https://www.google.com/maps/search/30+Rue+d'Austerlitz+Noumea" target="_blank" rel="noopener" class="map-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          Voir sur la carte
+        </a>
+      </div>
+      <div id="contact">
+        <h3 class="s-title" style="font-size:26px;margin-bottom:8px">Envoyez-nous <span>un message</span></h3>
+        <p class="s-sub" style="margin-bottom:20px">Nous vous répondons rapidement</p>
+        <form id="cform" action="#" novalidate>
+          <div class="form-grid">
+            <div class="f-field">
+              <label class="f-label" for="fn">Nom</label>
+              <input class="f-input" id="fn" name="nom" type="text" placeholder="Votre nom" autocomplete="name">
+            </div>
+            <div class="f-field">
+              <label class="f-label" for="fe">Email</label>
+              <input class="f-input" id="fe" name="email" type="email" placeholder="votre@email.com" autocomplete="email">
+            </div>
+            <div class="f-field">
+              <label class="f-label" for="ft">Téléphone</label>
+              <input class="f-input" id="ft" name="tel" type="tel" placeholder="XX.XX.XX" autocomplete="tel">
+            </div>
+            <div class="f-field f-full">
+              <label class="f-label" for="fm">Message</label>
+              <textarea class="f-input" id="fm" name="message" placeholder="Votre question ou demande…"></textarea>
+            </div>
+            <div class="f-field f-full">
+              <button class="f-submit" type="submit" id="fsub">
+                <span id="fsub-txt">Envoyer le message</span>
+                <span class="loader" id="floader"></span>
+              </button>
+            </div>
+          </div>
+        </form>
+        <div class="f-ok" id="fok">
+          <p>✔ Message envoyé — Merci, nous vous répondrons très vite !</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ft" id="footer">
+  <div class="ft-grid">
+    <div>
+      <div class="ft-logo">Cap<span>rio</span></div>
+      <p class="ft-p">Votre magasin de chaussures en plein centre-ville de Nouméa. Toutes les marques populaires pour toute la famille, à prix accessibles.</p>
+      <p class="ft-p">📍 30 Rue d'Austerlitz, Nouméa 98800, Nouvelle-Calédonie</p>
+      <a href="tel:272026" class="ft-tel">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .82h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        27.20.26
+      </a>
+      <div class="ft-soc">
+        <a href="https://www.facebook.com/photo.php" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <p class="ft-h">Navigation</p>
+      <ul class="ft-links">
+        <li><a href="#categories">Catégories</a></li>
+        <li><a href="#promos">Promotions</a></li>
+        <li><a href="#bestsellers">Bestsellers</a></li>
+        <li><a href="#avis">Avis clients</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="ft-h">Horaires</p>
+      <ul class="ft-links">
+        <li>Lun – Ven : 8h – 19h</li>
+        <li>Samedi : 8h – 18h</li>
+        <li>Dimanche : Fermé</li>
+      </ul>
+      <p class="ft-h" style="margin-top:24px">Adresse</p>
+      <ul class="ft-links">
+        <li>30 Rue d'Austerlitz</li>
+        <li>Nouméa 98800</li>
+        <li>Nouvelle-Calédonie</li>
+        <li><a href="tel:272026">☎ 27.20.26</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <p class="ft-copy">© 2026 Caprio. Tous droits réservés.</p>
+    <p class="ft-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+  </div>
+</footer>
+
+<script>
+var hbg=document.getElementById('hbg'),mn=document.getElementById('mob-nav');
+function closeMob(){mn.classList.remove('open')}
+if(hbg&&mn){hbg.addEventListener('click',function(){mn.classList.toggle('open')})}
+
+function openLb(src){var lb=document.getElementById('lb'),img=document.getElementById('lb-img');img.src=src;lb.classList.add('open');document.body.style.overflow='hidden'}
+function closeLb(){document.getElementById('lb').classList.remove('open');document.getElementById('lb-img').src='';document.body.style.overflow=''}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
+
+var cf=document.getElementById('cform');
+if(cf){
+cf.addEventListener('submit',function(e){
+e.preventDefault();
+var ok=true;
+var fn=document.getElementById('fn'),fe=document.getElementById('fe'),fm=document.getElementById('fm');
+[fn,fe,fm].forEach(function(f){f.classList.remove('err')});
+if(!fn.value.trim()){fn.classList.add('err');ok=false}
+if(!fe.value.trim()||!fe.value.includes('@')){fe.classList.add('err');ok=false}
+if(!fm.value.trim()){fm.classList.add('err');ok=false}
+if(!ok)return;
+var txt=document.getElementById('fsub-txt'),ld=document.getElementById('floader');
+txt.textContent='Envoi…';ld.style.display='inline-block';
+setTimeout(function(){
+cf.style.display='none';
+document.getElementById('fok').style.display='block';
+},1400);
+});
+}
+
+var nums=document.querySelectorAll('.stat-num');
+if(nums.length&&window.IntersectionObserver){
+var io=new IntersectionObserver(function(e){
+e.forEach(function(n){
+if(n.isIntersecting){
+var el=n.target,t=+el.dataset.target,st=40,i=0;
+var tm=setInterval(function(){i++;el.textContent=Math.round(t*(i/st));if(i>=st){el.textContent=t;clearInterval(tm)}},30);
+io.unobserve(el);
+}});
+},{threshold:.3});
+nums.forEach(function(n){io.observe(n)});
+}
+</script>
+</body>
+</html>
