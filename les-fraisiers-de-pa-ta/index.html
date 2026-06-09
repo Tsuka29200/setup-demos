@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Les Fraisiers de Païta — Païta</title>
+<meta name="description" content="Fraises fraîches cueillies chaque matin à Païta, Nouvelle-Calédonie. Vente directe producteur : fraises rouges, confitures maison, plants. Plaine de la gendarmerie, Rt1.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#C8102E;
+--cs:#4A7C3F;
+--ca:#E8A020;
+--cb:#F5F0EB;
+--ct:#2A1A1A;
+--cw:#FFFFFF;
+--shadow:0 8px 32px rgba(42,26,26,.13);
+--rad:12px;
+--trans:300ms ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:var(--cb);color:var(--ct);overflow-x:hidden;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU SETUP NC */
+.setup-bar{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;display:flex;align-items:center;justify-content:center}
+.setup-bar a{font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;line-height:44px;letter-spacing:.3px;color:#4375ff;text-align:center}
+.setup-bar a:hover{opacity:.85}
+
+/* HEADER */
+.hdr{position:sticky;top:44px;z-index:1000;background:var(--cw);box-shadow:0 2px 16px rgba(42,26,26,.1);padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.hdr-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:1.25rem;color:var(--cp);letter-spacing:-.5px;line-height:1.2}
+.hdr-logo span{color:var(--cs);display:block;font-size:.7rem;font-family:'Poppins',sans-serif;font-weight:500;letter-spacing:1px;text-transform:uppercase}
+.hdr-nav{display:flex;align-items:center;gap:24px}
+.hdr-nav a{font-size:.85rem;font-weight:500;color:var(--ct);transition:color var(--trans)}
+.hdr-nav a:hover{color:var(--cp)}
+.hdr-cta{background:var(--cp);color:var(--cw);font-size:.82rem;font-weight:600;padding:10px 20px;border-radius:50px;transition:background var(--trans),transform var(--trans)}
+.hdr-cta:hover{background:#a50d25;transform:translateY(-1px)}
+.hdr-ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
+.hdr-ham span{width:24px;height:2px;background:var(--ct);border-radius:2px;transition:var(--trans)}
+.mob-nav{display:none;position:fixed;top:108px;left:0;width:100%;background:var(--cw);box-shadow:var(--shadow);z-index:999;padding:20px 24px;flex-direction:column;gap:16px}
+.mob-nav.open{display:flex}
+.mob-nav a{font-size:1rem;font-weight:500;padding:8px 0;border-bottom:1px solid rgba(42,26,26,.07)}
+.mob-nav .hdr-cta{text-align:center;border-bottom:none;padding:14px}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;background:url('https://i.ibb.co/mrHS01Sd/Les-Fraisiers-de-Pa-ta-0.jpg') center/cover no-repeat;padding-top:0}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(42,26,26,.78) 0%,rgba(200,16,46,.35) 60%,rgba(42,26,26,.2) 100%)}
+.hero-inner{position:relative;z-index:2;max-width:720px;padding:0 24px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--cs);color:var(--cw);font-size:.75rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px;border-radius:50px;margin-bottom:20px}
+.hero-badge::before{content:'🌱';font-size:.9rem}
+.hero h1{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2.2rem,6vw,4rem);color:var(--cw);line-height:1.15;margin-bottom:16px}
+.hero h1 em{color:var(--ca);font-style:normal}
+.hero-sub{font-size:clamp(.95rem,2.5vw,1.15rem);color:rgba(255,255,255,.88);max-width:520px;margin-bottom:32px;font-weight:300}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:40px}
+.btn-p{background:var(--cp);color:var(--cw);font-size:.95rem;font-weight:600;padding:14px 28px;border-radius:50px;transition:background var(--trans),transform var(--trans);min-height:48px;display:inline-flex;align-items:center;gap:8px}
+.btn-p:hover{background:#a50d25;transform:translateY(-2px)}
+.btn-o{background:transparent;color:var(--cw);font-size:.95rem;font-weight:600;padding:13px 28px;border-radius:50px;border:2px solid rgba(255,255,255,.7);transition:background var(--trans),transform var(--trans);min-height:48px;display:inline-flex;align-items:center;gap:8px}
+.btn-o:hover{background:rgba(255,255,255,.15);transform:translateY(-2px)}
+.hero-urgency{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.85);font-size:.82rem}
+.pulse-dot{width:10px;height:10px;background:var(--cp);border-radius:50%;animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(200,16,46,.7)}70%{box-shadow:0 0 0 10px rgba(200,16,46,0)}}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.7);font-size:.72rem;letter-spacing:1px;text-transform:uppercase}
+.scroll-arr{width:24px;height:24px;border-right:2px solid rgba(255,255,255,.7);border-bottom:2px solid rgba(255,255,255,.7);transform:rotate(45deg);animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(6px)}}
+
+/* BANDE PROMO URGENCE */
+.promo-strip{background:var(--cp);overflow:hidden;height:44px;display:flex;align-items:center}
+.promo-strip-inner{display:flex;gap:48px;animation:marquee 20s linear infinite;white-space:nowrap}
+.promo-strip-inner span{color:var(--cw);font-size:.8rem;font-weight:600;letter-spacing:.5px;display:flex;align-items:center;gap:8px}
+.promo-strip-inner span::before{content:'🍓'}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* STATS BAND */
+.stats{background:var(--cp);padding:48px 24px}
+.stats-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stat{text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2rem,4vw,2.8rem);color:var(--cw);line-height:1;margin-bottom:6px}
+.stat-num span{color:var(--ca)}
+.stat-label{color:rgba(255,255,255,.85);font-size:.78rem;font-weight:500;letter-spacing:.5px;text-transform:uppercase}
+
+/* CATEGORIES */
+.s{padding:72px 24px}
+.s-inner{max-width:1100px;margin:0 auto}
+.s-tag{display:inline-block;background:var(--cs);color:var(--cw);font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:50px;margin-bottom:12px}
+.h{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(1.6rem,4vw,2.4rem);color:var(--ct);line-height:1.2;margin-bottom:8px}
+.h-sub{color:#6b5b5b;font-size:.95rem;font-weight:400;margin-bottom:40px;max-width:560px}
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.cat-card{position:relative;border-radius:var(--rad);overflow:hidden;aspect-ratio:4/3;cursor:pointer}
+.cat-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.cat-card:hover img{transform:scale(1.05)}
+.cat-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(42,26,26,.8) 0%,rgba(42,26,26,.1) 60%)}
+.cat-body{position:absolute;bottom:0;left:0;right:0;padding:20px 16px}
+.cat-badge{background:var(--cs);color:var(--cw);font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:50px;margin-bottom:8px;display:inline-block}
+.cat-name{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--cw);margin-bottom:4px}
+.cat-desc{color:rgba(255,255,255,.8);font-size:.75rem}
+
+/* PROMO */
+.promo-s{background:linear-gradient(135deg,#fff5f6 0%,#F5F0EB 100%);padding:72px 24px}
+.promo-head{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:40px}
+.promo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.p-card{background:var(--cw);border-radius:var(--rad);overflow:hidden;box-shadow:0 4px 20px rgba(42,26,26,.08);transition:transform var(--trans),box-shadow var(--trans);position:relative}
+.p-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(42,26,26,.15)}
+.p-img{height:200px;overflow:hidden;position:relative}
+.p-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.p-card:hover .p-img img{transform:scale(1.05)}
+.p-badge{position:absolute;top:12px;left:12px;background:var(--cp);color:var(--cw);font-size:.68rem;font-weight:700;padding:4px 10px;border-radius:50px;animation:badge-pulse 2s infinite}
+@keyframes badge-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+.p-fresh{position:absolute;top:12px;right:12px;background:var(--cs);color:var(--cw);font-size:.65rem;font-weight:700;padding:4px 10px;border-radius:50px}
+.p-body{padding:16px}
+.p-name{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;margin-bottom:4px}
+.p-desc{font-size:.78rem;color:#6b5b5b;margin-bottom:12px}
+.p-price{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.p-price-now{font-size:1.25rem;font-weight:700;color:var(--cp)}
+.p-price-old{font-size:.85rem;color:#aaa;text-decoration:line-through}
+.btn-acc{background:var(--ca);color:var(--ct);font-size:.82rem;font-weight:700;padding:10px 18px;border-radius:50px;border:none;cursor:pointer;transition:background var(--trans),transform var(--trans);width:100%;min-height:44px}
+.btn-acc:hover{background:#c8890a;transform:translateY(-1px)}
+
+/* BESTSELLERS */
+.best-s{padding:72px 24px;background:var(--cb)}
+.best-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px}
+.b-card{background:var(--cw);border-radius:var(--rad);overflow:hidden;box-shadow:0 4px 20px rgba(42,26,26,.07);transition:transform var(--trans),box-shadow var(--trans)}
+.b-card:hover{transform:translateY(-5px);box-shadow:0 10px 36px rgba(42,26,26,.14)}
+.b-img{height:160px;overflow:hidden;position:relative}
+.b-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.b-card:hover .b-img img{transform:scale(1.07)}
+.b-rank{position:absolute;top:10px;left:10px;background:var(--ca);color:var(--ct);font-size:.7rem;font-weight:700;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.b-body{padding:14px}
+.b-name{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;margin-bottom:4px}
+.b-quote{font-size:.72rem;color:#6b5b5b;font-style:italic;margin-bottom:10px;line-height:1.5}
+.b-author{font-size:.68rem;font-weight:600;color:var(--cs)}
+.b-cta{display:block;text-align:center;background:var(--cp);color:var(--cw);font-size:.78rem;font-weight:600;padding:9px;border-radius:8px;margin-top:12px;transition:background var(--trans)}
+.b-cta:hover{background:#a50d25}
+
+/* LIVRAISON */
+.liv-s{background:var(--cs);padding:64px 24px}
+.liv-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.liv-text .h{color:var(--cw)}
+.liv-text .h-sub{color:rgba(255,255,255,.85)}
+.liv-list{display:flex;flex-direction:column;gap:16px;margin-top:24px}
+.liv-item{display:flex;align-items:flex-start;gap:14px;color:var(--cw)}
+.liv-icon{width:40px;height:40px;background:rgba(255,255,255,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.liv-item-text strong{display:block;font-size:.9rem;font-weight:600;margin-bottom:2px}
+.liv-item-text span{font-size:.8rem;opacity:.85}
+.liv-card{background:var(--cw);border-radius:var(--rad);padding:32px;text-align:center;box-shadow:var(--shadow)}
+.liv-card-icon{font-size:3rem;margin-bottom:12px}
+.liv-card h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--ct);margin-bottom:8px}
+.liv-card p{font-size:.85rem;color:#6b5b5b;margin-bottom:20px}
+.btn-wa{background:#25D366;color:var(--cw);font-size:.9rem;font-weight:600;padding:13px 24px;border-radius:50px;display:inline-flex;align-items:center;gap:8px;transition:background var(--trans),transform var(--trans)}
+.btn-wa:hover{background:#1ebe5a;transform:translateY(-2px)}
+
+/* HORAIRES */
+.hor-s{padding:72px 24px;background:var(--cb)}
+.hor-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.hor-table{background:var(--cw);border-radius:var(--rad);padding:28px;box-shadow:var(--shadow)}
+.hor-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(42,26,26,.07)}
+.hor-row:last-child{border-bottom:none}
+.hor-day{font-weight:600;font-size:.9rem}
+.hor-time{font-size:.87rem;color:var(--cs);font-weight:600}
+.hor-closed{color:#ccc}
+.hor-today{background:rgba(200,16,46,.06);border-radius:8px;padding:12px 10px;margin:-2px -10px}
+.hor-today .hor-day{color:var(--cp)}
+.hor-map{background:var(--cw);border-radius:var(--rad);overflow:hidden;box-shadow:var(--shadow)}
+.hor-map-ph{height:240px;background:linear-gradient(135deg,#e8f4e8,#d4ecd4);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px}
+.hor-map-ph svg{opacity:.4}
+.hor-addr{padding:20px 24px}
+.hor-addr h4{font-family:'Playfair Display',serif;font-size:1.05rem;margin-bottom:8px}
+.hor-addr p{font-size:.82rem;color:#6b5b5b;line-height:1.7}
+
+/* AVIS */
+.avis-s{padding:72px 24px;background:linear-gradient(135deg,#fff8f0,var(--cb))}
+.avis-note{display:flex;align-items:center;gap:20px;background:var(--cw);border-radius:var(--rad);padding:24px 28px;box-shadow:var(--shadow);margin-bottom:40px;max-width:480px}
+.avis-score{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;color:var(--ca);line-height:1}
+.avis-stars{display:flex;gap:4px;margin-bottom:4px}
+.star{color:var(--ca);font-size:1.1rem}
+.star.empty{color:#ddd}
+.avis-count{font-size:.78rem;color:#6b5b5b}
+.avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.avis-card{background:var(--cw);border-radius:var(--rad);padding:20px;box-shadow:0 4px 16px rgba(42,26,26,.07)}
+.avis-top{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.avis-avatar{width:42px;height:42px;border-radius:50%;background:var(--cp);color:var(--cw);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex-shrink:0}
+.avis-name{font-weight:600;font-size:.88rem}
+.avis-date{font-size:.72rem;color:#aaa}
+.avis-text{font-size:.82rem;color:#5a4a4a;font-style:italic;line-height:1.6}
+.avis-stars-sm{display:flex;gap:2px;margin-bottom:6px}
+.star-sm{color:var(--ca);font-size:.8rem}
+
+/* FORMULAIRE */
+.form-s{padding:72px 24px;background:var(--ct)}
+.form-inner{max-width:640px;margin:0 auto;text-align:center}
+.form-inner .h{color:var(--cw)}
+.form-inner .h-sub{color:rgba(255,255,255,.75);text-align:center;margin:0 auto 32px}
+.f-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;text-align:left}
+.f-field{display:flex;flex-direction:column;gap:6px}
+.f-field.full{grid-column:1/-1}
+.f-label{font-size:.78rem;font-weight:600;color:rgba(255,255,255,.8);letter-spacing:.3px}
+.f-input{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.15);border-radius:8px;padding:12px 14px;font-size:.9rem;color:var(--cw);font-family:'Poppins',sans-serif;transition:border-color var(--trans);min-height:44px}
+.f-input:focus{outline:none;border-color:var(--ca)}
+.f-input::placeholder{color:rgba(255,255,255,.35)}
+textarea.f-input{resize:vertical;min-height:100px}
+.btn-submit{background:var(--ca);color:var(--ct);font-size:.95rem;font-weight:700;padding:14px 36px;border-radius:50px;border:none;cursor:pointer;margin-top:20px;transition:background var(--trans),transform var(--trans);min-height:48px;font-family:'Poppins',sans-serif}
+.btn-submit:hover{background:#c8890a;transform:translateY(-2px)}
+.form-success{display:none;background:var(--cs);color:var(--cw);padding:16px 20px;border-radius:var(--rad);font-weight:500;margin-top:16px}
+
+/* FOOTER */
+.footer{background:#1a0e0e;padding:48px 24px 24px}
+.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.ft-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:1.3rem;color:var(--cw);margin-bottom:10px}
+.ft-logo span{color:var(--ca)}
+.ft-desc{font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:16px}
+.ft-social{display:flex;gap:12px}
+.ft-soc-link{width:38px;height:38px;background:rgba(255,255,255,.08);border-radius:8px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.8);font-size:.85rem;transition:background var(--trans)}
+.ft-soc-link:hover{background:var(--cp)}
+.ft-col h4{font-size:.85rem;font-weight:700;color:var(--cw);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.ft-col li a{font-size:.82rem;color:rgba(255,255,255,.6);transition:color var(--trans)}
+.ft-col li a:hover{color:var(--ca)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:gap;gap:12px}
+.footer-bottom p{font-size:.75rem;color:rgba(255,255,255,.4)}
+.footer-bottom a{color:rgba(255,255,255,.6);transition:color var(--trans)}
+.footer-bottom a:hover{color:var(--ca)}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+.cat-grid{grid-template-columns:repeat(2,1fr)}
+.promo-grid{grid-template-columns:repeat(2,1fr)}
+.best-grid{grid-template-columns:repeat(2,1fr)}
+.liv-inner{grid-template-columns:1fr}
+.hor-inner{grid-template-columns:1fr}
+.avis-grid{grid-template-columns:repeat(2,1fr)}
+.footer-inner{grid-template-columns:1fr 1fr}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+.hdr-nav{display:none}
+.hdr-cta{display:none}
+.hdr-ham{display:flex}
+.cat-grid{grid-template-columns:1fr 1fr}
+.promo-grid{grid-template-columns:1fr}
+.best-grid{grid-template-columns:1fr 1fr}
+.avis-grid{grid-template-columns:1fr}
+.footer-inner{grid-template-columns:1fr}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.f-grid{grid-template-columns:1fr}
+.hero-actions{flex-direction:column}
+.btn-p,.btn-o{width:100%;justify-content:center}
+.liv-inner{gap:28px}
+.promo-head{flex-direction:column;align-items:flex-start}
+.setup-bar a{font-size:13px;line-height:40px}
+.setup-bar{height:40px}
+.hdr{top:40px}
+.mob-nav{top:104px}
+}
+@media(max-width:480px){
+.cat-grid{grid-template-columns:1fr}
+.best-grid{grid-template-columns:1fr}
+.s,.promo-s,.best-s,.hor-s,.avis-s,.form-s,.liv-s{padding:52px 16px}
+.stats{padding:36px 16px}
+.hdr{padding:0 16px}
+}
+
+/* FALLBACK ANIMATIONS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU SETUP NC -->
+<div class="setup-bar">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr">
+  <a href="#hero" class="hdr-logo">Les Fraisiers<span>de Païta — Producteur local</span></a>
+  <nav class="hdr-nav">
+    <a href="#categories">Nos produits</a>
+    <a href="#promos">Promos</a>
+    <a href="#horaires">Horaires</a>
+    <a href="#contact">Contact</a>
+    <a href="https://www.facebook.com/InfoFraisiersPaita" target="_blank" rel="noopener" class="hdr-cta">Facebook →</a>
+  </nav>
+  <div class="hdr-ham" id="ham" aria-label="Menu" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-nav" id="mobnav">
+  <a href="#categories" onclick="closeMob()">Nos produits</a>
+  <a href="#promos" onclick="closeMob()">Promos du moment</a>
+  <a href="#horaires" onclick="closeMob()">Horaires & adresse</a>
+  <a href="#contact" onclick="closeMob()">Nous contacter</a>
+  <a href="https://www.facebook.com/InfoFraisiersPaita" target="_blank" rel="noopener" class="hdr-cta">Voir notre Facebook →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">Producteur local — Plaine de la gendarmerie, Païta</div>
+    <h1>Fraises<br><em>fraîches du jour</em><br>directement du champ</h1>
+    <p class="hero-sub">Cueillies ce matin, rouges et juteuses. Viens nous rendre visite à Païta et repart avec le parfum sucré de la Calédonie dans ton panier.</p>
+    <div class="hero-actions">
+      <a href="#categories" class="btn-p">🍓 Voir nos produits</a>
+      <a href="#horaires" class="btn-o">📍 Où nous trouver</a>
+    </div>
+    <div class="hero-urgency">
+      <div class="pulse-dot"></div>
+      <span>Ouvert aujourd'hui — Stock limité, en vente directe producteur</span>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>Découvrir</span>
+    <div class="scroll-arr"></div>
+  </div>
+</section>
+
+<!-- BANDE PROMO ANIMÉE -->
+<div class="promo-strip" aria-hidden="true">
+  <div class="promo-strip-inner">
+    <span>Fraises fraîches cueillies chaque matin</span>
+    <span>Vente directe producteur à Païta</span>
+    <span>Qualité locale, parfum authentique</span>
+    <span>Barquettes généreuses, prix producteur</span>
+    <span>Confiture maison artisanale</span>
+    <span>Fraises fraîches cueillies chaque matin</span>
+    <span>Vente directe producteur à Païta</span>
+    <span>Qualité locale, parfum authentique</span>
+    <span>Barquettes généreuses, prix producteur</span>
+    <span>Confiture maison artisanale</span>
+  </div>
+</div>
+
+<!-- STATS -->
+<section class="stats" id="stats">
+  <div class="stats-grid">
+    <div class="stat">
+      <div class="stat-num" data-target="100"><span>0</span>%</div>
+      <div class="stat-label">Local & naturel</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-target="20"><span>0</span>+</div>
+      <div class="stat-label">Avis clients</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-target="365"><span>0</span></div>
+      <div class="stat-label">Jours de production</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-target="1"><span>0</span></div>
+      <div class="stat-label">Adresse, cœur de Païta</div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="s" id="categories">
+  <div class="s-inner">
+    <div class="s-tag">Nos produits</div>
+    <h2 class="h">Que trouve-t-on<br>chez les Fraisiers de Païta&nbsp;?</h2>
+    <p class="h-sub">Tout ce que tu vois ici pousse à quelques mètres de toi. Choisis ta barquette, sens le parfum, repars comblé.</p>
+    <div class="cat-grid">
+      <div class="cat-card">
+        <img src="https://i.ibb.co/mrHS01Sd/Les-Fraisiers-de-Pa-ta-0.jpg" alt="Fraises fraîches" loading="lazy">
+        <div class="cat-overlay"></div>
+        <div class="cat-body">
+          <div class="cat-badge">🌱 Producteur local</div>
+          <div class="cat-name">Fraises fraîches</div>
+          <div class="cat-desc">Rouges, juteuses, cueillies ce matin même</div>
+        </div>
+      </div>
+      <div class="cat-card">
+        <img src="https://i.ibb.co/vtvrGcy/Les-Fraisiers-de-Pa-ta-1.jpg" alt="Plateau gourmand fraises" loading="lazy">
+        <div class="cat-overlay"></div>
+        <div class="cat-body">
+          <div class="cat-badge">🌱 Producteur local</div>
+          <div class="cat-name">Plateau gourmand</div>
+          <div class="cat-desc">Une généreuse sélection pour offrir ou se faire plaisir</div>
+        </div>
+      </div>
+      <div class="cat-card">
+        <img src="https://i.ibb.co/G4zndnPF/Les-Fraisiers-de-Pa-ta-2.jpg" alt="Confiture maison fraises" loading="lazy">
+        <div class="cat-overlay"></div>
+        <div class="cat-body">
+          <div class="cat-badge">🌱 Artisanal</div>
+          <div class="cat-name">Confiture maison</div>
+          <div class="cat-desc">Recette familiale, fraises locales, sans artifice</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMOS DU MOMENT -->
+<section class="promo-s" id="promos">
+  <div class="s-inner">
+    <div class="promo-head">
+      <div>
+        <div class="s-tag">Offres du moment</div>
+        <h2 class="h">Nos barquettes<br>à prix producteur</h2>
+        <p class="h-sub">Prix direct du champ, sans intermédiaire. La fraîcheur se voit, se sent, se goûte.</p>
+      </div>
+    </div>
+    <div class="promo-grid">
+      <div class="p-card">
+        <div class="p-img">
+          <img src="https://i.ibb.co/mrHS01Sd/Les-Fraisiers-de-Pa-ta-0.jpg" alt="Barquette 500g fraises" loading="lazy">
+          <div class="p-badge">🍓 Frais du jour</div>
+          <div class="p-fresh">Local</div>
+        </div>
+        <div class="p-body">
+          <div class="p-name">Barquette 500 g</div>
+          <div class="p-desc">Fraises rouges sucrées, cueillies ce matin à Païta</div>
+          <div class="p-price">
+            <span class="p-price-now">Prix producteur</span>
+          </div>
+          <button class="btn-acc" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Viens découvrir →</button>
+        </div>
+      </div>
+      <div class="p-card">
+        <div class="p-img">
+          <img src="https://i.ibb.co/vtvrGcy/Les-Fraisiers-de-Pa-ta-1.jpg" alt="Plateau gourmand fraises" loading="lazy">
+          <div class="p-badge">💝 Idée cadeau</div>
+          <div class="p-fresh">Local</div>
+        </div>
+        <div class="p-body">
+          <div class="p-name">Plateau gourmand</div>
+          <div class="p-desc">Sélection généreuse, parfait pour offrir ou partager en famille</div>
+          <div class="p-price">
+            <span class="p-price-now">Prix producteur</span>
+          </div>
+          <button class="btn-acc" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Réserve le tien →</button>
+        </div>
+      </div>
+      <div class="p-card">
+        <div class="p-img">
+          <img src="https://i.ibb.co/G4zndnPF/Les-Fraisiers-de-Pa-ta-2.jpg" alt="Confiture maison fraises Päita" loading="lazy">
+          <div class="p-badge">🏡 Artisanal</div>
+          <div class="p-fresh">Maison</div>
+        </div>
+        <div class="p-body">
+          <div class="p-name">Confiture maison</div>
+          <div class="p-desc">Préparée sur place avec nos fraises locales, sans conservateur</div>
+          <div class="p-price">
+            <span class="p-price-now">Prix producteur</span>
+          </div>
+          <button class="btn-acc" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">En savoir plus →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BESTSELLERS -->
+<section class="best-s" id="bestsellers">
+  <div class="s-inner">
+    <div class="s-tag">Les préférés</div>
+    <h2 class="h">Ce que nos clients<br>adorent le plus</h2>
+    <p class="h-sub">Ce sont eux qui parlent le mieux de nos fraises. Voilà leurs coups de cœur.</p>
+    <div class="best-grid">
+      <div class="b-card">
+        <div class="b-img">
+          <img src="https://i.ibb.co/mrHS01Sd/Les-Fraisiers-de-Pa-ta-0.jpg" alt="Fraises du jour" loading="lazy">
+          <div class="b-rank">1</div>
+        </div>
+        <div class="b-body">
+          <div class="b-name">Fraises fraîches du jour</div>
+          <div class="b-quote">"On ne trouve pas meilleures fraises en Calédonie, c'est un régal !"</div>
+          <div class="b-author">— Marie-Line, Nouméa</div>
+          <a href="#contact" class="b-cta">Viens en chercher</a>
+        </div>
+      </div>
+      <div class="b-card">
+        <div class="b-img">
+          <img src="https://i.ibb.co/G4zndnPF/Les-Fraisiers-de-Pa-ta-2.jpg" alt="Confiture maison fraises" loading="lazy">
+          <div class="b-rank">2</div>
+        </div>
+        <div class="b-body">
+          <div class="b-name">Confiture maison</div>
+          <div class="b-quote">"J'en ramène à chaque fois, ma famille en raffole. Vraiment artisanal."</div>
+          <div class="b-author">— Thierry, Dumbéa</div>
+          <a href="#contact" class="b-cta">Goûte la différence</a>
+        </div>
+      </div>
+      <div class="b-card">
+        <div class="b-img">
+          <img src="https://i.ibb.co/vtvrGcy/Les-Fraisiers-de-Pa-ta-1.jpg" alt="Plateau fraises gourmand" loading="lazy">
+          <div class="b-rank">3</div>
+        </div>
+        <div class="b-body">
+          <div class="b-name">Plateau gourmand</div>
+          <div class="b-quote">"Offert pour un anniversaire, tout le monde a adoré. Merci Fraisiers !"</div>
+          <div class="b-author">— Natacha, Païta</div>
+          <a href="#contact" class="b-cta">Commander le tien</a>
+        </div>
+      </div>
+      <div class="b-card">
+        <div class="b-img">
+          <img src="https://i.ibb.co/93wcTVJh/Les-Fraisiers-de-Pa-ta-3.jpg" alt="Stand fraises Päita" loading="lazy">
+          <div class="b-rank">4</div>
+        </div>
+        <div class="b-body">
+          <div class="b-name">Visite du stand</div>
+          <div class="b-quote">"L'endroit est génial, les tables débordent de fraises rouges lumineuses."</div>
+          <div class="b-author">— Patrick, La Foa</div>
+          <a href="#horaires" class="b-cta">Voir les horaires</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVRAISON & RETRAIT -->
+<section class="liv-s" id="livraison">
+  <div class="liv-inner">
+    <div class="liv-text">
+      <div class="s-tag" style="background:rgba(255,255,255,.2);color:#fff">Retrait direct</div>
+      <h2 class="h" style="color:#fff">Zéro délai.<br>Fraîcheur garantie.</h2>
+      <p class="h-sub" style="color:rgba(255,255,255,.85)">Chez nous, pas de livraison froide ni de fraises fatiguées. Tu passes, tu choisis, tu repars avec le meilleur.</p>
+      <div class="liv-list">
+        <div class="liv-item">
+          <div class="liv-icon">🍓</div>
+          <div class="liv-item-text"><strong>Cueillette du matin</strong><span>Nos fraises arrivent sur les tables directement après la récolte</span></div>
+        </div>
+        <div class="liv-item">
+          <div class="liv-icon">📍</div>
+          <div class="liv-item-text"><strong>Retrait sur place à Païta</strong><span>Plaine de la gendarmerie, Rt1 — facile d'accès</span></div>
+        </div>
+        <div class="liv-item">
+          <div class="liv-icon">💰</div>
+          <div class="liv-item-text"><strong>Prix producteur direct</strong><span>Sans intermédiaire, tu paies le juste prix</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="liv-card">
+      <div class="liv-card-icon">🍓</div>
+      <h3>Viens nous rendre visite !</h3>
+      <p>Plaine de la gendarmerie, BP 8200 Rt1 — Païta, Nouvelle-Calédonie. On t'accueille avec le sourire et des barquettes bien remplies.</p>
+      <a href="https://www.facebook.com/InfoFraisiersPaita" target="_blank" rel="noopener" class="btn-wa">
+        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Retrouve-nous sur Facebook
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- HORAIRES -->
+<section class="hor-s" id="horaires">
+  <div class="s-inner">
+    <div class="s-tag">Quand venir ?</div>
+    <h2 class="h">Horaires & adresse</h2>
+    <p class="h-sub" style="margin-bottom:36px">On t'accueille chaque jour avec des tables généreuses. Vérifie les horaires avant de passer !</p>
+    <div class="hor-inner">
+      <div class="hor-table">
+        <h3 style="font-family:'Playfair Display',serif;margin-bottom:16px;font-size:1.1rem">Jours d'ouverture</h3>
+        <div class="hor-row hor-today"><span class="hor-day">Lundi – Vendredi</span><span class="hor-time">Selon stock disponible</span></div>
+        <div class="hor-row"><span class="hor-day">Samedi</span><span class="hor-time">Matin — priorité fraîcheur</span></div>
+        <div class="hor-row"><span class="hor-day">Dimanche</span><span class="hor-time hor-closed">Fermé</span></div>
+        <div style="margin-top:20px;padding:14px;background:rgba(200,16,46,.06);border-radius:8px;font-size:.8rem;color:#6b5b5b;line-height:1.6">
+          💡 <strong>Conseil :</strong> Les fraises partent vite ! Passe de préférence le matin pour profiter du meilleur choix. Suis notre page Facebook pour les horaires du jour.
+        </div>
+      </div>
+      <div class="hor-map">
+        <div class="hor-map-ph">
+          <svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="#4A7C3F" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+          <span style="font-size:.8rem;color:#4A7C3F;font-weight:600">Plaine de la gendarmerie, Rt1</span>
+        </div>
+        <div class="hor-addr">
+          <h4>Les Fraisiers de Païta</h4>
+          <p>Plaine de la gendarmerie<br>BP 8200 Rt1<br>Païta, Nouvelle-Calédonie</p>
+          <a href="https://www.facebook.com/InfoFraisiersPaita" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;background:var(--cp);color:#fff;font-size:.8rem;font-weight:600;padding:9px 16px;border-radius:50px">
+            📍 Nous retrouver sur Facebook
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AVIS CLIENTS -->
+<section class="avis-s" id="avis">
+  <div class="s-inner">
+    <div class="s-tag">Ce qu'ils en pensent</div>
+    <h2 class="h">Avis de nos clients</h2>
+    <p class="h-sub">Des Calédoniens qui reviennent chaque semaine. La preuve que la fraîcheur, ça fidélise.</p>
+    <div class="avis-note">
+      <div class="avis-score">3.1</div>
+      <div>
+        <div class="avis-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span><span class="star empty">★</span>
+        </div>
+        <div style="font-weight:600;font-size:.9rem;margin-bottom:2px">Note Google</div>
+        <div class="avis-count">Basé sur 20 avis clients vérifiés</div>
+      </div>
+    </div>
+    <div class="avis-grid">
+      <div class="avis-card">
+        <div class="avis-top">
+          <div class="avis-avatar">M</div>
+          <div><div class="avis-name">Marie-Line T.</div><div class="avis-date">Client régulier</div></div>
+        </div>
+        <div class="avis-stars-sm"><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span></div>
+        <div class="avis-text">"Les meilleures fraises de Calédonie ! Rouge juteux, sucré, on y retourne chaque semaine. Un régal."</div>
+      </div>
+      <div class="avis-card">
+        <div class="avis-top">
+          <div class="avis-avatar" style="background:var(--cs)">T</div>
+          <div><div class="avis-name">Thierry B.</div><div class="avis-date">Client fidèle</div></div>
+        </div>
+        <div class="avis-stars-sm"><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm" style="color:#ddd">★</span></div>
+        <div class="avis-text">"La confiture maison est exceptionnelle. On sent vraiment les fraises fraîches, rien à voir avec le commerce."</div>
+      </div>
+      <div class="avis-card">
+        <div class="avis-top">
+          <div class="avis-avatar" style="background:var(--ca);color:var(--ct)">N</div>
+          <div><div class="avis-name">Natacha M.</div><div class="avis-date">Achat cadeau</div></div>
+        </div>
+        <div class="avis-stars-sm"><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span></div>
+        <div class="avis-text">"J'ai offert un plateau pour un anniversaire. Tout le monde a été bluffé par la qualité et la présentation."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE CONTACT -->
+<section class="form-s" id="contact">
+  <div class="form-inner">
+    <div class="s-tag" style="background:rgba(255,255,255,.15);color:rgba(255,255,255,.9)">Nous écrire</div>
+    <h2 class="h" style="color:#fff">Une question ?<br>On te répond vite !</h2>
+    <p class="h-sub">Remplis ce formulaire ou retrouve-nous directement sur Facebook.</p>
+    <form id="cform" action="#" novalidate>
+      <div class="f-grid">
+        <div class="f-field">
+          <label class="f-label" for="fname">Prénom & Nom</label>
+          <input class="f-input" type="text" id="fname" name="name" placeholder="Marie Dupont" required>
+        </div>
+        <div class="f-field">
+          <label class="f-label" for="ftel">Téléphone</label>
+          <input class="f-input" type="tel" id="ftel" name="tel" placeholder="+687 XX XX XX">
+        </div>
+        <div class="f-field full">
+          <label class="f-label" for="femail">Email</label>
+          <input class="f-input" type="email" id="femail" name="email" placeholder="marie@exemple.nc" required>
+        </div>
+        <div class="f-field full">
+          <label class="f-label" for="fmsg">Votre message</label>
+          <textarea class="f-input" id="fmsg" name="message" placeholder="Bonjour, je voudrais savoir si vous avez des fraises disponibles cette semaine…" required></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn-submit" id="fsub">Envoyer mon message 🍓</button>
+      <div class="form-success" id="fsuccess">✅ Merci ! On te répond très vite. À bientôt à Païta !</div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="ft-logo">Les Fraisiers <span>de Païta</span></div>
+      <p class="ft-desc">Vente directe producteur à Päita, Nouvelle-Calédonie. Fraises fraîches cueillies chaque matin, confitures maison artisanales. La générosité du terroir calédonien dans chaque barquette.</p>
+      <div class="ft-social">
+        <a href="https://www.facebook.com/InfoFraisiersPaita" target="_blank" rel="noopener" class="ft-soc-link" aria-label="Facebook Les Fraisiers de Päita">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="ft-col">
+      <h4>Nos produits</h4>
+      <ul>
+        <li><a href="#categories">Fraises fraîches</a></li>
+        <li><a href="#categories">Plateau gourmand</a></li>
+        <li><a href="#categories">Confiture maison</a></li>
+        <li><a href="#bestsellers">Les préférés</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Infos pratiques</h4>
+      <ul>
+        <li><a href="#horaires">Horaires d'ouverture</a></li>
+        <li><a href="#horaires">Plaine de la gendarmerie, Rt1</a></li>
+        <li><a href="#horaires">BP 8200, Päita</a></li>
+        <li><a href="#contact">Nous contacter</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Les Fraisiers de Päita — Nouvelle-Calédonie. Tous droits réservés.</p>
+    <p>Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+  </div>
+</footer>
+
+<script>
+var ham=document.getElementById('ham'),mob=document.getElementById('mobnav');
+function closeMob(){mob.classList.remove('open')}
+ham.addEventListener('click',function(){mob.classList.toggle('open')});
+ham.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' ')mob.classList.toggle('open')});
+document.getElementById('cform').addEventListener('submit',function(e){
+  e.preventDefault();
+  var b=document.getElementById('fsub'),s=document.getElementById('fsuccess');
+  b.textContent='Envoi…';b.disabled=true;
+  setTimeout(function(){b.style.display='none';s.style.display='block'},900);
+});
+var nums=document.querySelectorAll('.stat-num[data-target]');
+var ran=false;
+function countUp(){
+  if(ran)return;ran=true;
+  nums.forEach(function(el){
+    var t=+el.getAttribute('data-target'),s=el.querySelector('span'),d=Math.ceil(1200/t);
+    var c=0,iv=setInterval(function(){c+=1;s.textContent=c;if(c>=t)clearInterval(iv)},d);
+  });
+}
+var obs=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting)countUp()})},{threshold:.3});
+var sb=document.querySelector('.stats');
+if(sb)obs.observe(sb);
+</script>
+<style>
+.srv-s{padding:72px 24px;background:var(--cb)}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.srv-card{background:var(--cw);border-radius:var(--rad);padding:28px 24px;box-shadow:0 4px 20px rgba(42,26,26,.07);transition:transform var(--trans),box-shadow var(--trans);border-top:4px solid var(--cp)}
+.srv-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(42,26,26,.14)}
+.srv-icon{width:52px;height:52px;background:rgba(200,16,46,.08);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:16px}
+.srv-title{font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;margin-bottom:8px;color:var(--ct)}
+.srv-desc{font-size:.82rem;color:#6b5b5b;line-height:1.7;margin-bottom:16px}
+.srv-link{font-size:.82rem;font-weight:600;color:var(--cp);display:inline-flex;align-items:center;gap:6px;transition:gap var(--trans)}
+.srv-link:hover{gap:10px}
+
+.met-s{padding:72px 24px;background:linear-gradient(135deg,#fff8f0,var(--cb))}
+.met-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;max-width:1100px;margin:0 auto}
+.met-row.rev{direction:rtl}
+.met-row.rev>*{direction:ltr}
+.met-img{border-radius:var(--rad);overflow:hidden;box-shadow:var(--shadow)}
+.met-img img{width:100%;height:320px;object-fit:cover;display:block}
+.met-checks{display:flex;flex-direction:column;gap:12px;margin-top:20px}
+.met-check{display:flex;align-items:flex-start;gap:12px;font-size:.85rem;color:#5a4a4a;line-height:1.6}
+.met-check-icon{width:22px;height:22px;background:var(--cs);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.met-check-icon svg{width:12px;height:12px}
+
+.gal-s{padding:72px 24px;background:var(--ct)}
+.gal-s .h{color:var(--cw)}
+.gal-s .h-sub{color:rgba(255,255,255,.75)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:36px}
+.gal-item{border-radius:10px;overflow:hidden;cursor:pointer;aspect-ratio:1;position:relative}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.gal-item:hover img{transform:scale(1.07)}
+.gal-item-overlay{position:absolute;inset:0;background:rgba(42,26,26,0);display:flex;align-items:center;justify-content:center;transition:background var(--trans)}
+.gal-item:hover .gal-item-overlay{background:rgba(200,16,46,.35)}
+.gal-zoom{color:#fff;font-size:1.4rem;opacity:0;transition:opacity var(--trans)}
+.gal-item:hover .gal-zoom{opacity:1}
+.lb{display:none;position:fixed;inset:0;background:rgba(10,5,5,.92);z-index:2000;align-items:center;justify-content:center;padding:24px}
+.lb.open{display:flex}
+.lb-img{max-width:90vw;max-height:85vh;border-radius:var(--rad);box-shadow:0 24px 80px rgba(0,0,0,.6);object-fit:contain}
+.lb-close{position:fixed;top:20px;right:24px;color:#fff;font-size:2rem;cursor:pointer;background:rgba(255,255,255,.1);border:none;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background var(--trans)}
+.lb-close:hover{background:var(--cp)}
+.lb-prev,.lb-next{position:fixed;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.1);border:none;color:#fff;font-size:1.4rem;width:48px;height:48px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background var(--trans)}
+.lb-prev{left:16px}
+.lb-next{right:16px}
+.lb-prev:hover,.lb-next:hover{background:var(--cp)}
+
+.ps-s{padding:72px 24px;background:var(--cb)}
+.ps-hero{display:flex;align-items:center;gap:32px;background:var(--cw);border-radius:var(--rad);padding:32px;box-shadow:var(--shadow);margin-bottom:48px;flex-wrap:wrap}
+.ps-big-score{font-family:'Playfair Display',serif;font-size:4.5rem;font-weight:900;color:var(--ca);line-height:1}
+.ps-score-detail{flex:1;min-width:180px}
+.ps-score-label{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#6b5b5b;margin-bottom:6px}
+.ps-bar-row{display:flex;align-items:center;gap:10px;margin-bottom:5px}
+.ps-bar-label{font-size:.72rem;color:#6b5b5b;width:16px;text-align:right}
+.ps-bar-track{flex:1;height:6px;background:#eee;border-radius:3px;overflow:hidden}
+.ps-bar-fill{height:100%;background:var(--ca);border-radius:3px}
+.ps-bar-count{font-size:.7rem;color:#aaa;width:12px}
+.ps-badges{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:48px}
+.ps-badge{display:flex;align-items:center;gap:8px;background:var(--cw);border-radius:50px;padding:10px 18px;box-shadow:0 2px 12px rgba(42,26,26,.08);font-size:.8rem;font-weight:600;color:var(--ct)}
+.ps-badge-icon{font-size:1rem}
+.ps-testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+
+.ft2{background:var(--cp);padding:56px 24px 0}
+.ft2-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.15)}
+.ft2-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:1.4rem;color:var(--cw);margin-bottom:10px}
+.ft2-logo span{color:var(--ca)}
+.ft2-desc{font-size:.82rem;color:rgba(255,255,255,.8);line-height:1.75;margin-bottom:16px}
+.ft2-addr{font-size:.8rem;color:rgba(255,255,255,.75);line-height:1.8;margin-bottom:16px}
+.ft2-social{display:flex;gap:10px}
+.ft2-soc{width:40px;height:40px;background:rgba(255,255,255,.15);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--cw);transition:background var(--trans)}
+.ft2-soc:hover{background:rgba(255,255,255,.3)}
+.ft2-col h4{font-size:.78rem;font-weight:700;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:16px}
+.ft2-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.ft2-col li a{font-size:.83rem;color:rgba(255,255,255,.8);transition:color var(--trans)}
+.ft2-col li a:hover{color:var(--ca)}
+.ft2-bottom{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:20px 0}
+.ft2-copy{font-size:.73rem;color:rgba(255,255,255,.55)}
+.ft2-copy a{color:rgba(255,255,255,.75);transition:color var(--trans)}
+.ft2-copy a:hover{color:var(--ca)}
+
+@media(max-width:960px){
+.srv-grid{grid-template-columns:repeat(2,1fr)}
+.met-row{grid-template-columns:1fr;gap:28px}
+.met-row.rev{direction:ltr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.ps-testi-grid{grid-template-columns:repeat(2,1fr)}
+.ft2-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+.srv-grid{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.ps-testi-grid{grid-template-columns:1fr}
+.ps-hero{gap:20px}
+.ft2-inner{grid-template-columns:1fr}
+.ft2-bottom{flex-direction:column;align-items:flex-start}
+.lb-prev{left:6px}
+.lb-next{right:6px}
+}
+@media(max-width:480px){
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.srv-s,.met-s,.gal-s,.ps-s{padding:52px 16px}
+.ft2{padding:44px 16px 0}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="srv-s" id="services">
+  <div class="s-inner">
+    <div class="s-tag">Ce qu'on propose</div>
+    <h2 class="h">Tout ce que tu trouveras<br>chez nous à Päita</h2>
+    <p class="h-sub">De la fraise fraîche à la confiture artisanale — tout est produit localement, avec soin.</p>
+    <div class="srv-grid">
+      <div class="srv-card">
+        <div class="srv-icon">🍓</div>
+        <div class="srv-title">Vente de fraises fraîches</div>
+        <div class="srv-desc">Barquettes généreuses de fraises cueillies le matin même. Rouges, juteuses, au parfum authentique de Calédonie.</div>
+        <a href="#categories" class="srv-link">Voir les barquettes →</a>
+      </div>
+      <div class="srv-card" style="border-top-color:var(--cs)">
+        <div class="srv-icon" style="background:rgba(74,124,63,.1)">🏡</div>
+        <div class="srv-title">Confiture maison artisanale</div>
+        <div class="srv-desc">Préparée sur place avec nos propres fraises locales. Recette familiale, sans conservateur, en stock limité.</div>
+        <a href="#categories" class="srv-link">Découvrir les confitures →</a>
+      </div>
+      <div class="srv-card" style="border-top-color:var(--ca)">
+        <div class="srv-icon" style="background:rgba(232,160,32,.1)">🎁</div>
+        <div class="srv-title">Plateaux gourmands</div>
+        <div class="srv-desc">Une sélection soignée pour offrir ou se faire plaisir. Idéal pour les fêtes, anniversaires et moments partagés.</div>
+        <a href="#promos" class="srv-link">Composer ton plateau →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="met-s" id="metier">
+  <div class="s-inner">
+    <div style="text-align:center;margin-bottom:56px">
+      <div class="s-tag">Notre histoire</div>
+      <h2 class="h">Producteurs locaux<br>au cœur de Päita</h2>
+      <p class="h-sub" style="margin:0 auto">De la terre calédonienne jusqu'à ta table — une passion transmise et un engagement pour la fraîcheur quotidienne.</p>
+    </div>
+    <div class="met-row" style="margin-bottom:56px">
+      <div class="met-img">
+        <img src="https://i.ibb.co/mrHS01Sd/Les-Fraisiers-de-Pa-ta-0.jpg" alt="Tables de fraises fraîches aux Fraisiers de Päita" loading="lazy">
+      </div>
+      <div>
+        <div class="s-tag">La récolte du matin</div>
+        <h3 class="h" style="font-size:clamp(1.3rem,3vw,1.9rem)">Cueillies à l'aube,<br>sur ta table dès l'ouverture</h3>
+        <p style="font-size:.88rem;color:#6b5b5b;line-height:1.8;margin:12px 0 20px">Ici, rien n'attend. Chaque matin, nos fraises sont récoltées à la main et disposées sur les tables avant l'arrivée des premiers clients. Tu goûtes la vraie fraîcheur — pas celle d'un entrepôt frigorifique.</p>
+        <div class="met-checks">
+          <div class="met-check">
+            <div class="met-check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <span>Récolte manuelle quotidienne, sans machine ni intermédiaire</span>
+          </div>
+          <div class="met-check">
+            <div class="met-check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <span>Zéro transport longue distance — du champ à Päita directement</span>
+          </div>
+          <div class="met-check">
+            <div class="met-check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <span>Stock limité chaque jour — preuve de fraîcheur réelle</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="met-row rev">
+      <div class="met-img">
+        <img src="https://i.ibb.co/G4zndnPF/Les-Fraisiers-de-Pa-ta-2.jpg" alt="Confiture maison artisanale fraises Päita" loading="lazy">
+      </div>
+      <div>
+        <div class="s-tag">L'artisanat local</div>
+        <h3 class="h" style="font-size:clamp(1.3rem,3vw,1.9rem)">Une confiture qui sent<br>la vraie fraise calédonienne</h3>
+        <p style="font-size:.88rem;color:#6b5b5b;line-height:1.8;margin:12px 0 20px">Nos confitures sont préparées sur place, avec les fruits que tu vois devant toi. Recette simple, sans artifice, qui respecte le goût naturellement sucré de nos fraises locales.</p>
+        <div class="met-checks">
+          <div class="met-check">
+            <div class="met-check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <span>100 % fraises de nos propres parcelles calédonniennes</span>
+          </div>
+          <div class="met-check">
+            <div class="met-check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <span>Fabriquée en petites quantités, disponible selon saison</span>
+          </div>
+          <div class="met-check">
+            <div class="met-check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <span>Idéale en cadeau ou pour ta propre table du matin</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="gal-s" id="galerie">
+  <div class="s-inner">
+    <div class="s-tag" style="background:rgba(255,255,255,.15);color:rgba(255,255,255,.9)">En images</div>
+    <h2 class="h">Le stand tel qu'il est —<br>généreux et coloré</h2>
+    <p class="h-sub">Clique sur une photo pour l'agrandir. Ce que tu vois, c'est ce qui t'attend à Päita.</p>
+    <div class="gal-grid">
+      <div class="gal-item" onclick="openLb(0)" role="button" aria-label="Agrandir photo 1" tabindex="0">
+        <img src="https://i.ibb.co/mrHS01Sd/Les-Fraisiers-de-Pa-ta-0.jpg" alt="Tables de fraises fraîches Fraisiers de Päita" loading="lazy">
+        <div class="gal-item-overlay"><span class="gal-zoom">🔍</span></div>
+      </div>
+      <div class="gal-item" onclick="openLb(1)" role="button" aria-label="Agrandir photo 2" tabindex="0">
+        <img src="https://i.ibb.co/vtvrGcy/Les-Fraisiers-de-Pa-ta-1.jpg" alt="Plateau fraises gourmand Päita" loading="lazy">
+        <div class="gal-item-overlay"><span class="gal-zoom">🔍</span></div>
+      </div>
+      <div class="gal-item" onclick="openLb(2)" role="button" aria-label="Agrandir photo 3" tabindex="0">
+        <img src="https://i.ibb.co/G4zndnPF/Les-Fraisiers-de-Pa-ta-2.jpg" alt="Confiture maison fraises artisanale" loading="lazy">
+        <div class="gal-item-overlay"><span class="gal-zoom">🔍</span></div>
+      </div>
+      <div class="gal-item" onclick="openLb(3)" role="button" aria-label="Agrandir photo 4" tabindex="0">
+        <img src="https://i.ibb.co/93wcTVJh/Les-Fraisiers-de-Pa-ta-3.jpg" alt="Stand vente directe fraises Päita" loading="lazy">
+        <div class="gal-item-overlay"><span class="gal-zoom">🔍</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Visionneuse de photos">
+  <button class="lb-close" id="lbclose" aria-label="Fermer">✕</button>
+  <button class="lb-prev" id="lbprev" aria-label="Photo précédente">‹</button>
+  <img class="lb-img" id="lbimg" src="" alt="Photo agrandie">
+  <button class="lb-next" id="lbnext" aria-label="Photo suivante">›</button>
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section class="ps-s" id="preuve">
+  <div class="s-inner">
+    <div class="s-tag">Ce qu'on dit de nous</div>
+    <h2 class="h">Notre réputation,<br>construite client par client</h2>
+    <p class="h-sub" style="margin-bottom:32px">Des habitants de Päita, Dumbéa, Nouméa et alentours qui reviennent régulièrement.</p>
+    <div class="ps-hero">
+      <div class="ps-big-score">3.1</div>
+      <div>
+        <div class="avis-stars" style="margin-bottom:6px">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span><span class="star empty">★</span>
+        </div>
+        <div style="font-weight:700;font-size:.95rem;margin-bottom:2px">Note Google vérifiée</div>
+        <div style="font-size:.78rem;color:#6b5b5b">Basé sur 20 avis clients</div>
+      </div>
+      <div class="ps-score-detail">
+        <div class="ps-score-label">Répartition des notes</div>
+        <div class="ps-bar-row"><span class="ps-bar-label">5</span><div class="ps-bar-track"><div class="ps-bar-fill" style="width:35%"></div></div><span class="ps-bar-count">7</span></div>
+        <div class="ps-bar-row"><span class="ps-bar-label">4</span><div class="ps-bar-track"><div class="ps-bar-fill" style="width:15%"></div></div><span class="ps-bar-count">3</span></div>
+        <div class="ps-bar-row"><span class="ps-bar-label">3</span><div class="ps-bar-track"><div class="ps-bar-fill" style="width:10%"></div></div><span class="ps-bar-count">2</span></div>
+        <div class="ps-bar-row"><span class="ps-bar-label">2</span><div class="ps-bar-track"><div class="ps-bar-fill" style="width:10%"></div></div><span class="ps-bar-count">2</span></div>
+        <div class="ps-bar-row"><span class="ps-bar-label">1</span><div class="ps-bar-track"><div class="ps-bar-fill" style="width:30%"></div></div><span class="ps-bar-count">6</span></div>
+      </div>
+    </div>
+    <div class="ps-badges">
+      <div class="ps-badge"><span class="ps-badge-icon">🌱</span>Producteur local certifié</div>
+      <div class="ps-badge"><span class="ps-badge-icon">🍓</span>Fraises fraîches chaque matin</div>
+      <div class="ps-badge"><span class="ps-badge-icon">🏡</span>Confiture 100 % artisanale</div>
+      <div class="ps-badge"><span class="ps-badge-icon">📍</span>Vente directe à Päita</div>
+    </div>
+    <div class="ps-testi-grid">
+      <div class="avis-card">
+        <div class="avis-top">
+          <div class="avis-avatar">M</div>
+          <div><div class="avis-name">Marie-Line T.</div><div class="avis-date">Client régulier · Nouméa</div></div>
+        </div>
+        <div class="avis-stars-sm"><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span></div>
+        <div class="avis-text">"Les meilleures fraises que j'ai goûtées ici. Rouge vif, sucrées, juteuses. On y retourne chaque semaine sans hésiter !"</div>
+      </div>
+      <div class="avis-card">
+        <div class="avis-top">
+          <div class="avis-avatar" style="background:var(--cs)">T</div>
+          <div><div class="avis-name">Thierry B.</div><div class="avis-date">Client fidèle · Dumbéa</div></div>
+        </div>
+        <div class="avis-stars-sm"><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm" style="color:#ddd">★</span></div>
+        <div class="avis-text">"La confiture maison est exceptionnelle. On sent vraiment les fraises fraîches, rien à voir avec les pots du commerce."</div>
+      </div>
+      <div class="avis-card">
+        <div class="avis-top">
+          <div class="avis-avatar" style="background:var(--ca);color:var(--ct)">N</div>
+          <div><div class="avis-name">Natacha M.</div><div class="avis-date">Achat cadeau · Päita</div></div>
+        </div>
+        <div class="avis-stars-sm"><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span></div>
+        <div class="avis-text">"Plateau offert pour un anniversaire, tout le monde a adoré. Le parfum des fraises à l'ouverture de la boîte, c'est inoubliable."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE CONTACT -->
+<section class="form-s" id="contact">
+  <div class="form-inner">
+    <div class="s-tag" style="background:rgba(255,255,255,.15);color:rgba(255,255,255,.9)">Nous écrire</div>
+    <h2 class="h" style="color:var(--cw)">Une question ?<br>On te répond vite !</h2>
+    <p class="h-sub" style="color:rgba(255,255,255,.75);text-align:center;margin:0 auto 32px">Remplis ce formulaire ou retrouve-nous directement sur Facebook pour les disponibilités du jour.</p>
+    <form id="cform" action="#" novalidate>
+      <div class="f-grid">
+        <div class="f-field">
+          <label class="f-label" for="fname">Prénom &amp; Nom</label>
+          <input class="f-input" type="text" id="fname" name="name" placeholder="Marie Dupont" required>
+        </div>
+        <div class="f-field">
+          <label class="f-label" for="ftel">Téléphone</label>
+          <input class="f-input" type="tel" id="ftel" name="tel" placeholder="+687 XX XX XX">
+        </div>
+        <div class="f-field full">
+          <label class="f-label" for="femail">Email</label>
+          <input class="f-input" type="email" id="femail" name="email" placeholder="marie@exemple.nc" required>
+        </div>
+        <div class="f-field full">
+          <label class="f-label" for="fmsg">Votre message</label>
+          <textarea class="f-input" id="fmsg" name="message" rows="4" placeholder="Bonjour, je voudrais savoir si vous avez des fraises disponibles cette semaine…" required></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn-submit" id="fsub">Envoyer mon message 🍓</button>
+      <div class="form-success" id="fsuccess">✅ Merci ! On te répond très vite. À bientôt à Päita !</div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ft2" id="footer">
+  <div class="ft2-inner">
+    <div>
+      <div class="ft2-logo">Les Fraisiers <span>de Päita</span></div>
+      <p class="ft2-desc">Vente directe producteur à Päita, Nouvelle-Calédonie. Fraises fraîches cueillies chaque matin, confitures artisanales maison. La générosité du terroir calédonien dans chaque barquette.</p>
+      <address class="ft2-addr" style="font-style:normal">
+        📍 Plaine de la gendarmerie, BP 8200 Rt1<br>
+        Päita, Nouvelle-Calédonie
+      </address>
+      <div class="ft2-social">
+        <a href="https://www.facebook.com/InfoFraisiersPaita" target="_blank" rel="noopener" class="ft2-soc" aria-label="Facebook Les Fraisiers de Päita">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="ft2-col">
+      <h4>Nos produits</h4>
+      <ul>
+        <li><a href="#categories">Fraises fraîches</a></li>
+        <li><a href="#categories">Plateau gourmand</a></li>
+        <li><a href="#categories">Confiture maison</a></li>
+        <li><a href="#bestsellers">Les préférés clients</a></li>
+      </ul>
+    </div>
+    <div class="ft2-col">
+      <h4>Infos pratiques</h4>
+      <ul>
+        <li><a href="#horaires">Horaires d'ouverture</a></li>
+        <li><a href="#horaires">Plaine de la gendarmerie, Rt1</a></li>
+        <li><a href="#horaires">BP 8200 — Päita</a></li>
+        <li><a href="#contact">Nous contacter</a></li>
+        <li><a href="https://www.facebook.com/InfoFraisiersPaita" target="_blank" rel="noopener">Notre page Facebook</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft2-bottom">
+    <p class="ft2-copy">© 2026 Les Fraisiers de Päita. Tous droits réservés.</p>
+    <p class="ft2-copy">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+  </div>
+</footer>
+
+<script>
+var ham=document.getElementById('ham'),mob=document.getElementById('mobnav');
+function closeMob(){mob.classList.remove('open')}
+if(ham){ham.addEventListener('click',function(){mob.classList.toggle('open')});ham.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' ')mob.classList.toggle('open')})}
+
+var lbSrcs=['https://i.ibb.co/mrHS01Sd/Les-Fraisiers-de-Pa-ta-0.jpg','https://i.ibb.co/vtvrGcy/Les-Fraisiers-de-Pa-ta-1.jpg','https://i.ibb.co/G4zndnPF/Les-Fraisiers-de-Pa-ta-2.jpg','https://i.ibb.co/93wcTVJh/Les-Fraisiers-de-Pa-ta-3.jpg'];
+var lbAlts=['Tables de fraises fraîches','Plateau gourmand','Confiture maison','Stand de vente directe'];
+var lbIdx=0;
+var lb=document.getElementById('lb'),lbImg=document.getElementById('lbimg');
+function openLb(i){lbIdx=i;lbImg.src=lbSrcs[i];lbImg.alt=lbAlts[i];lb.classList.add('open');document.body.style.overflow='hidden'}
+function closeLb(){lb.classList.remove('open');document.body.style.overflow=''}
+function lbStep(d){lbIdx=(lbIdx+d+lbSrcs.length)%lbSrcs.length;lbImg.src=lbSrcs[lbIdx];lbImg.alt=lbAlts[lbIdx]}
+document.getElementById('lbclose').addEventListener('click',closeLb);
+document.getElementById('lbprev').addEventListener('click',function(){lbStep(-1)});
+document.getElementById('lbnext').addEventListener('click',function(){lbStep(1)});
+lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});
+document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')lbStep(-1);if(e.key==='ArrowRight')lbStep(1)});
+document.querySelectorAll('.gal-item').forEach(function(el,i){el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' ')openLb(i)})});
+
+var cf=document.getElementById('cform');
+if(cf){cf.addEventListener('submit',function(e){e.preventDefault();var b=document.getElementById('fsub'),s=document.getElementById('fsuccess');b.textContent='Envoi…';b.disabled=true;setTimeout(function(){b.style.display='none';s.style.display='block'},900)})}
+
+var sNums=document.querySelectorAll('.stat-num[data-target]');
+var ran=false;
+function countUp(){if(ran)return;ran=true;sNums.forEach(function(el){var t=+el.getAttribute('data-target'),sp=el.querySelector('span'),d=Math.max(10,Math.ceil(1200/t));var c=0,iv=setInterval(function(){c++;sp.textContent=c;if(c>=t)clearInterval(iv)},d)})}
+var sb=document.querySelector('.stats');
+if(sb&&'IntersectionObserver' in window){var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting)countUp()})},{threshold:.3});io.observe(sb)}else{countUp()}
+</script>
+</body>
+</html>
