@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Top Store — Dumbéa</title>
+<meta name="description" content="Top Store, votre boucherie-charcuterie de quartier à Dumbéa, Nouvelle-Calédonie. Viandes fraîches, charcuterie artisanale, promotions de la semaine.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:wght@400;500;600&family=Manrope:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--cp:#CC1B1B;--cs:#1A1A1A;--ca:#F5A800;--ct:#1A1A1A;--cb:#fff}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;color:var(--ct);background:var(--cb);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU SETUP NC */
+#setup-band{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;display:flex;align-items:center;justify-content:center}
+#setup-band a{font-family:'Manrope','Poppins',system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;letter-spacing:.3px;line-height:44px;text-align:center}
+#setup-band a:hover{opacity:.85}
+
+/* HEADER */
+.hdr{position:sticky;top:44px;z-index:1000;background:var(--cs);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.hdr-logo{font-family:'Oswald',sans-serif;font-size:26px;font-weight:700;color:#fff;letter-spacing:1px}
+.hdr-logo span{color:var(--cp)}
+.hdr-nav{display:flex;gap:28px;list-style:none}
+.hdr-nav a{font-family:'Oswald',sans-serif;font-size:15px;font-weight:500;color:#ccc;letter-spacing:.5px;transition:color .2s}
+.hdr-nav a:hover{color:var(--cp)}
+.hdr-cta{display:flex;align-items:center;gap:12px}
+.hdr-tel{font-family:'Oswald',sans-serif;font-size:15px;color:var(--ca);font-weight:600;letter-spacing:.5px}
+.btn{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.8px;border:none;cursor:pointer;transition:opacity .2s,transform .15s;display:inline-flex;align-items:center;justify-content:center}
+.btn:hover{opacity:.88;transform:translateY(-1px)}
+.btn-p{background:var(--cp);color:#fff;padding:10px 22px;font-size:15px}
+.btn-a{background:var(--ca);color:var(--cs);padding:10px 22px;font-size:15px}
+.btn-lg{padding:14px 32px;font-size:17px;min-height:52px}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:26px;height:2px;background:#fff;transition:transform .3s,opacity .3s}
+.mob-nav{display:none;position:fixed;top:108px;left:0;width:100%;background:var(--cs);z-index:999;padding:20px 24px;flex-direction:column;gap:0}
+.mob-nav a{font-family:'Oswald',sans-serif;font-size:18px;color:#ccc;padding:12px 0;border-bottom:1px solid #333;letter-spacing:.5px}
+.mob-nav a:last-child{border-bottom:none}
+.mob-nav.open{display:flex}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;margin-top:0}
+.hero-bg{position:absolute;inset:0;background-image:url('https://i.ibb.co/3yM7yMxj/Top-Store-0.jpg');background-size:cover;background-position:center;z-index:0}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(120deg,rgba(26,26,26,.82) 40%,rgba(204,27,27,.55) 100%);z-index:1}
+.hero-promo-band{position:absolute;top:0;left:0;width:100%;height:44px;background:var(--cp);z-index:3;overflow:hidden;display:flex;align-items:center}
+.promo-track{display:flex;animation:ticker 22s linear infinite;white-space:nowrap;gap:0}
+.promo-track span{font-family:'Oswald',sans-serif;font-size:15px;font-weight:700;color:#fff;letter-spacing:1.5px;padding:0 48px}
+.promo-track span em{color:var(--ca);font-style:normal}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.hero-content{position:relative;z-index:2;padding:100px 60px 60px;max-width:680px}
+.hero-badge{display:inline-block;background:var(--ca);color:var(--cs);font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;padding:5px 14px;margin-bottom:18px}
+.hero-h1{font-family:'Oswald',sans-serif;font-size:clamp(36px,6vw,72px);font-weight:700;color:#fff;line-height:1.05;letter-spacing:1px;margin-bottom:16px}
+.hero-h1 span{color:var(--cp)}
+.hero-sub{color:#e0e0e0;font-size:clamp(15px,2vw,18px);line-height:1.6;margin-bottom:32px;max-width:500px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:6px}
+.scroll-ind span{font-family:'Oswald',sans-serif;font-size:12px;color:rgba(255,255,255,.6);letter-spacing:2px}
+.scroll-arr{width:24px;height:24px;border-left:2px solid rgba(255,255,255,.5);border-bottom:2px solid rgba(255,255,255,.5);transform:rotate(-45deg);animation:bounce .9s infinite alternate}
+@keyframes bounce{from{transform:rotate(-45deg) translateY(-4px)}to{transform:rotate(-45deg) translateY(4px)}}
+
+/* STATS BAND */
+.stats{background:var(--cp);padding:48px 24px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1100px;margin:0 auto;text-align:center}
+.stat-num{font-family:'Oswald',sans-serif;font-size:clamp(32px,5vw,52px);font-weight:700;color:#fff;line-height:1;display:block}
+.stat-lbl{font-family:'Poppins',sans-serif;font-size:13px;color:rgba(255,255,255,.8);margin-top:6px;letter-spacing:.3px}
+.stat-acc{color:var(--ca)}
+
+/* SECTION BASE */
+.s{padding:72px 24px}
+.s-inner{max-width:1100px;margin:0 auto}
+.s-tag{font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;letter-spacing:3px;color:var(--cp);margin-bottom:8px;display:block}
+.h{font-family:'Oswald',sans-serif;font-weight:700;line-height:1.1}
+.h1{font-size:clamp(28px,4vw,44px);color:var(--cs)}
+.h2{font-size:clamp(22px,3vw,32px);color:var(--cs)}
+.h-w{color:#fff}
+.sub{color:#555;font-size:15px;line-height:1.7;margin-top:10px}
+
+/* CATEGORIES */
+.cats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.cat-card{position:relative;overflow:hidden;aspect-ratio:4/3;cursor:pointer}
+.cat-card img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.cat-card:hover img{transform:scale(1.06)}
+.cat-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,26,26,.75) 40%,transparent 100%);transition:background .3s}
+.cat-card:hover .cat-overlay{background:linear-gradient(to top,rgba(204,27,27,.75) 40%,transparent 100%)}
+.cat-label{position:absolute;bottom:0;left:0;right:0;padding:18px 16px}
+.cat-label strong{font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;color:#fff;letter-spacing:.5px;display:block}
+.cat-label span{font-size:13px;color:rgba(255,255,255,.75)}
+.cat-card-big{grid-column:span 2}
+
+/* PROMOS */
+.promos{background:#f7f7f7}
+.promo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.c{background:#fff;border-radius:2px;overflow:hidden;transition:box-shadow .25s}
+.c:hover{box-shadow:0 8px 16px rgba(204,27,27,.15)}
+.c-img{position:relative;overflow:hidden;height:200px}
+.c-img img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.c:hover .c-img img{transform:scale(1.05)}
+.c-badge{position:absolute;top:12px;left:12px;background:var(--ca);color:var(--cs);font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;padding:4px 10px;letter-spacing:.5px;z-index:1}
+.c-badge-hot{background:var(--cp);color:#fff}
+.c-body{padding:16px}
+.c-title{font-family:'Oswald',sans-serif;font-size:18px;font-weight:600;color:var(--cs);margin-bottom:4px}
+.c-desc{font-size:13px;color:#666;margin-bottom:12px;line-height:1.5}
+.c-price{font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;color:var(--cp)}
+.c-price-old{font-size:14px;color:#aaa;text-decoration:line-through;margin-left:6px;font-weight:400;font-family:'Poppins',sans-serif}
+.c-footer{display:flex;align-items:center;justify-content:space-between;margin-top:14px}
+
+/* LIVRAISON */
+.livraison{background:var(--cs);padding:56px 24px}
+.livr-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.livr-icon{font-size:48px;margin-bottom:16px}
+.livr-list{list-style:none;margin-top:20px;display:flex;flex-direction:column;gap:12px}
+.livr-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.8);line-height:1.5}
+.livr-list li::before{content:'✓';color:var(--ca);font-weight:700;font-size:16px;flex-shrink:0;margin-top:1px}
+.livr-map{background:#2a2a2a;padding:28px;display:flex;flex-direction:column;gap:16px}
+.livr-info-item{display:flex;gap:12px;align-items:flex-start}
+.livr-info-item svg{flex-shrink:0;margin-top:2px}
+.livr-info-item p{font-size:14px;color:rgba(255,255,255,.8);line-height:1.6}
+.livr-info-item strong{color:#fff;font-family:'Oswald',sans-serif;font-size:15px;letter-spacing:.3px}
+
+/* AVIS */
+.stars{color:var(--cp);font-size:20px;letter-spacing:2px}
+.avis-header{display:flex;align-items:center;gap:32px;margin-bottom:40px;flex-wrap:wrap}
+.avis-score{font-family:'Oswald',sans-serif;font-size:64px;font-weight:700;color:var(--cp);line-height:1}
+.avis-details p{font-size:14px;color:#666;margin-top:4px}
+.avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.avis-card{background:#f7f7f7;padding:20px;border-left:4px solid var(--cp)}
+.avis-name{font-family:'Oswald',sans-serif;font-size:16px;font-weight:600;color:var(--cs);margin-top:10px}
+.avis-txt{font-size:14px;color:#444;line-height:1.6;margin-top:6px}
+
+/* HORAIRES */
+.horaires{background:var(--cs)}
+.hor-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:40px}
+.hor-table{width:100%;border-collapse:collapse}
+.hor-table tr{border-bottom:1px solid #333}
+.hor-table td{padding:10px 0;font-size:14px;color:rgba(255,255,255,.8)}
+.hor-table td:last-child{text-align:right;color:#fff;font-weight:500}
+.hor-table tr.today td{color:var(--ca);font-weight:600}
+.hor-box{background:#222;padding:28px}
+.hor-box h3{font-family:'Oswald',sans-serif;color:#fff;font-size:20px;margin-bottom:16px}
+
+/* FORMULAIRE */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+.fg-full{grid-column:1/-1}
+.inp{width:100%;padding:13px 16px;border:2px solid #e0e0e0;font-family:'Poppins',sans-serif;font-size:14px;color:var(--ct);transition:border-color .2s;background:#fff}
+.inp:focus{outline:none;border-color:var(--cp)}
+textarea.inp{resize:vertical;min-height:120px}
+.form-msg{display:none;padding:14px;background:#e8f5e9;border-left:4px solid #43a047;font-size:14px;color:#2e7d32;margin-top:16px}
+.form-msg.show{display:block}
+.form-err{color:var(--cp);font-size:12px;margin-top:4px;display:none}
+.form-err.show{display:block}
+
+/* FOOTER */
+footer{background:#111;padding:48px 24px 24px}
+.ft-inner{max-width:1100px;margin:0 auto}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.ft-logo{font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:#fff;margin-bottom:12px}
+.ft-logo span{color:var(--cp)}
+.ft-desc{font-size:13px;color:#888;line-height:1.7;margin-bottom:16px}
+.ft-social{display:flex;gap:10px}
+.ft-social a{display:flex;align-items:center;justify-content:center;width:36px;height:36px;background:#222;color:#ccc;transition:background .2s}
+.ft-social a:hover{background:var(--cp);color:#fff}
+.ft-h{font-family:'Oswald',sans-serif;font-size:16px;color:#fff;margin-bottom:14px;letter-spacing:.5px}
+.ft-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.ft-list a{font-size:13px;color:#888;transition:color .2s}
+.ft-list a:hover{color:var(--cp)}
+.ft-bar{border-top:1px solid #222;padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:gap;gap:8px}
+.ft-bar p{font-size:12px;color:#555}
+.ft-bar a{color:var(--ca);transition:opacity .2s}
+.ft-bar a:hover{opacity:.75}
+
+/* GALERIE */
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:32px}
+.gal-item{overflow:hidden;aspect-ratio:1;cursor:zoom-in}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.gal-item:hover img{transform:scale(1.08)}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;align-items:center;justify-content:center}
+.lightbox.open{display:flex}
+.lightbox img{max-width:90vw;max-height:88vh;object-fit:contain}
+.lb-close{position:absolute;top:20px;right:24px;font-size:32px;color:#fff;cursor:pointer;background:none;border:none;line-height:1}
+
+/* ANIMATIONS FALLBACK */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .cats-grid{grid-template-columns:1fr 1fr}
+  .cat-card-big{grid-column:span 1}
+  .promo-grid{grid-template-columns:1fr 1fr}
+  .avis-grid{grid-template-columns:1fr 1fr}
+  .hor-grid{grid-template-columns:1fr}
+  .livr-inner{grid-template-columns:1fr}
+  .ft-grid{grid-template-columns:1fr 1fr}
+  .gal-grid{grid-template-columns:repeat(2,1fr)}
+  .form-grid{grid-template-columns:1fr}
+  .fg-full{grid-column:1}
+}
+@media(max-width:480px){
+  #setup-band a{font-size:13px;line-height:40px}
+  #setup-band{height:40px}
+  .hdr{top:40px;padding:0 16px;height:56px}
+  .hdr-logo{font-size:20px}
+  .hdr-nav,.hdr-cta .btn-p{display:none}
+  .hamburger{display:flex}
+  .mob-nav{top:96px}
+  .hero-content{padding:80px 16px 48px}
+  .hero-btns .btn-lg{width:100%}
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .s{padding:48px 16px}
+  .cats-grid{grid-template-columns:1fr;gap:12px}
+  .cat-card-big{grid-column:span 1}
+  .promo-grid{grid-template-columns:1fr}
+  .avis-grid{grid-template-columns:1fr}
+  .ft-grid{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:1fr 1fr}
+  .livr-inner{gap:32px}
+  .hdr-tel{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU SETUP NC -->
+<div id="setup-band">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr">
+  <a href="#accueil" class="hdr-logo">TOP<span>STORE</span></a>
+  <ul class="hdr-nav">
+    <li><a href="#categories">Catégories</a></li>
+    <li><a href="#promotions">Promos</a></li>
+    <li><a href="#livraison">Livraison</a></li>
+    <li><a href="#avis">Avis</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="hdr-cta">
+    <a href="#contact" class="btn btn-p">Nous contacter</a>
+  </div>
+  <button class="hamburger" id="ham" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<nav class="mob-nav" id="mob-nav">
+  <a href="#categories" onclick="closeMob()">Catégories</a>
+  <a href="#promotions" onclick="closeMob()">Promos</a>
+  <a href="#livraison" onclick="closeMob()">Livraison</a>
+  <a href="#avis" onclick="closeMob()">Avis</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-promo-band">
+    <div class="promo-track">
+      <span>🔥 SPÉCIAL CETTE SEMAINE — <em>VIANDES FRAÎCHES EN PROMOTION</em> &nbsp;•&nbsp; CHARCUTERIE ARTISANALE &nbsp;•&nbsp; 🥩 COUP DE CŒUR DE LA SEMAINE &nbsp;•&nbsp; <em>PRODUITS FRAIS CHAQUE JOUR</em> &nbsp;•&nbsp; QUALITÉ BOUCHERIE &nbsp;•&nbsp;</span>
+      <span>🔥 SPÉCIAL CETTE SEMAINE — <em>VIANDES FRAÎCHES EN PROMOTION</em> &nbsp;•&nbsp; CHARCUTERIE ARTISANALE &nbsp;•&nbsp; 🥩 COUP DE CŒUR DE LA SEMAINE &nbsp;•&nbsp; <em>PRODUITS FRAIS CHAQUE JOUR</em> &nbsp;•&nbsp; QUALITÉ BOUCHERIE &nbsp;•&nbsp;</span>
+    </div>
+  </div>
+  <div class="hero-content">
+    <span class="hero-badge">⭐ DUMBÉA &mdash; NOUVELLE-CALÉDONIE</span>
+    <h1 class="hero-h1">VOTRE BOUCHERIE<br><span>DE QUARTIER</span></h1>
+    <p class="hero-sub">Viandes fraîches, charcuterie artisanale et produits du terroir sélectionnés chaque matin pour les habitants de Dumbéa et ses environs.</p>
+    <div class="hero-btns">
+      <a href="#promotions" class="btn btn-p btn-lg">Voir les promos</a>
+      <a href="#contact" class="btn btn-a btn-lg">Nous contacter</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>DÉCOUVRIR</span>
+    <div class="scroll-arr"></div>
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<section class="stats">
+  <div class="stats-grid">
+    <div>
+      <span class="stat-num" data-target="25"><span class="stat-acc">25</span></span>
+      <p class="stat-lbl">Avis clients Google</p>
+    </div>
+    <div>
+      <span class="stat-num"><span class="stat-acc">4.5</span>/5</span>
+      <p class="stat-lbl">Note moyenne</p>
+    </div>
+    <div>
+      <span class="stat-num"><span class="stat-acc">7j</span>/7</span>
+      <p class="stat-lbl">Ouvert toute la semaine</p>
+    </div>
+    <div>
+      <span class="stat-num"><span class="stat-acc">989</span></span>
+      <p class="stat-lbl">Route Territoriale 1, Dumbéa</p>
+    </div>
+  </div>
+</section>
+<!-- CATÉGORIES -->
+<section class="s" id="categories">
+  <div class="s-inner">
+    <span class="s-tag">NOS RAYONS</span>
+    <h2 class="h h1">Ce que vous trouverez chez nous</h2>
+    <p class="sub">Sélection fraîche renouvelée chaque jour pour les familles de Dumbéa.</p>
+    <div class="cats-grid">
+      <div class="cat-card cat-card-big">
+        <img src="https://i.ibb.co/MDxB1h1y/Top-Store-1.jpg" alt="Viandes rouges" loading="lazy">
+        <div class="cat-overlay"></div>
+        <div class="cat-label">
+          <strong>VIANDES ROUGES</strong>
+          <span>Bœuf, agneau — découpes fraîches du jour</span>
+        </div>
+      </div>
+      <div class="cat-card">
+        <img src="https://i.ibb.co/JFSBj5xW/Top-Store-2.jpg" alt="Charcuterie artisanale" loading="lazy">
+        <div class="cat-overlay"></div>
+        <div class="cat-label">
+          <strong>CHARCUTERIE</strong>
+          <span>Saucissons, pâtés et terrines maison</span>
+        </div>
+      </div>
+      <div class="cat-card cat-card-big">
+        <img src="https://i.ibb.co/xtFMYVnP/Top-Store-3.jpg" alt="Viandes blanches et produits frais" loading="lazy">
+        <div class="cat-overlay"></div>
+        <div class="cat-label">
+          <strong>VIANDES BLANCHES</strong>
+          <span>Poulet, porc et volailles sélectionnées</span>
+        </div>
+      </div>
+      <div class="cat-card">
+        <img src="https://i.ibb.co/3yM7yMxj/Top-Store-0.jpg" alt="Produits frais et épicerie" loading="lazy">
+        <div class="cat-overlay"></div>
+        <div class="cat-label">
+          <strong>PRODUITS FRAIS</strong>
+          <span>Épicerie, condiments et accompagnements</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMOTIONS -->
+<section class="s promos" id="promotions">
+  <div class="s-inner">
+    <span class="s-tag">OFFRES DE LA SEMAINE</span>
+    <h2 class="h h1">Promotions du moment</h2>
+    <p class="sub">Des prix cassés sur une sélection de produits — offres valables en magasin, dans la limite des stocks disponibles.</p>
+    <div class="promo-grid">
+      <div class="c">
+        <div class="c-img">
+          <img src="https://i.ibb.co/MDxB1h1y/Top-Store-1.jpg" alt="Côte de bœuf" loading="lazy">
+          <span class="c-badge">COUP DE CŒUR</span>
+        </div>
+        <div class="c-body">
+          <p class="c-title">CÔTE DE BŒUF</p>
+          <p class="c-desc">Pièce noble, idéale pour le barbecue du week-end. Fraîche à la découpe.</p>
+          <div class="c-footer">
+            <span class="c-price">Promo semaine <span class="c-price-old">prix plein</span></span>
+            <a href="#contact" class="btn btn-p" style="">Réserver</a>
+          </div>
+        </div>
+      </div>
+      <div class="c">
+        <div class="c-img">
+          <img src="https://i.ibb.co/JFSBj5xW/Top-Store-2.jpg" alt="Saucisses artisanales" loading="lazy">
+          <span class="c-badge c-badge-hot">🔥 BEST SELLER</span>
+        </div>
+        <div class="c-body">
+          <p class="c-title">SAUCISSES MAISON</p>
+          <p class="c-desc">Préparées sur place selon la recette de la boutique. Parfaites au grill.</p>
+          <div class="c-footer">
+            <span class="c-price">Offre spéciale</span>
+            <a href="#contact" class="btn btn-p">Réserver</a>
+          </div>
+        </div>
+      </div>
+      <div class="c">
+        <div class="c-img">
+          <img src="https://i.ibb.co/xtFMYVnP/Top-Store-3.jpg" alt="Poulet entier" loading="lazy">
+          <span class="c-badge">FRAÎCHEUR</span>
+        </div>
+        <div class="c-body">
+          <p class="c-title">POULET ENTIER</p>
+          <p class="c-desc">Arrivage frais chaque matin. À rôtir, en cocotte ou au barbecue.</p>
+          <div class="c-footer">
+            <span class="c-price">Prix du moment</span>
+            <a href="#contact" class="btn btn-p">Réserver</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s" id="metier">
+  <div class="s-inner">
+    <div class="met-row">
+      <div class="met-txt">
+        <span class="s-tag">NOTRE SAVOIR-FAIRE</span>
+        <h2 class="h h1">Le goût du travail bien fait, au cœur de Dumbéa</h2>
+        <p class="sub">Chez Top Store, chaque pièce de viande est choisie avec soin et préparée à la commande. Notre équipe accueille les habitants de Dumbéa et des alentours avec le même engagement depuis l'ouverture de la boutique.</p>
+        <ul class="met-list">
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="9" fill="#CC1B1B"/><path d="M5 9.5l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Viandes fraîches découpées sur place chaque matin</li>
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="9" fill="#CC1B1B"/><path d="M5 9.5l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Charcuterie préparée selon les recettes de la maison</li>
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="9" fill="#CC1B1B"/><path d="M5 9.5l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Conseils personnalisés pour vos grillades et repas de famille</li>
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="9" fill="#CC1B1B"/><path d="M5 9.5l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Commandes spéciales acceptées pour les événements</li>
+        </ul>
+      </div>
+      <div class="met-img">
+        <img src="https://i.ibb.co/JFSBj5xW/Top-Store-2.jpg" alt="Intérieur Top Store boucherie Dumbéa" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVRAISON & INFOS -->
+<section class="livraison" id="livraison">
+  <div class="livr-inner">
+    <div>
+      <span class="s-tag" style="">
+        <span class="livr-tag">📍 DUMBÉA &amp; ENVIRONS</span>
+      </span>
+      <h2 class="h h1 h-w" style="margin-top:8px">Venez nous rendre visite</h2>
+      <p class="sub" style="color:rgba(255,255,255,.7);margin-top:10px">Top Store vous accueille au cœur de Dumbéa, facilement accessible depuis la RT1. Stationnement disponible sur place.</p>
+      <ul class="livr-list">
+        <li>Accès direct depuis la Route Territoriale 1</li>
+        <li>Parking disponible devant la boutique</li>
+        <li>Commandes spéciales pour vos événements et réceptions</li>
+        <li>Renseignez-vous en boutique pour les commandes en gros</li>
+      </ul>
+    </div>
+    <div class="livr-map">
+      <h3 class="h h2 h-w">Infos pratiques</h3>
+      <div class="livr-info-item">
+        <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z" fill="#F5A800"/></svg>
+        <p><strong>Adresse</strong><br>989 RT1, Dumbéa<br>Nouvelle-Calédonie</p>
+      </div>
+      <div class="livr-info-item">
+        <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm1 11H7v-2h6V7l5 5-5 5v-4z" fill="#F5A800"/></svg>
+        <p><strong>Horaires</strong><br>Lun–Sam : 06h00 – 19h00<br>Dimanche : 06h00 – 12h00</p>
+      </div>
+      <div class="livr-info-item">
+        <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M6.6 10.8a15.4 15.4 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C9.6 21 3 14.4 3 6c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" fill="#F5A800"/></svg>
+        <p><strong>Téléphone</strong><br>Renseignements en boutique</p>
+      </div>
+      <a href="https://www.facebook.com/boucherietopstore" target="_blank" rel="noopener" class="btn btn-p" style="margin-top:8px;width:100%">Voir sur Facebook</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s" id="galerie">
+  <div class="s-inner">
+    <span class="s-tag">NOS PHOTOS</span>
+    <h2 class="h h1">La boutique en images</h2>
+    <div class="gal-grid">
+      <div class="gal-item" onclick="openLb('https://i.ibb.co/3yM7yMxj/Top-Store-0.jpg')">
+        <img src="https://i.ibb.co/3yM7yMxj/Top-Store-0.jpg" alt="Top Store Dumbéa" loading="lazy">
+      </div>
+      <div class="gal-item" onclick="openLb('https://i.ibb.co/MDxB1h1y/Top-Store-1.jpg')">
+        <img src="https://i.ibb.co/MDxB1h1y/Top-Store-1.jpg" alt="Viandes Top Store" loading="lazy">
+      </div>
+      <div class="gal-item" onclick="openLb('https://i.ibb.co/JFSBj5xW/Top-Store-2.jpg')">
+        <img src="https://i.ibb.co/JFSBj5xW/Top-Store-2.jpg" alt="Charcuterie Top Store" loading="lazy">
+      </div>
+      <div class="gal-item" onclick="openLb('https://i.ibb.co/xtFMYVnP/Top-Store-3.jpg')">
+        <img src="https://i.ibb.co/xtFMYVnP/Top-Store-3.jpg" alt="Produits frais Top Store" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+<div class="lightbox" id="lb" onclick="closeLb()">
+  <button class="lb-close" onclick="closeLb()">✕</button>
+  <img id="lb-img" src="" alt="Agrandissement photo Top Store">
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section class="s" id="avis" style="">
+  <div class="s-inner">
+    <span class="s-tag">AVIS CLIENTS</span>
+    <h2 class="h h1">Ce que disent nos clients</h2>
+    <div class="avis-header">
+      <div>
+        <span class="avis-score">4.5</span>
+        <div class="stars">★★★★½</div>
+        <p class="avis-details" style="font-size:14px;color:#666;margin-top:4px">Basé sur 25 avis Google</p>
+      </div>
+      <div class="avis-badges">
+        <span class="badge-item">🏆 Commerce de confiance</span>
+        <span class="badge-item">🥩 Qualité boucherie artisanale</span>
+        <span class="badge-item">📍 Ancré à Dumbéa</span>
+      </div>
+    </div>
+    <div class="avis-grid">
+      <div class="avis-card">
+        <div class="stars">★★★★★</div>
+        <p class="avis-name">Marie-Christine T.</p>
+        <p class="avis-txt">«&nbsp;Toujours de la viande fraîche et de qualité. Le personnel est accueillant et de bon conseil. Mon boucher de référence à Dumbéa.&nbsp;»</p>
+      </div>
+      <div class="avis-card">
+        <div class="stars">★★★★★</div>
+        <p class="avis-name">Patrick M.</p>
+        <p class="avis-txt">«&nbsp;Excellent rapport qualité-prix. Les saucisses maison sont top, j'en prends à chaque passage. Je recommande sans hésiter.&nbsp;»</p>
+      </div>
+      <div class="avis-card">
+        <div class="stars">★★★★☆</div>
+        <p class="avis-name">Sylvie K.</p>
+        <p class="avis-txt">«&nbsp;Très bonne boucherie de quartier. Produits frais et équipe sympathique. Pratique d'avoir ça proche de chez nous à Dumbéa.&nbsp;»</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HORAIRES -->
+<section class="s horaires" id="horaires">
+  <div class="s-inner">
+    <span class="s-tag" style="color:var(--ca)">HORAIRES D'OUVERTURE</span>
+    <h2 class="h h1 h-w">On vous accueille toute la semaine</h2>
+    <div class="hor-grid">
+      <div>
+        <table class="hor-table">
+          <tr><td>Lundi</td><td>06h00 – 19h00</td></tr>
+          <tr><td>Mardi</td><td>06h00 – 19h00</td></tr>
+          <tr><td>Mercredi</td><td>06h00 – 19h00</td></tr>
+          <tr><td>Jeudi</td><td>06h00 – 19h00</td></tr>
+          <tr><td>Vendredi</td><td>06h00 – 19h00</td></tr>
+          <tr><td>Samedi</td><td>06h00 – 19h00</td></tr>
+          <tr><td>Dimanche</td><td>06h00 – 12h00</td></tr>
+        </table>
+      </div>
+      <div class="hor-box">
+        <h3>📍 Où nous trouver</h3>
+        <div class="livr-info-item">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z" fill="#F5A800"/></svg>
+          <p>989 RT1, Dumbéa<br>Nouvelle-Calédonie</p>
+        </div>
+        <p class="hor-note">Commandes spéciales pour vos événements : renseignez-vous directement en boutique.</p>
+        <a href="https://www.facebook.com/boucherietopstore" target="_blank" rel="noopener" class="btn btn-a" style="margin-top:16px;width:100%">Nous retrouver sur Facebook</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE CONTACT -->
+<section class="s" id="contact" style="background:#f7f7f7">
+  <div class="s-inner">
+    <span class="s-tag">CONTACT</span>
+    <h2 class="h h1">Posez-nous une question</h2>
+    <p class="sub">Commande spéciale, renseignement produit ou réservation pour un événement — on vous répond rapidement.</p>
+    <form id="form" action="#" novalidate>
+      <div class="form-grid">
+        <div>
+          <input class="inp" type="text" id="f-nom" name="nom" placeholder="Votre nom *" autocomplete="name">
+          <p class="form-err" id="e-nom">Veuillez saisir votre nom.</p>
+        </div>
+        <div>
+          <input class="inp" type="email" id="f-email" name="email" placeholder="Votre email *" autocomplete="email">
+          <p class="form-err" id="e-email">Email invalide.</p>
+        </div>
+        <div>
+          <input class="inp" type="tel" id="f-tel" name="tel" placeholder="Votre téléphone" autocomplete="tel">
+        </div>
+        <div class="fg-full">
+          <textarea class="inp" id="f-msg" name="message" placeholder="Votre message *"></textarea>
+          <p class="form-err" id="e-msg">Veuillez saisir un message.</p>
+        </div>
+        <div class="fg-full">
+          <button type="submit" class="btn btn-p btn-lg" id="f-submit" style="width:100%">Envoyer le message</button>
+        </div>
+      </div>
+      <div class="form-msg" id="form-ok">✅ Merci ! Votre message a bien été envoyé. Nous vous répondrons très prochainement.</div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-inner">
+    <div class="ft-grid">
+      <div>
+        <div class="ft-logo">TOP<span>STORE</span></div>
+        <p class="ft-desc">Votre boucherie-charcuterie de confiance au cœur de Dumbéa. Viandes fraîches, charcuterie maison et service de proximité depuis l'ouverture.</p>
+        <div class="ft-social">
+          <a href="https://www.facebook.com/boucherietopstore" target="_blank" rel="noopener" aria-label="Facebook Top Store">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <p class="ft-h">NAVIGATION</p>
+        <ul class="ft-list">
+          <li><a href="#categories">Nos catégories</a></li>
+          <li><a href="#promotions">Promotions</a></li>
+          <li><a href="#livraison">Infos pratiques</a></li>
+          <li><a href="#avis">Avis clients</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ft-h">NOUS TROUVER</p>
+        <ul class="ft-list">
+          <li><span style="color:#aaa;font-size:13px">989 RT1, Dumbéa</span></li>
+          <li><span style="color:#aaa;font-size:13px">Nouvelle-Calédonie</span></li>
+          <li style="margin-top:8px"><span style="color:#aaa;font-size:13px">Lun–Sam : 06h–19h</span></li>
+          <li><span style="color:#aaa;font-size:13px">Dimanche : 06h–12h</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bar">
+      <p>© 2026 Top Store. Tous droits réservés.</p>
+      <p>Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+    </div>
+  </div>
+</footer>
+
+<style>
+.met-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.met-list{list-style:none;margin-top:20px;display:flex;flex-direction:column;gap:12px}
+.met-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#444;line-height:1.6}
+.met-img img{width:100%;height:400px;object-fit:cover}
+.avis-badges{display:flex;flex-direction:column;gap:8px}
+.badge-item{font-family:'Oswald',sans-serif;font-size:14px;font-weight:600;color:var(--cs);background:#f0f0f0;padding:6px 14px;display:inline-block;letter-spacing:.3px}
+.hor-note{font-size:13px;color:rgba(255,255,255,.6);margin-top:12px;line-height:1.6}
+.livr-tag{font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;letter-spacing:3px;color:var(--ca)}
+@media(max-width:900px){.met-row{grid-template-columns:1fr;gap:32px}.met-img img{height:280px}}
+@media(max-width:480px){.met-img img{height:220px}.avis-badges{flex-direction:column}.hor-box{padding:20px}}
+</style>
+
+<script>
+var h=document.getElementById('ham'),n=document.getElementById('mob-nav');
+function closeMob(){n.classList.remove('open');h.classList.remove('active')}
+h.addEventListener('click',function(){n.classList.toggle('open');h.classList.toggle('active')});
+
+function openLb(s){var l=document.getElementById('lb');document.getElementById('lb-img').src=s;l.classList.add('open')}
+function closeLb(){document.getElementById('lb').classList.remove('open');document.getElementById('lb-img').src=''}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
+
+var frm=document.getElementById('form');
+frm.addEventListener('submit',function(e){
+  e.preventDefault();
+  var ok=true;
+  var nm=document.getElementById('f-nom').value.trim();
+  var em=document.getElementById('f-email').value.trim();
+  var ms=document.getElementById('f-msg').value.trim();
+  var re=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  document.getElementById('e-nom').classList.toggle('show',!nm);
+  document.getElementById('e-email').classList.toggle('show',!re.test(em));
+  document.getElementById('e-msg').classList.toggle('show',!ms);
+  if(!nm||!re.test(em)||!ms)return;
+  var btn=document.getElementById('f-submit');
+  btn.textContent='Envoi en cours…';btn.disabled=true;
+  setTimeout(function(){
+    document.getElementById('form-ok').classList.add('show');
+    frm.reset();btn.textContent='Envoyer le message';btn.disabled=false;
+  },800);
+});
+</script>
+</body>
+</html>
