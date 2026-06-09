@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kizomba Art Studio — Nouméa</title>
+<meta name="description" content="Kizomba Art Studio, votre studio de danse premium à Nouméa, Nouvelle-Calédonie. Cours particuliers et collectifs de kizomba pour tous niveaux.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Cinzel:wght@400;600;700;900&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#C9A84C;
+--cs:#A8A9AD;
+--ca:#D4AF37;
+--ct:#F0E6C8;
+--cb:#1A1A1A;
+--cw:#FFFFFF;
+--cd:#111111;
+--r:12px;
+--tr:0.35s ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--cb);color:var(--ct);font-family:'Nunito',system-ui,sans-serif;overflow-x:hidden;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+
+/* BANDEAU */
+.promo-bar{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;display:flex;align-items:center;justify-content:center}
+.promo-bar a{font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;line-height:44px;letter-spacing:.3px;text-align:center}
+.promo-bar a:hover{opacity:.85}
+
+/* HEADER */
+.hdr{position:fixed;top:44px;left:0;width:100%;z-index:1000;background:rgba(26,26,26,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,.18);transition:background var(--tr)}
+.hdr-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:'Cinzel',serif;font-weight:700;font-size:1.2rem;color:var(--cp);letter-spacing:.12em;white-space:nowrap}
+.logo span{color:var(--cs);font-weight:400}
+.nav{display:flex;align-items:center;gap:32px}
+.nav a{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ct);opacity:.8;transition:opacity var(--tr),color var(--tr);position:relative;padding-bottom:4px}
+.nav a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--cp);transition:width var(--tr)}
+.nav a:hover{opacity:1;color:var(--cp)}
+.nav a:hover::after{width:100%}
+.hdr-cta{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;background:var(--cp);color:var(--cb);padding:10px 22px;border-radius:var(--r);font-weight:700;transition:background var(--tr),transform var(--tr),box-shadow var(--tr);white-space:nowrap}
+.hdr-cta:hover{background:var(--ca);transform:translateY(-1px);box-shadow:0 6px 24px rgba(201,168,76,.35)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{display:block;width:24px;height:2px;background:var(--cp);transition:transform var(--tr),opacity var(--tr)}
+.mob-nav{display:none;position:fixed;top:116px;left:0;width:100%;background:rgba(18,18,18,.98);z-index:999;padding:24px 24px 32px;flex-direction:column;gap:0;border-bottom:1px solid rgba(201,168,76,.2)}
+.mob-nav a{font-family:'Cinzel',serif;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ct);padding:14px 0;border-bottom:1px solid rgba(201,168,76,.1);transition:color var(--tr)}
+.mob-nav a:last-child{border-bottom:none}
+.mob-nav a:hover{color:var(--cp)}
+.mob-nav.open{display:flex}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:116px;position:relative;overflow:hidden}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:80px 60px 80px 80px;background:var(--cb);position:relative;z-index:2}
+.hero-left::after{content:'';position:absolute;right:-1px;top:0;width:1px;height:100%;background:linear-gradient(to bottom,transparent,var(--cp),transparent)}
+.hero-right{position:relative;overflow:hidden}
+.hero-img{position:absolute;inset:0;background:url('https://i.ibb.co/QvSsYtNK/Kizomba-Art-Studio-0.jpg') center/cover no-repeat;transition:transform .8s ease}
+.hero-right:hover .hero-img{transform:scale(1.04)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(26,26,26,.6) 0%,rgba(201,168,76,.08) 100%)}
+.hero-eyebrow{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--cp);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.hero-eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--cp)}
+.hero h1{font-family:'Cinzel',serif;font-weight:900;font-size:clamp(2.4rem,4.5vw,4.2rem);line-height:1.1;letter-spacing:.04em;margin-bottom:12px;color:var(--cw)}
+.hero h1 em{font-style:normal;color:var(--cp);display:block}
+.hero-sub{font-size:1.05rem;color:var(--cs);line-height:1.7;margin-bottom:36px;max-width:440px;font-weight:400}
+.hero-sub strong{color:var(--ct)}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:48px}
+.btn-gold{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;background:linear-gradient(135deg,var(--cp),var(--ca));color:var(--cb);padding:14px 32px;border-radius:var(--r);font-weight:700;transition:transform var(--tr),box-shadow var(--tr),opacity var(--tr);display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(212,175,55,.4)}
+.btn-outline{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;background:transparent;color:var(--cp);padding:13px 30px;border-radius:var(--r);font-weight:600;border:1.5px solid var(--cp);transition:background var(--tr),color var(--tr),transform var(--tr);display:inline-flex;align-items:center;gap:8px}
+.btn-outline:hover{background:var(--cp);color:var(--cb);transform:translateY(-2px)}
+.hero-badge{display:flex;align-items:center;gap:12px;padding:14px 20px;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);border-radius:var(--r);width:fit-content}
+.hero-badge-icon{width:36px;height:36px;background:var(--cp);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.hero-badge-txt{font-size:.82rem;color:var(--cs)}
+.hero-badge-txt strong{display:block;color:var(--ct);font-size:.9rem}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.6;z-index:3}
+.scroll-ind span{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--cs)}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--cp),transparent);animation:scrollPulse 2s ease-in-out infinite}
+@keyframes scrollPulse{0%,100%{opacity:.4;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.15)}}
+
+/* HERO BADGE RIGHT OVERLAY */
+.hero-badge-right{position:absolute;bottom:40px;left:32px;z-index:4;background:rgba(26,26,26,.82);backdrop-filter:blur(8px);border:1px solid rgba(201,168,76,.3);border-radius:var(--r);padding:14px 18px;max-width:220px}
+.hbr-label{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cp);margin-bottom:4px}
+.hbr-txt{font-size:.82rem;color:var(--ct);font-style:italic}
+
+/* STATS BAND */
+.stats{background:linear-gradient(135deg,var(--cp) 0%,var(--ca) 100%);padding:56px 24px}
+.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
+.stat-item{display:flex;flex-direction:column;align-items:center;gap:6px}
+.stat-num{font-family:'Cinzel',serif;font-weight:900;font-size:clamp(2rem,4vw,3.2rem);color:var(--cb);line-height:1}
+.stat-num sup{font-size:.5em;vertical-align:super}
+.stat-lbl{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(26,26,26,.75);font-weight:700}
+.stat-div{width:32px;height:1px;background:rgba(26,26,26,.25);margin:4px auto 0}
+
+/* FALLBACK REVEAL */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav,.hdr-cta{display:none}
+  .hamburger{display:flex}
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-left{padding:60px 24px 48px;order:2}
+  .hero-right{height:55vw;min-height:280px;order:1}
+  .hero h1{font-size:clamp(2rem,6vw,3rem)}
+  .stats-inner{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+  .promo-bar a{font-size:13px;line-height:40px;padding:0 12px}
+  .promo-bar{height:40px}
+  .hdr{top:40px}
+  .mob-nav{top:112px}
+  .hero{padding-top:112px}
+  .hero-left{padding:48px 16px 40px}
+  .hero h1{font-size:2rem}
+  .hero-sub{font-size:.95rem}
+  .hero-actions{flex-direction:column}
+  .btn-gold,.btn-outline{width:100%;justify-content:center;min-height:48px;font-size:.68rem}
+  .stats-inner{grid-template-columns:repeat(2,1fr);gap:24px}
+  .stat-num{font-size:1.9rem}
+  .hdr-inner{padding:0 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo-bar">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr" id="hdr">
+  <div class="hdr-inner">
+    <a href="#hero" class="logo">Kizomba<span>&nbsp;Art Studio</span></a>
+    <nav class="nav">
+      <a href="#services">Cours</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#equipe">Équipe</a>
+      <a href="#temoignages">Avis</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="tel:727178" class="hdr-cta">Réserver — 72.71.78</a>
+    <button class="hamburger" id="hmb" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-nav" id="mobnav">
+  <a href="#services" onclick="closeMob()">Cours & Tarifs</a>
+  <a href="#galerie" onclick="closeMob()">Galerie</a>
+  <a href="#equipe" onclick="closeMob()">Équipe</a>
+  <a href="#temoignages" onclick="closeMob()">Témoignages</a>
+  <a href="#contact" onclick="closeMob()">Réserver</a>
+  <a href="tel:727178" onclick="closeMob()">📞 72.71.78</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Studio Premium · Nouméa</p>
+    <h1>Signez<em>Votre Danse</em></h1>
+    <p class="hero-sub">Au cœur de Nouméa, <strong>Kizomba Art Studio</strong> vous invite à une expérience artistique unique — corps, âme et mouvement en parfaite harmonie.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-gold">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Commencer l'aventure
+      </a>
+      <a href="#services" class="btn-outline">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14 14"/></svg>
+        Voir les cours
+      </a>
+    </div>
+    <div class="hero-badge">
+      <div class="hero-badge-icon">✦</div>
+      <div class="hero-badge-txt">
+        <strong>Tous niveaux acceptés</strong>
+        Débutants bienvenus — progression garantie
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-badge-right">
+      <p class="hbr-label">Notre promesse</p>
+      <p class="hbr-txt">"L'art du mouvement, accessible à tous."</p>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>Découvrir</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<section class="stats" id="stats">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num" data-target="5">0</div>
+      <div class="stat-div"></div>
+      <div class="stat-lbl">Styles enseignés</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="3">0</div>
+      <div class="stat-div"></div>
+      <div class="stat-lbl">Niveaux de maîtrise</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="100">0<sup>%</sup></div>
+      <div class="stat-div"></div>
+      <div class="stat-lbl">Progression personnalisée</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="1">0</div>
+      <div class="stat-div"></div>
+      <div class="stat-lbl">Studio à Nouméa</div>
+    </div>
+  </div>
+</section>
+
+<script>
+var hmb=document.getElementById('hmb'),mob=document.getElementById('mobnav');
+function closeMob(){mob.classList.remove('open');hmb.querySelectorAll('span').forEach(function(s,i){s.style.transform='';s.style.opacity='';})}
+hmb.addEventListener('click',function(){
+  var o=mob.classList.toggle('open');
+  var sp=hmb.querySelectorAll('span');
+  if(o){sp[0].style.transform='translateY(7px) rotate(45deg)';sp[1].style.opacity='0';sp[2].style.transform='translateY(-7px) rotate(-45deg)'}
+  else{closeMob()}
+});
+(function(){
+  var nums=document.querySelectorAll('.stat-num[data-target]'),done=false;
+  function run(){
+    if(done)return;
+    var r=document.querySelector('.stats').getBoundingClientRect();
+    if(r.top<window.innerHeight-60){
+      done=true;
+      nums.forEach(function(el){
+        var t=+el.dataset.target,sup=el.querySelector('sup'),s=0,d=Math.ceil(800/t);
+        var iv=setInterval(function(){
+          s++;el.textContent=s;
+          if(sup)el.appendChild(sup);
+          if(s>=t)clearInterval(iv);
+        },d);
+      });
+    }
+  }
+  window.addEventListener('scroll',run,{passive:true});
+  run();
+})();
+</script>
+<style>
+.s{padding:96px 24px}
+.s-inner{max-width:1160px;margin:0 auto}
+.s-eyebrow{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--cp);display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.s-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--cp)}
+.s-title{font-family:'Cinzel',serif;font-weight:700;font-size:clamp(1.8rem,3.5vw,2.8rem);line-height:1.2;color:var(--cw);margin-bottom:16px}
+.s-title em{font-style:normal;color:var(--cp)}
+.s-desc{font-size:1rem;color:var(--cs);max-width:560px;line-height:1.75}
+.gold-line{width:48px;height:2px;background:linear-gradient(90deg,var(--cp),var(--ca));margin:20px 0 40px;border-radius:2px}
+
+/* SERVICES */
+.svc-filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px}
+.svc-filter{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;padding:8px 20px;border-radius:40px;border:1.5px solid rgba(201,168,76,.3);background:transparent;color:var(--cs);cursor:pointer;transition:all var(--tr)}
+.svc-filter.active,.svc-filter:hover{background:var(--cp);color:var(--cb);border-color:var(--cp)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.svc-card{background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.18);border-radius:16px;padding:32px 28px;transition:border-color var(--tr),transform var(--tr),box-shadow var(--tr);position:relative;overflow:hidden}
+.svc-card::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--cp),var(--ca));transition:width .4s ease}
+.svc-card:hover{border-color:rgba(201,168,76,.5);transform:translateY(-4px);box-shadow:0 16px 48px rgba(201,168,76,.12)}
+.svc-card:hover::after{width:100%}
+.svc-icon{width:48px;height:48px;background:rgba(201,168,76,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.svc-icon svg{width:24px;height:24px;stroke:var(--cp);fill:none;stroke-width:1.8}
+.svc-level{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cp);margin-bottom:8px}
+.svc-name{font-family:'Cinzel',serif;font-weight:700;font-size:1.15rem;color:var(--cw);margin-bottom:10px}
+.svc-desc{font-size:.9rem;color:var(--cs);line-height:1.7;margin-bottom:20px}
+.svc-price{font-family:'Cinzel',serif;font-size:1.5rem;font-weight:700;color:var(--cp);margin-bottom:4px}
+.svc-price span{font-size:.75rem;color:var(--cs);font-family:'Nunito',sans-serif;font-weight:400}
+.svc-dur{font-size:.8rem;color:var(--cs);margin-bottom:24px}
+.svc-cta{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cp);border:1.5px solid rgba(201,168,76,.4);border-radius:8px;padding:10px 20px;transition:all var(--tr);display:inline-block;background:transparent}
+.svc-cta:hover{background:var(--cp);color:var(--cb);border-color:var(--cp)}
+.svc-card[data-cat].hidden{display:none}
+
+/* MÉTIER */
+.met-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;margin-bottom:80px}
+.met-grid.rev{direction:rtl}
+.met-grid.rev>*{direction:ltr}
+.met-img-wrap{border-radius:20px;overflow:hidden;position:relative}
+.met-img-wrap img{width:100%;height:420px;object-fit:cover;transition:transform .6s ease}
+.met-img-wrap:hover img{transform:scale(1.04)}
+.met-img-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,.12),transparent)}
+.met-body{}
+.met-checks{display:flex;flex-direction:column;gap:14px;margin-top:28px}
+.met-check{display:flex;align-items:flex-start;gap:12px;font-size:.92rem;color:var(--cs);line-height:1.6}
+.met-check-icon{width:20px;height:20px;background:rgba(201,168,76,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.met-check-icon svg{width:10px;height:10px;stroke:var(--cp);fill:none;stroke-width:3}
+
+/* GALERIE */
+.gal-bg{background:#111}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.gal-item{position:relative;overflow:hidden;aspect-ratio:1;cursor:pointer}
+.gal-item:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-hover{position:absolute;inset:0;background:rgba(201,168,76,.15);opacity:0;transition:opacity var(--tr);display:flex;align-items:center;justify-content:center}
+.gal-hover svg{width:32px;height:32px;stroke:#fff;fill:none;stroke-width:1.8}
+.gal-item:hover .gal-hover{opacity:1}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:2000;display:none;align-items:center;justify-content:center}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:88vh;border-radius:8px;border:1px solid rgba(201,168,76,.2)}
+.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--cp);font-size:2rem;cursor:pointer;line-height:1}
+
+/* FORMULAIRE */
+.form-wrap{max-width:680px;margin:0 auto}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.form-field{display:flex;flex-direction:column;gap:6px}
+.form-field.full{grid-column:1/-1}
+.form-label{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cs)}
+.form-input,.form-textarea{background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.2);border-radius:10px;padding:14px 16px;color:var(--ct);font-family:'Nunito',sans-serif;font-size:.95rem;transition:border-color var(--tr),background var(--tr);width:100%;outline:none}
+.form-input::placeholder,.form-textarea::placeholder{color:rgba(168,169,173,.5)}
+.form-input:focus,.form-textarea:focus{border-color:var(--cp);background:rgba(201,168,76,.05)}
+.form-input.err,.form-textarea.err{border-color:#e05a5a}
+.form-textarea{height:130px;resize:vertical}
+.form-submit{width:100%;margin-top:8px;font-size:.75rem;min-height:52px}
+.form-success{display:none;text-align:center;padding:28px;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.3);border-radius:16px;margin-top:20px}
+.form-success p{font-family:'Cinzel',serif;color:var(--cp);font-size:1rem;letter-spacing:.05em}
+.form-success small{color:var(--cs);font-size:.85rem}
+.form-loader{display:none;width:20px;height:20px;border:2px solid rgba(26,26,26,.3);border-top-color:var(--cb);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* PREUVE SOCIALE */
+.ps-bg{background:rgba(201,168,76,.04)}
+.ps-google{display:flex;align-items:center;gap:24px;background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.2);border-radius:16px;padding:24px 28px;margin-bottom:48px;max-width:420px}
+.ps-score{font-family:'Cinzel',serif;font-size:3rem;font-weight:900;color:var(--cp);line-height:1}
+.ps-stars{display:flex;gap:3px;margin:6px 0}
+.ps-star svg{width:16px;height:16px;fill:var(--cp)}
+.ps-label{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--cs)}
+.ps-label span{color:var(--ct)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px}
+.testi-card{background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.15);border-radius:16px;padding:28px 24px;transition:border-color var(--tr)}
+.testi-card:hover{border-color:rgba(201,168,76,.4)}
+.testi-quote{font-size:.88rem;color:var(--cs);line-height:1.75;margin-bottom:20px;font-style:italic}
+.testi-quote::before{content:'\201C';font-family:'Cinzel',serif;font-size:2rem;color:var(--cp);line-height:.5;display:block;margin-bottom:12px}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--cp),var(--ca));display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:.85rem;color:var(--cb);font-weight:700;flex-shrink:0}
+.testi-name{font-family:'Cinzel',serif;font-size:.82rem;color:var(--ct)}
+.testi-loc{font-size:.75rem;color:var(--cs)}
+.badges{display:flex;gap:16px;flex-wrap:wrap}
+.badge{display:flex;align-items:center;gap:10px;padding:12px 20px;background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.2);border-radius:40px}
+.badge svg{width:18px;height:18px;stroke:var(--cp);fill:none;stroke-width:1.8;flex-shrink:0}
+.badge-txt{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cs)}
+
+/* FOOTER */
+.ftr{background:linear-gradient(160deg,#0d0d0d 0%,#181400 100%);border-top:1px solid rgba(201,168,76,.2);padding:72px 24px 0}
+.ftr-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:48px;padding-bottom:48px}
+.ftr-brand .logo{font-size:1.1rem;margin-bottom:16px;display:block}
+.ftr-tagline{font-size:.88rem;color:var(--cs);line-height:1.7;margin-bottom:24px;max-width:280px}
+.ftr-contact a{display:block;font-size:.88rem;color:var(--cs);margin-bottom:8px;transition:color var(--tr)}
+.ftr-contact a:hover{color:var(--cp)}
+.ftr-h{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cp);margin-bottom:20px}
+.ftr-links{display:flex;flex-direction:column;gap:10px}
+.ftr-links a{font-size:.88rem;color:var(--cs);transition:color var(--tr)}
+.ftr-links a:hover{color:var(--cp)}
+.ftr-hours p{font-size:.88rem;color:var(--cs);line-height:1.9}
+.ftr-hours strong{color:var(--ct)}
+.ftr-bottom{border-top:1px solid rgba(201,168,76,.12);padding:20px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;max-width:1160px;margin:0 auto}
+.ftr-copy{font-size:.78rem;color:rgba(168,169,173,.6)}
+.ftr-setup{font-size:.78rem;color:rgba(168,169,173,.5)}
+.ftr-setup a{color:var(--cp);transition:opacity var(--tr)}
+.ftr-setup a:hover{opacity:.8}
+
+/* RESPONSIVE PART 2 */
+@media(max-width:900px){
+  .svc-grid{grid-template-columns:1fr}
+  .met-grid,.met-grid.rev{grid-template-columns:1fr;gap:32px;direction:ltr}
+  .met-img-wrap img{height:300px}
+  .gal-grid{grid-template-columns:repeat(2,1fr)}
+  .gal-item:first-child{grid-column:span 2;grid-row:span 1}
+  .testi-grid{grid-template-columns:1fr}
+  .ftr-inner{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .s{padding:64px 16px}
+  .gal-grid{grid-template-columns:1fr 1fr}
+  .gal-item:first-child{grid-column:span 2}
+  .ps-google{flex-direction:column;align-items:flex-start;gap:12px}
+  .badges{flex-direction:column}
+  .ftr-bottom{flex-direction:column;text-align:center}
+  .form-grid{grid-template-columns:1fr}
+  .form-submit{font-size:.68rem}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s" id="services">
+  <div class="s-inner">
+    <p class="s-eyebrow">Nos formules</p>
+    <h2 class="s-title">L'art de la danse,<br><em>à votre rythme</em></h2>
+    <div class="gold-line"></div>
+    <div class="svc-filters">
+      <button class="svc-filter active" data-filter="all">Tous les cours</button>
+      <button class="svc-filter" data-filter="decouverte">Découverte</button>
+      <button class="svc-filter" data-filter="perfectionnement">Perfectionnement</button>
+      <button class="svc-filter" data-filter="maitrise">Maîtrise</button>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card" data-cat="decouverte">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+        </div>
+        <p class="svc-level">Niveau 1 — Découverte</p>
+        <h3 class="svc-name">Initiation Kizomba</h3>
+        <p class="svc-desc">Posture, connexion, premier pas. Idéal pour celles et ceux qui n'ont jamais dansé — bienvenue sans prérequis.</p>
+        <p class="svc-price">4 500 <span>XPF / cours</span></p>
+        <p class="svc-dur">⏱ 60 min · Cours particulier</p>
+        <a href="#contact" class="svc-cta">Réserver ce cours</a>
+      </div>
+      <div class="svc-card" data-cat="perfectionnement">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <p class="svc-level">Niveau 2 — Perfectionnement</p>
+        <h3 class="svc-name">Expression & Fluidité</h3>
+        <p class="svc-desc">Affinez votre technique, enrichissez votre vocabulaire gestuel et développez votre sensibilité musicale.</p>
+        <p class="svc-price">5 500 <span>XPF / cours</span></p>
+        <p class="svc-dur">⏱ 75 min · Cours particulier</p>
+        <a href="#contact" class="svc-cta">Réserver ce cours</a>
+      </div>
+      <div class="svc-card" data-cat="maitrise">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="svc-level">Niveau 3 — Maîtrise</p>
+        <h3 class="svc-name">Signature Artistique</h3>
+        <p class="svc-desc">Créez votre style unique. Travail chorégraphique avancé, improvisation et présence scénique pour les danseurs confirmés.</p>
+        <p class="svc-price">6 500 <span>XPF / cours</span></p>
+        <p class="svc-dur">⏱ 90 min · Cours particulier</p>
+        <a href="#contact" class="svc-cta">Réserver ce cours</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s" id="metier" style="background:rgba(201,168,76,.03)">
+  <div class="s-inner">
+    <div class="met-grid">
+      <div class="met-img-wrap">
+        <img src="https://i.ibb.co/3Y9xLf2g/Kizomba-Art-Studio-1.jpg" alt="Cours de kizomba à Nouméa" loading="lazy">
+        <div class="met-img-overlay"></div>
+      </div>
+      <div class="met-body">
+        <p class="s-eyebrow">Notre approche</p>
+        <h2 class="s-title">La danse comme<br><em>langage premier</em></h2>
+        <div class="gold-line"></div>
+        <p class="s-desc">À Nouméa, au cœur de la Nouvelle-Calédonie, Kizomba Art Studio est né d'une conviction simple : la danse transforme. En cours particuliers, chaque séance est pensée pour vous — votre corps, votre rythme, votre personnalité artistique.</p>
+        <div class="met-checks">
+          <div class="met-check">
+            <div class="met-check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>Suivi individualisé, progression mesurable à chaque cours</span>
+          </div>
+          <div class="met-check">
+            <div class="met-check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>Studio climatisé, espace confortable au centre de Nouméa</span>
+          </div>
+          <div class="met-check">
+            <div class="met-check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>Horaires flexibles, adaptés au rythme de vie calédonien</span>
+          </div>
+          <div class="met-check">
+            <div class="met-check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>Tous niveaux, tous âges — l'art n'a pas de prérequis</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="met-grid rev">
+      <div class="met-img-wrap">
+        <img src="https://i.ibb.co/bjW0GcyR/Kizomba-Art-Studio-3.jpg" alt="Studio de danse kizomba Nouméa" loading="lazy">
+        <div class="met-img-overlay"></div>
+      </div>
+      <div class="met-body">
+        <p class="s-eyebrow">L'esprit du studio</p>
+        <h2 class="s-title">Un lieu dédié<br><em>à votre éclat</em></h2>
+        <div class="gold-line"></div>
+        <p class="s-desc">Le studio est un sanctuaire du mouvement. Chaque détail — la lumière, l'espace, la musique — est pensé pour libérer votre expression. La kizomba y prend toute sa dimension : sensuelle, précise, profondément humaine.</p>
+        <div class="met-checks">
+          <div class="met-check">
+            <div class="met-check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>Pédagogie bienveillante et exigeante, en français</span>
+          </div>
+          <div class="met-check">
+            <div class="met-check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>Environnement premium, reflet de votre engagement artistique</span>
+          </div>
+          <div class="met-check">
+            <div class="met-check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>Communauté locale de danseurs passionnés à rejoindre</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s gal-bg" id="galerie">
+  <div class="s-inner">
+    <p class="s-eyebrow">Galerie</p>
+    <h2 class="s-title">Le studio en <em>images</em></h2>
+    <div class="gold-line"></div>
+  </div>
+  <div class="gal-grid">
+    <div class="gal-item" data-src="https://i.ibb.co/QvSsYtNK/Kizomba-Art-Studio-0.jpg">
+      <img src="https://i.ibb.co/QvSsYtNK/Kizomba-Art-Studio-0.jpg" alt="Kizomba Art Studio Nouméa" loading="lazy">
+      <div class="gal-hover"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+    </div>
+    <div class="gal-item" data-src="https://i.ibb.co/3Y9xLf2g/Kizomba-Art-Studio-1.jpg">
+      <img src="https://i.ibb.co/3Y9xLf2g/Kizomba-Art-Studio-1.jpg" alt="Cours de kizomba Nouméa" loading="lazy">
+      <div class="gal-hover"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+    </div>
+    <div class="gal-item" data-src="https://i.ibb.co/JWrh6G7Z/Kizomba-Art-Studio-2.jpg">
+      <img src="https://i.ibb.co/JWrh6G7Z/Kizomba-Art-Studio-2.jpg" alt="Danse kizomba Nouvelle-Calédonie" loading="lazy">
+      <div class="gal-hover"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+    </div>
+    <div class="gal-item" data-src="https://i.ibb.co/bjW0GcyR/Kizomba-Art-Studio-3.jpg">
+      <img src="https://i.ibb.co/bjW0GcyR/Kizomba-Art-Studio-3.jpg" alt="Studio de danse Nouméa" loading="lazy">
+      <div class="gal-hover"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lb">
+  <button class="lb-close" id="lb-close">×</button>
+  <img class="lb-img" id="lb-img" src="" alt="Galerie Kizomba Art Studio">
+</div>
+
+<!-- FORMULAIRE -->
+<section class="s" id="contact">
+  <div class="s-inner">
+    <p class="s-eyebrow">Réservation</p>
+    <h2 class="s-title">Commencez votre<br><em>voyage artistique</em></h2>
+    <div class="gold-line"></div>
+    <div class="form-wrap">
+      <form id="cform" action="#" novalidate>
+        <div class="form-grid">
+          <div class="form-field">
+            <label class="form-label" for="fname">Prénom &amp; Nom</label>
+            <input class="form-input" id="fname" type="text" placeholder="Votre nom complet" autocomplete="name">
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="femail">Adresse e-mail</label>
+            <input class="form-input" id="femail" type="email" placeholder="votre@email.com" autocomplete="email">
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="ftel">Téléphone</label>
+            <input class="form-input" id="ftel" type="tel" placeholder="Ex. 72.71.78" autocomplete="tel">
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="fniveau">Niveau souhaité</label>
+            <select class="form-input" id="fniveau">
+              <option value="">Choisissez un niveau</option>
+              <option>Découverte — Initiation</option>
+              <option>Perfectionnement — Expression</option>
+              <option>Maîtrise — Signature</option>
+            </select>
+          </div>
+          <div class="form-field full">
+            <label class="form-label" for="fmsg">Message</label>
+            <textarea class="form-textarea" id="fmsg" placeholder="Parlez-nous de votre projet artistique, de vos disponibilités…"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn-gold form-submit">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          Envoyer ma demande
+        </button>
+        <div class="form-loader" id="floader"></div>
+      </form>
+      <div class="form-success" id="fsuccess">
+        <p>✦ Message envoyé avec élégance</p>
+        <small>Nous vous répondrons dans les plus brefs délais. Bienvenue dans la famille Kizomba Art Studio.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s ps-bg" id="temoignages">
+  <div class="s-inner">
+    <p class="s-eyebrow">Réputation</p>
+    <h2 class="s-title">La confiance de notre<br><em>communauté</em></h2>
+    <div class="gold-line"></div>
+    <div class="ps-google">
+      <div>
+        <div class="ps-score">—</div>
+        <div class="ps-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+        </div>
+        <p class="ps-label"><span>Google</span> · Nouveau studio</p>
+      </div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <p class="testi-quote">J'ai découvert la kizomba ici sans aucune expérience préalable. La pédagogie est douce, précise et tellement motivante. En trois mois, je me sens transformée.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">M</div>
+          <div>
+            <p class="testi-name">Marie-Line</p>
+            <p class="testi-loc">Nouméa · Niveau Découverte</p>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <p class="testi-quote">Un studio d'une qualité rare à Nouméa. L'ambiance est à la fois professionnelle et chaleureuse. On progresse vraiment, cours après cours.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">T</div>
+          <div>
+            <p class="testi-name">Thomas R.</p>
+            <p class="testi-loc">Nouméa · Niveau Perfectionnement</p>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <p class="testi-quote">Ce que j'apprécie le plus, c'est la personnalisation de chaque cours. L'instructeur s'adapte à mon niveau et à mes objectifs. Une expérience unique en Nouvelle-Calédonie.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">S</div>
+          <div>
+            <p class="testi-name">Sandrine K.</p>
+            <p class="testi-loc">Nouméa · Niveau Maîtrise</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="badges">
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span class="badge-txt">Studio certifié kizomba</span>
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span class="badge-txt">Horaires flexibles</span>
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span class="badge-txt">Tous niveaux acceptés</span>
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span class="badge-txt">Nouméa, Nouvelle-Calédonie</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ftr">
+  <div class="ftr-inner">
+    <div class="ftr-brand">
+      <span class="logo">Kizomba<span>&nbsp;Art Studio</span></span>
+      <p class="ftr-tagline">Studio de danse premium à Nouméa. Cours particuliers de kizomba pour tous niveaux, dans un espace dédié à votre expression artistique.</p>
+      <div class="ftr-contact">
+        <a href="tel:727178">📞 72.71.78</a>
+        <a href="#contact">✉ Formulaire de contact</a>
+        <a href="https://maps.google.com/?q=15+Rue+du+Docteur+Guegan+Noumea" target="_blank" rel="noopener">📍 15 Rue du Docteur Guegan, Nouméa</a>
+      </div>
+    </div>
+    <div>
+      <p class="ftr-h">Navigation</p>
+      <div class="ftr-links">
+        <a href="#services">Cours &amp; Tarifs</a>
+        <a href="#metier">Notre approche</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#temoignages">Témoignages</a>
+        <a href="#contact">Réservation</a>
+      </div>
+    </div>
+    <div>
+      <p class="ftr-h">Horaires</p>
+      <div class="ftr-hours">
+        <p><strong>Lundi – Vendredi</strong><br>08h00 – 20h00</p>
+        <p><strong>Samedi</strong><br>09h00 – 17h00</p>
+        <p><strong>Dimanche</strong><br>Sur rendez-vous</p>
+      </div>
+    </div>
+  </div>
+  <div class="ftr-bottom">
+    <p class="ftr-copy">© 2026 Kizomba Art Studio. Tous droits réservés. · Nouméa 98800, Nouvelle-Calédonie</p>
+    <p class="ftr-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+  </div>
+</footer>
+
+<script>
+var filters=document.querySelectorAll('.svc-filter'),cards=document.querySelectorAll('.svc-card[data-cat]');
+filters.forEach(function(btn){
+  btn.addEventListener('click',function(){
+    filters.forEach(function(b){b.classList.remove('active')});
+    btn.classList.add('active');
+    var f=btn.dataset.filter;
+    cards.forEach(function(c){
+      c.classList.toggle('hidden',f!=='all'&&c.dataset.cat!==f);
+    });
+  });
+});
+var lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img');
+document.querySelectorAll('.gal-item').forEach(function(item){
+  item.addEventListener('click',function(){
+    lbImg.src=item.dataset.src;
+    lb.classList.add('open');
+    document.body.style.overflow='hidden';
+  });
+});
+document.getElementById('lb-close').addEventListener('click',function(){
+  lb.classList.remove('open');
+  document.body.style.overflow='';
+});
+lb.addEventListener('click',function(e){
+  if(e.target===lb){lb.classList.remove('open');document.body.style.overflow='';}
+});
+var form=document.getElementById('cform'),loader=document.getElementById('floader'),success=document.getElementById('fsuccess');
+form.addEventListener('submit',function(e){
+  e.preventDefault();
+  var ok=true;
+  [document.getElementById('fname'),document.getElementById('femail'),document.getElementById('ftel')].forEach(function(f){
+    f.classList.remove('err');
+    if(!f.value.trim()){f.classList.add('err');ok=false;}
+  });
+  var em=document.getElementById('femail');
+  if(em.value&&!/\S+@\S+\.\S+/.test(em.value)){em.classList.add('err');ok=false;}
+  if(!ok)return;
+  var btn=form.querySelector('.form-submit');
+  btn.style.display='none';
+  loader.style.display='block';
+  setTimeout(function(){
+    loader.style.display='none';
+    form.style.display='none';
+    success.style.display='block';
+  },1400);
+});
+</script>
+</body>
+</html>
