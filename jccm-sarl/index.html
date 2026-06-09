@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JCCM SARL — Nouméa</title>
+<meta name="description" content="JCCM SARL, couvreur à Nouméa en Nouvelle-Calédonie. Pose, rénovation et entretien de toiture. Devis gratuit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@400;500;600&family=Manrope:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#B45309;
+--cs:#78350F;
+--ca:#F59E0B;
+--cb:#F5F0E8;
+--ct:#1C1C1C;
+--cw:#FFFFFF;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--cb);color:var(--ct);overflow-x:hidden;font-size:16px}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+
+/* BANDEAU */
+.promo-bar{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;display:flex;align-items:center;justify-content:center}
+.promo-bar a{font-family:'Manrope','Inter',system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;line-height:44px;letter-spacing:.3px;text-align:center}
+.promo-bar a:hover{opacity:.85}
+
+/* HEADER */
+.hdr{position:fixed;top:44px;left:0;width:100%;background:rgba(28,20,10,.92);backdrop-filter:blur(8px);z-index:1000;height:64px;display:flex;align-items:center}
+.hdr-inner{width:100%;max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:24px;color:var(--cw);letter-spacing:.5px;line-height:1}
+.logo span{color:var(--ca)}
+.nav{display:flex;gap:24px;align-items:center}
+.nav a{font-family:'Inter',sans-serif;font-size:14px;font-weight:500;color:rgba(255,255,255,.82);letter-spacing:.2px;transition:color .2s}
+.nav a:hover{color:var(--ca)}
+.hdr-cta{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;background:var(--ca);color:#1C1C1C;padding:10px 20px;border-radius:6px;letter-spacing:.3px;white-space:nowrap;transition:opacity .2s}
+.hdr-cta:hover{opacity:.88}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--cw);border-radius:2px;transition:transform .3s,opacity .3s}
+.mob-nav{display:none;position:fixed;top:108px;left:0;width:100%;background:rgba(28,20,10,.97);z-index:999;flex-direction:column;padding:20px 24px 28px}
+.mob-nav a{font-family:'Inter',sans-serif;font-size:16px;font-weight:500;color:rgba(255,255,255,.88);padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.mob-nav .hdr-cta{margin-top:16px;text-align:center;border-radius:8px;padding:14px 20px;font-size:16px;width:100%}
+.mob-nav.open{display:flex}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background:url('https://i.ibb.co/hF5BG4X0/JCCM-SARL-0.jpg') center/cover no-repeat;padding-top:108px}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(120,53,15,.88) 0%,rgba(28,20,10,.72) 55%,rgba(28,20,10,.4) 100%)}
+.hero-content{position:relative;z-index:2;max-width:760px;padding:0 24px;text-align:center}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--ca);color:#1C1C1C;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;letter-spacing:.5px;padding:6px 14px;border-radius:4px;text-transform:uppercase;margin-bottom:20px;transition:box-shadow .25s}
+.badge:hover{box-shadow:0 0 16px rgba(245,158,11,.55)}
+.h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(42px,7vw,80px);color:var(--cw);line-height:1.05;letter-spacing:.5px;text-transform:uppercase;margin-bottom:16px}
+.h1 em{color:var(--ca);font-style:normal}
+.hero-sub{font-size:clamp(16px,2.2vw,19px);color:rgba(255,255,255,.88);line-height:1.6;max-width:580px;margin:0 auto 32px}
+.ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-p{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;background:var(--ca);color:#1C1C1C;padding:14px 28px;border-radius:6px;letter-spacing:.4px;text-transform:uppercase;transition:opacity .2s,transform .2s;min-height:48px;display:inline-flex;align-items:center}
+.btn-p:hover{opacity:.9;transform:translateY(-2px)}
+.btn-o{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;border:2px solid rgba(255,255,255,.7);color:var(--cw);padding:14px 28px;border-radius:6px;letter-spacing:.4px;text-transform:uppercase;transition:border-color .2s,background .2s;min-height:48px;display:inline-flex;align-items:center}
+.btn-o:hover{border-color:var(--ca);background:rgba(245,158,11,.12)}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;z-index:2}
+.scroll-ind span{font-size:11px;color:rgba(255,255,255,.6);letter-spacing:1.5px;text-transform:uppercase;font-family:'Inter',sans-serif}
+.scroll-arrow{width:24px;height:24px;border-right:2px solid rgba(255,255,255,.5);border-bottom:2px solid rgba(255,255,255,.5);transform:rotate(45deg);animation:arrowBounce 1.5s infinite}
+@keyframes arrowBounce{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(5px)}}
+
+/* STATS */
+.stats{background:var(--cp);position:relative;clip-path:polygon(0 0,100% 0,100% 85%,0 100%);padding:70px 24px 90px}
+.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stat-box{padding:24px 16px}
+.stat-num{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(44px,5vw,62px);color:var(--cw);line-height:1;display:block}
+.stat-num .acc{color:var(--ca)}
+.stat-lbl{font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,.8);margin-top:6px;letter-spacing:.3px;line-height:1.4}
+
+/* FALLBACK ANIMATIONS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo-bar">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr" id="hdr">
+  <div class="hdr-inner">
+    <a href="#" class="logo">JCCM<span>&nbsp;SARL</span></a>
+    <nav class="nav" id="desk-nav">
+      <a href="#services">Services</a>
+      <a href="#metier">Notre métier</a>
+      <a href="#galerie">Réalisations</a>
+      <a href="#avis">Avis</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="hdr-cta">Devis gratuit</a>
+    <div class="hamburger" id="hbg" role="button" aria-label="Menu" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-nav" id="mob-nav">
+  <a href="#services" class="mob-link">Services</a>
+  <a href="#metier" class="mob-link">Notre métier</a>
+  <a href="#galerie" class="mob-link">Réalisations</a>
+  <a href="#avis" class="mob-link">Avis clients</a>
+  <a href="#contact" class="mob-link">Contact</a>
+  <a href="#contact" class="hdr-cta">Devis gratuit — c'est rapide</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="badge">✦ Devis gratuit &amp; sans engagement</div>
+    <h1 class="h1">Votre toit,<br><em>protégé</em> sous<br>le soleil calédonien</h1>
+    <p class="hero-sub">Couvreur à Nouméa depuis des années, JCCM SARL sécurise votre toiture face au climat du Pacifique Sud — chaleur, humidité, cyclones. On intervient vite, on travaille bien.</p>
+    <div class="ctas">
+      <a href="#contact" class="btn-p">Demander un devis</a>
+      <a href="#services" class="btn-o">Nos prestations</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>Découvrir</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="stats">
+  <div class="stats-inner">
+    <div class="stat-box">
+      <span class="stat-num" data-target="15"><span class="cnt">0</span><span class="acc">+</span></span>
+      <p class="stat-lbl">Années<br>d'expérience</p>
+    </div>
+    <div class="stat-box">
+      <span class="stat-num" data-target="300"><span class="cnt">0</span><span class="acc">+</span></span>
+      <p class="stat-lbl">Toitures<br>sécurisées</p>
+    </div>
+    <div class="stat-box">
+      <span class="stat-num" data-target="100"><span class="cnt">0</span><span class="acc">%</span></span>
+      <p class="stat-lbl">Clients<br>satisfaits</p>
+    </div>
+    <div class="stat-box">
+      <span class="stat-num"><span class="acc">∞</span></span>
+      <p class="stat-lbl">Engagement<br>local NC</p>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var hbg=document.getElementById('hbg'),mn=document.getElementById('mob-nav');
+  hbg.addEventListener('click',function(){mn.classList.toggle('open')});
+  document.querySelectorAll('.mob-link,.mob-nav .hdr-cta').forEach(function(l){l.addEventListener('click',function(){mn.classList.remove('open')})});
+
+  var counters=document.querySelectorAll('[data-target] .cnt');
+  var started=false;
+  function runCounters(){
+    if(started)return;
+    started=true;
+    counters.forEach(function(el){
+      var t=+el.closest('[data-target]').dataset.target,d=1200,s=30,steps=d/s,inc=t/steps,v=0;
+      var tm=setInterval(function(){v+=inc;if(v>=t){el.textContent=t;clearInterval(tm)}else{el.textContent=Math.floor(v)}},s);
+    });
+  }
+  var obs=new IntersectionObserver(function(ens){ens.forEach(function(e){if(e.isIntersecting)runCounters()})},{threshold:.3});
+  var st=document.querySelector('.stats');
+  if(st)obs.observe(st);
+})();
+</script>
+<style>
+/* SERVICES */
+.svc{background:var(--cb);padding:80px 24px 60px;margin-top:-2px}
+.svc-inner{max-width:1200px;margin:0 auto}
+.s-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(32px,4.5vw,52px);color:var(--cs);text-transform:uppercase;letter-spacing:.5px;line-height:1.1;margin-bottom:8px}
+.s-sub{font-size:16px;color:#555;max-width:560px;line-height:1.6;margin-bottom:48px}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.svc-card{background:#fff;border-radius:10px;padding:32px 24px;border-top:4px solid var(--cp);box-shadow:0 2px 16px rgba(0,0,0,.06);transition:transform .25s,box-shadow .25s}
+.svc-card:hover{transform:translateY(-6px);box-shadow:0 8px 32px rgba(180,83,9,.15)}
+.svc-icon{width:52px;height:52px;background:rgba(180,83,9,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.svc-icon svg{width:28px;height:28px;fill:var(--cp)}
+.svc-h{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:22px;color:var(--cs);text-transform:uppercase;margin-bottom:10px}
+.svc-p{font-size:14px;color:#444;line-height:1.65;margin-bottom:18px}
+.svc-tag{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;background:var(--ca);color:#1C1C1C;padding:5px 12px;border-radius:4px;letter-spacing:.3px;text-transform:uppercase}
+
+/* METIER */
+.metier{background:var(--cs);clip-path:polygon(0 4%,100% 0,100% 96%,0 100%);padding:100px 24px;position:relative}
+.metier-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.metier-txt .s-title{color:var(--cw)}
+.metier-txt .s-sub{color:rgba(255,255,255,.8)}
+.metier-checks{margin-top:24px;display:flex;flex-direction:column;gap:12px}
+.chk{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:rgba(255,255,255,.9);line-height:1.5}
+.chk-icon{flex-shrink:0;width:22px;height:22px;background:var(--ca);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.chk-icon svg{width:12px;height:12px;fill:#1C1C1C}
+.metier-img{border-radius:12px;overflow:hidden;box-shadow:0 16px 48px rgba(0,0,0,.35)}
+.metier-img img{width:100%;height:400px;object-fit:cover}
+
+/* GALERIE */
+.gal{background:var(--cb);padding:80px 24px 60px}
+.gal-inner{max-width:1200px;margin:0 auto}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px}
+.gal-item{border-radius:8px;overflow:hidden;cursor:pointer;position:relative;aspect-ratio:4/3}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-over{position:absolute;inset:0;background:rgba(120,53,15,.45);opacity:0;display:flex;align-items:center;justify-content:center;transition:opacity .3s}
+.gal-item:hover .gal-over{opacity:1}
+.gal-over svg{width:32px;height:32px;fill:#fff}
+.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center;padding:24px}
+.lb.open{display:flex}
+.lb img{max-width:90vw;max-height:88vh;border-radius:8px;object-fit:contain}
+.lb-close{position:absolute;top:20px;right:24px;font-size:32px;color:#fff;cursor:pointer;line-height:1;background:none;border:none;font-family:'Inter',sans-serif}
+
+/* FORMULAIRE */
+.form-sec{background:var(--cp);padding:80px 24px;clip-path:polygon(0 0,100% 4%,100% 100%,0 96%);margin-top:-2px}
+.form-inner{max-width:720px;margin:0 auto}
+.form-sec .s-title{color:var(--cw);margin-bottom:8px}
+.form-sec .s-sub{color:rgba(255,255,255,.85);margin-bottom:36px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-full{grid-column:1/-1}
+.f-group{display:flex;flex-direction:column;gap:6px}
+.f-label{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;color:rgba(255,255,255,.9);text-transform:uppercase;letter-spacing:.4px}
+.f-inp{background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.3);border-radius:6px;padding:12px 14px;font-size:15px;color:#fff;font-family:'Inter',sans-serif;width:100%;outline:none;transition:border-color .2s}
+.f-inp::placeholder{color:rgba(255,255,255,.45)}
+.f-inp:focus{border-color:var(--ca)}
+textarea.f-inp{resize:vertical;min-height:110px}
+.f-btn{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:17px;background:var(--ca);color:#1C1C1C;border:none;padding:16px 32px;border-radius:6px;cursor:pointer;text-transform:uppercase;letter-spacing:.5px;width:100%;min-height:52px;margin-top:8px;transition:opacity .2s,transform .2s}
+.f-btn:hover{opacity:.9;transform:translateY(-2px)}
+.f-ok{display:none;background:rgba(255,255,255,.15);border-radius:8px;padding:20px 24px;text-align:center;color:#fff;font-size:16px;font-family:'Inter',sans-serif;margin-top:20px;border:1.5px solid rgba(255,255,255,.4)}
+.f-ok.show{display:block}
+.f-err{border-color:#f87171 !important}
+
+/* PREUVE SOCIALE */
+.avis{background:#fff;padding:80px 24px 60px}
+.avis-inner{max-width:1200px;margin:0 auto}
+.avis-top{display:flex;align-items:center;gap:40px;flex-wrap:wrap;margin-bottom:48px}
+.avis-score{text-align:center;background:var(--cs);color:#fff;border-radius:12px;padding:24px 32px;min-width:160px}
+.avis-num{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:56px;line-height:1;color:var(--ca)}
+.avis-stars{font-size:22px;color:var(--ca);margin:4px 0}
+.avis-cnt{font-size:13px;color:rgba(255,255,255,.75);font-family:'Inter',sans-serif}
+.avis-badges{display:flex;flex-wrap:wrap;gap:14px}
+.abadge{display:flex;align-items:center;gap:10px;background:var(--cb);border-radius:8px;padding:14px 18px;font-size:14px;font-family:'Inter',sans-serif;color:var(--ct);font-weight:500;border:1.5px solid rgba(180,83,9,.15)}
+.abadge svg{width:22px;height:22px;fill:var(--cp);flex-shrink:0}
+.temoig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.temoig{background:var(--cb);border-radius:10px;padding:24px;border-left:4px solid var(--cp)}
+.temoig-stars{color:var(--ca);font-size:16px;margin-bottom:10px}
+.temoig-txt{font-size:14px;color:#444;line-height:1.65;margin-bottom:14px;font-style:italic}
+.temoig-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;color:var(--cs);text-transform:uppercase;letter-spacing:.3px}
+
+/* FOOTER */
+.ftr{background:var(--cs);padding:56px 24px 24px}
+.ftr-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.ftr-brand .logo{display:block;margin-bottom:14px}
+.ftr-desc{font-size:14px;color:rgba(255,255,255,.72);line-height:1.65;max-width:280px}
+.ftr-h{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;color:var(--ca);text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px}
+.ftr-links{display:flex;flex-direction:column;gap:9px}
+.ftr-links a{font-size:14px;color:rgba(255,255,255,.75);transition:color .2s}
+.ftr-links a:hover{color:var(--ca)}
+.ftr-addr{font-size:14px;color:rgba(255,255,255,.75);line-height:1.75}
+.ftr-addr a{color:rgba(255,255,255,.75);transition:color .2s}
+.ftr-addr a:hover{color:var(--ca)}
+.ftr-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:gap;gap:12px}
+.ftr-copy{font-size:13px;color:rgba(255,255,255,.5);font-family:'Inter',sans-serif}
+.ftr-setup{font-size:13px;color:rgba(255,255,255,.5);font-family:'Inter',sans-serif}
+.ftr-setup a{color:var(--ca);font-weight:600}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.svc-grid{grid-template-columns:repeat(2,1fr)}
+.metier-inner{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.temoig-grid{grid-template-columns:1fr}
+.ftr-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+.svc-grid{grid-template-columns:1fr}
+.form-grid{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.avis-top{flex-direction:column;align-items:flex-start}
+.ftr-inner{grid-template-columns:1fr}
+.metier{clip-path:none;padding:64px 24px}
+.form-sec{clip-path:none;padding:64px 24px}
+}
+@media(max-width:480px){
+.svc-grid{grid-template-columns:1fr;gap:16px}
+.gal-grid{grid-template-columns:1fr 1fr;gap:8px}
+.ctas{flex-direction:column;align-items:center}
+.btn-p,.btn-o{width:100%;justify-content:center}
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+.temoig-grid{grid-template-columns:1fr}
+.ftr-inner{grid-template-columns:1fr}
+.form-grid{grid-template-columns:1fr}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="svc" id="services">
+  <div class="svc-inner">
+    <h2 class="s-title">Nos prestations</h2>
+    <p class="s-sub">De la pose neuve à l'entretien annuel, on couvre tous vos besoins de toiture à Nouméa et en Grande Terre.</p>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 9.5L12 2l9 7.5V22H3V9.5z"/></svg>
+        </div>
+        <h3 class="svc-h">Pose de toiture neuve</h3>
+        <p class="svc-p">Installation complète de votre toiture sur construction neuve. Bac acier, tuiles, tôle ondulée — on choisit avec vous le matériau adapté au climat calédonien.</p>
+        <span class="svc-tag">Sur devis</span>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7v2h20V7L12 2zM4 11v8h3v-8H4zm6 0v8h4v-8h-4zm7 0v8h3v-8h-3zM2 21h20v2H2v-2z"/></svg>
+        </div>
+        <h3 class="svc-h">Rénovation &amp; remplacement</h3>
+        <p class="svc-p">Votre toiture vieillit, rouille ou prend l'eau ? On dépose l'ancienne couverture, traite la charpente et repose un toit solide pour les décennies à venir.</p>
+        <span class="svc-tag">Sur devis</span>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.07 4.93A10 10 0 1 0 4.93 19.07 10 10 0 0 0 19.07 4.93zM12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/></svg>
+        </div>
+        <h3 class="svc-h">Entretien &amp; nettoyage</h3>
+        <p class="svc-p">Mousse, lichens, débris végétaux — le climat humide de Nouméa attaque vite les couvertures. Un entretien régulier prolonge la durée de vie de votre toit.</p>
+        <span class="svc-tag">Sur devis</span>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 1L3 5v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V5l-9-4zm0 4l5 2.2V11c0 3.5-2.3 6.8-5 7.9-2.7-1.1-5-4.4-5-7.9V7.2L12 5z"/></svg>
+        </div>
+        <h3 class="svc-h">Réparation &amp; étanchéité</h3>
+        <p class="svc-p">Fuite ponctuelle, tuile cassée, noue défaillante — on intervient rapidement pour stopper les infiltrations avant que les dégâts s'aggravent.</p>
+        <span class="svc-tag">Intervention rapide</span>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 7H4c-1.1 0-2 .9-2 2v9c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm0 11H4V9h16v9zM2 5h20v2H2z"/></svg>
+        </div>
+        <h3 class="svc-h">Gouttières &amp; évacuation</h3>
+        <p class="svc-p">Pose, remplacement et entretien des gouttières et descentes d'eau pluviale. Essentiel face aux pluies tropicales intenses de Nouvelle-Calédonie.</p>
+        <span class="svc-tag">Sur devis</span>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 2h6v2H9V2zm2 10h2v5h-2v-5zm1-8C6.48 4 2 8.48 2 14s4.48 10 10 10 10-4.48 10-10S17.52 4 12 4zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm1-13h-2v4h2V9z"/></svg>
+        </div>
+        <h3 class="svc-h">Diagnostic &amp; expertise</h3>
+        <p class="svc-p">Vous avez un doute sur l'état de votre toit ? On monte, on inspecte, on vous rend un avis honnête et un devis transparent — sans obligation.</p>
+        <span class="svc-tag">Gratuit</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION METIER -->
+<section class="metier" id="metier">
+  <div class="metier-inner">
+    <div class="metier-txt">
+      <h2 class="s-title">Le métier de couvreur,<br>au cœur du Pacifique Sud</h2>
+      <p class="s-sub">À Nouméa, la toiture n'est pas un détail. Entre la chaleur intense, les vents cycloniques et les pluies tropicales, votre toit est la première ligne de défense de votre maison.</p>
+      <p class="s-sub" style="">Chez JCCM SARL, on connaît ce climat par cœur. On choisit les matériaux qui résistent, on pose avec soin, et on reste disponibles longtemps après le chantier.</p>
+      <div class="metier-checks">
+        <div class="chk">
+          <div class="chk-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></div>
+          <span>Matériaux adaptés au climat tropical calédonien</span>
+        </div>
+        <div class="chk">
+          <div class="chk-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></div>
+          <span>Devis clair, prix ferme, délais respectés</span>
+        </div>
+        <div class="chk">
+          <div class="chk-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></div>
+          <span>Artisan local ancré dans le territoire depuis des années</span>
+        </div>
+        <div class="chk">
+          <div class="chk-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></div>
+          <span>Suivi post-chantier et disponibilité en cas d'urgence</span>
+        </div>
+      </div>
+    </div>
+    <div class="metier-img">
+      <img src="https://i.ibb.co/DHQxndCG/JCCM-SARL-1.jpg" alt="Couvreur JCCM SARL en intervention à Nouméa" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="gal" id="galerie">
+  <div class="gal-inner">
+    <h2 class="s-title">Nos réalisations</h2>
+    <p class="s-sub">Un aperçu des chantiers menés à Nouméa et en Nouvelle-Calédonie. Cliquez sur une photo pour l'agrandir.</p>
+    <div class="gal-grid">
+      <div class="gal-item" data-src="https://i.ibb.co/hF5BG4X0/JCCM-SARL-0.jpg">
+        <img src="https://i.ibb.co/hF5BG4X0/JCCM-SARL-0.jpg" alt="Toiture JCCM SARL réalisation 1" loading="lazy">
+        <div class="gal-over"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/DHQxndCG/JCCM-SARL-1.jpg">
+        <img src="https://i.ibb.co/DHQxndCG/JCCM-SARL-1.jpg" alt="Toiture JCCM SARL réalisation 2" loading="lazy">
+        <div class="gal-over"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/WWfDHk29/JCCM-SARL-2.jpg">
+        <img src="https://i.ibb.co/WWfDHk29/JCCM-SARL-2.jpg" alt="Toiture JCCM SARL réalisation 3" loading="lazy">
+        <div class="gal-over"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/VpmQvkLW/JCCM-SARL-3.jpg">
+        <img src="https://i.ibb.co/VpmQvkLW/JCCM-SARL-3.jpg" alt="Toiture JCCM SARL réalisation 4" loading="lazy">
+        <div class="gal-over"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Vue agrandie">
+  <button class="lb-close" id="lb-close" aria-label="Fermer">&#x2715;</button>
+  <img id="lb-img" src="" alt="Réalisation JCCM SARL agrandie">
+</div>
+
+<!-- FORMULAIRE -->
+<section class="form-sec" id="contact">
+  <div class="form-inner">
+    <h2 class="s-title">Demandez votre devis gratuit</h2>
+    <p class="s-sub">Décrivez votre projet en quelques mots. On vous rappelle sous 24 h avec un devis clair et sans surprise.</p>
+    <form id="frm" action="#" novalidate>
+      <div class="form-grid">
+        <div class="f-group">
+          <label class="f-label" for="f-nom">Votre nom</label>
+          <input class="f-inp" id="f-nom" name="nom" type="text" placeholder="Jean Dupont" autocomplete="name">
+        </div>
+        <div class="f-group">
+          <label class="f-label" for="f-tel">Téléphone</label>
+          <input class="f-inp" id="f-tel" name="tel" type="tel" placeholder="+687 XX XX XX" autocomplete="tel">
+        </div>
+        <div class="f-group form-full">
+          <label class="f-label" for="f-email">Adresse e-mail</label>
+          <input class="f-inp" id="f-email" name="email" type="email" placeholder="jean@exemple.nc" autocomplete="email">
+        </div>
+        <div class="f-group form-full">
+          <label class="f-label" for="f-msg">Votre message</label>
+          <textarea class="f-inp" id="f-msg" name="message" placeholder="Décrivez votre toiture, le type de travaux souhaités, l'urgence..."></textarea>
+        </div>
+      </div>
+      <button type="submit" class="f-btn">Envoyer ma demande de devis</button>
+    </form>
+    <div class="f-ok" id="f-ok" role="alert">
+      ✅ &nbsp;Votre message a bien été envoyé ! JCCM SARL vous recontacte sous 24 h.
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="avis" id="avis">
+  <div class="avis-inner">
+    <h2 class="s-title">Ce que disent nos clients</h2>
+    <p class="s-sub" style="margin-bottom:36px">JCCM SARL construit sa réputation chantier après chantier, avec l'honnêteté d'un artisan local.</p>
+    <div class="avis-top">
+      <div class="avis-score">
+        <div class="avis-num">5.0</div>
+        <div class="avis-stars">★★★★★</div>
+        <div class="avis-cnt">Note Google</div>
+      </div>
+      <div class="avis-badges">
+        <div class="abadge">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V5l-9-4z"/></svg>
+          Artisan local fiable
+        </div>
+        <div class="abadge">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+          Devis gratuit &amp; sans engagement
+        </div>
+        <div class="abadge">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+          Intervention rapide à Nouméa
+        </div>
+        <div class="abadge">
+          <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>
+          Qualité garantie
+        </div>
+      </div>
+    </div>
+    <div class="temoig-grid">
+      <div class="temoig">
+        <div class="temoig-stars">★★★★★</div>
+        <p class="temoig-txt">"Travail sérieux et soigné. L'équipe est venue rapidement après notre appel, le devis était clair et le chantier propre. Aucune mauvaise surprise."</p>
+        <span class="temoig-name">Marie-Line T. — Nouméa</span>
+      </div>
+      <div class="temoig">
+        <div class="temoig-stars">★★★★★</div>
+        <p class="temoig-txt">"On avait une fuite importante avant la saison des pluies. JCCM est intervenu le lendemain, a trouvé le problème et tout réglé. Je recommande sans hésiter."</p>
+        <span class="temoig-name">Patrick D. — Dumbéa</span>
+      </div>
+      <div class="temoig">
+        <div class="temoig-stars">★★★★★</div>
+        <p class="temoig-txt">"Rénovation complète de notre toiture en bac acier. Délais respectés, équipe professionnelle et prix honnête. Le résultat est impeccable."</p>
+        <span class="temoig-name">Sophie K. — Mont-Dore</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ftr" id="footer">
+  <div class="ftr-inner">
+    <div class="ftr-brand">
+      <span class="logo">JCCM<span>&nbsp;SARL</span></span>
+      <p class="ftr-desc">Couvreur à Nouméa depuis des années. Pose, rénovation, entretien — on protège votre toit face au climat du Pacifique Sud avec le sérieux d'un artisan local.</p>
+    </div>
+    <div>
+      <p class="ftr-h">Navigation</p>
+      <div class="ftr-links">
+        <a href="#services">Nos prestations</a>
+        <a href="#metier">Notre métier</a>
+        <a href="#galerie">Réalisations</a>
+        <a href="#avis">Avis clients</a>
+        <a href="#contact">Devis gratuit</a>
+      </div>
+    </div>
+    <div>
+      <p class="ftr-h">Contact</p>
+      <address class="ftr-addr" style="font-style:normal">
+        JCCM SARL<br>
+        12 Rue Réaumur<br>
+        Nouméa 98800<br>
+        Nouvelle-Calédonie<br><br>
+        <a href="tel:">Nous appeler</a>
+      </address>
+    </div>
+  </div>
+  <div class="ftr-bottom">
+    <p class="ftr-copy">© 2026 JCCM SARL. Tous droits réservés.</p>
+    <p class="ftr-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var gi=document.querySelectorAll('.gal-item'),lb=document.getElementById('lb'),lbi=document.getElementById('lb-img'),lbc=document.getElementById('lb-close');
+  gi.forEach(function(el){
+    el.addEventListener('click',function(){
+      lbi.src=el.dataset.src;
+      lb.classList.add('open');
+      document.body.style.overflow='hidden';
+    });
+  });
+  function closeLb(){lb.classList.remove('open');document.body.style.overflow='';lbi.src='';}
+  lbc.addEventListener('click',closeLb);
+  lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+
+  var frm=document.getElementById('frm'),fok=document.getElementById('f-ok');
+  frm.addEventListener('submit',function(e){
+    e.preventDefault();
+    var ok=true;
+    ['f-nom','f-email','f-msg'].forEach(function(id){
+      var el=document.getElementById(id);
+      el.classList.remove('f-err');
+      if(!el.value.trim()){el.classList.add('f-err');ok=false;}
+    });
+    var em=document.getElementById('f-email');
+    if(em.value&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value)){em.classList.add('f-err');ok=false;}
+    if(!ok)return;
+    frm.style.display='none';
+    fok.classList.add('show');
+  });
+})();
+</script>
+</body>
+</html>
