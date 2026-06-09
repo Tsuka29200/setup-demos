@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zenos store — Dumbéa</title>
+<meta name="description" content="Zenos Store, ta boutique gaming et tech à Dumbéa, Nouvelle-Calédonie. PS5, accessoires, électronique. Stock limité, livraison rapide en NCal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Manrope:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#1A1A1A;
+--cs:#FFFFFF;
+--ca:#2563EB;
+--ct:#FFFFFF;
+--cb:#111111;
+--r:6px;
+--t:250ms ease-out;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cb);color:var(--ct);font-family:'Rajdhani',sans-serif;overflow-x:hidden;line-height:1.5}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+
+/* BANDEAU SETUP NC */
+#setup-band{
+position:fixed;top:0;left:0;width:100%;height:44px;
+background:#ffd500;z-index:1001;
+text-align:center;
+}
+#setup-band a{
+font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;
+font-weight:700;font-size:14px;letter-spacing:.3px;
+color:#4375ff;line-height:44px;display:block;width:100%;
+transition:opacity var(--t);
+}
+#setup-band a:hover{opacity:.85}
+
+/* HEADER */
+.hdr{
+position:sticky;top:44px;z-index:1000;
+background:rgba(17,17,17,.95);
+backdrop-filter:blur(10px);
+border-bottom:1px solid rgba(37,99,235,.2);
+height:64px;display:flex;align-items:center;
+}
+.hdr-inner{
+max-width:1200px;margin:0 auto;padding:0 24px;
+width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.logo{font-size:1.6rem;font-weight:700;letter-spacing:2px;color:#fff}
+.logo span{color:var(--ca)}
+.nav{display:flex;gap:24px;list-style:none}
+.nav a{font-size:.9rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;opacity:.8;transition:opacity var(--t),color var(--t)}
+.nav a:hover{opacity:1;color:var(--ca)}
+.hdr-cta{
+background:var(--ca);color:#fff;padding:10px 20px;border-radius:var(--r);
+font-weight:700;font-size:.9rem;letter-spacing:.5px;text-transform:uppercase;
+transition:box-shadow var(--t),transform var(--t);white-space:nowrap;
+}
+.hdr-cta:hover{box-shadow:0 0 15px rgba(37,99,235,.6);transform:translateY(-1px)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.ham span{display:block;width:24px;height:2px;background:#fff;transition:var(--t)}
+.mob-nav{
+display:none;position:fixed;top:108px;left:0;width:100%;
+background:var(--cp);z-index:999;padding:16px 24px;
+border-bottom:1px solid rgba(37,99,235,.2);
+}
+.mob-nav.open{display:block}
+.mob-nav ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+.mob-nav a{font-size:1.1rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase}
+
+/* HERO */
+.hero{
+position:relative;min-height:100vh;
+display:flex;align-items:center;justify-content:center;
+background-image:url('https://i.ibb.co/dwpHtbhG/Zenos-store-0.jpg');
+background-size:cover;background-position:center;background-repeat:no-repeat;
+overflow:hidden;
+}
+.hero-overlay{
+position:absolute;inset:0;
+background:linear-gradient(135deg,rgba(17,17,17,.92) 0%,rgba(10,20,60,.75) 60%,rgba(17,17,17,.6) 100%);
+}
+.hero-content{
+position:relative;z-index:2;max-width:760px;
+padding:120px 24px 80px;text-align:center;
+}
+.hero-badge{
+display:inline-block;background:var(--ca);color:#fff;
+font-size:.8rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+padding:6px 16px;border-radius:20px;margin-bottom:20px;
+animation:pulse-badge 2s ease-in-out infinite;
+}
+@keyframes pulse-badge{0%,100%{opacity:1}50%{opacity:.82}}
+.h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:700;line-height:1.1;letter-spacing:1px;margin-bottom:16px}
+.h1 em{color:var(--ca);font-style:normal}
+.hero-sub{font-size:clamp(1rem,2.5vw,1.25rem);opacity:.85;max-width:540px;margin:0 auto 32px;font-weight:500}
+.hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.b-primary{
+background:var(--ca);color:#fff;padding:14px 32px;border-radius:var(--r);
+font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.8px;text-transform:uppercase;
+border:none;cursor:pointer;transition:box-shadow var(--t),transform var(--t);display:inline-block;
+}
+.b-primary:hover{box-shadow:0 0 20px rgba(37,99,235,.7);transform:translateY(-2px)}
+.b-ghost{
+background:transparent;color:#fff;padding:13px 32px;border-radius:var(--r);
+font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.8px;text-transform:uppercase;
+border:2px solid rgba(255,255,255,.4);cursor:pointer;transition:border-color var(--t),box-shadow var(--t),transform var(--t);display:inline-block;
+}
+.b-ghost:hover{border-color:var(--ca);box-shadow:0 0 12px rgba(37,99,235,.35);transform:translateY(-2px)}
+.scroll-ind{
+position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
+z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;opacity:.6;
+animation:bounce 2s ease-in-out infinite;
+}
+.scroll-ind span{font-size:.7rem;letter-spacing:1.5px;text-transform:uppercase}
+.scroll-ind svg{width:20px;height:20px}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+
+/* HERO PROMO STRIPE */
+.hero-stripe{
+position:absolute;bottom:0;left:0;width:100%;z-index:3;
+background:rgba(37,99,235,.15);backdrop-filter:blur(6px);
+border-top:1px solid rgba(37,99,235,.3);
+padding:12px 24px;display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap;
+}
+.stripe-item{font-size:.85rem;font-weight:600;letter-spacing:.5px;display:flex;align-items:center;gap:8px}
+.stripe-item svg{color:var(--ca);flex-shrink:0}
+.stripe-dot{width:6px;height:6px;border-radius:50%;background:var(--ca);animation:pulse-badge 2s infinite}
+
+/* STATS BAND */
+.stats{
+background:var(--cp);padding:60px 24px;
+border-top:1px solid rgba(37,99,235,.15);
+border-bottom:1px solid rgba(37,99,235,.15);
+}
+.stats-grid{
+max-width:1000px;margin:0 auto;
+display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center;
+}
+.stat-item{}
+.stat-num{
+font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--ca);
+display:block;line-height:1;margin-bottom:8px;
+}
+.stat-label{font-size:.85rem;font-weight:600;letter-spacing:.8px;text-transform:uppercase;opacity:.7}
+
+/* GLOBAL SECTION */
+.s{padding:80px 24px}
+.s-inner{max-width:1200px;margin:0 auto}
+.s-title{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;letter-spacing:1px;margin-bottom:8px}
+.s-sub{font-size:1rem;opacity:.65;margin-bottom:40px;font-weight:500}
+.accent{color:var(--ca)}
+
+/* CATEGORIES */
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.c-cat{
+position:relative;border-radius:10px;overflow:hidden;cursor:pointer;
+aspect-ratio:4/3;
+transition:transform var(--t),box-shadow var(--t);
+}
+.c-cat:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(37,99,235,.3)}
+.c-cat img{width:100%;height:100%;object-fit:cover;transition:transform 400ms ease-out}
+.c-cat:hover img{transform:scale(1.06)}
+.c-cat-overlay{
+position:absolute;inset:0;
+background:linear-gradient(to top,rgba(17,17,17,.9) 0%,rgba(17,17,17,.2) 60%,transparent 100%);
+display:flex;flex-direction:column;justify-content:flex-end;padding:20px;
+}
+.c-cat-icon{font-size:1.5rem;margin-bottom:6px}
+.c-cat-name{font-size:1.2rem;font-weight:700;letter-spacing:.5px}
+.c-cat-link{
+font-size:.8rem;font-weight:600;color:var(--ca);letter-spacing:.8px;text-transform:uppercase;
+margin-top:4px;display:flex;align-items:center;gap:4px;
+}
+
+/* PROMOS */
+.promos{background:var(--cp)}
+.promo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.c-promo{
+background:var(--cb);border-radius:10px;overflow:hidden;
+border:1px solid rgba(37,99,235,.15);
+transition:transform var(--t),box-shadow var(--t);position:relative;
+}
+.c-promo:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(37,99,235,.25)}
+.promo-img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.promo-body{padding:16px}
+.badge-promo{
+display:inline-block;background:var(--ca);color:#fff;
+font-size:.72rem;font-weight:700;letter-spacing:1px;padding:3px 10px;border-radius:12px;
+margin-bottom:10px;animation:pulse-badge 2s infinite;
+}
+.c-promo-name{font-size:1.05rem;font-weight:700;margin-bottom:8px}
+.price-wrap{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.price-old{font-size:.9rem;font-weight:600;color:#666;text-decoration:line-through}
+.price-new{font-size:1.4rem;font-weight:700;color:var(--ca)}
+.b-sm{
+background:var(--ca);color:#fff;padding:9px 18px;border-radius:var(--r);
+font-family:'Rajdhani',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.5px;text-transform:uppercase;
+border:none;cursor:pointer;width:100%;
+transition:box-shadow var(--t);
+}
+.b-sm:hover{box-shadow:0 0 12px rgba(37,99,235,.6)}
+
+/* BESTSELLERS */
+.best-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.c-best{
+background:var(--cp);border-radius:10px;overflow:hidden;
+border:1px solid rgba(255,255,255,.05);position:relative;
+transition:transform var(--t),box-shadow var(--t);
+}
+.c-best:hover{transform:translateY(-3px);box-shadow:0 10px 35px rgba(37,99,235,.2)}
+.c-best img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.best-body{padding:14px}
+.badge-top{
+position:absolute;top:10px;left:10px;
+background:#ffd500;color:#111;font-size:.7rem;font-weight:700;
+letter-spacing:.8px;padding:3px 10px;border-radius:12px;
+}
+.c-best-name{font-size:.95rem;font-weight:700;margin-bottom:8px;line-height:1.3}
+.c-best-price{font-size:1.2rem;font-weight:700;color:var(--ca)}
+
+/* LIVRAISON */
+.livraison{background:var(--cp)}
+.liv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.c-liv{
+background:var(--cb);border-radius:10px;padding:28px 24px;
+border:1px solid rgba(37,99,235,.15);text-align:center;
+transition:border-color var(--t);
+}
+.c-liv:hover{border-color:var(--ca)}
+.liv-icon{font-size:2.2rem;margin-bottom:14px}
+.liv-title{font-size:1.1rem;font-weight:700;margin-bottom:8px}
+.liv-desc{font-size:.9rem;opacity:.7;line-height:1.6}
+
+/* AVIS */
+.avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.c-avis{
+background:var(--cp);border-radius:10px;padding:24px;
+border:1px solid rgba(255,255,255,.05);
+}
+.stars{color:var(--ca);font-size:1rem;margin-bottom:12px;letter-spacing:2px}
+.avis-text{font-size:.95rem;opacity:.85;line-height:1.7;margin-bottom:14px;font-style:italic}
+.avis-author{font-size:.85rem;font-weight:700;color:var(--ca)}
+
+/* HORAIRES */
+.horaires{background:var(--cp)}
+.hor-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:800px;margin:0 auto}
+.c-hor{background:var(--cb);border-radius:10px;padding:28px 24px;border:1px solid rgba(37,99,235,.15)}
+.hor-title{font-size:1.1rem;font-weight:700;margin-bottom:16px;color:var(--ca);letter-spacing:.5px;text-transform:uppercase}
+.hor-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:.95rem}
+.hor-row:last-child{border-bottom:none}
+.hor-day{opacity:.75;font-weight:500}
+.hor-time{font-weight:700;color:#fff}
+.hor-closed{font-weight:700;color:#555}
+
+/* FOOTER */
+footer{background:#0a0a0a;padding:60px 24px 32px;border-top:1px solid rgba(37,99,235,.2)}
+.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-logo{font-size:1.5rem;font-weight:700;letter-spacing:2px;margin-bottom:12px}
+.footer-desc{font-size:.9rem;opacity:.6;line-height:1.7}
+.footer-title{font-size:.8rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ca);margin-bottom:16px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-size:.9rem;opacity:.65;transition:opacity var(--t),color var(--t)}
+.footer-links a:hover{opacity:1;color:var(--ca)}
+.footer-bottom{
+max-width:1200px;margin:0 auto;
+border-top:1px solid rgba(255,255,255,.08);padding-top:24px;
+display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+font-size:.82rem;opacity:.5;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.cat-grid,.promo-grid{grid-template-columns:repeat(2,1fr)}
+.best-grid{grid-template-columns:repeat(2,1fr)}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.footer-grid{grid-template-columns:1fr 1fr}
+.hor-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+.nav,.hdr-cta{display:none}
+.ham{display:flex}
+.cat-grid,.promo-grid,.best-grid,.liv-grid,.avis-grid{grid-template-columns:1fr}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.footer-grid{grid-template-columns:1fr}
+.hero-stripe{gap:16px}
+.stripe-item{font-size:.78rem}
+#setup-band a{font-size:13px;line-height:40px}
+#setup-band{height:40px}
+.hdr{top:40px}
+.mob-nav{top:104px}
+.hero-ctas .b-primary,.hero-ctas .b-ghost{width:100%;text-align:center}
+.hero-ctas{flex-direction:column}
+}
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU SETUP NC -->
+<div id="setup-band">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-inner">
+    <div class="logo">ZENOS<span>.</span></div>
+    <nav>
+      <ul class="nav">
+        <li><a href="#categories">Catégories</a></li>
+        <li><a href="#promos">Promos</a></li>
+        <li><a href="#bestsellers">Bestsellers</a></li>
+        <li><a href="#livraison">Livraison</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="#promos" class="hdr-cta">Voir les offres</a>
+    <div class="ham" id="ham" aria-label="Menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+<nav class="mob-nav" id="mob-nav">
+  <ul>
+    <li><a href="#categories" class="mob-link">Catégories</a></li>
+    <li><a href="#promos" class="mob-link">Promos</a></li>
+    <li><a href="#bestsellers" class="mob-link">Bestsellers</a></li>
+    <li><a href="#livraison" class="mob-link">Livraison</a></li>
+    <li><a href="#contact" class="mob-link">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">⚡ Stock Limité — Dumbéa Exclusive</div>
+    <h1 class="h1">Ta tech.<br><em>Ton niveau.</em><br>Zenos Store.</h1>
+    <p class="hero-sub">Gaming, high-tech et accessoires premium à Dumbéa. Trouve ton setup, élève ton jeu.</p>
+    <div class="hero-ctas">
+      <a href="#promos" class="b-primary">Voir les offres 🔥</a>
+      <a href="#categories" class="b-ghost">Explorer le store</a>
+    </div>
+  </div>
+  <div class="hero-stripe">
+    <div class="stripe-item">
+      <div class="stripe-dot"></div>
+      Stock PS5 disponible
+    </div>
+    <div class="stripe-item">
+      <div class="stripe-dot"></div>
+      Livraison Nouvelle-Calédonie
+    </div>
+    <div class="stripe-item">
+      <div class="stripe-dot"></div>
+      Boutique à Dumbéa
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>Scroll</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<section class="stats">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <span class="stat-num" data-target="500">0</span>
+      <span class="stat-label">Produits disponibles</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="7">0</span>
+      <span class="stat-label">Jours de dispo en boutique</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="100">0</span>
+      <span class="stat-label">% produits testés</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="1">0</span>
+      <span class="stat-label">Seul store gaming Dumbéa</span>
+    </div>
+  </div>
+</section>
+<!-- CATEGORIES -->
+<section class="s" id="categories">
+  <div class="s-inner">
+    <h2 class="s-title">Explorer par <span class="accent">catégorie</span></h2>
+    <p class="s-sub">Trouve ton gear, selon ta passion.</p>
+    <div class="cat-grid">
+      <a href="#promos" class="c-cat">
+        <img src="https://i.ibb.co/0pt43BJ3/Zenos-store-1.jpg" alt="Gaming" loading="lazy">
+        <div class="c-cat-overlay">
+          <div class="c-cat-icon">🎮</div>
+          <div class="c-cat-name">Gaming</div>
+          <div class="c-cat-link">Voir la sélection →</div>
+        </div>
+      </a>
+      <a href="#promos" class="c-cat">
+        <img src="https://i.ibb.co/sDTkcy1/Zenos-store-2.jpg" alt="Tech Accessoires" loading="lazy">
+        <div class="c-cat-overlay">
+          <div class="c-cat-icon">⚡</div>
+          <div class="c-cat-name">Tech Accessoires</div>
+          <div class="c-cat-link">Voir la sélection →</div>
+        </div>
+      </a>
+      <a href="#promos" class="c-cat">
+        <img src="https://i.ibb.co/qLHvYskG/Zenos-store-3.jpg" alt="Électronique" loading="lazy">
+        <div class="c-cat-overlay">
+          <div class="c-cat-icon">🔋</div>
+          <div class="c-cat-name">Électronique</div>
+          <div class="c-cat-link">Voir la sélection →</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PROMOS -->
+<section class="s promos" id="promos">
+  <div class="s-inner">
+    <h2 class="s-title">Deals <span class="accent">Éclairs</span></h2>
+    <p class="s-sub">Offres du moment — stock limité, prix imbattables.</p>
+    <div class="promo-grid">
+      <div class="c-promo">
+        <img class="promo-img" src="https://i.ibb.co/dwpHtbhG/Zenos-store-0.jpg" alt="PS5 Pack Gaming" loading="lazy">
+        <div class="promo-body">
+          <div class="badge-promo">-15% EXCLU</div>
+          <div class="c-promo-name">Pack Gaming Console Next-Gen</div>
+          <div class="price-wrap">
+            <span class="price-old">75 000 XPF</span>
+            <span class="price-new">63 750 XPF</span>
+          </div>
+          <button class="b-sm">Grab It Now</button>
+        </div>
+      </div>
+      <div class="c-promo">
+        <img class="promo-img" src="https://i.ibb.co/0pt43BJ3/Zenos-store-1.jpg" alt="Casque Gaming Pro" loading="lazy">
+        <div class="promo-body">
+          <div class="badge-promo">-20% FLASH</div>
+          <div class="c-promo-name">Casque Gaming Sans Fil Pro</div>
+          <div class="price-wrap">
+            <span class="price-old">18 000 XPF</span>
+            <span class="price-new">14 400 XPF</span>
+          </div>
+          <button class="b-sm">Grab It Now</button>
+        </div>
+      </div>
+      <div class="c-promo">
+        <img class="promo-img" src="https://i.ibb.co/sDTkcy1/Zenos-store-2.jpg" alt="Manette Pro" loading="lazy">
+        <div class="promo-body">
+          <div class="badge-promo">-10% DU JOUR</div>
+          <div class="c-promo-name">Manette Pro Édition Limitée</div>
+          <div class="price-wrap">
+            <span class="price-old">12 000 XPF</span>
+            <span class="price-new">10 800 XPF</span>
+          </div>
+          <button class="b-sm">Grab It Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BESTSELLERS -->
+<section class="s" id="bestsellers">
+  <div class="s-inner">
+    <h2 class="s-title">Best<span class="accent">sellers</span></h2>
+    <p class="s-sub">Les incontournables du store — plébiscités par la communauté Zenos.</p>
+    <div class="best-grid">
+      <div class="c-best">
+        <div class="badge-top">Top Zenos</div>
+        <img src="https://i.ibb.co/dwpHtbhG/Zenos-store-0.jpg" alt="Console Next-Gen" loading="lazy">
+        <div class="best-body">
+          <div class="c-best-name">Console Next-Gen Pack Complet</div>
+          <div class="c-best-price">63 750 XPF</div>
+        </div>
+      </div>
+      <div class="c-best">
+        <div class="badge-top">Top Zenos</div>
+        <img src="https://i.ibb.co/0pt43BJ3/Zenos-store-1.jpg" alt="Casque Gaming" loading="lazy">
+        <div class="best-body">
+          <div class="c-best-name">Casque Gaming Sans Fil Pro</div>
+          <div class="c-best-price">14 400 XPF</div>
+        </div>
+      </div>
+      <div class="c-best">
+        <div class="badge-top">Top Zenos</div>
+        <img src="https://i.ibb.co/sDTkcy1/Zenos-store-2.jpg" alt="Accessoire Tech" loading="lazy">
+        <div class="best-body">
+          <div class="c-best-name">Accessoires Tech Premium</div>
+          <div class="c-best-price">8 500 XPF</div>
+        </div>
+      </div>
+      <div class="c-best">
+        <div class="badge-top">Top Zenos</div>
+        <img src="https://i.ibb.co/qLHvYskG/Zenos-store-3.jpg" alt="Électronique" loading="lazy">
+        <div class="best-body">
+          <div class="c-best-name">Kit Setup Gamer Complet</div>
+          <div class="c-best-price">22 000 XPF</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVRAISON -->
+<section class="s livraison" id="livraison">
+  <div class="s-inner">
+    <h2 class="s-title">Livraison & <span class="accent">Retrait</span></h2>
+    <p class="s-sub">Ta tech arrive chez toi — rapide, simple, en Nouvelle-Calédonie.</p>
+    <div class="liv-grid">
+      <div class="c-liv">
+        <div class="liv-icon">🏪</div>
+        <div class="liv-title">Retrait en boutique</div>
+        <div class="liv-desc">Commande en ligne, récupère directement au 10 Rue Breve à Dumbéa. Disponible le jour même selon stock.</div>
+      </div>
+      <div class="c-liv">
+        <div class="liv-icon">🚚</div>
+        <div class="liv-title">Livraison NCal</div>
+        <div class="liv-desc">On livre sur l'ensemble de la Nouvelle-Calédonie. Délais variables selon zone — Dumbéa et Grand Nouméa en priorité.</div>
+      </div>
+      <div class="c-liv">
+        <div class="liv-icon">🔒</div>
+        <div class="liv-title">Achat sécurisé</div>
+        <div class="liv-desc">Paiement sécurisé, produits vérifiés avant expédition. En cas de problème, l'équipe Zenos est là pour toi.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="s" id="services">
+  <div class="s-inner">
+    <h2 class="s-title">Pourquoi choisir <span class="accent">Zenos</span> ?</h2>
+    <p class="s-sub">Un store gaming conçu par des passionnés, pour des passionnés.</p>
+    <div class="srv-grid">
+      <div class="c-srv">
+        <div class="srv-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <h3 class="srv-title">Sélection Premium</h3>
+        <p class="srv-desc">Chaque produit est choisi et testé par l'équipe. Pas de compromis sur la qualité — que du meilleur pour ton setup.</p>
+        <a href="#promos" class="srv-cta">Voir les produits →</a>
+      </div>
+      <div class="c-srv">
+        <div class="srv-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3 class="srv-title">Dispo 7j/7</h3>
+        <p class="srv-desc">La boutique est ouverte tous les jours. Besoin d'un conseil ou d'un produit urgent ? L'équipe est là, sans rendez-vous.</p>
+        <a href="#horaires" class="srv-cta">Voir les horaires →</a>
+      </div>
+      <div class="c-srv">
+        <div class="srv-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3 class="srv-title">Conseil Expert</h3>
+        <p class="srv-desc">L'équipe Zenos connaît ses produits sur le bout des doigts. On t'aide à choisir le bon gear selon ton budget et ton style de jeu.</p>
+        <a href="#contact" class="srv-cta">Nous contacter →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s metier" id="metier">
+  <div class="s-inner">
+    <div class="met-row">
+      <div class="met-text">
+        <h2 class="s-title">Le store gaming<br><span class="accent">de Dumbéa.</span></h2>
+        <p class="met-p">Zenos Store est né d'une passion simple : rendre la tech gaming accessible à tous les joueurs de Nouvelle-Calédonie. Basé au cœur de Dumbéa, on sélectionne les meilleurs produits — consoles, accessoires, électronique — pour que ton setup soit à la hauteur de ton niveau.</p>
+        <ul class="met-list">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Produits gaming et tech soigneusement sélectionnés
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Boutique physique accessible à Dumbéa
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Livraison sur toute la Nouvelle-Calédonie
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Équipe passionnée, conseils sans jargon
+          </li>
+        </ul>
+        <a href="#contact" class="b-primary" style="">Prendre contact</a>
+      </div>
+      <div class="met-img-wrap">
+        <img src="https://i.ibb.co/0pt43BJ3/Zenos-store-1.jpg" alt="Zenos Store intérieur" loading="lazy" class="met-img">
+        <div class="met-img-badge">
+          <span class="accent">100%</span> Passion Gaming
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s galerie" id="galerie">
+  <div class="s-inner">
+    <h2 class="s-title">Le store en <span class="accent">images</span></h2>
+    <p class="s-sub">Découvre l'univers Zenos — gaming, tech, ambiance.</p>
+    <div class="gal-grid">
+      <div class="gal-item" data-src="https://i.ibb.co/dwpHtbhG/Zenos-store-0.jpg" data-alt="Zenos Store - Vue 1">
+        <img src="https://i.ibb.co/dwpHtbhG/Zenos-store-0.jpg" alt="Zenos Store - Vue 1" loading="lazy">
+        <div class="gal-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/0pt43BJ3/Zenos-store-1.jpg" data-alt="Zenos Store - Vue 2">
+        <img src="https://i.ibb.co/0pt43BJ3/Zenos-store-1.jpg" alt="Zenos Store - Vue 2" loading="lazy">
+        <div class="gal-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/sDTkcy1/Zenos-store-2.jpg" data-alt="Zenos Store - Vue 3">
+        <img src="https://i.ibb.co/sDTkcy1/Zenos-store-2.jpg" alt="Zenos Store - Vue 3" loading="lazy">
+        <div class="gal-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/qLHvYskG/Zenos-store-3.jpg" data-alt="Zenos Store - Vue 4">
+        <img src="https://i.ibb.co/qLHvYskG/Zenos-store-3.jpg" alt="Zenos Store - Vue 4" loading="lazy">
+        <div class="gal-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lbox" id="lbox">
+  <div class="lbox-bg" id="lbox-bg"></div>
+  <button class="lbox-close" id="lbox-close" aria-label="Fermer">✕</button>
+  <img class="lbox-img" id="lbox-img" src="" alt="">
+</div>
+
+<!-- FORMULAIRE CONTACT -->
+<section class="s form-s" id="contact">
+  <div class="s-inner">
+    <div class="form-wrap">
+      <div class="form-left">
+        <h2 class="s-title">Une question ?<br><span class="accent">On répond.</span></h2>
+        <p class="met-p">Produit spécifique, disponibilité, conseil setup — l'équipe Zenos te répond vite. Envoie ton message ci-contre.</p>
+        <div class="form-info">
+          <div class="finfo-row">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            10 Rue Breve, Dumbéa, Nouvelle-Calédonie
+          </div>
+        </div>
+      </div>
+      <form class="form-box" id="cform" action="#" novalidate>
+        <div class="f-group">
+          <label class="f-label" for="f-nom">Nom complet</label>
+          <input class="f-input" id="f-nom" type="text" placeholder="Ton nom" required>
+          <span class="f-err" id="err-nom"></span>
+        </div>
+        <div class="f-group">
+          <label class="f-label" for="f-email">Email</label>
+          <input class="f-input" id="f-email" type="email" placeholder="ton@email.com" required>
+          <span class="f-err" id="err-email"></span>
+        </div>
+        <div class="f-group">
+          <label class="f-label" for="f-tel">Téléphone</label>
+          <input class="f-input" id="f-tel" type="tel" placeholder="+687 XX XX XX">
+        </div>
+        <div class="f-group">
+          <label class="f-label" for="f-msg">Message</label>
+          <textarea class="f-input f-textarea" id="f-msg" placeholder="Ta question ou ta demande…" required></textarea>
+          <span class="f-err" id="err-msg"></span>
+        </div>
+        <button class="b-primary f-submit" type="submit" id="f-btn">Envoyer le message</button>
+        <div class="f-success" id="f-success">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Message envoyé ! L'équipe Zenos te répond rapidement.
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- AVIS CLIENTS -->
+<section class="s avis-s" id="avis">
+  <div class="s-inner">
+    <h2 class="s-title">La communauté <span class="accent">Zenos</span></h2>
+    <p class="s-sub">Ce que disent les gamers de Dumbéa et de toute la NCal.</p>
+    <div class="google-badge">
+      <svg width="28" height="28" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+      <div class="gbadge-text">
+        <span class="gbadge-note">Nouveau sur Google</span>
+        <span class="gbadge-sub">Sois parmi les premiers à laisser un avis !</span>
+      </div>
+    </div>
+    <div class="avis-grid">
+      <div class="c-avis">
+        <div class="stars">★★★★★</div>
+        <p class="avis-text">"Enfin un vrai store gaming à Dumbéa ! J'ai trouvé exactement ce que je cherchais pour mon setup. L'équipe connaît vraiment ses produits."</p>
+        <div class="avis-author">— Kevin M., Dumbéa</div>
+      </div>
+      <div class="c-avis">
+        <div class="stars">★★★★★</div>
+        <p class="avis-text">"Super service, livraison rapide sur Nouméa. Les prix sont bons et le choix est au rendez-vous. Je recommande à tous les gamers de NCal !"</p>
+        <div class="avis-author">— Sarah T., Grand Nouméa</div>
+      </div>
+      <div class="c-avis">
+        <div class="stars">★★★★★</div>
+        <p class="avis-text">"Le meilleur endroit pour trouver des accessoires tech en Nouvelle-Calédonie. Conseils top, ambiance gaming assumée. Mon store de référence."</p>
+        <div class="avis-author">— Maxime L., Dumbéa</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HORAIRES -->
+<section class="s horaires" id="horaires">
+  <div class="s-inner">
+    <h2 class="s-title" style="text-align:center">Horaires <span class="accent">boutique</span></h2>
+    <p class="s-sub" style="text-align:center">10 Rue Breve, Dumbéa — ouvert toute la semaine.</p>
+    <div class="hor-grid">
+      <div class="c-hor">
+        <div class="hor-title">Semaine</div>
+        <div class="hor-row"><span class="hor-day">Lundi</span><span class="hor-time">08h00 – 18h00</span></div>
+        <div class="hor-row"><span class="hor-day">Mardi</span><span class="hor-time">08h00 – 18h00</span></div>
+        <div class="hor-row"><span class="hor-day">Mercredi</span><span class="hor-time">08h00 – 18h00</span></div>
+        <div class="hor-row"><span class="hor-day">Jeudi</span><span class="hor-time">08h00 – 18h00</span></div>
+        <div class="hor-row"><span class="hor-day">Vendredi</span><span class="hor-time">08h00 – 18h00</span></div>
+      </div>
+      <div class="c-hor">
+        <div class="hor-title">Week-end</div>
+        <div class="hor-row"><span class="hor-day">Samedi</span><span class="hor-time">09h00 – 17h00</span></div>
+        <div class="hor-row"><span class="hor-day">Dimanche</span><span class="hor-time">09h00 – 13h00</span></div>
+        <div class="hor-row" style="padding-top:16px"><span class="hor-day" style="opacity:.5;font-size:.82rem">Horaires susceptibles de varier — jours fériés</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">ZENOS<span class="accent">.</span></div>
+      <p class="footer-desc">Ta boutique gaming et tech à Dumbéa, Nouvelle-Calédonie. Setup premium, conseils experts, livraison rapide.</p>
+    </div>
+    <div>
+      <div class="footer-title">Navigation</div>
+      <ul class="footer-links">
+        <li><a href="#categories">Catégories</a></li>
+        <li><a href="#promos">Promos</a></li>
+        <li><a href="#bestsellers">Bestsellers</a></li>
+        <li><a href="#livraison">Livraison</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-title">Boutique</div>
+      <ul class="footer-links">
+        <li>10 Rue Breve, Dumbéa</li>
+        <li>Nouvelle-Calédonie</li>
+        <li><a href="#horaires">Voir les horaires</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Zenos store. Tous droits réservés.</span>
+    <span>Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener" style="color:#2563EB;opacity:1">Setup NC</a></span>
+  </div>
+</footer>
+
+<style>
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.c-srv{background:var(--cp);border-radius:10px;padding:32px 24px;border:1px solid rgba(37,99,235,.12);transition:transform var(--t),border-color var(--t)}
+.c-srv:hover{transform:translateY(-3px);border-color:var(--ca)}
+.srv-icon{margin-bottom:16px}
+.srv-title{font-size:1.15rem;font-weight:700;margin-bottom:10px}
+.srv-desc{font-size:.92rem;opacity:.72;line-height:1.7;margin-bottom:16px}
+.srv-cta{font-size:.85rem;font-weight:700;color:var(--ca);letter-spacing:.5px;transition:opacity var(--t)}
+.srv-cta:hover{opacity:.75}
+.metier{background:var(--cp)}
+.met-row{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.met-p{font-size:.97rem;opacity:.8;line-height:1.8;margin-bottom:24px}
+.met-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.met-list li{display:flex;align-items:center;gap:10px;font-size:.95rem;font-weight:600}
+.met-img-wrap{position:relative}
+.met-img{border-radius:12px;width:100%;object-fit:cover;aspect-ratio:4/3;border:1px solid rgba(37,99,235,.2)}
+.met-img-badge{position:absolute;bottom:-16px;left:24px;background:var(--ca);color:#fff;font-size:.85rem;font-weight:700;padding:10px 20px;border-radius:var(--r);letter-spacing:.5px}
+.galerie{background:var(--cp)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal-item{position:relative;border-radius:10px;overflow:hidden;cursor:pointer;aspect-ratio:1/1}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform 400ms ease-out}
+.gal-item:hover img{transform:scale(1.07)}
+.gal-overlay{position:absolute;inset:0;background:rgba(37,99,235,.3);opacity:0;display:flex;align-items:center;justify-content:center;transition:opacity var(--t)}
+.gal-item:hover .gal-overlay{opacity:1}
+.lbox{display:none;position:fixed;inset:0;z-index:2000;align-items:center;justify-content:center}
+.lbox.open{display:flex}
+.lbox-bg{position:absolute;inset:0;background:rgba(0,0,0,.92);cursor:pointer}
+.lbox-close{position:absolute;top:24px;right:32px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;z-index:2001;line-height:1;opacity:.8;transition:opacity var(--t)}
+.lbox-close:hover{opacity:1}
+.lbox-img{position:relative;z-index:2001;max-width:90vw;max-height:85vh;border-radius:10px;object-fit:contain}
+.form-s{background:var(--cp)}
+.form-wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:start}
+.form-info{margin-top:24px;display:flex;flex-direction:column;gap:12px}
+.finfo-row{display:flex;align-items:flex-start;gap:10px;font-size:.9rem;opacity:.75;line-height:1.5}
+.form-box{display:flex;flex-direction:column;gap:18px;background:var(--cb);padding:36px 32px;border-radius:12px;border:1px solid rgba(37,99,235,.15)}
+.f-group{display:flex;flex-direction:column;gap:6px}
+.f-label{font-size:.8rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;opacity:.75}
+.f-input{background:var(--cp);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:12px 16px;color:#fff;font-family:'Rajdhani',sans-serif;font-size:1rem;transition:border-color var(--t);outline:none;width:100%}
+.f-input:focus{border-color:var(--ca)}
+.f-textarea{min-height:110px;resize:vertical}
+.f-err{font-size:.78rem;color:#f87171;min-height:16px}
+.f-submit{width:100%;min-height:48px;font-size:1rem;cursor:pointer}
+.f-success{display:none;align-items:center;gap:10px;background:rgba(37,99,235,.15);border:1px solid rgba(37,99,235,.35);border-radius:var(--r);padding:14px 18px;font-size:.95rem;font-weight:600;color:#fff}
+.f-success.show{display:flex}
+.avis-s{background:var(--cp)}
+.google-badge{display:flex;align-items:center;gap:16px;background:var(--cb);border:1px solid rgba(37,99,235,.2);border-radius:10px;padding:20px 24px;margin-bottom:36px;max-width:420px}
+.gbadge-text{display:flex;flex-direction:column;gap:2px}
+.gbadge-note{font-size:1.1rem;font-weight:700}
+.gbadge-sub{font-size:.82rem;opacity:.6}
+@media(max-width:900px){
+.srv-grid{grid-template-columns:1fr 1fr}
+.met-row{grid-template-columns:1fr}
+.form-wrap{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+.srv-grid{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.form-box{padding:24px 18px}
+.met-img-badge{font-size:.75rem;padding:8px 14px}
+}
+</style>
+
+<script>
+(function(){
+var h=document.getElementById('ham'),mn=document.getElementById('mob-nav');
+h.addEventListener('click',function(){mn.classList.toggle('open')});
+document.querySelectorAll('.mob-link').forEach(function(l){l.addEventListener('click',function(){mn.classList.remove('open')})});
+var gi=document.querySelectorAll('.gal-item'),lb=document.getElementById('lbox'),li=document.getElementById('lbox-img'),lc=document.getElementById('lbox-close'),lbg=document.getElementById('lbox-bg');
+gi.forEach(function(g){g.addEventListener('click',function(){li.src=g.dataset.src;li.alt=g.dataset.alt;lb.classList.add('open')})});
+function cls(){lb.classList.remove('open');li.src=''}
+lc.addEventListener('click',cls);lbg.addEventListener('click',cls);
+document.addEventListener('keydown',function(e){if(e.key==='Escape')cls()});
+var nums=document.querySelectorAll('.stat-num');
+var animated=false;
+function animNums(){
+if(animated)return;animated=true;
+nums.forEach(function(n){
+var t=+n.dataset.target,d=1200,s=16,st=Math.ceil(d/s);
+var c=0,inc=Math.ceil(t/st);
+var iv=setInterval(function(){c=Math.min(c+inc,t);n.textContent=c;if(c>=t)clearInterval(iv)},s);
+});
+}
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)animNums()})},{threshold:.3});
+var sb=document.querySelector('.stats');if(sb)obs.observe(sb);
+var cf=document.getElementById('cform');
+cf.addEventListener('submit',function(e){
+e.preventDefault();
+var ok=true;
+var nom=document.getElementById('f-nom'),em=document.getElementById('f-email'),msg=document.getElementById('f-msg');
+var en=document.getElementById('err-nom'),ee=document.getElementById('err-email'),em2=document.getElementById('err-msg');
+en.textContent='';ee.textContent='';em2.textContent='';
+if(!nom.value.trim()){en.textContent='Merci d\'indiquer ton nom.';ok=false}
+if(!em.value.trim()||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value)){ee.textContent='Email invalide.';ok=false}
+if(!msg.value.trim()){em2.textContent='Le message ne peut pas être vide.';ok=false}
+if(!ok)return;
+var btn=document.getElementById('f-btn');btn.disabled=true;btn.textContent='Envoi…';
+setTimeout(function(){
+cf.reset();btn.disabled=false;btn.textContent='Envoyer le message';
+document.getElementById('f-success').classList.add('show');
+},900);
+});
+})();
+</script>
+</body>
+</html>
