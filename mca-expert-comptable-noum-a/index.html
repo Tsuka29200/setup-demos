@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MCA - Expert-comptable Nouméa — Nouméa</title>
+<meta name="description" content="Cabinet d'expertise comptable à Nouméa, Nouvelle-Calédonie. Clarté financière, conformité fiscale et accompagnement personnalisé pour les PME locales.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500&family=Manrope:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#1B3A5C;
+--cs:#C8A45A;
+--ca:#2E6DA4;
+--bg:#F5F3EF;
+--tx:#1A1A2E;
+--wh:#FFFFFF;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.8;color:var(--tx);background:var(--wh);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU PROMO */
+.promo-bar{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;display:flex;align-items:center;justify-content:center}
+.promo-bar a{font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;line-height:44px;letter-spacing:0.3px;color:#4375ff;text-align:center}
+.promo-bar a:hover{opacity:0.85}
+
+/* HEADER */
+.header{position:fixed;top:44px;left:0;width:100%;background:rgba(255,255,255,0.97);backdrop-filter:blur(8px);z-index:1000;border-bottom:1px solid rgba(27,58,92,0.08)}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:68px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Montserrat',sans-serif;font-weight:700;font-size:20px;color:var(--cp);letter-spacing:-0.3px}
+.logo span{color:var(--cs)}
+.nav{display:flex;align-items:center;gap:32px}
+.nav a{font-family:'Montserrat',sans-serif;font-weight:500;font-size:14px;color:var(--tx);transition:color 250ms}
+.nav a:hover{color:var(--ca)}
+.nav-cta{background:var(--cp);color:var(--wh);padding:10px 22px;border-radius:4px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:14px;transition:background 250ms,transform 250ms}
+.nav-cta:hover{background:var(--cs);color:var(--cp);transform:translateY(-1px)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.burger span{width:24px;height:2px;background:var(--cp);border-radius:2px;transition:transform 250ms,opacity 250ms}
+.mob-nav{display:none;position:fixed;top:112px;left:0;width:100%;background:var(--wh);border-top:1px solid rgba(27,58,92,0.1);padding:24px;flex-direction:column;gap:20px;z-index:999}
+.mob-nav.open{display:flex}
+.mob-nav a{font-family:'Montserrat',sans-serif;font-weight:600;font-size:16px;color:var(--tx);padding:8px 0;border-bottom:1px solid rgba(27,58,92,0.06)}
+.mob-nav .nav-cta{border:none;text-align:center;margin-top:8px;padding:14px;border-radius:4px;font-size:15px;width:100%}
+
+/* HERO */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;padding-top:112px;background-image:url('https://i.ibb.co/gMcfMYN0/MCA-Expert-comptable-Noum-a-0.jpg');background-size:cover;background-position:center top}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(27,58,92,0.92) 0%,rgba(46,109,164,0.75) 60%,rgba(27,58,92,0.5) 100%)}
+.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 24px;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(200,164,90,0.18);border:1px solid rgba(200,164,90,0.5);border-radius:20px;padding:6px 16px;margin-bottom:28px}
+.hero-badge span{font-family:'Montserrat',sans-serif;font-weight:600;font-size:12px;color:var(--cs);letter-spacing:1px;text-transform:uppercase}
+.h1{font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(32px,5vw,56px);line-height:1.2;color:var(--wh);max-width:700px;margin-bottom:20px}
+.h1 em{color:var(--cs);font-style:normal}
+.hero-sub{font-size:clamp(15px,2vw,18px);color:rgba(255,255,255,0.88);max-width:560px;margin-bottom:40px;line-height:1.7}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{background:var(--cs);color:var(--cp);font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;padding:14px 32px;border-radius:4px;border:2px solid var(--cs);transition:all 250ms;display:inline-block}
+.btn-primary:hover{background:transparent;color:var(--cs)}
+.btn-outline{background:transparent;color:var(--wh);font-family:'Montserrat',sans-serif;font-weight:600;font-size:15px;padding:14px 32px;border-radius:4px;border:2px solid rgba(255,255,255,0.5);transition:all 250ms;display:inline-block}
+.btn-outline:hover{border-color:var(--wh);background:rgba(255,255,255,0.1)}
+.scroll-ind{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;z-index:2}
+.scroll-ind span{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.6)}
+.scroll-ind svg{animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* STATS BAR */
+.stats{background:var(--cp);padding:60px 24px}
+.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:40px}
+.stat-item{text-align:center}
+.stat-num{font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(36px,4vw,52px);color:var(--cs);line-height:1}
+.stat-suffix{font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(20px,2.5vw,32px);color:var(--cs)}
+.stat-label{font-family:'Montserrat',sans-serif;font-weight:500;font-size:13px;color:rgba(255,255,255,0.75);text-transform:uppercase;letter-spacing:1.2px;margin-top:10px}
+.stat-divider{width:1px;background:rgba(200,164,90,0.3);height:60px;align-self:center;display:block}
+
+/* SECTIONS GENERIQUES */
+.s{padding:80px 24px}
+.s-alt{background:var(--bg)}
+.s-inner{max-width:1200px;margin:0 auto}
+.s-label{font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;color:var(--cs);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;display:block}
+.h2{font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(26px,3.5vw,38px);color:var(--cp);line-height:1.25;margin-bottom:16px}
+.h3{font-family:'Montserrat',sans-serif;font-weight:600;font-size:22px;color:var(--cp);line-height:1.3}
+.lead{font-size:17px;color:#4a5568;max-width:620px;line-height:1.8}
+.gold-bar{width:48px;height:3px;background:var(--cs);border-radius:2px;margin-bottom:40px}
+
+/* CARDS */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+.c{background:var(--wh);border-radius:8px;padding:36px 32px;border:1px solid rgba(27,58,92,0.06);transition:box-shadow 250ms,transform 250ms}
+.c:hover{box-shadow:0 12px 40px rgba(27,58,92,0.10);transform:translateY(-3px)}
+
+/* FALLBACK ANIMATIONS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+.stat-divider{display:none}
+.grid-3{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+.nav{display:none}
+.burger{display:flex}
+.hero-ctas .btn-primary,.hero-ctas .btn-outline{width:100%;text-align:center;padding:16px}
+.hero-ctas{flex-direction:column}
+}
+@media(max-width:480px){
+.promo-bar a{font-size:13px;line-height:40px;padding:0 12px}
+.promo-bar{height:40px}
+.header{top:40px}
+.mob-nav{top:108px}
+.hero{padding-top:108px}
+.header-inner{height:68px;padding:0 16px}
+.stats-inner{grid-template-columns:1fr 1fr;gap:24px}
+.stat-num{font-size:32px}
+.s{padding:60px 16px}
+.grid-3,.grid-2{grid-template-columns:1fr}
+.h1{font-size:28px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo-bar">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#accueil" class="logo">MCA<span>.</span></a>
+    <nav class="nav">
+      <a href="#services">Services</a>
+      <a href="#processus">Notre approche</a>
+      <a href="#equipe">L'équipe</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="nav-cta">Demander un devis</a>
+    </nav>
+    <button class="burger" aria-label="Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-nav" id="mobNav">
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#processus" onclick="toggleMenu()">Notre approche</a>
+  <a href="#equipe" onclick="toggleMenu()">L'équipe</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <a href="#contact" class="nav-cta" onclick="toggleMenu()">Demander un devis</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span>&#9733; Expert-comptable à Nouméa</span>
+    </div>
+    <h1 class="h1">Votre comptabilité,<br><em>enfin limpide.</em></h1>
+    <p class="hero-sub">Trésorerie difficile à lire, obligations fiscales complexes, fin d'exercice stressante — MCA prend en charge votre gestion comptable pour que vous puissiez vous concentrer sur votre activité.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">Obtenir un devis gratuit</a>
+      <a href="#services" class="btn-outline">Découvrir nos services</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>Découvrir</span>
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="stats">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div><span class="stat-num" data-target="15">0</span><span class="stat-suffix">+</span></div>
+      <div class="stat-label">Ans d'expérience</div>
+    </div>
+    <div class="stat-item">
+      <div><span class="stat-num" data-target="200">0</span><span class="stat-suffix">+</span></div>
+      <div class="stat-label">Clients accompagnés</div>
+    </div>
+    <div class="stat-item">
+      <div><span class="stat-num" data-target="98">0</span><span class="stat-suffix">%</span></div>
+      <div class="stat-label">Clients satisfaits</div>
+    </div>
+    <div class="stat-item">
+      <div><span class="stat-num" data-target="5">0</span><span class="stat-suffix">/5</span></div>
+      <div class="stat-label">Note Google</div>
+    </div>
+  </div>
+</section>
+
+<script>
+function toggleMenu(){document.getElementById('mobNav').classList.toggle('open')}
+(function(){
+var els=document.querySelectorAll('.stat-num'),done=false;
+function run(){
+if(done)return;done=true;
+els.forEach(function(el){
+var t=+el.dataset.target,d=1400,s=16,st=Math.ceil(d/s),inc=t/st,cur=0;
+var iv=setInterval(function(){cur+=inc;if(cur>=t){el.textContent=t;clearInterval(iv);}else{el.textContent=Math.floor(cur);}},s);
+});}
+var io=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)run();})},{threshold:0.3});
+io.observe(document.querySelector('.stats'));
+})();
+</script>
+<!-- SERVICES -->
+<section class="s" id="services">
+<div class="s-inner">
+<span class="s-label">Ce que nous faisons</span>
+<h2 class="h2">Des expertises au service<br>de votre réussite</h2>
+<div class="gold-bar"></div>
+<div class="grid-3">
+<div class="c">
+<div class="c-icon">
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="4" y="6" width="24" height="20" rx="2" stroke="#C8A45A" stroke-width="2"/><path d="M10 12h12M10 17h8M10 22h6" stroke="#C8A45A" stroke-width="2" stroke-linecap="round"/></svg>
+</div>
+<h3 class="h3">Tenue comptable</h3>
+<p class="c-text">Saisie, lettrage, rapprochements bancaires et arrêté des comptes annuels. Vos données financières sont à jour, fiables et accessibles en permanence.</p>
+<a href="#contact" class="c-link">En savoir plus →</a>
+</div>
+<div class="c">
+<div class="c-icon">
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 26V16l10-10 10 10v10a2 2 0 01-2 2H8a2 2 0 01-2-2z" stroke="#C8A45A" stroke-width="2"/><path d="M12 28v-8h8v8" stroke="#C8A45A" stroke-width="2"/></svg>
+</div>
+<h3 class="h3">Fiscalité & déclarations</h3>
+<p class="c-text">Établissement et dépôt de vos déclarations fiscales en conformité avec la réglementation calédonienne. Optimisation dans le strict respect des textes.</p>
+<a href="#contact" class="c-link">En savoir plus →</a>
+</div>
+<div class="c">
+<div class="c-icon">
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="10" stroke="#C8A45A" stroke-width="2"/><path d="M16 10v6l4 2" stroke="#C8A45A" stroke-width="2" stroke-linecap="round"/></svg>
+</div>
+<h3 class="h3">Gestion de trésorerie</h3>
+<p class="c-text">Suivi des flux, prévisions de trésorerie et tableaux de bord sur mesure pour anticiper les tensions et piloter votre activité avec sérénité.</p>
+<a href="#contact" class="c-link">En savoir plus →</a>
+</div>
+<div class="c">
+<div class="c-icon">
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M8 20l6-6 4 4 6-8" stroke="#C8A45A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="4" width="24" height="24" rx="2" stroke="#C8A45A" stroke-width="2"/></svg>
+</div>
+<h3 class="h3">Conseil en gestion</h3>
+<p class="c-text">Analyse de vos indicateurs de performance, aide à la décision et accompagnement stratégique pour les dirigeants de PME et TPE locales.</p>
+<a href="#contact" class="c-link">En savoir plus →</a>
+</div>
+<div class="c">
+<div class="c-icon">
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 4l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9z" stroke="#C8A45A" stroke-width="2" stroke-linejoin="round"/></svg>
+</div>
+<h3 class="h3">Création & reprise</h3>
+<p class="c-text">Choix de la structure juridique, business plan, prévisionnel financier : nous vous accompagnons dès les premières étapes de votre projet entrepreneurial.</p>
+<a href="#contact" class="c-link">En savoir plus →</a>
+</div>
+<div class="c">
+<div class="c-icon">
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M4 24h24M8 24V14m6 10V10m6 14v-8m6 8V6" stroke="#C8A45A" stroke-width="2" stroke-linecap="round"/></svg>
+</div>
+<h3 class="h3">Social & paie</h3>
+<p class="c-text">Établissement des bulletins de salaire, gestion des déclarations sociales et veille réglementaire pour sécuriser votre relation employeur en Nouvelle-Calédonie.</p>
+<a href="#contact" class="c-link">En savoir plus →</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PROBLÈME / SOLUTION -->
+<section class="s s-alt" id="apropos">
+<div class="s-inner">
+<span class="s-label">Notre approche</span>
+<h2 class="h2">Du problème à la solution,<br>à chaque étape</h2>
+<div class="gold-bar"></div>
+<div class="ps-grid">
+<div class="ps-pair">
+<div class="ps-prob">
+<div class="ps-icon ps-icon-prob">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#e05252" stroke-width="2"/><path d="M12 7v5M12 16v1" stroke="#e05252" stroke-width="2" stroke-linecap="round"/></svg>
+</div>
+<p class="ps-text">Trésorerie illisible, imprévu financier paralysant</p>
+</div>
+<div class="ps-arrow">
+<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M6 14h16M16 8l6 6-6 6" stroke="#C8A45A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</div>
+<div class="ps-sol">
+<div class="ps-icon ps-icon-sol">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#2E6DA4" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="#2E6DA4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</div>
+<p class="ps-text">Tableaux de bord clairs, prévisions fiables à 3 mois</p>
+</div>
+</div>
+<div class="ps-pair">
+<div class="ps-prob">
+<div class="ps-icon ps-icon-prob">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#e05252" stroke-width="2"/><path d="M12 7v5M12 16v1" stroke="#e05252" stroke-width="2" stroke-linecap="round"/></svg>
+</div>
+<p class="ps-text">Obligations fiscales complexes, risque de redressement</p>
+</div>
+<div class="ps-arrow">
+<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M6 14h16M16 8l6 6-6 6" stroke="#C8A45A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</div>
+<div class="ps-sol">
+<div class="ps-icon ps-icon-sol">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#2E6DA4" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="#2E6DA4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</div>
+<p class="ps-text">Déclarations conformes, suivi proactif de la réglementation locale</p>
+</div>
+</div>
+<div class="ps-pair">
+<div class="ps-prob">
+<div class="ps-icon ps-icon-prob">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#e05252" stroke-width="2"/><path d="M12 7v5M12 16v1" stroke="#e05252" stroke-width="2" stroke-linecap="round"/></svg>
+</div>
+<p class="ps-text">Décisions stratégiques prises sans vision chiffrée</p>
+</div>
+<div class="ps-arrow">
+<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M6 14h16M16 8l6 6-6 6" stroke="#C8A45A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</div>
+<div class="ps-sol">
+<div class="ps-icon ps-icon-sol">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#2E6DA4" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="#2E6DA4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</div>
+<p class="ps-text">Conseil personnalisé, analyses en temps réel pour décider en confiance</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s" id="metier">
+<div class="s-inner">
+<div class="metier-grid">
+<div class="metier-text">
+<span class="s-label">Qui sommes-nous</span>
+<h2 class="h2">Un cabinet à taille humaine,<br>ancré à Nouméa</h2>
+<div class="gold-bar"></div>
+<p class="lead">MCA est un cabinet d'expertise comptable implanté au cœur de Nouméa. Nous accompagnons les dirigeants de PME, TPE et professions libérales de Nouvelle-Calédonie avec une approche rigoureuse et un suivi personnalisé.</p>
+<p class="metier-p">Chaque client bénéficie d'un interlocuteur dédié, disponible et qui connaît les spécificités fiscales et sociales du territoire. Parce que gérer une entreprise ici n'est pas gérer une entreprise ailleurs.</p>
+<ul class="check-list">
+<li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" fill="#C8A45A"/><path d="M5 9l3 3 5-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Expertise du droit fiscal calédonien</li>
+<li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" fill="#C8A45A"/><path d="M5 9l3 3 5-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Interlocuteur unique et disponible</li>
+<li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" fill="#C8A45A"/><path d="M5 9l3 3 5-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Outils numériques modernes, accès client en ligne</li>
+<li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" fill="#C8A45A"/><path d="M5 9l3 3 5-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Engagement de réactivité sous 48 h</li>
+</ul>
+</div>
+<div class="metier-imgs">
+<img src="https://i.ibb.co/tNhtHcn/MCA-Expert-comptable-Noum-a-1.jpg" alt="Cabinet MCA Nouméa" class="metier-img-top" loading="lazy">
+<img src="https://i.ibb.co/Z1BWrH60/MCA-Expert-comptable-Noum-a-2.jpg" alt="Équipe MCA Expert-comptable" class="metier-img-bot" loading="lazy">
+</div>
+</div>
+</div>
+</section>
+
+<!-- PROCESSUS -->
+<section class="s s-alt" id="processus">
+<div class="s-inner">
+<span class="s-label">Comment ça se passe</span>
+<h2 class="h2">Un accompagnement structuré,<br>sans mauvaise surprise</h2>
+<div class="gold-bar"></div>
+<div class="timeline">
+<div class="tl-item">
+<div class="tl-num">01</div>
+<div class="tl-connector"></div>
+<div class="tl-body">
+<h3 class="tl-title">Premier échange</h3>
+<p class="tl-text">Rencontre gratuite pour comprendre votre activité, vos enjeux et définir ensemble le périmètre de mission adapté.</p>
+</div>
+</div>
+<div class="tl-item">
+<div class="tl-num">02</div>
+<div class="tl-connector"></div>
+<div class="tl-body">
+<h3 class="tl-title">Lettre de mission</h3>
+<p class="tl-text">Formalisation claire de nos engagements, des délais et des honoraires. Pas de surprise, tout est écrit.</p>
+</div>
+</div>
+<div class="tl-item">
+<div class="tl-num">03</div>
+<div class="tl-connector"></div>
+<div class="tl-body">
+<h3 class="tl-title">Prise en charge</h3>
+<p class="tl-text">Collecte sécurisée de vos documents, mise en place des outils et démarrage de la tenue comptable.</p>
+</div>
+</div>
+<div class="tl-item">
+<div class="tl-num">04</div>
+<div class="tl-connector"></div>
+<div class="tl-body">
+<h3 class="tl-title">Suivi régulier</h3>
+<p class="tl-text">Points périodiques, tableau de bord transmis chaque mois, alertes proactives si une situation l'exige.</p>
+</div>
+</div>
+<div class="tl-item">
+<div class="tl-num">05</div>
+<div class="tl-connector tl-connector-last"></div>
+<div class="tl-body">
+<h3 class="tl-title">Bilan & perspectives</h3>
+<p class="tl-text">Présentation annuelle des comptes, analyse des performances et recommandations pour l'exercice suivant.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- GALERIE -->
+<section class="s" id="galerie">
+<div class="s-inner">
+<span class="s-label">Notre cabinet</span>
+<h2 class="h2">Un environnement de travail<br>professionnel et accueillant</h2>
+<div class="gold-bar"></div>
+<div class="gallery-grid">
+<div class="gal-item" onclick="openLb(0)">
+<img src="https://i.ibb.co/gMcfMYN0/MCA-Expert-comptable-Noum-a-0.jpg" alt="MCA Cabinet Nouméa" loading="lazy" class="gal-img">
+<div class="gal-overlay"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="12" cy="12" r="8" stroke="#fff" stroke-width="2"/><path d="M18 18l5 5" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="M9 12h6M12 9v6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
+</div>
+<div class="gal-item" onclick="openLb(1)">
+<img src="https://i.ibb.co/tNhtHcn/MCA-Expert-comptable-Noum-a-1.jpg" alt="MCA Équipe comptable" loading="lazy" class="gal-img">
+<div class="gal-overlay"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="12" cy="12" r="8" stroke="#fff" stroke-width="2"/><path d="M18 18l5 5" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="M9 12h6M12 9v6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
+</div>
+<div class="gal-item" onclick="openLb(2)">
+<img src="https://i.ibb.co/Z1BWrH60/MCA-Expert-comptable-Noum-a-2.jpg" alt="MCA Bureau Nouméa" loading="lazy" class="gal-img">
+<div class="gal-overlay"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="12" cy="12" r="8" stroke="#fff" stroke-width="2"/><path d="M18 18l5 5" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="M9 12h6M12 9v6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
+</div>
+<div class="gal-item" onclick="openLb(3)">
+<img src="https://i.ibb.co/zWJs3kdh/MCA-Expert-comptable-Noum-a-3.jpg" alt="MCA Expert-comptable" loading="lazy" class="gal-img">
+<div class="gal-overlay"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="12" cy="12" r="8" stroke="#fff" stroke-width="2"/><path d="M18 18l5 5" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="M9 12h6M12 9v6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb-wrap" id="lb" onclick="closeLb()">
+<button class="lb-close" onclick="closeLb()">&#10005;</button>
+<button class="lb-prev" onclick="lbNav(-1,event)">&#8592;</button>
+<img src="" alt="Photo MCA" class="lb-img" id="lbImg">
+<button class="lb-next" onclick="lbNav(1,event)">&#8594;</button>
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section class="s s-alt" id="avis">
+<div class="s-inner">
+<span class="s-label">Ils nous font confiance</span>
+<h2 class="h2">La satisfaction client,<br>notre meilleure référence</h2>
+<div class="gold-bar"></div>
+<div class="proof-grid">
+<div class="proof-badge">
+<div class="google-badge">
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M29.6 16.3c0-1-.1-2-.3-2.9H16v5.5h7.6c-.3 1.7-1.4 3.2-2.9 4.1v3.4h4.7c2.8-2.5 4.2-6.3 4.2-10.1z" fill="#4285F4"/><path d="M16 30c3.8 0 7-1.3 9.4-3.5l-4.7-3.4c-1.3.8-2.9 1.3-4.7 1.3-3.6 0-6.7-2.4-7.8-5.7H3.4v3.5C5.8 26.8 10.6 30 16 30z" fill="#34A853"/><path d="M8.2 18.7c-.3-.8-.4-1.7-.4-2.7s.1-1.9.4-2.7V9.8H3.4C2.5 11.5 2 13.7 2 16s.5 4.5 1.4 6.2l4.8-3.5z" fill="#FBBC05"/><path d="M16 7.9c2 0 3.8.7 5.2 2l3.9-3.9C22.9 3.8 19.7 2.4 16 2.4 10.6 2.4 5.8 5.6 3.4 10.3l4.8 3.5C9.3 10.3 12.4 7.9 16 7.9z" fill="#EA4335"/></svg>
+<div class="badge-info">
+<div class="badge-stars">★★★★★</div>
+<div class="badge-score">5,0 <span>/5</span></div>
+<div class="badge-count">Note Google vérifiée</div>
+</div>
+</div>
+</div>
+<div class="testi-card">
+<div class="testi-stars">★★★★★</div>
+<p class="testi-quote">« Un cabinet sérieux, réactif et à l'écoute. Mes comptes sont enfin en ordre et je comprends ce qu'il se passe dans mon entreprise. Je recommande sans hésiter. »</p>
+<div class="testi-author">— Client MCA, Nouméa</div>
+</div>
+<div class="badges-row">
+<div class="trust-badge">
+<svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2l2.4 6.6H20l-5.3 4 2 6.5L11 15.3l-5.7 3.8 2-6.5L2 8.6h6.6z" stroke="#C8A45A" stroke-width="1.5" stroke-linejoin="round"/></svg>
+<span>Expert-comptable certifié</span>
+</div>
+<div class="trust-badge">
+<svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 3l7 3v5c0 4-3 7-7 8-4-1-7-4-7-8V6l7-3z" stroke="#C8A45A" stroke-width="1.5" stroke-linejoin="round"/></svg>
+<span>Membre de l'Ordre des experts-comptables</span>
+</div>
+<div class="trust-badge">
+<svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8" stroke="#C8A45A" stroke-width="1.5"/><path d="M8 11l2 2 4-4" stroke="#C8A45A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<span>Données sécurisées & confidentielles</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FORMULAIRE -->
+<section class="s" id="contact">
+<div class="s-inner">
+<div class="form-grid">
+<div class="form-info">
+<span class="s-label">Contactez-nous</span>
+<h2 class="h2">Parlons de votre<br>projet ensemble</h2>
+<div class="gold-bar"></div>
+<p class="lead">Un premier échange est toujours gratuit. Décrivez-nous votre situation et nous vous répondons sous 48 heures ouvrées.</p>
+<div class="contact-details">
+<div class="contact-row">
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2C6.7 2 4 4.7 4 8c0 5 6 10 6 10s6-5 6-10c0-3.3-2.7-6-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z" stroke="#C8A45A" stroke-width="1.5"/></svg>
+<span>16 Route du Vélodrome, Nouméa</span>
+</div>
+</div>
+</div>
+<form class="contact-form" id="contactForm" action="#" novalidate>
+<div class="field-group">
+<label class="field-label" for="fname">Nom complet</label>
+<input class="field-input" id="fname" name="name" type="text" placeholder="Votre nom" required>
+<span class="field-err" id="errName"></span>
+</div>
+<div class="field-group">
+<label class="field-label" for="femail">Adresse e-mail</label>
+<input class="field-input" id="femail" name="email" type="email" placeholder="votre@email.com" required>
+<span class="field-err" id="errEmail"></span>
+</div>
+<div class="field-group">
+<label class="field-label" for="ftel">Téléphone</label>
+<input class="field-input" id="ftel" name="tel" type="tel" placeholder="+687 XX XX XX">
+</div>
+<div class="field-group">
+<label class="field-label" for="fmsg">Votre message</label>
+<textarea class="field-input field-textarea" id="fmsg" name="message" placeholder="Décrivez brièvement votre situation ou votre question…" required></textarea>
+<span class="field-err" id="errMsg"></span>
+</div>
+<button type="submit" class="btn-submit" id="btnSubmit">
+<span id="btnTxt">Envoyer ma demande</span>
+<span id="btnLoader" class="loader-spin" hidden></span>
+</button>
+<div class="form-success" id="formSuccess" hidden>
+<svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9" fill="#2E6DA4"/><path d="M7 11l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<span>Votre message a bien été envoyé. Nous vous répondrons sous 48 h.</span>
+</div>
+</form>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="footer-inner">
+<div class="footer-grid">
+<div class="footer-brand">
+<div class="footer-logo">MCA<span>.</span></div>
+<p class="footer-desc">Cabinet d'expertise comptable à Nouméa, Nouvelle-Calédonie. Rigoureux, disponible et ancré dans le territoire.</p>
+</div>
+<div class="footer-col">
+<div class="footer-title">Navigation</div>
+<ul class="footer-links">
+<li><a href="#services">Services</a></li>
+<li><a href="#processus">Notre approche</a></li>
+<li><a href="#galerie">Cabinet</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<div class="footer-title">Contact</div>
+<ul class="footer-links">
+<li>16 Route du Vélodrome</li>
+<li>Nouméa, Nouvelle-Calédonie</li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<span>© 2026 MCA - Expert-comptable Nouméa. Tous droits réservés.</span>
+<span class="footer-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></span>
+</div>
+</div>
+</footer>
+
+<style>
+.c-icon{margin-bottom:20px}
+.c-text{color:#4a5568;font-size:15px;line-height:1.7;margin-top:10px}
+.c-link{display:inline-block;margin-top:16px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:13px;color:var(--ca);letter-spacing:0.3px;transition:color 250ms}
+.c-link:hover{color:var(--cs)}
+.ps-grid{display:flex;flex-direction:column;gap:24px;margin-top:8px}
+.ps-pair{display:grid;grid-template-columns:1fr 40px 1fr;align-items:center;gap:16px;background:var(--wh);border-radius:8px;padding:24px 28px;border:1px solid rgba(27,58,92,0.07)}
+.ps-icon{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.ps-icon-prob{background:rgba(224,82,82,0.08)}
+.ps-icon-sol{background:rgba(46,109,164,0.1)}
+.ps-text{font-size:15px;line-height:1.6;color:var(--tx)}
+.ps-arrow{display:flex;justify-content:center;align-items:center}
+.metier-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.metier-p{color:#4a5568;font-size:15px;line-height:1.8;margin-top:16px;margin-bottom:28px}
+.check-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.check-list li{display:flex;align-items:center;gap:10px;font-size:15px;color:var(--tx)}
+.metier-imgs{display:flex;flex-direction:column;gap:16px}
+.metier-img-top{border-radius:8px;width:100%;object-fit:cover;height:260px}
+.metier-img-bot{border-radius:8px;width:100%;object-fit:cover;height:200px}
+.timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;margin-top:16px}
+.tl-item{display:flex;flex-direction:column;align-items:center;text-align:center;position:relative}
+.tl-num{width:52px;height:52px;border-radius:50%;background:var(--cs);color:var(--cp);font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center;position:relative;z-index:1;flex-shrink:0}
+.tl-connector{position:absolute;top:26px;left:50%;width:100%;height:2px;background:rgba(200,164,90,0.35);z-index:0}
+.tl-connector-last{display:none}
+.tl-body{padding:20px 12px 0}
+.tl-title{font-family:'Montserrat',sans-serif;font-weight:600;font-size:15px;color:var(--cp);margin-bottom:8px}
+.tl-text{font-size:13px;color:#4a5568;line-height:1.6}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal-item{position:relative;border-radius:6px;overflow:hidden;cursor:pointer}
+.gal-img{width:100%;height:220px;object-fit:cover;transition:transform 350ms}
+.gal-item:hover .gal-img{transform:scale(1.04)}
+.gal-overlay{position:absolute;inset:0;background:rgba(27,58,92,0.4);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 250ms}
+.gal-item:hover .gal-overlay{opacity:1}
+.lb-wrap{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:2000;align-items:center;justify-content:center}
+.lb-wrap.open{display:flex}
+.lb-img{max-width:88vw;max-height:88vh;object-fit:contain;border-radius:4px}
+.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:28px;cursor:pointer;line-height:1}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.12);border:none;color:#fff;font-size:22px;padding:14px 18px;cursor:pointer;border-radius:4px;transition:background 200ms}
+.lb-prev{left:16px}
+.lb-next{right:16px}
+.lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,0.25)}
+.proof-grid{display:grid;grid-template-columns:220px 1fr;gap:48px;align-items:start}
+.google-badge{display:flex;align-items:center;gap:16px;background:var(--wh);border-radius:10px;padding:24px;border:1px solid rgba(27,58,92,0.1);box-shadow:0 4px 20px rgba(27,58,92,0.07)}
+.badge-stars{color:#f9a825;font-size:20px;letter-spacing:2px;line-height:1}
+.badge-score{font-family:'Montserrat',sans-serif;font-weight:700;font-size:28px;color:var(--cp);line-height:1.2}
+.badge-score span{font-size:16px;font-weight:500;color:#888}
+.badge-count{font-size:12px;color:#888;margin-top:4px}
+.testi-card{background:var(--wh);border-radius:10px;padding:32px;border:1px solid rgba(27,58,92,0.1);box-shadow:0 4px 20px rgba(27,58,92,0.06)}
+.testi-stars{color:#f9a825;font-size:18px;letter-spacing:2px;margin-bottom:14px}
+.testi-quote{font-size:16px;color:var(--ca);font-style:italic;line-height:1.8;margin-bottom:16px}
+.testi-author{font-family:'Montserrat',sans-serif;font-weight:600;font-size:13px;color:var(--cp)}
+.badges-row{grid-column:1/-1;display:flex;gap:20px;flex-wrap:wrap;margin-top:8px}
+.trust-badge{display:flex;align-items:center;gap:10px;background:var(--wh);border-radius:6px;padding:14px 20px;border:1px solid rgba(200,164,90,0.3);font-family:'Montserrat',sans-serif;font-weight:500;font-size:13px;color:var(--cp)}
+.form-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:start}
+.contact-details{margin-top:32px;display:flex;flex-direction:column;gap:12px}
+.contact-row{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:var(--tx)}
+.contact-form{display:flex;flex-direction:column;gap:20px}
+.field-group{display:flex;flex-direction:column;gap:6px}
+.field-label{font-family:'Montserrat',sans-serif;font-weight:600;font-size:13px;color:var(--cp)}
+.field-input{border:1.5px solid rgba(27,58,92,0.18);border-radius:4px;padding:12px 16px;font-size:15px;font-family:'Inter',sans-serif;color:var(--tx);background:var(--wh);transition:border-color 250ms;width:100%}
+.field-input:focus{outline:none;border-color:var(--ca)}
+.field-textarea{min-height:130px;resize:vertical}
+.field-err{font-size:12px;color:#e05252;min-height:16px}
+.btn-submit{background:var(--cs);color:var(--cp);font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;padding:16px 32px;border:none;border-radius:4px;cursor:pointer;transition:all 250ms;display:flex;align-items:center;justify-content:center;gap:10px;min-height:52px}
+.btn-submit:hover{background:var(--cp);color:var(--wh)}
+.loader-spin{width:18px;height:18px;border:2px solid rgba(27,58,92,0.2);border-top-color:var(--cp);border-radius:50%;animation:spin 0.7s linear infinite;display:inline-block}
+@keyframes spin{to{transform:rotate(360deg)}}
+.form-success{display:flex;align-items:center;gap:10px;background:rgba(46,109,164,0.08);border-radius:6px;padding:14px 18px;color:var(--ca);font-size:15px;font-weight:500}
+.footer{background:var(--cp);padding:64px 24px 32px;color:rgba(255,255,255,0.8)}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-logo{font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:var(--wh);margin-bottom:14px}
+.footer-logo span{color:var(--cs)}
+.footer-desc{font-size:14px;line-height:1.8;color:rgba(255,255,255,0.65);max-width:280px}
+.footer-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--cs);margin-bottom:16px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links li,.footer-links a{font-size:14px;color:rgba(255,255,255,0.7);transition:color 250ms}
+.footer-links a:hover{color:var(--cs)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.12);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:13px;color:rgba(255,255,255,0.5)}
+.footer-setup a{color:rgba(255,255,255,0.5);transition:color 250ms}
+.footer-setup a:hover{color:var(--cs)}
+@media(max-width:1024px){
+.timeline{grid-template-columns:1fr 1fr;gap:32px}
+.tl-connector{display:none}
+.tl-item{align-items:flex-start;text-align:left}
+.proof-grid{grid-template-columns:1fr}
+.form-grid{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+.metier-grid{grid-template-columns:1fr}
+.gallery-grid{grid-template-columns:1fr 1fr}
+.ps-pair{grid-template-columns:1fr;gap:12px}
+.ps-arrow{transform:rotate(90deg)}
+.badges-row{flex-direction:column}
+}
+@media(max-width:480px){
+.timeline{grid-template-columns:1fr}
+.gallery-grid{grid-template-columns:1fr 1fr}
+.gal-img{height:160px}
+.footer-grid{grid-template-columns:1fr}
+.footer-bottom{flex-direction:column;text-align:center}
+.trust-badge{width:100%}
+.ps-pair{padding:16px}
+.metier-img-top,.metier-img-bot{height:200px}
+}
+</style>
+
+<script>
+var lbImgs=['https://i.ibb.co/gMcfMYN0/MCA-Expert-comptable-Noum-a-0.jpg','https://i.ibb.co/tNhtHcn/MCA-Expert-comptable-Noum-a-1.jpg','https://i.ibb.co/Z1BWrH60/MCA-Expert-comptable-Noum-a-2.jpg','https://i.ibb.co/zWJs3kdh/MCA-Expert-comptable-Noum-a-3.jpg'];
+var lbIdx=0;
+function openLb(i){lbIdx=i;document.getElementById('lbImg').src=lbImgs[i];document.getElementById('lb').classList.add('open');document.body.style.overflow='hidden';}
+function closeLb(){document.getElementById('lb').classList.remove('open');document.body.style.overflow='';}
+function lbNav(d,e){e.stopPropagation();lbIdx=(lbIdx+d+lbImgs.length)%lbImgs.length;document.getElementById('lbImg').src=lbImgs[lbIdx];}
+document.addEventListener('keydown',function(e){var lb=document.getElementById('lb');if(!lb.classList.contains('open'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')lbNav(-1,{stopPropagation:function(){}});if(e.key==='ArrowRight')lbNav(1,{stopPropagation:function(){}}); });
+
+document.getElementById('contactForm').addEventListener('submit',function(e){
+e.preventDefault();
+var ok=true;
+var n=document.getElementById('fname'),em=document.getElementById('femail'),msg=document.getElementById('fmsg');
+document.getElementById('errName').textContent='';
+document.getElementById('errEmail').textContent='';
+document.getElementById('errMsg').textContent='';
+if(!n.value.trim()){document.getElementById('errName').textContent='Veuillez entrer votre nom.';ok=false;}
+if(!em.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)){document.getElementById('errEmail').textContent='Adresse e-mail invalide.';ok=false;}
+if(!msg.value.trim()){document.getElementById('errMsg').textContent='Veuillez saisir un message.';ok=false;}
+if(!ok)return;
+var btn=document.getElementById('btnSubmit'),txt=document.getElementById('btnTxt'),ld=document.getElementById('btnLoader');
+txt.hidden=true;ld.hidden=false;btn.disabled=true;
+setTimeout(function(){
+ld.hidden=true;
+document.getElementById('formSuccess').hidden=false;
+btn.hidden=true;
+},1400);
+});
+</script>
+</body>
+</html>
