@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GRAFIKA NC — Dumbéa</title>
+<meta name="description" content="GRAFIKA NC, atelier d'impression grand format à Dumbéa. Covering véhicule, bâches publicitaires, panneaux lumineux, vinyles adhésifs. Solutions sur-mesure pour professionnels.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Manrope:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#1A1A1A;
+--cs:#2E2E2E;
+--ca:#E8340A;
+--cb:#F5F5F5;
+--ct:#1A1A1A;
+--cw:#ffffff;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',sans-serif;background:var(--cb);color:var(--ct);overflow-x:hidden;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU SETUP NC */
+.setup-band{
+position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;
+text-align:center;line-height:44px;
+}
+.setup-band a{
+font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;
+font-weight:700;font-size:14px;letter-spacing:.3px;color:#4375ff;
+}
+.setup-band a:hover{opacity:.85}
+
+/* HEADER */
+.hdr{
+position:sticky;top:44px;left:0;width:100%;z-index:1000;
+background:var(--cp);border-bottom:2px solid var(--ca);
+}
+.hdr-inner{
+max-width:1280px;margin:0 auto;padding:0 24px;
+display:flex;align-items:center;justify-content:space-between;height:64px;
+}
+.logo{font-size:22px;font-weight:800;color:var(--cw);letter-spacing:1px}
+.logo span{color:var(--ca)}
+.nav{display:flex;gap:28px;list-style:none}
+.nav a{font-size:14px;font-weight:600;color:#ccc;letter-spacing:.5px;transition:color .2s}
+.nav a:hover{color:var(--ca)}
+.hdr-cta{
+display:flex;align-items:center;gap:16px;
+}
+.hdr-tel{font-size:14px;font-weight:700;color:var(--ca);letter-spacing:.3px}
+.btn{
+display:inline-flex;align-items:center;justify-content:center;
+background:var(--ca);color:var(--cw);font-family:'Barlow',sans-serif;
+font-weight:700;font-size:14px;letter-spacing:.5px;
+padding:10px 22px;border:none;cursor:pointer;
+transition:transform .2s,box-shadow .2s;min-height:44px;
+}
+.btn:hover{transform:scale(1.05);box-shadow:0 8px 24px rgba(232,52,10,.4)}
+.btn-outline{background:transparent;border:2px solid var(--cw);color:var(--cw)}
+.btn-outline:hover{background:var(--cw);color:var(--cp);box-shadow:none}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
+.hamburger span{width:24px;height:2px;background:var(--cw);transition:all .3s}
+.mob-nav{
+display:none;position:fixed;top:108px;left:0;width:100%;background:var(--cp);
+padding:16px 24px;z-index:999;flex-direction:column;gap:4px;
+}
+.mob-nav a{
+display:block;font-size:15px;font-weight:600;color:#ccc;
+padding:12px 0;border-bottom:1px solid #333;
+}
+.mob-nav a:last-child{border:none}
+.mob-nav.open{display:flex}
+
+/* HERO */
+.hero{
+position:relative;min-height:100vh;display:flex;align-items:center;
+background:url('https://i.ibb.co/ZzRs9QyV/GRAFIKA-NC-0.jpg') center/cover no-repeat;
+margin-top:0;
+}
+.hero::before{
+content:'';position:absolute;inset:0;
+background:linear-gradient(135deg,rgba(26,26,26,.92) 0%,rgba(46,46,46,.75) 60%,rgba(232,52,10,.15) 100%);
+z-index:1;
+}
+.hero::after{
+content:'';position:absolute;inset:0;z-index:1;opacity:.04;
+background:repeating-linear-gradient(0deg,transparent,transparent 48px,rgba(255,255,255,.3) 49px),
+repeating-linear-gradient(90deg,transparent,transparent 48px,rgba(255,255,255,.3) 49px);
+}
+.hero-inner{
+position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:80px 24px 64px;
+width:100%;
+}
+.hero-tag{
+display:inline-block;background:var(--ca);color:var(--cw);
+font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+padding:6px 16px;margin-bottom:24px;
+animation:pulse-tag 2.4s ease-in-out infinite;
+}
+@keyframes pulse-tag{0%,100%{box-shadow:0 0 0 0 rgba(232,52,10,.5)}50%{box-shadow:0 0 0 10px rgba(232,52,10,0)}}
+.hero h1{
+font-size:clamp(36px,6vw,72px);font-weight:800;color:var(--cw);
+line-height:1.1;max-width:720px;margin-bottom:20px;
+}
+.hero h1 em{font-style:normal;color:var(--ca)}
+.hero-sub{
+font-size:clamp(16px,2vw,20px);color:rgba(255,255,255,.8);
+max-width:540px;margin-bottom:36px;font-weight:400;
+}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.hero-scroll{
+position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;
+display:flex;flex-direction:column;align-items:center;gap:8px;
+}
+.hero-scroll span{font-size:11px;font-weight:600;color:rgba(255,255,255,.5);letter-spacing:2px;text-transform:uppercase}
+.scroll-arrow{width:24px;height:24px;border-right:2px solid rgba(255,255,255,.4);border-bottom:2px solid rgba(255,255,255,.4);transform:rotate(45deg);animation:bounce-arrow 1.6s ease-in-out infinite}
+@keyframes bounce-arrow{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(6px)}}
+
+/* STATS */
+.stats{background:var(--ca);padding:48px 24px}
+.stats-grid{
+max-width:1280px;margin:0 auto;
+display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center;
+}
+.stat-n{font-size:clamp(36px,5vw,56px);font-weight:800;color:var(--cw);line-height:1}
+.stat-l{font-size:13px;font-weight:600;color:rgba(255,255,255,.8);letter-spacing:1px;text-transform:uppercase;margin-top:6px}
+
+/* SECTIONS COMMUNES */
+.s{padding:80px 24px}
+.s-inner{max-width:1280px;margin:0 auto}
+.s-tag{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ca);margin-bottom:10px}
+.s-title{font-size:clamp(28px,4vw,44px);font-weight:800;color:var(--cp);line-height:1.2;margin-bottom:16px}
+.s-sub{font-size:16px;color:#555;max-width:560px;margin-bottom:48px}
+.s-dark{background:var(--cp)}
+.s-dark .s-title{color:var(--cw)}
+.s-dark .s-sub{color:#aaa}
+.s-grey{background:var(--cb)}
+
+/* CATEGORIES */
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.cat-card{
+position:relative;overflow:hidden;cursor:pointer;
+background:var(--cs);aspect-ratio:4/3;
+transition:transform .3s,box-shadow .3s;
+}
+.cat-card:hover{transform:translateY(-4px) rotate(0.5deg);box-shadow:0 16px 40px rgba(26,26,26,.25)}
+.cat-card img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.cat-card:hover img{transform:scale(1.06)}
+.cat-over{
+position:absolute;inset:0;
+background:linear-gradient(to top,rgba(26,26,26,.88) 0%,rgba(26,26,26,.1) 60%);
+display:flex;flex-direction:column;justify-content:flex-end;padding:20px;
+}
+.cat-icon{font-size:28px;margin-bottom:8px}
+.cat-name{font-size:18px;font-weight:700;color:var(--cw);margin-bottom:4px}
+.cat-link{font-size:12px;font-weight:600;color:var(--ca);letter-spacing:1px;text-transform:uppercase}
+
+/* PROMO */
+.promo-band{
+background:var(--cp);padding:20px 24px;
+border-left:4px solid var(--ca);
+display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+margin-bottom:40px;
+}
+.promo-txt{font-size:20px;font-weight:700;color:var(--cw)}
+.promo-txt span{color:var(--ca)}
+.promo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.p-card{
+background:var(--cw);overflow:hidden;
+transition:transform .3s,box-shadow .3s;position:relative;
+}
+.p-card:hover{transform:translateY(-6px) rotate(0.3deg);box-shadow:0 12px 32px rgba(26,26,26,.15)}
+.p-card img{width:100%;height:200px;object-fit:cover}
+.badge{
+position:absolute;top:12px;right:12px;background:var(--ca);color:var(--cw);
+font-size:12px;font-weight:700;padding:6px 10px;letter-spacing:.5px;
+animation:badge-pulse 2s ease-in-out infinite;
+}
+@keyframes badge-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+.p-body{padding:20px}
+.p-name{font-size:16px;font-weight:700;color:var(--cp);margin-bottom:6px}
+.p-desc{font-size:13px;color:#666;margin-bottom:16px}
+
+/* BESTSELLERS */
+.best-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+.best-card{
+display:grid;grid-template-columns:1fr 1fr;background:var(--cw);overflow:hidden;
+transition:box-shadow .3s;
+}
+.best-card:hover{box-shadow:0 16px 40px rgba(26,26,26,.15)}
+.best-img{aspect-ratio:1;overflow:hidden}
+.best-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.best-card:hover .best-img img{transform:scale(1.06) rotate(2deg)}
+.best-body{padding:28px;display:flex;flex-direction:column;justify-content:center}
+.best-num{font-size:36px;font-weight:800;color:var(--ca);opacity:.3;line-height:1;margin-bottom:8px}
+.best-title{font-size:18px;font-weight:700;color:var(--cp);margin-bottom:8px}
+.best-desc{font-size:14px;color:#666;line-height:1.5}
+
+/* LIVRAISON */
+.deliv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.deliv-card{background:var(--cw);padding:32px 24px;border-top:3px solid var(--ca);text-align:center}
+.deliv-icon{font-size:40px;margin-bottom:16px}
+.deliv-title{font-size:16px;font-weight:700;color:var(--cp);margin-bottom:8px}
+.deliv-desc{font-size:14px;color:#666}
+
+/* FALLBACK ANIMATIONS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+.cat-grid{grid-template-columns:repeat(2,1fr)}
+.best-grid{grid-template-columns:1fr}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+.nav,.hdr-cta{display:none}
+.hamburger{display:flex}
+.promo-grid{grid-template-columns:1fr}
+.deliv-grid{grid-template-columns:1fr}
+.best-card{grid-template-columns:1fr}
+.best-img{aspect-ratio:16/9}
+.hero-btns .btn{width:100%}
+.hero-btns{flex-direction:column}
+}
+@media(max-width:480px){
+.setup-band{height:40px;line-height:40px}
+.setup-band a{font-size:13px}
+.hdr{top:40px}
+.hdr-inner{padding:0 16px;height:56px}
+.mob-nav{top:96px}
+.hero-inner{padding:64px 16px 56px}
+.s{padding:56px 16px}
+.cat-grid{grid-template-columns:1fr}
+.stats-grid{grid-template-columns:repeat(2,1fr);gap:16px}
+.stat-n{font-size:32px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU SETUP NC -->
+<div class="setup-band">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-inner">
+    <a href="#" class="logo">GRAFIKA<span>NC</span></a>
+    <nav>
+      <ul class="nav">
+        <li><a href="#categories">Produits</a></li>
+        <li><a href="#promos">Promotions</a></li>
+        <li><a href="#realisations">Réalisations</a></li>
+        <li><a href="#livraison">Délais</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hdr-cta">
+      <a href="#contact" class="btn">Demander un devis</a>
+    </div>
+    <div class="hamburger" id="hbg" aria-label="Menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+  <nav class="mob-nav" id="mobnav">
+    <a href="#categories">Produits</a>
+    <a href="#promos">Promotions</a>
+    <a href="#realisations">Réalisations</a>
+    <a href="#livraison">Délais & Livraison</a>
+    <a href="#contact">Devis & Contact</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Atelier Grand Format — Dumbéa, Nouvelle-Calédonie</div>
+    <h1>Votre projet mérite une<br><em>exécution sans compromis.</em></h1>
+    <p class="hero-sub">Covering véhicule, bâches publicitaires, panneaux lumineux, vinyles adhésifs — GRAFIKA NC réalise vos projets avec précision, de la conception à la pose.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn">Réalisez votre projet maintenant</a>
+      <a href="#categories" class="btn btn-outline">Découvrir nos solutions</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Explorer</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<section class="stats" id="stats">
+  <div class="stats-grid">
+    <div>
+      <div class="stat-n" data-target="500">0</div>
+      <div class="stat-l">Projets réalisés</div>
+    </div>
+    <div>
+      <div class="stat-n" data-target="48">0</div>
+      <div class="stat-l">Heures de délai moyen</div>
+    </div>
+    <div>
+      <div class="stat-n" data-target="100">0</div>
+      <div class="stat-l">Clients professionnels</div>
+    </div>
+    <div>
+      <div class="stat-n" data-target="10">0</div>
+      <div class="stat-l">Ans d'expertise locale</div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var hbg=document.getElementById('hbg'),mn=document.getElementById('mobnav');
+  hbg.addEventListener('click',function(){mn.classList.toggle('open')});
+
+  var nums=document.querySelectorAll('.stat-n[data-target]'),started=false;
+  function countUp(){
+    nums.forEach(function(el){
+      var t=+el.dataset.target,d=1200,s=16,steps=d/s,inc=t/steps,v=0;
+      var iv=setInterval(function(){v+=inc;if(v>=t){el.textContent=t;clearInterval(iv);}else{el.textContent=Math.floor(v);}},s);
+    });
+  }
+  var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting&&!started){started=true;countUp();}});},{threshold:.3});
+  obs.observe(document.querySelector('.stats'));
+})();
+</script>
+<!-- CATÉGORIES -->
+<section class="s s-grey" id="categories">
+  <div class="s-inner">
+    <div class="s-tag">Nos spécialités</div>
+    <h2 class="s-title">Solutions d'impression sur-mesure</h2>
+    <p class="s-sub">De la conception à la pose, GRAFIKA NC couvre tous vos besoins en signalétique et communication visuelle.</p>
+    <div class="cat-grid">
+      <a href="#contact" class="cat-card">
+        <img src="https://i.ibb.co/PZQxPfDp/GRAFIKA-NC-1.jpg" alt="Covering véhicule" loading="lazy">
+        <div class="cat-over">
+          <div class="cat-icon">🚗</div>
+          <div class="cat-name">Covering véhicule</div>
+          <div class="cat-link">Demander un devis →</div>
+        </div>
+      </a>
+      <a href="#contact" class="cat-card">
+        <img src="https://i.ibb.co/4nhksfGP/GRAFIKA-NC-2.jpg" alt="Bâches publicitaires" loading="lazy">
+        <div class="cat-over">
+          <div class="cat-icon">📢</div>
+          <div class="cat-name">Bâches publicitaires</div>
+          <div class="cat-link">Demander un devis →</div>
+        </div>
+      </a>
+      <a href="#contact" class="cat-card">
+        <img src="https://i.ibb.co/N6vqp06q/GRAFIKA-NC-3.jpg" alt="Panneaux & signalétique" loading="lazy">
+        <div class="cat-over">
+          <div class="cat-icon">💡</div>
+          <div class="cat-name">Panneaux & signalétique</div>
+          <div class="cat-link">Demander un devis →</div>
+        </div>
+      </a>
+      <a href="#contact" class="cat-card">
+        <img src="https://i.ibb.co/ZzRs9QyV/GRAFIKA-NC-0.jpg" alt="Vinyles adhésifs" loading="lazy">
+        <div class="cat-over">
+          <div class="cat-icon">✂️</div>
+          <div class="cat-name">Vinyles adhésifs</div>
+          <div class="cat-link">Demander un devis →</div>
+        </div>
+      </a>
+      <a href="#contact" class="cat-card">
+        <img src="https://i.ibb.co/PZQxPfDp/GRAFIKA-NC-1.jpg" alt="Impression grand format" loading="lazy">
+        <div class="cat-over">
+          <div class="cat-icon">🖨️</div>
+          <div class="cat-name">Impression grand format</div>
+          <div class="cat-link">Demander un devis →</div>
+        </div>
+      </a>
+      <a href="#contact" class="cat-card">
+        <img src="https://i.ibb.co/4nhksfGP/GRAFIKA-NC-2.jpg" alt="Habillage vitrine" loading="lazy">
+        <div class="cat-over">
+          <div class="cat-icon">🪟</div>
+          <div class="cat-name">Habillage vitrine</div>
+          <div class="cat-link">Demander un devis →</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PROMOTIONS -->
+<section class="s" id="promos" style="background:#fff">
+  <div class="s-inner">
+    <div class="promo-band">
+      <div class="promo-txt">🔥 Offres du moment — <span>Délais express garantis</span></div>
+      <a href="#contact" class="btn">Profiter des offres</a>
+    </div>
+    <div class="promo-grid">
+      <div class="p-card">
+        <div class="badge">EXPRESS 48H</div>
+        <img src="https://i.ibb.co/ZzRs9QyV/GRAFIKA-NC-0.jpg" alt="Covering complet" loading="lazy">
+        <div class="p-body">
+          <div class="p-name">Covering véhicule complet</div>
+          <div class="p-desc">Transformation totale de votre flotte. Résultat professionnel, finition premium, pose incluse.</div>
+          <a href="#contact" class="btn">Obtenir un devis</a>
+        </div>
+      </div>
+      <div class="p-card">
+        <div class="badge">PROMO</div>
+        <img src="https://i.ibb.co/PZQxPfDp/GRAFIKA-NC-1.jpg" alt="Bâche grand format" loading="lazy">
+        <div class="p-body">
+          <div class="p-name">Bâche publicitaire grand format</div>
+          <div class="p-desc">Impression haute résolution sur bâche renforcée. Résistante aux conditions climatiques du Pacifique.</div>
+          <a href="#contact" class="btn">Obtenir un devis</a>
+        </div>
+      </div>
+      <div class="p-card">
+        <div class="badge">SUR-MESURE</div>
+        <img src="https://i.ibb.co/N6vqp06q/GRAFIKA-NC-3.jpg" alt="Panneau lumineux" loading="lazy">
+        <div class="p-body">
+          <div class="p-name">Panneau lumineux & enseigne</div>
+          <div class="p-desc">Visibilité maximale jour et nuit. Conception personnalisée aux couleurs de votre identité.</div>
+          <a href="#contact" class="btn">Obtenir un devis</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="s s-dark" id="services">
+  <div class="s-inner">
+    <div class="s-tag">Notre expertise</div>
+    <h2 class="s-title">Un atelier complet à votre service</h2>
+    <p class="s-sub" style="color:#aaa;margin-bottom:48px">Chaque projet bénéficie d'un suivi rigoureux, de la prise de brief à la livraison finale sur site.</p>
+    <div class="srv-grid">
+      <div class="srv-card">
+        <div class="srv-ico">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#E8340A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3 class="srv-title">Conception graphique</h3>
+        <p class="srv-desc">Studio intégré pour créer ou adapter vos visuels. Formats prêts à l'impression, calages précis, respect de votre charte.</p>
+        <a href="#contact" class="btn">Lancer un projet</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-ico">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#E8340A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        </div>
+        <h3 class="srv-title">Impression grand format</h3>
+        <p class="srv-desc">Traceurs haute résolution pour bâches, affiches et vinyles. Rendu professionnel jusqu'aux plus grandes dimensions.</p>
+        <a href="#contact" class="btn">Demander un devis</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-ico">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#E8340A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <h3 class="srv-title">Délais maîtrisés</h3>
+        <p class="srv-desc">Production locale à Dumbéa : pas de transit métropolitain. Vos commandes livrées dans les délais convenus, sans surprise.</p>
+        <a href="#contact" class="btn">Vérifier les délais</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-ico">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#E8340A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <h3 class="srv-title">Devis personnalisé</h3>
+        <p class="srv-desc">Chaque projet est unique. Tarification transparente, sans frais cachés, adaptée aux réalités économiques calédoniennes.</p>
+        <a href="#contact" class="btn">Obtenir un devis</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-ico">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#E8340A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3 class="srv-title">Pose & installation</h3>
+        <p class="srv-desc">Équipe de poseurs formés pour le covering, la signalétique et l'habillage vitrine. Intervention sur site dans le Grand Nouméa.</p>
+        <a href="#contact" class="btn">Planifier une pose</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-ico">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#E8340A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3 class="srv-title">Accompagnement B2B</h3>
+        <p class="srv-desc">Partenaire privilégié des agences de communication, franchises et grandes enseignes implantées en Nouvelle-Calédonie.</p>
+        <a href="#contact" class="btn">Devenir partenaire</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s" id="metier" style="background:#fff">
+  <div class="s-inner">
+    <div class="s-tag">L'atelier GRAFIKA NC</div>
+    <h2 class="s-title">L'impression grand format,<br>c'est notre ADN.</h2>
+    <div class="met-grid">
+      <div class="met-txt">
+        <p class="met-p">Implantés à Dumbéa, au cœur du Grand Nouméa, nous maîtrisons l'intégralité de la chaîne de production : conception, impression, découpe, finition et pose. Résultat : des délais courts, une qualité constante, et un interlocuteur unique pour votre projet.</p>
+        <p class="met-p">Nous travaillons avec des matériaux adaptés au climat tropical du Pacifique — résistance UV, étanchéité, durabilité. Chaque support est sélectionné pour garantir la tenue dans le temps.</p>
+        <ul class="met-list">
+          <li>
+            <svg class="chk" viewBox="0 0 20 20" fill="#E8340A"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.121-4.121a1 1 0 011.414-1.414L8.414 12.172l6.879-6.879a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Production 100% locale à Dumbéa
+          </li>
+          <li>
+            <svg class="chk" viewBox="0 0 20 20" fill="#E8340A"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.121-4.121a1 1 0 011.414-1.414L8.414 12.172l6.879-6.879a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Matériaux certifiés résistants UV & intempéries
+          </li>
+          <li>
+            <svg class="chk" viewBox="0 0 20 20" fill="#E8340A"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.121-4.121a1 1 0 011.414-1.414L8.414 12.172l6.879-6.879a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Devis sous 24h, livraison express disponible
+          </li>
+          <li>
+            <svg class="chk" viewBox="0 0 20 20" fill="#E8340A"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.121-4.121a1 1 0 011.414-1.414L8.414 12.172l6.879-6.879a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Interlocuteur unique du brief à la pose
+          </li>
+        </ul>
+        <a href="#contact" class="btn">Parler de votre projet</a>
+      </div>
+      <div class="met-imgs">
+        <div class="met-img-main">
+          <img src="https://i.ibb.co/PZQxPfDp/GRAFIKA-NC-1.jpg" alt="Atelier GRAFIKA NC" loading="lazy">
+        </div>
+        <div class="met-img-sec">
+          <img src="https://i.ibb.co/4nhksfGP/GRAFIKA-NC-2.jpg" alt="Réalisation GRAFIKA NC" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BESTSELLERS / RÉALISATIONS -->
+<section class="s s-grey" id="realisations">
+  <div class="s-inner">
+    <div class="s-tag">Projets signature</div>
+    <h2 class="s-title">Réalisations emblématiques</h2>
+    <p class="s-sub">Des projets concrets, livrés dans les délais, qui parlent pour nous.</p>
+    <div class="best-grid">
+      <div class="best-card">
+        <div class="best-img">
+          <img src="https://i.ibb.co/ZzRs9QyV/GRAFIKA-NC-0.jpg" alt="Covering flotte véhicules" loading="lazy">
+        </div>
+        <div class="best-body">
+          <div class="best-num">01</div>
+          <div class="best-title">Covering flotte véhicules</div>
+          <div class="best-desc">Habillage intégral d'une flotte commerciale. Pose sur site, cohérence visuelle garantie sur l'ensemble des véhicules.</div>
+        </div>
+      </div>
+      <div class="best-card">
+        <div class="best-img">
+          <img src="https://i.ibb.co/PZQxPfDp/GRAFIKA-NC-1.jpg" alt="Signalétique commerce" loading="lazy">
+        </div>
+        <div class="best-body">
+          <div class="best-num">02</div>
+          <div class="best-title">Signalétique commerce</div>
+          <div class="best-desc">Enseigne lumineuse et vitrophanie pour un point de vente du Grand Nouméa. Identité visuelle renforcée, impact immédiat.</div>
+        </div>
+      </div>
+      <div class="best-card">
+        <div class="best-img">
+          <img src="https://i.ibb.co/4nhksfGP/GRAFIKA-NC-2.jpg" alt="Bâches événementielles" loading="lazy">
+        </div>
+        <div class="best-body">
+          <div class="best-num">03</div>
+          <div class="best-title">Bâches événementielles</div>
+          <div class="best-desc">Production express de bâches grand format pour événement professionnel. Délai 48h, montage le jour J.</div>
+        </div>
+      </div>
+      <div class="best-card">
+        <div class="best-img">
+          <img src="https://i.ibb.co/N6vqp06q/GRAFIKA-NC-3.jpg" alt="Habillage vitrine" loading="lazy">
+        </div>
+        <div class="best-body">
+          <div class="best-num">04</div>
+          <div class="best-title">Habillage vitrine</div>
+          <div class="best-desc">Dépoli et vinyle découpé pour vitrine commerciale. Confidentialité, esthétique et communication extérieure combinées.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVRAISON -->
+<section class="s" id="livraison" style="background:#fff">
+  <div class="s-inner">
+    <div class="s-tag">Logistique & délais</div>
+    <h2 class="s-title">Production locale,<br>délais sous contrôle.</h2>
+    <p class="s-sub">Être en Nouvelle-Calédonie impose une rigueur logistique que nous avons intégrée depuis le premier jour.</p>
+    <div class="deliv-grid">
+      <div class="deliv-card">
+        <div class="deliv-icon">⚡</div>
+        <div class="deliv-title">Devis sous 24h</div>
+        <div class="deliv-desc">Chiffrage rapide et détaillé pour tout projet, du petit format à la campagne multi-supports.</div>
+      </div>
+      <div class="deliv-card">
+        <div class="deliv-icon">🏭</div>
+        <div class="deliv-title">Atelier à Dumbéa</div>
+        <div class="deliv-desc">Production sur place, sans délai d'acheminement depuis la métropole. Réactivité maximale pour vos urgences.</div>
+      </div>
+      <div class="deliv-card">
+        <div class="deliv-icon">📦</div>
+        <div class="deliv-title">Livraison Grand Nouméa</div>
+        <div class="deliv-desc">Livraison ou enlèvement en atelier. Intervention de pose possible sur Dumbéa, Nouméa et alentours.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s s-grey" id="galerie">
+  <div class="s-inner">
+    <div class="s-tag">Portfolio</div>
+    <h2 class="s-title">Notre travail en images</h2>
+    <p class="s-sub">Cliquez sur une photo pour l'agrandir.</p>
+    <div class="gal-grid">
+      <div class="gal-item" data-src="https://i.ibb.co/ZzRs9QyV/GRAFIKA-NC-0.jpg" data-alt="GRAFIKA NC — Réalisation 1">
+        <img src="https://i.ibb.co/ZzRs9QyV/GRAFIKA-NC-0.jpg" alt="GRAFIKA NC réalisation 1" loading="lazy">
+        <div class="gal-over"><span>+</span></div>
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/PZQxPfDp/GRAFIKA-NC-1.jpg" data-alt="GRAFIKA NC — Réalisation 2">
+        <img src="https://i.ibb.co/PZQxPfDp/GRAFIKA-NC-1.jpg" alt="GRAFIKA NC réalisation 2" loading="lazy">
+        <div class="gal-over"><span>+</span></div>
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/4nhksfGP/GRAFIKA-NC-2.jpg" data-alt="GRAFIKA NC — Réalisation 3">
+        <img src="https://i.ibb.co/4nhksfGP/GRAFIKA-NC-2.jpg" alt="GRAFIKA NC réalisation 3" loading="lazy">
+        <div class="gal-over"><span>+</span></div>
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/N6vqp06q/GRAFIKA-NC-3.jpg" data-alt="GRAFIKA NC — Réalisation 4">
+        <img src="https://i.ibb.co/N6vqp06q/GRAFIKA-NC-3.jpg" alt="GRAFIKA NC réalisation 4" loading="lazy">
+        <div class="gal-over"><span>+</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Galerie agrandie">
+  <button class="lb-close" id="lbClose" aria-label="Fermer">✕</button>
+  <img class="lb-img" id="lbImg" src="" alt="">
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section class="s" id="avis" style="background:#fff">
+  <div class="s-inner">
+    <div class="s-tag">Confiance client</div>
+    <h2 class="s-title">Ce que disent nos clients</h2>
+    <div class="trust-row">
+      <div class="trust-score">
+        <div class="trust-logo">
+          <svg width="28" height="28" viewBox="0 0 24 24"><path fill="#E8340A" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#1A1A1A" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#2E2E2E" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#E8340A" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          <span class="trust-gname">Google</span>
+        </div>
+        <div class="trust-stars">★★★★★</div>
+        <div class="trust-note">Nouveau sur Google</div>
+        <div class="trust-sub">Soyez parmi les premiers à laisser un avis !</div>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-txt">"Résultat impeccable sur notre flotte de véhicules. Délai tenu, finition professionnelle. On recommande sans hésiter."</p>
+          <div class="testi-author">Directeur commercial, société de services — Dumbéa</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-txt">"Notre vitrine est méconnaissable, dans le bon sens. L'équipe a su traduire notre identité graphique parfaitement."</p>
+          <div class="testi-author">Responsable enseigne, commerce de détail — Nouméa</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-txt">"Bâches livrées en 48h pour notre événement. Qualité d'impression irréprochable, même en plein soleil calédonien."</p>
+          <div class="testi-author">Chargée de communication, agence publicitaire — Grand Nouméa</div>
+        </div>
+      </div>
+    </div>
+    <div class="badges-row">
+      <div class="badge-item">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E8340A" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Production locale certifiée</span>
+      </div>
+      <div class="badge-item">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E8340A" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <span>Devis sous 24h</span>
+      </div>
+      <div class="badge-item">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E8340A" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        <span>Satisfaction garantie</span>
+      </div>
+      <div class="badge-item">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E8340A" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        <span>Partenaire agences & entreprises</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE & HORAIRES -->
+<section class="s s-dark" id="contact">
+  <div class="s-inner">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="s-tag">Nous contacter</div>
+        <h2 class="s-title">Réalisez votre projet<br>avec GRAFIKA NC.</h2>
+        <p style="color:#aaa;margin-bottom:32px;font-size:15px">Décrivez votre besoin, nous revenons vers vous sous 24h avec un devis détaillé.</p>
+        <div class="info-block">
+          <div class="info-row">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8340A" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Dumbéa, Nouvelle-Calédonie</span>
+          </div>
+          <div class="info-row">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8340A" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span>Lun–Ven : 7h30–17h00</span>
+          </div>
+          <div class="info-row">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8340A" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span>Samedi : sur rendez-vous</span>
+          </div>
+          <div class="info-row">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8340A" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .92h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            <a href="https://www.facebook.com/GrafikaNC" target="_blank" rel="noopener" style="color:#aaa">Nous écrire sur Facebook</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrap">
+        <form class="cform" id="cform" action="#" novalidate>
+          <div class="field-group">
+            <label class="flabel" for="fname">Nom / Société *</label>
+            <input class="finput" type="text" id="fname" name="nom" placeholder="Votre nom ou raison sociale" required>
+            <span class="ferr" id="err-fname"></span>
+          </div>
+          <div class="field-group">
+            <label class="flabel" for="femail">Email *</label>
+            <input class="finput" type="email" id="femail" name="email" placeholder="votre@email.com" required>
+            <span class="ferr" id="err-femail"></span>
+          </div>
+          <div class="field-group">
+            <label class="flabel" for="ftel">Téléphone</label>
+            <input class="finput" type="tel" id="ftel" name="telephone" placeholder="Ex : 26 xx xx">
+          </div>
+          <div class="field-group">
+            <label class="flabel" for="fmsg">Votre projet *</label>
+            <textarea class="finput ftextarea" id="fmsg" name="message" rows="5" placeholder="Décrivez votre projet : type de support, dimensions, quantité, délai souhaité..." required></textarea>
+            <span class="ferr" id="err-fmsg"></span>
+          </div>
+          <button type="submit" class="btn fsub" id="fsub">
+            <span id="fsub-txt">Envoyer ma demande</span>
+            <span class="floader" id="floader" aria-hidden="true"></span>
+          </button>
+          <div class="fsuccess" id="fsuccess" role="alert">
+            ✅ Votre demande a bien été envoyée. Nous vous répondrons sous 24h.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ftr">
+  <div class="ftr-inner">
+    <div class="ftr-grid">
+      <div class="ftr-brand">
+        <div class="ftr-logo">GRAFIKA<span>NC</span></div>
+        <p class="ftr-about">Atelier d'impression grand format à Dumbéa. Covering, bâches, panneaux, vinyles — solutions visuelles pour les professionnels de Nouvelle-Calédonie.</p>
+        <div class="ftr-social">
+          <a href="https://www.facebook.com/GrafikaNC" target="_blank" rel="noopener" aria-label="Facebook GRAFIKA NC">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="ftr-col">
+        <div class="ftr-col-title">Solutions</div>
+        <a href="#categories" class="ftr-link">Covering véhicule</a>
+        <a href="#categories" class="ftr-link">Bâches publicitaires</a>
+        <a href="#categories" class="ftr-link">Panneaux lumineux</a>
+        <a href="#categories" class="ftr-link">Vinyles adhésifs</a>
+        <a href="#categories" class="ftr-link">Impression grand format</a>
+      </div>
+      <div class="ftr-col">
+        <div class="ftr-col-title">L'atelier</div>
+        <a href="#metier" class="ftr-link">Notre expertise</a>
+        <a href="#realisations" class="ftr-link">Réalisations</a>
+        <a href="#galerie" class="ftr-link">Galerie photos</a>
+        <a href="#avis" class="ftr-link">Avis clients</a>
+      </div>
+      <div class="ftr-col">
+        <div class="ftr-col-title">Contact & Horaires</div>
+        <div class="ftr-addr">GRAFIKA NC · Dumbéa<br>Nouvelle-Calédonie</div>
+        <div class="ftr-hours">
+          <div>Lun–Ven : 7h30–17h00</div>
+          <div>Samedi : sur rendez-vous</div>
+        </div>
+        <a href="#contact" class="btn ftr-btn">Demander un devis</a>
+      </div>
+    </div>
+    <div class="ftr-bottom">
+      <span>© 2026 GRAFIKA NC. Tous droits réservés.</span>
+      <span>Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener" class="ftr-setup">Setup NC</a></span>
+    </div>
+  </div>
+</footer>
+
+<style>
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.srv-card{background:#2E2E2E;padding:32px 24px;border-top:3px solid #E8340A;transition:transform .3s,box-shadow .3s}
+.srv-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.3)}
+.srv-ico{margin-bottom:20px}
+.srv-title{font-size:17px;font-weight:700;color:#fff;margin-bottom:10px}
+.srv-desc{font-size:14px;color:#aaa;line-height:1.6;margin-bottom:20px}
+.met-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.met-txt{}
+.met-p{font-size:15px;color:#444;line-height:1.7;margin-bottom:16px}
+.met-list{list-style:none;margin:24px 0 32px}
+.met-list li{display:flex;align-items:center;gap:10px;font-size:15px;color:#333;font-weight:600;padding:8px 0;border-bottom:1px solid #eee}
+.met-list li:last-child{border:none}
+.chk{width:20px;height:20px;flex-shrink:0}
+.met-imgs{display:grid;grid-template-rows:1fr 1fr;gap:16px;height:460px}
+.met-img-main,.met-img-sec{overflow:hidden}
+.met-img-main{flex:2}
+.met-img-main img,.met-img-sec img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.met-img-main:hover img,.met-img-sec:hover img{transform:scale(1.04)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal-item{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:1}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gal-item:hover img{transform:scale(1.08)}
+.gal-over{position:absolute;inset:0;background:rgba(26,26,26,.5);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s}
+.gal-item:hover .gal-over{opacity:1}
+.gal-over span{font-size:40px;color:#fff;font-weight:300;line-height:1}
+.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center}
+.lb.open{display:flex}
+.lb-img{max-width:90vw;max-height:88vh;object-fit:contain}
+.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:32px;cursor:pointer;line-height:1;padding:8px}
+.trust-row{display:grid;grid-template-columns:260px 1fr;gap:40px;align-items:start;margin-bottom:40px}
+.trust-score{background:#F5F5F5;padding:32px 24px;text-align:center;border-top:3px solid #E8340A}
+.trust-logo{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:12px}
+.trust-gname{font-size:16px;font-weight:700;color:#1A1A1A}
+.trust-stars{font-size:28px;color:#E8340A;letter-spacing:2px;margin-bottom:6px}
+.trust-note{font-size:22px;font-weight:800;color:#1A1A1A}
+.trust-sub{font-size:13px;color:#666;margin-top:6px}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.testi-card{background:#F5F5F5;padding:24px;border-left:3px solid #E8340A}
+.testi-stars{color:#E8340A;font-size:16px;margin-bottom:10px}
+.testi-txt{font-size:14px;color:#333;line-height:1.6;margin-bottom:12px;font-style:italic}
+.testi-author{font-size:12px;font-weight:700;color:#E8340A;text-transform:uppercase;letter-spacing:.5px}
+.badges-row{display:flex;gap:24px;flex-wrap:wrap;padding-top:40px;border-top:1px solid #eee}
+.badge-item{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:#333}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.info-block{display:flex;flex-direction:column;gap:16px}
+.info-row{display:flex;align-items:center;gap:12px;font-size:15px;color:#ccc}
+.cform{display:flex;flex-direction:column;gap:20px}
+.field-group{display:flex;flex-direction:column;gap:6px}
+.flabel{font-size:13px;font-weight:700;color:#ccc;letter-spacing:.5px;text-transform:uppercase}
+.finput{background:#2E2E2E;border:1px solid #444;color:#fff;font-family:'Barlow',sans-serif;font-size:15px;padding:12px 16px;width:100%;transition:border-color .2s;min-height:48px}
+.finput:focus{outline:none;border-color:#E8340A}
+.finput::placeholder{color:#666}
+.ftextarea{min-height:120px;resize:vertical}
+.ferr{font-size:12px;color:#E8340A;font-weight:600;min-height:16px}
+.fsub{width:100%;position:relative;gap:10px}
+.floader{display:none;width:18px;height:18px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.fsuccess{display:none;background:#1f3a1f;color:#7ddd7d;padding:16px;font-size:14px;font-weight:600;text-align:center}
+.ftr{background:#1A1A1A;padding:64px 24px 0}
+.ftr-inner{max-width:1280px;margin:0 auto}
+.ftr-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:40px;padding-bottom:48px;border-bottom:1px solid #333}
+.ftr-logo{font-size:24px;font-weight:800;color:#fff;letter-spacing:1px;margin-bottom:14px}
+.ftr-logo span{color:#E8340A}
+.ftr-about{font-size:14px;color:#888;line-height:1.6;margin-bottom:20px;max-width:280px}
+.ftr-social{display:flex;gap:12px}
+.ftr-social a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:#2E2E2E;color:#ccc;transition:background .2s,color .2s}
+.ftr-social a:hover{background:#E8340A;color:#fff}
+.ftr-col{display:flex;flex-direction:column;gap:12px}
+.ftr-col-title{font-size:13px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.ftr-link{font-size:14px;color:#888;transition:color .2s}
+.ftr-link:hover{color:#E8340A}
+.ftr-addr{font-size:14px;color:#888;line-height:1.6}
+.ftr-hours{font-size:13px;color:#666;line-height:1.8}
+.ftr-btn{margin-top:8px;font-size:13px;padding:10px 18px}
+.ftr-bottom{display:flex;justify-content:space-between;align-items:center;padding:20px 0;font-size:13px;color:#555;flex-wrap:wrap;gap:8px}
+.ftr-setup{color:#E8340A;font-weight:700}
+.ftr-setup:hover{opacity:.8}
+@media(max-width:1024px){
+.srv-grid{grid-template-columns:repeat(2,1fr)}
+.met-grid{grid-template-columns:1fr;gap:32px}
+.met-imgs{height:300px;grid-template-columns:1fr 1fr;grid-template-rows:1fr}
+.trust-row{grid-template-columns:1fr}
+.testi-grid{grid-template-columns:1fr 1fr}
+.contact-grid{grid-template-columns:1fr;gap:40px}
+.ftr-grid{grid-template-columns:1fr 1fr;gap:32px}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+.srv-grid{grid-template-columns:1fr}
+.testi-grid{grid-template-columns:1fr}
+.ftr-grid{grid-template-columns:1fr}
+.ftr-bottom{flex-direction:column;text-align:center}
+.badges-row{flex-direction:column;gap:16px}
+}
+@media(max-width:480px){
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.trust-row{grid-template-columns:1fr}
+.ftr{padding:48px 16px 0}
+.contact-info,.contact-form-wrap{padding:0}
+}
+</style>
+
+<script>
+(function(){
+  var gi=document.querySelectorAll('.gal-item'),lb=document.getElementById('lb'),lbI=document.getElementById('lbImg'),lbC=document.getElementById('lbClose');
+  gi.forEach(function(el){el.addEventListener('click',function(){lbI.src=el.dataset.src;lbI.alt=el.dataset.alt;lb.classList.add('open');document.body.style.overflow='hidden';});});
+  function closeLb(){lb.classList.remove('open');document.body.style.overflow='';}
+  lbC.addEventListener('click',closeLb);
+  lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+
+  var form=document.getElementById('cform'),sub=document.getElementById('fsub'),subTxt=document.getElementById('fsub-txt'),loader=document.getElementById('floader'),succ=document.getElementById('fsuccess');
+  function vld(id,msg){var el=document.getElementById('err-'+id);if(el){el.textContent=msg;}}
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=document.getElementById('fname').value.trim(),em=document.getElementById('femail').value.trim(),msg=document.getElementById('fmsg').value.trim(),ok=true;
+    vld('fname','');vld('femail','');vld('fmsg','');
+    if(!n){vld('fname','Ce champ est requis.');ok=false;}
+    if(!em||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){vld('femail','Adresse email invalide.');ok=false;}
+    if(!msg){vld('fmsg','Décrivez votre projet.');ok=false;}
+    if(!ok)return;
+    subTxt.textContent='Envoi en cours…';loader.style.display='block';sub.disabled=true;
+    setTimeout(function(){loader.style.display='none';subTxt.textContent='Envoyer ma demande';sub.disabled=false;succ.style.display='block';form.reset();},1800);
+  });
+
+  var hbg=document.getElementById('hbg'),mn=document.getElementById('mobnav');
+  document.querySelectorAll('.mob-nav a').forEach(function(a){a.addEventListener('click',function(){mn.classList.remove('open');});});
+})();
+</script>
+</body>
+</html>
