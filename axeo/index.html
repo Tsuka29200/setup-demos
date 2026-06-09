@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Axeo — Nouméa</title>
+<meta name="description" content="Cabinet comptable à Nouméa, Nouvelle-Calédonie. Axeo vous accompagne avec expertise et proximité pour la gestion comptable, fiscale et sociale de votre entreprise.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#1A6B5A;
+--cs:#F4A832;
+--ca:#2ABFA3;
+--cb:#F7F4EF;
+--ct:#1C2826;
+--cw:#ffffff;
+--r:.75rem;
+--sh:0 4px 24px rgba(26,107,90,.13);
+--t:300ms;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ct);background:var(--cb);overflow-x:hidden;padding-top:88px}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.h1{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(2rem,5vw,3.5rem);line-height:1.12;letter-spacing:-.02em}
+.h2{font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(1.5rem,3.5vw,2.5rem);line-height:1.2;letter-spacing:-.01em}
+.h3{font-family:'Montserrat',sans-serif;font-weight:600;font-size:clamp(1.1rem,2vw,1.35rem);line-height:1.3}
+.lead{font-size:clamp(1rem,1.8vw,1.2rem);line-height:1.7;opacity:.92}
+.s{padding:80px 0}
+.s-alt{background:#eef0ed}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.tag{display:inline-block;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ca);border:1.5px solid var(--ca);border-radius:2rem;padding:.3em 1em;margin-bottom:1.2rem}
+.b{display:inline-flex;align-items:center;gap:.5em;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.95rem;padding:.85em 2em;border-radius:.5rem;cursor:pointer;transition:opacity var(--t),transform var(--t),box-shadow var(--t);border:none;text-decoration:none}
+.b:hover{opacity:.88;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.b-primary{background:var(--ca);color:#fff}
+.b-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.7)}
+.b-outline:hover{background:rgba(255,255,255,.1)}
+.b-dark{background:var(--cp);color:#fff}
+.text-center{text-align:center}
+.mt1{margin-top:.75rem}
+.mt2{margin-top:1.5rem}
+.mt3{margin-top:2.5rem}
+/* BANDEAU PROMO */
+#promo{position:fixed;top:0;left:0;right:0;height:44px;background:#ffd500;z-index:1001;text-align:center;line-height:44px}
+#promo a{font-family:'Manrope','Montserrat',system-ui,sans-serif;font-weight:700;font-size:14px;letter-spacing:.3px;color:#4375ff;line-height:44px;display:block}
+#promo a:hover{opacity:.85}
+/* HEADER */
+.nav{position:fixed;top:44px;left:0;right:0;z-index:1000;background:rgba(247,244,239,.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(26,107,90,.1);transition:box-shadow var(--t)}
+.nav.scrolled{box-shadow:0 2px 20px rgba(26,107,90,.12)}
+.nav-inner{max-width:1180px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.nav-logo{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.4rem;color:var(--cp);letter-spacing:-.02em}
+.nav-logo span{color:var(--cs)}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a{font-family:'Montserrat',sans-serif;font-weight:600;font-size:.88rem;color:var(--ct);letter-spacing:.02em;position:relative;padding-bottom:2px}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--ca);border-radius:2px;transition:width var(--t)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{display:flex;align-items:center;gap:.75rem}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--cp);border-radius:2px;transition:transform var(--t),opacity var(--t)}
+.mob-menu{display:none;position:fixed;top:108px;left:0;right:0;background:var(--cb);z-index:999;padding:1.5rem 1.5rem 2rem;box-shadow:0 8px 32px rgba(0,0,0,.12);border-top:2px solid var(--cp)}
+.mob-menu.open{display:flex;flex-direction:column;gap:1.25rem}
+.mob-menu a{font-family:'Montserrat',sans-serif;font-weight:600;font-size:1rem;color:var(--ct);padding:.5rem 0;border-bottom:1px solid rgba(26,107,90,.1)}
+.mob-menu .b{width:100%;justify-content:center;margin-top:.5rem}
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:flex-start;background:url('https://i.ibb.co/Qv3hdzf7/Axeo-0.jpg') center center/cover no-repeat}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(120deg,rgba(26,107,90,.88) 0%,rgba(26,107,90,.72) 50%,rgba(26,107,90,.38) 100%)}
+.hero-content{position:relative;z-index:2;max-width:680px;padding:2rem 24px;margin-left:max(24px,calc((100vw - 1180px)/2 + 24px))}
+.hero-badge{display:inline-flex;align-items:center;gap:.5em;background:rgba(255,255,255,.15);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.3);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;padding:.4em 1.1em;border-radius:2rem;margin-bottom:1.5rem}
+.hero-badge-dot{width:8px;height:8px;background:var(--cs);border-radius:50%;display:inline-block}
+.hero h1{color:#fff;margin-bottom:1.25rem}
+.hero h1 em{font-style:normal;color:var(--cs)}
+.hero .lead{color:rgba(255,255,255,.92);max-width:520px;margin-bottom:2.25rem}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:1rem}
+.scroll-ind{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:.5rem;color:rgba(255,255,255,.7);font-family:'Montserrat',sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}
+.scroll-ind-line{width:1px;height:48px;background:linear-gradient(to bottom,rgba(255,255,255,.6),transparent);animation:scrollpulse 2s ease-in-out infinite}
+@keyframes scrollpulse{0%,100%{opacity:.4;transform:scaleY(.8)}50%{opacity:1;transform:scaleY(1)}}
+/* STATS */
+.stats{background:var(--cp);padding:56px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center}
+.stat-item{display:flex;flex-direction:column;align-items:center;gap:.5rem}
+.stat-num{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3rem);color:var(--cs);letter-spacing:-.02em;line-height:1}
+.stat-suffix{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(1.2rem,2.5vw,1.8rem);color:var(--cs)}
+.stat-label{font-family:'Montserrat',sans-serif;font-weight:500;font-size:.9rem;color:rgba(255,255,255,.85);letter-spacing:.02em}
+.stat-sep{width:40px;height:2px;background:rgba(255,255,255,.2);border-radius:2px}
+/* FALLBACK ANIMATIONS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+/* RESPONSIVE */
+@media(max-width:900px){
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.nav-links,.nav-cta .b-dark{display:none}
+.hamburger{display:flex}
+}
+@media(max-width:480px){
+body{padding-top:84px}
+#promo{height:40px;line-height:40px}
+#promo a{font-size:13px;line-height:40px}
+.nav{top:40px}
+.mob-menu{top:104px}
+.nav-inner{height:60px;padding:0 16px}
+.hero-content{padding:1.5rem 16px;margin-left:0;max-width:100%}
+.hero-ctas{flex-direction:column}
+.hero-ctas .b{width:100%;justify-content:center}
+.stats{padding:40px 0}
+.stats-grid{grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.wrap{padding:0 16px}
+.s{padding:56px 0}
+.stat-sep{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div id="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Axeo<span>.</span></a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#metier">Notre approche</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#contact" class="b b-dark" style="padding:.65em 1.4em;font-size:.85rem">Demander un devis</a>
+    </div>
+    <button class="hamburger" id="ham" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MENU MOBILE -->
+<div class="mob-menu" id="mob">
+  <a href="#services" onclick="closeMob()">Services</a>
+  <a href="#metier" onclick="closeMob()">Notre approche</a>
+  <a href="#galerie" onclick="closeMob()">Galerie</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="#contact" class="b b-primary" onclick="closeMob()">Demander un devis</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      Cabinet comptable — Nouméa
+    </div>
+    <h1 class="h1">Votre comptabilité,<br><em>enfin sereine.</em></h1>
+    <p class="lead">Axeo accompagne les entrepreneurs et entreprises de Nouvelle-Calédonie avec une expertise comptable, fiscale et sociale adaptée aux réalités du territoire.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="b b-primary">Demander un devis gratuit</a>
+      <a href="#services" class="b b-outline">Découvrir nos services</a>
+    </div>
+  </div>
+  <div class="scroll-ind" aria-hidden="true">
+    <span>Explorer</span>
+    <div class="scroll-ind-line"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div style="display:flex;align-items:baseline;gap:.15em">
+          <span class="stat-num" data-target="15" data-suffix="">0</span>
+          <span class="stat-suffix">ans</span>
+        </div>
+        <div class="stat-sep"></div>
+        <span class="stat-label">D'expertise locale</span>
+      </div>
+      <div class="stat-item">
+        <div style="display:flex;align-items:baseline;gap:.15em">
+          <span class="stat-num" data-target="200" data-suffix="+">0</span>
+          <span class="stat-suffix">+</span>
+        </div>
+        <div class="stat-sep"></div>
+        <span class="stat-label">Clients accompagnés</span>
+      </div>
+      <div class="stat-item">
+        <div style="display:flex;align-items:baseline;gap:.15em">
+          <span class="stat-num" data-target="98" data-suffix="%">0</span>
+          <span class="stat-suffix">%</span>
+        </div>
+        <div class="stat-sep"></div>
+        <span class="stat-label">Clients satisfaits</span>
+      </div>
+      <div class="stat-item">
+        <div style="display:flex;align-items:baseline;gap:.15em">
+          <span class="stat-num" data-target="100" data-suffix="%">0</span>
+          <span class="stat-suffix">%</span>
+        </div>
+        <div class="stat-sep"></div>
+        <span class="stat-label">Ancrage calédonien</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+var nav=document.getElementById('nav'),ham=document.getElementById('ham'),mob=document.getElementById('mob');
+window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>20)});
+ham.addEventListener('click',function(){mob.classList.toggle('open');ham.querySelectorAll('span')[0].style.transform=mob.classList.contains('open')?'rotate(45deg) translate(5px,5px)':'';ham.querySelectorAll('span')[1].style.opacity=mob.classList.contains('open')?'0':'1';ham.querySelectorAll('span')[2].style.transform=mob.classList.contains('open')?'rotate(-45deg) translate(5px,-5px)':''});
+function closeMob(){mob.classList.remove('open');ham.querySelectorAll('span').forEach(function(s){s.style.transform='';s.style.opacity='1'})}
+(function(){
+var nums=document.querySelectorAll('.stat-num');
+var done=false;
+function animCount(){
+if(done)return;
+var rect=document.querySelector('.stats').getBoundingClientRect();
+if(rect.top<window.innerHeight-80){
+done=true;
+nums.forEach(function(el){
+var target=+el.dataset.target,start=0,dur=1600,t0=null;
+function step(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/dur,1),val=Math.round(p*p*(3-2*p)*target);el.textContent=val;if(p<1)requestAnimationFrame(step)}
+requestAnimationFrame(step);
+});
+}
+}
+window.addEventListener('scroll',animCount,{passive:true});
+animCount();
+})();
+</script>
+<style>
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;margin-top:3rem}
+.c{background:#fff;border-radius:var(--r);padding:2rem 1.75rem;box-shadow:var(--sh);transition:transform var(--t),box-shadow var(--t);border-top:3px solid transparent}
+.c:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(26,107,90,.18);border-top-color:var(--ca)}
+.c-icon{width:52px;height:52px;background:rgba(42,191,163,.12);border-radius:.6rem;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem}
+.c-icon svg{width:26px;height:26px;stroke:var(--cp);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.c h3{margin-bottom:.6rem}
+.c p{font-size:.93rem;line-height:1.65;color:#3d4f4a}
+.c-link{display:inline-flex;align-items:center;gap:.35em;margin-top:1.1rem;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.82rem;color:var(--ca);letter-spacing:.04em;transition:gap var(--t)}
+.c-link:hover{gap:.6em}
+.prob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.prob-item{background:#fff;border-radius:var(--r);padding:1.75rem 1.5rem;text-align:center;box-shadow:0 2px 12px rgba(26,107,90,.08)}
+.prob-arrow{display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--ca);margin:0 auto .75rem}
+.prob-q{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.92rem;color:var(--cp);margin-bottom:.4rem}
+.prob-a{font-size:.87rem;color:#3d4f4a;line-height:1.55}
+.met-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:3rem}
+.met-img{border-radius:1rem;overflow:hidden;box-shadow:var(--sh)}
+.met-img img{width:100%;height:360px;object-fit:cover}
+.met-checks{display:flex;flex-direction:column;gap:1rem;margin-top:1.75rem}
+.met-check{display:flex;align-items:flex-start;gap:.85rem}
+.met-check-icon{flex-shrink:0;width:28px;height:28px;background:rgba(42,191,163,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:.1rem}
+.met-check-icon svg{width:14px;height:14px;stroke:var(--ca);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.met-check p{font-size:.93rem;line-height:1.6;color:#3d4f4a}
+.met-check strong{font-family:'Montserrat',sans-serif;color:var(--ct)}
+.proc-wrap{display:flex;gap:0;margin-top:3rem;position:relative}
+.proc-wrap::before{content:'';position:absolute;top:36px;left:36px;right:36px;height:2px;background:linear-gradient(to right,var(--ca),var(--cp));z-index:0}
+.proc-step{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;z-index:1;padding:0 .5rem}
+.proc-num{width:72px;height:72px;border-radius:50%;background:var(--cp);color:#fff;font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.3rem;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;border:4px solid var(--cb);box-shadow:0 4px 16px rgba(26,107,90,.25)}
+.proc-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem;color:var(--ct);margin-bottom:.35rem}
+.proc-desc{font-size:.82rem;color:#3d4f4a;line-height:1.55}
+.gal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:2.5rem}
+.gal-item{border-radius:.75rem;overflow:hidden;cursor:pointer;position:relative;aspect-ratio:4/3}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.gal-item:hover img{transform:scale(1.04)}
+.gal-item:first-child{grid-column:span 2;aspect-ratio:16/7}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:2000;align-items:center;justify-content:center}
+.lightbox.active{display:flex}
+.lb-img{max-width:90vw;max-height:88vh;border-radius:.5rem;object-fit:contain}
+.lb-close{position:absolute;top:1.5rem;right:1.75rem;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;line-height:1}
+.frm-wrap{background:#fff;border-radius:1rem;box-shadow:var(--sh);padding:2.5rem;max-width:680px;margin:2.5rem auto 0}
+.frm-row{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.frm-group{display:flex;flex-direction:column;gap:.45rem;margin-bottom:1.25rem}
+.frm-group label{font-family:'Montserrat',sans-serif;font-weight:600;font-size:.82rem;color:var(--ct);letter-spacing:.03em}
+.frm-group input,.frm-group textarea{font-family:'Inter',sans-serif;font-size:.95rem;color:var(--ct);background:#f8f9f8;border:1.5px solid rgba(26,107,90,.18);border-radius:.5rem;padding:.8em 1em;transition:border-color var(--t),box-shadow var(--t);outline:none;width:100%}
+.frm-group input:focus,.frm-group textarea:focus{border-color:var(--ca);box-shadow:0 0 0 3px rgba(42,191,163,.15)}
+.frm-group textarea{min-height:120px;resize:vertical}
+.frm-group .err{color:#c0392b;font-size:.78rem;display:none}
+.frm-group.invalid .err{display:block}
+.frm-group.invalid input,.frm-group.invalid textarea{border-color:#c0392b}
+.frm-ok{display:none;background:rgba(42,191,163,.12);border:1.5px solid var(--ca);border-radius:.5rem;padding:1.25rem 1.5rem;text-align:center;color:var(--cp);font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;margin-top:1rem}
+.frm-ok.show{display:block}
+.ps-bar{display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;margin-top:2.5rem}
+.ps-rating{display:flex;flex-direction:column;align-items:center;gap:.4rem;background:#fff;border-radius:.75rem;padding:1.5rem 2rem;box-shadow:var(--sh);min-width:160px}
+.ps-stars{display:flex;gap:.2rem}
+.ps-stars svg{width:20px;height:20px;fill:var(--cs)}
+.ps-score{font-family:'Montserrat',sans-serif;font-weight:800;font-size:2rem;color:var(--ct)}
+.ps-label{font-size:.78rem;color:#3d4f4a;letter-spacing:.04em;font-weight:600}
+.ps-badges{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:2rem}
+.badge{display:flex;align-items:center;gap:.6em;background:#fff;border-radius:.6rem;padding:.75rem 1.25rem;box-shadow:0 2px 12px rgba(26,107,90,.09);font-family:'Montserrat',sans-serif;font-weight:700;font-size:.82rem;color:var(--cp)}
+.badge svg{width:20px;height:20px;stroke:var(--ca);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.testi{background:#fff;border-radius:var(--r);padding:1.75rem;box-shadow:0 2px 12px rgba(26,107,90,.08);border-left:3px solid var(--ca)}
+.testi-text{font-size:.92rem;line-height:1.68;color:#3d4f4a;font-style:italic;margin-bottom:1rem}
+.testi-author{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.83rem;color:var(--cp)}
+.testi-role{font-size:.78rem;color:#6a8580;margin-top:.15rem}
+footer{background:var(--cp);color:#fff;padding:56px 0 0}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem}
+.foot-logo{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.5rem;color:#fff;letter-spacing:-.02em;margin-bottom:.75rem}
+.foot-logo span{color:var(--cs)}
+.foot-desc{font-size:.88rem;line-height:1.65;color:rgba(255,255,255,.75);max-width:280px}
+.foot-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:1.1rem}
+.foot-links{display:flex;flex-direction:column;gap:.65rem}
+.foot-links a{font-size:.9rem;color:rgba(255,255,255,.8);transition:color var(--t)}
+.foot-links a:hover{color:var(--cs)}
+.foot-addr{font-size:.88rem;color:rgba(255,255,255,.8);line-height:1.8;font-style:normal}
+.foot-addr a{color:rgba(255,255,255,.8);transition:color var(--t)}
+.foot-addr a:hover{color:var(--cs)}
+.foot-bottom{margin-top:3rem;border-top:1px solid rgba(255,255,255,.12);padding:1.25rem 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+.foot-copy{font-size:.8rem;color:rgba(255,255,255,.5)}
+.foot-made{font-size:.8rem;color:rgba(255,255,255,.5)}
+.foot-made a{color:rgba(255,255,255,.7);font-weight:600;transition:color var(--t)}
+.foot-made a:hover{color:var(--cs)}
+@media(max-width:900px){
+.svc-grid{grid-template-columns:repeat(2,1fr)}
+.met-grid{grid-template-columns:1fr;gap:2rem}
+.proc-wrap{flex-direction:column;gap:1.5rem}
+.proc-wrap::before{display:none}
+.proc-step{flex-direction:row;text-align:left;gap:1.25rem;align-items:flex-start}
+.proc-num{flex-shrink:0;width:52px;height:52px;font-size:1rem;margin-bottom:0}
+.testi-grid{grid-template-columns:1fr}
+.foot-grid{grid-template-columns:1fr 1fr}
+.gal-grid{grid-template-columns:1fr}
+.gal-item:first-child{grid-column:span 1}
+.prob-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+.svc-grid{grid-template-columns:1fr}
+.frm-row{grid-template-columns:1fr}
+.foot-grid{grid-template-columns:1fr}
+.foot-bottom{flex-direction:column;text-align:center}
+.ps-bar{gap:1rem}
+.frm-wrap{padding:1.5rem}
+.proc-step{gap:1rem}
+.proc-num{width:44px;height:44px;font-size:.9rem}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s" id="services">
+  <div class="wrap">
+    <div class="text-center">
+      <span class="tag">Nos services</span>
+      <h2 class="h2">Une expertise comptable<br>pensée pour la Calédonie</h2>
+      <p class="lead mt1" style="max-width:560px;margin-left:auto;margin-right:auto">Des prestations claires et complètes pour vous permettre de vous concentrer sur ce qui compte vraiment : votre activité.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="c">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg>
+        </div>
+        <h3 class="h3">Comptabilité générale</h3>
+        <p>Tenue rigoureuse de vos comptes, révision, établissement des bilans et comptes de résultat. Un suivi fiable pour piloter votre entreprise sereinement.</p>
+        <a href="#contact" class="c-link">En savoir plus →</a>
+      </div>
+      <div class="c">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <h3 class="h3">Gestion fiscale</h3>
+        <p>Déclarations fiscales, optimisation, conseil en matière de TGC et impôts locaux calédoniens. Nous anticipons pour vous éviter toute mauvaise surprise.</p>
+        <a href="#contact" class="c-link">En savoir plus →</a>
+      </div>
+      <div class="c">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3 class="h3">Social & paie</h3>
+        <p>Établissement des bulletins de salaire, gestion des déclarations sociales et accompagnement RH selon le droit du travail en vigueur en Nouvelle-Calédonie.</p>
+        <a href="#contact" class="c-link">En savoir plus →</a>
+      </div>
+      <div class="c">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3 class="h3">Conseil de gestion</h3>
+        <p>Tableaux de bord, prévisionnel, analyse de rentabilité. Nous transformons vos chiffres en décisions stratégiques claires pour développer votre activité.</p>
+        <a href="#contact" class="c-link">En savoir plus →</a>
+      </div>
+      <div class="c">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="h3">Création d'entreprise</h3>
+        <p>Choix du statut juridique, formalités administratives, plan de financement. Lancez votre projet à Nouméa avec les bonnes fondations dès le premier jour.</p>
+        <a href="#contact" class="c-link">En savoir plus →</a>
+      </div>
+      <div class="c">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3 class="h3">Audit & diagnostic</h3>
+        <p>Audit comptable, diagnostic financier et contrôle interne pour sécuriser vos données et identifier les leviers de croissance de votre structure.</p>
+        <a href="#contact" class="c-link">En savoir plus →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLÈME / SOLUTION -->
+<section class="s s-alt" id="probleme">
+  <div class="wrap">
+    <div class="text-center">
+      <span class="tag">Pourquoi Axeo</span>
+      <h2 class="h2">Les défis que vous connaissez,<br>les solutions que nous apportons</h2>
+    </div>
+    <div class="prob-grid">
+      <div class="prob-item">
+        <div class="prob-arrow">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <p class="prob-q">Trop de temps perdu sur l'administratif ?</p>
+        <p class="prob-a">Axeo prend en charge l'intégralité de votre gestion comptable, libérant votre temps pour votre cœur de métier.</p>
+      </div>
+      <div class="prob-item">
+        <div class="prob-arrow">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <p class="prob-q">Fiscalité locale difficile à maîtriser ?</p>
+        <p class="prob-a">Notre équipe maîtrise les spécificités fiscales calédoniennes — TGC, impôts locaux — pour vous éviter toute erreur coûteuse.</p>
+      </div>
+      <div class="prob-item">
+        <div class="prob-arrow">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1 19.79 19.79 0 0 1 1.61 4.48 2 2 0 0 1 3.59 2.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91A16 16 0 0 0 16 18.09l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 24 18.18z"/></svg>
+        </div>
+        <p class="prob-q">Manque de réactivité de votre cabinet actuel ?</p>
+        <p class="prob-a">Un interlocuteur dédié, disponible et ancré à Nouméa. Votre dossier est traité avec réactivité et proximité réelle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s" id="metier">
+  <div class="wrap">
+    <div class="met-grid">
+      <div>
+        <span class="tag">Notre approche</span>
+        <h2 class="h2">Votre partenaire comptable, ancré dans le territoire</h2>
+        <p class="lead mt1">Chez Axeo, nous croyons qu'une bonne gestion comptable repose avant tout sur une relation de confiance durable. Chaque entreprise que nous accompagnons est unique, et nous adaptons nos méthodes à votre réalité.</p>
+        <div class="met-checks">
+          <div class="met-check">
+            <div class="met-check-icon">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <p><strong>Expertise locale confirmée :</strong> nous connaissons les réglementations calédoniennes dans leurs moindres détails.</p>
+          </div>
+          <div class="met-check">
+            <div class="met-check-icon">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <p><strong>Accompagnement personnalisé :</strong> un expert dédié à votre dossier, joignable et à votre écoute tout au long de l'année.</p>
+          </div>
+          <div class="met-check">
+            <div class="met-check-icon">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <p><strong>Transparence totale :</strong> des honoraires clairs, sans surprise, avec un rapport de valeur expliqué à chaque étape.</p>
+          </div>
+          <div class="met-check">
+            <div class="met-check-icon">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <p><strong>Vision long terme :</strong> nous pensons à votre développement futur, pas seulement à la conformité immédiate.</p>
+          </div>
+        </div>
+      </div>
+      <div class="met-img">
+        <img src="https://i.ibb.co/TMmPBC2g/Axeo-1.jpg" alt="Équipe Axeo à Nouméa" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSUS -->
+<section class="s s-alt" id="processus">
+  <div class="wrap">
+    <div class="text-center">
+      <span class="tag">Comment ça marche</span>
+      <h2 class="h2">Un accompagnement simple<br>et transparent en 4 étapes</h2>
+    </div>
+    <div class="proc-wrap mt3">
+      <div class="proc-step">
+        <div class="proc-num">1</div>
+        <div>
+          <p class="proc-title">Premier échange gratuit</p>
+          <p class="proc-desc">Un appel ou une rencontre pour comprendre votre activité, vos besoins et vos attentes sans engagement.</p>
+        </div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">2</div>
+        <div>
+          <p class="proc-title">Proposition sur mesure</p>
+          <p class="proc-desc">Un devis clair et détaillé adapté à votre structure et à votre budget, sans jargon comptable inutile.</p>
+        </div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">3</div>
+        <div>
+          <p class="proc-title">Prise en charge complète</p>
+          <p class="proc-desc">Votre équipe Axeo s'occupe de tout : collecte, traitement, déclarations et suivi régulier de vos comptes.</p>
+        </div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">4</div>
+        <div>
+          <p class="proc-title">Suivi & conseil continu</p>
+          <p class="proc-desc">Des points réguliers, des bilans commentés et des conseils proactifs pour anticiper et optimiser votre gestion.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s" id="galerie">
+  <div class="wrap">
+    <div class="text-center">
+      <span class="tag">Notre univers</span>
+      <h2 class="h2">Le cabinet Axeo<br>à Nouméa</h2>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item" onclick="openLb('https://i.ibb.co/Qv3hdzf7/Axeo-0.jpg')">
+        <img src="https://i.ibb.co/Qv3hdzf7/Axeo-0.jpg" alt="Cabinet Axeo Nouméa" loading="lazy">
+      </div>
+      <div class="gal-item" onclick="openLb('https://i.ibb.co/TMmPBC2g/Axeo-1.jpg')">
+        <img src="https://i.ibb.co/TMmPBC2g/Axeo-1.jpg" alt="Équipe Axeo" loading="lazy">
+      </div>
+      <div class="gal-item" onclick="openLb('https://i.ibb.co/8nb8BFFP/Axeo-2.jpg')">
+        <img src="https://i.ibb.co/8nb8BFFP/Axeo-2.jpg" alt="Bureau Axeo" loading="lazy">
+      </div>
+      <div class="gal-item" onclick="openLb('https://i.ibb.co/tPqCcdmG/Axeo-3.jpg')">
+        <img src="https://i.ibb.co/tPqCcdmG/Axeo-3.jpg" alt="Axeo Nouvelle-Calédonie" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lb" onclick="closeLb()">
+  <button class="lb-close" onclick="closeLb()" aria-label="Fermer">×</button>
+  <img class="lb-img" id="lb-img" src="" alt="Galerie Axeo">
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section class="s s-alt" id="avis">
+  <div class="wrap">
+    <div class="text-center">
+      <span class="tag">Ils nous font confiance</span>
+      <h2 class="h2">La satisfaction de nos clients,<br>notre meilleure récompense</h2>
+    </div>
+    <div class="ps-bar">
+      <div class="ps-rating">
+        <div class="ps-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+        </div>
+        <span class="ps-score">5/5</span>
+        <span class="ps-label">Note Google</span>
+      </div>
+      <div class="ps-badges">
+        <div class="badge">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Expert-comptable certifié
+        </div>
+        <div class="badge">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+          Réactivité garantie
+        </div>
+        <div class="badge">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Ancré en Nouvelle-Calédonie
+        </div>
+        <div class="badge">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Honoraires transparents
+        </div>
+      </div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi">
+        <p class="testi-text">« Axeo nous accompagne depuis l'ouverture de notre société à Nouméa. Leur connaissance du tissu économique local et leur réactivité sont de vrais atouts. On se sent entre de bonnes mains. »</p>
+        <p class="testi-author">Marie-Hélène T.</p>
+        <p class="testi-role">Gérante, TPE — Secteur distribution</p>
+      </div>
+      <div class="testi">
+        <p class="testi-text">« Enfin un cabinet qui explique clairement nos obligations fiscales calédoniennes sans nous noyer dans le jargon. Le suivi mensuel est précieux pour piloter notre activité en temps réel. »</p>
+        <p class="testi-author">Raphaël M.</p>
+        <p class="testi-role">Dirigeant, PME — BTP</p>
+      </div>
+      <div class="testi">
+        <p class="testi-text">« J'ai créé ma structure avec l'aide d'Axeo et tout s'est déroulé sereinement. Ils m'ont guidé à chaque étape, des formalités au premier bilan. Je recommande sans hésiter. »</p>
+        <p class="testi-author">Céline V.</p>
+        <p class="testi-role">Auto-entrepreneuse — Services</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE CONTACT -->
+<section class="s" id="contact">
+  <div class="wrap">
+    <div class="text-center">
+      <span class="tag">Contactez-nous</span>
+      <h2 class="h2">Parlons de votre projet</h2>
+      <p class="lead mt1" style="max-width:500px;margin-left:auto;margin-right:auto">Premier échange gratuit et sans engagement. Notre équipe vous répond sous 24h ouvrées.</p>
+    </div>
+    <div class="frm-wrap">
+      <form id="frm" action="#" novalidate>
+        <div class="frm-row">
+          <div class="frm-group" id="fg-nom">
+            <label for="f-nom">Nom complet</label>
+            <input type="text" id="f-nom" name="nom" placeholder="Votre nom">
+            <span class="err">Veuillez renseigner votre nom.</span>
+          </div>
+          <div class="frm-group" id="fg-email">
+            <label for="f-email">Adresse e-mail</label>
+            <input type="email" id="f-email" name="email" placeholder="votre@email.com">
+            <span class="err">Adresse e-mail invalide.</span>
+          </div>
+        </div>
+        <div class="frm-group" id="fg-tel">
+          <label for="f-tel">Téléphone</label>
+          <input type="tel" id="f-tel" name="tel" placeholder="Ex : 26 XX XX">
+          <span class="err">Numéro de téléphone requis.</span>
+        </div>
+        <div class="frm-group" id="fg-msg">
+          <label for="f-msg">Votre message</label>
+          <textarea id="f-msg" name="message" placeholder="Décrivez votre besoin, votre secteur d'activité..."></textarea>
+          <span class="err">Merci de saisir votre message.</span>
+        </div>
+        <button type="submit" class="b b-primary" style="width:100%;justify-content:center;font-size:1rem;padding:1em 2em">
+          <span id="btn-txt">Envoyer ma demande</span>
+        </button>
+        <div class="frm-ok" id="frm-ok">✓ Merci ! Votre message a bien été envoyé. Nous vous répondons sous 24h.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">Axeo<span>.</span></div>
+        <p class="foot-desc">Cabinet comptable à Nouméa, Axeo accompagne les entrepreneurs et entreprises de Nouvelle-Calédonie avec proximité, expertise et transparence.</p>
+      </div>
+      <div>
+        <p class="foot-title">Navigation</p>
+        <div class="foot-links">
+          <a href="#services">Nos services</a>
+          <a href="#metier">Notre approche</a>
+          <a href="#processus">Notre processus</a>
+          <a href="#avis">Témoignages</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div>
+        <p class="foot-title">Coordonnées</p>
+        <address class="foot-addr">
+          Axeo<br>
+          Route du Port Despointes<br>
+          Nouméa, Nouvelle-Calédonie<br><br>
+        </address>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p class="foot-copy">© 2026 Axeo. Tous droits réservés.</p>
+      <p class="foot-made">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+function openLb(src){var lb=document.getElementById('lb');document.getElementById('lb-img').src=src;lb.classList.add('active');document.body.style.overflow='hidden'}
+function closeLb(){document.getElementById('lb').classList.remove('active');document.body.style.overflow=''}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
+(function(){
+var frm=document.getElementById('frm');
+frm.addEventListener('submit',function(e){
+e.preventDefault();
+var ok=true;
+var checks=[
+{id:'fg-nom',val:document.getElementById('f-nom').value.trim(),test:function(v){return v.length>1}},
+{id:'fg-email',val:document.getElementById('f-email').value.trim(),test:function(v){return/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)}},
+{id:'fg-tel',val:document.getElementById('f-tel').value.trim(),test:function(v){return v.length>4}},
+{id:'fg-msg',val:document.getElementById('f-msg').value.trim(),test:function(v){return v.length>5}}
+];
+checks.forEach(function(c){
+var fg=document.getElementById(c.id);
+if(!c.test(c.val)){fg.classList.add('invalid');ok=false}
+else{fg.classList.remove('invalid')}
+});
+if(ok){
+document.getElementById('btn-txt').textContent='Envoi en cours…';
+setTimeout(function(){
+document.getElementById('frm-ok').classList.add('show');
+frm.reset();
+document.getElementById('btn-txt').textContent='Envoyer ma demande';
+},900);
+}
+});
+})();
+</script>
+</body>
+</html>
