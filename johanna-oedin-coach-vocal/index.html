@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Johanna Oedin Coach Vocal — Dumbéa</title>
+<meta name="description" content="Coaching vocal professionnel à Dumbéa, Nouvelle-Calédonie. Cours collectifs, coaching individuel, préparation auditions. Libérez votre voix avec Johanna Oedin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--color-primary:#7B2D8B;
+--color-secondary:#C0392B;
+--color-accent:#E8A020;
+--color-text:#F0EDE8;
+--color-bg:#1A1A1A;
+--color-card:#2A1A30;
+--color-muted:#B0A8B9;
+--max-w:1200px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--color-bg);color:var(--color-text);font-family:'Poppins',sans-serif;overflow-x:hidden;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max-w);margin:0 auto;padding:0 24px}
+.h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,6vw,4.2rem);font-weight:900;line-height:1.1}
+.h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.8rem);font-weight:700;line-height:1.2}
+.h3{font-family:'Playfair Display',serif;font-size:clamp(1.1rem,2.5vw,1.5rem);font-weight:700}
+.b{display:inline-flex;align-items:center;justify-content:center;border-radius:4px;font-family:'Poppins',sans-serif;font-weight:600;font-size:1rem;cursor:pointer;transition:opacity .25s,transform .25s;min-height:48px;padding:12px 28px;border:none;text-align:center}
+.b-primary{background:var(--color-primary);color:#fff}
+.b-accent{background:var(--color-accent);color:#1A1A1A}
+.b-outline{background:transparent;color:#fff;border:2px solid #fff}
+.b:hover{opacity:.88;transform:translateY(-2px)}
+.b-pulse{animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(232,160,32,.45)}50%{box-shadow:0 0 0 10px rgba(232,160,32,0)}}
+.s{padding:80px 0}
+.s-dark{background:var(--color-bg)}
+.s-deeper{background:#111}
+.s-purple{background:var(--color-primary)}
+.badge{display:inline-block;background:var(--color-accent);color:#1A1A1A;font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.5px;text-transform:uppercase;animation:badgeglow 2s ease-in-out infinite}
+@keyframes badgeglow{0%,100%{opacity:1}50%{opacity:.6}}
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* BANDEAU SETUP NC */
+#setup-band{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;text-align:center}
+#setup-band a{font-family:'Manrope','Poppins',system-ui,sans-serif;font-weight:700;font-size:14px;line-height:44px;color:#4375ff;letter-spacing:.3px;display:block;width:100%}
+#setup-band a:hover{opacity:.85}
+
+/* HEADER */
+#hdr{position:fixed;top:44px;left:0;width:100%;background:rgba(26,10,38,.92);backdrop-filter:blur(12px);z-index:1000;border-bottom:1px solid rgba(123,45,139,.3);transition:background .3s}
+.hdr-inner{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:#fff;letter-spacing:.5px;line-height:1.2}
+.logo span{color:var(--color-accent)}
+nav{display:flex;align-items:center;gap:28px}
+nav a{font-size:.88rem;font-weight:500;color:var(--color-muted);transition:color .2s;letter-spacing:.3px}
+nav a:hover{color:var(--color-accent)}
+.hdr-cta{display:flex;align-items:center;gap:12px}
+.hdr-tel{font-size:.85rem;font-weight:600;color:var(--color-accent)}
+#ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+#ham span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:transform .3s,opacity .3s}
+#mob-nav{display:none;flex-direction:column;background:rgba(20,5,28,.97);padding:24px;gap:16px;border-top:1px solid rgba(123,45,139,.3)}
+#mob-nav a{font-size:1rem;font-weight:500;color:var(--color-text);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+#mob-nav .b{width:100%;margin-top:8px}
+#mob-nav.open{display:flex}
+
+/* HERO */
+#hero{min-height:100vh;position:relative;display:flex;align-items:center;padding-top:114px;background-image:url('https://i.ibb.co/Z6VMw9hc/Johanna-Oedin-Coach-Vocal-0.jpg');background-size:cover;background-position:center top}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(135deg,rgba(26,10,38,.88) 0%,rgba(123,45,139,.55) 50%,rgba(26,10,38,.82) 100%);z-index:0}
+.hero-ov2{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,26,26,.95) 0%,transparent 50%);z-index:0}
+.hero-content{position:relative;z-index:1;max-width:720px}
+.hero-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.hero-line{width:40px;height:2px;background:var(--color-accent)}
+.hero-eyebrow span{font-size:.82rem;font-weight:600;color:var(--color-accent);letter-spacing:2px;text-transform:uppercase}
+.hero-sub{font-size:clamp(1rem,2.2vw,1.25rem);color:rgba(240,237,232,.8);margin:20px 0 36px;max-width:560px;font-weight:300}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.hero-scroll{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:1;display:flex;flex-direction:column;align-items:center;gap:8px}
+.hero-scroll span{font-size:.75rem;color:rgba(240,237,232,.5);letter-spacing:1.5px;text-transform:uppercase}
+.scroll-arrow{width:24px;height:24px;border-right:2px solid var(--color-accent);border-bottom:2px solid var(--color-accent);transform:rotate(45deg);animation:scrolldown 1.8s ease-in-out infinite}
+@keyframes scrolldown{0%,100%{opacity:.3;transform:rotate(45deg) translateY(-4px)}50%{opacity:1;transform:rotate(45deg) translateY(4px)}}
+
+/* BANDE STATS */
+#stats{background:linear-gradient(135deg,var(--color-primary),#5a1a6b);padding:60px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;text-align:center}
+.stat-item{padding:24px 16px;border-right:1px solid rgba(255,255,255,.15);position:relative}
+.stat-item:last-child{border-right:none}
+.stat-num{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:900;color:#fff;display:block;line-height:1}
+.stat-suf{font-size:1.4rem;color:var(--color-accent)}
+.stat-label{font-size:.82rem;color:rgba(255,255,255,.75);margin-top:8px;font-weight:400;letter-spacing:.5px;text-transform:uppercase}
+
+@media(max-width:900px){
+nav{display:none}
+#ham{display:flex}
+.hdr-cta .b{display:none}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.stat-item:nth-child(2){border-right:none}
+.stat-item:nth-child(3){border-top:1px solid rgba(255,255,255,.15)}
+}
+@media(max-width:480px){
+#setup-band{height:40px}
+#setup-band a{font-size:13px;line-height:40px}
+#hdr{top:40px}
+#hero{padding-top:110px}
+.hdr-inner{height:62px}
+.logo{font-size:1.05rem}
+.hero-btns .b-outline{display:none}
+.hero-btns .b-accent{width:100%}
+.wrap{padding:0 16px}
+.s{padding:56px 0}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU SETUP NC -->
+<div id="setup-band">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="wrap hdr-inner">
+    <div class="logo">Johanna Oedin<br><span>Coach Vocal</span></div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#apropos">À propos</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#avis">Avis</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="hdr-cta">
+      <a href="#contact" class="b b-accent b-pulse">Réserver</a>
+      <button id="ham" aria-label="Menu" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div id="mob-nav">
+    <a href="#services" onclick="toggleMenu()">Services</a>
+    <a href="#apropos" onclick="toggleMenu()">À propos</a>
+    <a href="#galerie" onclick="toggleMenu()">Galerie</a>
+    <a href="#avis" onclick="toggleMenu()">Avis</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+    <a href="#contact" class="b b-accent b-pulse" onclick="toggleMenu()">Réserver un cours</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-ov"></div>
+  <div class="hero-ov2"></div>
+  <div class="wrap hero-content">
+    <div class="hero-eyebrow">
+      <div class="hero-line"></div>
+      <span>Coach Vocal à Dumbéa</span>
+    </div>
+    <span class="badge">Places limitées disponibles</span>
+    <h1 class="h1" style="margin-top:14px">Libérez<br><em>votre voix.</em></h1>
+    <p class="hero-sub">Coaching vocal professionnel en Nouvelle-Calédonie. Développez votre technique, gagnez en confiance et performez avec authenticité.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="b b-accent b-pulse">Réserver mon cours</a>
+      <a href="#services" class="b b-outline">Découvrir les services</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Découvrir</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<section id="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-num"><span class="cnum" data-target="5">0</span><span class="stat-suf">★</span></span>
+        <p class="stat-label">Note Google</p>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num"><span class="cnum" data-target="100">0</span><span class="stat-suf">%</span></span>
+        <p class="stat-label">Satisfaction élèves</p>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num"><span class="cnum" data-target="10">0</span><span class="stat-suf">+</span></span>
+        <p class="stat-label">Années d'expérience</p>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num"><span class="cnum" data-target="4">0</span></span>
+        <p class="stat-label">Formats de coaching</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function toggleMenu(){var m=document.getElementById('mob-nav');m.classList.toggle('open')}
+(function(){
+var els=document.querySelectorAll('.cnum');
+var started=false;
+function run(){
+if(started)return;started=true;
+els.forEach(function(el){
+var t=+el.dataset.target,s=0,d=Math.max(30,1200/t);
+var iv=setInterval(function(){
+s+=1;el.textContent=s;
+if(s>=t)clearInterval(iv);
+},d);
+});
+}
+var ob=new IntersectionObserver(function(e){if(e[0].isIntersecting)run();},{threshold:.3});
+ob.observe(document.getElementById('stats'));
+})();
+</script>
+<style>
+.sv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.sv-card{background:var(--color-card);border-radius:12px;padding:36px 28px;border:1px solid rgba(123,45,139,.25);transition:border-color .3s,transform .3s,box-shadow .3s;display:flex;flex-direction:column;gap:16px}
+.sv-card:hover{border-color:var(--color-accent);transform:translateY(-6px);box-shadow:0 16px 40px rgba(123,45,139,.35)}
+.sv-icon{width:52px;height:52px;background:linear-gradient(135deg,var(--color-primary),#5a1a6b);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.sv-icon svg{width:26px;height:26px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.sv-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fff}
+.sv-desc{font-size:.88rem;color:var(--color-muted);line-height:1.65;flex:1}
+.sv-cta{font-size:.82rem;font-weight:600;color:var(--color-accent);display:inline-flex;align-items:center;gap:6px;transition:gap .2s}
+.sv-cta:hover{gap:10px}
+.sec-label{font-size:.78rem;font-weight:600;color:var(--color-accent);letter-spacing:2.5px;text-transform:uppercase;display:block;margin-bottom:12px}
+.sec-intro{font-size:1.05rem;color:var(--color-muted);max-width:560px;margin-top:12px}
+.tc{text-align:center}
+.tc .sec-intro{margin:12px auto 0}
+.met-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:56px}
+.met-grid.rev{direction:rtl}
+.met-grid.rev>*{direction:ltr}
+.met-img{border-radius:12px;overflow:hidden;aspect-ratio:4/3;position:relative}
+.met-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.met-img:hover img{transform:scale(1.04)}
+.met-img::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(123,45,139,.25),transparent);pointer-events:none}
+.met-text{display:flex;flex-direction:column;gap:20px}
+.met-checks{display:flex;flex-direction:column;gap:12px;margin-top:8px}
+.met-check{display:flex;align-items:flex-start;gap:12px;font-size:.9rem;color:var(--color-muted)}
+.met-check svg{flex-shrink:0;margin-top:2px;width:18px;height:18px;stroke:var(--color-accent);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.gl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:48px}
+.gl-item{aspect-ratio:1;overflow:hidden;border-radius:10px;cursor:pointer;position:relative}
+.gl-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s,filter .4s}
+.gl-item:hover img{transform:scale(1.07);filter:brightness(1.1)}
+.gl-item::after{content:'🔍';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.5rem;opacity:0;background:rgba(123,45,139,.45);transition:opacity .3s;border-radius:10px}
+.gl-item:hover::after{opacity:1}
+.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center}
+.lb.open{display:flex}
+.lb img{max-width:90vw;max-height:85vh;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.8)}
+.lb-close{position:absolute;top:20px;right:28px;font-size:2rem;color:#fff;cursor:pointer;line-height:1;opacity:.7;transition:opacity .2s;background:none;border:none}
+.lb-close:hover{opacity:1}
+.frm{background:var(--color-card);border-radius:16px;padding:48px;border:1px solid rgba(123,45,139,.2);max-width:680px;margin:48px auto 0}
+.frm-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.fld{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.fld label{font-size:.82rem;font-weight:600;color:var(--color-accent);letter-spacing:.5px;text-transform:uppercase}
+.fld input,.fld textarea,.fld select{background:rgba(255,255,255,.06);border:1px solid rgba(123,45,139,.3);border-radius:8px;color:#fff;font-family:'Poppins',sans-serif;font-size:.9rem;padding:14px 16px;transition:border-color .25s,background .25s;outline:none;width:100%}
+.fld input:focus,.fld textarea:focus{border-color:var(--color-accent);background:rgba(232,160,32,.07)}
+.fld textarea{resize:vertical;min-height:120px}
+.frm-msg{display:none;background:rgba(123,45,139,.25);border:1px solid var(--color-primary);border-radius:8px;padding:16px 20px;color:#fff;font-size:.9rem;margin-top:16px;text-align:center}
+.frm-msg.show{display:block}
+.ps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.ps-card{background:var(--color-card);border-radius:12px;padding:28px;border:1px solid rgba(123,45,139,.2);display:flex;flex-direction:column;gap:12px}
+.ps-stars{color:var(--color-accent);font-size:1.1rem;letter-spacing:2px}
+.ps-text{font-size:.88rem;color:var(--color-muted);line-height:1.65;font-style:italic;flex:1}
+.ps-author{font-size:.82rem;font-weight:600;color:#fff}
+.ps-role{font-size:.75rem;color:var(--color-muted)}
+.goog-badge{display:flex;align-items:center;justify-content:center;gap:16px;background:var(--color-card);border-radius:12px;padding:24px 32px;border:1px solid rgba(232,160,32,.3);max-width:420px;margin:0 auto 48px}
+.goog-score{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;color:#fff;line-height:1}
+.goog-info{display:flex;flex-direction:column;gap:4px}
+.goog-stars{color:var(--color-accent);font-size:1.3rem}
+.goog-label{font-size:.78rem;color:var(--color-muted);text-transform:uppercase;letter-spacing:.8px}
+.bdg-row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:40px}
+.bdg{background:rgba(123,45,139,.2);border:1px solid rgba(123,45,139,.4);border-radius:30px;padding:10px 22px;font-size:.8rem;font-weight:600;color:var(--color-text);display:flex;align-items:center;gap:8px}
+.bdg-dot{width:8px;height:8px;border-radius:50%;background:var(--color-accent);animation:badgeglow 2s ease-in-out infinite}
+footer{background:linear-gradient(135deg,#3a1248,var(--color-primary));padding:56px 0 0}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.15)}
+.ft-brand{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:12px}
+.ft-brand span{color:var(--color-accent)}
+.ft-addr{font-size:.85rem;color:rgba(255,255,255,.7);line-height:1.8}
+.ft-tel{color:var(--color-accent);font-weight:600;font-size:.9rem;margin-top:10px;display:inline-block}
+.ft-social{display:flex;gap:14px;margin-top:16px;align-items:center}
+.ft-soc-link{width:40px;height:40px;background:rgba(255,255,255,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;transition:background .25s}
+.ft-soc-link:hover{background:var(--color-accent)}
+.ft-soc-link svg{width:20px;height:20px;fill:#fff}
+.ft-col-title{font-size:.78rem;font-weight:700;color:var(--color-accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.ft-links{display:flex;flex-direction:column;gap:10px}
+.ft-links a{font-size:.85rem;color:rgba(255,255,255,.65);transition:color .2s}
+.ft-links a:hover{color:#fff}
+.ft-bottom{padding:20px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.ft-copy{font-size:.78rem;color:rgba(255,255,255,.45)}
+.ft-made{font-size:.78rem;color:rgba(255,255,255,.45)}
+.ft-made a{color:rgba(255,255,255,.7);font-weight:600;transition:color .2s}
+.ft-made a:hover{color:#fff}
+@media(max-width:900px){
+.sv-grid{grid-template-columns:1fr 1fr}
+.met-grid,.met-grid.rev{grid-template-columns:1fr;direction:ltr}
+.met-grid .met-img{order:0}
+.met-grid .met-text{order:1}
+.gl-grid{grid-template-columns:repeat(2,1fr)}
+.ps-grid{grid-template-columns:1fr 1fr}
+.ft-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+.sv-grid{grid-template-columns:1fr}
+.gl-grid{grid-template-columns:repeat(2,1fr)}
+.frm{padding:28px 20px}
+.frm-row{grid-template-columns:1fr}
+.ps-grid{grid-template-columns:1fr}
+.ft-grid{grid-template-columns:1fr}
+.goog-badge{flex-direction:column;text-align:center}
+.ft-bottom{flex-direction:column;text-align:center}
+.bdg-row{flex-direction:column;align-items:center}
+}
+</style>
+
+<!-- SERVICES -->
+<section id="services" class="s s-deeper">
+  <div class="wrap">
+    <div class="tc">
+      <span class="sec-label">Ce que je propose</span>
+      <h2 class="h2">Un coaching<br>taillé pour vous</h2>
+      <p class="sec-intro">Que vous soyez débutant ou en préparation de scène, chaque formule est conçue pour faire émerger votre vrai potentiel vocal.</p>
+    </div>
+    <div class="sv-grid" style="margin-top:48px">
+      <div class="sv-card">
+        <div class="sv-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 19c-4 0-7-2-7-5s3-5 7-5m6 0c4 0 7 2 7 5s-3 5-7 5"/><circle cx="12" cy="9" r="4"/><path d="M12 5V3"/></svg>
+        </div>
+        <p class="sv-title">Cours Collectifs</p>
+        <p class="sv-desc">En groupe réduit, développez votre voix dans une ambiance chaleureuse et bienveillante. Idéal pour progresser tout en partageant la passion du chant.</p>
+        <a href="#contact" class="sv-cta">Rejoindre un groupe <span>→</span></a>
+      </div>
+      <div class="sv-card">
+        <span class="badge" style="align-self:flex-start">Populaire</span>
+        <div class="sv-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 1 3 3v7a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+        </div>
+        <p class="sv-title">Coaching Individuel</p>
+        <p class="sv-desc">Un accompagnement sur mesure, 100 % centré sur vos objectifs. Technique vocale, expression artistique et confiance en soi au programme.</p>
+        <a href="#contact" class="sv-cta">Prendre rendez-vous <span>→</span></a>
+      </div>
+      <div class="sv-card">
+        <div class="sv-icon">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="sv-title">Préparation Auditions</p>
+        <p class="sv-desc">Préparez-vous à performer sous pression : travail du répertoire, gestion du trac et mise en situation scénique pour décrocher votre rôle.</p>
+        <a href="#contact" class="sv-cta">Préparer mon audition <span>→</span></a>
+      </div>
+      <div class="sv-card">
+        <div class="sv-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+        </div>
+        <p class="sv-title">Techniques Respiratoires</p>
+        <p class="sv-desc">Maîtrisez votre souffle pour libérer toute la puissance de votre voix. Exercices pratiques adaptés à tous les niveaux, du débutant au professionnel.</p>
+        <a href="#contact" class="sv-cta">Découvrir <span>→</span></a>
+      </div>
+      <div class="sv-card">
+        <span class="badge" style="align-self:flex-start">Nouveau</span>
+        <div class="sv-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <p class="sv-title">Ateliers Thématiques</p>
+        <p class="sv-desc">Des sessions intensives sur des thèmes ciblés : justesse, interprétation, scène. Parfaits pour progresser rapidement sur un point précis.</p>
+        <a href="#contact" class="sv-cta">Voir les ateliers <span>→</span></a>
+      </div>
+      <div class="sv-card">
+        <div class="sv-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+        </div>
+        <p class="sv-title">Forfaits Trimestriels</p>
+        <p class="sv-desc">Investissez dans votre progression sur la durée. Accès à des ressources audio exclusives et suivi personnalisé inclus dans chaque forfait.</p>
+        <a href="#contact" class="sv-cta">Voir les forfaits <span>→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section id="apropos" class="s s-dark">
+  <div class="wrap">
+    <div class="tc">
+      <span class="sec-label">À propos</span>
+      <h2 class="h2">La voix,<br>c'est votre signature</h2>
+    </div>
+    <div class="met-grid">
+      <div class="met-img">
+        <img src="https://i.ibb.co/WpqsmpD3/Johanna-Oedin-Coach-Vocal-1.jpg" alt="Johanna Oedin lors d'une session de coaching vocal" loading="lazy">
+      </div>
+      <div class="met-text">
+        <span class="sec-label">Ma philosophie</span>
+        <h3 class="h3">Un accompagnement humain, au cœur de Dumbéa</h3>
+        <p style="font-size:.92rem;color:var(--color-muted);line-height:1.75">Johanna Oedin met son expertise et sa passion au service de chaque élève. Artiste et pédagogue, elle guide ses élèves vers une expression vocale authentique, respectueuse de chaque personnalité.</p>
+        <div class="met-checks">
+          <div class="met-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Méthode personnalisée, adaptée à votre voix unique</span></div>
+          <div class="met-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Progression mesurable dès les premières séances</span></div>
+          <div class="met-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Environnement bienveillant et stimulant</span></div>
+          <div class="met-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Basée à Dumbéa, accessible depuis le Grand Nouméa</span></div>
+        </div>
+        <a href="#contact" class="b b-primary" style="align-self:flex-start;margin-top:8px">Me contacter</a>
+      </div>
+    </div>
+    <div class="met-grid rev" style="margin-top:64px">
+      <div class="met-img">
+        <img src="https://i.ibb.co/S7Rxcp3K/Johanna-Oedin-Coach-Vocal-3.jpg" alt="Johanna Oedin en performance sur scène" loading="lazy">
+      </div>
+      <div class="met-text">
+        <span class="sec-label">Sur scène & en studio</span>
+        <h3 class="h3">De la salle de cours à la lumière des projecteurs</h3>
+        <p style="font-size:.92rem;color:var(--color-muted);line-height:1.75">Forte d'une expérience sur les scènes calédoniennes, Johanna transmet bien plus que des techniques : elle partage une vision de la performance, où chaque note raconte une histoire.</p>
+        <div class="met-checks">
+          <div class="met-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Expérience scénique transmise avec pédagogie</span></div>
+          <div class="met-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Répertoire varié : pop, gospel, variété, musiques du monde</span></div>
+          <div class="met-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Préparation mentale et gestion du trac incluses</span></div>
+        </div>
+        <a href="#contact" class="b b-accent b-pulse" style="align-self:flex-start;margin-top:8px">Démarrer mon parcours</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section id="galerie" class="s s-deeper">
+  <div class="wrap">
+    <div class="tc">
+      <span class="sec-label">Galerie</span>
+      <h2 class="h2">L'univers de Johanna</h2>
+      <p class="sec-intro">Des moments de scène, de coaching et de partage musical capturés en Nouvelle-Calédonie.</p>
+    </div>
+    <div class="gl-grid">
+      <div class="gl-item" onclick="openLb('https://i.ibb.co/Z6VMw9hc/Johanna-Oedin-Coach-Vocal-0.jpg')">
+        <img src="https://i.ibb.co/Z6VMw9hc/Johanna-Oedin-Coach-Vocal-0.jpg" alt="Johanna Oedin coach vocal" loading="lazy">
+      </div>
+      <div class="gl-item" onclick="openLb('https://i.ibb.co/WpqsmpD3/Johanna-Oedin-Coach-Vocal-1.jpg')">
+        <img src="https://i.ibb.co/WpqsmpD3/Johanna-Oedin-Coach-Vocal-1.jpg" alt="Session coaching vocal" loading="lazy">
+      </div>
+      <div class="gl-item" onclick="openLb('https://i.ibb.co/ZzLFBVdS/Johanna-Oedin-Coach-Vocal-2.jpg')">
+        <img src="https://i.ibb.co/ZzLFBVdS/Johanna-Oedin-Coach-Vocal-2.jpg" alt="Johanna Oedin en concert" loading="lazy">
+      </div>
+      <div class="gl-item" onclick="openLb('https://i.ibb.co/S7Rxcp3K/Johanna-Oedin-Coach-Vocal-3.jpg')">
+        <img src="https://i.ibb.co/S7Rxcp3K/Johanna-Oedin-Coach-Vocal-3.jpg" alt="Performance vocale sur scène" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" onclick="closeLb()">
+  <button class="lb-close" onclick="closeLb()">✕</button>
+  <img id="lb-img" src="" alt="Photo agrandie">
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section id="avis" class="s s-dark">
+  <div class="wrap">
+    <div class="tc">
+      <span class="sec-label">Ils témoignent</span>
+      <h2 class="h2">La confiance de mes élèves</h2>
+    </div>
+    <div style="margin-top:40px">
+      <div class="goog-badge">
+        <div class="goog-score">5,0</div>
+        <div class="goog-info">
+          <div class="goog-stars">★★★★★</div>
+          <div style="font-size:.9rem;color:#fff;font-weight:600">Note Google</div>
+          <div class="goog-label">5 avis vérifiés</div>
+        </div>
+      </div>
+    </div>
+    <div class="ps-grid">
+      <div class="ps-card">
+        <div class="ps-stars">★★★★★</div>
+        <p class="ps-text">"Johanna a une façon incroyable de vous mettre en confiance. En quelques séances, j'ai senti ma voix se libérer comme jamais. Je recommande à 100 %."</p>
+        <div>
+          <p class="ps-author">Marie-Laure T.</p>
+          <p class="ps-role">Élève — Cours collectifs, Dumbéa</p>
+        </div>
+      </div>
+      <div class="ps-card">
+        <div class="ps-stars">★★★★★</div>
+        <p class="ps-text">"J'ai préparé mon audition avec Johanna et je l'ai décroché ! Sa méthode est rigoureuse, bienveillante et vraiment efficace. Merci infiniment."</p>
+        <div>
+          <p class="ps-author">Kevin M.</p>
+          <p class="ps-role">Élève — Préparation audition</p>
+        </div>
+      </div>
+      <div class="ps-card">
+        <div class="ps-stars">★★★★★</div>
+        <p class="ps-text">"Un coaching sur mesure qui a transformé ma façon de chanter. Johanna est à l'écoute, passionnée et très professionnelle. Je continue les séances !"</p>
+        <div>
+          <p class="ps-author">Anaïs R.</p>
+          <p class="ps-role">Élève — Coaching individuel</p>
+        </div>
+      </div>
+    </div>
+    <div class="bdg-row">
+      <div class="bdg"><span class="bdg-dot"></span>Places limitées par groupe</div>
+      <div class="bdg"><span class="bdg-dot"></span>Suivi personnalisé garanti</div>
+      <div class="bdg"><span class="bdg-dot"></span>Accessible depuis Nouméa</div>
+      <div class="bdg"><span class="bdg-dot"></span>Méthode éprouvée 10 ans+</div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE -->
+<section id="contact" class="s s-deeper">
+  <div class="wrap">
+    <div class="tc">
+      <span class="sec-label">Réservation</span>
+      <h2 class="h2">Commençons ensemble</h2>
+      <p class="sec-intro">Décrivez votre projet vocal et je vous recontacte rapidement pour définir le coaching adapté.</p>
+    </div>
+    <form class="frm" id="frm" action="#" novalidate>
+      <div class="frm-row">
+        <div class="fld">
+          <label for="f-nom">Nom complet</label>
+          <input type="text" id="f-nom" name="nom" placeholder="Votre nom" required>
+        </div>
+        <div class="fld">
+          <label for="f-tel">Téléphone</label>
+          <input type="tel" id="f-tel" name="tel" placeholder="Votre numéro">
+        </div>
+      </div>
+      <div class="fld">
+        <label for="f-email">Adresse email</label>
+        <input type="email" id="f-email" name="email" placeholder="votre@email.com" required>
+      </div>
+      <div class="fld">
+        <label for="f-msg">Votre message</label>
+        <textarea id="f-msg" name="message" placeholder="Parlez-moi de votre projet, votre niveau, vos objectifs…" required></textarea>
+      </div>
+      <button type="submit" class="b b-accent b-pulse" id="frm-btn" style="width:100%">Envoyer ma demande</button>
+      <div class="frm-msg" id="frm-ok">✓ Merci ! Votre message a bien été envoyé. Je vous recontacte très prochainement.</div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="ft-grid">
+      <div>
+        <div class="ft-brand">Johanna Oedin<br><span>Coach Vocal</span></div>
+        <p class="ft-addr">BP 124 GA, Dumbea<br>Dumbéa, Nouvelle-Calédonie</p>
+        <div class="ft-social">
+          <a href="https://ww.facebook.com/johanna.oedin" target="_blank" rel="noopener" class="ft-soc-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <p class="ft-col-title">Navigation</p>
+        <div class="ft-links">
+          <a href="#services">Services</a>
+          <a href="#apropos">À propos</a>
+          <a href="#galerie">Galerie</a>
+          <a href="#avis">Témoignages</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div>
+        <p class="ft-col-title">Nos services</p>
+        <div class="ft-links">
+          <a href="#services">Cours collectifs</a>
+          <a href="#services">Coaching individuel</a>
+          <a href="#services">Préparation auditions</a>
+          <a href="#services">Ateliers thématiques</a>
+          <a href="#services">Forfaits trimestriels</a>
+        </div>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <p class="ft-copy">© 2026 Johanna Oedin Coach Vocal. Tous droits réservés.</p>
+      <p class="ft-made">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+function openLb(src){var l=document.getElementById('lb');document.getElementById('lb-img').src=src;l.classList.add('open');document.body.style.overflow='hidden'}
+function closeLb(){document.getElementById('lb').classList.remove('open');document.body.style.overflow=''}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
+document.getElementById('frm').addEventListener('submit',function(e){
+e.preventDefault();
+var b=document.getElementById('frm-btn');
+var ok=document.getElementById('frm-ok');
+b.textContent='Envoi…';b.disabled=true;
+setTimeout(function(){b.style.display='none';ok.classList.add('show')},900);
+});
+(function(){
+var obs=new IntersectionObserver(function(entries){
+entries.forEach(function(en){
+if(en.isIntersecting){en.target.style.opacity='1';en.target.style.transform='none';}
+});
+},{threshold:0.12});
+document.querySelectorAll('.sv-card,.ps-card,.met-img,.met-text').forEach(function(el){
+el.style.transition='opacity .55s ease, transform .55s ease';
+obs.observe(el);
+});
+})();
+</script>
+</body>
+</html>
