@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cabinet dentaire Docteur Escuit — Païta</title>
+<meta name="description" content="Cabinet dentaire du Docteur Escuit à Païta, Nouvelle-Calédonie. Soins dentaires modernes, équipements récents, prise en charge personnalisée. Prenez rendez-vous dès aujourd'hui.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Source+Sans+3:wght@400;600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#007CBA;
+--cs:#4A4A4A;
+--ca:#E8621A;
+--cb:#FFFFFF;
+--ct:#313131;
+--cpd:#005f91;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans',sans-serif;color:var(--ct);background:var(--cb);overflow-x:hidden;font-size:16px;line-height:1.6}
+h1,h2,h3,h4{font-family:'Source Sans 3',sans-serif;line-height:1.25}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+
+/* BANDEAU PROMO */
+.promo{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;text-align:center}
+.promo a{font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;line-height:44px;letter-spacing:0.3px;display:block;width:100%}
+.promo a:hover{opacity:0.85}
+
+/* HEADER */
+.header{position:fixed;top:44px;left:0;width:100%;background:rgba(255,255,255,0.97);backdrop-filter:blur(8px);z-index:1000;border-bottom:1px solid #f0f0f0;transition:box-shadow 0.3s}
+.header.scrolled{box-shadow:0 2px 16px rgba(0,0,0,0.08)}
+.nav-wrap{max-width:1200px;margin:0 auto;padding:0 24px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:'Source Sans 3',sans-serif;font-weight:700;font-size:18px;color:var(--cp);letter-spacing:-0.3px;line-height:1.2}
+.logo span{color:var(--ct);font-weight:400;font-size:13px;display:block}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-family:'Source Sans 3',sans-serif;font-size:14px;font-weight:600;color:var(--cs);transition:color 0.2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--ca);transition:width 0.2s}
+.nav-links a:hover{color:var(--cp)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{display:flex;align-items:center;gap:12px}
+.tel-link{font-family:'Source Sans 3',sans-serif;font-weight:600;font-size:14px;color:var(--cp);white-space:nowrap}
+.tel-link:hover{color:var(--cpd)}
+.b-primary{background:var(--cp);color:#fff;font-family:'Source Sans 3',sans-serif;font-weight:600;font-size:14px;padding:10px 22px;border-radius:6px;border:none;cursor:pointer;transition:background 0.2s,box-shadow 0.2s,transform 0.15s;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;text-decoration:none}
+.b-primary:hover{background:var(--cpd);box-shadow:0 4px 12px rgba(0,124,186,0.25);transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{display:block;width:24px;height:2px;background:var(--ct);border-radius:2px;transition:all 0.25s}
+.mobile-nav{display:none;position:fixed;top:112px;left:0;width:100%;background:#fff;border-bottom:2px solid var(--cp);padding:20px 24px;z-index:999;flex-direction:column;gap:4px}
+.mobile-nav a{padding:12px 0;font-family:'Source Sans 3',sans-serif;font-weight:600;font-size:16px;color:var(--ct);border-bottom:1px solid #f5f5f5}
+.mobile-nav .b-primary{margin-top:8px;text-align:center;justify-content:center;width:100%;min-height:48px;font-size:16px}
+.mobile-nav.open{display:flex}
+
+/* HERO */
+.hero{min-height:100vh;background:url('https://i.ibb.co/CphWjPjj/Cabinet-dentaire-Docteur-Escuit-0.jpg') center/cover no-repeat;position:relative;display:flex;align-items:center;padding-top:112px}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(0,0,0,0.62) 0%,rgba(0,0,0,0.35) 60%,rgba(0,124,186,0.15) 100%)}
+.hero-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 24px;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);border-radius:50px;padding:6px 16px;margin-bottom:24px;backdrop-filter:blur(4px)}
+.hero-badge span{font-family:'Source Sans 3',sans-serif;font-size:13px;font-weight:600;color:rgba(255,255,255,0.9);letter-spacing:0.5px}
+.hero-badge svg{width:14px;height:14px;fill:#ffd700}
+.h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:700;color:#fff;max-width:640px;letter-spacing:-0.5px;margin-bottom:16px}
+.h1 em{font-style:normal;color:#7fd4f7}
+.hero-sub{font-size:clamp(1rem,2vw,1.2rem);color:rgba(255,255,255,0.85);max-width:520px;margin-bottom:36px;font-weight:400;line-height:1.65}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:48px}
+.b-secondary{background:rgba(255,255,255,0.12);color:#fff;font-family:'Source Sans 3',sans-serif;font-weight:600;font-size:15px;padding:12px 26px;border-radius:6px;border:2px solid rgba(255,255,255,0.5);cursor:pointer;transition:background 0.2s,border-color 0.2s;display:inline-flex;align-items:center;gap:8px;text-decoration:none;backdrop-filter:blur(4px)}
+.b-secondary:hover{background:rgba(255,255,255,0.22);border-color:#fff}
+.b-primary.large{font-size:15px;padding:14px 30px}
+.hero-trust{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.8);font-size:13px;font-family:'Source Sans 3',sans-serif;font-weight:600}
+.trust-item svg{width:18px;height:18px;flex-shrink:0}
+.trust-sep{width:1px;height:24px;background:rgba(255,255,255,0.25)}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;opacity:0.7}
+.scroll-ind span{font-size:11px;font-family:'Source Sans 3',sans-serif;font-weight:600;color:#fff;letter-spacing:1px;text-transform:uppercase}
+.scroll-arrow{width:24px;height:24px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg);animation:bounce 1.5s infinite}
+@keyframes bounce{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(4px)}}
+
+/* STATS */
+.stats{background:var(--cp);padding:56px 24px}
+.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.stat-item{text-align:center}
+.stat-num{font-family:'Source Sans 3',sans-serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:700;color:#fff;line-height:1;margin-bottom:8px}
+.stat-num span{font-size:0.55em;vertical-align:super}
+.stat-label{font-size:14px;color:rgba(255,255,255,0.8);font-weight:500;letter-spacing:0.3px}
+.stat-divider{width:1px;background:rgba(255,255,255,0.2)}
+
+/* REVEAL */
+.reveal{opacity:1;transform:none;transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.hidden{opacity:0;transform:translateY(24px)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.nav-links{display:none}
+.hamburger{display:flex}
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+.stat-divider{display:none}
+}
+@media(max-width:480px){
+.promo a{font-size:13px;line-height:40px}
+.promo{height:40px}
+.header{top:40px}
+.hero{padding-top:108px;min-height:100svh}
+.mobile-nav{top:108px}
+.nav-wrap{height:60px;padding:0 16px}
+.logo{font-size:16px}
+.hero-inner{padding:0 16px}
+.hero-btns{flex-direction:column}
+.hero-btns .b-primary,.hero-btns .b-secondary{width:100%;justify-content:center;min-height:52px;font-size:16px}
+.stats{padding:40px 16px}
+.stats-inner{grid-template-columns:repeat(2,1fr);gap:24px}
+.stat-num{font-size:1.9rem}
+}
+/* FALLBACK SECURITE ANIMATIONS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO SETUP NC -->
+<div class="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="nav-wrap">
+    <a href="#hero" class="logo">
+      Dr Escuit<span>Cabinet Dentaire · Païta</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#services">Soins</a>
+      <a href="#praticien">Le cabinet</a>
+      <a href="#galerie">Photos</a>
+      <a href="#rdv">Rendez-vous</a>
+      <a href="#infos">Accès</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:" class="tel-link" aria-label="Appeler le cabinet"></a>
+      <a href="#rdv" class="b-primary">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        Prendre RDV
+      </a>
+    </div>
+    <button class="hamburger" id="ham" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <a href="#services" class="mob-link">Soins dentaires</a>
+  <a href="#praticien" class="mob-link">Le cabinet</a>
+  <a href="#galerie" class="mob-link">Photos</a>
+  <a href="#infos" class="mob-link">Horaires & accès</a>
+  <a href="#rdv" class="b-primary">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+    Prendre rendez-vous
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero" aria-label="Bienvenue au cabinet dentaire Docteur Escuit">
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-badge" aria-label="Note Google">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <span>4,9 / 5 · 7 avis patients Google</span>
+    </div>
+    <h1 class="h1">Votre santé dentaire,<br><em>notre priorité à Païta</em></h1>
+    <p class="hero-sub">Le Docteur Escuit vous accueille dans un cabinet moderne, au cœur du Centre Commercial de La Gare, avec des équipements récents et une approche personnalisée pour toute la famille.</p>
+    <div class="hero-btns">
+      <a href="#rdv" class="b-primary large">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        Prendre rendez-vous
+      </a>
+      <a href="#praticien" class="b-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        Découvrir le cabinet
+      </a>
+    </div>
+    <div class="hero-trust" role="list">
+      <div class="trust-item" role="listitem">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#7fd4f7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Équipements modernes
+      </div>
+      <div class="trust-sep" aria-hidden="true"></div>
+      <div class="trust-item" role="listitem">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#7fd4f7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Accueil patients CAFAT
+      </div>
+      <div class="trust-sep" aria-hidden="true"></div>
+      <div class="trust-item" role="listitem">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#7fd4f7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Parking gratuit
+      </div>
+    </div>
+  </div>
+  <div class="scroll-ind" aria-hidden="true">
+    <span>Découvrir</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" aria-label="Chiffres clés du cabinet">
+  <div class="stats-inner">
+    <div class="stat-item reveal">
+      <div class="stat-num" data-target="4.9" data-decimal="1">4,9<span>★</span></div>
+      <div class="stat-label">Note Google patients</div>
+    </div>
+    <div class="stat-divider" aria-hidden="true"></div>
+    <div class="stat-item reveal">
+      <div class="stat-num" data-target="7">7</div>
+      <div class="stat-label">Avis vérifiés</div>
+    </div>
+    <div class="stat-divider" aria-hidden="true"></div>
+    <div class="stat-item reveal">
+      <div class="stat-num" data-target="1" data-suffix=" cabinet">1</div>
+      <div class="stat-label">Cabinet équipé à Païta</div>
+    </div>
+    <div class="stat-divider" aria-hidden="true"></div>
+    <div class="stat-item reveal">
+      <div class="stat-num">100<span>%</span></div>
+      <div class="stat-label">Dédié à votre confort</div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var h=document.getElementById('header');
+  var ham=document.getElementById('ham');
+  var mn=document.getElementById('mobileNav');
+  var links=mn.querySelectorAll('.mob-link');
+  var open=false;
+
+  window.addEventListener('scroll',function(){
+    h.classList.toggle('scrolled',window.scrollY>10);
+  });
+
+  ham.addEventListener('click',function(){
+    open=!open;
+    mn.classList.toggle('open',open);
+    ham.setAttribute('aria-expanded',open);
+    mn.setAttribute('aria-hidden',!open);
+  });
+
+  links.forEach(function(l){
+    l.addEventListener('click',function(){
+      open=false;
+      mn.classList.remove('open');
+      ham.setAttribute('aria-expanded','false');
+    });
+  });
+
+  // Stats counter
+  var stats=document.querySelectorAll('.stat-num[data-target]');
+  var started=false;
+  function runCounters(){
+    if(started)return;
+    started=true;
+    stats.forEach(function(el){
+      var target=parseFloat(el.getAttribute('data-target'));
+      var dec=parseInt(el.getAttribute('data-decimal')||'0');
+      var suf=el.getAttribute('data-suffix')||'';
+      var star=el.querySelector('span');
+      var starHtml=star?star.outerHTML:'';
+      var start=0,dur=1600,startTime=null;
+      function step(ts){
+        if(!startTime)startTime=ts;
+        var p=Math.min((ts-startTime)/dur,1);
+        var val=start+(target-start)*p;
+        el.innerHTML=(dec>0?val.toFixed(dec):Math.floor(val))+starHtml+suf;
+        if(p<1)requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+
+  var so=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){runCounters();so.disconnect();}
+    });
+  },{threshold:0.3});
+  var statsEl=document.querySelector('.stats');
+  if(statsEl)so.observe(statsEl);
+
+  // Reveal on scroll
+  var revEls=document.querySelectorAll('.reveal');
+  revEls.forEach(function(el){el.classList.add('hidden');});
+  var ro=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.remove('hidden');ro.unobserve(e.target);}
+    });
+  },{threshold:0.15});
+  revEls.forEach(function(el){ro.observe(el);});
+})();
+</script>
+<style>
+/* PART 2 STYLES */
+.s{padding:80px 24px}
+.s-alt{background:#f8fbfd}
+.s-center{text-align:center}
+.container{max-width:1200px;margin:0 auto}
+.tag{display:inline-block;font-family:'Source Sans 3',sans-serif;font-weight:600;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;color:var(--cp);background:#e8f4fb;padding:6px 14px;border-radius:50px;margin-bottom:16px}
+.h2{font-family:'Source Sans 3',sans-serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;color:var(--ct);margin-bottom:16px;letter-spacing:-0.3px}
+.h3{font-family:'Source Sans 3',sans-serif;font-size:1.1rem;font-weight:700;color:var(--ct);margin-bottom:10px}
+.lead{font-size:1.05rem;color:var(--cs);max-width:580px;margin:0 auto 48px;line-height:1.7}
+
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.c{background:#fff;border-radius:12px;padding:32px 24px;box-shadow:0 2px 16px rgba(0,0,0,0.06);transition:box-shadow 0.25s,background 0.25s,transform 0.25s;display:flex;flex-direction:column;gap:12px}
+.c:hover{box-shadow:0 8px 32px rgba(0,0,0,0.1);background:#fef5f0;transform:translateY(-4px)}
+.c-icon{width:52px;height:52px;background:#e8f4fb;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.c-icon svg{width:26px;height:26px;stroke:var(--cp);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.c-text{color:var(--cs);font-size:14px;line-height:1.65;flex:1}
+.c-link{font-family:'Source Sans 3',sans-serif;font-weight:600;font-size:13px;color:var(--cp);display:inline-flex;align-items:center;gap:5px;margin-top:4px}
+.c-link:hover{color:var(--ca)}
+.c-link:hover span{text-decoration:underline;text-decoration-color:var(--ca)}
+
+/* SECTION METIER */
+.metier-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.metier-grid.rev{direction:rtl}
+.metier-grid.rev>*{direction:ltr}
+.metier-img{border-radius:16px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.12);position:relative}
+.metier-img img{width:100%;height:420px;object-fit:cover;transition:opacity 0.3s ease}
+.metier-img::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:var(--cp)}
+.metier-content{display:flex;flex-direction:column;gap:20px}
+.metier-content .lead{margin:0;text-align:left;max-width:none}
+.check-list{display:flex;flex-direction:column;gap:12px}
+.check-item{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:var(--ct);line-height:1.55}
+.check-icon{width:22px;height:22px;background:var(--cp);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.check-icon svg{width:11px;height:11px;stroke:#fff;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+
+/* GALERIE */
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal-item{border-radius:10px;overflow:hidden;cursor:pointer;position:relative;aspect-ratio:1}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.35s,opacity 0.3s}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-over{position:absolute;inset:0;background:rgba(0,124,186,0.45);opacity:0;display:flex;align-items:center;justify-content:center;transition:opacity 0.25s}
+.gal-item:hover .gal-over{opacity:1}
+.gal-over svg{width:32px;height:32px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+/* LIGHTBOX */
+.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:2000;align-items:center;justify-content:center;padding:24px}
+.lb.active{display:flex}
+.lb-img{max-width:90vw;max-height:85vh;border-radius:8px;object-fit:contain}
+.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;cursor:pointer;color:#fff;font-size:32px;line-height:1;opacity:0.8;transition:opacity 0.2s}
+.lb-close:hover{opacity:1}
+
+/* FORMULAIRE */
+.rdv-wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.rdv-info{display:flex;flex-direction:column;gap:24px}
+.rdv-block{display:flex;gap:16px;align-items:flex-start}
+.rdv-block-icon{width:44px;height:44px;background:#e8f4fb;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.rdv-block-icon svg{width:20px;height:20px;stroke:var(--cp);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.rdv-block-text strong{font-family:'Source Sans 3',sans-serif;font-weight:700;font-size:15px;color:var(--ct);display:block;margin-bottom:4px}
+.rdv-block-text span{font-size:14px;color:var(--cs);line-height:1.6}
+form{display:flex;flex-direction:column;gap:18px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f-group{display:flex;flex-direction:column;gap:6px}
+.f-group label{font-family:'Source Sans 3',sans-serif;font-weight:600;font-size:13px;color:var(--ct);letter-spacing:0.2px}
+.f-group input,.f-group textarea,.f-group select{font-family:'Open Sans',sans-serif;font-size:14px;color:var(--ct);background:#f8fbfd;border:1.5px solid #e2edf4;border-radius:6px;padding:12px 14px;width:100%;outline:none;transition:border-color 0.2s}
+.f-group input:focus,.f-group textarea:focus{border-left:3px solid var(--cp);border-color:var(--cp);background:#fff}
+.f-group textarea{resize:vertical;min-height:110px}
+.f-err{font-size:12px;color:#c0392b;display:none}
+.f-err.show{display:block}
+.b-submit{background:var(--cp);color:#fff;font-family:'Source Sans 3',sans-serif;font-weight:600;font-size:15px;padding:14px 32px;border-radius:6px;border:none;cursor:pointer;width:100%;min-height:52px;transition:background 0.2s,box-shadow 0.2s,transform 0.15s;display:flex;align-items:center;justify-content:center;gap:8px}
+.b-submit:hover{background:var(--cpd);box-shadow:0 4px 12px rgba(0,124,186,0.25);transform:translateY(-1px)}
+.b-submit:disabled{opacity:0.7;cursor:not-allowed;transform:none}
+.f-success{display:none;background:#edfaf4;border:1.5px solid #2ecc71;border-radius:8px;padding:20px;text-align:center}
+.f-success.show{display:block}
+.f-success strong{font-family:'Source Sans 3',sans-serif;color:#1a7a44;font-size:16px;font-weight:700;display:block;margin-bottom:4px}
+.f-success span{font-size:14px;color:#2d8653}
+
+/* PREUVE SOCIALE */
+.ps-top{display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap;margin-bottom:56px}
+.ps-score{text-align:center}
+.ps-big{font-family:'Source Sans 3',sans-serif;font-size:4rem;font-weight:700;color:var(--cp);line-height:1}
+.ps-stars{display:flex;gap:4px;justify-content:center;margin:8px 0}
+.ps-stars svg{width:22px;height:22px;fill:#ffc107}
+.ps-count{font-size:13px;color:var(--cs)}
+.ps-sep{width:1px;height:80px;background:#e8e8e8}
+.ps-badges{display:flex;flex-direction:column;gap:12px}
+.badge{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;color:var(--ct)}
+.badge svg{width:18px;height:18px;stroke:var(--cp);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.testi{background:#fff;border-radius:12px;padding:28px;box-shadow:0 2px 16px rgba(0,0,0,0.06);display:flex;flex-direction:column;gap:14px}
+.testi-stars{display:flex;gap:3px}
+.testi-stars svg{width:15px;height:15px;fill:#ffc107}
+.testi-text{font-size:14px;color:var(--cs);line-height:1.7;flex:1;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:10px}
+.testi-avatar{width:40px;height:40px;border-radius:50%;background:var(--cp);display:flex;align-items:center;justify-content:center;font-family:'Source Sans 3',sans-serif;font-weight:700;font-size:15px;color:#fff;flex-shrink:0}
+.testi-name{font-family:'Source Sans 3',sans-serif;font-weight:700;font-size:14px;color:var(--ct)}
+.testi-source{font-size:12px;color:var(--cs)}
+.google-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1.5px solid #e2edf4;border-radius:8px;padding:10px 18px;font-family:'Source Sans 3',sans-serif;font-weight:600;font-size:13px;color:var(--ct);margin-top:40px}
+
+/* FOOTER */
+footer{background:var(--cp);color:#fff;padding:56px 24px 24px}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:40px}
+.f-brand{font-family:'Source Sans 3',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:14px;color:#fff}
+.f-addr{font-size:14px;line-height:1.8;color:rgba(255,255,255,0.8)}
+.f-addr a{color:rgba(255,255,255,0.9);text-decoration:underline;text-decoration-color:rgba(255,255,255,0.3)}
+.f-addr a:hover{color:#fff}
+.f-title{font-family:'Source Sans 3',sans-serif;font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:16px}
+.f-links{display:flex;flex-direction:column;gap:10px}
+.f-links a{font-size:14px;color:rgba(255,255,255,0.8);transition:color 0.2s}
+.f-links a:hover{color:#fff}
+.f-hours-list{display:flex;flex-direction:column;gap:8px}
+.f-hours-item{font-size:13px;color:rgba(255,255,255,0.8);display:flex;justify-content:space-between;gap:12px}
+.f-hours-item strong{color:#fff;font-weight:600}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.15);padding-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-bottom span{font-size:12px;color:rgba(255,255,255,0.6)}
+.footer-bottom a{color:rgba(255,255,255,0.8);font-weight:600;text-decoration:underline}
+.footer-bottom a:hover{color:#fff}
+
+/* RESPONSIVE PART 2 */
+@media(max-width:900px){
+.svc-grid{grid-template-columns:1fr 1fr}
+.metier-grid,.rdv-wrap{grid-template-columns:1fr;gap:32px}
+.metier-grid.rev{direction:ltr}
+.metier-img img{height:280px}
+.testi-grid{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+.s{padding:56px 16px}
+.svc-grid{grid-template-columns:1fr}
+.f-row{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr;gap:28px}
+.ps-sep{display:none}
+.gal-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+.ps-top{gap:20px}
+.footer-bottom{flex-direction:column;align-items:flex-start;gap:8px}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s s-alt" id="services" aria-labelledby="svc-title">
+  <div class="container">
+    <div class="s-center">
+      <div class="tag">Nos soins</div>
+      <h2 class="h2" id="svc-title">Des soins adaptés à chaque patient</h2>
+      <p class="lead">Du bilan annuel aux traitements spécialisés, le Docteur Escuit vous propose une prise en charge complète dans un environnement moderne et bienveillant.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="c reveal">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5.5 5 9c0 2.5 1 4.5 2.5 6L12 22l4.5-7c1.5-1.5 2.5-3.5 2.5-6 0-3.5-3-7-7-7z"/></svg>
+        </div>
+        <h3 class="h3">Soins conservateurs</h3>
+        <p class="c-text">Détartrage, traitement des caries et restaurations esthétiques pour préserver votre capital dentaire au quotidien.</p>
+        <a href="#rdv" class="c-link"><span>Prendre rendez-vous</span> →</a>
+      </div>
+      <div class="c reveal">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h3 class="h3">Prothèses dentaires</h3>
+        <p class="c-text">Couronnes, bridges et prothèses amovibles réalisés avec des matériaux de qualité pour retrouver confort et sourire.</p>
+        <a href="#rdv" class="c-link"><span>Prendre rendez-vous</span> →</a>
+      </div>
+      <div class="c reveal">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 9h.01M15 9h.01M8 14s1.5 2 4 2 4-2 4-2"/></svg>
+        </div>
+        <h3 class="h3">Esthétique dentaire</h3>
+        <p class="c-text">Blanchiment, facettes et alignement pour un sourire harmonieux, en accord avec votre morphologie et vos souhaits.</p>
+        <a href="#rdv" class="c-link"><span>Prendre rendez-vous</span> →</a>
+      </div>
+      <div class="c reveal">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 3h18v4H3zM3 10h18v4H3zM3 17h18v4H3z"/></svg>
+        </div>
+        <h3 class="h3">Chirurgie buccale</h3>
+        <p class="c-text">Extractions simples et complexes, y compris les dents de sagesse, réalisées avec soin pour minimiser l'inconfort.</p>
+        <a href="#rdv" class="c-link"><span>Prendre rendez-vous</span> →</a>
+      </div>
+      <div class="c reveal">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22V12M12 12C12 7 7 4 3 6M12 12C12 7 17 4 21 6"/></svg>
+        </div>
+        <h3 class="h3">Pédodontie</h3>
+        <p class="c-text">Soins spécifiquement adaptés aux enfants dans une ambiance rassurante, pour instaurer dès le plus jeune âge de bons réflexes.</p>
+        <a href="#rdv" class="c-link"><span>Prendre rendez-vous</span> →</a>
+      </div>
+      <div class="c reveal">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 3v1M4.22 4.22l.7.7M3 12h1M4.22 19.78l.7-.7M12 21v-1M19.78 19.78l-.7-.7M21 12h-1M19.78 4.22l-.7.7"/><circle cx="12" cy="12" r="4"/></svg>
+        </div>
+        <h3 class="h3">Urgences dentaires</h3>
+        <p class="c-text">Le cabinet s'efforce d'accueillir les patients en urgence dans les meilleurs délais pour soulager douleurs et situations aigues.</p>
+        <a href="#rdv" class="c-link"><span>Nous contacter</span> →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION METIER -->
+<section class="s" id="praticien" aria-labelledby="met-title">
+  <div class="container">
+    <div class="s-center" style="margin-bottom:56px">
+      <div class="tag">Le cabinet</div>
+      <h2 class="h2" id="met-title">Un cabinet moderne au cœur de Païta</h2>
+      <p class="lead">Situé au Centre Commercial de La Gare, le cabinet du Docteur Escuit allie équipements contemporains et accueil chaleureux, dans un cadre naturel aux pieds du Mont Mou.</p>
+    </div>
+    <div class="metier-grid reveal">
+      <div class="metier-img">
+        <img src="https://i.ibb.co/bMnHMM16/Cabinet-dentaire-Docteur-Escuit-1.jpg" alt="Salle de soins moderne du cabinet dentaire Docteur Escuit à Païta" loading="lazy">
+      </div>
+      <div class="metier-content">
+        <div>
+          <h3 class="h3" style="font-size:1.4rem;margin-bottom:12px">Une approche centrée sur le patient</h3>
+          <p class="lead" style="margin:0">Le Docteur Escuit s'engage à vous offrir des soins de qualité dans un environnement serein, en prenant le temps d'écouter vos préoccupations et d'expliquer chaque étape du traitement.</p>
+        </div>
+        <ul class="check-list">
+          <li class="check-item">
+            <div class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>Équipements numériques récents pour des diagnostics précis</span>
+          </li>
+          <li class="check-item">
+            <div class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>Protocoles de stérilisation rigoureux pour votre sécurité</span>
+          </li>
+          <li class="check-item">
+            <div class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>Accueil bienveillant des patients anxieux, sans jugement</span>
+          </li>
+          <li class="check-item">
+            <div class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>Prise en charge CAFAT et mutuelles complémentaires</span>
+          </li>
+        </ul>
+        <a href="#rdv" class="b-primary" style="align-self:flex-start">Prendre rendez-vous</a>
+      </div>
+    </div>
+    <div class="metier-grid rev reveal" style="margin-top:72px">
+      <div class="metier-img">
+        <img src="https://i.ibb.co/WN3N931T/Cabinet-dentaire-Docteur-Escuit-2.jpg" alt="Salle d'attente confortable du cabinet dentaire à Païta" loading="lazy">
+      </div>
+      <div class="metier-content">
+        <div>
+          <h3 class="h3" style="font-size:1.4rem;margin-bottom:12px">Un emplacement pratique et accessible</h3>
+          <p class="lead" style="margin:0">Niché dans le Centre Commercial de La Gare sur la Route du Mont Mou, le cabinet est facilement accessible depuis tout Païta et la Grande Terre, avec un parking gratuit à disposition.</p>
+        </div>
+        <ul class="check-list">
+          <li class="check-item">
+            <div class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>Parking gratuit et accès facilité</span>
+          </li>
+          <li class="check-item">
+            <div class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>Accès PMR (personnes à mobilité réduite)</span>
+          </li>
+          <li class="check-item">
+            <div class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>Cadre naturel calme aux pieds du Mont Mou</span>
+          </li>
+          <li class="check-item">
+            <div class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>Salle d'attente confortable pour toute la famille</span>
+          </li>
+        </ul>
+        <a href="#infos" class="b-primary" style="align-self:flex-start">Voir l'accès</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s s-alt" id="galerie" aria-labelledby="gal-title">
+  <div class="container">
+    <div class="s-center">
+      <div class="tag">Galerie</div>
+      <h2 class="h2" id="gal-title">Découvrez le cabinet en images</h2>
+      <p class="lead">Un environnement soigné, des équipements modernes et une atmosphère apaisante pour vos soins à Païta.</p>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item reveal" data-src="https://i.ibb.co/CphWjPjj/Cabinet-dentaire-Docteur-Escuit-0.jpg" data-alt="Cabinet dentaire Docteur Escuit - Vue extérieure" role="button" tabindex="0" aria-label="Agrandir la photo 1">
+        <img src="https://i.ibb.co/CphWjPjj/Cabinet-dentaire-Docteur-Escuit-0.jpg" alt="Cabinet dentaire Docteur Escuit à Païta" loading="lazy">
+        <div class="gal-over" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg></div>
+      </div>
+      <div class="gal-item reveal" data-src="https://i.ibb.co/bMnHMM16/Cabinet-dentaire-Docteur-Escuit-1.jpg" data-alt="Salle de soins moderne" role="button" tabindex="0" aria-label="Agrandir la photo 2">
+        <img src="https://i.ibb.co/bMnHMM16/Cabinet-dentaire-Docteur-Escuit-1.jpg" alt="Salle de soins moderne du cabinet" loading="lazy">
+        <div class="gal-over" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg></div>
+      </div>
+      <div class="gal-item reveal" data-src="https://i.ibb.co/WN3N931T/Cabinet-dentaire-Docteur-Escuit-2.jpg" data-alt="Salle d'attente confortable" role="button" tabindex="0" aria-label="Agrandir la photo 3">
+        <img src="https://i.ibb.co/WN3N931T/Cabinet-dentaire-Docteur-Escuit-2.jpg" alt="Salle d'attente du cabinet dentaire" loading="lazy">
+        <div class="gal-over" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg></div>
+      </div>
+      <div class="gal-item reveal" data-src="https://i.ibb.co/pvTBfJCh/Cabinet-dentaire-Docteur-Escuit-3.jpg" data-alt="Équipements dentaires récents" role="button" tabindex="0" aria-label="Agrandir la photo 4">
+        <img src="https://i.ibb.co/pvTBfJCh/Cabinet-dentaire-Docteur-Escuit-3.jpg" alt="Équipements dentaires récents du cabinet" loading="lazy">
+        <div class="gal-over" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo agrandie">
+  <button class="lb-close" id="lb-close" aria-label="Fermer">×</button>
+  <img class="lb-img" id="lb-img" src="" alt="">
+</div>
+
+<!-- FORMULAIRE RDV -->
+<section class="s" id="rdv" aria-labelledby="rdv-title">
+  <div class="container">
+    <div class="s-center">
+      <div class="tag">Rendez-vous</div>
+      <h2 class="h2" id="rdv-title">Prenez rendez-vous facilement</h2>
+      <p class="lead">Complétez le formulaire ci-dessous et nous vous recontacterons dans les plus brefs délais pour confirmer votre consultation.</p>
+    </div>
+    <div class="rdv-wrap">
+      <div class="rdv-info">
+        <div class="rdv-block reveal">
+          <div class="rdv-block-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          </div>
+          <div class="rdv-block-text">
+            <strong>Horaires d'ouverture</strong>
+            <span>Lundi – Vendredi : 8h00 – 17h00<br>Samedi : sur rendez-vous<br>Dimanche et jours fériés : fermé</span>
+          </div>
+        </div>
+        <div class="rdv-block reveal">
+          <div class="rdv-block-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="rdv-block-text">
+            <strong>Adresse du cabinet</strong>
+            <span>Centre Commercial de LA GARE<br>Route du Mont Mou<br>Païta, Nouvelle-Calédonie</span>
+          </div>
+        </div>
+        <div class="rdv-block reveal">
+          <div class="rdv-block-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <div class="rdv-block-text">
+            <strong>Prise en charge</strong>
+            <span>CAFAT acceptée · Mutuelles complémentaires<br>Tiers payant selon convention</span>
+          </div>
+        </div>
+        <div class="rdv-block reveal">
+          <div class="rdv-block-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <div class="rdv-block-text">
+            <strong>Urgences</strong>
+            <span>Les urgences dentaires sont prises en charge en priorité. Signalez votre situation lors de votre appel.</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <form id="contact-form" action="#" novalidate>
+          <div class="f-row">
+            <div class="f-group">
+              <label for="f-nom">Nom complet *</label>
+              <input type="text" id="f-nom" name="nom" placeholder="Jean Dupont" autocomplete="name">
+              <span class="f-err" id="err-nom">Veuillez indiquer votre nom.</span>
+            </div>
+            <div class="f-group">
+              <label for="f-email">Adresse e-mail *</label>
+              <input type="email" id="f-email" name="email" placeholder="jean@exemple.nc" autocomplete="email">
+              <span class="f-err" id="err-email">Adresse e-mail invalide.</span>
+            </div>
+          </div>
+          <div class="f-row">
+            <div class="f-group">
+              <label for="f-tel">Téléphone *</label>
+              <input type="tel" id="f-tel" name="tel" placeholder="XX XX XX" autocomplete="tel">
+              <span class="f-err" id="err-tel">Veuillez indiquer votre numéro.</span>
+            </div>
+            <div class="f-group">
+              <label for="f-motif">Motif de consultation</label>
+              <input type="text" id="f-motif" name="motif" placeholder="Détartrage, urgence, bilan…">
+            </div>
+          </div>
+          <div class="f-group">
+            <label for="f-msg">Message</label>
+            <textarea id="f-msg" name="message" placeholder="Précisez votre demande ou décrivez vos symptômes…"></textarea>
+          </div>
+          <button type="submit" class="b-submit" id="f-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+            Envoyer ma demande
+          </button>
+          <div class="f-success" id="f-success" role="alert">
+            <strong>Demande envoyée avec succès !</strong>
+            <span>Nous vous recontacterons très prochainement pour confirmer votre rendez-vous.</span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFOS PRATIQUES -->
+<section class="s s-alt" id="infos" aria-labelledby="infos-title">
+  <div class="container">
+    <div class="s-center">
+      <div class="tag">Accès & Horaires</div>
+      <h2 class="h2" id="infos-title">Nous trouver facilement</h2>
+      <p class="lead">Le cabinet est situé au Centre Commercial de La Gare à Païta, facilement accessible en voiture avec parking gratuit sur place.</p>
+    </div>
+    <div style="border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.1);margin-top:8px">
+      <iframe
+        title="Localisation Cabinet dentaire Docteur Escuit, Païta"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3774.9!2d166.395!3d-22.135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6c2090f6e0e2e2e1%3A0x0!2sCentre%20Commercial%20de%20La%20Gare%2C%20Route%20du%20Mont%20Mou%2C%20Pa%C3%AFta!5e0!3m2!1sfr!2snc!4v1699999999999"
+        width="100%" height="400" style="border:0;display:block" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s" id="avis" aria-labelledby="avis-title">
+  <div class="container">
+    <div class="s-center">
+      <div class="tag">Avis patients</div>
+      <h2 class="h2" id="avis-title">Ce que disent nos patients</h2>
+      <p class="lead">La confiance de nos patients est notre meilleure récompense. Voici quelques témoignages authentiques laissés sur Google.</p>
+    </div>
+    <div class="ps-top reveal">
+      <div class="ps-score">
+        <div class="ps-big">4,9</div>
+        <div class="ps-stars" aria-label="4.9 étoiles sur 5">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div class="ps-count">Basé sur 7 avis Google vérifiés</div>
+      </div>
+      <div class="ps-sep" aria-hidden="true"></div>
+      <div class="ps-badges">
+        <div class="badge"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> Cabinet reconnu à Païta</div>
+        <div class="badge"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Équipements certifiés</div>
+        <div class="badge"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg> Prise en charge CAFAT</div>
+        <div class="badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Urgences traitées en priorité</div>
+      </div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi reveal">
+        <div class="testi-stars" aria-label="5 étoiles">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testi-text">« Le Docteur Escuit est très professionnel et à l'écoute. J'avais une appréhension pour les soins dentaires, mais l'équipe m'a mis immédiatement à l'aise. Je recommande vivement ce cabinet. »</p>
+        <div class="testi-author">
+          <div class="testi-avatar" aria-hidden="true">M</div>
+          <div>
+            <div class="testi-name">Marie L.</div>
+            <div class="testi-source">Avis Google · Patients de Païta</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi reveal">
+        <div class="testi-stars" aria-label="5 étoiles">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testi-text">« Excellent cabinet, très bien équipé. Mon fils de 8 ans était stressé, mais il est ressorti en souriant. L'accueil est chaleureux et le cabinet est très propre. Nous reviendrons avec toute la famille. »</p>
+        <div class="testi-author">
+          <div class="testi-avatar" aria-hidden="true">T</div>
+          <div>
+            <div class="testi-name">Thomas K.</div>
+            <div class="testi-source">Avis Google · Patient de Nouvelle-Calédonie</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi reveal">
+        <div class="testi-stars" aria-label="5 étoiles">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testi-text">« J'ai eu une urgence dentaire un vendredi matin, ils m'ont pris en charge rapidement. Le Docteur Escuit a fait preuve d'un grand professionnalisme et m'a expliqué chaque étape du soin. Merci ! »</p>
+        <div class="testi-author">
+          <div class="testi-avatar" aria-hidden="true">S</div>
+          <div>
+            <div class="testi-name">Sophie A.</div>
+            <div class="testi-source">Avis Google · Patient de Païta</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="s-center">
+      <div class="google-badge" aria-label="Avis Google vérifiés">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        Note 4,9 / 5 · 7 avis vérifiés Google
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="f-brand">Cabinet dentaire Docteur Escuit</div>
+        <address class="f-addr" style="font-style:normal">
+          Centre Commercial de LA GARE<br>
+          Route du Mont Mou<br>
+          Païta, Nouvelle-Calédonie<br><br>
+          <a href="tel:" aria-label="Appeler le cabinet"></a>
+        </address>
+      </div>
+      <div>
+        <div class="f-title">Navigation</div>
+        <nav class="f-links" aria-label="Liens footer">
+          <a href="#services">Nos soins</a>
+          <a href="#praticien">Le cabinet</a>
+          <a href="#galerie">Photos</a>
+          <a href="#rdv">Prendre RDV</a>
+          <a href="#infos">Accès & horaires</a>
+          <a href="#avis">Avis patients</a>
+        </nav>
+      </div>
+      <div>
+        <div class="f-title">Horaires</div>
+        <div class="f-hours-list">
+          <div class="f-hours-item"><strong>Lundi – Vendredi</strong><span>8h00 – 17h00</span></div>
+          <div class="f-hours-item"><strong>Samedi</strong><span>Sur RDV</span></div>
+          <div class="f-hours-item"><strong>Dimanche</strong><span>Fermé</span></div>
+        </div>
+        <a href="#rdv" class="b-primary" style="margin-top:20px;font-size:14px;padding:11px 22px">Prendre rendez-vous</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Cabinet dentaire Docteur Escuit. Tous droits réservés.</span>
+      <span>Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // REVEAL ON SCROLL
+  var els=document.querySelectorAll('.reveal');
+  els.forEach(function(e){e.classList.add('hidden');});
+  var ro=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.remove('hidden');ro.unobserve(e.target);}
+    });
+  },{threshold:0.12});
+  els.forEach(function(e){ro.observe(e);});
+
+  // LIGHTBOX
+  var lb=document.getElementById('lb');
+  var lbImg=document.getElementById('lb-img');
+  var lbClose=document.getElementById('lb-close');
+  document.querySelectorAll('.gal-item').forEach(function(item){
+    function open(){
+      lbImg.src=item.getAttribute('data-src');
+      lbImg.alt=item.getAttribute('data-alt');
+      lb.classList.add('active');
+      document.body.style.overflow='hidden';
+    }
+    item.addEventListener('click',open);
+    item.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' ')open();});
+  });
+  function closeLb(){lb.classList.remove('active');document.body.style.overflow='';lbImg.src='';}
+  lbClose.addEventListener('click',closeLb);
+  lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+
+  // FORMULAIRE
+  var form=document.getElementById('contact-form');
+  var btn=document.getElementById('f-btn');
+  var success=document.getElementById('f-success');
+  function val(id,ok){
+    var err=document.getElementById('err-'+id);
+    if(err)err.classList.toggle('show',!ok);
+    return ok;
+  }
+  function isEmail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);}
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var nom=document.getElementById('f-nom').value.trim();
+    var email=document.getElementById('f-email').value.trim();
+    var tel=document.getElementById('f-tel').value.trim();
+    var ok=true;
+    if(!val('nom',nom.length>1))ok=false;
+    if(!val('email',isEmail(email)))ok=false;
+    if(!val('tel',tel.length>4))ok=false;
+    if(!ok)return;
+    btn.disabled=true;
+    btn.textContent='Envoi en cours…';
+    setTimeout(function(){
+      form.style.display='none';
+      success.classList.add('show');
+    },900);
+  });
+})();
+</script>
+</body>
+</html>
