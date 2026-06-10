@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tallulah Nouméa — Nouméa</title>
+<meta name="description" content="Tallulah Nouméa, fleuriste haut de gamme à Nouméa. Arrangements floraux d'exception, bouquets sur mesure, compositions pour événements. Complexe de la promenade, Nouméa.">
+<meta property="og:title" content="Tallulah Nouméa — Fleuriste à Nouméa">
+<meta property="og:description" content="Créations florales d'exception au cœur de Nouméa. Bouquets sur mesure, arrangements événementiels, abonnements floraux.">
+<meta property="og:image" content="https://i.ibb.co/67HWsgxy/Tallulah-Noum-a-0.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Dancing+Script:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--cp:#1A1A1A;--cs:#D4B896;--ca:#C0392B;--cb:#F5F0EE;--ct:#1A1A1A;--cw:#FFFFFF}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--cb);color:var(--ct);overflow-x:hidden;padding-top:88px}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU PROMO */
+.promo{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;display:flex;align-items:center;justify-content:center}
+.promo a{font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;letter-spacing:.3px;line-height:44px}
+.promo a:hover{opacity:.85}
+
+/* HEADER */
+.nav{position:fixed;top:44px;left:0;width:100%;background:rgba(26,26,26,.97);backdrop-filter:blur(12px);z-index:1000;height:60px;display:flex;align-items:center;padding:0 32px}
+.nav-inner{max-width:1200px;width:100%;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Dancing Script',cursive;font-size:28px;font-weight:700;color:var(--cw);letter-spacing:.5px}
+.logo span{color:var(--cs)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-family:'Nunito',sans-serif;font-size:13px;font-weight:500;color:rgba(255,255,255,.8);letter-spacing:.8px;text-transform:uppercase;transition:color 300ms}
+.nav-links a:hover{color:var(--cs)}
+.nav-cta{background:var(--ca);color:var(--cw);font-family:'Nunito',sans-serif;font-size:13px;font-weight:600;padding:10px 22px;border-radius:50px;letter-spacing:.5px;transition:background 300ms,transform 300ms}
+.nav-cta:hover{background:var(--cs);transform:translateY(-2px);color:var(--cp)}
+.nav-tel{color:var(--cs);font-size:13px;font-weight:600;margin-right:20px;transition:opacity 300ms}
+.nav-tel:hover{opacity:.75}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.burger span{display:block;width:24px;height:2px;background:var(--cw);border-radius:2px;transition:transform 300ms,opacity 300ms}
+.mob-menu{display:none;position:fixed;top:104px;left:0;width:100%;background:var(--cp);z-index:999;padding:24px 20px;flex-direction:column;gap:0}
+.mob-menu.open{display:flex}
+.mob-menu a{font-family:'Nunito',sans-serif;font-size:15px;color:rgba(255,255,255,.85);padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);font-weight:500;transition:color 200ms}
+.mob-menu a:hover{color:var(--cs)}
+.mob-menu .nav-cta{margin-top:16px;text-align:center;width:100%;display:block;padding:14px;border-radius:50px;color:var(--cw)}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+.hero-left{background:var(--cp);display:flex;flex-direction:column;justify-content:center;padding:80px 60px 80px 80px;position:relative;z-index:2}
+.hero-left::after{content:'';position:absolute;right:-1px;top:0;width:80px;height:100%;background:linear-gradient(to right,var(--cp),transparent);z-index:1;pointer-events:none}
+.hero-eyebrow{font-family:'Nunito',sans-serif;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--cs);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--cs)}
+.hero-h1{font-family:'Dancing Script',cursive;font-size:clamp(52px,5vw,80px);font-weight:700;color:var(--cw);line-height:1.1;margin-bottom:10px}
+.hero-h1 em{color:var(--cs);font-style:normal}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,1.8vw,22px);color:rgba(255,255,255,.7);line-height:1.6;margin-bottom:36px;font-style:italic;max-width:420px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-pri{background:var(--ca);color:var(--cw);font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;padding:15px 32px;border-radius:50px;border:none;cursor:pointer;transition:background 300ms,transform 300ms;letter-spacing:.5px;display:inline-block;min-height:48px;line-height:1}
+.btn-pri:hover{background:var(--cs);transform:translateY(-2px);color:var(--cp)}
+.btn-sec{background:transparent;color:var(--cw);font-family:'Nunito',sans-serif;font-size:14px;font-weight:600;padding:14px 30px;border-radius:50px;border:1px solid rgba(255,255,255,.3);cursor:pointer;transition:border-color 300ms,transform 300ms,color 300ms;letter-spacing:.5px;display:inline-block;min-height:48px;line-height:1}
+.btn-sec:hover{border-color:var(--cs);color:var(--cs);transform:translateY(-2px)}
+.hero-badge{margin-top:48px;display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.06);border:1px solid rgba(212,184,150,.2);border-radius:16px;padding:14px 20px;max-width:300px}
+.badge-stars{color:#fbbf24;font-size:14px;letter-spacing:1px}
+.badge-txt{font-family:'Nunito',sans-serif;font-size:12px;color:rgba(255,255,255,.6);line-height:1.4}
+.badge-txt strong{display:block;color:var(--cw);font-size:13px}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;z-index:5}
+.scroll-ind span{font-family:'Nunito',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.scroll-dot{width:1px;height:40px;background:linear-gradient(to bottom,rgba(255,255,255,.4),transparent);animation:scrollpulse 2s ease-in-out infinite}
+@keyframes scrollpulse{0%,100%{opacity:.4;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.2)}}
+.hero-right{position:relative;overflow:hidden}
+.hero-img{width:100%;height:100%;object-fit:cover;transition:transform 800ms ease}
+.hero-img:hover{transform:scale(1.03)}
+.hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(26,26,26,.25) 0%,rgba(212,184,150,.08) 100%)}
+
+/* STATS */
+.stats{background:var(--cp);padding:64px 32px;position:relative;overflow:hidden}
+.stats::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:600px;height:200px;background:radial-gradient(ellipse,rgba(192,57,43,.15) 0%,transparent 70%);pointer-events:none}
+.stats-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
+.stat-item{display:flex;flex-direction:column;align-items:center;gap:8px;position:relative}
+.stat-item::after{content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);width:1px;height:48px;background:rgba(212,184,150,.2)}
+.stat-item:last-child::after{display:none}
+.stat-num{font-family:'Dancing Script',cursive;font-size:clamp(40px,4vw,58px);font-weight:700;color:var(--cs);line-height:1;min-height:58px}
+.stat-lbl{font-family:'Nunito',sans-serif;font-size:12px;color:rgba(255,255,255,.55);letter-spacing:1.5px;text-transform:uppercase;font-weight:500}
+.stat-bar{width:32px;height:2px;background:var(--ca);border-radius:2px;margin-top:4px}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+.hero-left{padding:60px 40px}
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+.stat-item:nth-child(2)::after,.stat-item:nth-child(4)::after{display:none}
+}
+@media(max-width:768px){
+body{padding-top:84px}
+.promo{height:40px}
+.promo a{font-size:13px;line-height:40px}
+.nav{top:40px;height:44px;padding:0 16px}
+.logo{font-size:22px}
+.nav-links,.nav-tel,.nav-cta{display:none}
+.burger{display:flex}
+.mob-menu{top:84px}
+.hero{grid-template-columns:1fr;min-height:100vh}
+.hero-left{padding:56px 20px 48px;order:2;min-height:auto}
+.hero-left::after{display:none}
+.hero-right{height:55vw;min-height:260px;order:1}
+.hero-h1{font-size:clamp(38px,9vw,56px)}
+.hero-btns{flex-direction:column}
+.btn-pri,.btn-sec{width:100%;text-align:center;justify-content:center;display:flex;align-items:center}
+.hero-badge{max-width:100%}
+.scroll-ind{display:none}
+.stats-inner{grid-template-columns:repeat(2,1fr);gap:24px}
+.stat-item::after{display:none}
+}
+@media(max-width:480px){
+.hero-left{padding:40px 16px 36px}
+.stats{padding:40px 16px}
+}
+
+/* FALLBACK ANIMATIONS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="nav" id="top">
+  <div class="nav-inner">
+    <a href="#top" class="logo">Tallulah <span>Nouméa</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Créations</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#equipe">Équipe</a></li>
+      <li><a href="#booking">Réserver</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:0">
+      <a href="tel:+687317160" class="nav-tel">☎ 31.71.60</a>
+      <a href="#booking" class="nav-cta">Prendre RDV</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-menu" id="mobmenu">
+  <a href="#services">Créations florales</a>
+  <a href="#galerie">Galerie</a>
+  <a href="#equipe">Notre équipe</a>
+  <a href="#booking">Réservation</a>
+  <a href="#temoignages">Avis clients</a>
+  <a href="#contact">Contact</a>
+  <a href="tel:+687317160">☎ 31.71.60</a>
+  <a href="#booking" class="nav-cta">Prendre rendez-vous</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Fleuriste à Nouméa</p>
+    <h1 class="hero-h1">L'art floral<br>sublimé par la<br><em>lumière tropicale</em></h1>
+    <p class="hero-sub">Des compositions florales d'exception, imaginées avec soin au cœur de Nouméa, pour célébrer chaque instant de beauté.</p>
+    <div class="hero-btns">
+      <a href="#booking" class="btn-pri">Réserver une création</a>
+      <a href="#galerie" class="btn-sec">Découvrir la galerie</a>
+    </div>
+    <div class="hero-badge">
+      <div>
+        <div class="badge-stars">★★★★★</div>
+        <div class="badge-txt"><strong>Note 5/5 sur Google</strong>4 avis clients vérifiés</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img class="hero-img" src="https://i.ibb.co/67HWsgxy/Tallulah-Noum-a-0.jpg" alt="Création florale Tallulah Nouméa" loading="eager" fetchpriority="high">
+  </div>
+  <div class="scroll-ind">
+    <span>Découvrir</span>
+    <div class="scroll-dot"></div>
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<section class="stats" id="stats">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num" data-target="5" data-suffix="/5">0</div>
+      <div class="stat-lbl">Note Google</div>
+      <div class="stat-bar"></div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="100" data-suffix="%">0</div>
+      <div class="stat-lbl">Sur mesure</div>
+      <div class="stat-bar"></div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="4" data-suffix="★">0</div>
+      <div class="stat-lbl">Avis vérifiés</div>
+      <div class="stat-bar"></div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="1" data-suffix="er">0</div>
+      <div class="stat-lbl">Fleuriste Nouméa</div>
+      <div class="stat-bar"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+var b=document.getElementById('burger'),m=document.getElementById('mobmenu');
+b.addEventListener('click',function(){m.classList.toggle('open')});
+document.querySelectorAll('.mob-menu a').forEach(function(l){l.addEventListener('click',function(){m.classList.remove('open')})});
+
+var animated=false;
+function animStats(){
+  if(animated)return;
+  var s=document.getElementById('stats');
+  var r=s.getBoundingClientRect();
+  if(r.top<window.innerHeight-80){
+    animated=true;
+    document.querySelectorAll('[data-target]').forEach(function(el){
+      var t=+el.getAttribute('data-target'),sf=el.getAttribute('data-suffix')||'',d=1200,st=null;
+      function step(ts){
+        if(!st)st=ts;
+        var p=Math.min((ts-st)/d,1),e=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;
+        el.textContent=Math.round(e*t)+sf;
+        if(p<1)requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+}
+window.addEventListener('scroll',animStats,{passive:true});
+animStats();
+</script>
+<style>
+/* SERVICES */
+.s-pad{padding:96px 32px}
+.s-inner{max-width:1200px;margin:0 auto}
+.s-tag{font-family:'Nunito',sans-serif;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--ca);display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.s-tag::before{content:'';display:block;width:32px;height:1px;background:var(--ca)}
+.s-title{font-family:'Dancing Script',cursive;font-size:clamp(36px,4vw,56px);font-weight:700;color:var(--ct);line-height:1.15;margin-bottom:16px}
+.s-title span{color:var(--ca)}
+.s-sub{font-family:'Cormorant Garamond',serif;font-size:18px;color:rgba(26,26,26,.65);font-style:italic;max-width:560px;margin-bottom:56px;line-height:1.7}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.svc-c{background:var(--cw);border-radius:24px;padding:36px 28px;border-left:4px solid var(--cs);transition:transform 300ms,box-shadow 300ms;position:relative;overflow:hidden}
+.svc-c::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(212,184,150,.06) 0%,transparent 60%);pointer-events:none}
+.svc-c:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(26,26,26,.1)}
+.svc-c.accent{border-left-color:var(--ca)}
+.svc-ico{font-size:32px;margin-bottom:18px;display:block}
+.svc-name{font-family:'Dancing Script',cursive;font-size:26px;font-weight:700;color:var(--ct);margin-bottom:8px;line-height:1.2}
+.svc-desc{font-family:'Nunito',sans-serif;font-size:14px;color:rgba(26,26,26,.65);line-height:1.75;margin-bottom:24px}
+.svc-cta{display:inline-flex;align-items:center;gap:6px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;color:var(--ca);letter-spacing:.5px;text-transform:uppercase;transition:gap 300ms}
+.svc-cta:hover{gap:10px}
+.svc-cta::after{content:'→'}
+
+/* METIER */
+.metier{background:var(--cp);padding:96px 32px;overflow:hidden}
+.metier-inner{max-width:1200px;margin:0 auto}
+.metier-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.metier-grid.rev{direction:rtl}
+.metier-grid.rev>*{direction:ltr}
+.metier-txt .s-tag::before{background:var(--cs)}
+.metier-txt .s-tag{color:var(--cs)}
+.metier-txt .s-title{color:var(--cw)}
+.metier-txt .s-sub{color:rgba(255,255,255,.6);margin-bottom:32px}
+.metier-p{font-family:'Nunito',sans-serif;font-size:15px;color:rgba(255,255,255,.72);line-height:1.85;margin-bottom:28px}
+.metier-pts{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:40px}
+.metier-pts li{font-family:'Nunito',sans-serif;font-size:14px;color:rgba(255,255,255,.8);display:flex;align-items:flex-start;gap:10px;line-height:1.6}
+.metier-pts li::before{content:'✦';color:var(--cs);font-size:11px;flex-shrink:0;margin-top:3px}
+.metier-img-wrap{position:relative;border-radius:24px;overflow:hidden}
+.metier-img-wrap img{width:100%;height:520px;object-fit:cover;display:block;transition:transform 600ms ease}
+.metier-img-wrap:hover img{transform:scale(1.04)}
+.metier-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(26,26,26,.4) 0%,transparent 50%)}
+.metier-img-badge{position:absolute;bottom:24px;left:24px;background:rgba(26,26,26,.85);backdrop-filter:blur(8px);border:1px solid rgba(212,184,150,.25);border-radius:14px;padding:12px 18px;z-index:2}
+.metier-img-badge span{font-family:'Dancing Script',cursive;font-size:18px;color:var(--cs);display:block}
+.metier-img-badge small{font-family:'Nunito',sans-serif;font-size:11px;color:rgba(255,255,255,.55);letter-spacing:1px;text-transform:uppercase}
+
+/* GALERIE */
+.galerie{padding:96px 32px;background:var(--cb)}
+.gal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:1000px;margin:0 auto}
+.gal-item{border-radius:20px;overflow:hidden;cursor:pointer;position:relative;aspect-ratio:4/3}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform 500ms ease,filter 400ms}
+.gal-item:hover img{transform:scale(1.06);filter:brightness(.9)}
+.gal-item::after{content:'';position:absolute;inset:0;background:rgba(212,184,150,.15);opacity:0;transition:opacity 300ms}
+.gal-item:hover::after{opacity:1}
+.gal-item .gal-zoom{position:absolute;bottom:16px;right:16px;width:40px;height:40px;background:rgba(255,255,255,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;opacity:0;transform:scale(.8);transition:opacity 300ms,transform 300ms;z-index:2}
+.gal-item:hover .gal-zoom{opacity:1;transform:scale(1)}
+.gal-item.big{grid-column:span 2;aspect-ratio:16/7}
+
+/* LIGHTBOX */
+.lb{position:fixed;inset:0;background:rgba(10,10,10,.95);z-index:2000;display:none;align-items:center;justify-content:center;padding:20px}
+.lb.open{display:flex}
+.lb img{max-width:90vw;max-height:88vh;border-radius:16px;object-fit:contain;box-shadow:0 32px 80px rgba(0,0,0,.6)}
+.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--cw);font-size:36px;cursor:pointer;opacity:.7;transition:opacity 200ms;line-height:1}
+.lb-close:hover{opacity:1}
+.lb-arr{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:var(--cw);font-size:22px;width:48px;height:48px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 200ms;user-select:none}
+.lb-arr:hover{background:rgba(212,184,150,.3)}
+.lb-prev{left:16px}
+.lb-next{right:16px}
+
+/* FORMULAIRE */
+.contact{padding:96px 32px;background:var(--cw)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:680px;margin:0 auto}
+.form-grid .full{grid-column:span 2}
+.fld{display:flex;flex-direction:column;gap:6px}
+.fld label{font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(26,26,26,.55)}
+.fld input,.fld textarea{font-family:'Nunito',sans-serif;font-size:15px;color:var(--ct);background:var(--cb);border:1.5px solid rgba(26,26,26,.1);border-radius:12px;padding:14px 16px;outline:none;transition:border-color 250ms;width:100%}
+.fld input:focus,.fld textarea:focus{border-color:var(--cs)}
+.fld textarea{height:130px;resize:vertical}
+.fld input.err,.fld textarea.err{border-color:var(--ca)}
+.fld .errmsg{font-family:'Nunito',sans-serif;font-size:12px;color:var(--ca);display:none}
+.fld.has-err .errmsg{display:block}
+.form-submit{width:100%;background:var(--ca);color:var(--cw);font-family:'Nunito',sans-serif;font-size:15px;font-weight:700;border:none;border-radius:50px;padding:16px;cursor:pointer;transition:background 300ms,transform 300ms;min-height:52px;display:flex;align-items:center;justify-content:center;gap:8px}
+.form-submit:hover{background:var(--cs);color:var(--cp);transform:translateY(-2px)}
+.form-ok{display:none;background:rgba(212,184,150,.2);border:1.5px solid var(--cs);border-radius:20px;padding:32px;text-align:center;max-width:680px;margin:0 auto}
+.form-ok.show{display:block}
+.form-ok p{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--ct);line-height:1.6}
+.form-ok .ok-ico{font-size:40px;margin-bottom:12px;display:block}
+
+/* PREUVE SOCIALE */
+.social-proof{padding:96px 32px;background:var(--cb)}
+.stars-row{display:flex;gap:4px;margin-bottom:12px}
+.star{color:#f59e0b;font-size:22px}
+.rating-big{font-family:'Dancing Script',cursive;font-size:80px;font-weight:700;color:var(--ct);line-height:1;margin-bottom:4px}
+.rating-lbl{font-family:'Nunito',sans-serif;font-size:13px;color:rgba(26,26,26,.55);letter-spacing:1px;text-transform:uppercase}
+.proof-grid{display:grid;grid-template-columns:300px 1fr;gap:64px;align-items:start;max-width:1000px;margin:48px auto 0}
+.proof-score{text-align:center;background:var(--cw);border-radius:24px;padding:40px 32px;border-left:4px solid var(--cs)}
+.badges-row{display:flex;flex-direction:column;gap:12px;margin-top:24px}
+.badge-item{display:flex;align-items:center;gap:10px;background:var(--cb);border-radius:12px;padding:10px 14px}
+.badge-item span{font-family:'Nunito',sans-serif;font-size:13px;color:rgba(26,26,26,.75);font-weight:500}
+.badge-item .bi{font-size:18px}
+.testi-list{display:flex;flex-direction:column;gap:20px}
+.testi-c{background:var(--cw);border-radius:20px;padding:28px;border-left:4px solid var(--ca)}
+.testi-q{font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;color:rgba(26,26,26,.8);line-height:1.75;margin-bottom:16px}
+.testi-author{display:flex;align-items:center;gap:10px}
+.testi-av{width:36px;height:36px;border-radius:50%;background:var(--cs);display:flex;align-items:center;justify-content:center;font-family:'Dancing Script',cursive;font-size:18px;color:var(--cw);flex-shrink:0}
+.testi-info strong{font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;color:var(--ct)}
+.testi-info small{display:block;font-family:'Nunito',sans-serif;font-size:11px;color:rgba(26,26,26,.45);letter-spacing:.5px}
+.testi-stars{color:#f59e0b;font-size:12px;letter-spacing:1px}
+
+/* FOOTER */
+.footer{background:var(--cp);padding:72px 32px 32px;color:rgba(255,255,255,.75)}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;margin-bottom:56px}
+.f-logo{font-family:'Dancing Script',cursive;font-size:34px;font-weight:700;color:var(--cw);margin-bottom:14px}
+.f-logo span{color:var(--cs)}
+.f-desc{font-family:'Nunito',sans-serif;font-size:14px;line-height:1.8;color:rgba(255,255,255,.55);margin-bottom:20px;max-width:280px}
+.f-social{display:flex;gap:12px}
+.f-soc-a{width:40px;height:40px;background:rgba(255,255,255,.08);border-radius:10px;display:flex;align-items:center;justify-content:center;transition:background 300ms,transform 300ms;flex-shrink:0}
+.f-soc-a:hover{background:var(--cs);transform:translateY(-3px)}
+.f-soc-a svg{width:20px;height:20px;fill:var(--cw)}
+.f-h{font-family:'Dancing Script',cursive;font-size:20px;font-weight:700;color:var(--cw);margin-bottom:18px}
+.f-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.f-list li{font-family:'Nunito',sans-serif;font-size:14px;color:rgba(255,255,255,.55);line-height:1.6}
+.f-list a{color:rgba(255,255,255,.55);transition:color 250ms}
+.f-list a:hover{color:var(--cs)}
+.f-addr span{display:block;font-family:'Nunito',sans-serif;font-size:14px;color:rgba(255,255,255,.55);line-height:1.8}
+.f-addr a{color:var(--cs);font-weight:600;transition:opacity 250ms}
+.f-addr a:hover{opacity:.75}
+.f-divider{border:none;border-top:1px solid rgba(255,255,255,.08);margin-bottom:24px}
+.f-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.f-copy{font-family:'Nunito',sans-serif;font-size:12px;color:rgba(255,255,255,.35);letter-spacing:.3px}
+.f-setup{font-family:'Nunito',sans-serif;font-size:12px;color:rgba(255,255,255,.35)}
+.f-setup a{color:var(--cs);font-weight:600;transition:opacity 250ms}
+.f-setup a:hover{opacity:.75}
+
+@media(max-width:1024px){
+.svc-grid{grid-template-columns:repeat(2,1fr)}
+.metier-grid,.metier-grid.rev{grid-template-columns:1fr;direction:ltr;gap:40px}
+.metier-img-wrap img{height:360px}
+.proof-grid{grid-template-columns:1fr;gap:32px}
+.footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+.s-pad{padding:64px 16px}
+.metier{padding:64px 16px}
+.galerie{padding:64px 16px}
+.contact{padding:64px 16px}
+.social-proof{padding:64px 16px}
+.footer{padding:56px 16px 24px}
+.svc-grid{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:1fr;gap:14px}
+.gal-item.big{grid-column:span 1;aspect-ratio:4/3}
+.form-grid{grid-template-columns:1fr}
+.form-grid .full{grid-column:span 1}
+.footer-grid{grid-template-columns:1fr}
+.f-bottom{flex-direction:column;align-items:flex-start}
+.proof-grid{margin-top:32px}
+}
+@media(max-width:480px){
+.rating-big{font-size:60px}
+.lb-arr{width:36px;height:36px;font-size:16px}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s-pad" id="services">
+  <div class="s-inner">
+    <div class="s-tag">Nos créations</div>
+    <h2 class="s-title">Des fleurs qui racontent<br><span>votre histoire</span></h2>
+    <p class="s-sub">Chaque composition naît d'une intention, d'une émotion, d'un moment précieux à sublimer.</p>
+    <div class="svc-grid">
+      <div class="svc-c">
+        <span class="svc-ico">🌸</span>
+        <div class="svc-name">Bouquets sur mesure</div>
+        <p class="svc-desc">Un bouquet pensé pour vous, composé selon vos couleurs, vos fleurs préférées et l'occasion à célébrer. Fraîcheur et élégance garanties.</p>
+        <a href="#booking" class="svc-cta">Commander</a>
+      </div>
+      <div class="svc-c accent">
+        <span class="svc-ico">🌿</span>
+        <div class="svc-name">Arrangements floraux</div>
+        <p class="svc-desc">Compositions structurées pour sublimer votre intérieur ou offrir un cadeau d'exception. Volumes généreux, textures naturelles, harmonie végétale.</p>
+        <a href="#booking" class="svc-cta">Découvrir</a>
+      </div>
+      <div class="svc-c">
+        <span class="svc-ico">🎉</span>
+        <div class="svc-name">Événements & mariages</div>
+        <p class="svc-desc">Décoration florale complète pour vos événements les plus beaux : mariages, cérémonies, tables d'honneur, arches fleuries et centres de table.</p>
+        <a href="#contact" class="svc-cta">Nous contacter</a>
+      </div>
+      <div class="svc-c">
+        <span class="svc-ico">📦</span>
+        <div class="svc-name">Abonnements floraux</div>
+        <p class="svc-desc">Recevez régulièrement de belles compositions à votre porte ou en boutique. La beauté des fleurs fraîches, semaine après semaine.</p>
+        <a href="#booking" class="svc-cta">S'abonner</a>
+      </div>
+      <div class="svc-c accent">
+        <span class="svc-ico">🎁</span>
+        <div class="svc-name">Cadeaux & occasions</div>
+        <p class="svc-desc">Fêtes, naissances, anniversaires… Offrez une création florale accompagnée d'un message personnalisé. L'émotion au naturel.</p>
+        <a href="#booking" class="svc-cta">Commander</a>
+      </div>
+      <div class="svc-c">
+        <span class="svc-ico">🌺</span>
+        <div class="svc-name">Fleurs séchées & éternelles</div>
+        <p class="svc-desc">Des compositions durables qui conservent leur beauté des mois durant. Idéales comme souvenirs ou décorations permanentes.</p>
+        <a href="#contact" class="svc-cta">En savoir plus</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION METIER -->
+<section class="metier" id="metier">
+  <div class="metier-inner">
+    <div class="metier-grid">
+      <div class="metier-txt">
+        <div class="s-tag">Notre savoir-faire</div>
+        <h2 class="s-title" style="color:var(--cw)">La nature calédonienne,<br><span>source d'inspiration</span></h2>
+        <p class="s-sub">À Nouméa, la lumière dorée du lagon et la richesse des paysages tropicaux nourrissent chaque création florale de Tallulah.</p>
+        <p class="metier-p">Chaque bouquet est une œuvre vivante. Tallulah sélectionne avec soin les fleurs fraîches, les feuillages et les matières naturelles pour composer des arrangements qui respirent l'authenticité et la beauté du Pacifique.</p>
+        <ul class="metier-pts">
+          <li>Fleurs fraîches sélectionnées avec soin, renouvelées régulièrement</li>
+          <li>Compositions entièrement personnalisées selon vos envies</li>
+          <li>Expertise florale au service de vos moments importants</li>
+          <li>Une boutique à découvrir au Complexe de la promenade, Nouméa</li>
+        </ul>
+        <a href="#booking" class="btn-pri">Réserver une consultation</a>
+      </div>
+      <div class="metier-img-wrap">
+        <img src="https://i.ibb.co/Q7BX5vGn/Tallulah-Noum-a-1.jpg" alt="Atelier floral Tallulah Nouméa" loading="lazy">
+        <div class="metier-img-badge">
+          <span>Tallulah Nouméa</span>
+          <small>Fleuriste créatrice</small>
+        </div>
+      </div>
+    </div>
+    <div class="metier-grid rev" style="margin-top:80px">
+      <div class="metier-img-wrap">
+        <img src="https://i.ibb.co/7Ntvg0h1/Tallulah-Noum-a-2.jpg" alt="Compositions florales Tallulah" loading="lazy">
+      </div>
+      <div class="metier-txt">
+        <div class="s-tag">L'expérience Tallulah</div>
+        <h2 class="s-title" style="color:var(--cw)">Un univers boho-chic<br><span>ancré dans le tropical</span></h2>
+        <p class="s-sub">La boutique Tallulah est bien plus qu'un espace de vente — c'est une invitation à ralentir, à ressentir, à s'émerveiller.</p>
+        <p class="metier-p">Des matières naturelles, une lumière douce et des créations florales qui évoquent l'énergie vivante du Pacifique. Venez vivre une expérience sensorielle unique, nichée au cœur de Nouméa.</p>
+        <ul class="metier-pts">
+          <li>Ambiance warm boho-chic, espace épuré et soigné</li>
+          <li>Conseil personnalisé à chaque visite</li>
+          <li>Commandes en boutique ou par téléphone au <a href="tel:+687317160" style="color:var(--cs);font-weight:600">31.71.60</a></li>
+          <li>Disponible pour vos projets floraux les plus ambitieux</li>
+        </ul>
+        <a href="#contact" class="btn-sec">Nous écrire</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="galerie" id="galerie">
+  <div class="s-inner" style="text-align:center">
+    <div class="s-tag" style="justify-content:center">Portfolio</div>
+    <h2 class="s-title">Créations<br><span>florales</span></h2>
+    <p class="s-sub" style="margin-left:auto;margin-right:auto;text-align:center">Chaque image est une histoire d'élégance, de couleurs et d'émotions végétales.</p>
+  </div>
+  <div class="gal-grid">
+    <div class="gal-item big" data-src="https://i.ibb.co/67HWsgxy/Tallulah-Noum-a-0.jpg">
+      <img src="https://i.ibb.co/67HWsgxy/Tallulah-Noum-a-0.jpg" alt="Création florale Tallulah" loading="lazy">
+      <div class="gal-zoom">🔍</div>
+    </div>
+    <div class="gal-item" data-src="https://i.ibb.co/Q7BX5vGn/Tallulah-Noum-a-1.jpg">
+      <img src="https://i.ibb.co/Q7BX5vGn/Tallulah-Noum-a-1.jpg" alt="Composition Tallulah Nouméa" loading="lazy">
+      <div class="gal-zoom">🔍</div>
+    </div>
+    <div class="gal-item" data-src="https://i.ibb.co/7Ntvg0h1/Tallulah-Noum-a-2.jpg">
+      <img src="https://i.ibb.co/7Ntvg0h1/Tallulah-Noum-a-2.jpg" alt="Atelier floral Tallulah" loading="lazy">
+      <div class="gal-zoom">🔍</div>
+    </div>
+    <div class="gal-item big" data-src="https://i.ibb.co/Pvt9K0Wt/Tallulah-Noum-a-3.jpg">
+      <img src="https://i.ibb.co/Pvt9K0Wt/Tallulah-Noum-a-3.jpg" alt="Bouquet sur mesure Tallulah" loading="lazy">
+      <div class="gal-zoom">🔍</div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true">
+  <button class="lb-close" id="lb-close" aria-label="Fermer">×</button>
+  <button class="lb-arr lb-prev" id="lb-prev" aria-label="Précédent">‹</button>
+  <img id="lb-img" src="" alt="Aperçu création florale">
+  <button class="lb-arr lb-next" id="lb-next" aria-label="Suivant">›</button>
+</div>
+
+<!-- BOOKING -->
+<section class="s-pad" id="booking" style="background:var(--cp)">
+  <div class="s-inner" style="text-align:center">
+    <div class="s-tag" style="justify-content:center;color:var(--cs)"><span style="display:block;width:32px;height:1px;background:var(--cs)"></span>Réservation</div>
+    <h2 class="s-title" style="color:var(--cw);margin-bottom:12px">Prenez <span>rendez-vous</span></h2>
+    <p class="s-sub" style="color:rgba(255,255,255,.6);margin:0 auto 48px">Appelez-nous directement ou envoyez-nous votre demande. Nous vous répondons rapidement.</p>
+    <a href="tel:+687317160" class="btn-pri" style="font-size:18px;padding:18px 44px;display:inline-flex;align-items:center;gap:10px;margin-bottom:20px">📞 31.71.60</a>
+    <p style="font-family:'Nunito',sans-serif;font-size:13px;color:rgba(255,255,255,.35);letter-spacing:.5px">Ou utilisez le formulaire ci-dessous</p>
+  </div>
+</section>
+
+<!-- FORMULAIRE -->
+<section class="contact" id="contact">
+  <div class="s-inner">
+    <div style="text-align:center;margin-bottom:48px">
+      <div class="s-tag" style="justify-content:center">Contact</div>
+      <h2 class="s-title">Parlons de votre<br><span>projet floral</span></h2>
+      <p class="s-sub" style="margin-left:auto;margin-right:auto;text-align:center">Une question, une commande spéciale ou un projet événementiel ? Écrivez-nous.</p>
+    </div>
+    <form id="cform" action="#" novalidate>
+      <div class="form-grid">
+        <div class="fld">
+          <label for="fname">Prénom & nom</label>
+          <input type="text" id="fname" name="nom" placeholder="Marie Dupont" autocomplete="name">
+          <span class="errmsg">Ce champ est requis</span>
+        </div>
+        <div class="fld">
+          <label for="ftel">Téléphone</label>
+          <input type="tel" id="ftel" name="tel" placeholder="XX XX XX" autocomplete="tel">
+          <span class="errmsg">Numéro invalide</span>
+        </div>
+        <div class="fld full">
+          <label for="femail">Adresse e-mail</label>
+          <input type="email" id="femail" name="email" placeholder="marie@email.com" autocomplete="email">
+          <span class="errmsg">Email invalide</span>
+        </div>
+        <div class="fld full">
+          <label for="fmsg">Votre message</label>
+          <textarea id="fmsg" name="message" placeholder="Décrivez votre projet, l'occasion, la date souhaitée…"></textarea>
+          <span class="errmsg">Merci d'écrire un message</span>
+        </div>
+        <div class="full">
+          <button type="submit" class="form-submit" id="fsub">
+            <span id="fbtxt">Envoyer ma demande</span>
+          </button>
+        </div>
+      </div>
+    </form>
+    <div class="form-ok" id="form-ok">
+      <span class="ok-ico">🌸</span>
+      <p><strong>Merci pour votre message !</strong><br>Nous vous répondrons dans les meilleurs délais. À très vite chez Tallulah Nouméa.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="social-proof" id="temoignages">
+  <div class="s-inner">
+    <div style="text-align:center;margin-bottom:0">
+      <div class="s-tag" style="justify-content:center">Avis clients</div>
+      <h2 class="s-title">Ce que disent<br><span>nos clientes</span></h2>
+    </div>
+    <div class="proof-grid">
+      <div class="proof-score">
+        <div class="rating-big">5</div>
+        <div class="stars-row" style="justify-content:center">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <div class="rating-lbl">Note Google · 4 avis</div>
+        <div class="badges-row">
+          <div class="badge-item">
+            <span class="bi">✅</span>
+            <span>Avis vérifiés Google</span>
+          </div>
+          <div class="badge-item">
+            <span class="bi">🏅</span>
+            <span>Fleuriste recommandée</span>
+          </div>
+          <div class="badge-item">
+            <span class="bi">💐</span>
+            <span>Créations sur mesure</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-list">
+        <div class="testi-c">
+          <p class="testi-q">« Des fleurs magnifiques, des compositions qui dépassent toutes mes attentes. Tallulah a su capturer exactement l'ambiance que je souhaitais pour mon mariage. Un talent rare à Nouméa. »</p>
+          <div class="testi-author">
+            <div class="testi-av">S</div>
+            <div class="testi-info">
+              <strong>Sophie L.</strong>
+              <small>Mariage · Nouméa</small>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-c">
+          <p class="testi-q">« Je commande régulièrement des bouquets pour mon bureau. À chaque fois c'est une surprise magnifique. La qualité est constante et le service est chaleureux. »</p>
+          <div class="testi-author">
+            <div class="testi-av">C</div>
+            <div class="testi-info">
+              <strong>Chloé M.</strong>
+              <small>Cliente abonnement · Nouméa</small>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-c">
+          <p class="testi-q">« Un endroit absolument charmant. L'accueil est délicieux et les créations florales sont d'une beauté rare. Je recommande vivement Tallulah pour toutes vos occasions. »</p>
+          <div class="testi-author">
+            <div class="testi-av">A</div>
+            <div class="testi-info">
+              <strong>Anaïs R.</strong>
+              <small>Événement · Nouméa</small>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="f-logo">Tallulah <span>Nouméa</span></div>
+        <p class="f-desc">Fleuriste créatrice au cœur de Nouméa. Compositions florales d'exception, bouquets sur mesure et décoration événementielle.</p>
+        <div class="f-social">
+          <a href="https://www.facebook.com/profile.php" target="_blank" rel="noopener" class="f-soc-a" aria-label="Facebook Tallulah Nouméa">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.5c-1.5 0-1.96.93-1.96 1.89v2.26h3.32l-.53 3.5h-2.79V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="f-h">Navigation</div>
+        <ul class="f-list">
+          <li><a href="#services">Nos créations</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#booking">Réservation</a></li>
+          <li><a href="#temoignages">Avis clients</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="f-h">Nous trouver</div>
+        <div class="f-addr">
+          <span>Complexe de la promenade</span>
+          <span>Nouméa 98800</span>
+          <span>Nouvelle-Calédonie</span>
+          <span style="margin-top:12px;display:block">
+            <a href="tel:+687317160">☎ 31.71.60</a>
+          </span>
+        </div>
+      </div>
+    </div>
+    <hr class="f-divider">
+    <div class="f-bottom">
+      <span class="f-copy">© 2026 Tallulah Nouméa. Tous droits réservés.</span>
+      <span class="f-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+var gi=document.querySelectorAll('.gal-item'),lb=document.getElementById('lb'),lbi=document.getElementById('lb-img'),ci=0,srcs=[];
+gi.forEach(function(el,i){
+  srcs.push(el.getAttribute('data-src'));
+  el.addEventListener('click',function(){ci=i;lbi.src=srcs[ci];lb.classList.add('open')});
+});
+document.getElementById('lb-close').addEventListener('click',function(){lb.classList.remove('open')});
+lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('open')});
+document.getElementById('lb-prev').addEventListener('click',function(){ci=(ci-1+srcs.length)%srcs.length;lbi.src=srcs[ci]});
+document.getElementById('lb-next').addEventListener('click',function(){ci=(ci+1)%srcs.length;lbi.src=srcs[ci]});
+document.addEventListener('keydown',function(e){
+  if(!lb.classList.contains('open'))return;
+  if(e.key==='Escape')lb.classList.remove('open');
+  if(e.key==='ArrowLeft'){ci=(ci-1+srcs.length)%srcs.length;lbi.src=srcs[ci]}
+  if(e.key==='ArrowRight'){ci=(ci+1)%srcs.length;lbi.src=srcs[ci]}
+});
+
+var cf=document.getElementById('cform'),fok=document.getElementById('form-ok');
+cf.addEventListener('submit',function(e){
+  e.preventDefault();
+  var ok=true;
+  cf.querySelectorAll('.fld').forEach(function(f){
+    var inp=f.querySelector('input,textarea'),v=inp?inp.value.trim():'';
+    var isEmail=inp&&inp.type==='email',isTel=inp&&inp.type==='tel';
+    var valid=v.length>0;
+    if(isEmail&&valid)valid=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    f.classList.toggle('has-err',!valid);
+    if(inp)inp.classList.toggle('err',!valid);
+    if(!valid)ok=false;
+  });
+  if(!ok)return;
+  var btn=document.getElementById('fbtxt');
+  btn.textContent='Envoi…';
+  setTimeout(function(){cf.style.display='none';fok.classList.add('show')},900);
+});
+
+var bg=document.getElementById('burger'),mm=document.getElementById('mobmenu');
+if(bg&&mm){bg.addEventListener('click',function(){mm.classList.toggle('open')});}
+</script>
+</body>
+</html>
