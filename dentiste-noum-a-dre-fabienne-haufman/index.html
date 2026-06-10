@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dentiste à Nouméa - Dre Fabienne Haufman — Nouméa</title>
+<meta name="description" content="Cabinet dentaire de la Dre Fabienne Haufman, installé dans une villa coloniale à Nouméa. Soins dentaires personnalisés, approche douce et professionnelle. Prenez rendez-vous.">
+<meta property="og:title" content="Dentiste à Nouméa - Dre Fabienne Haufman">
+<meta property="og:image" content="https://i.ibb.co/wNS2F10p/Dentiste-Noum-a-Dre-Fabienne-Haufman-0.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#CC2222;
+--cs:#5A5A5A;
+--ca:#E07060;
+--cb:#FFFFFF;
+--ct:#2C2C2C;
+--cl:#F8F8F8;
+--cpm:#A01A1A;
+--sh:0 4px 12px rgba(90,90,90,.1);
+--r:8px;
+--tr:250ms ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Montserrat',system-ui,sans-serif;color:var(--ct);background:var(--cb);overflow-x:hidden;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU PROMO */
+.promo{position:sticky;top:0;z-index:1001;background:#ffd500;height:44px;text-align:center}
+.promo a{font-family:'Manrope','Montserrat',system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;line-height:44px;letter-spacing:.3px;display:block;height:100%}
+.promo a:hover{opacity:.85}
+
+/* HEADER */
+.nav{position:sticky;top:44px;z-index:1000;background:var(--cb);border-bottom:1px solid rgba(90,90,90,.08);padding:0 24px;height:68px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 8px rgba(44,44,44,.06)}
+.nav-logo{font-size:1rem;font-weight:700;color:var(--cp);letter-spacing:-.3px;line-height:1.2}
+.nav-logo span{color:var(--cs);font-weight:400;font-size:.8rem;display:block;letter-spacing:.2px}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:.85rem;font-weight:500;color:var(--cs);transition:color var(--tr)}
+.nav-links a:hover{color:var(--cp)}
+.nav-cta{background:var(--cp);color:#fff;font-family:'Montserrat',sans-serif;font-weight:600;font-size:.85rem;padding:10px 22px;border-radius:var(--r);border:none;cursor:pointer;transition:background var(--tr),transform var(--tr);white-space:nowrap}
+.nav-cta:hover{background:var(--cpm);transform:translateY(-1px)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.ham span{width:24px;height:2px;background:var(--ct);border-radius:2px;transition:transform var(--tr),opacity var(--tr)}
+.mob-menu{display:none;position:fixed;top:112px;left:0;right:0;background:var(--cb);border-bottom:1px solid rgba(90,90,90,.1);padding:20px 24px;z-index:999;flex-direction:column;gap:16px;box-shadow:0 8px 24px rgba(44,44,44,.12)}
+.mob-menu.open{display:flex}
+.mob-menu a{font-size:1rem;font-weight:500;color:var(--ct);padding:8px 0;border-bottom:1px solid rgba(90,90,90,.06)}
+.mob-cta{background:var(--cp);color:#fff;font-weight:600;padding:14px;border-radius:var(--r);text-align:center;border:none;font-family:'Montserrat',sans-serif;font-size:1rem;cursor:pointer;width:100%;margin-top:4px;transition:background var(--tr)}
+.mob-cta:hover{background:var(--cpm)}
+
+/* HERO */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;background-image:url('https://i.ibb.co/wNS2F10p/Dentiste-Noum-a-Dre-Fabienne-Haufman-0.jpg');background-size:cover;background-position:center top}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.88) 45%,rgba(255,255,255,.3) 100%)}
+.hero-inner{position:relative;z-index:2;max-width:1140px;margin:0 auto;padding:120px 40px 80px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(204,34,34,.08);border:1px solid rgba(204,34,34,.15);border-radius:50px;padding:6px 16px;font-size:.78rem;font-weight:600;color:var(--cp);margin-bottom:20px;letter-spacing:.4px;text-transform:uppercase}
+.hero-badge::before{content:'★';font-size:.9rem}
+.h1{font-size:clamp(2rem,4vw,3.2rem);font-weight:700;line-height:1.15;color:var(--ct);margin-bottom:16px;letter-spacing:-.5px}
+.h1 em{font-style:normal;color:var(--cp)}
+.hero-sub{font-size:1.05rem;color:var(--cs);margin-bottom:32px;max-width:460px;font-weight:400;line-height:1.7}
+.hero-sub strong{color:var(--ct);font-weight:600}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px}
+.btn-p{background:var(--cp);color:#fff;font-weight:600;font-size:.95rem;padding:14px 28px;border-radius:var(--r);border:none;cursor:pointer;transition:background var(--tr),transform var(--tr);font-family:'Montserrat',sans-serif}
+.btn-p:hover{background:var(--cpm);transform:translateY(-2px)}
+.btn-s{background:transparent;color:var(--cp);font-weight:600;font-size:.95rem;padding:14px 28px;border-radius:var(--r);border:2px solid var(--cp);cursor:pointer;transition:background var(--tr),color var(--tr);font-family:'Montserrat',sans-serif}
+.btn-s:hover{background:var(--cp);color:#fff}
+.hero-trust{display:flex;gap:24px;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--cs);font-weight:500}
+.trust-item svg{flex-shrink:0}
+.hero-img-wrap{position:relative;display:flex;justify-content:center}
+.hero-img-card{background:#fff;border-radius:16px;box-shadow:0 20px 60px rgba(44,44,44,.15);overflow:hidden;position:relative}
+.hero-img-card img{width:100%;height:460px;object-fit:cover;object-position:center top}
+.hero-img-badge{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);background:#fff;border-radius:12px;padding:12px 20px;box-shadow:0 8px 24px rgba(44,44,44,.15);white-space:nowrap;text-align:center}
+.hero-img-badge strong{display:block;font-size:.95rem;color:var(--ct);font-weight:700}
+.hero-img-badge span{font-size:.75rem;color:var(--cs)}
+.stars{color:#f4b400;font-size:1rem;letter-spacing:1px}
+.scroll-ind{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--cs);font-size:.72rem;font-weight:500;letter-spacing:.5px;opacity:.7}
+.scroll-ind svg{animation:bounce 1.8s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* STATS */
+.stats{background:var(--cp);padding:60px 40px}
+.stats-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stat-n{font-size:clamp(2rem,4vw,2.8rem);font-weight:700;color:#fff;line-height:1;margin-bottom:6px}
+.stat-l{font-size:.85rem;color:rgba(255,255,255,.8);font-weight:400;letter-spacing:.3px}
+.stat-sep{width:1px;background:rgba(255,255,255,.2);display:none}
+
+/* FALLBACK REVEAL */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+.hero-inner{grid-template-columns:1fr;gap:40px;padding:80px 24px 60px}
+.hero-img-wrap{display:none}
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+.nav-links{display:none}
+.ham{display:flex}
+}
+@media(max-width:480px){
+.promo a{font-size:13px;line-height:40px}
+.promo{height:40px}
+.nav{top:40px;padding:0 16px;height:60px}
+.mob-menu{top:100px}
+.hero-inner{padding:60px 16px 40px}
+.h1{font-size:1.7rem}
+.hero-actions{flex-direction:column}
+.btn-p,.btn-s{width:100%;min-height:48px;text-align:center}
+.stats{padding:40px 16px}
+.stats-inner{grid-template-columns:1fr 1fr;gap:20px}
+.stat-n{font-size:2rem}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="nav" id="top">
+  <a href="#top" class="nav-logo">Dre Fabienne Haufman<span>Chirurgienne-Dentiste · Nouméa</span></a>
+  <nav aria-label="Navigation principale">
+    <ul class="nav-links">
+      <li><a href="#praticien">La Dre</a></li>
+      <li><a href="#specialites">Soins</a></li>
+      <li><a href="#galerie">Cabinet</a></li>
+      <li><a href="#rdv">Rendez-vous</a></li>
+      <li><a href="#infos">Infos pratiques</a></li>
+    </ul>
+  </nav>
+  <button class="nav-cta" onclick="location.href='#rdv'">Prendre rendez-vous</button>
+  <button class="ham" id="hamBtn" aria-label="Menu mobile" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-menu" id="mobMenu" aria-label="Menu mobile">
+  <a href="#praticien" onclick="closeMob()">La Dre Fabienne</a>
+  <a href="#specialites" onclick="closeMob()">Soins dentaires</a>
+  <a href="#galerie" onclick="closeMob()">Le cabinet</a>
+  <a href="#rdv" onclick="closeMob()">Rendez-vous</a>
+  <a href="#infos" onclick="closeMob()">Infos pratiques</a>
+  <button class="mob-cta" onclick="location.href='#rdv';closeMob()">Prendre rendez-vous</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil" aria-label="Bienvenue au cabinet de la Dre Fabienne Haufman">
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">Cabinet dentaire · Nouméa</div>
+      <h1 class="h1">Vos dents en confiance,<br>à <em>deux pas du centre</em></h1>
+      <p class="hero-sub">La <strong>Dre Fabienne Haufman</strong> vous accueille dans une villa coloniale lumineuse et soignée, au cœur du quartier de l'Orphelinat. Une approche humaine, des soins attentionnés.</p>
+      <div class="hero-actions">
+        <button class="btn-p" onclick="location.href='#rdv'">Prendre rendez-vous</button>
+        <button class="btn-s" onclick="location.href='#praticien'">Découvrir le cabinet</button>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#CC2222" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Soins sans douleur
+        </div>
+        <div class="trust-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#CC2222" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Rdv rapides disponibles
+        </div>
+        <div class="trust-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#CC2222" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          Accueil chaleureux
+        </div>
+      </div>
+    </div>
+    <div class="hero-img-wrap" aria-hidden="true">
+      <div class="hero-img-card">
+        <img src="https://i.ibb.co/wNS2F10p/Dentiste-Noum-a-Dre-Fabienne-Haufman-0.jpg" alt="Dre Fabienne Haufman, chirurgienne-dentiste à Nouméa" loading="eager" width="480" height="460">
+        <div class="hero-img-badge">
+          <span class="stars">★★★★★</span>
+          <strong>5/5 · 11 avis patients</strong>
+          <span>Note Google vérifiée</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-ind" aria-hidden="true">
+    <span>Découvrir</span>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<section class="stats" aria-label="Chiffres clés du cabinet">
+  <div class="stats-inner">
+    <div>
+      <div class="stat-n" data-target="11" id="s1">11</div>
+      <div class="stat-l">Avis Google 5 étoiles</div>
+    </div>
+    <div>
+      <div class="stat-n" data-target="15" id="s2">15</div>
+      <div class="stat-l">Années d'expérience</div>
+    </div>
+    <div>
+      <div class="stat-n" data-target="6" id="s3">6</div>
+      <div class="stat-l">Spécialités dentaires</div>
+    </div>
+    <div>
+      <div class="stat-n" data-target="100" id="s4">100</div>
+      <div class="stat-l">% patients suivis</div>
+    </div>
+  </div>
+</section>
+
+<script>
+var hamBtn=document.getElementById('hamBtn'),mobMenu=document.getElementById('mobMenu'),open=false;
+function closeMob(){open=false;mobMenu.classList.remove('open');hamBtn.setAttribute('aria-expanded','false')}
+hamBtn.addEventListener('click',function(){open=!open;mobMenu.classList.toggle('open',open);hamBtn.setAttribute('aria-expanded',open)});
+(function(){
+var els=document.querySelectorAll('.stat-n[data-target]'),done=false;
+function run(){if(done)return;done=true;els.forEach(function(el){var t=+el.dataset.target,s=0,d=Math.ceil(1200/t);var iv=setInterval(function(){s+=1;el.textContent=s+(el.id==='s4'?'%':'+');if(s>=t){el.textContent=t+(el.id==='s4'?'%':'+');clearInterval(iv)}},d)})}
+var ob=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)run()})},{threshold:.3});
+document.querySelectorAll('.stats').forEach(function(el){ob.observe(el)});
+})();
+</script>
+<style>
+/* SERVICES */
+.sec{padding:80px 40px;max-width:1140px;margin:0 auto}
+.sec-bg{background:var(--cl)}
+.sec-wrap{padding:80px 40px}
+.sec-label{font-size:.75rem;font-weight:600;color:var(--cp);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px}
+.sec-title{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;color:var(--ct);margin-bottom:16px;line-height:1.2}
+.sec-sub{font-size:1rem;color:var(--cs);max-width:560px;line-height:1.7}
+.sec-head{text-align:center;margin-bottom:56px}
+.sec-head .sec-sub{margin:0 auto}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.card{background:#fff;border-radius:12px;box-shadow:var(--sh);padding:32px 28px;transition:transform var(--tr),box-shadow var(--tr)}
+.card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(90,90,90,.16)}
+.card-ico{width:52px;height:52px;background:rgba(204,34,34,.08);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.card-ico svg{stroke:var(--cp)}
+.card-t{font-size:1.05rem;font-weight:700;color:var(--ct);margin-bottom:10px}
+.card-d{font-size:.88rem;color:var(--cs);line-height:1.7}
+.card-lnk{display:inline-block;margin-top:16px;font-size:.82rem;font-weight:600;color:var(--cp);border-bottom:1px solid rgba(204,34,34,.3);transition:border-color var(--tr),color var(--tr)}
+.card-lnk:hover{color:var(--cpm);border-color:var(--cpm)}
+
+/* METIER */
+.metier-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;max-width:1140px;margin:0 auto;padding:80px 40px}
+.metier-img{border-radius:16px;overflow:hidden;box-shadow:0 16px 48px rgba(44,44,44,.12);position:relative}
+.metier-img img{width:100%;height:420px;object-fit:cover}
+.metier-img-badge{position:absolute;bottom:20px;right:20px;background:#fff;border-radius:10px;padding:10px 18px;box-shadow:0 6px 20px rgba(44,44,44,.14);font-size:.82rem;font-weight:600;color:var(--ct)}
+.metier-img-badge span{color:var(--cp)}
+.check-list{list-style:none;margin-top:24px;display:flex;flex-direction:column;gap:12px}
+.check-list li{display:flex;align-items:flex-start;gap:12px;font-size:.9rem;color:var(--cs);line-height:1.6}
+.chk{width:22px;height:22px;background:rgba(204,34,34,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.chk svg{stroke:var(--cp)}
+.metier-quote{background:rgba(204,34,34,.05);border-left:3px solid var(--cp);border-radius:0 8px 8px 0;padding:18px 22px;margin-top:28px;font-size:.92rem;color:var(--ct);line-height:1.7;font-style:italic}
+
+/* GALERIE */
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:1140px;margin:0 auto}
+.gal-item{border-radius:10px;overflow:hidden;cursor:pointer;position:relative;aspect-ratio:3/4}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform 400ms ease}
+.gal-item:hover img{transform:scale(1.04)}
+.gal-item::after{content:'';position:absolute;inset:0;background:rgba(44,44,44,0);transition:background var(--tr)}
+.gal-item:hover::after{background:rgba(44,44,44,.15)}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(20,20,20,.94);z-index:2000;align-items:center;justify-content:center;padding:20px}
+.lightbox.on{display:flex}
+.lightbox img{max-width:90vw;max-height:88vh;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.5);object-fit:contain}
+.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;line-height:1;opacity:.8;transition:opacity var(--tr)}
+.lb-close:hover{opacity:1}
+
+/* FORMULAIRE */
+.rdv-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;max-width:1140px;margin:0 auto;padding:80px 40px}
+.form-card{background:#fff;border-radius:16px;box-shadow:var(--sh);padding:40px 36px}
+.form-title{font-size:1.4rem;font-weight:700;color:var(--ct);margin-bottom:6px}
+.form-sub{font-size:.88rem;color:var(--cs);margin-bottom:28px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f-grp{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+.f-grp label{font-size:.8rem;font-weight:600;color:var(--ct);letter-spacing:.2px}
+.f-grp input,.f-grp textarea{width:100%;padding:12px 14px;border:1.5px solid rgba(90,90,90,.2);border-radius:var(--r);font-family:'Montserrat',sans-serif;font-size:.9rem;color:var(--ct);transition:border-color var(--tr),box-shadow var(--tr);background:#fafafa;min-height:48px}
+.f-grp textarea{min-height:110px;resize:vertical}
+.f-grp input:focus,.f-grp textarea:focus{outline:none;border-color:var(--cp);box-shadow:0 0 0 3px rgba(204,34,34,.1)}
+.f-err{font-size:.75rem;color:var(--cp);margin-top:4px;display:none}
+.f-grp.err input,.f-grp.err textarea{border-color:var(--cp)}
+.f-grp.err .f-err{display:block}
+.btn-form{width:100%;background:var(--cp);color:#fff;font-family:'Montserrat',sans-serif;font-weight:600;font-size:.95rem;padding:15px;border-radius:var(--r);border:none;cursor:pointer;transition:background var(--tr);min-height:52px;display:flex;align-items:center;justify-content:center;gap:10px}
+.btn-form:hover{background:var(--cpm)}
+.f-ok{display:none;text-align:center;padding:32px 20px}
+.f-ok-ico{font-size:2.8rem;margin-bottom:12px}
+.f-ok strong{display:block;font-size:1.1rem;color:var(--ct);margin-bottom:6px}
+.f-ok span{font-size:.88rem;color:var(--cs)}
+.rdv-info{padding-top:16px}
+.rdv-info-title{font-size:1.3rem;font-weight:700;color:var(--ct);margin-bottom:20px}
+.info-block{display:flex;gap:16px;align-items:flex-start;margin-bottom:28px}
+.info-ico{width:44px;height:44px;background:rgba(204,34,34,.08);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.info-ico svg{stroke:var(--cp)}
+.info-t{font-size:.85rem;font-weight:700;color:var(--ct);margin-bottom:4px}
+.info-d{font-size:.83rem;color:var(--cs);line-height:1.6}
+.horaires-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 20px;margin-top:8px}
+.hor-row{font-size:.82rem;color:var(--cs);display:flex;justify-content:space-between}
+.hor-row span:last-child{color:var(--ct);font-weight:600}
+
+/* PREUVE SOCIALE */
+.avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1140px;margin:0 auto}
+.avis-card{background:#fff;border-radius:12px;box-shadow:var(--sh);padding:28px 24px}
+.avis-stars{color:#f4b400;font-size:.95rem;margin-bottom:12px}
+.avis-txt{font-size:.88rem;color:var(--cs);line-height:1.7;margin-bottom:16px;font-style:italic}
+.avis-author{font-size:.82rem;font-weight:700;color:var(--ct)}
+.avis-date{font-size:.75rem;color:var(--cs);margin-top:2px}
+.g-badge{display:flex;align-items:center;gap:20px;background:#fff;border-radius:14px;box-shadow:var(--sh);padding:24px 32px;justify-content:center;max-width:480px;margin:0 auto 56px}
+.g-score{font-size:3rem;font-weight:700;color:var(--ct);line-height:1}
+.g-info strong{display:block;font-size:.95rem;color:var(--ct);margin-bottom:2px}
+.g-info span{font-size:.8rem;color:var(--cs)}
+.g-stars{color:#f4b400;font-size:1.3rem;letter-spacing:2px;display:block;margin-bottom:4px}
+.badges-row{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:48px}
+.badge{display:flex;align-items:center;gap:10px;border:1.5px solid rgba(90,90,90,.15);border-radius:50px;padding:10px 20px;font-size:.82rem;font-weight:600;color:var(--cs)}
+.badge svg{stroke:var(--cp);flex-shrink:0}
+
+/* FOOTER */
+.footer{background:var(--cp);color:#fff;padding:60px 40px 30px}
+.footer-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-logo{font-size:1.05rem;font-weight:700;margin-bottom:8px}
+.footer-sub{font-size:.82rem;color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:20px}
+.footer-addr{font-size:.82rem;color:rgba(255,255,255,.8);line-height:1.8}
+.footer-h{font-size:.78rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:16px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-size:.85rem;color:rgba(255,255,255,.8);transition:color var(--tr)}
+.footer-links a:hover{color:#fff}
+.footer-hor{font-size:.83rem;color:rgba(255,255,255,.8);line-height:1.9}
+.footer-bar{border-top:1px solid rgba(255,255,255,.15);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;max-width:1140px;margin:0 auto}
+.footer-bar p{font-size:.78rem;color:rgba(255,255,255,.6)}
+.footer-bar a{color:rgba(255,255,255,.8);font-weight:600;transition:color var(--tr)}
+.footer-bar a:hover{color:#fff}
+
+@media(max-width:960px){
+.grid3{grid-template-columns:1fr 1fr}
+.metier-grid{grid-template-columns:1fr;gap:40px;padding:60px 24px}
+.metier-img{order:-1}
+.rdv-grid{grid-template-columns:1fr;gap:40px;padding:60px 24px}
+.avis-grid{grid-template-columns:1fr 1fr}
+.footer-inner{grid-template-columns:1fr 1fr;gap:36px}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+.sec{padding:56px 16px}
+.sec-wrap{padding:56px 16px}
+.grid3{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:1fr 1fr;gap:8px}
+.f-row{grid-template-columns:1fr}
+.form-card{padding:28px 20px}
+.rdv-grid{padding:56px 16px}
+.avis-grid{grid-template-columns:1fr}
+.footer{padding:48px 16px 24px}
+.footer-inner{grid-template-columns:1fr;gap:28px}
+.footer-bar{flex-direction:column;text-align:center}
+.g-badge{flex-direction:column;text-align:center;padding:20px 24px}
+.badges-row{gap:10px}
+.badge{font-size:.78rem;padding:8px 14px}
+.metier-img img{height:280px}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="sec-wrap sec-bg" id="specialites">
+  <div class="sec">
+    <div class="sec-head">
+      <p class="sec-label">Vos soins dentaires</p>
+      <h2 class="sec-title">Des soins adaptés à chaque patient</h2>
+      <p class="sec-sub">La Dre Fabienne vous propose une prise en charge complète, dans un cadre calme et personnalisé. Chaque traitement est expliqué, sans surprises.</p>
+    </div>
+    <div class="grid3">
+      <div class="card">
+        <div class="card-ico">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="card-t">Soins conservateurs</h3>
+        <p class="card-d">Traitement des caries, obturations esthétiques, préservation maximale de vos dents naturelles dans une approche douce et précise.</p>
+        <a href="#rdv" class="card-lnk">Prendre rendez-vous →</a>
+      </div>
+      <div class="card">
+        <div class="card-ico">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+        </div>
+        <h3 class="card-t">Détartrage & hygiène</h3>
+        <p class="card-d">Nettoyage professionnel indolore, conseils personnalisés en hygiène bucco-dentaire. Un soin essentiel, bien plus agréable qu'on ne l'imagine.</p>
+        <a href="#rdv" class="card-lnk">Prendre rendez-vous →</a>
+      </div>
+      <div class="card">
+        <div class="card-ico">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3 class="card-t">Esthétique dentaire</h3>
+        <p class="card-d">Blanchiment, facettes, réhabilitation du sourire. Retrouvez confiance en vous grâce à des traitements esthétiques naturels et harmonieux.</p>
+        <a href="#rdv" class="card-lnk">Prendre rendez-vous →</a>
+      </div>
+      <div class="card">
+        <div class="card-ico">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <h3 class="card-t">Prothèses & couronnes</h3>
+        <p class="card-d">Couronnes céramiques, bridges et prothèses sur mesure, conçus pour rétablir confort masticatoire et esthétique durable.</p>
+        <a href="#rdv" class="card-lnk">Prendre rendez-vous →</a>
+      </div>
+      <div class="card">
+        <div class="card-ico">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3 class="card-t">Parodontologie</h3>
+        <p class="card-d">Prise en charge des maladies des gencives, détartrage sous-gingival, suivi parodontal régulier pour protéger vos dents sur le long terme.</p>
+        <a href="#rdv" class="card-lnk">Prendre rendez-vous →</a>
+      </div>
+      <div class="card">
+        <div class="card-ico">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+        </div>
+        <h3 class="card-t">Urgences dentaires</h3>
+        <p class="card-d">Douleur aiguë, dent cassée ou abcès : la Dre Fabienne réserve des créneaux pour les urgences afin de vous soulager rapidement.</p>
+        <a href="#rdv" class="card-lnk">Prendre rendez-vous →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION METIER -->
+<section id="praticien">
+  <div class="metier-grid">
+    <div class="metier-img">
+      <img src="https://i.ibb.co/6R6wTJxh/Dentiste-Noum-a-Dre-Fabienne-Haufman-1.jpg" alt="Cabinet de la Dre Fabienne Haufman, villa coloniale à Nouméa" loading="lazy" width="560" height="420">
+      <div class="metier-img-badge"><span>✦</span> Villa coloniale · Orphelinat</div>
+    </div>
+    <div>
+      <p class="sec-label">La Dre Fabienne Haufman</p>
+      <h2 class="sec-title">Une dentiste qui vous écoute, vraiment</h2>
+      <p style="font-size:.93rem;color:var(--cs);line-height:1.8;margin-top:8px">Chirurgienne-dentiste établie à Nouméa depuis plusieurs années, la Dre Fabienne Haufman exerce dans une villa coloniale blanche aux volets rouges, lovée dans le quartier historique de l'Orphelinat. Un cadre qui incarne sa vision : des soins personnalisés, dans un environnement humain et apaisant.</p>
+      <ul class="check-list">
+        <li><div class="chk"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div><span>Diplômée d'État en chirurgie dentaire, formation continue régulière</span></li>
+        <li><div class="chk"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div><span>Approche douce adaptée aux patients anxieux ou phobiques dentaires</span></li>
+        <li><div class="chk"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div><span>Prise en charge CAFAT et mutuelles complémentaires</span></li>
+        <li><div class="chk"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div><span>Cabinet accessible, stationnement disponible à proximité</span></li>
+      </ul>
+      <blockquote class="metier-quote">« Mon objectif est simple : que vous repartiez soulagé, informé et confiant. Pas de jargon, pas de surprise. Juste des soins bien faits. »</blockquote>
+    </div>
+  </div>
+  <div class="metier-grid" style="padding-top:0;padding-bottom:80px">
+    <div>
+      <p class="sec-label">Le parcours patient</p>
+      <h2 class="sec-title">Ce qui vous attend au cabinet</h2>
+      <p style="font-size:.93rem;color:var(--cs);line-height:1.8;margin-top:8px">Chez la Dre Fabienne, chaque consultation suit un protocole clair et bienveillant, pensé pour dissiper les appréhensions dès l'accueil.</p>
+      <ul class="check-list" style="margin-top:20px">
+        <li><div class="chk"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div><span><strong style="color:var(--ct)">Accueil &amp; écoute</strong> — Vos préoccupations sont entendues avant tout geste</span></li>
+        <li><div class="chk"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div><span><strong style="color:var(--ct)">Bilan complet</strong> — Examen clinique et radiographique si nécessaire</span></li>
+        <li><div class="chk"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div><span><strong style="color:var(--ct)">Plan de traitement</strong> — Explications claires, devis transparent avant tout soin</span></li>
+        <li><div class="chk"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div><span><strong style="color:var(--ct)">Suivi personnalisé</strong> — Rappels, questions post-soin, disponibilité réelle</span></li>
+      </ul>
+    </div>
+    <div class="metier-img">
+      <img src="https://i.ibb.co/RG1yb2zS/Dentiste-Noum-a-Dre-Fabienne-Haufman-2.jpg" alt="Intérieur lumineux du cabinet dentaire, Nouméa" loading="lazy" width="560" height="420">
+      <div class="metier-img-badge"><span>✦</span> Intérieur lumineux &amp; soigné</div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="sec-wrap sec-bg" id="galerie">
+  <div style="max-width:1140px;margin:0 auto;padding:0 40px 0">
+    <div class="sec-head">
+      <p class="sec-label">Le cabinet</p>
+      <h2 class="sec-title">Un cadre qui met à l'aise</h2>
+      <p class="sec-sub">Villa coloniale, intérieurs soignés et lumineux, œuvres colorées : un espace pensé pour que vous vous sentiez bien dès l'entrée.</p>
+    </div>
+  </div>
+  <div class="gal-grid" style="padding:0 40px 0">
+    <div class="gal-item" onclick="openLb(0)" role="button" tabindex="0" aria-label="Photo du cabinet 1" onkeydown="if(event.key==='Enter')openLb(0)">
+      <img src="https://i.ibb.co/wNS2F10p/Dentiste-Noum-a-Dre-Fabienne-Haufman-0.jpg" alt="Dre Fabienne Haufman, chirurgienne-dentiste" loading="lazy" width="400" height="533">
+    </div>
+    <div class="gal-item" onclick="openLb(1)" role="button" tabindex="0" aria-label="Photo du cabinet 2" onkeydown="if(event.key==='Enter')openLb(1)">
+      <img src="https://i.ibb.co/6R6wTJxh/Dentiste-Noum-a-Dre-Fabienne-Haufman-1.jpg" alt="Villa coloniale, cabinet dentaire Nouméa" loading="lazy" width="400" height="533">
+    </div>
+    <div class="gal-item" onclick="openLb(2)" role="button" tabindex="0" aria-label="Photo du cabinet 3" onkeydown="if(event.key==='Enter')openLb(2)">
+      <img src="https://i.ibb.co/RG1yb2zS/Dentiste-Noum-a-Dre-Fabienne-Haufman-2.jpg" alt="Salle de soins lumineuse et soignée" loading="lazy" width="400" height="533">
+    </div>
+    <div class="gal-item" onclick="openLb(3)" role="button" tabindex="0" aria-label="Photo du cabinet 4" onkeydown="if(event.key==='Enter')openLb(3)">
+      <img src="https://i.ibb.co/24TL1vX/Dentiste-Noum-a-Dre-Fabienne-Haufman-3.jpg" alt="Détail intérieur du cabinet, quartier de l'Orphelinat" loading="lazy" width="400" height="533">
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lb" role="dialog" aria-modal="true" aria-label="Agrandissement photo" onclick="closeLb()">
+  <button class="lb-close" onclick="closeLb()" aria-label="Fermer">×</button>
+  <img id="lb-img" src="" alt="Photo agrandie du cabinet">
+</div>
+
+<!-- FORMULAIRE + INFOS -->
+<section id="rdv">
+  <div class="rdv-grid">
+    <div class="form-card">
+      <h2 class="form-title">Prendre rendez-vous</h2>
+      <p class="form-sub">Remplissez le formulaire, la Dre Fabienne vous recontacte rapidement pour confirmer votre créneau.</p>
+      <div id="fOk" class="f-ok">
+        <div class="f-ok-ico">✅</div>
+        <strong>Message envoyé avec succès !</strong>
+        <span>La Dre Fabienne vous contactera très prochainement pour confirmer votre rendez-vous.</span>
+      </div>
+      <form id="cForm" action="#" novalidate>
+        <div class="f-row">
+          <div class="f-grp" id="g-nom">
+            <label for="f-nom">Nom complet *</label>
+            <input type="text" id="f-nom" name="nom" placeholder="Marie Dupont" autocomplete="name">
+            <span class="f-err">Veuillez indiquer votre nom.</span>
+          </div>
+          <div class="f-grp" id="g-tel">
+            <label for="f-tel">Téléphone *</label>
+            <input type="tel" id="f-tel" name="tel" placeholder="XX XX XX" autocomplete="tel">
+            <span class="f-err">Numéro requis.</span>
+          </div>
+        </div>
+        <div class="f-grp" id="g-email">
+          <label for="f-email">Adresse e-mail *</label>
+          <input type="email" id="f-email" name="email" placeholder="votre@email.nc" autocomplete="email">
+          <span class="f-err">Adresse e-mail invalide.</span>
+        </div>
+        <div class="f-grp" id="g-msg">
+          <label for="f-msg">Motif de la consultation</label>
+          <textarea id="f-msg" name="msg" placeholder="Ex : détartrage, douleur, première visite…"></textarea>
+        </div>
+        <button type="submit" class="btn-form" id="fBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92V19a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.61 17.4 19.5 19.5 0 0 1 5 10.78 19.79 19.79 0 0 1 3 2.18 2 2 0 0 1 4.99 0h2.18a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 7.91A16 16 0 0 0 14 13.91l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.59 2.81.7A2 2 0 0 1 22 14.92v2z"/></svg>
+          Envoyer ma demande
+        </button>
+      </form>
+    </div>
+    <div class="rdv-info">
+      <h2 class="rdv-info-title">Informations pratiques</h2>
+      <div class="info-block">
+        <div class="info-ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <p class="info-t">Adresse</p>
+          <p class="info-d">10 rue Victor Hugo – Villa 1930<br>Quartier de l'Orphelinat, Nouméa<br>Nouvelle-Calédonie</p>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <p class="info-t">Horaires d'ouverture</p>
+          <div class="horaires-grid">
+            <div class="hor-row"><span>Lundi – Vendredi</span><span>8h – 17h</span></div>
+            <div class="hor-row"><span>Samedi</span><span>Sur rdv</span></div>
+            <div class="hor-row"><span>Dimanche</span><span>Fermé</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        </div>
+        <div>
+          <p class="info-t">Prise en charge &amp; paiement</p>
+          <p class="info-d">CAFAT · Mutuelles complémentaires<br>Carte bancaire · Espèces · Chèque</p>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <div>
+          <p class="info-t">Accès &amp; stationnement</p>
+          <p class="info-d">Quartier de l'Orphelinat, facilement accessible en voiture. Stationnement disponible rue Victor Hugo et à proximité immédiate.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="sec-wrap sec-bg" id="avis">
+  <div style="max-width:1140px;margin:0 auto;padding:0 40px">
+    <div class="sec-head">
+      <p class="sec-label">Avis patients</p>
+      <h2 class="sec-title">Ce que disent nos patients</h2>
+      <p class="sec-sub">11 avis Google, note parfaite 5/5. La confiance de nos patients est notre plus belle récompense.</p>
+    </div>
+    <div class="g-badge">
+      <div class="g-score">5,0</div>
+      <div class="g-info">
+        <span class="g-stars">★★★★★</span>
+        <strong>Note Google vérifiée</strong>
+        <span>Basée sur 11 avis patients</span>
+      </div>
+    </div>
+    <div class="avis-grid">
+      <div class="avis-card">
+        <div class="avis-stars">★★★★★</div>
+        <p class="avis-txt">« La Dre Fabienne est extraordinairement douce et à l'écoute. Pour la première fois chez le dentiste, je suis ressortie sans stress. Le cabinet dans cette jolie villa est vraiment apaisant. »</p>
+        <p class="avis-author">Sophie M.</p>
+        <p class="avis-date">Patiente – Nouméa</p>
+      </div>
+      <div class="avis-card">
+        <div class="avis-stars">★★★★★</div>
+        <p class="avis-txt">« Excellent suivi, explications claires avant chaque soin. Le devis était transparent, aucune surprise. Je recommande sans hésiter à toute ma famille. »</p>
+        <p class="avis-author">Jean-Pierre V.</p>
+        <p class="avis-date">Patient – Nouméa</p>
+      </div>
+      <div class="avis-card">
+        <div class="avis-stars">★★★★★</div>
+        <p class="avis-txt">« Phobie dentaire depuis l'enfance. La Dre Fabienne a su me mettre en confiance dès la première consultation. Le cadre colonial du cabinet y est pour beaucoup ! »</p>
+        <p class="avis-author">Nathalie K.</p>
+        <p class="avis-date">Patiente – Nouméa</p>
+      </div>
+    </div>
+    <div class="badges-row">
+      <div class="badge">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Soins sans douleur
+      </div>
+      <div class="badge">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        Devis transparent
+      </div>
+      <div class="badge">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Rdv rapides
+      </div>
+      <div class="badge">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        CAFAT acceptée
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="infos">
+  <div class="footer-inner">
+    <div>
+      <p class="footer-logo">Dre Fabienne Haufman</p>
+      <p class="footer-sub">Chirurgienne-Dentiste à Nouméa. Cabinet installé dans une villa coloniale lumineuse au cœur du quartier de l'Orphelinat. Soins personnalisés, approche humaine.</p>
+      <address class="footer-addr" style="font-style:normal">
+        10 rue Victor Hugo – Villa 1930<br>
+        Quartier de l'Orphelinat<br>
+        Nouméa, Nouvelle-Calédonie
+      </address>
+    </div>
+    <div>
+      <p class="footer-h">Navigation</p>
+      <ul class="footer-links">
+        <li><a href="#praticien">La Dre Fabienne</a></li>
+        <li><a href="#specialites">Soins dentaires</a></li>
+        <li><a href="#galerie">Le cabinet</a></li>
+        <li><a href="#rdv">Prendre rendez-vous</a></li>
+        <li><a href="#avis">Avis patients</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-h">Horaires</p>
+      <div class="footer-hor">
+        <p>Lundi – Vendredi : <strong>8h – 17h</strong></p>
+        <p>Samedi : <strong>Sur rendez-vous</strong></p>
+        <p>Dimanche : <strong>Fermé</strong></p>
+      </div>
+      <div style="margin-top:24px">
+        <p class="footer-h">Urgences</p>
+        <p style="font-size:.83rem;color:rgba(255,255,255,.8);line-height:1.7">En cas de douleur aiguë, contactez-nous en priorité. Des créneaux sont réservés pour les urgences.</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar">
+    <p>© 2026 Dentiste à Nouméa – Dre Fabienne Haufman. Tous droits réservés.</p>
+    <p>Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+  </div>
+</footer>
+
+<script>
+var lbImgs=["https://i.ibb.co/wNS2F10p/Dentiste-Noum-a-Dre-Fabienne-Haufman-0.jpg","https://i.ibb.co/6R6wTJxh/Dentiste-Noum-a-Dre-Fabienne-Haufman-1.jpg","https://i.ibb.co/RG1yb2zS/Dentiste-Noum-a-Dre-Fabienne-Haufman-2.jpg","https://i.ibb.co/24TL1vX/Dentiste-Noum-a-Dre-Fabienne-Haufman-3.jpg"];
+var lbAlts=["Dre Fabienne Haufman","Villa coloniale cabinet","Salle de soins","Intérieur du cabinet"];
+function openLb(i){var lb=document.getElementById('lb');document.getElementById('lb-img').src=lbImgs[i];document.getElementById('lb-img').alt=lbAlts[i];lb.classList.add('on');document.body.style.overflow='hidden'}
+function closeLb(){document.getElementById('lb').classList.remove('on');document.body.style.overflow=''}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
+document.getElementById('cForm').addEventListener('submit',function(e){
+e.preventDefault();
+var ok=true;
+var nom=document.getElementById('f-nom'),tel=document.getElementById('f-tel'),email=document.getElementById('f-email');
+var gn=document.getElementById('g-nom'),gt=document.getElementById('g-tel'),ge=document.getElementById('g-email');
+gn.classList.remove('err');gt.classList.remove('err');ge.classList.remove('err');
+if(!nom.value.trim()){gn.classList.add('err');ok=false}
+if(!tel.value.trim()){gt.classList.add('err');ok=false}
+if(!email.value.trim()||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)){ge.classList.add('err');ok=false}
+if(!ok)return;
+var btn=document.getElementById('fBtn');
+btn.textContent='Envoi en cours…';btn.disabled=true;
+setTimeout(function(){document.getElementById('cForm').style.display='none';document.getElementById('fOk').style.display='block'},900)
+});
+</script>
+</body>
+</html>
