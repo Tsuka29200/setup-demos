@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cabinet d'orthodontie du Dr Gerber Romain — Nouméa</title>
+<meta name="description" content="Cabinet d'orthodontie du Dr Gerber Romain à Nouméa, Nouvelle-Calédonie. Orthodontie adulte et enfant, aligneurs, bagues. Noté 5/5 par 74 patients. Prenez rendez-vous.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#2B3F6B;
+--cs:#5F7FA8;
+--ca:#1A73E8;
+--ct:#151414;
+--cb:#FFFFFF;
+--shadow:0 4px 24px rgba(43,63,107,.08);
+--shadow-hover:0 8px 32px rgba(43,63,107,.18);
+--r:12px;
+--trans:300ms ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Open Sans',system-ui,sans-serif;color:var(--ct);background:var(--cb);overflow-x:hidden;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU PROMO */
+#promo{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;display:flex;align-items:center;justify-content:center}
+#promo a{font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;letter-spacing:.3px;color:#4375ff;line-height:44px;transition:opacity var(--trans)}
+#promo a:hover{opacity:.85}
+
+/* HEADER */
+#hdr{position:fixed;top:44px;left:0;width:100%;z-index:1000;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(43,63,107,.08);transition:box-shadow var(--trans)}
+#hdr.scrolled{box-shadow:var(--shadow)}
+.hdr-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.15rem;color:var(--cp);line-height:1.2;flex-shrink:0}
+.logo span{display:block;font-weight:300;font-size:.8rem;color:var(--cs);letter-spacing:.5px;text-transform:uppercase}
+nav{display:flex;align-items:center;gap:28px}
+nav a{font-size:.85rem;font-weight:500;color:var(--ct);opacity:.75;transition:opacity var(--trans),color var(--trans)}
+nav a:hover{opacity:1;color:var(--cp)}
+.b-rdv{display:inline-flex;align-items:center;justify-content:center;background:var(--ca);color:#fff;font-size:.85rem;font-weight:600;padding:10px 22px;border-radius:50px;border:none;cursor:pointer;transition:box-shadow var(--trans),transform var(--trans);box-shadow:0 4px 12px rgba(26,115,232,.25);white-space:nowrap}
+.b-rdv:hover{box-shadow:0 6px 20px rgba(26,115,232,.4);transform:translateY(-2px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border:none;background:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--cp);border-radius:2px;transition:transform var(--trans),opacity var(--trans)}
+.mobile-nav{display:none;position:fixed;top:116px;left:0;width:100%;background:#fff;padding:16px 0;border-bottom:1px solid rgba(43,63,107,.08);z-index:999;box-shadow:var(--shadow)}
+.mobile-nav.open{display:block}
+.mobile-nav a{display:block;padding:12px 24px;font-size:.95rem;font-weight:500;color:var(--ct);border-bottom:1px solid rgba(43,63,107,.05)}
+.mobile-nav a:last-child{border:none}
+.mobile-nav .b-rdv{margin:12px 24px;width:calc(100% - 48px)}
+
+/* HERO */
+#hero{min-height:100vh;position:relative;display:flex;align-items:center;padding-top:116px;background-image:url('https://i.ibb.co/VWdjxcsx/Cabinet-d-orthodontie-du-Dr-Gerber-Romain-0.jpg');background-size:cover;background-position:center top}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.92) 45%,rgba(43,63,107,.12) 100%)}
+.hero-inner{position:relative;max-width:1200px;margin:0 auto;padding:80px 24px 80px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(43,63,107,.07);border-radius:50px;padding:6px 16px;font-size:.78rem;font-weight:600;color:var(--cp);text-transform:uppercase;letter-spacing:.8px;margin-bottom:20px}
+.hero-tag::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--ca)}
+h1{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:600;color:var(--cp);line-height:1.15;margin-bottom:16px}
+h1 em{font-style:italic;color:var(--cs)}
+.hero-sub{font-size:1.05rem;color:var(--ct);opacity:.75;max-width:420px;margin-bottom:32px;font-weight:400;line-height:1.7}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:40px}
+.b-sec{display:inline-flex;align-items:center;justify-content:center;border:2px solid var(--cp);color:var(--cp);font-size:.85rem;font-weight:600;padding:10px 22px;border-radius:50px;cursor:pointer;transition:background var(--trans),color var(--trans);background:transparent}
+.b-sec:hover{background:var(--cp);color:#fff}
+.hero-trust{display:flex;align-items:center;gap:16px}
+.stars{display:flex;gap:3px}
+.star{color:#f5a623;font-size:1rem}
+.trust-text{font-size:.8rem;color:var(--ct);opacity:.7}
+.trust-text strong{color:var(--cp);font-weight:700}
+.hero-img-wrap{position:relative;display:flex;justify-content:center}
+.hero-img-wrap::before{content:'';position:absolute;width:340px;height:340px;border-radius:50%;background:rgba(95,127,168,.1);top:50%;left:50%;transform:translate(-50%,-50%)}
+.hero-photo{width:340px;height:420px;object-fit:cover;object-position:center top;border-radius:24px;box-shadow:0 20px 60px rgba(43,63,107,.18);position:relative;z-index:1}
+.hero-badge{position:absolute;bottom:32px;right:-16px;background:#fff;border-radius:var(--r);padding:14px 18px;box-shadow:var(--shadow-hover);z-index:2;display:flex;align-items:center;gap:10px}
+.badge-icon{width:36px;height:36px;background:rgba(26,115,232,.1);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.badge-icon svg{width:18px;height:18px}
+.badge-txt{font-size:.75rem;color:var(--ct)}
+.badge-txt strong{display:block;font-size:.95rem;color:var(--cp);font-weight:700}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;opacity:.5}
+.scroll-ind span{font-size:.7rem;text-transform:uppercase;letter-spacing:1px;color:var(--cp)}
+.scroll-dot{width:2px;height:32px;background:linear-gradient(to bottom,var(--cp),transparent);border-radius:2px;animation:scrollAnim 1.8s ease-in-out infinite}
+@keyframes scrollAnim{0%,100%{opacity:.3;transform:scaleY(.8)}50%{opacity:1;transform:scaleY(1)}}
+
+/* STATS */
+#stats{background:var(--cp);padding:56px 24px}
+.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.stat-item{text-align:center}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;color:#fff;line-height:1;display:block}
+.stat-label{font-size:.8rem;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.8px;margin-top:6px;display:block}
+.stat-divider{width:32px;height:2px;background:rgba(255,255,255,.3);margin:12px auto 0;border-radius:1px}
+
+/* SECTIONS */
+.s{padding:96px 24px}
+.s-inner{max-width:1200px;margin:0 auto}
+.s-label{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--ca);margin-bottom:12px;display:block}
+.h2{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:600;color:var(--cp);line-height:1.2;margin-bottom:16px}
+.h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--cp);line-height:1.3;margin-bottom:12px}
+.lead{font-size:1rem;color:var(--ct);opacity:.75;max-width:560px;line-height:1.75}
+
+/* CARDS */
+.c{background:#fff;border-radius:var(--r);box-shadow:var(--shadow);padding:32px;transition:transform var(--trans),box-shadow var(--trans)}
+.c:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+
+/* PREUVE SOCIALE */
+.rating-big{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.rating-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:700;color:var(--cp);line-height:1}
+
+/* FORM */
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:.85rem;font-weight:600;color:var(--cp);margin-bottom:8px}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:13px 16px;border:1.5px solid rgba(43,63,107,.15);border-radius:8px;font-family:'Open Sans',sans-serif;font-size:.9rem;color:var(--ct);background:#fff;transition:border-color var(--trans),box-shadow var(--trans);outline:none}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--ca);box-shadow:0 0 0 3px rgba(26,115,232,.1)}
+.form-group textarea{resize:vertical;min-height:120px}
+
+/* FOOTER */
+footer{background:var(--cp);color:rgba(255,255,255,.85);padding:64px 24px 32px}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:48px}
+footer h4{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.1rem;color:#fff;margin-bottom:16px}
+footer p,footer a{font-size:.85rem;line-height:1.8;color:rgba(255,255,255,.75)}
+footer a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:gap;gap:12px}
+.footer-bottom p{font-size:.78rem;color:rgba(255,255,255,.5)}
+.footer-bottom a{font-size:.78rem;color:rgba(255,255,255,.5)}
+.footer-bottom a:hover{color:rgba(255,255,255,.9)}
+
+/* LIGHTBOX */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:9999;align-items:center;justify-content:center}
+.lightbox.open{display:flex}
+.lightbox img{max-width:90vw;max-height:90vh;border-radius:8px;object-fit:contain}
+.lb-close{position:absolute;top:20px;right:24px;color:#fff;font-size:2rem;cursor:pointer;line-height:1;background:none;border:none}
+
+/* REVEAL ANIMATIONS */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 500ms ease,transform 500ms ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* FALLBACK */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+.hero-inner{gap:40px}
+h1{font-size:2.6rem}
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+.grid-3{grid-template-columns:repeat(2,1fr)}
+.footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+nav{display:none}
+.hamburger{display:flex}
+.hero-inner{grid-template-columns:1fr;padding:48px 16px 64px;text-align:center}
+.hero-img-wrap{display:none}
+h1{font-size:2.1rem}
+.hero-sub{margin:0 auto 32px}
+.hero-trust{justify-content:center}
+.hero-ctas{justify-content:center}
+.b-rdv,.b-sec{width:100%;max-width:360px}
+.s{padding:64px 16px}
+.h2{font-size:2rem}
+.grid-3,.grid-2{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr}
+.footer-bottom{flex-direction:column;text-align:center}
+}
+@media(max-width:480px){
+#promo a{font-size:13px;line-height:40px}
+#promo{height:40px}
+#hdr{top:40px}
+.mobile-nav{top:112px}
+#hero{padding-top:112px}
+.hdr-inner{padding:0 16px;height:68px}
+.logo{font-size:1rem}
+h1{font-size:1.75rem}
+.hero-ctas{flex-direction:column;align-items:center}
+.stats-inner{grid-template-columns:repeat(2,1fr);gap:20px}
+.stat-num{font-size:2.2rem}
+.s{padding:48px 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div id="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="hdr-inner">
+    <a href="#" class="logo">
+      Dr Gerber Romain
+      <span>Orthodontiste · Nouméa</span>
+    </a>
+    <nav>
+      <a href="#praticien">Le praticien</a>
+      <a href="#services">Spécialités</a>
+      <a href="#galerie">Cabinet</a>
+      <a href="#avis">Avis</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="b-rdv">Prendre rendez-vous</a>
+    <button class="hamburger" id="ham" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mobile-nav" id="mob-nav">
+  <a href="#praticien" class="mob-link">Le praticien</a>
+  <a href="#services" class="mob-link">Spécialités</a>
+  <a href="#galerie" class="mob-link">Cabinet</a>
+  <a href="#avis" class="mob-link">Avis patients</a>
+  <a href="#contact" class="mob-link">Contact</a>
+  <a href="#contact" class="b-rdv mob-link">Prendre rendez-vous</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-tag">Cabinet d'orthodontie · Nouméa</div>
+      <h1>Un sourire<br>qui vous <em>ressemble</em></h1>
+      <p class="hero-sub">Le Dr Gerber Romain vous accueille au cœur de Nouméa dans un cabinet moderne et apaisant, pour un traitement orthodontique personnalisé à chaque étape de la vie.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="b-rdv">Prendre rendez-vous</a>
+        <a href="#praticien" class="b-sec">Découvrir le praticien</a>
+      </div>
+      <div class="hero-trust">
+        <div class="stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="trust-text"><strong>5/5</strong> — 74 avis Google vérifiés</p>
+      </div>
+    </div>
+    <div class="hero-img-wrap">
+      <img src="https://i.ibb.co/BVGqJ045/Cabinet-d-orthodontie-du-Dr-Gerber-Romain-1.jpg" alt="Cabinet du Dr Gerber Romain, orthodontiste à Nouméa" class="hero-photo" loading="eager">
+      <div class="hero-badge">
+        <div class="badge-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1A73E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+        </div>
+        <div class="badge-txt">
+          <strong>Spécialiste agréé</strong>
+          orthodontiste certifié
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>Découvrir</span>
+    <div class="scroll-dot"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="stats-inner">
+    <div class="stat-item reveal">
+      <span class="stat-num" data-target="74">0</span>
+      <div class="stat-divider"></div>
+      <span class="stat-label">Avis patients 5/5</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-num" data-target="15">0</span>
+      <div class="stat-divider"></div>
+      <span class="stat-label">Années d'expérience</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-num" data-target="3">0</span>
+      <div class="stat-divider"></div>
+      <span class="stat-label">Techniques orthodontiques</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-num" data-target="100">0</span>
+      <div class="stat-divider"></div>
+      <span class="stat-label">% patients satisfaits</span>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+var ham=document.getElementById('ham'),
+mob=document.getElementById('mob-nav'),
+hdr=document.getElementById('hdr');
+ham.addEventListener('click',function(){mob.classList.toggle('open')});
+document.querySelectorAll('.mob-link').forEach(function(l){l.addEventListener('click',function(){mob.classList.remove('open')})});
+window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>10)});
+var statsObserver=new IntersectionObserver(function(entries){
+entries.forEach(function(e){
+if(e.isIntersecting){
+var el=e.target,target=+el.dataset.target,start=0,dur=1800,step=16;
+var timer=setInterval(function(){
+start+=Math.ceil(target/(dur/step));
+if(start>=target){start=target;clearInterval(timer);}
+el.textContent=start+(el.dataset.suffix||'');
+},step);
+statsObserver.unobserve(el);
+}
+});
+},{threshold:.3});
+document.querySelectorAll('.stat-num[data-target]').forEach(function(n){statsObserver.observe(n)});
+var revealObs=new IntersectionObserver(function(entries){
+entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);}});
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(function(el){
+el.style.opacity='0';el.style.transform='translateY(20px)';
+revealObs.observe(el);
+});
+})();
+</script>
+<!-- SERVICES -->
+<section id="services" class="s">
+<div class="s-inner">
+<div style="text-align:center;margin-bottom:56px">
+<span class="s-label">Nos spécialités</span>
+<h2 class="h2">Un traitement adapté<br>à chaque sourire</h2>
+<p class="lead" style="margin:0 auto">Du premier bilan jusqu'au résultat final, le Dr Gerber Romain propose des solutions orthodontiques modernes pour enfants, adolescents et adultes.</p>
+</div>
+<div class="grid-3">
+<div class="c reveal">
+<div class="svc-icon">
+<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="22" stroke="#2B3F6B" stroke-width="2"/><path d="M14 24c0-5.5 4.5-10 10-10s10 4.5 10 10" stroke="#1A73E8" stroke-width="2.2" stroke-linecap="round"/><circle cx="24" cy="32" r="4" fill="#2B3F6B" opacity=".15"/><circle cx="24" cy="32" r="2" fill="#2B3F6B"/></svg>
+</div>
+<h3 class="h3">Bagues céramiques</h3>
+<p class="svc-desc">Discrètes et esthétiques, les bagues céramiques allient efficacité orthodontique et élégance pour un traitement presque invisible au quotidien.</p>
+<a href="#contact" class="svc-cta">Prendre rendez-vous →</a>
+</div>
+<div class="c reveal">
+<div class="svc-icon">
+<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="18" width="32" height="12" rx="6" stroke="#2B3F6B" stroke-width="2"/><circle cx="16" cy="24" r="3" fill="#1A73E8" opacity=".7"/><circle cx="24" cy="24" r="3" fill="#1A73E8" opacity=".7"/><circle cx="32" cy="24" r="3" fill="#1A73E8" opacity=".7"/></svg>
+</div>
+<h3 class="h3">Aligneurs transparents</h3>
+<p class="svc-desc">Gouttières sur-mesure amovibles et quasi invisibles — idéales pour les adultes souhaitant corriger leur dentition sans contrainte visuelle.</p>
+<a href="#contact" class="svc-cta">Prendre rendez-vous →</a>
+</div>
+<div class="c reveal">
+<div class="svc-icon">
+<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 10 C14 10 10 18 10 24 C10 32 16 38 24 38 C32 38 38 32 38 24 C38 18 34 10 24 10Z" stroke="#2B3F6B" stroke-width="2"/><path d="M18 24h12M24 18v12" stroke="#1A73E8" stroke-width="2.2" stroke-linecap="round"/></svg>
+</div>
+<h3 class="h3">Orthodontie pédiatrique</h3>
+<p class="svc-desc">Une prise en charge bienveillante dès le plus jeune âge pour guider la croissance dentaire et prévenir les complications futures.</p>
+<a href="#contact" class="svc-cta">Prendre rendez-vous →</a>
+</div>
+<div class="c reveal">
+<div class="svc-icon">
+<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 36 L24 12 L36 36" stroke="#2B3F6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 28h16" stroke="#1A73E8" stroke-width="2.2" stroke-linecap="round"/></svg>
+</div>
+<h3 class="h3">Bilan orthodontique</h3>
+<p class="svc-desc">Première consultation approfondie : radiographies, photos, empreintes numériques et plan de traitement personnalisé expliqué en détail.</p>
+<a href="#contact" class="svc-cta">Prendre rendez-vous →</a>
+</div>
+<div class="c reveal">
+<div class="svc-icon">
+<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="14" width="28" height="20" rx="4" stroke="#2B3F6B" stroke-width="2"/><path d="M20 24l3 3 6-6" stroke="#1A73E8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</div>
+<h3 class="h3">Contention & suivi</h3>
+<p class="svc-desc">Après le traitement, des dispositifs de contention sur-mesure préservent durablement les résultats obtenus avec soin et précision.</p>
+<a href="#contact" class="svc-cta">Prendre rendez-vous →</a>
+</div>
+<div class="c reveal">
+<div class="svc-icon">
+<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="20" r="8" stroke="#2B3F6B" stroke-width="2"/><path d="M10 38c0-6 6.3-11 14-11s14 5 14 11" stroke="#1A73E8" stroke-width="2.2" stroke-linecap="round"/></svg>
+</div>
+<h3 class="h3">Orthodontie adulte</h3>
+<p class="svc-desc">Il n'y a pas d'âge pour un beau sourire. Des solutions discrètes et efficaces permettent une correction orthodontique à tout moment de la vie adulte.</p>
+<a href="#contact" class="svc-cta">Prendre rendez-vous →</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section id="praticien" class="s" style="background:#f7f9fc">
+<div class="s-inner">
+<div class="grid-2 metier-block">
+<div class="reveal">
+<span class="s-label">Le praticien</span>
+<h2 class="h2">Dr Gerber Romain,<br>orthodontiste à Nouméa</h2>
+<p class="lead" style="margin-bottom:24px">Formé en France métropolitaine et installé à Nouméa, le Dr Gerber Romain met son expertise au service des familles calédoniennes depuis de nombreuses années. Son approche allie rigueur clinique et écoute attentive.</p>
+<p class="lead" style="margin-bottom:32px">Chaque traitement est pensé comme une démarche personnalisée : le temps d'expliquer, de rassurer, d'accompagner. Pas de routine — chaque sourire est unique.</p>
+<ul class="check-list">
+<li><span class="chk">✓</span>Spécialiste qualifié en orthodontie</li>
+<li><span class="chk">✓</span>Techniques modernes et matériel de pointe</li>
+<li><span class="chk">✓</span>Accueil chaleureux enfants &amp; adultes</li>
+<li><span class="chk">✓</span>Prise en charge CAFAT et mutuelles</li>
+</ul>
+</div>
+<div class="metier-imgs reveal">
+<img src="https://i.ibb.co/BVGqJ045/Cabinet-d-orthodontie-du-Dr-Gerber-Romain-1.jpg" alt="Salle de consultation du cabinet d'orthodontie du Dr Gerber Romain" class="metier-img-main" loading="lazy">
+<img src="https://i.ibb.co/KcSG6vpG/Cabinet-d-orthodontie-du-Dr-Gerber-Romain-3.jpg" alt="Équipement orthodontique moderne au cabinet du Dr Gerber" class="metier-img-sec" loading="lazy">
+</div>
+</div>
+<div class="parcours-steps">
+<span class="s-label" style="text-align:center;display:block;margin-bottom:40px">Votre parcours patient</span>
+<div class="grid-3">
+<div class="step-card reveal">
+<div class="step-num">01</div>
+<h3 class="h3">Premier bilan</h3>
+<p class="svc-desc">Consultation initiale complète : analyse de vos dents, de votre mâchoire et de vos besoins. Un moment d'échange sans engagement.</p>
+</div>
+<div class="step-card reveal">
+<div class="step-num">02</div>
+<h3 class="h3">Plan de traitement</h3>
+<p class="svc-desc">Le Dr Gerber Romain vous présente les options adaptées, les délais et le coût. Vous choisissez en toute clarté.</p>
+</div>
+<div class="step-card reveal">
+<div class="step-num">03</div>
+<h3 class="h3">Suivi &amp; résultats</h3>
+<p class="svc-desc">Des rendez-vous réguliers jalonnent votre traitement jusqu'au sourire final — et au-delà, grâce à la contention.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- GALERIE -->
+<section id="galerie" class="s">
+<div class="s-inner">
+<div style="text-align:center;margin-bottom:48px">
+<span class="s-label">Notre cabinet</span>
+<h2 class="h2">Un espace pensé pour votre sérénité</h2>
+<p class="lead" style="margin:0 auto">Parquet chaud, teintes bleu-gris apaisantes, lumière généreuse — le cabinet du Dr Gerber Romain est conçu pour mettre chacun à l'aise dès la première visite.</p>
+</div>
+<div class="gallery-grid">
+<div class="gal-item reveal" data-src="https://i.ibb.co/VWdjxcsx/Cabinet-d-orthodontie-du-Dr-Gerber-Romain-0.jpg" data-alt="Cabinet d'orthodontie du Dr Gerber Romain à Nouméa">
+<img src="https://i.ibb.co/VWdjxcsx/Cabinet-d-orthodontie-du-Dr-Gerber-Romain-0.jpg" alt="Cabinet d'orthodontie du Dr Gerber Romain à Nouméa" loading="lazy" class="gal-img">
+<div class="gal-overlay"><span>Voir</span></div>
+</div>
+<div class="gal-item reveal" data-src="https://i.ibb.co/BVGqJ045/Cabinet-d-orthodontie-du-Dr-Gerber-Romain-1.jpg" data-alt="Salle de consultation orthodontique">
+<img src="https://i.ibb.co/BVGqJ045/Cabinet-d-orthodontie-du-Dr-Gerber-Romain-1.jpg" alt="Salle de consultation orthodontique" loading="lazy" class="gal-img">
+<div class="gal-overlay"><span>Voir</span></div>
+</div>
+<div class="gal-item reveal" data-src="https://i.ibb.co/XxzrrHQP/Cabinet-d-orthodontie-du-Dr-Gerber-Romain-2.jpg" data-alt="Espace d'accueil du cabinet">
+<img src="https://i.ibb.co/XxzrrHQP/Cabinet-d-ortodontie-du-Dr-Gerber-Romain-2.jpg" alt="Espace d'accueil du cabinet" loading="lazy" class="gal-img">
+<div class="gal-overlay"><span>Voir</span></div>
+</div>
+<div class="gal-item reveal" data-src="https://i.ibb.co/KcSG6vpG/Cabinet-d-orthodontie-du-Dr-Gerber-Romain-3.jpg" data-alt="Équipements modernes du cabinet">
+<img src="https://i.ibb.co/KcSG6vpG/Cabinet-d-orthodontie-du-Dr-Gerber-Romain-3.jpg" alt="Équipements modernes du cabinet" loading="lazy" class="gal-img">
+<div class="gal-overlay"><span>Voir</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lb">
+<button class="lb-close" id="lb-close">✕</button>
+<img src="" alt="" id="lb-img">
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section id="avis" class="s" style="background:#f7f9fc">
+<div class="s-inner">
+<div style="text-align:center;margin-bottom:56px">
+<span class="s-label">Avis patients</span>
+<h2 class="h2">La confiance de vos voisins</h2>
+<p class="lead" style="margin:0 auto">74 familles de Nouméa ont partagé leur expérience. Leur satisfaction est notre plus beau résultat.</p>
+</div>
+<div class="rating-block reveal">
+<div class="rating-badge">
+<div class="rating-big">
+<span class="rating-num">5</span>
+<div>
+<div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+<p class="trust-text" style="margin-top:4px"><strong>74 avis Google vérifiés</strong></p>
+</div>
+</div>
+<div class="rating-bar-wrap">
+<div class="rating-bar"><span class="rb-label">5 ★</span><div class="rb-track"><div class="rb-fill" style="width:94%"></div></div><span class="rb-pct">94%</span></div>
+<div class="rating-bar"><span class="rb-label">4 ★</span><div class="rb-track"><div class="rb-fill" style="width:4%"></div></div><span class="rb-pct">4%</span></div>
+<div class="rating-bar"><span class="rb-label">3 ★</span><div class="rb-track"><div class="rb-fill" style="width:2%"></div></div><span class="rb-pct">2%</span></div>
+</div>
+</div>
+<div class="temoignages">
+<div class="c temoignage reveal">
+<div class="stars" style="margin-bottom:12px"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+<p class="temo-text">"Le Dr Gerber est exceptionnel. Il a suivi ma fille pendant deux ans avec beaucoup de patience et de professionnalisme. Résultat bluffant, et elle est repartie avec le sourire à chaque visite !"</p>
+<div class="temo-author"><div class="temo-avatar">ML</div><div><strong>Marie-Line T.</strong><span class="temo-date">Nouméa · il y a 3 mois</span></div></div>
+</div>
+<div class="c temoignage reveal">
+<div class="stars" style="margin-bottom:12px"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+<p class="temo-text">"Cabinet moderne et accueillant, équipe très à l'écoute. Les aligneurs transparents ont transformé mon sourire en douceur. Je recommande sans hésitation à toute la famille."</p>
+<div class="temo-author"><div class="temo-avatar">JP</div><div><strong>Jean-Pierre M.</strong><span class="temo-date">Nouméa · il y a 5 mois</span></div></div>
+</div>
+<div class="c temoignage reveal">
+<div class="stars" style="margin-bottom:12px"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+<p class="temo-text">"Très bonne prise en charge de mon fils dès 8 ans. Le Dr Gerber explique tout clairement, rassure les enfants. Cabinet propre, lumineux, ambiance agréable. Merci !"</p>
+<div class="temo-author"><div class="temo-avatar">SF</div><div><strong>Sylvie F.</strong><span class="temo-date">Nouméa · il y a 1 mois</span></div></div>
+</div>
+</div>
+</div>
+<div class="badges-row reveal">
+<div class="badge-pill"><svg viewBox="0 0 24 24" fill="none" stroke="#2B3F6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>Praticien certifié</div>
+<div class="badge-pill"><svg viewBox="0 0 24 24" fill="none" stroke="#2B3F6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Données sécurisées</div>
+<div class="badge-pill"><svg viewBox="0 0 24 24" fill="none" stroke="#2B3F6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Cabinet à Nouméa</div>
+<div class="badge-pill"><svg viewBox="0 0 24 24" fill="none" stroke="#2B3F6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>Prise en charge CAFAT</div>
+</div>
+</div>
+</section>
+
+<!-- FORMULAIRE & INFOS -->
+<section id="contact" class="s">
+<div class="s-inner">
+<div class="grid-2 contact-wrap">
+<div class="reveal">
+<span class="s-label">Prise de rendez-vous</span>
+<h2 class="h2">Contactez<br>le cabinet</h2>
+<p class="lead" style="margin-bottom:32px">Remplissez le formulaire et l'équipe du Dr Gerber Romain vous recontacte rapidement pour convenir d'un créneau.</p>
+<div class="info-block">
+<div class="info-item">
+<div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1A73E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+<div><strong>Adresse</strong><span>7 Rue Lamartine, Nouméa<br>Nouvelle-Calédonie</span></div>
+</div>
+<div class="info-item">
+<div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1A73E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+<div><strong>Horaires</strong><span>Lundi – Vendredi : 8h – 17h<br>Sur rendez-vous uniquement</span></div>
+</div>
+<div class="info-item">
+<div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1A73E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M9 11a3 3 0 106 0 3 3 0 00-6 0"/><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0L6.343 16.657a8 8 0 1111.314 0z"/></svg></div>
+<div><strong>Accès</strong><span>Parking disponible à proximité<br>Accessible en transport en commun</span></div>
+</div>
+</div>
+</div>
+<div class="reveal">
+<form id="contact-form" action="#" novalidate class="c form-card">
+<div class="form-group">
+<label for="f-nom">Nom complet</label>
+<input type="text" id="f-nom" name="nom" placeholder="Votre nom" required>
+<span class="ferr" id="err-nom"></span>
+</div>
+<div class="form-group">
+<label for="f-email">Adresse e-mail</label>
+<input type="email" id="f-email" name="email" placeholder="votre@email.com" required>
+<span class="ferr" id="err-email"></span>
+</div>
+<div class="form-group">
+<label for="f-tel">Téléphone</label>
+<input type="tel" id="f-tel" name="tel" placeholder="Votre numéro">
+</div>
+<div class="form-group">
+<label for="f-msg">Message</label>
+<textarea id="f-msg" name="message" placeholder="Décrivez votre demande..." required></textarea>
+<span class="ferr" id="err-msg"></span>
+</div>
+<button type="submit" class="b-rdv form-submit" id="f-btn">
+<span id="f-btn-txt">Envoyer ma demande</span>
+<span id="f-loader" class="f-loader" hidden>
+<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" width="18" height="18"><circle cx="12" cy="12" r="10" stroke-opacity=".3"/><path d="M12 2a10 10 0 0110 10" stroke-linecap="round"><animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur=".8s" repeatCount="indefinite"/></path></svg>
+</span>
+</button>
+<div id="f-success" class="f-success" hidden>
+<svg viewBox="0 0 24 24" fill="none" stroke="#2B3F6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+<p>Merci ! Votre message a bien été envoyé.<br>Nous vous recontactons très prochainement.</p>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="footer-inner">
+<div class="footer-grid">
+<div>
+<h4>Cabinet d'orthodontie<br>Dr Gerber Romain</h4>
+<p style="margin-bottom:12px">Un cabinet moderne et bienveillant au cœur de Nouméa, dédié aux sourires de toute la famille.</p>
+<p>7 Rue Lamartine<br>Nouméa, Nouvelle-Calédonie</p>
+</div>
+<div>
+<h4>Spécialités</h4>
+<p><a href="#services">Bagues céramiques</a></p>
+<p><a href="#services">Aligneurs transparents</a></p>
+<p><a href="#services">Orthodontie pédiatrique</a></p>
+<p><a href="#services">Bilan orthodontique</a></p>
+</div>
+<div>
+<h4>Informations</h4>
+<p><a href="#praticien">Le praticien</a></p>
+<p><a href="#avis">Avis patients</a></p>
+<p><a href="#contact">Prendre rendez-vous</a></p>
+<p>Lundi – Vendredi : 8h – 17h</p>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 Cabinet d'orthodontie du Dr Gerber Romain. Tous droits réservés.</p>
+<a href="https://setup.nc" target="_blank" rel="noopener">Site réalisé par Setup NC</a>
+</div>
+</div>
+</footer>
+
+<style>
+.svc-icon{width:56px;height:56px;margin-bottom:20px}
+.svc-desc{font-size:.88rem;color:var(--ct);opacity:.75;line-height:1.7;margin-bottom:20px}
+.svc-cta{font-size:.82rem;font-weight:600;color:var(--ca);transition:opacity var(--trans)}
+.svc-cta:hover{opacity:.75}
+.check-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.check-list li{display:flex;align-items:center;gap:10px;font-size:.9rem;color:var(--ct)}
+.chk{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(26,115,232,.1);color:var(--ca);font-size:.75rem;font-weight:700;flex-shrink:0}
+.metier-imgs{position:relative;height:460px}
+.metier-img-main{width:78%;height:360px;object-fit:cover;border-radius:var(--r);box-shadow:var(--shadow-hover);position:absolute;top:0;left:0}
+.metier-img-sec{width:52%;height:220px;object-fit:cover;border-radius:var(--r);box-shadow:var(--shadow-hover);position:absolute;bottom:0;right:0;border:4px solid #fff}
+.parcours-steps{margin-top:80px}
+.step-card{background:#fff;border-radius:var(--r);padding:32px;box-shadow:var(--shadow);border-top:3px solid var(--ca)}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:700;color:rgba(43,63,107,.12);line-height:1;margin-bottom:12px}
+.gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.gal-item{position:relative;overflow:hidden;border-radius:var(--r);cursor:pointer;aspect-ratio:4/3}
+.gal-img{width:100%;height:100%;object-fit:cover;transition:transform 400ms ease}
+.gal-overlay{position:absolute;inset:0;background:rgba(43,63,107,.45);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity var(--trans)}
+.gal-overlay span{color:#fff;font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;border:1.5px solid rgba(255,255,255,.7);padding:8px 20px;border-radius:50px}
+.gal-item:hover .gal-img{transform:scale(1.04)}
+.gal-item:hover .gal-overlay{opacity:1}
+.rating-block{display:grid;grid-template-columns:280px 1fr;gap:48px;align-items:start}
+.rating-badge{background:#fff;border-radius:var(--r);padding:32px;box-shadow:var(--shadow)}
+.rb-label{font-size:.78rem;color:var(--ct);opacity:.7;width:28px;flex-shrink:0}
+.rating-bar{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.rb-track{flex:1;height:6px;background:rgba(43,63,107,.1);border-radius:3px;overflow:hidden}
+.rb-fill{height:100%;background:var(--cp);border-radius:3px}
+.rb-pct{font-size:.72rem;color:var(--ct);opacity:.6;width:28px;text-align:right;flex-shrink:0}
+.rating-bar-wrap{margin-top:20px}
+.temoignages{display:flex;flex-direction:column;gap:20px}
+.temoignage{padding:24px 28px}
+.temo-text{font-size:.88rem;color:var(--ct);opacity:.8;line-height:1.75;margin-bottom:16px;font-style:italic}
+.temo-author{display:flex;align-items:center;gap:12px}
+.temo-avatar{width:38px;height:38px;border-radius:50%;background:var(--cp);color:#fff;font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.temo-author strong{display:block;font-size:.85rem;color:var(--cp)}
+.temo-date{font-size:.75rem;color:var(--ct);opacity:.55}
+.badges-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:48px;justify-content:center}
+.badge-pill{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1.5px solid rgba(43,63,107,.12);border-radius:50px;padding:10px 20px;font-size:.82rem;font-weight:600;color:var(--cp);box-shadow:var(--shadow)}
+.info-block{display:flex;flex-direction:column;gap:20px}
+.info-item{display:flex;align-items:flex-start;gap:14px}
+.info-icon{width:38px;height:38px;background:rgba(26,115,232,.08);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.info-item strong{display:block;font-size:.85rem;color:var(--cp);margin-bottom:4px}
+.info-item span{font-size:.82rem;color:var(--ct);opacity:.75;line-height:1.6}
+.form-card{padding:36px}
+.form-submit{width:100%;border:none;font-family:'Open Sans',sans-serif;font-size:.9rem;min-height:52px;display:flex;align-items:center;justify-content:center;gap:8px}
+.ferr{font-size:.75rem;color:#d32f2f;margin-top:4px;display:block;min-height:16px}
+.f-loader{display:inline-flex}
+.f-success{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;padding:24px 0 8px}
+.f-success p{font-size:.9rem;color:var(--cp);line-height:1.6}
+.contact-wrap{align-items:start}
+.metier-block{align-items:center}
+@media(max-width:1024px){
+.rating-block{grid-template-columns:1fr}
+.metier-imgs{height:320px}
+.metier-img-main{width:75%;height:280px}
+.metier-img-sec{width:50%;height:180px}
+}
+@media(max-width:768px){
+.gallery-grid{grid-template-columns:repeat(2,1fr)}
+.metier-imgs{height:260px}
+.metier-img-main{width:70%;height:220px}
+.metier-img-sec{width:55%;height:160px}
+.rating-block{grid-template-columns:1fr}
+.contact-wrap{gap:32px}
+.form-card{padding:24px 20px}
+}
+@media(max-width:480px){
+.gallery-grid{grid-template-columns:1fr}
+.metier-imgs{height:220px}
+.badges-row{flex-direction:column;align-items:stretch}
+.badge-pill{justify-content:center}
+}
+</style>
+
+<script>
+(function(){
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+
+var lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img'),lbClose=document.getElementById('lb-close');
+document.querySelectorAll('.gal-item').forEach(function(item){
+item.addEventListener('click',function(){
+lbImg.src=item.dataset.src;lbImg.alt=item.dataset.alt||'';
+lb.classList.add('open');document.body.style.overflow='hidden';
+});
+});
+function closeLb(){lb.classList.remove('open');document.body.style.overflow='';}
+lbClose.addEventListener('click',closeLb);
+lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+
+var form=document.getElementById('contact-form');
+form.addEventListener('submit',function(e){
+e.preventDefault();
+var ok=true;
+var nom=document.getElementById('f-nom'),email=document.getElementById('f-email'),msg=document.getElementById('f-msg');
+var eN=document.getElementById('err-nom'),eE=document.getElementById('err-email'),eM=document.getElementById('err-msg');
+eN.textContent='';eE.textContent='';eM.textContent='';
+if(!nom.value.trim()){eN.textContent='Veuillez indiquer votre nom.';ok=false;}
+if(!email.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)){eE.textContent='Adresse e-mail invalide.';ok=false;}
+if(!msg.value.trim()){eM.textContent='Veuillez écrire votre message.';ok=false;}
+if(!ok)return;
+var btn=document.getElementById('f-btn'),btnTxt=document.getElementById('f-btn-txt'),loader=document.getElementById('f-loader'),suc=document.getElementById('f-success');
+btnTxt.hidden=true;loader.hidden=false;btn.disabled=true;
+setTimeout(function(){loader.hidden=true;btn.hidden=true;suc.hidden=false;},1400);
+});
+})();
+</script>
+</body>
+</html>
