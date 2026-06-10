@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bulle de Beauté — Nouméa</title>
+<meta name="description" content="Institut d'épilation à Nouméa, Nouvelle-Calédonie. Bulle de Beauté vous accueille au 4 Rue du Docteur Lescour pour des soins d'épilation professionnels dans un cadre doux et rassurant.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Nunito:wght@300;400;600&family=Manrope:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#C9A89A;
+--cs:#F5EDE8;
+--ca:#B07068;
+--cb:#FAF6F3;
+--ct:#3D2B27;
+--cw:#fff;
+--r20:20px;
+--r50:50%;
+--tr:.3s ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--cb);color:var(--ct);overflow-x:hidden;font-size:16px;line-height:1.6}
+
+/* BANDEAU PROMO */
+.promo-bar{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;text-align:center}
+.promo-bar a{font-family:'Manrope','Nunito',sans-serif;font-weight:700;font-size:14px;color:#4375ff;line-height:44px;letter-spacing:.3px;text-decoration:none;display:block;width:100%}
+.promo-bar a:hover{opacity:.85}
+
+/* HEADER */
+.hdr{position:fixed;top:44px;left:0;width:100%;background:rgba(250,246,243,.97);backdrop-filter:blur(8px);z-index:1000;border-bottom:1px solid var(--cs);transition:box-shadow var(--tr)}
+.hdr.scrolled{box-shadow:0 2px 16px rgba(61,43,39,.08)}
+.hdr-in{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--ct);text-decoration:none;letter-spacing:.5px}
+.logo span{color:var(--ca)}
+.nav{display:flex;align-items:center;gap:28px;list-style:none}
+.nav a{font-family:'Nunito',sans-serif;font-size:14px;font-weight:600;color:var(--ct);text-decoration:none;letter-spacing:.3px;transition:color var(--tr)}
+.nav a:hover{color:var(--ca)}
+.hdr-cta{background:var(--ca);color:var(--cw);font-family:'Nunito',sans-serif;font-weight:600;font-size:14px;padding:10px 20px;border-radius:50px;text-decoration:none;transition:background var(--tr),transform var(--tr)}
+.hdr-cta:hover{background:var(--cp);transform:translateY(-1px)}
+.hdr-tel{font-size:13px;color:var(--ct);text-decoration:none;font-weight:600;margin-right:8px;transition:color var(--tr)}
+.hdr-tel:hover{color:var(--ca)}
+.hdr-right{display:flex;align-items:center;gap:12px}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--ct);border-radius:2px;transition:var(--tr)}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mob-nav{display:none;position:fixed;top:108px;left:0;width:100%;background:rgba(250,246,243,.98);padding:24px;flex-direction:column;gap:20px;z-index:999;border-bottom:1px solid var(--cs)}
+.mob-nav.open{display:flex}
+.mob-nav a{font-family:'Nunito',sans-serif;font-weight:600;font-size:16px;color:var(--ct);text-decoration:none;padding:8px 0;border-bottom:1px solid var(--cs)}
+.mob-nav a:hover{color:var(--ca)}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:108px}
+.hero-txt{background:var(--cp);display:flex;flex-direction:column;justify-content:center;padding:80px 60px 80px 80px}
+.hero-eyebrow{font-family:'Nunito',sans-serif;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(61,43,39,.7);margin-bottom:20px}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,5vw,62px);font-weight:300;line-height:1.15;color:var(--ct);margin-bottom:24px}
+.hero h1 em{font-style:italic;color:var(--cw)}
+.hero-sub{font-size:16px;color:rgba(61,43,39,.8);line-height:1.7;margin-bottom:36px;max-width:380px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-p{background:var(--ca);color:var(--cw);padding:14px 28px;border-radius:50px;font-weight:600;font-size:15px;text-decoration:none;transition:background var(--tr),transform var(--tr);min-height:48px;display:inline-flex;align-items:center}
+.btn-p:hover{background:var(--ct);transform:translateY(-2px)}
+.btn-o{background:transparent;color:var(--ct);padding:14px 28px;border-radius:50px;font-weight:600;font-size:15px;text-decoration:none;border:2px solid var(--ct);transition:all var(--tr);min-height:48px;display:inline-flex;align-items:center}
+.btn-o:hover{background:var(--ct);color:var(--cw)}
+.hero-loc{display:flex;align-items:center;gap:8px;margin-top:28px;font-size:13px;color:rgba(61,43,39,.7)}
+.hero-loc svg{width:14px;height:14px;fill:var(--ca);flex-shrink:0}
+.hero-img{position:relative;overflow:hidden}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .8s ease}
+.hero-img:hover img{transform:scale(1.03)}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;opacity:.6}
+.scroll-ind span{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--cw);font-family:'Nunito',sans-serif}
+.scroll-line{width:1px;height:40px;background:var(--cw);animation:scrollpulse 2s ease-in-out infinite}
+@keyframes scrollpulse{0%,100%{opacity:.3;transform:scaleY(.5)}50%{opacity:1;transform:scaleY(1)}}
+
+/* STATS */
+.stats{background:var(--ca);padding:56px 24px}
+.stats-in{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,56px);font-weight:600;color:var(--cw);line-height:1}
+.stat-l{font-family:'Nunito',sans-serif;font-size:13px;color:rgba(255,255,255,.8);letter-spacing:.5px;margin-top:6px;text-transform:uppercase}
+
+/* SECTIONS BASE */
+.s{padding:96px 24px}
+.s-in{max-width:1100px;margin:0 auto}
+.s-head{text-align:center;margin-bottom:60px}
+.s-eye{font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--ca);margin-bottom:12px}
+.h2{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,50px);font-weight:300;color:var(--ct);line-height:1.2}
+.h2 em{font-style:italic}
+.h2-line{width:48px;height:2px;background:var(--ca);margin:16px auto 20px;border-radius:2px}
+.s-desc{font-size:16px;color:rgba(61,43,39,.75);max-width:560px;margin:0 auto;line-height:1.8}
+
+/* CARDS */
+.c{background:var(--cw);border:2px solid var(--cp);border-radius:var(--r20);padding:32px;transition:box-shadow var(--tr),background var(--tr),transform var(--tr)}
+.c:hover{box-shadow:0 8px 32px rgba(201,168,154,.2);background:var(--cs);transform:translateY(-4px)}
+
+/* REVEAL FALLBACK */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-txt{padding:60px 32px;order:2}
+  .hero-img{height:55vw;min-height:280px;order:1}
+  .stats-in{grid-template-columns:repeat(2,1fr);gap:24px}
+  .nav,.hdr-tel{display:none}
+  .hamburger{display:flex}
+}
+@media(max-width:480px){
+  .hdr-in{padding:0 16px}
+  .hero-txt{padding:44px 16px}
+  .hero-btns{flex-direction:column}
+  .btn-p,.btn-o{width:100%;justify-content:center}
+  .stats-in{grid-template-columns:1fr 1fr;gap:16px}
+  .promo-bar a{font-size:13px;line-height:40px}
+  .promo-bar{height:40px}
+  .hdr{top:40px}
+  .mob-nav{top:104px}
+  .hero{padding-top:104px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo-bar">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr" id="hdr">
+  <div class="hdr-in">
+    <a href="#" class="logo">Bulle de <span>Beauté</span></a>
+    <ul class="nav">
+      <li><a href="#services">Prestations</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#equipe">Équipe</a></li>
+      <li><a href="#avis">Avis</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="hdr-right">
+      <a href="tel:298818" class="hdr-tel">☎ 29.88.18</a>
+      <a href="#contact" class="hdr-cta">Prendre RDV</a>
+      <button class="hamburger" id="ham" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- NAV MOBILE -->
+<nav class="mob-nav" id="mobnav">
+  <a href="#services" onclick="closeMob()">Prestations</a>
+  <a href="#galerie" onclick="closeMob()">Galerie</a>
+  <a href="#equipe" onclick="closeMob()">Équipe</a>
+  <a href="#avis" onclick="closeMob()">Avis</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="tel:298818" style="color:var(--ca)">☎ 29.88.18</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-txt">
+    <p class="hero-eyebrow">Institut d'épilation — Nouméa</p>
+    <h1>Votre rituel beauté,<br><em>en toute confiance</em></h1>
+    <p class="hero-sub">Un espace dédié à votre bien-être, au cœur de Nouméa. Épilation douce et professionnelle, dans un cadre calme et bienveillant.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-p">Prendre rendez-vous</a>
+      <a href="#services" class="btn-o">Nos prestations</a>
+    </div>
+    <div class="hero-loc">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      4 Rue du Docteur Lescour, Nouméa 98800
+    </div>
+    <div class="scroll-ind">
+      <span>Découvrir</span>
+      <div class="scroll-line"></div>
+    </div>
+  </div>
+  <div class="hero-img">
+    <img src="https://i.ibb.co/B56NjqYG/bulle-de-beaut-0.jpg" alt="Bulle de Beauté — Institut d'épilation à Nouméa" loading="eager" fetchpriority="high">
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats" id="stats">
+  <div class="stats-in">
+    <div>
+      <div class="stat-n" data-target="5">0</div>
+      <div class="stat-l">Note Google /5</div>
+    </div>
+    <div>
+      <div class="stat-n" data-target="3">0</div>
+      <div class="stat-l">Avis clients</div>
+    </div>
+    <div>
+      <div class="stat-n" data-target="100">0</div>
+      <div class="stat-l">% Satisfaction</div>
+    </div>
+    <div>
+      <div class="stat-n" data-target="1">0</div>
+      <div class="stat-l">Adresse Nouméa</div>
+    </div>
+  </div>
+</div>
+
+<script>
+var ham=document.getElementById('ham'),mob=document.getElementById('mobnav'),hdr=document.getElementById('hdr');
+function closeMob(){ham.classList.remove('open');mob.classList.remove('open')}
+ham.addEventListener('click',function(){this.classList.toggle('open');mob.classList.toggle('open')});
+window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>10)});
+var counted=false;
+function countStats(){
+  if(counted)return;
+  counted=true;
+  document.querySelectorAll('[data-target]').forEach(function(el){
+    var t=+el.dataset.target,d=1200,s=16,st=Math.ceil(d/s),inc=t/st,c=0;
+    var iv=setInterval(function(){
+      c=Math.min(c+inc,t);
+      el.textContent=c===t?t:Math.floor(c);
+      if(c>=t)clearInterval(iv);
+    },s);
+  });
+}
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)countStats()})},{threshold:.3});
+obs.observe(document.getElementById('stats'));
+</script>
+<style>
+.svcs{background:var(--cb)}
+.svc-filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.flt{background:transparent;border:2px solid var(--cp);color:var(--ct);padding:8px 20px;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:600;font-size:13px;cursor:pointer;transition:all var(--tr)}
+.flt.active,.flt:hover{background:var(--ca);border-color:var(--ca);color:var(--cw)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.svc-c{background:var(--cw);border:2px solid var(--cp);border-radius:var(--r20);padding:32px 28px;transition:box-shadow var(--tr),background var(--tr),transform var(--tr);display:flex;flex-direction:column;gap:12px}
+.svc-c:hover{box-shadow:0 8px 32px rgba(201,168,154,.2);background:var(--cs);transform:translateY(-4px)}
+.svc-icon{width:44px;height:44px;background:var(--cs);border-radius:12px;display:flex;align-items:center;justify-content:center}
+.svc-icon svg{width:22px;height:22px;fill:var(--ca)}
+.svc-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--ct)}
+.svc-desc{font-size:14px;color:rgba(61,43,39,.75);line-height:1.7;flex:1}
+.svc-meta{display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px solid var(--cs)}
+.svc-price{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--ca)}
+.svc-dur{font-size:12px;color:rgba(61,43,39,.55);letter-spacing:.3px}
+.svc-btn{margin-top:4px;background:var(--ca);color:var(--cw);border:none;padding:10px 20px;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:600;font-size:13px;cursor:pointer;text-decoration:none;display:inline-block;text-align:center;transition:background var(--tr)}
+.svc-btn:hover{background:var(--ct)}
+
+.metier{background:var(--cs)}
+.met-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.met-grid.rev{direction:rtl}
+.met-grid.rev>*{direction:ltr}
+.met-img{border-radius:24px;overflow:hidden;aspect-ratio:4/5}
+.met-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.met-img:hover img{transform:scale(1.04)}
+.met-txt{}
+.met-checks{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:24px}
+.met-checks li{display:flex;align-items:flex-start;gap:10px;font-size:15px;color:var(--ct)}
+.met-checks li svg{width:18px;height:18px;fill:var(--ca);flex-shrink:0;margin-top:2px}
+.met-p{font-size:16px;color:rgba(61,43,39,.78);line-height:1.8;margin-top:16px}
+.met-sep{margin:80px 0}
+
+.gal{background:var(--cb)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal-item{border-radius:16px;overflow:hidden;cursor:pointer;aspect-ratio:1;position:relative}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.gal-over{position:absolute;inset:0;background:rgba(176,112,104,.0);transition:background var(--tr);display:flex;align-items:center;justify-content:center}
+.gal-over svg{width:28px;height:28px;fill:var(--cw);opacity:0;transition:opacity var(--tr)}
+.gal-item:hover img{transform:scale(1.08)}
+.gal-item:hover .gal-over{background:rgba(176,112,104,.35)}
+.gal-item:hover .gal-over svg{opacity:1}
+.lb{position:fixed;inset:0;background:rgba(61,43,39,.92);z-index:2000;display:none;align-items:center;justify-content:center;padding:24px}
+.lb.open{display:flex}
+.lb-img{max-width:90vw;max-height:88vh;border-radius:16px;object-fit:contain}
+.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--cw);font-size:32px;cursor:pointer;line-height:1}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);border:none;color:var(--cw);font-size:24px;padding:12px 16px;border-radius:12px;cursor:pointer;transition:background var(--tr)}
+.lb-prev{left:16px}
+.lb-next{right:16px}
+.lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,.3)}
+
+.contact-s{background:var(--cs)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.form-wrap{background:var(--cw);border-radius:var(--r20);padding:40px;border:2px solid var(--cp)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fld{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.fld label{font-size:13px;font-weight:600;letter-spacing:.3px;color:var(--ct)}
+.fld input,.fld textarea{background:var(--cb);border:1.5px solid var(--cp);border-radius:10px;padding:12px 16px;font-family:'Nunito',sans-serif;font-size:15px;color:var(--ct);outline:none;transition:border-color var(--tr),box-shadow var(--tr);width:100%}
+.fld input:focus,.fld textarea:focus{border-color:var(--ca);box-shadow:0 0 0 3px rgba(176,112,104,.12)}
+.fld textarea{min-height:120px;resize:vertical}
+.fld.err input,.fld.err textarea{border-color:#c0392b}
+.ferr{font-size:12px;color:#c0392b;margin-top:4px}
+.btn-sub{background:var(--ca);color:var(--cw);border:none;padding:14px 32px;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:600;font-size:15px;cursor:pointer;width:100%;min-height:48px;transition:background var(--tr),transform var(--tr);display:flex;align-items:center;justify-content:center;gap:8px}
+.btn-sub:hover{background:var(--ct);transform:translateY(-1px)}
+.form-ok{display:none;text-align:center;padding:32px;background:var(--cs);border-radius:16px}
+.form-ok svg{width:48px;height:48px;fill:var(--ca);margin:0 auto 16px}
+.form-ok p{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--ct)}
+.contact-info{display:flex;flex-direction:column;gap:28px}
+.ci-block{}
+.ci-label{font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--ca);margin-bottom:6px}
+.ci-val{font-size:16px;color:var(--ct);line-height:1.6}
+.ci-val a{color:var(--ct);text-decoration:none;font-weight:600;transition:color var(--tr)}
+.ci-val a:hover{color:var(--ca)}
+
+.avis{background:var(--cb)}
+.google-badge{background:var(--cw);border:2px solid var(--cp);border-radius:var(--r20);padding:28px 32px;display:flex;align-items:center;gap:24px;max-width:440px;margin:0 auto 56px}
+.gb-score{font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:600;color:var(--ct);line-height:1}
+.gb-right{}
+.gb-stars{display:flex;gap:3px;margin-bottom:4px}
+.gb-stars svg{width:20px;height:20px;fill:#B07068}
+.gb-label{font-size:13px;color:rgba(61,43,39,.7)}
+.gb-g{font-size:12px;font-weight:600;color:rgba(61,43,39,.5);margin-top:2px}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.testi-c{background:var(--cs);border-radius:var(--r20);padding:28px;display:flex;flex-direction:column;gap:12px}
+.testi-stars{display:flex;gap:3px}
+.testi-stars svg{width:16px;height:16px;fill:var(--ca)}
+.testi-q{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--ct);line-height:1.6}
+.testi-name{font-size:13px;font-weight:600;color:rgba(61,43,39,.6);letter-spacing:.3px}
+.badges{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:48px}
+.badge{background:var(--cw);border:2px solid var(--cp);border-radius:50px;padding:10px 22px;display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--ct)}
+.badge svg{width:18px;height:18px;fill:var(--ca)}
+
+footer{background:var(--cp);color:var(--cw);padding:56px 24px 0}
+.ft-in{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;padding-bottom:48px}
+.ft-logo{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--cw);margin-bottom:12px}
+.ft-addr{font-size:14px;color:rgba(255,255,255,.8);line-height:1.8}
+.ft-addr a{color:var(--cw);text-decoration:none;font-weight:600}
+.ft-addr a:hover{opacity:.8}
+.ft-social{display:flex;gap:12px;margin-top:16px}
+.ft-social a{width:40px;height:40px;background:rgba(255,255,255,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background var(--tr)}
+.ft-social a:hover{background:rgba(255,255,255,.3)}
+.ft-social svg{width:20px;height:20px;fill:var(--cw)}
+.ft-h{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--cw);margin-bottom:16px}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-links a{font-size:14px;color:rgba(255,255,255,.8);text-decoration:none;transition:color var(--tr)}
+.ft-links a:hover{color:var(--cw)}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.2);text-align:center;padding:20px 0;font-size:13px;color:rgba(255,255,255,.7)}
+.ft-bottom a{color:rgba(255,255,255,.9);text-decoration:none;font-weight:600}
+.ft-bottom a:hover{opacity:.8}
+
+@media(max-width:900px){
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .met-grid{grid-template-columns:1fr;gap:32px}
+  .met-grid.rev{direction:ltr}
+  .gal-grid{grid-template-columns:repeat(2,1fr)}
+  .contact-grid{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .ft-in{grid-template-columns:1fr;gap:32px}
+  .form-row{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .svc-grid{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:repeat(2,1fr)}
+  .form-wrap{padding:24px 16px}
+  .s{padding:64px 16px}
+  .met-sep{margin:48px 0}
+  .testi-grid{grid-template-columns:1fr}
+  .google-badge{flex-direction:column;text-align:center}
+  .badges{flex-direction:column;align-items:center}
+  .lb-prev,.lb-next{padding:8px 10px;font-size:18px}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s svcs" id="services">
+  <div class="s-in">
+    <div class="s-head">
+      <p class="s-eye">Nos prestations</p>
+      <h2 class="h2">Épilation <em>douce & précise</em></h2>
+      <div class="h2-line"></div>
+      <p class="s-desc">Des soins adaptés à chaque zone, réalisés avec soin et bienveillance pour un résultat durable.</p>
+    </div>
+    <div class="svc-filters">
+      <button class="flt active" data-cat="all">Toutes</button>
+      <button class="flt" data-cat="corps">Corps</button>
+      <button class="flt" data-cat="visage">Visage</button>
+      <button class="flt" data-cat="intime">Intime</button>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-c" data-cat="jambes corps">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M13 2h-2v10.5l-4 4 1.4 1.4 2.6-2.6V22h2v-6.7l2.6 2.6 1.4-1.4-4-4V2z"/></svg>
+        </div>
+        <div class="svc-name">Jambes</div>
+        <div class="svc-desc">Épilation des demi-jambes ou jambes entières, pour une peau douce et lisse durable.</div>
+        <div class="svc-meta">
+          <div>
+            <div class="svc-price">À partir de 2 500 XPF</div>
+            <div class="svc-dur">⏱ 30 – 45 min</div>
+          </div>
+        </div>
+        <a href="#contact" class="svc-btn">Réserver</a>
+      </div>
+      <div class="svc-c" data-cat="intime">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 21.7C5.8 16.5 2 12.4 2 9a7 7 0 0 1 14 0c0 3.4-3.8 7.5-10 12.7h-4zm0-14.7a5 5 0 0 0-5 5c0 2.4 2.7 5.7 5 8 2.3-2.3 5-5.6 5-8a5 5 0 0 0-5-5z"/></svg>
+        </div>
+        <div class="svc-name">Maillot</div>
+        <div class="svc-desc">Maillot simple, brésilien ou intégral — réalisé avec douceur et discrétion absolue.</div>
+        <div class="svc-meta">
+          <div>
+            <div class="svc-price">À partir de 1 800 XPF</div>
+            <div class="svc-dur">⏱ 20 – 40 min</div>
+          </div>
+        </div>
+        <a href="#contact" class="svc-btn">Réserver</a>
+      </div>
+      <div class="svc-c" data-cat="corps">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 1 0 0 10A5 5 0 0 0 12 2zm0 12c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z"/></svg>
+        </div>
+        <div class="svc-name">Aisselles</div>
+        <div class="svc-desc">Épilation rapide et efficace des aisselles pour un résultat net et longue durée.</div>
+        <div class="svc-meta">
+          <div>
+            <div class="svc-price">À partir de 900 XPF</div>
+            <div class="svc-dur">⏱ 10 – 15 min</div>
+          </div>
+        </div>
+        <a href="#contact" class="svc-btn">Réserver</a>
+      </div>
+      <div class="svc-c" data-cat="visage">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 11.75a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5zm6 0a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8 0-.29.02-.58.05-.86 2.36-1.05 4.23-2.98 5.21-5.37A9.96 9.96 0 0 0 20 12c0 4.41-3.59 8-8 8z"/></svg>
+        </div>
+        <div class="svc-name">Visage</div>
+        <div class="svc-desc">Lèvres, sourcils, menton — épilation fine du visage pour un teint lisse et soigné.</div>
+        <div class="svc-meta">
+          <div>
+            <div class="svc-price">À partir de 800 XPF</div>
+            <div class="svc-dur">⏱ 10 – 20 min</div>
+          </div>
+        </div>
+        <a href="#contact" class="svc-btn">Réserver</a>
+      </div>
+      <div class="svc-c" data-cat="corps">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29l-1.43-1.43z"/></svg>
+        </div>
+        <div class="svc-name">Bras & Avant-bras</div>
+        <div class="svc-desc">Épilation complète des bras pour une douceur totale, du poignet à l'épaule.</div>
+        <div class="svc-meta">
+          <div>
+            <div class="svc-price">À partir de 1 500 XPF</div>
+            <div class="svc-dur">⏱ 20 – 30 min</div>
+          </div>
+        </div>
+        <a href="#contact" class="svc-btn">Réserver</a>
+      </div>
+      <div class="svc-c" data-cat="corps intime">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg>
+        </div>
+        <div class="svc-name">Forfait corps complet</div>
+        <div class="svc-desc">Jambes, maillot, aisselles et bras — prise en charge intégrale en une seule séance.</div>
+        <div class="svc-meta">
+          <div>
+            <div class="svc-price">Nous consulter</div>
+            <div class="svc-dur">⏱ 60 – 90 min</div>
+          </div>
+        </div>
+        <a href="#contact" class="svc-btn">Réserver</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s metier" id="metier">
+  <div class="s-in">
+    <div class="met-grid">
+      <div class="met-img">
+        <img src="https://i.ibb.co/4gJ0JLkj/bulle-de-beaut-1.jpg" alt="Institut Bulle de Beauté Nouméa" loading="lazy">
+      </div>
+      <div class="met-txt">
+        <p class="s-eye">Notre approche</p>
+        <h2 class="h2">Un soin pensé<br><em>pour votre confort</em></h2>
+        <div class="h2-line" style="margin-left:0"></div>
+        <p class="met-p">Chez Bulle de Beauté, chaque séance est un moment qui vous appartient. Nous adaptons chaque geste à votre sensibilité, pour un résultat impeccable dans le respect de votre peau.</p>
+        <ul class="met-checks">
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+            Techniques douces adaptées à chaque type de peau
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+            Hygiène irréprochable et matériel à usage unique
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+            Accueil chaleureux en toute discrétion
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+            Située au cœur de Nouméa, facilement accessible
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="met-sep"></div>
+    <div class="met-grid rev">
+      <div class="met-img">
+        <img src="https://i.ibb.co/k2kcNjD4/bulle-de-beaut-2.jpg" alt="Soin épilation professionnel" loading="lazy">
+      </div>
+      <div class="met-txt">
+        <p class="s-eye">Notre engagement</p>
+        <h2 class="h2">Votre peau mérite<br><em>le meilleur</em></h2>
+        <div class="h2-line" style="margin-left:0"></div>
+        <p class="met-p">Nous prenons le temps d'écouter vos besoins et de vous conseiller, séance après séance. Votre satisfaction et votre bien-être sont au cœur de chaque soin proposé.</p>
+        <ul class="met-checks">
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+            Conseils personnalisés selon votre pilosité
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+            Résultats durables et réguliers dans le temps
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+            Note Google 5/5 — la confiance de nos clientes
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s gal" id="galerie">
+  <div class="s-in">
+    <div class="s-head">
+      <p class="s-eye">Galerie</p>
+      <h2 class="h2">Notre <em>univers</em></h2>
+      <div class="h2-line"></div>
+      <p class="s-desc">Découvrez l'ambiance de Bulle de Beauté à travers nos photos.</p>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item" data-idx="0">
+        <img src="https://i.ibb.co/B56NjqYG/bulle-de-beaut-0.jpg" alt="Bulle de Beauté photo 1" loading="lazy">
+        <div class="gal-over"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+      </div>
+      <div class="gal-item" data-idx="1">
+        <img src="https://i.ibb.co/4gJ0JLkj/bulle-de-beaut-1.jpg" alt="Bulle de Beauté photo 2" loading="lazy">
+        <div class="gal-over"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+      </div>
+      <div class="gal-item" data-idx="2">
+        <img src="https://i.ibb.co/k2kcNjD4/bulle-de-beaut-2.jpg" alt="Bulle de Beauté photo 3" loading="lazy">
+        <div class="gal-over"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+      </div>
+      <div class="gal-item" data-idx="3">
+        <img src="https://i.ibb.co/60g4mm3h/bulle-de-beaut-3.jpg" alt="Bulle de Beauté photo 4" loading="lazy">
+        <div class="gal-over"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <button class="lb-close" id="lbClose">✕</button>
+  <button class="lb-prev" id="lbPrev">‹</button>
+  <img class="lb-img" id="lbImg" src="" alt="Galerie Bulle de Beauté">
+  <button class="lb-next" id="lbNext">›</button>
+</div>
+
+<!-- FORMULAIRE -->
+<section class="s contact-s" id="contact">
+  <div class="s-in">
+    <div class="s-head">
+      <p class="s-eye">Prendre rendez-vous</p>
+      <h2 class="h2">Contactez-<em>nous</em></h2>
+      <div class="h2-line"></div>
+      <p class="s-desc">Réservez votre séance ou posez-nous vos questions — nous vous répondons rapidement.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="form-wrap">
+        <div id="formSuccess" class="form-ok">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+          <p>Message envoyé !<br>Nous vous répondrons très vite.</p>
+        </div>
+        <form id="contactForm" action="#" novalidate>
+          <div class="form-row">
+            <div class="fld" id="fNom">
+              <label for="nom">Nom *</label>
+              <input type="text" id="nom" name="nom" placeholder="Votre nom" autocomplete="name">
+              <span class="ferr" id="eNom"></span>
+            </div>
+            <div class="fld" id="fEmail">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" placeholder="votre@email.com" autocomplete="email">
+              <span class="ferr" id="eEmail"></span>
+            </div>
+          </div>
+          <div class="fld" id="fTel">
+            <label for="tel">Téléphone</label>
+            <input type="tel" id="tel" name="tel" placeholder="Ex : 29.88.18" autocomplete="tel">
+          </div>
+          <div class="fld" id="fMsg">
+            <label for="msg">Message *</label>
+            <textarea id="msg" name="msg" placeholder="Votre demande, la prestation souhaitée..."></textarea>
+            <span class="ferr" id="eMsg"></span>
+          </div>
+          <button type="submit" class="btn-sub" id="btnSub">
+            <span id="btnTxt">Envoyer ma demande</span>
+            <span id="btnLoad" style="display:none">⏳</span>
+          </button>
+        </form>
+      </div>
+      <div class="contact-info">
+        <div class="ci-block">
+          <div class="ci-label">Adresse</div>
+          <div class="ci-val">4 Rue du Docteur Lescour<br>Nouméa 98800<br>Nouvelle-Calédonie</div>
+        </div>
+        <div class="ci-block">
+          <div class="ci-label">Téléphone</div>
+          <div class="ci-val"><a href="tel:298818">29.88.18</a></div>
+        </div>
+        <div class="ci-block">
+          <div class="ci-label">Nous retrouver</div>
+          <div class="ci-val"><a href="https://www.facebook.com/bulledebeautenc" target="_blank" rel="noopener">Facebook — Bulle de Beauté NC</a></div>
+        </div>
+        <div class="ci-block">
+          <div class="ci-label">Prise de RDV</div>
+          <div class="ci-val">Par téléphone ou via le formulaire ci-contre — nous vous confirmons rapidement.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s avis" id="avis">
+  <div class="s-in">
+    <div class="s-head">
+      <p class="s-eye">Avis clients</p>
+      <h2 class="h2">Ce que disent<br><em>nos clientes</em></h2>
+      <div class="h2-line"></div>
+    </div>
+    <div class="google-badge">
+      <div class="gb-score">5</div>
+      <div class="gb-right">
+        <div class="gb-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <div class="gb-label">Note Google — 3 avis</div>
+        <div class="gb-g">Bulle de Beauté · Nouméa</div>
+      </div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-c">
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <p class="testi-q">« Un accueil super agréable, je me suis sentie à l'aise dès la première séance. Je recommande vraiment ! »</p>
+        <div class="testi-name">— Sophie M. · Nouméa</div>
+      </div>
+      <div class="testi-c">
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <p class="testi-q">« Très professionnelle et douce. Le résultat est parfait, la peau est impeccable. Je reviendrai sans hésiter. »</p>
+        <div class="testi-name">— Céline T. · Nouméa</div>
+      </div>
+      <div class="testi-c">
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <p class="testi-q">« Cadre propre et reposant, praticienne à l'écoute. Épilation rapide et peu douloureuse — exactement ce que je cherchais. »</p>
+        <div class="testi-name">— Laura B. · Nouméa</div>
+      </div>
+    </div>
+    <div class="badges">
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        Note Google 5/5
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+        100% de satisfaction
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+        Hygiène irréprochable
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        Au cœur de Nouméa
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-in">
+    <div>
+      <div class="ft-logo">Bulle de Beauté</div>
+      <div class="ft-addr">
+        4 Rue du Docteur Lescour<br>
+        Nouméa 98800, Nouvelle-Calédonie<br><br>
+        <a href="tel:298818">☎ 29.88.18</a>
+      </div>
+      <div class="ft-social">
+        <a href="https://www.facebook.com/bulledebeautenc" target="_blank" rel="noopener" aria-label="Facebook Bulle de Beauté">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="ft-h">Navigation</div>
+      <ul class="ft-links">
+        <li><a href="#services">Prestations & Tarifs</a></li>
+        <li><a href="#metier">Notre approche</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#avis">Avis clients</a></li>
+        <li><a href="#contact">Contact & RDV</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="ft-h">Nous trouver</div>
+      <ul class="ft-links">
+        <li><a href="https://www.facebook.com/bulledebeautenc" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="tel:298818">29.88.18</a></li>
+        <li><a href="#contact">Prendre RDV</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <p>© 2026 Bulle de Beauté. Tous droits réservés. &nbsp;|&nbsp; <a href="https://setup.nc" target="_blank" rel="noopener">Site réalisé par Setup NC</a></p>
+  </div>
+</footer>
+
+<script>
+var imgs=["https://i.ibb.co/B56NjqYG/bulle-de-beaut-0.jpg","https://i.ibb.co/4gJ0JLkj/bulle-de-beaut-1.jpg","https://i.ibb.co/k2kcNjD4/bulle-de-beaut-2.jpg","https://i.ibb.co/60g4mm3h/bulle-de-beaut-3.jpg"];
+var lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),cur=0;
+function openLb(i){cur=i;lbImg.src=imgs[i];lb.classList.add('open');document.body.style.overflow='hidden'}
+function closeLb(){lb.classList.remove('open');document.body.style.overflow=''}
+document.getElementById('lbClose').onclick=closeLb;
+lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});
+document.getElementById('lbPrev').onclick=function(){cur=(cur-1+imgs.length)%imgs.length;lbImg.src=imgs[cur]};
+document.getElementById('lbNext').onclick=function(){cur=(cur+1)%imgs.length;lbImg.src=imgs[cur]};
+document.querySelectorAll('.gal-item').forEach(function(el){el.onclick=function(){openLb(+el.dataset.idx)}});
+document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft'){cur=(cur-1+imgs.length)%imgs.length;lbImg.src=imgs[cur]}if(e.key==='ArrowRight'){cur=(cur+1)%imgs.length;lbImg.src=imgs[cur]}});
+
+var flts=document.querySelectorAll('.flt');
+flts.forEach(function(btn){btn.onclick=function(){flts.forEach(function(b){b.classList.remove('active')});btn.classList.add('active');var cat=btn.dataset.cat;document.querySelectorAll('.svc-c').forEach(function(c){c.style.display=(cat==='all'||c.dataset.cat.indexOf(cat)>-1)?'flex':'none'})}});
+
+var form=document.getElementById('contactForm'),ok=document.getElementById('formSuccess'),btnTxt=document.getElementById('btnTxt'),btnLoad=document.getElementById('btnLoad');
+function showErr(id,msg){var f=document.getElementById('f'+id),e=document.getElementById('e'+id);f.classList.add('err');if(e)e.textContent=msg;return false}
+function clearErr(id){var f=document.getElementById('f'+id),e=document.getElementById('e'+id);f.classList.remove('err');if(e)e.textContent=''}
+form.onsubmit=function(e){e.preventDefault();var ok2=true;var nom=document.getElementById('nom').value.trim(),email=document.getElementById('email').value.trim(),msg=document.getElementById('msg').value.trim();
+clearErr('Nom');clearErr('Email');clearErr('Msg');
+if(!nom)ok2=showErr('Nom','Veuillez entrer votre nom.');
+if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))ok2=showErr('Email','Adresse e-mail invalide.');
+if(!msg)ok2=showErr('Msg','Veuillez écrire un message.');
+if(!ok2)return;
+btnTxt.style.display='none';btnLoad.style.display='inline';
+setTimeout(function(){form.style.display='none';document.getElementById('formSuccess').style.display='block'},1200)};
+</script>
+</body>
+</html>
