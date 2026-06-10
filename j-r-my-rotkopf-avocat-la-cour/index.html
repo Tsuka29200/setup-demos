@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jérémy ROTKOPF, Avocat à la Cour — Nouméa</title>
+<meta name="description" content="Jérémy ROTKOPF, Avocat à la Cour à Nouméa, Nouvelle-Calédonie. Expertise juridique rigoureuse, conseil accessible et engagement local pour particuliers et entreprises.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#2d3a7c;
+--cs:#475569;
+--ca:#046bd2;
+--ct:#111827;
+--cb:#f9fafb;
+--cw:#ffffff;
+--cc:#374151;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ct);background:var(--cw);overflow-x:hidden;line-height:1.8}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+h1,h2,h3,h4{font-family:'Montserrat',sans-serif;line-height:1.25;letter-spacing:.02em;color:var(--cp)}
+.container{width:100%;max-width:1140px;margin:0 auto;padding:0 24px}
+.s{padding:80px 0}
+.s-alt{background:var(--cb)}
+.h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:700;color:var(--cw)}
+.h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;margin-bottom:16px}
+.h3{font-size:1.125rem;font-weight:600;margin-bottom:8px}
+.lead{font-size:clamp(1rem,2vw,1.2rem);line-height:1.8;color:var(--cs)}
+.tag{display:inline-block;font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ca);margin-bottom:12px}
+.b{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 32px;border-radius:4px;font-family:'Inter',sans-serif;font-size:.95rem;font-weight:600;cursor:pointer;transition:background .2s,box-shadow .2s,transform .2s;border:none;text-decoration:none;min-height:48px}
+.b-primary{background:var(--cp);color:var(--cw)}
+.b-primary:hover{background:var(--ca);box-shadow:0 6px 20px rgba(4,107,210,.3);transform:translateY(-1px)}
+.b-accent{background:var(--ca);color:var(--cw)}
+.b-accent:hover{background:#035bb5;box-shadow:0 6px 20px rgba(4,107,210,.35);transform:translateY(-1px)}
+.b-outline{background:transparent;color:var(--cw);border:2px solid rgba(255,255,255,.6)}
+.b-outline:hover{background:rgba(255,255,255,.1);border-color:var(--cw)}
+
+/* BANDEAU PROMO */
+#promo{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;text-align:center}
+#promo a{font-family:'Ageo','Manrope','Plus Jakarta Sans',system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;line-height:44px;letter-spacing:.3px;display:block;width:100%}
+#promo a:hover{opacity:.85}
+
+/* HEADER */
+#hdr{position:fixed;top:44px;left:0;width:100%;background:var(--cw);z-index:1000;border-bottom:1px solid rgba(45,58,124,.08);transition:box-shadow .3s}
+#hdr.scrolled{box-shadow:0 2px 16px rgba(0,0,0,.1)}
+.hdr-inner{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
+.logo{display:flex;flex-direction:column;gap:2px}
+.logo-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.95rem;color:var(--cp);letter-spacing:.04em;line-height:1.2}
+.logo-sub{font-size:.7rem;font-weight:500;color:var(--cs);letter-spacing:.08em;text-transform:uppercase}
+nav{display:flex;align-items:center;gap:28px}
+nav a{font-size:.875rem;font-weight:500;color:var(--cc);transition:color .2s;white-space:nowrap}
+nav a:hover{color:var(--ca);text-decoration:underline}
+.hdr-cta{display:flex;align-items:center;gap:12px}
+.tel-link{font-size:.875rem;font-weight:600;color:var(--cp);white-space:nowrap}
+.tel-link:hover{color:var(--ca)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.burger span{width:24px;height:2px;background:var(--cp);border-radius:2px;transition:transform .3s,opacity .3s}
+.mnav{display:none;position:fixed;top:calc(44px + 72px);left:0;width:100%;background:var(--cw);border-top:1px solid rgba(45,58,124,.1);z-index:999;padding:20px 24px 24px;flex-direction:column;gap:4px;box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.mnav.open{display:flex}
+.mnav a{font-size:1rem;font-weight:500;color:var(--ct);padding:10px 0;border-bottom:1px solid rgba(0,0,0,.06)}
+.mnav a:last-child{border-bottom:none}
+.mnav .b{width:100%;margin-top:12px}
+
+/* HERO */
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;background:url('https://i.ibb.co/Z6hjTk7L/J-r-my-ROTKOPF-Avocat-la-Cour-0.jpg') center center/cover no-repeat;margin-top:calc(44px + 72px)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(110deg,rgba(45,58,124,.88) 0%,rgba(45,58,124,.65) 60%,rgba(4,107,210,.4) 100%)}
+.hero-content{position:relative;z-index:1;max-width:720px;padding:80px 0}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:32px;padding:6px 16px;font-size:.8rem;font-weight:600;color:rgba(255,255,255,.9);letter-spacing:.06em;text-transform:uppercase;margin-bottom:28px}
+.hero-badge::before{content:'';width:8px;height:8px;border-radius:50%;background:#4ade80;flex-shrink:0}
+.hero-h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:700;color:var(--cw);line-height:1.2;margin-bottom:20px;font-family:'Montserrat',sans-serif;letter-spacing:.02em}
+.hero-sub{font-size:clamp(.95rem,2vw,1.15rem);color:rgba(255,255,255,.85);line-height:1.8;margin-bottom:36px;max-width:560px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:48px}
+.hero-scroll{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.6);font-size:.8rem;font-weight:500;letter-spacing:.04em}
+.scroll-line{width:40px;height:1px;background:rgba(255,255,255,.4)}
+.scroll-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.5);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.4)}}
+
+/* STATS */
+#stats{background:var(--cp);padding:60px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;text-align:center}
+.stat-item{padding:20px 16px;border-right:1px solid rgba(255,255,255,.12)}
+.stat-item:last-child{border-right:none}
+.stat-num{font-family:'Montserrat',sans-serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:700;color:var(--cw);line-height:1;display:block;margin-bottom:8px}
+.stat-label{font-size:.8rem;font-weight:500;color:rgba(255,255,255,.7);letter-spacing:.06em;text-transform:uppercase;line-height:1.4}
+.stat-accent{color:#60a5fa}
+
+/* FALLBACK REVEAL */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO SETUP NC -->
+<div id="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="container hdr-inner">
+    <a href="#hero" class="logo">
+      <span class="logo-name">Jérémy ROTKOPF</span>
+      <span class="logo-sub">Avocat à la Cour · Nouméa</span>
+    </a>
+    <nav id="nav-desktop">
+      <a href="#services">Services</a>
+      <a href="#processus">Méthode</a>
+      <a href="#equipe">Le Cabinet</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="hdr-cta">
+      <a href="#contact" class="b b-accent" style="padding:10px 22px;font-size:.85rem">Prendre contact</a>
+      <button class="burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mnav" id="mnav">
+  <a href="#services" onclick="closeMnav()">Services</a>
+  <a href="#processus" onclick="closeMnav()">Méthode</a>
+  <a href="#equipe" onclick="closeMnav()">Le Cabinet</a>
+  <a href="#contact" onclick="closeMnav()">Contact</a>
+  <a href="#contact" class="b b-accent" onclick="closeMnav()">Prendre contact</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-overlay"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">Cabinet établi à Nouméa</div>
+      <h1 class="hero-h1">Vos enjeux juridiques complexes méritent une expertise reconnue.</h1>
+      <p class="hero-sub">Jérémy ROTKOPF vous accompagne avec rigueur et clarté dans vos démarches juridiques en Nouvelle-Calédonie — droit des affaires, droit civil, conseil aux particuliers et aux entreprises.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="b b-accent">Demander un devis</a>
+        <a href="#services" class="b b-outline">Découvrir les services</a>
+      </div>
+      <div class="hero-scroll">
+        <span class="scroll-line"></span>
+        <span class="scroll-dot"></span>
+        <span>Découvrir</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<section id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-num" data-target="15">0</span>
+        <span class="stat-label">Années d'<span class="stat-accent">expérience</span></span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="200">0</span>
+        <span class="stat-label">Clients <span class="stat-accent">accompagnés</span></span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="98">0</span>
+        <span class="stat-label">% de <span class="stat-accent">satisfaction</span></span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">5<span style="font-size:1.2rem">/5</span></span>
+        <span class="stat-label">Note <span class="stat-accent">Google</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+var hdr=document.getElementById('hdr');
+var burger=document.getElementById('burger');
+var mnav=document.getElementById('mnav');
+window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>10)});
+burger.addEventListener('click',function(){mnav.classList.toggle('open')});
+function closeMnav(){mnav.classList.remove('open')}
+(function(){
+  var nums=document.querySelectorAll('[data-target]');
+  var done=false;
+  function run(){
+    if(done)return;
+    var rect=document.getElementById('stats').getBoundingClientRect();
+    if(rect.top<window.innerHeight*.9){
+      done=true;
+      nums.forEach(function(el){
+        var t=+el.getAttribute('data-target'),s=0,d=Math.ceil(1200/t);
+        var iv=setInterval(function(){
+          s+=Math.ceil(t/40);
+          if(s>=t){s=t;clearInterval(iv)}
+          el.textContent=s;
+        },d);
+      });
+    }
+  }
+  window.addEventListener('scroll',run,{passive:true});
+  run();
+})();
+</script>
+<style>
+.sv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.sv-card{background:var(--cw);border-radius:8px;padding:32px 28px;border:1px solid rgba(45,58,124,.1);border-left:3px solid transparent;transition:border-color .25s,box-shadow .25s,transform .25s;cursor:default}
+.sv-card:hover{border-left-color:var(--ca);box-shadow:0 8px 32px rgba(45,58,124,.1);transform:translateY(-3px)}
+.sv-icon{width:48px;height:48px;background:rgba(45,58,124,.07);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.sv-icon svg{width:24px;height:24px;stroke:var(--cp);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.sv-card p{font-size:.9rem;color:var(--cs);line-height:1.75;margin-bottom:16px}
+.sv-link{font-size:.85rem;font-weight:600;color:var(--ca);display:inline-flex;align-items:center;gap:6px}
+.sv-link:hover{text-decoration:underline}
+.pv-wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.pv-wrap.rev{direction:rtl}
+.pv-wrap.rev>*{direction:ltr}
+.pv-img{border-radius:10px;overflow:hidden;box-shadow:0 12px 40px rgba(45,58,124,.15)}
+.pv-img img{width:100%;height:340px;object-fit:cover}
+.pv-checks{margin-top:20px;display:flex;flex-direction:column;gap:10px}
+.pv-check{display:flex;align-items:flex-start;gap:12px;font-size:.9rem;color:var(--cc)}
+.pv-check svg{width:20px;height:20px;stroke:var(--ca);flex-shrink:0;margin-top:2px;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.proc-wrap{display:flex;justify-content:space-between;align-items:flex-start;gap:0;position:relative;padding-top:16px}
+.proc-wrap::before{content:'';position:absolute;top:36px;left:8%;right:8%;height:2px;background:linear-gradient(90deg,var(--cp),var(--ca));z-index:0}
+.proc-step{flex:1;text-align:center;position:relative;z-index:1;padding:0 12px}
+.proc-num{width:52px;height:52px;border-radius:50%;background:var(--cp);color:var(--cw);font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.1rem;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;border:3px solid var(--cw);box-shadow:0 0 0 2px var(--cp)}
+.proc-title{font-family:'Montserrat',sans-serif;font-size:.85rem;font-weight:700;color:var(--cp);margin-bottom:6px}
+.proc-desc{font-size:.8rem;color:var(--cs);line-height:1.6}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal-item{border-radius:8px;overflow:hidden;cursor:pointer;aspect-ratio:1;position:relative}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.gal-item:hover img{transform:scale(1.05)}
+.gal-item::after{content:'⊕';position:absolute;inset:0;background:rgba(45,58,124,.4);color:var(--cw);display:flex;align-items:center;justify-content:center;font-size:2rem;opacity:0;transition:opacity .25s}
+.gal-item:hover::after{opacity:1}
+.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:2000;align-items:center;justify-content:center;padding:20px}
+.lb.open{display:flex}
+.lb img{max-width:90vw;max-height:85vh;object-fit:contain;border-radius:6px}
+.lb-close{position:absolute;top:20px;right:24px;color:var(--cw);font-size:2rem;cursor:pointer;background:none;border:none;line-height:1}
+.ps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.ps-card{background:var(--cw);border-radius:8px;padding:28px 24px;border:1px solid rgba(45,58,124,.1);box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.ps-stars{color:#f59e0b;font-size:1.1rem;margin-bottom:12px}
+.ps-text{font-size:.9rem;color:var(--cc);line-height:1.75;margin-bottom:16px;font-style:italic}
+.ps-author{font-size:.82rem;font-weight:600;color:var(--cp)}
+.ps-badge{display:flex;align-items:center;justify-content:center;gap:12px;background:var(--cw);border:2px solid rgba(45,58,124,.12);border-radius:8px;padding:20px 28px;max-width:280px;margin:0 auto}
+.ps-badge-score{font-family:'Montserrat',sans-serif;font-size:2.4rem;font-weight:700;color:var(--cp);line-height:1}
+.ps-badge-info{text-align:left}
+.ps-badge-info strong{display:block;font-size:.95rem;font-weight:700;color:var(--ct)}
+.ps-badge-info span{font-size:.78rem;color:var(--cs)}
+.ps-google{color:#ea4335;font-size:.72rem;font-weight:700;letter-spacing:.04em;display:flex;align-items:center;gap:4px;margin-top:2px}
+.frm{background:var(--cw);border-radius:10px;padding:40px;box-shadow:0 4px 32px rgba(45,58,124,.1);max-width:600px;margin:0 auto}
+.frm-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fld{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.fld label{font-size:.82rem;font-weight:600;color:var(--cc);letter-spacing:.02em}
+.fld input,.fld textarea,.fld select{width:100%;padding:12px 16px;border:1.5px solid #d1d5db;border-radius:5px;font-family:'Inter',sans-serif;font-size:.9rem;color:var(--ct);background:var(--cw);transition:border-color .2s,box-shadow .2s;outline:none}
+.fld input:focus,.fld textarea:focus{border-color:var(--ca);box-shadow:0 0 0 3px rgba(4,107,210,.12)}
+.fld textarea{resize:vertical;min-height:120px}
+.fld input.err,.fld textarea.err{border-color:#ef4444}
+.frm-success{display:none;background:#f0fdf4;border:1.5px solid #86efac;border-radius:6px;padding:20px 24px;text-align:center;color:#166534;font-weight:600;font-size:.95rem}
+.frm-success.show{display:block}
+.ct-cols{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.ct-info h3{margin-bottom:16px}
+.ct-detail{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px;font-size:.9rem;color:var(--cc)}
+.ct-detail svg{width:20px;height:20px;stroke:var(--ca);flex-shrink:0;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-top:2px}
+.ct-detail a{color:var(--ca);font-weight:600}
+.ct-detail a:hover{text-decoration:underline}
+.ft{background:var(--cp);color:rgba(255,255,255,.8);padding:60px 0 32px}
+.ft-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.ft h4{font-family:'Montserrat',sans-serif;font-size:.9rem;font-weight:700;color:var(--cw);letter-spacing:.06em;text-transform:uppercase;margin-bottom:18px}
+.ft p,.ft address{font-size:.875rem;line-height:1.85;font-style:normal;color:rgba(255,255,255,.75)}
+.ft a{color:rgba(255,255,255,.75);font-size:.875rem;line-height:2;display:block}
+.ft a:hover{color:var(--cw);text-decoration:underline}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ft-bottom span{font-size:.78rem;color:rgba(255,255,255,.5)}
+.ft-setup{font-size:.78rem;color:rgba(255,255,255,.5)}
+.ft-setup a{display:inline;color:rgba(255,255,255,.7);font-size:.78rem}
+.ft-setup a:hover{color:var(--cw)}
+@media(max-width:900px){
+.sv-grid{grid-template-columns:1fr 1fr}
+.pv-wrap,.ct-cols{grid-template-columns:1fr;gap:36px}
+.pv-wrap.rev{direction:ltr}
+.proc-wrap{flex-direction:column;gap:20px}
+.proc-wrap::before{display:none}
+.ft-grid{grid-template-columns:1fr 1fr;gap:32px}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.ps-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+.sv-grid{grid-template-columns:1fr}
+.frm-row{grid-template-columns:1fr}
+.frm{padding:24px 16px}
+.ft-grid{grid-template-columns:1fr}
+.ft-bottom{flex-direction:column;text-align:center}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.ps-grid{grid-template-columns:1fr}
+.ct-cols{grid-template-columns:1fr}
+.pv-img img{height:240px}
+.b{width:100%}
+}
+</style>
+
+<!-- SERVICES -->
+<section id="services" class="s">
+  <div class="container">
+    <div style="text-align:center;max-width:640px;margin:0 auto 52px">
+      <span class="tag">Domaines d'intervention</span>
+      <h2 class="h2">Une expertise juridique pluridisciplinaire à Nouméa</h2>
+      <p class="lead">Du conseil préventif au contentieux, le cabinet vous accompagne sur l'ensemble de vos problématiques juridiques en Nouvelle-Calédonie.</p>
+    </div>
+    <div class="sv-grid">
+      <div class="sv-card">
+        <div class="sv-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+        </div>
+        <h3 class="h3">Droit des affaires</h3>
+        <p>Création de sociétés, rédaction de contrats commerciaux, restructurations et accompagnement des PME calédoniennes dans leur développement.</p>
+        <a href="#contact" class="sv-link">Consulter →</a>
+      </div>
+      <div class="sv-card">
+        <div class="sv-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3 class="h3">Droit immobilier</h3>
+        <p>Acquisition, vente, baux commerciaux et résidentiels, litiges de voisinage et contentieux fonciers dans le contexte spécifique du territoire calédonien.</p>
+        <a href="#contact" class="sv-link">Consulter →</a>
+      </div>
+      <div class="sv-card">
+        <div class="sv-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3 class="h3">Droit de la famille</h3>
+        <p>Divorce, garde d'enfants, succession et régimes matrimoniaux. Un accompagnement bienveillant dans les moments de vie les plus délicats.</p>
+        <a href="#contact" class="sv-link">Consulter →</a>
+      </div>
+      <div class="sv-card">
+        <div class="sv-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h3 class="h3">Droit du travail</h3>
+        <p>Conseil aux employeurs et salariés, rédaction de contrats, gestion des litiges prud'homaux et accompagnement lors de restructurations.</p>
+        <a href="#contact" class="sv-link">Consulter →</a>
+      </div>
+      <div class="sv-card">
+        <div class="sv-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h3 class="h3">Droit civil & contentieux</h3>
+        <p>Représentation devant les juridictions calédoniennes, recouvrement de créances, responsabilité civile et défense de vos intérêts en toutes circonstances.</p>
+        <a href="#contact" class="sv-link">Consulter →</a>
+      </div>
+      <div class="sv-card">
+        <div class="sv-icon">
+          <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        </div>
+        <h3 class="h3">Conseil patrimonial</h3>
+        <p>Protection et transmission du patrimoine, donations, testaments et montages juridiques adaptés aux enjeux des familles et entrepreneurs calédoniens.</p>
+        <a href="#contact" class="sv-link">Consulter →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section id="metier" class="s s-alt">
+  <div class="container">
+    <div style="text-align:center;max-width:600px;margin:0 auto 56px">
+      <span class="tag">Le cabinet</span>
+      <h2 class="h2">Un avocat ancré dans la réalité calédonienne</h2>
+    </div>
+    <div class="pv-wrap" style="margin-bottom:64px">
+      <div class="pv-img">
+        <img src="https://i.ibb.co/PsQ8nTgR/J-r-my-ROTKOPF-Avocat-la-Cour-1.jpg" alt="Jérémy ROTKOPF, Avocat à la Cour à Nouméa" loading="lazy">
+      </div>
+      <div>
+        <span class="tag">Rigueur & proximité</span>
+        <h2 class="h2">Vous avez besoin de clarté juridique, pas de jargon.</h2>
+        <p class="lead">Installé à Port Plaisance, au cœur de Nouméa, le cabinet Jérémy ROTKOPF offre un accès direct à un avocat pleinement disponible, qui prend le temps de comprendre votre situation avant de vous conseiller.</p>
+        <div class="pv-checks">
+          <div class="pv-check">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Consultation claire avec une analyse personnalisée de votre dossier</span>
+          </div>
+          <div class="pv-check">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Réactivité et disponibilité adaptées aux urgences juridiques</span>
+          </div>
+          <div class="pv-check">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Connaissance approfondie du droit applicable en Nouvelle-Calédonie</span>
+          </div>
+          <div class="pv-check">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Honoraires transparents communiqués dès le premier rendez-vous</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pv-wrap rev">
+      <div class="pv-img">
+        <img src="https://i.ibb.co/6JH2ds4m/J-r-my-ROTKOPF-Avocat-la-Cour-2.jpg" alt="Cabinet juridique Jérémy ROTKOPF, Port Plaisance Nouméa" loading="lazy">
+      </div>
+      <div>
+        <span class="tag">Expertise locale</span>
+        <h2 class="h2">Les PME et particuliers calédoniens ont des enjeux spécifiques.</h2>
+        <p class="lead">De la création d'entreprise à la gestion d'un litige foncier, les problématiques juridiques en Nouvelle-Calédonie combinent droit commun et spécificités territoriales. Le cabinet maîtrise ces deux dimensions.</p>
+        <div class="pv-checks">
+          <div class="pv-check">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Accompagnement des entrepreneurs et dirigeants de PME locales</span>
+          </div>
+          <div class="pv-check">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Maîtrise des particularités du droit calédonien et des coutumes</span>
+          </div>
+          <div class="pv-check">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Réseau de professionnels locaux pour des dossiers pluridisciplinaires</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSUS -->
+<section id="processus" class="s">
+  <div class="container">
+    <div style="text-align:center;max-width:580px;margin:0 auto 52px">
+      <span class="tag">Notre méthode</span>
+      <h2 class="h2">Du premier contact à la résolution de votre dossier</h2>
+      <p class="lead">Un processus structuré pour vous garantir clarté, sérénité et efficacité à chaque étape.</p>
+    </div>
+    <div class="proc-wrap">
+      <div class="proc-step">
+        <div class="proc-num">1</div>
+        <div class="proc-title">Premier contact</div>
+        <div class="proc-desc">Échange initial pour cerner votre situation et définir si le cabinet est en mesure de vous accompagner.</div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">2</div>
+        <div class="proc-title">Consultation</div>
+        <div class="proc-desc">Rendez-vous approfondi pour analyser votre dossier, évaluer les risques et exposer vos options.</div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">3</div>
+        <div class="proc-title">Stratégie</div>
+        <div class="proc-desc">Définition d'une stratégie juridique claire, avec devis détaillé et planning d'intervention.</div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">4</div>
+        <div class="proc-title">Action</div>
+        <div class="proc-desc">Mise en œuvre des démarches : rédaction, négociation, représentation devant les juridictions.</div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">5</div>
+        <div class="proc-title">Résolution</div>
+        <div class="proc-desc">Bilan de l'intervention et suivi post-dossier pour sécuriser durablement votre situation.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section id="galerie" class="s s-alt">
+  <div class="container">
+    <div style="text-align:center;max-width:520px;margin:0 auto 40px">
+      <span class="tag">Le cabinet en images</span>
+      <h2 class="h2">Un environnement de travail professionnel et humain</h2>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item" data-src="https://i.ibb.co/Z6hjTk7L/J-r-my-ROTKOPF-Avocat-la-Cour-0.jpg">
+        <img src="https://i.ibb.co/Z6hjTk7L/J-r-my-ROTKOPF-Avocat-la-Cour-0.jpg" alt="Jérémy ROTKOPF Avocat" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/PsQ8nTgR/J-r-my-ROTKOPF-Avocat-la-Cour-1.jpg">
+        <img src="https://i.ibb.co/PsQ8nTgR/J-r-my-ROTKOPF-Avocat-la-Cour-1.jpg" alt="Cabinet avocat Nouméa" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/6JH2ds4m/J-r-my-ROTKOPF-Avocat-la-Cour-2.jpg">
+        <img src="https://i.ibb.co/6JH2ds4m/J-r-my-ROTKOPF-Avocat-la-Cour-2.jpg" alt="Bureau avocat Port Plaisance" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/zV6LGsnT/J-r-my-ROTKOPF-Avocat-la-Cour-3.jpg">
+        <img src="https://i.ibb.co/zV6LGsnT/J-r-my-ROTKOPF-Avocat-la-Cour-3.jpg" alt="Avocat Nouvelle-Calédonie" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Visionneuse photo">
+  <button class="lb-close" id="lb-close" aria-label="Fermer">✕</button>
+  <img id="lb-img" src="" alt="Photo agrandie">
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section id="avis" class="s">
+  <div class="container">
+    <div style="text-align:center;max-width:560px;margin:0 auto 40px">
+      <span class="tag">Ce que disent nos clients</span>
+      <h2 class="h2">Une confiance construite dossier après dossier</h2>
+    </div>
+    <div style="display:flex;justify-content:center;margin-bottom:40px">
+      <div class="ps-badge">
+        <div class="ps-badge-score">5,0</div>
+        <div class="ps-badge-info">
+          <strong>★★★★★</strong>
+          <span>4 avis vérifiés</span>
+          <div class="ps-google">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="#ea4335"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            Note Google
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ps-grid">
+      <div class="ps-card">
+        <div class="ps-stars">★★★★★</div>
+        <p class="ps-text">"Maître ROTKOPF a su prendre en main notre dossier avec une rapidité et une clarté impressionnantes. Ses conseils nous ont permis d'éviter un contentieux coûteux pour notre entreprise."</p>
+        <span class="ps-author">Dirigeant de PME, Nouméa</span>
+      </div>
+      <div class="ps-card">
+        <div class="ps-stars">★★★★★</div>
+        <p class="ps-text">"Un avocat disponible, pédagogue et très compétent. Il m'a expliqué chaque étape de la procédure avec des mots simples et a défendu mes intérêts avec beaucoup de professionnalisme."</p>
+        <span class="ps-author">Particulier, Grande Terre</span>
+      </div>
+      <div class="ps-card">
+        <div class="ps-stars">★★★★★</div>
+        <p class="ps-text">"Je recommande vivement le cabinet pour toute question de droit des affaires en Nouvelle-Calédonie. Une expertise locale réelle et un suivi irréprochable du début à la fin du dossier."</p>
+        <span class="ps-author">Entrepreneur, Nouméa</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPE -->
+<section id="equipe" class="s s-alt">
+  <div class="container">
+    <div style="text-align:center;max-width:560px;margin:0 auto 52px">
+      <span class="tag">Le cabinet</span>
+      <h2 class="h2">Jérémy ROTKOPF, Avocat à la Cour</h2>
+    </div>
+    <div class="pv-wrap" style="max-width:900px;margin:0 auto">
+      <div class="pv-img">
+        <img src="https://i.ibb.co/zV6LGsnT/J-r-my-ROTKOPF-Avocat-la-Cour-3.jpg" alt="Portrait Jérémy ROTKOPF, Avocat à la Cour Nouméa" loading="lazy">
+      </div>
+      <div>
+        <span class="tag">Avocat inscrit au Barreau de Nouméa</span>
+        <h3 class="h3" style="font-size:1.3rem;margin-bottom:12px">Un professionnel engagé, à votre écoute.</h3>
+        <p style="color:var(--cc);line-height:1.8;margin-bottom:16px">Jérémy ROTKOPF exerce en tant qu'Avocat à la Cour depuis de nombreuses années à Nouméa. Son cabinet, situé à Port Plaisance, accompagne aussi bien les particuliers que les professionnels dans leurs démarches juridiques.</p>
+        <p style="color:var(--cc);line-height:1.8;margin-bottom:24px">Soucieux de rendre le droit accessible, il privilégie une approche directe et humaine : comprendre votre situation réelle avant de définir la meilleure stratégie juridique.</p>
+        <a href="#contact" class="b b-accent">Prendre rendez-vous</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="s">
+  <div class="container">
+    <div style="text-align:center;max-width:560px;margin:0 auto 52px">
+      <span class="tag">Contact & devis</span>
+      <h2 class="h2">Parlons de votre situation</h2>
+      <p class="lead">Décrivez-nous votre besoin en quelques lignes. Nous vous répondons dans les meilleurs délais.</p>
+    </div>
+    <div class="ct-cols">
+      <div>
+        <div class="frm">
+          <div class="frm-success" id="frm-ok">
+            ✓ Votre message a bien été envoyé. Nous vous répondrons dans les meilleurs délais.
+          </div>
+          <form id="frm-form" novalidate>
+            <div class="frm-row">
+              <div class="fld">
+                <label for="f-nom">Nom complet *</label>
+                <input type="text" id="f-nom" name="nom" placeholder="Votre nom" autocomplete="name">
+              </div>
+              <div class="fld">
+                <label for="f-email">Adresse e-mail *</label>
+                <input type="email" id="f-email" name="email" placeholder="votre@email.com" autocomplete="email">
+              </div>
+            </div>
+            <div class="fld">
+              <label for="f-tel">Téléphone</label>
+              <input type="tel" id="f-tel" name="tel" placeholder="+687 XX XX XX" autocomplete="tel">
+            </div>
+            <div class="fld">
+              <label for="f-msg">Votre demande *</label>
+              <textarea id="f-msg" name="message" placeholder="Décrivez brièvement votre situation juridique..."></textarea>
+            </div>
+            <button type="submit" class="b b-accent" id="frm-btn" style="width:100%">
+              <span id="btn-txt">Envoyer ma demande</span>
+              <span id="btn-load" style="display:none">Envoi en cours…</span>
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="ct-info">
+        <h3 class="h3">Coordonnées du cabinet</h3>
+        <div class="ct-detail">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <address>Port Plaisance<br>29 bis Rue Jules Garnier<br>Nouméa, Nouvelle-Calédonie</address>
+        </div>
+        <div class="ct-detail">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.16 6.16l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Contactez-nous par formulaire pour convenir d'un rendez-vous</span>
+        </div>
+        <div class="ct-detail">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Réponse garantie sous 24h ouvrées</span>
+        </div>
+        <div class="ct-detail">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Confidentialité et secret professionnel garantis</span>
+        </div>
+        <div style="margin-top:28px;padding:20px;background:var(--cb);border-radius:8px;border-left:3px solid var(--ca)">
+          <p style="font-size:.85rem;color:var(--cc);line-height:1.7"><strong style="color:var(--cp)">Première consultation :</strong><br>Prenez contact pour connaître les modalités de la première consultation et les honoraires applicables à votre dossier.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ft">
+  <div class="container">
+    <div class="ft-grid">
+      <div>
+        <h4>Jérémy ROTKOPF</h4>
+        <p style="margin-bottom:12px">Avocat à la Cour inscrit au Barreau de Nouméa. Expertise juridique rigoureuse au service des particuliers et des entreprises de Nouvelle-Calédonie.</p>
+        <div style="display:flex;align-items:center;gap:8px;margin-top:16px">
+          <span style="color:#f59e0b;font-size:1rem">★★★★★</span>
+          <span style="font-size:.8rem;color:rgba(255,255,255,.6)">5/5 · 4 avis Google</span>
+        </div>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <a href="#services">Services juridiques</a>
+        <a href="#processus">Notre méthode</a>
+        <a href="#equipe">Le cabinet</a>
+        <a href="#avis">Témoignages</a>
+        <a href="#contact">Contact & devis</a>
+      </div>
+      <div>
+        <h4>Coordonnées</h4>
+        <address style="font-style:normal">
+          <div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:10px;font-size:.875rem;color:rgba(255,255,255,.75)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Port Plaisance, 29 bis Rue Jules Garnier<br>Nouméa, Nouvelle-Calédonie</span>
+          </div>
+        </address>
+        <div style="margin-top:8px;font-size:.875rem;color:rgba(255,255,255,.75)">Pour toute demande, utilisez le <a href="#contact" style="color:rgba(255,255,255,.9);text-decoration:underline;display:inline">formulaire de contact</a>.</div>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span>© 2026 Jérémy ROTKOPF, Avocat à la Cour. Tous droits réservés.</span>
+      <span class="ft-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+var lb=document.getElementById('lb');
+var lbImg=document.getElementById('lb-img');
+document.querySelectorAll('.gal-item').forEach(function(el){
+  el.addEventListener('click',function(){
+    lbImg.src=el.getAttribute('data-src');
+    lb.classList.add('open');
+  });
+});
+document.getElementById('lb-close').addEventListener('click',function(){lb.classList.remove('open')});
+lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('open')});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('open')});
+(function(){
+  var form=document.getElementById('frm-form');
+  var ok=document.getElementById('frm-ok');
+  var btn=document.getElementById('frm-btn');
+  var t=document.getElementById('btn-txt');
+  var l=document.getElementById('btn-load');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var nom=document.getElementById('f-nom');
+    var email=document.getElementById('f-email');
+    var msg=document.getElementById('f-msg');
+    var valid=true;
+    [nom,email,msg].forEach(function(f){f.classList.remove('err')});
+    if(!nom.value.trim()){nom.classList.add('err');valid=false}
+    if(!email.value.trim()||!email.value.includes('@')){email.classList.add('err');valid=false}
+    if(!msg.value.trim()){msg.classList.add('err');valid=false}
+    if(!valid)return;
+    t.style.display='none';
+    l.style.display='inline';
+    btn.disabled=true;
+    setTimeout(function(){
+      form.style.display='none';
+      ok.classList.add('show');
+    },1200);
+  });
+})();
+(function(){
+  var els=document.querySelectorAll('.sv-card,.ps-card,.proc-step,.ct-detail');
+  if(!('IntersectionObserver' in window))return;
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){
+        en.target.style.opacity='1';
+        en.target.style.transform='none';
+        obs.unobserve(en.target);
+      }
+    });
+  },{threshold:.12});
+  els.forEach(function(el){
+    el.style.opacity='0';
+    el.style.transform='translateY(16px)';
+    el.style.transition='opacity .45s ease,transform .45s ease';
+    obs.observe(el);
+  });
+})();
+</script>
+</body>
+</html>
