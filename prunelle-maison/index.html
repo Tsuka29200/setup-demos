@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PRUNELLE MAISON — Nouméa</title>
+<meta name="description" content="Boutique de décoration intérieure à Nouméa, Nouvelle-Calédonie. Linge de maison, mobilier bois naturel, accessoires — l'art de vivre calédonien.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#C8B89A;
+--cs:#3DBFBF;
+--ca:#E07A40;
+--cb:#F5F0E8;
+--ct:#2E2B27;
+--cw:#ffffff;
+--cd:#1a1816;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;background:var(--cb);color:var(--ct);overflow-x:hidden;font-size:16px;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+.h1,.h2,.h3{font-family:'Cormorant Garamond',serif}
+.h1{font-size:clamp(3rem,9vw,7rem);font-weight:700;line-height:1.05;letter-spacing:0.04em}
+.h2{font-size:clamp(2rem,5vw,3.5rem);font-weight:600;line-height:1.15}
+.h3{font-size:clamp(1.2rem,3vw,1.8rem);font-weight:400;font-style:italic}
+.s{width:100%;padding:80px 0}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.btn{display:inline-block;padding:14px 32px;font-family:'Lato',sans-serif;font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;cursor:pointer;transition:background .3s ease,color .3s ease,transform .2s ease;border-radius:2px;min-height:48px;line-height:1}
+.btn-teal{background:var(--cs);color:var(--cw)}
+.btn-teal:hover{background:var(--ca);color:var(--cw);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--cw);border:2px solid var(--cw)}
+.btn-outline:hover{background:var(--cw);color:var(--ct)}
+.reveal{opacity:1;transform:none;transition:opacity .7s ease,transform .7s ease}
+.reveal.hidden{opacity:0;transform:translateY(28px)}
+
+/* BANDEAU */
+#promo-band{position:fixed;top:0;left:0;right:0;z-index:1001;background:#ffd500;height:44px;text-align:center}
+#promo-band a{font-family:'Manrope','Plus Jakarta Sans',system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;line-height:44px;display:block;letter-spacing:.3px}
+#promo-band a:hover{opacity:.85}
+
+/* HEADER */
+#header{position:fixed;top:44px;left:0;right:0;z-index:1000;background:rgba(245,240,232,.96);backdrop-filter:blur(8px);border-bottom:1px solid rgba(200,184,154,.2);transition:box-shadow .3s}
+#header.scrolled{box-shadow:0 2px 20px rgba(46,43,39,.12)}
+.hd-inner{display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:64px;max-width:1400px;margin:0 auto}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--ct);letter-spacing:.12em;text-transform:uppercase}
+.logo span{color:var(--cs)}
+nav{display:flex;align-items:center;gap:32px}
+nav a{font-size:13px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--ct);opacity:.8;transition:opacity .2s,color .2s}
+nav a:hover{opacity:1;color:var(--cs)}
+.hd-cta{display:flex;align-items:center;gap:16px}
+.tel-link{font-weight:700;font-size:14px;color:var(--ca);letter-spacing:.5px}
+.tel-link:hover{color:var(--cs)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.burger span{display:block;width:24px;height:2px;background:var(--ct);transition:transform .3s,opacity .3s}
+.mob-nav{display:none;position:fixed;top:108px;left:0;right:0;background:var(--cb);z-index:999;padding:24px;border-top:2px solid var(--cp);flex-direction:column;gap:0}
+.mob-nav a{display:block;padding:14px 0;font-size:15px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ct);border-bottom:1px solid rgba(200,184,154,.3)}
+.mob-nav a:hover{color:var(--cs)}
+.mob-nav.open{display:flex}
+
+/* HERO */
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background:url('https://i.ibb.co/tMdjq6M1/PRUNELLE-MAISON-0.jpg') center center/cover no-repeat;margin-top:108px}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(30,25,20,.55) 0%,rgba(20,18,15,.38) 60%,rgba(46,43,39,.6) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;color:var(--cw);padding:40px 24px;max-width:900px}
+.hero-tag{font-family:'Lato',sans-serif;font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cs);margin-bottom:16px;display:block}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,2.5vw,1.4rem);font-weight:300;font-style:italic;color:rgba(255,255,255,.88);margin:16px 0 36px;letter-spacing:.05em}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.6);font-size:11px;letter-spacing:2px;text-transform:uppercase}
+.scroll-arrow{width:20px;height:20px;border-right:2px solid rgba(255,255,255,.5);border-bottom:2px solid rgba(255,255,255,.5);transform:rotate(45deg);animation:bounce 1.8s infinite}
+@keyframes bounce{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(5px)}}
+
+/* STATS */
+#stats{background:var(--cp);padding:60px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat-item{text-align:center;padding:20px 16px;border-right:1px solid rgba(255,255,255,.25)}
+.stat-item:last-child{border-right:none}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:700;color:var(--cw);line-height:1;display:block}
+.stat-label{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.85);margin-top:8px;display:block}
+
+/* FALLBACK ANIMATIONS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+@media(max-width:768px){
+nav{display:none}
+.burger{display:flex}
+.hd-cta .btn{display:none}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.stat-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.2)}
+.stat-item:nth-child(odd){border-right:1px solid rgba(255,255,255,.2)}
+.stat-item:last-child{border-bottom:none}
+#promo-band a{font-size:13px}
+}
+@media(max-width:480px){
+.hd-inner{padding:0 16px}
+.wrap{padding:0 16px}
+.hero-btns .btn{width:100%}
+.hero-btns{flex-direction:column;align-items:center}
+.s{padding:56px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div id="promo-band">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="hd-inner">
+    <a href="#hero" class="logo">Prunelle<span>.</span></a>
+    <nav>
+      <a href="#collections">Collections</a>
+      <a href="#ambiance">Ambiance</a>
+      <a href="#avis">Avis</a>
+      <a href="#contact">Contact</a>
+      <a href="#acces">Accès</a>
+    </nav>
+    <div class="hd-cta">
+      <a href="tel:+68728949" class="tel-link">28.94.49</a>
+      <a href="#contact" class="btn btn-teal">Nous écrire</a>
+    </div>
+    <div class="burger" id="burger" aria-label="Menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-nav" id="mob-nav">
+  <a href="#collections" onclick="closeMob()">Collections</a>
+  <a href="#ambiance" onclick="closeMob()">Ambiance</a>
+  <a href="#avis" onclick="closeMob()">Avis</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="#acces" onclick="closeMob()">Accès</a>
+  <a href="tel:+68728949" style="color:var(--ca);margin-top:8px">📞 28.94.49</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-tag">Boutique de décoration — Nouméa</span>
+    <h1 class="h1">PRUNELLE<br>MAISON</h1>
+    <p class="hero-sub">L'art de vivre à Nouméa</p>
+    <div class="hero-btns">
+      <a href="#collections" class="btn btn-teal">Découvrir nos collections</a>
+      <a href="#contact" class="btn btn-outline">Nous contacter</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <div class="scroll-arrow"></div>
+    <span>Découvrir</span>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <span class="stat-num" data-target="10">0</span>
+      <span class="stat-label">Ans de passion</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="500">0</span>
+      <span class="stat-label">Références en boutique</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="4">0</span>
+      <span class="stat-label">Étoiles sur Google</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="1">0</span>
+      <span class="stat-label">Adresse à Nouméa</span>
+    </div>
+  </div>
+</section>
+
+<script>
+var burger=document.getElementById('burger'),mob=document.getElementById('mob-nav'),hdr=document.getElementById('header');
+function closeMob(){mob.classList.remove('open')}
+burger.addEventListener('click',function(){mob.classList.toggle('open')});
+window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>20)});
+(function(){
+var nums=document.querySelectorAll('[data-target]'),done=false;
+function run(){
+if(done)return;done=true;
+nums.forEach(function(el){
+var t=+el.dataset.target,d=1200,s=30,step=t/(d/s);
+var c=0,iv=setInterval(function(){
+c=Math.min(c+step,t);
+el.textContent=(c>=t)?t:Math.floor(c);
+if(c>=t)clearInterval(iv);
+},s);
+});
+}
+var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)run()})},{threshold:.3});
+var st=document.getElementById('stats');
+if(st)obs.observe(st);
+})();
+(function(){
+var els=document.querySelectorAll('.reveal');
+els.forEach(function(el){el.classList.add('hidden')});
+var o=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.classList.remove('hidden');o.unobserve(en.target)}})},{threshold:.15});
+els.forEach(function(el){o.observe(el)});
+})();
+</script>
+<style>
+.accroche{background:var(--cb);text-align:center}
+.accroche-text{max-width:680px;margin:0 auto}
+.accroche-text p{font-size:clamp(1.1rem,2.5vw,1.35rem);font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--ct);line-height:1.8;margin-top:20px}
+.kw{color:var(--cs);transition:color .3s}
+
+.srv{background:var(--cw)}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px}
+.srv-card{background:var(--cb);padding:40px 32px;text-align:center;border-bottom:3px solid transparent;transition:border-color .3s,transform .3s,box-shadow .3s}
+.srv-card:hover{border-color:var(--cs);transform:translateY(-6px);box-shadow:0 16px 48px rgba(61,191,191,.12)}
+.srv-icon{width:56px;height:56px;margin:0 auto 20px;background:var(--cp);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.srv-icon svg{width:28px;height:28px;stroke:var(--cw);fill:none;stroke-width:1.8}
+.srv-card .h3{margin-bottom:12px;color:var(--ct)}
+.srv-card p{font-size:14px;color:#6b6560;line-height:1.7;margin-bottom:20px}
+.srv-card .btn{font-size:12px;padding:10px 22px;background:transparent;border:2px solid var(--cs);color:var(--cs)}
+.srv-card .btn:hover{background:var(--cs);color:var(--cw)}
+
+.metier{background:var(--cb)}
+.met-row{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:80px}
+.met-row:last-child{margin-bottom:0}
+.met-row.rev{direction:rtl}
+.met-row.rev>*{direction:ltr}
+.met-img{border-radius:4px;overflow:hidden;aspect-ratio:4/3}
+.met-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.met-img:hover img{transform:scale(1.04)}
+.met-body{padding:16px 0}
+.met-body .h2{margin-bottom:20px}
+.met-body p{font-size:15px;color:#5c5752;line-height:1.8;margin-bottom:24px}
+.chk-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.chk-list li{font-size:14px;font-weight:700;letter-spacing:.3px;display:flex;align-items:center;gap:10px;color:var(--ct)}
+.chk-list li::before{content:'';display:block;width:20px;height:20px;min-width:20px;background:var(--cs);border-radius:50%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-size:14px;background-position:center;background-repeat:no-repeat}
+
+.galerie{background:var(--ct)}
+.galerie .h2{color:var(--cw);text-align:center;margin-bottom:8px}
+.galerie-sub{color:rgba(255,255,255,.6);text-align:center;font-size:14px;letter-spacing:1px;margin-bottom:40px}
+.gal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.gal-item{position:relative;overflow:hidden;cursor:pointer;border-radius:3px;aspect-ratio:4/3}
+.gal-item:first-child{grid-column:span 2;aspect-ratio:16/7}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-cap{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(20,18,15,.7));padding:24px 16px 14px;color:var(--cw);font-size:13px;letter-spacing:.8px;text-transform:uppercase;opacity:0;transition:opacity .3s}
+.gal-item:hover .gal-cap{opacity:1}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center;padding:20px}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:88vh;border-radius:4px;object-fit:contain}
+.lb-close{position:absolute;top:20px;right:24px;color:var(--cw);font-size:32px;cursor:pointer;line-height:1;background:none;border:none;opacity:.8;transition:opacity .2s}
+.lb-close:hover{opacity:1}
+
+.contact{background:var(--cb)}
+.contact-wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:64px;align-items:start}
+.contact-info .h2{margin-bottom:20px}
+.contact-info p{font-size:15px;color:#5c5752;line-height:1.8;margin-bottom:28px}
+.cinfo-item{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px}
+.cinfo-item svg{min-width:20px;width:20px;height:20px;stroke:var(--cs);fill:none;stroke-width:2;margin-top:2px}
+.cinfo-item span{font-size:14px;color:var(--ct);line-height:1.6}
+.form-card{background:var(--cw);padding:40px;border-radius:4px;box-shadow:0 8px 40px rgba(46,43,39,.08)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.fg label{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ct)}
+.fg input,.fg textarea{font-family:'Lato',sans-serif;font-size:14px;padding:12px 16px;border:1.5px solid #ddd8d0;border-radius:2px;background:var(--cb);color:var(--ct);transition:border-color .2s;width:100%}
+.fg input:focus,.fg textarea:focus{outline:none;border-color:var(--cs)}
+.fg textarea{min-height:120px;resize:vertical}
+.fg .err{font-size:12px;color:#c0392b;display:none}
+.fg.invalid input,.fg.invalid textarea{border-color:#c0392b}
+.fg.invalid .err{display:block}
+.f-submit{background:var(--ca);color:var(--cw);width:100%;font-size:13px;padding:16px;border:none;cursor:pointer;border-radius:2px;font-family:'Lato',sans-serif;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;transition:background .3s,transform .2s;min-height:52px}
+.f-submit:hover{background:var(--cs);transform:translateY(-2px)}
+.f-success{display:none;background:#e8f8f5;border:1.5px solid var(--cs);border-radius:4px;padding:20px;text-align:center;color:var(--ct);font-size:15px}
+.f-success.show{display:block}
+
+.social{background:var(--cw)}
+.social-inner{text-align:center;max-width:700px;margin:0 auto}
+.social .h2{margin-bottom:12px}
+.social p{font-size:15px;color:#6b6560;margin-bottom:36px}
+.google-badge{display:inline-flex;align-items:center;gap:16px;background:var(--cb);border-radius:8px;padding:20px 32px;margin-bottom:40px;box-shadow:0 4px 20px rgba(46,43,39,.08)}
+.gb-score{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;color:var(--ct);line-height:1}
+.gb-right{text-align:left}
+.stars{display:flex;gap:3px;margin-bottom:4px}
+.star{width:18px;height:18px;fill:var(--ca)}
+.gb-label{font-size:12px;color:#888;letter-spacing:.5px}
+.testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-bottom:40px}
+.testi{background:var(--cb);padding:28px 28px 28px 24px;border-left:4px solid var(--ca);border-radius:0 4px 4px 0;text-align:left}
+.testi-text{font-size:15px;font-style:italic;color:var(--ct);line-height:1.75;margin-bottom:16px}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-av{width:40px;height:40px;border-radius:50%;background:var(--cp);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--cw)}
+.testi-name{font-size:13px;font-weight:700;color:var(--ct)}
+.testi-stars{display:flex;gap:2px}
+.testi-stars svg{width:12px;height:12px;fill:var(--cs)}
+.badges{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.badge{background:var(--cb);border:1.5px solid var(--cp);border-radius:100px;padding:10px 22px;font-size:13px;font-weight:700;color:var(--ct);letter-spacing:.5px}
+
+.acces{background:var(--ct)}
+.acces .h2{color:var(--cw);text-align:center;margin-bottom:48px}
+.acces-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.acces-info{color:rgba(255,255,255,.85)}
+.acces-info .h3{color:var(--cs);margin-bottom:20px}
+.acces-block{margin-bottom:28px}
+.acces-block .label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cp);margin-bottom:6px}
+.acces-block p{font-size:14px;line-height:1.8;color:rgba(255,255,255,.85)}
+.acces-block a{color:var(--cs)}
+.acces-map{background:#1a1816;border-radius:4px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px}
+.acces-map p{color:rgba(255,255,255,.5);font-size:13px}
+
+footer{background:var(--cp);padding:48px 0 28px}
+.ft-inner{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.25)}
+.ft-brand .logo{color:var(--cw);font-size:1.3rem;margin-bottom:12px;display:block}
+.ft-brand p{font-size:13px;color:rgba(255,255,255,.8);line-height:1.75;max-width:280px}
+.ft-socials{display:flex;gap:12px;margin-top:20px}
+.ft-soc{width:38px;height:38px;background:rgba(255,255,255,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.ft-soc:hover{background:rgba(255,255,255,.3)}
+.ft-soc svg{width:20px;height:20px;fill:var(--cw)}
+.ft-col h4{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--cw);margin-bottom:16px;letter-spacing:.05em}
+.ft-col ul{list-style:none}
+.ft-col ul li{margin-bottom:8px}
+.ft-col ul li a{font-size:13px;color:rgba(255,255,255,.75);transition:color .2s;letter-spacing:.3px}
+.ft-col ul li a:hover{color:var(--cw)}
+.ft-col address{font-style:normal;font-size:13px;color:rgba(255,255,255,.8);line-height:1.85}
+.ft-col address a{color:var(--cs)}
+.ft-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;flex-wrap:wrap;gap:10px}
+.ft-copy{font-size:12px;color:rgba(255,255,255,.65);letter-spacing:.3px}
+.ft-setup{font-size:12px;color:rgba(255,255,255,.65)}
+.ft-setup a{color:var(--cw);font-weight:700}
+
+@media(max-width:900px){
+.srv-grid{grid-template-columns:1fr 1fr}
+.met-row{grid-template-columns:1fr;gap:32px}
+.met-row.rev{direction:ltr}
+.contact-wrap{grid-template-columns:1fr}
+.testi-grid{grid-template-columns:1fr}
+.acces-grid{grid-template-columns:1fr}
+.ft-inner{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+.srv-grid{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:1fr}
+.gal-item:first-child{grid-column:span 1;aspect-ratio:4/3}
+.frow{grid-template-columns:1fr}
+.form-card{padding:24px 20px}
+.google-badge{flex-direction:column;text-align:center}
+.gb-right{text-align:center}
+.stars{justify-content:center}
+.ft-bottom{flex-direction:column;text-align:center}
+.ft-socials{justify-content:flex-start}
+}
+</style>
+
+<!-- ACCROCHE ÉMOTIONNELLE -->
+<section class="s accroche" id="accroche">
+  <div class="wrap">
+    <div class="accroche-text reveal">
+      <h2 class="h2">Chaque pièce raconte une histoire</h2>
+      <p>Découvrez comment transformer votre intérieur en <span class="kw">refuge personnel</span>. Chez Prunelle Maison, nous sélectionnons chaque objet pour sa <span class="kw">beauté naturelle</span> et son <span class="kw">âme calédonienne</span>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COLLECTIONS / SERVICES -->
+<section class="s srv" id="collections">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;margin-bottom:0">
+      <h2 class="h2">Nos collections</h2>
+      <p style="color:#6b6560;margin-top:12px;font-size:15px">Une sélection pensée pour sublimer votre intérieur, de la matière au détail.</p>
+    </div>
+    <div class="srv-grid">
+      <div class="srv-card reveal">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3 class="h3">Linge de maison</h3>
+        <p>Draps, housses de couette, serviettes et plaids aux textures douces et aux teintes naturelles pour un intérieur apaisant.</p>
+        <a href="#contact" class="btn">Découvrir</a>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+        </div>
+        <h3 class="h3">Mobilier bois naturel</h3>
+        <p>Tables, étagères et assises en bois aux essences chaleureuses, pour une décoration authentique et durable.</p>
+        <a href="#contact" class="btn">Découvrir</a>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </div>
+        <h3 class="h3">Éclairage & ambiance</h3>
+        <p>Luminaires suspendus, lampes à poser et bougies parfumées pour créer la juste lumière dans chaque espace.</p>
+        <a href="#contact" class="btn">Découvrir</a>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <h3 class="h3">Accessoires déco</h3>
+        <p>Vases, céramiques, coussins et objets de caractère soigneusement choisis pour personnaliser chaque coin de votre maison.</p>
+        <a href="#contact" class="btn">Découvrir</a>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3 class="h3">Textile mural</h3>
+        <p>Tapisseries, panneaux tissés et œuvres textiles pour habiller vos murs avec chaleur et caractère.</p>
+        <a href="#contact" class="btn">Découvrir</a>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <h3 class="h3">Conseil & personnalisation</h3>
+        <p>Notre équipe vous accompagne pour composer un intérieur qui vous ressemble, du choix des matières jusqu'à l'harmonie des couleurs.</p>
+        <a href="#contact" class="btn">Prendre contact</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s metier" id="metier">
+  <div class="wrap">
+    <div class="met-row reveal">
+      <div class="met-img">
+        <img src="https://i.ibb.co/LDDVTKQP/PRUNELLE-MAISON-1.jpg" alt="Linge de maison Prunelle Maison Nouméa" loading="lazy">
+      </div>
+      <div class="met-body">
+        <h2 class="h2">Une boutique née de la passion du beau</h2>
+        <p>Prunelle Maison est née d'une conviction simple : la décoration intérieure est un art accessible à tous. Installée au cœur du quartier Latin à Nouméa, notre boutique réunit des pièces sélectionnées avec soin — des textures naturelles, des formes épurées et des couleurs qui évoquent la lumière calédonienne.</p>
+        <ul class="chk-list">
+          <li>Sélection rigoureuse de chaque référence</li>
+          <li>Matières naturelles et durables privilégiées</li>
+          <li>Conseil personnalisé en boutique</li>
+          <li>Une équipe passionnée à votre écoute</li>
+        </ul>
+      </div>
+    </div>
+    <div class="met-row rev reveal">
+      <div class="met-img">
+        <img src="https://i.ibb.co/vvxJDMkg/PRUNELLE-MAISON-2.jpg" alt="Décoration intérieure showroom Nouméa" loading="lazy">
+      </div>
+      <div class="met-body">
+        <h2 class="h2">L'univers Prunelle, pensé pour votre quotidien</h2>
+        <p>Chaque visite en boutique est une invitation à ralentir. Touchez les matières, imaginez les associations, laissez-vous surprendre par nos mises en scène. Notre showroom est conçu comme un intérieur habité : chaleureux, cohérent, inspirant.</p>
+        <ul class="chk-list">
+          <li>Showroom mis en scène comme un vrai intérieur</li>
+          <li>Renouvellement régulier des collections</li>
+          <li>Cadeaux et compositions sur mesure disponibles</li>
+          <li>Parking à proximité, accès facile en centre-ville</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s galerie" id="ambiance">
+  <div class="wrap">
+    <h2 class="h2 reveal">L'ambiance Prunelle</h2>
+    <p class="galerie-sub reveal">Notre showroom à Nouméa — laissez-vous inspirer</p>
+    <div class="gal-grid reveal">
+      <div class="gal-item" data-src="https://i.ibb.co/tMdjq6M1/PRUNELLE-MAISON-0.jpg">
+        <img src="https://i.ibb.co/tMdjq6M1/PRUNELLE-MAISON-0.jpg" alt="Boutique Prunelle Maison Nouméa" loading="lazy">
+        <span class="gal-cap">Prunelle Maison — Nouméa</span>
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/LDDVTKQP/PRUNELLE-MAISON-1.jpg">
+        <img src="https://i.ibb.co/LDDVTKQP/PRUNELLE-MAISON-1.jpg" alt="Linge de maison en boutique" loading="lazy">
+        <span class="gal-cap">Linge de maison sélectionné</span>
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/vvxJDMkg/PRUNELLE-MAISON-2.jpg">
+        <img src="https://i.ibb.co/vvxJDMkg/PRUNELLE-MAISON-2.jpg" alt="Décoration intérieure showroom" loading="lazy">
+        <span class="gal-cap">Décoration &amp; mobilier</span>
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/JXZDhyK/PRUNELLE-MAISON-3.jpg">
+        <img src="https://i.ibb.co/JXZDhyK/PRUNELLE-MAISON-3.jpg" alt="Accessoires déco Prunelle" loading="lazy">
+        <span class="gal-cap">Accessoires &amp; ambiance</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lb-close">&#x2715;</button>
+  <img class="lb-img" id="lb-img" src="" alt="Prunelle Maison">
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section class="s social" id="avis">
+  <div class="wrap">
+    <div class="social-inner">
+      <h2 class="h2 reveal">Ce que nos clients disent</h2>
+      <p class="reveal">Boutique de décoration à Nouméa — reconnue pour la qualité de sa sélection et l'accueil de son équipe.</p>
+      <div class="google-badge reveal">
+        <div class="gb-score">4<span style="font-size:1.5rem">/5</span></div>
+        <div class="gb-right">
+          <div class="stars">
+            <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star" viewBox="0 0 24 24" style="fill:none;stroke:var(--ca);stroke-width:1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="gb-label">Note Google · 1 avis vérifié</div>
+        </div>
+      </div>
+      <div class="testi-grid reveal">
+        <div class="testi">
+          <p class="testi-text">"Une boutique pleine de charme, avec une sélection soignée et une ambiance vraiment agréable. On ressort toujours avec envie de redécorer toute la maison !"</p>
+          <div class="testi-author">
+            <div class="testi-av">M</div>
+            <div>
+              <div class="testi-name">Marie-Laure</div>
+              <div class="testi-stars">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testi">
+          <p class="testi-text">"J'ai trouvé exactement ce que je cherchais pour ma chambre. Les conseils de l'équipe ont été précieux, les matières sont de très belle qualité."</p>
+          <div class="testi-author">
+            <div class="testi-av">S</div>
+            <div>
+              <div class="testi-name">Sophie T.</div>
+              <div class="testi-stars">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="badges reveal">
+        <span class="badge">Boutique locale</span>
+        <span class="badge">Conseil personnalisé</span>
+        <span class="badge">Matières naturelles</span>
+        <span class="badge">Nouméa centre</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE & ACCÈS -->
+<section class="s contact" id="contact">
+  <div class="wrap">
+    <div class="contact-wrap">
+      <div class="contact-info reveal">
+        <h2 class="h2">Nous écrire</h2>
+        <p>Une question sur nos collections, un projet de décoration ou simplement envie d'en savoir plus ? Notre équipe vous répond avec plaisir.</p>
+        <div class="cinfo-item">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>6 rue du Docteur Lescour, quartier Latin<br>Nouméa, 98800, Nouvelle-Calédonie</span>
+        </div>
+        <div class="cinfo-item">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.22 0H5.2a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          <span><a href="tel:+68728949">28.94.49</a></span>
+        </div>
+        <div class="cinfo-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Lundi – Samedi : 9h00 – 18h00<br>Dimanche : fermé</span>
+        </div>
+        <div class="cinfo-item">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          <span><a href="https://www.facebook.com/Prunelle-maison-1825512914338709" target="_blank" rel="noopener">Suivre sur Facebook</a></span>
+        </div>
+      </div>
+      <div class="form-card reveal">
+        <form id="cform" action="#" novalidate>
+          <div class="frow">
+            <div class="fg" id="fg-nom">
+              <label for="f-nom">Nom</label>
+              <input type="text" id="f-nom" name="nom" placeholder="Votre nom">
+              <span class="err">Ce champ est requis.</span>
+            </div>
+            <div class="fg" id="fg-tel">
+              <label for="f-tel">Téléphone</label>
+              <input type="tel" id="f-tel" name="tel" placeholder="Ex : 28 94 49">
+              <span class="err">Numéro invalide.</span>
+            </div>
+          </div>
+          <div class="fg" id="fg-email">
+            <label for="f-email">Email</label>
+            <input type="email" id="f-email" name="email" placeholder="votre@email.nc">
+            <span class="err">Email invalide.</span>
+          </div>
+          <div class="fg" id="fg-msg">
+            <label for="f-msg">Message</label>
+            <textarea id="f-msg" name="msg" placeholder="Votre message, votre projet…"></textarea>
+            <span class="err">Ce champ est requis.</span>
+          </div>
+          <button type="submit" class="f-submit" id="f-btn">Envoyer le message</button>
+        </form>
+        <div class="f-success" id="f-ok">
+          ✅ Merci pour votre message ! L'équipe Prunelle Maison vous répondra très prochainement.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HORAIRES & ACCÈS -->
+<section class="s acces" id="acces">
+  <div class="wrap">
+    <h2 class="h2 reveal">Nous rendre visite à Nouméa</h2>
+    <div class="acces-grid">
+      <div class="acces-info reveal">
+        <div class="acces-block">
+          <div class="label">Adresse</div>
+          <p>6 rue du Docteur Lescour<br>Quartier Latin — Nouméa 98800<br>Nouvelle-Calédonie</p>
+        </div>
+        <div class="acces-block">
+          <div class="label">Horaires d'ouverture</div>
+          <p>Lundi — Vendredi : 9h00 – 18h00<br>Samedi : 9h00 – 17h00<br>Dimanche : fermé</p>
+        </div>
+        <div class="acces-block">
+          <div class="label">Téléphone</div>
+          <p><a href="tel:+68728949">28.94.49</a></p>
+        </div>
+        <div class="acces-block">
+          <div class="label">Itinéraire</div>
+          <p>
+            <a href="https://www.google.com/maps/search/6+rue+du+docteur+lescour+Noum%C3%A9a" target="_blank" rel="noopener" class="btn btn-teal" style="margin-top:8px;display:inline-block">Ouvrir dans Google Maps</a>
+          </p>
+        </div>
+      </div>
+      <div class="acces-map reveal">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <p>Quartier Latin, Nouméa</p>
+        <a href="https://www.google.com/maps/search/6+rue+du+docteur+lescour+Noum%C3%A9a" target="_blank" rel="noopener" class="btn btn-teal">Voir sur la carte</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="ft-inner">
+      <div class="ft-brand">
+        <span class="logo">Prunelle<span style="color:var(--cs)">.</span></span>
+        <p>Boutique de décoration intérieure au cœur de Nouméa. Linge de maison, mobilier, accessoires — l'art de vivre calédonien.</p>
+        <div class="ft-socials">
+          <a href="https://www.facebook.com/Prunelle-maison-1825512914338709" target="_blank" rel="noopener" class="ft-soc" aria-label="Facebook Prunelle Maison">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="ft-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#collections">Collections</a></li>
+          <li><a href="#ambiance">Ambiance</a></li>
+          <li><a href="#avis">Avis clients</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#acces">Accès</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Contact</h4>
+        <address>
+          6 rue du Docteur Lescour<br>
+          Quartier Latin<br>
+          Nouméa 98800<br>
+          Nouvelle-Calédonie<br><br>
+          <a href="tel:+68728949">28.94.49</a>
+        </address>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span class="ft-copy">© 2026 PRUNELLE MAISON. Tous droits réservés.</span>
+      <span class="ft-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+var items=document.querySelectorAll('.gal-item'),lb=document.getElementById('lightbox'),lbi=document.getElementById('lb-img'),lbc=document.getElementById('lb-close');
+items.forEach(function(el){
+el.addEventListener('click',function(){
+lbi.src=el.dataset.src;
+lb.classList.add('open');
+document.body.style.overflow='hidden';
+});
+});
+function closeLb(){lb.classList.remove('open');document.body.style.overflow='';}
+lbc.addEventListener('click',closeLb);
+lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+})();
+
+(function(){
+var form=document.getElementById('cform'),btn=document.getElementById('f-btn'),ok=document.getElementById('f-ok');
+function val(id,fn){var fg=document.getElementById('fg-'+id),inp=document.getElementById('f-'+id),v=inp.value.trim(),ok=fn(v);fg.classList.toggle('invalid',!ok);return ok;}
+form.addEventListener('submit',function(e){
+e.preventDefault();
+var n=val('nom',function(v){return v.length>1;});
+var em=val('email',function(v){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);});
+var m=val('msg',function(v){return v.length>2;});
+if(!n||!em||!m)return;
+btn.textContent='Envoi en cours…';btn.disabled=true;
+setTimeout(function(){form.style.display='none';ok.classList.add('show');},900);
+});
+})();
+
+(function(){
+var els=document.querySelectorAll('.reveal');
+els.forEach(function(el){el.classList.add('hidden');});
+var obs=new IntersectionObserver(function(entries){
+entries.forEach(function(en){
+if(en.isIntersecting){en.target.classList.remove('hidden');obs.unobserve(en.target);}
+});
+},{threshold:.1});
+els.forEach(function(el){obs.observe(el);});
+})();
+</script>
+</body>
+</html>
