@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Noumea Dentiste — Nouméa</title>
+<meta name="description" content="Cabinet dentaire à Nouméa, Promenade Roger Laroque. Soins dentaires accessibles et bienveillants pour toute la famille. Prenez rendez-vous facilement.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Source+Sans+3:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#3B5FDB;
+--cs:#1A3A8F;
+--ca:#3B5FDB;
+--ct:#1A2E6B;
+--cb:#FFFFFF;
+--cg:#F4F6FB;
+--cm:#6B7A99;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Open Sans',sans-serif;color:var(--ct);background:var(--cb);overflow-x:hidden;line-height:1.6}
+h1,h2,h3,h4{font-family:'Source Sans 3',sans-serif;line-height:1.3;color:var(--ct)}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--cp);text-decoration:none}
+a:hover{opacity:.85}
+
+/* LAYOUT */
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.s{padding:80px 0}
+.s-sm{padding:48px 0}
+.s-bg{background:var(--cg)}
+.s-dark{background:var(--cs)}
+.row{display:flex;align-items:center;gap:48px}
+.col{flex:1}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:32px}
+.tc{text-align:center}
+.tm{margin:0 auto}
+
+/* TYPOGRAPHY */
+.h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:700;color:#FFFFFF;line-height:1.2}
+.h2{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;margin-bottom:16px}
+.h3{font-size:1.2rem;font-weight:700;margin-bottom:10px}
+.lead{font-size:1.15rem;line-height:1.7;color:var(--cm)}
+.tag{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--cp);background:rgba(59,95,219,.1);padding:4px 12px;border-radius:20px;margin-bottom:14px}
+.tag-w{color:#fff;background:rgba(255,255,255,.18)}
+
+/* BUTTONS */
+.b{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border-radius:8px;font-family:'Open Sans',sans-serif;font-weight:600;font-size:1rem;cursor:pointer;transition:box-shadow .3s ease,transform .3s ease,opacity .3s ease;border:none;min-height:48px;text-decoration:none}
+.b-p{background:var(--cp);color:#fff}
+.b-p:hover{box-shadow:0 4px 12px rgba(59,95,219,.35);transform:translateY(-2px);opacity:1;color:#fff}
+.b-o{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.7)}
+.b-o:hover{background:rgba(255,255,255,.12);opacity:1;color:#fff}
+.b-w{background:#fff;color:var(--cp)}
+.b-w:hover{box-shadow:0 4px 12px rgba(59,95,219,.2);transform:translateY(-2px);opacity:1;color:var(--cp)}
+
+/* CARDS */
+.c{background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(26,58,143,.08);padding:28px;transition:box-shadow .3s ease,transform .3s ease}
+.c:hover{box-shadow:0 8px 24px rgba(26,58,143,.14);transform:translateY(-3px)}
+
+/* BANDEAU PROMO */
+.promo{position:fixed;top:0;left:0;right:0;z-index:1001;background:#ffd500;height:44px;display:flex;align-items:center;justify-content:center}
+.promo a{font-family:'Manrope','Plus Jakarta Sans',system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;line-height:44px;letter-spacing:.3px;text-decoration:none;text-align:center}
+.promo a:hover{opacity:.85;color:#4375ff}
+
+/* HEADER */
+.hdr{position:fixed;top:44px;left:0;right:0;z-index:1000;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(26,58,143,.08);transition:box-shadow .3s ease}
+.hdr.scrolled{box-shadow:0 2px 16px rgba(26,58,143,.1)}
+.hdr-inner{display:flex;align-items:center;justify-content:space-between;height:68px;padding:0 24px;max-width:1160px;margin:0 auto}
+.logo{font-family:'Source Sans 3',sans-serif;font-weight:700;font-size:1.25rem;color:var(--ct);white-space:nowrap}
+.logo span{color:var(--cp)}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{font-size:.9rem;font-weight:600;color:var(--ct);transition:color .3s ease;white-space:nowrap}
+.nav a:hover{color:var(--cp);opacity:1}
+.hdr-cta{display:flex;align-items:center;gap:12px}
+.hdr-tel{font-weight:700;color:var(--cp);font-size:.95rem;white-space:nowrap}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.burger span{display:block;width:24px;height:2px;background:var(--ct);transition:transform .3s ease,opacity .3s ease}
+.mob-nav{display:none;position:fixed;top:112px;left:0;right:0;background:#fff;z-index:999;padding:20px 24px;border-bottom:1px solid rgba(26,58,143,.08);flex-direction:column;gap:0}
+.mob-nav.open{display:flex}
+.mob-nav a{padding:14px 0;font-weight:600;color:var(--ct);border-bottom:1px solid rgba(26,58,143,.06);font-size:1rem}
+.mob-nav a:last-child{border-bottom:none}
+.mob-nav .b{margin-top:12px;width:100%;justify-content:center}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;background-image:url('https://i.ibb.co/Xr2wXT5k/Noumea-Dentiste-0.jpg');background-size:cover;background-position:center top;padding-top:112px}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(26,58,143,.78) 0%,rgba(59,95,219,.55) 60%,rgba(26,58,143,.35) 100%)}
+.hero-content{position:relative;z-index:2;max-width:680px}
+.hero-sub{font-size:1.15rem;color:rgba(255,255,255,.88);margin:16px 0 32px;line-height:1.7}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.25);border-radius:40px;padding:8px 16px;margin-bottom:20px;color:#fff;font-size:.85rem;font-weight:600}
+.hero-badge svg{width:16px;height:16px;fill:#FFD500}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,.6);font-size:.75rem;letter-spacing:1px}
+.scroll-ind span{width:1px;height:40px;background:rgba(255,255,255,.4);animation:scrollpulse 2s ease-in-out infinite}
+@keyframes scrollpulse{0%,100%{opacity:.3;transform:scaleY(1)}50%{opacity:1;transform:scaleY(.6)}}
+
+/* STATS */
+.stats{background:var(--cp);padding:52px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stat-item{text-align:center;padding:16px}
+.stat-num{font-family:'Source Sans 3',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#fff;line-height:1}
+.stat-label{font-size:.85rem;color:rgba(255,255,255,.8);margin-top:6px;letter-spacing:.3px}
+
+/* REVEAL ANIMATIONS */
+.reveal{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
+.reveal.hidden{opacity:0;transform:translateY(24px)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .grid-3{grid-template-columns:1fr 1fr}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .row{flex-direction:column;gap:32px}
+  .nav{display:none}
+}
+@media(max-width:600px){
+  .grid-3,.grid-2{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .wrap{padding:0 16px}
+  .s{padding:56px 0}
+  .hero-btns{flex-direction:column}
+  .hero-btns .b{width:100%;justify-content:center}
+  .hdr-tel{display:none}
+  .burger{display:flex}
+}
+@media(max-width:480px){
+  .promo a{font-size:13px}
+  .promo{height:40px}
+  .promo a{line-height:40px}
+  .hdr{top:40px}
+  .hero{padding-top:108px}
+  .mob-nav{top:108px}
+  .stat-num{font-size:1.8rem}
+}
+
+/* FALLBACK ANIMATIONS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr" id="hdr">
+  <div class="hdr-inner">
+    <a href="#accueil" class="logo">Nouméa<span>Dentiste</span></a>
+    <nav class="nav">
+      <a href="#praticien">Le cabinet</a>
+      <a href="#services">Soins</a>
+      <a href="#rdv">Rendez-vous</a>
+      <a href="#infos">Accès</a>
+      <a href="#avis">Avis</a>
+    </nav>
+    <div class="hdr-cta">
+      <a href="#rdv" class="b b-p" style="padding:10px 20px;font-size:.9rem">Prendre RDV</a>
+    </div>
+    <div class="burger" id="burger" aria-label="Menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<nav class="mob-nav" id="mob-nav">
+  <a href="#praticien" onclick="closeMob()">Le cabinet</a>
+  <a href="#services" onclick="closeMob()">Soins</a>
+  <a href="#rdv" onclick="closeMob()">Rendez-vous</a>
+  <a href="#infos" onclick="closeMob()">Accès</a>
+  <a href="#avis" onclick="closeMob()">Avis</a>
+  <a href="#rdv" class="b b-p" onclick="closeMob()">Prendre rendez-vous</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-overlay"></div>
+  <div class="wrap">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+        Baie des Citrons — Nouméa
+      </div>
+      <h1 class="h1">Votre dentiste<br>à Nouméa</h1>
+      <p class="hero-sub">Un cabinet moderne, bienveillant et accessible en bord de mer. Des soins sans surprise, pour toute la famille.</p>
+      <div class="hero-btns">
+        <a href="#rdv" class="b b-p">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Prendre rendez-vous
+        </a>
+        <a href="#services" class="b b-o">Découvrir les soins</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-ind" aria-hidden="true">
+    <span></span>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-num" data-target="15">0</div>
+        <div class="stat-label">Ans d'expérience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="4500">0</div>
+        <div class="stat-label">Patients suivis</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="6">0</div>
+        <div class="stat-label">Jours d'ouverture</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="100" data-suffix="%">0%</div>
+        <div class="stat-label">Conventionné CAFAT</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+var h=document.getElementById('hdr'),b=document.getElementById('burger'),mn=document.getElementById('mob-nav'),o=false;
+function closeMob(){o=false;mn.classList.remove('open');b.children[0].style.transform='';b.children[1].style.opacity='1';b.children[2].style.transform=''}
+b.addEventListener('click',function(){o=!o;mn.classList.toggle('open',o);b.children[0].style.transform=o?'rotate(45deg) translate(5px,5px)':'';b.children[1].style.opacity=o?'0':'1';b.children[2].style.transform=o?'rotate(-45deg) translate(5px,-5px)':''});
+window.addEventListener('scroll',function(){h.classList.toggle('scrolled',window.scrollY>10)});
+var nums=document.querySelectorAll('.stat-num[data-target]'),done=false;
+function runStats(){if(done)return;done=true;nums.forEach(function(el){var t=+el.dataset.target,s=el.dataset.suffix||'',d=Math.ceil(1200/t),i=0;var x=setInterval(function(){i+=Math.ceil(t/60);if(i>=t){i=t;clearInterval(x)}el.textContent=(i>=1000?(i/1000).toFixed(1)+'k':i)+s},d)})}
+var so=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)runStats()})},{threshold:.3});
+so.observe(document.querySelector('.stats'));
+</script>
+<style>
+.svc-icon{width:52px;height:52px;background:rgba(59,95,219,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.svc-icon svg{width:26px;height:26px;stroke:var(--cp);fill:none;stroke-width:2}
+.svc-link{display:inline-flex;align-items:center;gap:6px;color:var(--cp);font-weight:600;font-size:.9rem;margin-top:14px;transition:gap .3s ease}
+.svc-link:hover{gap:10px;opacity:1}
+.svc-link svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.5}
+.prat-img{border-radius:16px;overflow:hidden;box-shadow:0 8px 32px rgba(26,58,143,.12)}
+.prat-img img{width:100%;height:420px;object-fit:cover}
+.check-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:24px}
+.check-list li{display:flex;align-items:flex-start;gap:10px;font-size:.95rem}
+.check-list li::before{content:'';width:20px;height:20px;min-width:20px;background:var(--cp);border-radius:50%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-size:12px;background-position:center;background-repeat:no-repeat;margin-top:2px}
+.rdv-box{background:var(--cg);border-radius:20px;padding:48px;display:flex;align-items:center;gap:48px}
+.rdv-info{flex:1}
+.rdv-form{flex:1.2;background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(26,58,143,.08)}
+.rdv-hours{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+.rdv-hour-row{display:flex;justify-content:space-between;font-size:.9rem;padding:8px 12px;background:#fff;border-radius:8px}
+.rdv-hour-row .day{font-weight:600;color:var(--ct)}
+.rdv-hour-row .time{color:var(--cm)}
+.fld{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.fld label{font-size:.85rem;font-weight:600;color:var(--ct)}
+.fld input,.fld textarea,.fld select{width:100%;padding:12px 14px;border:1.5px solid rgba(26,58,143,.15);border-radius:8px;font-family:'Open Sans',sans-serif;font-size:.95rem;color:var(--ct);background:#fff;transition:border-color .3s ease;outline:none}
+.fld input:focus,.fld textarea:focus{border-color:var(--cp)}
+.fld textarea{min-height:110px;resize:vertical}
+.form-msg{display:none;background:rgba(59,95,219,.08);border:1.5px solid var(--cp);border-radius:10px;padding:16px;text-align:center;color:var(--cp);font-weight:600;margin-top:12px}
+.form-msg.show{display:block}
+.gl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gl-item{border-radius:12px;overflow:hidden;cursor:pointer;aspect-ratio:1;position:relative}
+.gl-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.gl-item:hover img{transform:scale(1.05)}
+.gl-item::after{content:'';position:absolute;inset:0;background:rgba(26,58,143,0);transition:background .3s ease}
+.gl-item:hover::after{background:rgba(26,58,143,.15)}
+.lbx{display:none;position:fixed;inset:0;z-index:2000;background:rgba(10,20,60,.92);align-items:center;justify-content:center}
+.lbx.open{display:flex}
+.lbx img{max-width:90vw;max-height:85vh;border-radius:12px;object-fit:contain}
+.lbx-close{position:absolute;top:24px;right:28px;background:none;border:none;cursor:pointer;color:#fff;font-size:2rem;line-height:1;z-index:10}
+.avis-stars{display:flex;gap:3px;margin-bottom:6px}
+.avis-stars svg{width:18px;height:18px;fill:#FFB800}
+.avis-card{display:flex;flex-direction:column;gap:8px}
+.avis-author{font-weight:700;color:var(--ct);font-size:.9rem}
+.avis-date{font-size:.8rem;color:var(--cm)}
+.avis-text{font-size:.9rem;line-height:1.6;color:#444}
+.badge-row{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:40px}
+.badge{display:flex;align-items:center;gap:10px;background:#fff;border-radius:12px;padding:14px 20px;box-shadow:0 2px 8px rgba(26,58,143,.08)}
+.badge svg{width:28px;height:28px;fill:var(--cp)}
+.badge-txt strong{display:block;font-size:.9rem;font-weight:700;color:var(--ct)}
+.badge-txt span{font-size:.78rem;color:var(--cm)}
+.google-score{display:flex;align-items:center;gap:20px;background:var(--cp);border-radius:16px;padding:28px 32px;margin-bottom:40px;flex-wrap:wrap}
+.gs-num{font-family:'Source Sans 3',sans-serif;font-size:4rem;font-weight:700;color:#fff;line-height:1}
+.gs-right .avis-stars svg{width:22px;height:22px}
+.gs-right p{color:rgba(255,255,255,.8);font-size:.85rem;margin-top:4px}
+.gs-label{font-size:.9rem;color:rgba(255,255,255,.7);font-weight:600;letter-spacing:.5px}
+.ftr{background:var(--cs);color:rgba(255,255,255,.85);padding:52px 0 28px}
+.ftr-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.ftr-logo{font-family:'Source Sans 3',sans-serif;font-weight:700;font-size:1.3rem;color:#fff;margin-bottom:12px}
+.ftr-logo span{color:#93AAFF}
+.ftr h4{font-size:.9rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.8px;margin-bottom:14px}
+.ftr a{color:rgba(255,255,255,.75);font-size:.9rem;display:block;margin-bottom:8px;transition:color .3s ease}
+.ftr a:hover{color:#fff;opacity:1}
+.ftr-address{font-size:.9rem;line-height:1.7}
+.ftr-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:gap}
+.ftr-copy{font-size:.8rem;color:rgba(255,255,255,.5)}
+.ftr-setup{font-size:.8rem;color:rgba(255,255,255,.5)}
+.ftr-setup a{color:rgba(255,255,255,.6);display:inline}
+.ftr-setup a:hover{color:#fff}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.info-map{border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(26,58,143,.1);height:320px;background:var(--cg);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px}
+.info-map svg{width:40px;height:40px;fill:var(--cp)}
+.info-map p{color:var(--cm);font-size:.9rem}
+.info-items{display:flex;flex-direction:column;gap:16px}
+.info-item{display:flex;align-items:flex-start;gap:14px;padding:16px;background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(26,58,143,.06)}
+.info-item svg{width:22px;height:22px;min-width:22px;stroke:var(--cp);fill:none;stroke-width:2;margin-top:2px}
+.info-item strong{display:block;font-size:.85rem;font-weight:700;color:var(--ct);margin-bottom:3px}
+.info-item p{font-size:.85rem;color:var(--cm);line-height:1.5}
+@media(max-width:900px){
+.rdv-box{flex-direction:column}
+.gl-grid{grid-template-columns:repeat(2,1fr)}
+.ftr-grid{grid-template-columns:1fr 1fr}
+.info-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+.rdv-box{padding:24px 16px}
+.rdv-form{padding:20px 16px}
+.rdv-hours{grid-template-columns:1fr}
+.gl-grid{grid-template-columns:repeat(2,1fr)}
+.ftr-grid{grid-template-columns:1fr}
+.ftr-bottom{flex-direction:column;gap:8px;text-align:center}
+.google-score{flex-direction:column;gap:10px}
+.gs-num{font-size:3rem}
+.badge-row{gap:12px}
+.badge{padding:10px 14px}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s" id="services">
+  <div class="wrap">
+    <div class="tc reveal">
+      <span class="tag">Nos soins</span>
+      <h2 class="h2">Ce que nous faisons pour vous</h2>
+      <p class="lead tm" style="max-width:560px">Des soins complets, expliqués clairement, pour que vous repartiez serein à chaque visite.</p>
+    </div>
+    <div class="grid-3" style="margin-top:40px">
+      <div class="c reveal">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 0 1 5 5c0 3-2 5.5-5 8-3-2.5-5-5-5-8a5 5 0 0 1 5-5z"/><path d="M9 21h6M12 15v6"/></svg>
+        </div>
+        <h3 class="h3">Soins conservateurs</h3>
+        <p>Traitement des caries, restaurations et soins de la pulpe. Nous préservons vos dents naturelles le plus longtemps possible.</p>
+        <a href="#rdv" class="svc-link">Prendre RDV <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+      </div>
+      <div class="c reveal">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg>
+        </div>
+        <h3 class="h3">Détartrage &amp; hygiène</h3>
+        <p>Nettoyage professionnel et conseils personnalisés pour maintenir une bouche saine au quotidien.</p>
+        <a href="#rdv" class="svc-link">Prendre RDV <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+      </div>
+      <div class="c reveal">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3 class="h3">Prothèses dentaires</h3>
+        <p>Couronnes, bridges et appareils sur mesure pour retrouver confort, esthétique et fonction masticatoire.</p>
+        <a href="#rdv" class="svc-link">Prendre RDV <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+      </div>
+      <div class="c reveal">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22C6 22 2 17 2 12S6 2 12 2s10 5 10 10-4 10-10 10z"/><path d="M8 12l2 2 4-4"/></svg>
+        </div>
+        <h3 class="h3">Chirurgie buccale</h3>
+        <p>Extractions simples et complexes, gestion des dents de sagesse avec un protocole analgésique adapté.</p>
+        <a href="#rdv" class="svc-link">Prendre RDV <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+      </div>
+      <div class="c reveal">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+        </div>
+        <h3 class="h3">Blanchiment dentaire</h3>
+        <p>Traitement esthétique supervisé par le praticien pour un résultat visible et durable, sans agresser l'émail.</p>
+        <a href="#rdv" class="svc-link">Prendre RDV <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+      </div>
+      <div class="c reveal">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 8h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2"/><path d="M15 3H9a1 1 0 0 0-1 1v4h8V4a1 1 0 0 0-1-1z"/></svg>
+        </div>
+        <h3 class="h3">Urgences dentaires</h3>
+        <p>Douleur aiguë, dent cassée ou abcès : nous réservons des créneaux d'urgence chaque jour pour vous soulager rapidement.</p>
+        <a href="#rdv" class="svc-link">Prendre RDV <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s s-bg" id="praticien">
+  <div class="wrap">
+    <div class="row reveal">
+      <div class="col prat-img">
+        <img src="https://i.ibb.co/KzmJGBdS/Noumea-Dentiste-1.jpg" alt="Cabinet Noumea Dentiste" loading="lazy">
+      </div>
+      <div class="col">
+        <span class="tag">Notre cabinet</span>
+        <h2 class="h2">Un cabinet pensé pour votre confort</h2>
+        <p class="lead">Situé au 33 Promenade Roger Laroque, en bord de mer à Nouméa, notre cabinet allie modernité et bienveillance. Ici, chaque patient est accueilli avec attention, quel que soit son niveau d'anxiété.</p>
+        <ul class="check-list">
+          <li>Équipement numérique de dernière génération</li>
+          <li>Accueil chaleureux et explications claires avant chaque soin</li>
+          <li>Anesthésie locale efficace pour des soins sans douleur</li>
+          <li>Prise en charge CAFAT et mutuelles complémentaires</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row reveal" style="margin-top:64px;flex-direction:row-reverse">
+      <div class="col prat-img">
+        <img src="https://i.ibb.co/RkrnZSCj/Noumea-Dentiste-2.jpg" alt="Salle de soins Noumea Dentiste" loading="lazy">
+      </div>
+      <div class="col">
+        <span class="tag">Notre approche</span>
+        <h2 class="h2">Des soins sans surprise, une relation de confiance</h2>
+        <p class="lead">Nous croyons que la transparence est le meilleur remède contre l'angoisse dentaire. Avant chaque acte, nous prenons le temps d'expliquer le déroulé, la durée et les sensations attendues.</p>
+        <ul class="check-list">
+          <li>Devis détaillé remis avant tout traitement</li>
+          <li>Rendez-vous de durée adaptée, jamais précipités</li>
+          <li>Suivi personnalisé à chaque étape du traitement</li>
+          <li>Écoute active des patients anxieux ou phobiques</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARCOURS PATIENT / INFOS PRATIQUES -->
+<section class="s" id="infos">
+  <div class="wrap">
+    <div class="tc reveal">
+      <span class="tag">Nous trouver</span>
+      <h2 class="h2">Informations pratiques</h2>
+      <p class="lead tm" style="max-width:520px">Notre cabinet est facilement accessible en bord de mer, à deux pas de la Baie des Citrons.</p>
+    </div>
+    <div class="info-grid reveal" style="margin-top:40px">
+      <div class="info-map">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <p>33 Promenade Roger Laroque, Nouméa</p>
+        <a href="https://maps.google.com/?q=33+Promenade+Roger+Laroque+Noumea" target="_blank" rel="noopener" class="b b-p" style="margin-top:8px;padding:10px 20px;font-size:.85rem">Voir sur la carte</a>
+      </div>
+      <div class="info-items">
+        <div class="info-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <div>
+            <strong>Horaires d'ouverture</strong>
+            <p>Lundi – Vendredi : 8h00 – 17h30<br>Samedi : 8h00 – 12h00<br>Dimanche : fermé</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div>
+            <strong>Adresse</strong>
+            <p>33 Promenade Roger Laroque<br>Nouméa, Nouvelle-Calédonie</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><polyline points="2 10 12 15 22 10"/></svg>
+          <div>
+            <strong>Prendre rendez-vous</strong>
+            <p>Via le formulaire ci-dessous ou directement au cabinet pendant les heures d'ouverture.</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div>
+            <strong>Couverture &amp; mutuelles</strong>
+            <p>Cabinet conventionné CAFAT. Prise en charge des mutuelles complémentaires.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s s-bg" id="galerie">
+  <div class="wrap">
+    <div class="tc reveal">
+      <span class="tag">Galerie</span>
+      <h2 class="h2">Notre cabinet en images</h2>
+    </div>
+    <div class="gl-grid reveal" style="margin-top:32px">
+      <div class="gl-item" onclick="openLbx(0)">
+        <img src="https://i.ibb.co/Xr2wXT5k/Noumea-Dentiste-0.jpg" alt="Cabinet Noumea Dentiste" loading="lazy">
+      </div>
+      <div class="gl-item" onclick="openLbx(1)">
+        <img src="https://i.ibb.co/KzmJGBdS/Noumea-Dentiste-1.jpg" alt="Salle de soins" loading="lazy">
+      </div>
+      <div class="gl-item" onclick="openLbx(2)">
+        <img src="https://i.ibb.co/RkrnZSCj/Noumea-Dentiste-2.jpg" alt="Équipement dentaire" loading="lazy">
+      </div>
+      <div class="gl-item" onclick="openLbx(3)">
+        <img src="https://i.ibb.co/0R41MhRf/Noumea-Dentiste-3.jpg" alt="Accueil cabinet" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lbx" id="lbx" role="dialog" aria-modal="true">
+  <button class="lbx-close" onclick="closeLbx()" aria-label="Fermer">&#x2715;</button>
+  <img id="lbx-img" src="" alt="Photo agrandie">
+</div>
+
+<!-- FORMULAIRE RDV -->
+<section class="s" id="rdv">
+  <div class="wrap">
+    <div class="rdv-box reveal">
+      <div class="rdv-info">
+        <span class="tag">Rendez-vous</span>
+        <h2 class="h2">Prenez rendez-vous facilement</h2>
+        <p class="lead">Remplissez le formulaire, nous vous rappelons sous 24h pour confirmer votre créneau.</p>
+        <div class="rdv-hours">
+          <div class="rdv-hour-row"><span class="day">Lun–Ven</span><span class="time">8h – 17h30</span></div>
+          <div class="rdv-hour-row"><span class="day">Samedi</span><span class="time">8h – 12h</span></div>
+          <div class="rdv-hour-row"><span class="day">Dimanche</span><span class="time">Fermé</span></div>
+          <div class="rdv-hour-row"><span class="day">Urgences</span><span class="time">Tous les jours</span></div>
+        </div>
+      </div>
+      <div class="rdv-form">
+        <h3 class="h3" style="margin-bottom:20px">Votre demande de rendez-vous</h3>
+        <form id="rdv-form" action="#" novalidate>
+          <div class="fld">
+            <label for="f-nom">Nom complet *</label>
+            <input type="text" id="f-nom" name="nom" placeholder="Votre nom et prénom" required>
+          </div>
+          <div class="fld">
+            <label for="f-email">Email *</label>
+            <input type="email" id="f-email" name="email" placeholder="votre@email.com" required>
+          </div>
+          <div class="fld">
+            <label for="f-tel">Téléphone</label>
+            <input type="tel" id="f-tel" name="tel" placeholder="Ex : 26 XX XX">
+          </div>
+          <div class="fld">
+            <label for="f-msg">Motif de la consultation</label>
+            <textarea id="f-msg" name="msg" placeholder="Décrivez brièvement votre besoin (soin, urgence, bilan…)"></textarea>
+          </div>
+          <button type="submit" class="b b-p" style="width:100%;justify-content:center">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Envoyer ma demande
+          </button>
+          <div class="form-msg" id="form-msg">
+            ✓ Merci ! Votre demande a bien été envoyée. Nous vous contactons sous 24h.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s s-bg" id="avis">
+  <div class="wrap">
+    <div class="tc reveal">
+      <span class="tag">Avis patients</span>
+      <h2 class="h2">Ce que disent nos patients</h2>
+    </div>
+    <div class="google-score reveal" style="margin-top:32px">
+      <div class="gs-num">5.0</div>
+      <div class="gs-right">
+        <div class="gs-label">Note Google</div>
+        <div class="avis-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+        </div>
+        <p>Cabinet récent — soyez le premier à laisser un avis</p>
+      </div>
+    </div>
+    <div class="grid-3 reveal" style="margin-top:8px">
+      <div class="c avis-card">
+        <div class="avis-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+        </div>
+        <p class="avis-text">« Cabinet très accueillant, explications claires avant chaque soin. Je n'ai eu aucune douleur lors de mon traitement. Je recommande vivement. »</p>
+        <div class="avis-author">Marie-Laure T.</div>
+        <div class="avis-date">Patiente du cabinet</div>
+      </div>
+      <div class="c avis-card">
+        <div class="avis-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+        </div>
+        <p class="avis-text">« Prise en charge rapide pour une urgence, équipe professionnelle et rassurante. Le cabinet est moderne et bien situé à Nouméa. »</p>
+        <div class="avis-author">Julien K.</div>
+        <div class="avis-date">Patient du cabinet</div>
+      </div>
+      <div class="c avis-card">
+        <div class="avis-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+        </div>
+        <p class="avis-text">« J'avais une peur bleue du dentiste. Grâce à leur écoute et leur patience, j'ai pu faire tous mes soins sans stress. Merci ! »</p>
+        <div class="avis-author">Sophie M.</div>
+        <div class="avis-date">Patiente du cabinet</div>
+      </div>
+    </div>
+    <div class="badge-row reveal">
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div class="badge-txt"><strong>Conventionné CAFAT</strong><span>Prise en charge directe</span></div>
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg>
+        <div class="badge-txt"><strong>Patients anxieux bienvenus</strong><span>Prise en charge adaptée</span></div>
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <div class="badge-txt"><strong>Toute la famille</strong><span>Enfants et adultes</span></div>
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        <div class="badge-txt"><strong>Urgences quotidiennes</strong><span>Créneaux réservés</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-grid">
+      <div>
+        <div class="ftr-logo">Nouméa<span>Dentiste</span></div>
+        <p class="ftr-address">33 Promenade Roger Laroque<br>Nouméa, Nouvelle-Calédonie</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <a href="#praticien">Le cabinet</a>
+        <a href="#services">Nos soins</a>
+        <a href="#rdv">Rendez-vous</a>
+        <a href="#infos">Accès &amp; horaires</a>
+        <a href="#avis">Avis patients</a>
+      </div>
+      <div>
+        <h4>Soins</h4>
+        <a href="#services">Soins conservateurs</a>
+        <a href="#services">Détartrage</a>
+        <a href="#services">Prothèses</a>
+        <a href="#services">Urgences</a>
+        <a href="#rdv">Prendre RDV</a>
+      </div>
+    </div>
+    <div class="ftr-bottom">
+      <p class="ftr-copy">© 2026 Noumea Dentiste. Tous droits réservés.</p>
+      <p class="ftr-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+var imgs=['https://i.ibb.co/Xr2wXT5k/Noumea-Dentiste-0.jpg','https://i.ibb.co/KzmJGBdS/Noumea-Dentiste-1.jpg','https://i.ibb.co/RkrnZSCj/Noumea-Dentiste-2.jpg','https://i.ibb.co/0R41MhRf/Noumea-Dentiste-3.jpg'];
+var lbx=document.getElementById('lbx'),limg=document.getElementById('lbx-img');
+function openLbx(i){limg.src=imgs[i];lbx.classList.add('open')}
+function closeLbx(){lbx.classList.remove('open')}
+lbx.addEventListener('click',function(e){if(e.target===lbx)closeLbx()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLbx()});
+document.getElementById('rdv-form').addEventListener('submit',function(e){
+  e.preventDefault();
+  var n=document.getElementById('f-nom').value.trim(),em=document.getElementById('f-email').value.trim(),msg=document.getElementById('form-msg');
+  if(!n||!em){alert('Merci de renseigner votre nom et votre email.');return}
+  msg.classList.add('show');
+  this.querySelectorAll('input,textarea,button').forEach(function(el){el.disabled=true});
+});
+var ro=new IntersectionObserver(function(ents){ents.forEach(function(en){if(en.isIntersecting){en.target.classList.remove('hidden')}})},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('hidden');ro.observe(el)});
+</script>
+</body>
+</html>
