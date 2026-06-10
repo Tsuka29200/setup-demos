@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>De A à Zen - Institut de beauté - Cellu M6 - Soins minceurs - Soins visage et corps - Epilations — Nouméa</title>
+<meta name="description" content="Institut de beauté haut de gamme à Nouméa, Nouvelle-Calédonie. Épilations, Cellu M6, soins minceurs, soins visage et corps. Votre havre de paix au 39 rue de l'Alma.">
+<meta property="og:title" content="De A à Zen — Institut de beauté à Nouméa">
+<meta property="og:description" content="Épilations, Cellu M6, soins visage et corps. Votre havre de paix à Nouméa.">
+<meta property="og:image" content="https://i.ibb.co/8Lx2640W/De-A-Zen-Institut-de-beaut-Cellu-M6-Soins-minceurs-Soins-visage-et-corps-Epilations-0.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Nunito:wght@300;400;500;600;700&family=Manrope:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#2C2F3A;
+--cs:#C9A96E;
+--ca:#C9A96E;
+--ct:#2C2F3A;
+--cb:#F5F0EB;
+--cw:#FFFFFF;
+--r:14px;
+--sh:0 4px 24px rgba(44,47,58,.08);
+--tr:.3s ease-in-out;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Nunito',system-ui,sans-serif;background:var(--cb);color:var(--ct);overflow-x:hidden;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+
+/* TYPOGRAPHY */
+.h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,5.5vw,4.2rem);font-weight:600;line-height:1.15;letter-spacing:.01em}
+.h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,4vw,3rem);font-weight:500;line-height:1.2;letter-spacing:.01em}
+.h3{font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,2.5vw,1.75rem);font-weight:500;line-height:1.3}
+.h4{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500}
+.lead{font-size:clamp(1rem,2vw,1.15rem);font-weight:300;line-height:1.75;opacity:.9}
+.gold{color:var(--cs)}
+.italic{font-style:italic}
+
+/* LAYOUT */
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.wrap-sm{max-width:800px;margin:0 auto;padding:0 24px}
+.s{padding:80px 0}
+.s-sm{padding:56px 0}
+.flex{display:flex;align-items:center}
+.flex-col{display:flex;flex-direction:column}
+.gap-sm{gap:12px}
+.gap-md{gap:24px}
+.gap-lg{gap:40px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.ta-c{text-align:center}
+.ta-l{text-align:left}
+.mt-xs{margin-top:8px}
+.mt-sm{margin-top:16px}
+.mt-md{margin-top:24px}
+.mt-lg{margin-top:40px}
+.mb-sm{margin-bottom:16px}
+.mb-md{margin-bottom:32px}
+
+/* BANDEAU PROMO */
+.promo-bar{position:fixed;top:0;left:0;right:0;z-index:1001;height:44px;background:#ffd500;text-align:center}
+.promo-bar a{font-family:'Manrope','Plus Jakarta Sans',system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;line-height:44px;letter-spacing:.3px;display:block;transition:opacity .2s}
+.promo-bar a:hover{opacity:.85}
+
+/* HEADER */
+.header{position:fixed;top:44px;left:0;right:0;z-index:1000;background:rgba(245,240,235,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,169,110,.2);transition:var(--tr)}
+.header.scrolled{box-shadow:0 2px 20px rgba(44,47,58,.1)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:70px;padding:0 24px;max-width:1200px;margin:0 auto}
+.logo{flex-col:column}
+.logo-name{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--cp);letter-spacing:.04em;line-height:1.1}
+.logo-sub{font-size:.68rem;font-weight:600;color:var(--cs);letter-spacing:.12em;text-transform:uppercase;margin-top:2px}
+.nav{display:flex;align-items:center;gap:32px}
+.nav a{font-size:.85rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--cp);position:relative;transition:color var(--tr)}
+.nav a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1.5px;background:var(--cs);transition:width var(--tr)}
+.nav a:hover{color:var(--cs)}
+.nav a:hover::after{width:100%}
+.header-cta{display:flex;align-items:center;gap:16px}
+.tel-link{font-size:.85rem;font-weight:700;color:var(--cs);letter-spacing:.04em;transition:opacity var(--tr)}
+.tel-link:hover{opacity:.75}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 32px;border-radius:40px;font-family:'Nunito',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:var(--tr);border:none;min-height:48px}
+.btn-primary{background:var(--cp);color:var(--cw)}
+.btn-primary:hover{background:var(--cs);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,169,110,.35)}
+.btn-outline{background:transparent;color:var(--cw);border:1.5px solid rgba(255,255,255,.6)}
+.btn-outline:hover{background:rgba(255,255,255,.15);border-color:var(--cw)}
+.btn-gold{background:var(--cs);color:var(--cw)}
+.btn-gold:hover{background:#b8945a;transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,169,110,.4)}
+.btn-full{width:100%}
+
+/* HAMBURGER */
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.burger span{display:block;width:24px;height:2px;background:var(--cp);border-radius:2px;transition:var(--tr)}
+.mob-nav{display:none;position:fixed;top:114px;left:0;right:0;bottom:0;background:var(--cb);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:36px;opacity:0;transition:opacity var(--tr)}
+.mob-nav.open{display:flex;opacity:1}
+.mob-nav a{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:500;color:var(--cp);transition:color var(--tr)}
+.mob-nav a:hover{color:var(--cs)}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;margin-top:114px}
+.hero-left{background:var(--cp);display:flex;align-items:center;justify-content:flex-end;padding:80px 56px 80px 32px;position:relative;overflow:hidden}
+.hero-left::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 80% 50%,rgba(201,169,110,.08) 0%,transparent 70%)}
+.hero-line{width:1.5px;height:80px;background:linear-gradient(to bottom,transparent,var(--cs),transparent);margin-bottom:32px;flex-shrink:0}
+.hero-text{max-width:480px}
+.hero-eyebrow{font-size:.75rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--cs);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.hero-eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--cs)}
+.hero-h1{color:var(--cw);margin-bottom:24px}
+.hero-sub{color:rgba(255,255,255,.8);font-size:1.05rem;font-weight:300;line-height:1.8;margin-bottom:40px}
+.hero-btns{display:flex;flex-wrap:wrap;gap:16px}
+.hero-right{position:relative;overflow:hidden}
+.hero-img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.hero-img-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(44,47,58,.3) 0%,transparent 40%)}
+.hero-right-badge{position:absolute;bottom:40px;right:40px;background:rgba(245,240,235,.95);border-radius:var(--r);padding:20px 24px;backdrop-filter:blur(8px);box-shadow:var(--sh)}
+.hero-badge-stars{color:var(--cs);font-size:1.1rem;letter-spacing:2px;margin-bottom:4px}
+.hero-badge-score{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--cp);line-height:1}
+.hero-badge-label{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--cp);opacity:.6;margin-top:4px}
+
+/* SCROLL INDICATOR */
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--cw);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;opacity:.6;animation:bounce 2s infinite}
+.scroll-ind-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--cs),transparent)}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+
+/* STATS */
+.stats{background:var(--cp);padding:56px 0;position:relative;overflow:hidden}
+.stats::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(201,169,110,.1) 0%,transparent 70%)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;z-index:1}
+.stat-item{text-align:center;padding:24px 20px;position:relative}
+.stat-item:not(:last-child)::after{content:'';position:absolute;right:0;top:20%;height:60%;width:1px;background:rgba(201,169,110,.2)}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:600;color:var(--cs);line-height:1;display:block;margin-bottom:8px}
+.stat-label{font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7);line-height:1.4}
+
+/* SECTION DECOR */
+.s-tag{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--cs);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.s-tag::before,.s-tag::after{content:'';display:block;width:24px;height:1px;background:var(--cs)}
+.s-divider{width:60px;height:2px;background:linear-gradient(to right,var(--cs),transparent);margin:20px auto 0}
+.s-divider-l{margin-left:0}
+
+/* CARDS */
+.c{background:var(--cw);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden;transition:var(--tr)}
+.c:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(44,47,58,.12)}
+.c-body{padding:28px}
+.c-img{width:100%;aspect-ratio:4/3;object-fit:cover}
+
+/* SERVICES */
+.srv-c{border:1.5px solid transparent;transition:var(--tr)}
+.srv-c:hover{border-color:var(--cs);background:rgba(201,169,110,.03)}
+.srv-icon{width:52px;height:52px;border-radius:50%;background:rgba(201,169,110,.1);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.srv-icon svg{width:24px;height:24px;stroke:var(--cs);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.srv-title{position:relative;display:inline-block;margin-bottom:12px}
+.srv-title::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1.5px;background:var(--cs);transition:width var(--tr)}
+.srv-c:hover .srv-title::after{width:100%}
+.srv-price{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--cs);margin-top:16px}
+.srv-duration{font-size:.8rem;color:var(--ct);opacity:.55;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-top:4px}
+
+/* FILTERS */
+.filter-bar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px;justify-content:center}
+.f-btn{padding:9px 22px;border-radius:40px;border:1.5px solid rgba(44,47,58,.15);background:transparent;font-family:'Nunito',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;color:var(--ct);transition:var(--tr)}
+.f-btn:hover,.f-btn.active{background:var(--cp);color:var(--cw);border-color:var(--cp)}
+
+/* REVEAL ANIMATIONS */
+.reveal{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
+.reveal.hidden{opacity:0;transform:translateY(24px)}
+
+/* GALLERY */
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.gal-item{border-radius:var(--r);overflow:hidden;cursor:pointer;aspect-ratio:4/3;position:relative}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.gal-item:hover img{transform:scale(1.04)}
+.gal-overlay{position:absolute;inset:0;background:rgba(44,47,58,.4);opacity:0;transition:opacity var(--tr);display:flex;align-items:center;justify-content:center}
+.gal-item:hover .gal-overlay{opacity:1}
+.gal-plus{width:40px;height:40px;border:1.5px solid var(--cw);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--cw);font-size:1.3rem}
+
+/* LIGHTBOX */
+.lb{position:fixed;inset:0;z-index:2000;background:rgba(44,47,58,.95);display:none;align-items:center;justify-content:center;padding:24px}
+.lb.open{display:flex}
+.lb-img{max-height:90vh;max-width:90vw;border-radius:8px;object-fit:contain}
+.lb-close{position:absolute;top:24px;right:28px;background:none;border:none;color:var(--cw);font-size:2rem;cursor:pointer;opacity:.8;transition:opacity .2s}
+.lb-close:hover{opacity:1}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.1);border:none;color:var(--cw);font-size:1.5rem;cursor:pointer;padding:12px 16px;border-radius:8px;transition:background .2s}
+.lb-prev{left:20px}
+.lb-next{right:20px}
+.lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,.2)}
+
+/* TESTIMONIALS */
+.test-c{background:var(--cw);border-radius:var(--r);padding:32px;box-shadow:var(--sh);position:relative}
+.test-c::before{content:'\201C';font-family:'Cormorant Garamond',serif;font-size:5rem;color:var(--cs);opacity:.2;position:absolute;top:-8px;left:20px;line-height:1}
+.test-stars{color:var(--cs);font-size:1rem;letter-spacing:2px;margin-bottom:16px}
+.test-text{font-size:.95rem;line-height:1.75;color:var(--ct);opacity:.85;margin-bottom:20px}
+.test-author{font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:var(--cs)}
+
+/* FORM */
+.form-group{margin-bottom:20px}
+.form-label{display:block;font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;color:var(--cp);opacity:.7}
+.form-input{width:100%;padding:14px 18px;border:1.5px solid rgba(44,47,58,.15);border-radius:10px;background:var(--cw);font-family:'Nunito',sans-serif;font-size:.95rem;color:var(--ct);transition:border-color var(--tr)}
+.form-input:focus{outline:none;border-color:var(--cs)}
+textarea.form-input{resize:vertical;min-height:120px}
+.form-success{background:rgba(201,169,110,.1);border:1.5px solid var(--cs);border-radius:10px;padding:20px;text-align:center;display:none}
+.form-success.show{display:block}
+
+/* FOOTER */
+.footer{background:var(--cp);color:var(--cw);padding:64px 0 32px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-brand-name{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--cw);letter-spacing:.04em;margin-bottom:6px}
+.footer-brand-sub{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--cs);margin-bottom:20px}
+.footer-desc{font-size:.88rem;opacity:.65;line-height:1.75}
+.footer-htitle{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--cs);margin-bottom:20px}
+.footer-links{display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-size:.88rem;opacity:.65;transition:opacity .2s}
+.footer-links a:hover{opacity:1}
+.footer-contact-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;font-size:.88rem;opacity:.65}
+.footer-contact-item svg{width:16px;height:16px;stroke:var(--cs);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;margin-top:2px}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:.78rem;opacity:.45}
+.footer-made{font-size:.78rem;opacity:.55}
+.footer-made a{color:var(--cs);opacity:1}
+.social-links{display:flex;gap:12px;margin-top:20px}
+.social-link{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;transition:var(--tr)}
+.social-link:hover{border-color:var(--cs);background:rgba(201,169,110,.15)}
+.social-link svg{width:16px;height:16px;stroke:var(--cw);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* METIER */
+.metier-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.metier-img{border-radius:var(--r);overflow:hidden;aspect-ratio:3/4;position:relative}
+.metier-img img{width:100%;height:100%;object-fit:cover}
+.metier-img::after{content:'';position:absolute;inset:0;border-radius:var(--r);box-shadow:inset 0 0 0 1.5px rgba(201,169,110,.2)}
+.metier-checklist{display:flex;flex-direction:column;gap:16px;margin-top:32px}
+.metier-check{display:flex;align-items:flex-start;gap:14px;font-size:.95rem;line-height:1.6}
+.metier-check-icon{width:22px;height:22px;border-radius:50%;background:rgba(201,169,110,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.metier-check-icon svg{width:12px;height:12px;stroke:var(--cs);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* PROOF */
+.proof-band{background:var(--cs);padding:48px 0}
+.proof-inner{display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap}
+.proof-score-big{font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:600;color:var(--cw);line-height:1}
+.proof-score-sub{font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-top:6px}
+.proof-stars-big{font-size:1.6rem;letter-spacing:3px;color:var(--cw);margin:8px 0}
+.proof-divider{width:1px;height:64px;background:rgba(255,255,255,.25)}
+.proof-badge-google{display:flex;align-items:center;gap:12px}
+.proof-badge-google svg{width:28px;height:28px}
+.proof-badge-text{font-size:.85rem;font-weight:700;color:var(--cw)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.hero{grid-template-columns:1fr;min-height:auto}
+.hero-left{padding:64px 24px;justify-content:center;text-align:center;min-height:60vh}
+.hero-eyebrow{justify-content:center}
+.hero-btns{justify-content:center}
+.hero-right{height:50vw;min-height:260px}
+.hero-line{margin:0 auto 24px}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.stat-item:nth-child(2)::after{display:none}
+.grid-3{grid-template-columns:1fr 1fr}
+.footer-grid{grid-template-columns:1fr 1fr}
+.metier-grid{grid-template-columns:1fr;gap:40px}
+.metier-img{aspect-ratio:16/9}
+.proof-divider{display:none}
+}
+@media(max-width:640px){
+.header-inner{padding:0 16px;height:60px}
+.mob-nav{top:104px}
+.nav{display:none}
+.burger{display:flex}
+.hero{margin-top:104px}
+.s{padding:56px 0}
+.wrap{padding:0 16px}
+.grid-3{grid-template-columns:1fr}
+.grid-2{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:1fr 1fr}
+.footer-grid{grid-template-columns:1fr}
+.hero-right-badge{bottom:20px;right:16px;padding:14px 18px}
+.proof-inner{flex-direction:column;gap:24px;text-align:center}
+}
+@media(max-width:480px){
+.promo-bar a{font-size:13px;line-height:40px}
+.promo-bar{height:40px}
+.header{top:40px}
+.mob-nav{top:100px}
+.hero{margin-top:100px}
+.gal-grid{grid-template-columns:1fr}
+.hero-btns{flex-direction:column;align-items:center}
+.hero-btns .btn{width:100%;max-width:320px}
+}
+
+/* FALLBACK — lisibilité sans JS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO SETUP NC -->
+<div class="promo-bar">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-name">De A à Zen</div>
+      <div class="logo-sub">Institut de beauté — Nouméa</div>
+    </div>
+    <nav class="nav">
+      <a href="#services">Services</a>
+      <a href="#metier">L'Institut</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#avis">Avis</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-cta">
+      <a href="tel:+687259955" class="tel-link">25.99.55</a>
+      <a href="#contact" class="btn btn-primary" style="padding:10px 22px;font-size:.78rem">Réserver</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-nav" id="mobNav">
+  <a href="#services" class="mob-link">Services</a>
+  <a href="#metier" class="mob-link">L'Institut</a>
+  <a href="#galerie" class="mob-link">Galerie</a>
+  <a href="#avis" class="mob-link">Avis</a>
+  <a href="#contact" class="mob-link">Contact</a>
+  <a href="tel:+687259955" class="btn btn-primary mt-md">25.99.55</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <!-- Côté texte -->
+  <div class="hero-left">
+    <div class="flex-col" style="align-items:flex-start;max-width:500px">
+      <div class="hero-line"></div>
+      <p class="hero-eyebrow">Institut de beauté &amp; bien-être · Nouméa</p>
+      <h1 class="h1 hero-h1">Retrouvez votre<br><em class="gold italic">essence</em><br>&amp; votre sérénité</h1>
+      <p class="hero-sub lead">Votre havre de paix au cœur de Nouméa. Épilations méticuleuses, Cellu M6, soins visage et corps — une parenthèse d'exception qui vous redonne confiance et lumière.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-gold">Prendre rendez-vous</a>
+        <a href="#services" class="btn btn-outline">Découvrir les soins</a>
+      </div>
+    </div>
+  </div>
+  <!-- Côté image -->
+  <div class="hero-right">
+    <img
+      src="https://i.ibb.co/8Lx2640W/De-A-Zen-Institut-de-beaut-Cellu-M6-Soins-minceurs-Soins-visage-et-corps-Epilations-0.jpg"
+      alt="Institut De A à Zen — ambiance cocooning"
+      class="hero-img"
+      loading="eager"
+      fetchpriority="high"
+    >
+    <div class="hero-img-overlay"></div>
+    <div class="hero-right-badge">
+      <div class="hero-badge-stars">★★★★★</div>
+      <div class="hero-badge-score">4.9<span style="font-size:1rem;opacity:.6">/5</span></div>
+      <div class="hero-badge-label">26 avis Google</div>
+    </div>
+  </div>
+  <!-- Scroll indicator (positionné sur la colonne gauche) -->
+  <div class="scroll-ind" style="left:25%">
+    <div class="scroll-ind-line"></div>
+    <span>Découvrir</span>
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<section class="stats" id="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-num" data-target="4.9" data-decimal="1">4.9</span>
+        <span class="stat-label">Note Google<br>sur 5</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="26" data-decimal="0">26</span>
+        <span class="stat-label">Avis clients<br>vérifiés</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="5" data-decimal="0" data-suffix="+">5+</span>
+        <span class="stat-label">Expertises<br>beauté &amp; bien-être</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="100" data-decimal="0" data-suffix="%">100%</span>
+        <span class="stat-label">Dédié à<br>votre bien-être</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+```
+
+<!-- SUITE -->
+<!-- SERVICES -->
+<section class="s" id="services" style="background:var(--cb)">
+  <div class="wrap">
+    <div class="ta-c mb-md">
+      <p class="s-tag" style="justify-content:center">Nos prestations</p>
+      <h2 class="h2">L'art de prendre soin de vous</h2>
+      <div class="s-divider"></div>
+      <p class="lead mt-md" style="max-width:560px;margin-left:auto;margin-right:auto">Chaque soin est pensé pour vous offrir une expérience unique, alliant expertise technique et douceur d'un accompagnement personnalisé.</p>
+    </div>
+    <div class="filter-bar">
+      <button class="f-btn active" data-filter="all">Tout</button>
+      <button class="f-btn" data-filter="epilation">Épilation</button>
+      <button class="f-btn" data-filter="cellu">Cellu M6</button>
+      <button class="f-btn" data-filter="visage">Soins visage</button>
+      <button class="f-btn" data-filter="corps">Soins corps</button>
+    </div>
+    <div class="grid-3" id="srvGrid">
+
+      <div class="c srv-c reveal" data-cat="epilation">
+        <div class="c-body">
+          <div class="srv-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12h8M12 8v8"/></svg>
+          </div>
+          <h3 class="h3 srv-title">Épilation</h3>
+          <p style="font-size:.9rem;opacity:.75;line-height:1.7">Une épilation méticuleuse réalisée avec les techniques les plus douces. Jambes, aisselles, maillot intégral — chaque zone traitée avec précision et respect de votre peau.</p>
+          <div class="srv-price">Sur devis</div>
+          <div class="srv-duration">Durée selon prestation</div>
+          <a href="#contact" class="btn btn-gold btn-full mt-md" style="margin-top:20px">Réserver</a>
+        </div>
+      </div>
+
+      <div class="c srv-c reveal" data-cat="cellu">
+        <div class="c-body">
+          <div class="srv-icon">
+            <svg viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="10" ry="6"/><path d="M2 12c0 4 4.5 7 10 7s10-3 10-7"/><path d="M12 5v14"/></svg>
+          </div>
+          <h3 class="h3 srv-title">Cellu M6</h3>
+          <p style="font-size:.9rem;opacity:.75;line-height:1.7">La technologie LPG Cellu M6 redessine vos courbes et raffermit votre silhouette. Un protocole reconnu mondialement, adapté à votre morphologie et à vos objectifs.</p>
+          <div class="srv-price">Sur devis</div>
+          <div class="srv-duration">Séances personnalisées</div>
+          <a href="#contact" class="btn btn-gold btn-full mt-md" style="margin-top:20px">Réserver</a>
+        </div>
+      </div>
+
+      <div class="c srv-c reveal" data-cat="visage">
+        <div class="c-body">
+          <div class="srv-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M3 21c0-4 4-7 9-7s9 3 9 7"/></svg>
+          </div>
+          <h3 class="h3 srv-title">Soins visage</h3>
+          <p style="font-size:.9rem;opacity:.75;line-height:1.7">Hydratation profonde, éclat retrouvé, soin anti-âge. Des protocoles visage sur-mesure qui respectent les spécificités de votre peau, pour un teint rayonnant et une peau sublimée.</p>
+          <div class="srv-price">Sur devis</div>
+          <div class="srv-duration">À partir de 45 min</div>
+          <a href="#contact" class="btn btn-gold btn-full mt-md" style="margin-top:20px">Réserver</a>
+        </div>
+      </div>
+
+      <div class="c srv-c reveal" data-cat="corps">
+        <div class="c-body">
+          <div class="srv-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </div>
+          <h3 class="h3 srv-title">Soins corps</h3>
+          <p style="font-size:.9rem;opacity:.75;line-height:1.7">Enveloppements, gommages, soins minceurs — une parenthèse sensorielle pour votre corps. Des textures délicates et des actifs ciblés pour une peau douce, tonifiée et nourrie.</p>
+          <div class="srv-price">Sur devis</div>
+          <div class="srv-duration">À partir de 60 min</div>
+          <a href="#contact" class="btn btn-gold btn-full mt-md" style="margin-top:20px">Réserver</a>
+        </div>
+      </div>
+
+      <div class="c srv-c reveal" data-cat="corps">
+        <div class="c-body">
+          <div class="srv-icon">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3 class="h3 srv-title">Soins minceurs</h3>
+          <p style="font-size:.9rem;opacity:.75;line-height:1.7">Des soins spécifiques pour affiner, drainer et remodeler. Combinés aux technologies de l'institut, ils agissent en synergie pour révéler la silhouette que vous souhaitez.</p>
+          <div class="srv-price">Sur devis</div>
+          <div class="srv-duration">Protocole sur-mesure</div>
+          <a href="#contact" class="btn btn-gold btn-full mt-md" style="margin-top:20px">Réserver</a>
+        </div>
+      </div>
+
+      <div class="c srv-c reveal" data-cat="epilation">
+        <div class="c-body">
+          <div class="srv-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="h3 srv-title">Épilation intégrale</h3>
+          <p style="font-size:.9rem;opacity:.75;line-height:1.7">Du maillot intégral aux jambes complètes, une prise en charge globale dans le respect absolu de votre intimité. Résultat durable, peau lisse et soyeuse, confort optimal.</p>
+          <div class="srv-price">Sur devis</div>
+          <div class="srv-duration">Durée variable</div>
+          <a href="#contact" class="btn btn-gold btn-full mt-md" style="margin-top:20px">Réserver</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s" id="metier" style="background:var(--cw)">
+  <div class="wrap">
+    <div class="metier-grid">
+      <div class="metier-img reveal">
+        <img
+          src="https://i.ibb.co/WWcLH5cT/De-A-Zen-Institut-de-beaut-Cellu-M6-Soins-minceurs-Soins-visage-et-corps-Epilations-1.jpg"
+          alt="Intérieur de l'institut De A à Zen"
+          loading="lazy"
+        >
+      </div>
+      <div class="reveal">
+        <p class="s-tag">Notre approche</p>
+        <h2 class="h2">Un espace pensé<br>pour <em class="gold italic">vous</em></h2>
+        <div class="s-divider s-divider-l"></div>
+        <p class="lead mt-md">Au 39 rue de l'Alma à Nouméa, De A à Zen est bien plus qu'un institut : c'est une parenthèse au cœur de la ville, où chaque détail a été soigné pour que vous vous sentiez accueillie, choyée et libre de vous ressourcer.</p>
+        <p style="margin-top:16px;font-size:.95rem;opacity:.75;line-height:1.8">Notre équipe vous accompagne avec expertise et bienveillance, en adaptant chaque soin à vos besoins réels. Parce que le bien-être n'est pas un luxe, c'est une nécessité.</p>
+        <div class="metier-checklist">
+          <div class="metier-check">
+            <div class="metier-check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>Protocoles personnalisés, adaptés à chaque morphologie et type de peau</span>
+          </div>
+          <div class="metier-check">
+            <div class="metier-check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>Technologie Cellu M6 — efficacité cliniquement reconnue</span>
+          </div>
+          <div class="metier-check">
+            <div class="metier-check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>Ambiance cocooning : intérieur épuré, lumière douce, matériaux nobles</span>
+          </div>
+          <div class="metier-check">
+            <div class="metier-check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>Note Google 4.9/5 — la confiance de nos clientes, notre plus belle récompense</span>
+          </div>
+        </div>
+        <a href="#contact" class="btn btn-primary mt-lg">Prendre rendez-vous</a>
+      </div>
+    </div>
+
+    <div class="metier-grid mt-lg" style="margin-top:80px">
+      <div class="reveal" style="order:1">
+        <p class="s-tag">Notre univers</p>
+        <h2 class="h2">L'élégance du<br><em class="gold italic">détail</em></h2>
+        <div class="s-divider s-divider-l"></div>
+        <p class="lead mt-md">Rotin naturel, miroirs ronds, touches de plumes dorées — chaque élément de notre décor a été choisi pour créer une atmosphère bohème chic qui apaise dès le premier regard.</p>
+        <p style="margin-top:16px;font-size:.95rem;opacity:.75;line-height:1.8">La devanture ardoise aux reflets dorés vous accueille, les espaces intérieurs vous enveloppent. Ici, la beauté commence par le calme.</p>
+        <a href="#galerie" class="btn btn-gold mt-lg">Voir la galerie</a>
+      </div>
+      <div class="metier-img reveal" style="order:2">
+        <img
+          src="https://i.ibb.co/mFdzc9ZQ/De-A-Zen-Institut-de-beaut-Cellu-M6-Soins-minceurs-Soins-visage-et-corps-Epilations-2.jpg"
+          alt="Ambiance De A à Zen — décor bohème chic"
+          loading="lazy"
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s" id="galerie" style="background:var(--cb)">
+  <div class="wrap">
+    <div class="ta-c mb-md">
+      <p class="s-tag" style="justify-content:center">Galerie</p>
+      <h2 class="h2">L'institut en images</h2>
+      <div class="s-divider"></div>
+      <p class="lead mt-md" style="max-width:500px;margin-left:auto;margin-right:auto">Un aperçu de notre univers : espace, lumière et douceur.</p>
+    </div>
+    <div class="gal-grid" id="galGrid">
+      <div class="gal-item reveal" data-lb="0">
+        <img src="https://i.ibb.co/8Lx2640W/De-A-Zen-Institut-de-beaut-Cellu-M6-Soins-minceurs-Soins-visage-et-corps-Epilations-0.jpg" alt="De A à Zen — Institut de beauté Nouméa" loading="lazy">
+        <div class="gal-overlay"><div class="gal-plus">+</div></div>
+      </div>
+      <div class="gal-item reveal" data-lb="1">
+        <img src="https://i.ibb.co/WWcLH5cT/De-A-Zen-Institut-de-beaut-Cellu-M6-Soins-minceurs-Soins-visage-et-corps-Epilations-1.jpg" alt="De A à Zen — Espace soin" loading="lazy">
+        <div class="gal-overlay"><div class="gal-plus">+</div></div>
+      </div>
+      <div class="gal-item reveal" data-lb="2">
+        <img src="https://i.ibb.co/mFdzc9ZQ/De-A-Zen-Institut-de-beaut-Cellu-M6-Soins-minceurs-Soins-visage-et-corps-Epilations-2.jpg" alt="De A à Zen — Ambiance cocooning" loading="lazy">
+        <div class="gal-overlay"><div class="gal-plus">+</div></div>
+      </div>
+      <div class="gal-item reveal" data-lb="3">
+        <img src="https://i.ibb.co/d0MCB4ZN/De-A-Zen-Institut-de-beaut-Cellu-M6-Soins-minceurs-Soins-visage-et-corps-Epilations-3.jpg" alt="De A à Zen — Soins beauté Nouméa" loading="lazy">
+        <div class="gal-overlay"><div class="gal-plus">+</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image agrandie">
+  <button class="lb-close" id="lbClose" aria-label="Fermer">&#x2715;</button>
+  <button class="lb-prev" id="lbPrev" aria-label="Précédent">&#8592;</button>
+  <img class="lb-img" id="lbImg" src="" alt="">
+  <button class="lb-next" id="lbNext" aria-label="Suivant">&#8594;</button>
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section class="proof-band" id="avis">
+  <div class="wrap">
+    <div class="proof-inner">
+      <div class="ta-c">
+        <div class="proof-score-big">4.9</div>
+        <div class="proof-stars-big">★★★★★</div>
+        <div class="proof-score-sub">sur 26 avis Google</div>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-badge-google">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21.8 10.2H12v3.6h5.7c-.5 2.6-2.7 4.4-5.7 4.4-3.3 0-6-2.7-6-6s2.7-6 6-6c1.5 0 2.9.6 4 1.5l2.6-2.6C17 3.5 14.6 2.4 12 2.4 6.7 2.4 2.4 6.7 2.4 12S6.7 21.6 12 21.6c5.8 0 9.6-4.1 9.6-9.8 0-.5-.1-1.1-.2-1.6z" fill="#fff"/>
+        </svg>
+        <div>
+          <div class="proof-badge-text">Note Google vérifiée</div>
+          <div style="font-size:.75rem;color:rgba(255,255,255,.75);margin-top:4px">De A à Zen — Nouméa</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s" style="background:var(--cw)">
+  <div class="wrap">
+    <div class="ta-c mb-md">
+      <p class="s-tag" style="justify-content:center">Témoignages</p>
+      <h2 class="h2">Ce qu'elles disent de nous</h2>
+      <div class="s-divider"></div>
+    </div>
+    <div class="grid-3">
+
+      <div class="test-c reveal">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">Une adresse que je recommande sans hésitation. L'accueil est chaleureux, les soins sont de qualité et l'ambiance est vraiment apaisante. On repart ressourcée et lumineuse.</p>
+        <div class="test-author">Marie-Claude B.</div>
+      </div>
+
+      <div class="test-c reveal">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">Mes séances Cellu M6 ont vraiment changé quelque chose. L'équipe est professionnelle, à l'écoute, et l'environnement donne envie de revenir. Un vrai moment de bien-être.</p>
+        <div class="test-author">Sandrine M.</div>
+      </div>
+
+      <div class="test-c reveal">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">L'épilation la plus douce et efficace que j'ai connue à Nouméa. Le cadre est magnifique, propre, élégant. On se sent vraiment choyée. Je ne changerai pour rien au monde.</p>
+        <div class="test-author">Valérie T.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE -->
+<section class="s" id="contact" style="background:var(--cb)">
+  <div class="wrap">
+    <div class="grid-2" style="align-items:start;gap:64px">
+      <div class="reveal">
+        <p class="s-tag">Contact &amp; réservation</p>
+        <h2 class="h2">Prenons soin<br>de <em class="gold italic">vous</em></h2>
+        <div class="s-divider s-divider-l"></div>
+        <p class="lead mt-md">Réservez votre soin en quelques clics ou appelez-nous directement. Notre équipe vous répondra avec plaisir pour trouver le créneau idéal.</p>
+        <div style="margin-top:36px;display:flex;flex-direction:column;gap:20px">
+          <div class="metier-check">
+            <div class="metier-check-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <span>39 rue de l'Alma, Nouméa 98800, Nouvelle-Calédonie</span>
+          </div>
+          <div class="metier-check">
+            <div class="metier-check-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <a href="tel:+687259955" style="color:var(--cs);font-weight:700">25.99.55</a>
+          </div>
+          <div class="metier-check">
+            <div class="metier-check-icon">
+              <svg viewBox="0 0 24 24" style="width:12px;height:12px;stroke:var(--cs);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+            </div>
+            <a href="https://business.facebook.com/DeAaZen.nc" target="_blank" rel="noopener" style="color:var(--cs);font-weight:700">Suivez-nous sur Facebook</a>
+          </div>
+        </div>
+      </div>
+      <div class="c reveal" style="background:var(--cw)">
+        <div class="c-body">
+          <h3 class="h3 mb-md">Votre message</h3>
+          <form id="contactForm" action="#" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="fname">Nom complet</label>
+              <input class="form-input" type="text" id="fname" name="nom" placeholder="Votre nom" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="femail">Email</label>
+              <input class="form-input" type="email" id="femail" name="email" placeholder="votre@email.com" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ftel">Téléphone</label>
+              <input class="form-input" type="tel" id="ftel" name="telephone" placeholder="Ex : 25.99.55">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="fmsg">Message</label>
+              <textarea class="form-input" id="fmsg" name="message" placeholder="Quel soin souhaitez-vous réserver ?" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" id="fSubmit">Envoyer ma demande</button>
+            <div class="form-success" id="formSuccess">
+              <p style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--cp)">Merci pour votre message !</p>
+              <p style="font-size:.9rem;opacity:.75;margin-top:8px">Nous vous répondrons très prochainement.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">De A à Zen</div>
+        <div class="footer-brand-sub">Institut de beauté — Nouméa</div>
+        <p class="footer-desc">Votre havre de paix au cœur de Nouméa. Épilations, Cellu M6, soins minceurs, soins visage et corps — une expérience beauté sur-mesure dans un cadre bohème chic et apaisant.</p>
+        <div class="social-links">
+          <a href="https://business.facebook.com/DeAaZen.nc" target="_blank" rel="noopener" class="social-link" aria-label="Facebook De A à Zen">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-htitle">Navigation</div>
+        <ul class="footer-links">
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#services">Nos services</a></li>
+          <li><a href="#metier">L'Institut</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#avis">Témoignages</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-htitle">Nous trouver</div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>39 rue de l'Alma<br>Nouméa 98800<br>Nouvelle-Calédonie</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+687259955" style="color:rgba(255,255,255,.65)">25.99.55</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          <a href="https://business.facebook.com/DeAaZen.nc" target="_blank" rel="noopener" style="color:rgba(255,255,255,.65)">Facebook</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 De A à Zen - Institut de beauté - Cellu M6 - Soins minceurs - Soins visage et corps - Epilations. Tous droits réservés.</p>
+      <p class="footer-made">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+var hdr=document.getElementById('header'),
+    brg=document.getElementById('burger'),
+    mob=document.getElementById('mobNav'),
+    lb=document.getElementById('lb'),
+    lbImg=document.getElementById('lbImg'),
+    lbClose=document.getElementById('lbClose'),
+    lbPrev=document.getElementById('lbPrev'),
+    lbNext=document.getElementById('lbNext'),
+    imgs=['https://i.ibb.co/8Lx2640W/De-A-Zen-Institut-de-beaut-Cellu-M6-Soins-minceurs-Soins-visage-et-corps-Epilations-0.jpg','https://i.ibb.co/WWcLH5cT/De-A-Zen-Institut-de-beaut-Cellu-M6-Soins-minceurs-Soins-visage-et-corps-Epilations-1.jpg','https://i.ibb.co/mFdzc9ZQ/De-A-Zen-Institut-de-beaut-Cellu-M6-Soins-minceurs-Soins-visage-et-corps-Epilations-2.jpg','https://i.ibb.co/d0MCB4ZN/De-A-Zen-Institut-de-beaut-Cellu-M6-Soins-minceurs-Soins-visage-et-corps-Epilations-3.jpg'],
+    cur=0;
+
+window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>20)});
+
+brg.addEventListener('click',function(){
+  var o=mob.classList.toggle('open');
+  brg.children[0].style.transform=o?'rotate(45deg) translate(5px,5px)':'';
+  brg.children[1].style.opacity=o?'0':'1';
+  brg.children[2].style.transform=o?'rotate(-45deg) translate(5px,-5px)':'';
+});
+
+document.querySelectorAll('.mob-link').forEach(function(l){l.addEventListener('click',function(){mob.classList.remove('open');brg.children[0].style.transform='';brg.children[1].style.opacity='1';brg.children[2].style.transform='';})});
+
+function openLb(i){cur=i;lbImg.src=imgs[cur];lb.classList.add('open');document.body.style.overflow='hidden';}
+function closeLb(){lb.classList.remove('open');document.body.style.overflow='';}
+lbClose.addEventListener('click',closeLb);
+lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+lbPrev.addEventListener('click',function(){cur=(cur-1+imgs.length)%imgs.length;lbImg.src=imgs[cur];});
+lbNext.addEventListener('click',function(){cur=(cur+1)%imgs.length;lbImg.src=imgs[cur];});
+document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')lbPrev.click();if(e.key==='ArrowRight')lbNext.click();});
+document.querySelectorAll('.gal-item').forEach(function(el){el.addEventListener('click',function(){openLb(+el.dataset.lb);});});
+
+document.querySelectorAll('.f-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.f-btn').forEach(function(b){b.classList.remove('active');});
+    btn.classList.add('active');
+    var f=btn.dataset.filter;
+    document.querySelectorAll('#srvGrid .c').forEach(function(c){
+      c.style.display=(f==='all'||c.dataset.cat===f)?'':'none';
+    });
+  });
+});
+
+var form=document.getElementById('contactForm'),
+    fsub=document.getElementById('fSubmit'),
+    fsuc=document.getElementById('formSuccess');
+form.addEventListener('submit',function(e){
+  e.preventDefault();
+  var ok=true;
+  form.querySelectorAll('[required]').forEach(function(f){if(!f.value.trim()){f.style.borderColor='#e05';ok=false;}else{f.style.borderColor='';}});
+  if(!ok)return;
+  fsub.textContent='Envoi…';fsub.disabled=true;
+  setTimeout(function(){fsub.style.display='none';fsuc.classList.add('show');},900);
+});
+
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(en){if(en.isIntersecting){en.target.classList.remove('hidden');obs.unobserve(en.target);}});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('hidden');obs.observe(el);});
+
+var statEls=document.querySelectorAll('.stat-num');
+var statObs=new IntersectionObserver(function(entries){
+  entries.forEach(function(en){
+    if(!en.isIntersecting)return;
+    var el=en.target,target=parseFloat(el.dataset.target),dec=parseInt(el.dataset.decimal)||0,suf=el.dataset.suffix||'',start=0,dur=1400,step=16;
+    var timer=setInterval(function(){
+      start+=step;
+      var p=Math.min(start/dur,1),val=target*p;
+      el.textContent=val.toFixed(dec)+suf;
+      if(p>=1)clearInterval(timer);
+    },step);
+    statObs.unobserve(el);
+  });
+},{threshold:.5});
+statEls.forEach(function(el){statObs.observe(el);});
+</script>
+</body>
+</html>
