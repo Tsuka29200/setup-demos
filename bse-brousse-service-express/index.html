@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BSE (brousse service express) — Nouméa</title>
+<meta name="description" content="BSE Brousse Service Express, votre spécialiste déménagement à Nouméa, Nouvelle-Calédonie. Déménagement résidentiel, commercial, location de matériel et stockage.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Barlow:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#1A5EA8;
+--cs:#E87B2A;
+--ca:#E8320A;
+--ct:#1A1A1A;
+--cb:#FFFFFF;
+--r:6px;
+--t:300ms ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',sans-serif;color:var(--ct);background:var(--cb);overflow-x:hidden;font-size:16px}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU PROMO SETUP NC */
+.setup-band{
+position:fixed;top:0;left:0;right:0;
+height:44px;
+background:#ffd500;
+z-index:1001;
+text-align:center;
+font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;
+font-weight:700;font-size:14px;letter-spacing:.3px;
+line-height:44px;
+}
+.setup-band a{color:#4375ff;font-weight:700;font-size:14px;letter-spacing:.3px}
+.setup-band a:hover{opacity:.85}
+
+/* HEADER */
+.hdr{
+position:sticky;top:44px;left:0;right:0;
+background:var(--cb);
+z-index:1000;
+box-shadow:0 2px 12px rgba(26,94,168,.13);
+height:66px;
+display:flex;align-items:center;
+}
+.hdr-inner{
+width:100%;max-width:1200px;margin:0 auto;
+padding:0 24px;
+display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:42px;height:42px;background:var(--cp);border-radius:var(--r);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.logo-icon svg{width:26px;height:26px}
+.logo-name{font-size:1.2rem;font-weight:800;color:var(--cp);line-height:1.1}
+.logo-name span{color:var(--cs);display:block;font-size:.75rem;font-weight:600;letter-spacing:.5px}
+.nav{display:flex;align-items:center;gap:28px;list-style:none}
+.nav a{font-size:.9rem;font-weight:600;color:var(--ct);transition:color var(--t)}
+.nav a:hover{color:var(--cp)}
+.hdr-cta{display:flex;align-items:center;gap:10px}
+.b{display:inline-flex;align-items:center;justify-content:center;font-family:'Barlow',sans-serif;font-weight:700;border-radius:var(--r);cursor:pointer;transition:background var(--t),transform var(--t);border:none;text-align:center}
+.b-tel{background:transparent;color:var(--cp);font-size:.9rem;border:2px solid var(--cp);padding:8px 14px;min-height:40px}
+.b-tel:hover{background:var(--cp);color:#fff}
+.b-cta{background:var(--ca);color:#fff;padding:10px 20px;font-size:.9rem;min-height:40px}
+.b-cta:hover{background:#c4260a;transform:translateY(-1px)}
+.b-cta2{background:var(--cs);color:#fff;padding:10px 20px;font-size:.95rem;min-height:44px}
+.b-cta2:hover{background:#d06a1a;transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px}
+.hamburger span{display:block;width:26px;height:3px;background:var(--cp);border-radius:2px;transition:transform var(--t),opacity var(--t)}
+.mob-nav{display:none;position:fixed;top:110px;left:0;right:0;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.12);z-index:999;padding:20px 24px;flex-direction:column;gap:0}
+.mob-nav.open{display:flex}
+.mob-nav a{display:block;font-size:1rem;font-weight:600;color:var(--ct);padding:12px 0;border-bottom:1px solid #f0f0f0}
+.mob-nav a:hover{color:var(--cp)}
+.mob-nav .b{width:100%;margin-top:12px;font-size:1rem;min-height:48px}
+
+/* HERO */
+.hero{
+position:relative;
+min-height:100vh;
+display:flex;align-items:center;
+background:url('https://i.ibb.co/rRsv6wGR/BSE-brousse-service-express-0.jpg') center/cover no-repeat;
+padding-top:0;
+}
+.hero-overlay{
+position:absolute;inset:0;
+background:linear-gradient(120deg,rgba(26,94,168,.85) 0%,rgba(26,94,168,.65) 50%,rgba(10,30,60,.45) 100%);
+}
+.hero-content{
+position:relative;z-index:2;
+max-width:700px;
+padding:0 24px;
+margin:0 auto 0 0;
+margin-left:max(24px, calc((100vw - 1200px)/2 + 24px));
+}
+.hero-badge{
+display:inline-flex;align-items:center;gap:8px;
+background:var(--ca);color:#fff;
+font-size:.82rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;
+padding:6px 14px;border-radius:20px;margin-bottom:22px;
+animation:pulse-badge 2s ease-in-out infinite;
+}
+@keyframes pulse-badge{0%,100%{opacity:1}50%{opacity:.8}}
+.h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:16px}
+.h1 em{font-style:normal;color:#ffd06a}
+.hero-sub{font-size:clamp(1rem,2vw,1.2rem);color:rgba(255,255,255,.9);margin-bottom:32px;max-width:520px;line-height:1.55}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.hero-truck{
+position:absolute;bottom:60px;right:0;
+width:380px;
+opacity:.18;
+pointer-events:none;
+animation:truck-slide 18s linear infinite;
+}
+@keyframes truck-slide{0%{right:-400px;opacity:0}10%{opacity:.18}80%{opacity:.18}100%{right:110%;opacity:0}}
+.scroll-ind{
+position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+display:flex;flex-direction:column;align-items:center;gap:6px;
+color:rgba(255,255,255,.7);font-size:.78rem;letter-spacing:.5px;
+animation:bounce-ind 2s ease-in-out infinite;
+}
+.scroll-ind svg{width:22px;height:22px}
+@keyframes bounce-ind{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+
+/* PROMO BANNER */
+.promo-bar{
+background:var(--cs);
+padding:10px 24px;
+display:flex;align-items:center;justify-content:center;gap:18px;
+flex-wrap:wrap;
+}
+.promo-bar p{color:#fff;font-weight:700;font-size:.95rem;letter-spacing:.3px}
+.promo-bar span{background:#fff;color:var(--cs);border-radius:4px;padding:2px 8px;font-weight:800;font-size:.85rem}
+
+/* STATS BAND */
+.stats{
+background:var(--cp);
+padding:48px 24px;
+}
+.stats-inner{
+max-width:1200px;margin:0 auto;
+display:grid;grid-template-columns:repeat(4,1fr);gap:32px;
+}
+.stat{text-align:center}
+.stat-n{
+font-size:clamp(2rem,4vw,2.8rem);font-weight:800;color:#fff;line-height:1;
+display:block;margin-bottom:6px;
+}
+.stat-l{font-size:.88rem;color:rgba(255,255,255,.8);font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+.stat-accent{color:#ffd06a}
+
+/* SECTIONS */
+.s{padding:72px 24px}
+.s-alt{background:#f5f8ff}
+.s-inner{max-width:1200px;margin:0 auto}
+.s-head{text-align:center;margin-bottom:48px}
+.h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:var(--ct);margin-bottom:10px}
+.h2 span{color:var(--cp)}
+.s-sub{font-size:1rem;color:#555;max-width:540px;margin:0 auto}
+.divider{width:52px;height:4px;background:var(--cs);border-radius:2px;margin:14px auto 0}
+
+/* FALLBACK REVEAL */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO SETUP NC -->
+<div class="setup-band">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-inner">
+    <a href="#" class="logo" aria-label="BSE Brousse Service Express">
+      <div class="logo-icon">
+        <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="2" y="12" width="15" height="8" rx="2" fill="#fff"/>
+          <rect x="17" y="14" width="7" height="6" rx="1.5" fill="#fff"/>
+          <circle cx="6" cy="21" r="2.5" fill="#ffd06a" stroke="#fff" stroke-width="1"/>
+          <circle cx="20" cy="21" r="2.5" fill="#ffd06a" stroke="#fff" stroke-width="1"/>
+          <path d="M2 15h4V9h7l4 6" stroke="#ffd06a" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="logo-name">BSE<span>Brousse Service Express</span></div>
+    </a>
+    <nav aria-label="Navigation principale">
+      <ul class="nav" id="nav-desk">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#metier">À propos</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#avis">Avis</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hdr-cta">
+      <a href="#contact" class="b b-cta" aria-label="Demander un devis">Devis gratuit</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-nav" id="mob-nav" aria-label="Menu mobile">
+  <a href="#services" class="mob-link">Services</a>
+  <a href="#metier" class="mob-link">À propos</a>
+  <a href="#galerie" class="mob-link">Galerie</a>
+  <a href="#avis" class="mob-link">Avis clients</a>
+  <a href="#contact" class="mob-link">Contact</a>
+  <a href="#contact" class="b b-cta">Devis gratuit</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil" aria-label="Accueil BSE">
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <!-- Camionnette décorative animée -->
+  <svg class="hero-truck" aria-hidden="true" viewBox="0 0 380 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="20" y="30" width="220" height="70" rx="8" fill="#fff"/>
+    <rect x="240" y="50" width="110" height="50" rx="6" fill="#fff"/>
+    <circle cx="60" cy="105" r="18" fill="#fff" stroke="#ccc" stroke-width="3"/>
+    <circle cx="60" cy="105" r="8" fill="#ddd"/>
+    <circle cx="300" cy="105" r="18" fill="#fff" stroke="#ccc" stroke-width="3"/>
+    <circle cx="300" cy="105" r="8" fill="#ddd"/>
+    <rect x="20" y="30" width="90" height="30" rx="4" fill="#E87B2A" opacity=".5"/>
+    <text x="35" y="50" fill="#fff" font-size="12" font-family="Barlow" font-weight="700">BSE</text>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-badge" aria-label="Offre urgente">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="7" fill="#fff" opacity=".25"/><path d="M7 3v4l2.5 2.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Livraison & Déménagement — Nouméa
+    </div>
+    <h1 class="h1">On prend en charge<br><em>votre déménagement</em><br>de A à Z.</h1>
+    <p class="hero-sub">Résidentiel, commercial ou longue distance — BSE déplace ce qui compte pour vous, partout en Nouvelle-Calédonie.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="b b-cta" style="font-size:1rem;padding:14px 28px;min-height:52px">Devis gratuit →</a>
+      <a href="#services" class="b b-cta2" style="font-size:1rem;padding:14px 28px;min-height:52px;background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.5)">Nos services</a>
+    </div>
+  </div>
+
+  <div class="scroll-ind" aria-hidden="true">
+    <svg viewBox="0 0 22 22" fill="none"><path d="M11 4v14M5 13l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Découvrir
+  </div>
+</section>
+
+<!-- BANDE PROMO -->
+<div class="promo-bar" role="banner" aria-label="Offre promotionnelle">
+  <p>🚛 Déménagement dans Nouméa : <span>Devis en 24h</span></p>
+  <p>📦 Même jusqu'aux zones périphériques — <span>Appelez-nous</span></p>
+  <p>✅ Service disponible <span>7j/7</span></p>
+</div>
+
+<!-- STATS BAND -->
+<section class="stats" id="stats" aria-label="Chiffres clés BSE">
+  <div class="stats-inner">
+    <div class="stat">
+      <span class="stat-n stat-accent" data-target="15" data-suffix="+">0+</span>
+      <span class="stat-l">Années d'expérience</span>
+    </div>
+    <div class="stat">
+      <span class="stat-n stat-accent" data-target="500" data-suffix="+">0+</span>
+      <span class="stat-l">Déménagements réalisés</span>
+    </div>
+    <div class="stat">
+      <span class="stat-n" style="color:#ffd06a" data-target="4" data-suffix=".5/5">0</span>
+      <span class="stat-l">Note Google clients</span>
+    </div>
+    <div class="stat">
+      <span class="stat-n stat-accent" data-target="24" data-suffix="h">0h</span>
+      <span class="stat-l">Devis sous 24h garanti</span>
+    </div>
+  </div>
+</section>
+
+<style>
+@media(max-width:900px){
+.nav{display:none}
+.hamburger{display:flex}
+.hdr-cta .b-cta{display:none}
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+.setup-band{height:40px;line-height:40px;font-size:13px}
+.setup-band a{font-size:13px}
+.hdr{top:40px}
+.mob-nav{top:106px}
+.stats-inner{grid-template-columns:repeat(2,1fr);gap:20px}
+.hero-content{margin-left:0;padding:0 20px}
+.hero-btns{flex-direction:column}
+.hero-btns .b{width:100%;min-height:52px}
+.promo-bar{gap:10px}
+.promo-bar p{font-size:.82rem}
+}
+@media(max-width:400px){
+.stats-inner{grid-template-columns:1fr 1fr;gap:16px}
+.stat-n{font-size:1.8rem}
+}
+</style>
+
+<script>
+(function(){
+var hb=document.getElementById('hamburger');
+var mn=document.getElementById('mob-nav');
+var links=mn.querySelectorAll('.mob-link,.b');
+hb.addEventListener('click',function(){
+var open=mn.classList.toggle('open');
+hb.setAttribute('aria-expanded',open);
+});
+links.forEach(function(l){l.addEventListener('click',function(){mn.classList.remove('open');hb.setAttribute('aria-expanded','false');});});
+
+var stats=document.querySelectorAll('[data-target]');
+var animated=false;
+function animStats(){
+if(animated)return;
+var el=document.querySelector('.stats');
+if(!el)return;
+var r=el.getBoundingClientRect();
+if(r.top<window.innerHeight-60){
+animated=true;
+stats.forEach(function(s){
+var target=parseFloat(s.dataset.target);
+var suffix=s.dataset.suffix||'';
+var start=0;
+var dur=1600;
+var t0=null;
+function step(ts){
+if(!t0)t0=ts;
+var p=Math.min((ts-t0)/dur,1);
+var v=Math.round(p*target*10)/10;
+s.textContent=v+suffix;
+if(p<1)requestAnimationFrame(step);
+else s.textContent=target+suffix;
+}
+requestAnimationFrame(step);
+});
+}
+}
+window.addEventListener('scroll',animStats,{passive:true});
+animStats();
+})();
+</script>
+<style>
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.c{background:#fff;border-radius:10px;box-shadow:0 2px 16px rgba(26,94,168,.08);padding:32px 24px;transition:box-shadow var(--t),transform var(--t)}
+.c:hover{box-shadow:0 8px 32px rgba(26,94,168,.18);transform:translateY(-4px)}
+.c-icon{width:56px;height:56px;border-radius:10px;background:#f0f6ff;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.c-icon svg{width:30px;height:30px}
+.h3{font-size:1.1rem;font-weight:800;color:var(--ct);margin-bottom:8px}
+.c-text{font-size:.9rem;color:#555;line-height:1.6;margin-bottom:16px}
+.b-link{color:var(--cp);font-weight:700;font-size:.88rem;display:inline-flex;align-items:center;gap:4px;transition:gap var(--t)}
+.b-link:hover{gap:8px}
+
+.met-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.met-img{border-radius:12px;overflow:hidden;aspect-ratio:4/3;background:#eee}
+.met-img img{width:100%;height:100%;object-fit:cover}
+.met-text .h2{text-align:left}
+.met-text .divider{margin:14px 0 0}
+.met-body{font-size:1rem;color:#444;line-height:1.7;margin:20px 0 24px}
+.met-checks{list-style:none;display:flex;flex-direction:column;gap:10px}
+.met-checks li{display:flex;align-items:flex-start;gap:10px;font-size:.95rem;color:var(--ct);font-weight:600}
+.met-checks li svg{flex-shrink:0;margin-top:2px}
+
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal-item{border-radius:8px;overflow:hidden;cursor:pointer;aspect-ratio:1;background:#dde6f5;position:relative}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform var(--t)}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-item::after{content:'🔍';position:absolute;inset:0;background:rgba(26,94,168,.35);display:flex;align-items:center;justify-content:center;font-size:1.4rem;opacity:0;transition:opacity var(--t)}
+.gal-item:hover::after{opacity:1}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(10,20,40,.92);z-index:2000;align-items:center;justify-content:center;padding:20px}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:88vh;border-radius:10px;object-fit:contain}
+.lb-close{position:absolute;top:18px;right:22px;background:rgba(255,255,255,.12);color:#fff;border:none;font-size:1.6rem;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background var(--t)}
+.lb-close:hover{background:rgba(255,255,255,.25)}
+
+.form-wrap{max-width:640px;margin:0 auto;background:#fff;border-radius:12px;box-shadow:0 4px 32px rgba(26,94,168,.1);padding:40px 36px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+.form-field{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+.form-field label{font-size:.85rem;font-weight:700;color:var(--ct);letter-spacing:.3px}
+.form-field input,.form-field textarea,.form-field select{font-family:'Barlow',sans-serif;font-size:.95rem;color:var(--ct);border:2px solid #dde6f5;border-radius:var(--r);padding:11px 14px;transition:border-color var(--t);outline:none;width:100%}
+.form-field input:focus,.form-field textarea:focus{border-color:var(--cp)}
+.form-field input.err,.form-field textarea.err{border-color:var(--ca)}
+.form-field textarea{resize:vertical;min-height:110px}
+.form-msg{display:none;background:#edfbf3;border:2px solid #2ecc71;border-radius:var(--r);padding:14px 18px;color:#1a7a42;font-weight:700;font-size:.95rem;margin-top:18px;text-align:center}
+.form-msg.show{display:block}
+.form-loader{display:none;width:22px;height:22px;border:3px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;margin:0 auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+.b-submit{width:100%;min-height:52px;font-size:1rem;background:var(--cp);color:#fff;border-radius:var(--r);border:none;font-family:'Barlow',sans-serif;font-weight:700;cursor:pointer;transition:background var(--t);display:flex;align-items:center;justify-content:center;gap:10px}
+.b-submit:hover{background:#144e91}
+
+.avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:36px}
+.avis-card{background:#fff;border-radius:10px;box-shadow:0 2px 16px rgba(26,94,168,.08);padding:24px;border-top:4px solid var(--cp)}
+.avis-head{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.avis-avatar{width:44px;height:44px;border-radius:50%;background:var(--cp);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem;flex-shrink:0}
+.avis-name{font-weight:700;font-size:.95rem;color:var(--ct)}
+.avis-date{font-size:.78rem;color:#888}
+.stars{color:var(--cs);font-size:1rem;letter-spacing:1px;margin-bottom:8px}
+.avis-text{font-size:.88rem;color:#555;line-height:1.6}
+.score-box{background:var(--cp);border-radius:14px;padding:32px 40px;display:flex;align-items:center;gap:36px;flex-wrap:wrap;justify-content:center;margin-bottom:48px}
+.score-n{font-size:3.5rem;font-weight:800;color:#fff;line-height:1}
+.score-right{display:flex;flex-direction:column;gap:4px}
+.score-stars{color:#ffd06a;font-size:1.4rem;letter-spacing:2px}
+.score-label{color:rgba(255,255,255,.85);font-size:.88rem;font-weight:600}
+.badges{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:36px}
+.badge{background:#f0f6ff;border:2px solid #dde6f5;border-radius:8px;padding:12px 20px;display:flex;align-items:center;gap:10px;font-size:.85rem;font-weight:700;color:var(--cp)}
+.badge svg{flex-shrink:0}
+
+.footer{background:var(--cp);color:rgba(255,255,255,.85);padding:56px 24px 28px}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px}
+.ft-logo{font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:8px}
+.ft-logo span{color:#ffd06a}
+.ft-addr{font-size:.88rem;line-height:1.7;color:rgba(255,255,255,.8)}
+.ft-tel{display:inline-block;margin-top:10px;color:#ffd06a;font-weight:700;font-size:1rem}
+.ft-tel:hover{opacity:.85}
+.ft-h{font-size:.8rem;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:#fff;margin-bottom:14px}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:8px}
+.ft-links a{font-size:.88rem;color:rgba(255,255,255,.75);transition:color var(--t)}
+.ft-links a:hover{color:#ffd06a}
+.footer-bottom{max-width:1200px;margin:32px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:space-between;flex-wrap:gap;gap:12px}
+.ft-copy{font-size:.8rem;color:rgba(255,255,255,.6)}
+.ft-setup{font-size:.8rem;color:rgba(255,255,255,.6)}
+.ft-setup a{color:#ffd06a;font-weight:700}
+.ft-setup a:hover{opacity:.85}
+
+@media(max-width:900px){
+.srv-grid{grid-template-columns:1fr 1fr}
+.met-grid{grid-template-columns:1fr;gap:28px}
+.met-img{max-width:480px;margin:0 auto;width:100%}
+.avis-grid{grid-template-columns:1fr 1fr}
+.footer-inner{grid-template-columns:1fr 1fr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+.srv-grid{grid-template-columns:1fr}
+.form-row{grid-template-columns:1fr}
+.form-wrap{padding:24px 16px}
+.avis-grid{grid-template-columns:1fr}
+.footer-inner{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+.score-box{padding:24px 20px;gap:20px}
+.footer-bottom{flex-direction:column;text-align:center}
+.badges{gap:10px}
+.badge{font-size:.78rem;padding:10px 14px}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s s-alt" id="services" aria-labelledby="srv-title">
+  <div class="s-inner">
+    <div class="s-head">
+      <h2 class="h2" id="srv-title">Nos <span>services</span></h2>
+      <div class="divider"></div>
+      <p class="s-sub">Déménagement résidentiel ou professionnel, location, stockage — BSE s'occupe de tout, à Nouméa et alentours.</p>
+    </div>
+    <div class="srv-grid">
+      <div class="c">
+        <div class="c-icon">
+          <svg viewBox="0 0 30 30" fill="none" aria-hidden="true"><rect x="2" y="10" width="18" height="13" rx="2.5" fill="#1A5EA8"/><rect x="20" y="14" width="8" height="9" rx="2" fill="#1A5EA8"/><circle cx="6.5" cy="24" r="3" fill="#E87B2A"/><circle cx="23.5" cy="24" r="3" fill="#E87B2A"/><path d="M2 14h7V8h7l4 6" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="h3">Déménagement résidentiel</h3>
+        <p class="c-text">On emballe, on charge et on installe dans votre nouveau logement. Appartement, villa ou maison — on s'adapte à votre situation.</p>
+        <a href="#contact" class="b-link">Demander un devis →</a>
+      </div>
+      <div class="c">
+        <div class="c-icon">
+          <svg viewBox="0 0 30 30" fill="none" aria-hidden="true"><rect x="3" y="8" width="24" height="16" rx="2.5" fill="#1A5EA8"/><rect x="7" y="12" width="6" height="8" rx="1" fill="#fff" opacity=".5"/><rect x="17" y="12" width="6" height="8" rx="1" fill="#fff" opacity=".5"/><path d="M3 16h24" stroke="#fff" stroke-width="1.2"/></svg>
+        </div>
+        <h3 class="h3">Déménagement commercial</h3>
+        <p class="c-text">Bureaux, locaux professionnels, commerces — déménagement rapide et discret pour ne pas interrompre votre activité plus longtemps que nécessaire.</p>
+        <a href="#contact" class="b-link">Demander un devis →</a>
+      </div>
+      <div class="c">
+        <div class="c-icon">
+          <svg viewBox="0 0 30 30" fill="none" aria-hidden="true"><rect x="4" y="6" width="22" height="18" rx="2.5" fill="#1A5EA8"/><path d="M4 13h22M13 6v18" stroke="#fff" stroke-width="1.5"/><rect x="7" y="9" width="3" height="3" rx=".5" fill="#E87B2A"/><rect x="20" y="9" width="3" height="3" rx=".5" fill="#E87B2A"/></svg>
+        </div>
+        <h3 class="h3">Stockage & garde-meubles</h3>
+        <p class="c-text">Besoin d'espace entre deux logements ? On garde vos affaires en sécurité, le temps qu'il faut, dans des conditions adaptées.</p>
+        <a href="#contact" class="b-link">Nous contacter →</a>
+      </div>
+      <div class="c">
+        <div class="c-icon">
+          <svg viewBox="0 0 30 30" fill="none" aria-hidden="true"><rect x="2" y="14" width="26" height="10" rx="2.5" fill="#1A5EA8"/><rect x="5" y="10" width="8" height="6" rx="1.5" fill="#1A5EA8"/><circle cx="7" cy="25" r="2.5" fill="#E87B2A"/><circle cx="23" cy="25" r="2.5" fill="#E87B2A"/><path d="M13 14V9a2 2 0 0 1 2-2h4l4 5" stroke="#E87B2A" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="h3">Location de matériel</h3>
+        <p class="c-text">Cartons, diables, sangles, couvertures de protection — louez le matériel professionnel pour déménager par vos propres moyens en toute sécurité.</p>
+        <a href="#contact" class="b-link">Voir le matériel →</a>
+      </div>
+      <div class="c">
+        <div class="c-icon">
+          <svg viewBox="0 0 30 30" fill="none" aria-hidden="true"><path d="M15 4C9.5 4 5 8.5 5 14c0 7 10 15 10 15s10-8 10-15c0-5.5-4.5-10-10-10z" fill="#1A5EA8"/><circle cx="15" cy="14" r="4" fill="#fff"/></svg>
+        </div>
+        <h3 class="h3">Livraison & transport express</h3>
+        <p class="c-text">Un colis urgent, un meuble à récupérer ou à livrer dans Nouméa ? BSE assure les livraisons ponctuelles, même dans les zones périphériques.</p>
+        <a href="#contact" class="b-link">Demander un devis →</a>
+      </div>
+      <div class="c">
+        <div class="c-icon">
+          <svg viewBox="0 0 30 30" fill="none" aria-hidden="true"><rect x="6" y="4" width="18" height="22" rx="2.5" fill="#1A5EA8"/><path d="M10 10h10M10 14h10M10 18h6" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><circle cx="22" cy="22" r="6" fill="#E87B2A"/><path d="M19.5 22l2 2 3-3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="h3">Devis gratuit & sur mesure</h3>
+        <p class="c-text">Chaque déménagement est unique. On se déplace ou on vous rappelle pour évaluer votre besoin et vous donner un prix clair, sans surprise.</p>
+        <a href="#contact" class="b-link">Prendre rendez-vous →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s" id="metier" aria-labelledby="met-title">
+  <div class="s-inner">
+    <div class="met-grid">
+      <div class="met-img">
+        <img src="https://i.ibb.co/2bWszsh/BSE-brousse-service-express-1.jpg" alt="Équipe BSE en action à Nouméa" loading="lazy" width="600" height="450">
+      </div>
+      <div class="met-text">
+        <h2 class="h2" id="met-title">Une entreprise <span>du terrain</span>,<br>ancrée à Nouméa</h2>
+        <div class="divider"></div>
+        <p class="met-body">Depuis des années, BSE accompagne les familles et les entreprises de Nouvelle-Calédonie dans leurs déménagements. On connaît les rues, les immeubles difficiles d'accès, les délais serrés avant le week-end — et on s'y adapte sans faire de bruit.</p>
+        <p class="met-body" style="margin-top:-8px">Notre flotte de camionnettes blanches floquées BSE parcourt Nouméa et ses environs chaque jour. Pas de sous-traitance : c'est notre équipe qui vient chez vous, du premier carton au dernier meuble posé.</p>
+        <ul class="met-checks">
+          <li>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#1A5EA8"/><path d="M6 10l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Équipe locale formée et expérimentée
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#1A5EA8"/><path d="M6 10l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Devis transparent, sans frais cachés
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#1A5EA8"/><path d="M6 10l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Même jusqu'aux hauteurs et zones périphériques
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#1A5EA8"/><path d="M6 10l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Matériel professionnel inclus ou en location
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="met-grid" style="margin-top:64px;direction:rtl">
+      <div class="met-img" style="direction:ltr">
+        <img src="https://i.ibb.co/1Y4tQ9SN/BSE-brousse-service-express-2.jpg" alt="Camionnette BSE chargée pour un déménagement" loading="lazy" width="600" height="450">
+      </div>
+      <div class="met-text" style="direction:ltr">
+        <h2 class="h2">Votre déménagement,<br><span>avant le week-end</span></h2>
+        <div class="divider"></div>
+        <p class="met-body">On sait que déménager c'est stressant. Notre engagement : vous répondre sous 24h, vous proposer un créneau qui vous convient, et faire en sorte que tout soit en place avant la date butoir.</p>
+        <ul class="met-checks">
+          <li>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#E87B2A"/><path d="M6 10l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Réponse garantie sous 24h ouvrées
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#E87B2A"/><path d="M6 10l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Planification flexible selon vos contraintes
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#E87B2A"/><path d="M6 10l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Déménagement soigné, affaires protégées
+          </li>
+        </ul>
+        <a href="#contact" class="b b-cta" style="margin-top:24px;display:inline-flex;padding:13px 28px;font-size:.95rem">Demander un devis gratuit →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s s-alt" id="galerie" aria-labelledby="gal-title">
+  <div class="s-inner">
+    <div class="s-head">
+      <h2 class="h2" id="gal-title">BSE en <span>images</span></h2>
+      <div class="divider"></div>
+      <p class="s-sub">Notre équipe, notre flotte, nos chantiers — cliquez sur une photo pour l'agrandir.</p>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item" role="button" tabindex="0" aria-label="Agrandir photo 1" data-src="https://i.ibb.co/rRsv6wGR/BSE-brousse-service-express-0.jpg">
+        <img src="https://i.ibb.co/rRsv6wGR/BSE-brousse-service-express-0.jpg" alt="BSE Brousse Service Express Nouméa" loading="lazy" width="400" height="400">
+      </div>
+      <div class="gal-item" role="button" tabindex="0" aria-label="Agrandir photo 2" data-src="https://i.ibb.co/2bWszsh/BSE-brousse-service-express-1.jpg">
+        <img src="https://i.ibb.co/2bWszsh/BSE-brousse-service-express-1.jpg" alt="Équipe BSE déménagement" loading="lazy" width="400" height="400">
+      </div>
+      <div class="gal-item" role="button" tabindex="0" aria-label="Agrandir photo 3" data-src="https://i.ibb.co/1Y4tQ9SN/BSE-brousse-service-express-2.jpg">
+        <img src="https://i.ibb.co/1Y4tQ9SN/BSE-brousse-service-express-2.jpg" alt="Camionnette BSE en livraison" loading="lazy" width="400" height="400">
+      </div>
+      <div class="gal-item" role="button" tabindex="0" aria-label="Agrandir photo 4" data-src="https://i.ibb.co/kVhXgR5x/BSE-brousse-service-express-3.jpg">
+        <img src="https://i.ibb.co/kVhXgR5x/BSE-brousse-service-express-3.jpg" alt="Matériel et véhicules BSE" loading="lazy" width="400" height="400">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image agrandie">
+  <button class="lb-close" id="lb-close" aria-label="Fermer">✕</button>
+  <img class="lb-img" id="lb-img" src="" alt="Photo BSE agrandie">
+</div>
+
+<!-- FORMULAIRE -->
+<section class="s" id="contact" aria-labelledby="form-title">
+  <div class="s-inner">
+    <div class="s-head">
+      <h2 class="h2" id="form-title">Demandez votre <span>devis gratuit</span></h2>
+      <div class="divider"></div>
+      <p class="s-sub">Décrivez votre projet, on vous rappelle sous 24h pour établir un devis clair et sans engagement.</p>
+    </div>
+    <div class="form-wrap">
+      <form id="contact-form" action="#" novalidate>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="f-nom">Nom complet *</label>
+            <input type="text" id="f-nom" name="nom" placeholder="Jean Dupont" autocomplete="name" required>
+          </div>
+          <div class="form-field">
+            <label for="f-tel">Téléphone *</label>
+            <input type="tel" id="f-tel" name="tel" placeholder="XX XX XX XX" autocomplete="tel" required>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="f-email">Adresse e-mail *</label>
+          <input type="email" id="f-email" name="email" placeholder="votre@email.nc" autocomplete="email" required>
+        </div>
+        <div class="form-field">
+          <label for="f-service">Type de service</label>
+          <select id="f-service" name="service" style="font-family:'Barlow',sans-serif;font-size:.95rem;color:#1A1A1A;border:2px solid #dde6f5;border-radius:6px;padding:11px 14px;outline:none;width:100%;background:#fff">
+            <option value="">Sélectionnez un service</option>
+            <option>Déménagement résidentiel</option>
+            <option>Déménagement commercial</option>
+            <option>Stockage / garde-meubles</option>
+            <option>Location de matériel</option>
+            <option>Livraison & transport express</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="f-msg">Votre message *</label>
+          <textarea id="f-msg" name="message" placeholder="Décrivez votre déménagement : adresse de départ, d'arrivée, date souhaitée, volume estimé…" required></textarea>
+        </div>
+        <button type="submit" class="b-submit" id="form-btn">
+          <span id="btn-label">Envoyer ma demande →</span>
+          <div class="form-loader" id="form-loader"></div>
+        </button>
+        <div class="form-msg" id="form-msg" role="alert">
+          ✅ Votre demande a bien été envoyée ! On vous contacte sous 24h.
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s s-alt" id="avis" aria-labelledby="avis-title">
+  <div class="s-inner">
+    <div class="s-head">
+      <h2 class="h2" id="avis-title">Ce que disent <span>nos clients</span></h2>
+      <div class="divider"></div>
+      <p class="s-sub">Des Calédoniens qui nous ont fait confiance pour leur déménagement à Nouméa.</p>
+    </div>
+    <div class="score-box" aria-label="Note Google BSE">
+      <div class="score-n">4.5</div>
+      <div class="score-right">
+        <div class="score-stars" aria-label="4.5 étoiles sur 5">★★★★½</div>
+        <div class="score-label">Note Google · 12 avis vérifiés</div>
+        <div class="score-label" style="opacity:.7;font-size:.8rem">BSE Brousse Service Express — Nouméa</div>
+      </div>
+    </div>
+    <div class="avis-grid">
+      <div class="avis-card">
+        <div class="avis-head">
+          <div class="avis-avatar" aria-hidden="true">ML</div>
+          <div>
+            <div class="avis-name">Marie-Lise T.</div>
+            <div class="avis-date">Nouméa</div>
+          </div>
+        </div>
+        <div class="stars" aria-label="5 étoiles">★★★★★</div>
+        <p class="avis-text">Très professionnel, équipe ponctuelle et soigneuse. Tout était calé et protégé, rien n'a bougé pendant le transport. Je recommande sans hésiter !</p>
+      </div>
+      <div class="avis-card">
+        <div class="avis-head">
+          <div class="avis-avatar" aria-hidden="true">JC</div>
+          <div>
+            <div class="avis-name">Jean-Claude M.</div>
+            <div class="avis-date">Nouméa</div>
+          </div>
+        </div>
+        <div class="stars" aria-label="4 étoiles">★★★★☆</div>
+        <p class="avis-text">Devis rapide reçu le lendemain de ma demande. Le déménagement s'est passé dans la journée, même avec un appartement au 3e sans ascenseur. Bon rapport qualité-prix.</p>
+      </div>
+      <div class="avis-card">
+        <div class="avis-head">
+          <div class="avis-avatar" aria-hidden="true">SB</div>
+          <div>
+            <div class="avis-name">Sophie B.</div>
+            <div class="avis-date">Nouméa</div>
+          </div>
+        </div>
+        <div class="stars" aria-label="5 étoiles">★★★★★</div>
+        <p class="avis-text">BSE a géré notre déménagement de bureau en un week-end. Lundi matin tout était en place. Équipe sérieuse, je ferai de nouveau appel à eux.</p>
+      </div>
+    </div>
+    <div class="badges" aria-label="Engagements BSE">
+      <div class="badge">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="#1A5EA8"/><path d="M7 11l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Devis gratuit & sans engagement
+      </div>
+      <div class="badge">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="#1A5EA8"/><path d="M11 5v6l3.5 3.5" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+        Réponse sous 24h
+      </div>
+      <div class="badge">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="#1A5EA8"/><path d="M7 11l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Équipe locale à Nouméa
+      </div>
+      <div class="badge">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="#1A5EA8"/><path d="M7 11l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Matériel professionnel inclus
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="footer" aria-label="Pied de page BSE">
+  <div class="footer-inner">
+    <div>
+      <div class="ft-logo">BSE <span>Brousse Service Express</span></div>
+      <address class="ft-addr" style="font-style:normal">
+        14 rue Engler 98800<br>
+        108 Rue Edouard Unger<br>
+        Nouméa, Nouvelle-Calédonie
+      </address>
+      <a href="tel:" class="ft-tel" aria-label="Appeler BSE"></a>
+      <p style="margin-top:14px;font-size:.82rem;color:rgba(255,255,255,.55)">Ouvert du lundi au samedi<br>Devis gratuit · Intervention rapide</p>
+    </div>
+    <div>
+      <div class="ft-h">Services</div>
+      <ul class="ft-links">
+        <li><a href="#services">Déménagement résidentiel</a></li>
+        <li><a href="#services">Déménagement commercial</a></li>
+        <li><a href="#services">Stockage & garde-meubles</a></li>
+        <li><a href="#services">Location de matériel</a></li>
+        <li><a href="#services">Livraison express</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="ft-h">Informations</div>
+      <ul class="ft-links">
+        <li><a href="#metier">À propos de BSE</a></li>
+        <li><a href="#galerie">Galerie photos</a></li>
+        <li><a href="#avis">Avis clients</a></li>
+        <li><a href="#contact">Demander un devis</a></li>
+      </ul>
+      <div class="ft-h" style="margin-top:24px">Adresse</div>
+      <p style="font-size:.85rem;color:rgba(255,255,255,.75);line-height:1.6">14 rue Engler & 108 Rue Edouard Unger<br>Nouméa 98800</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="ft-copy">© 2026 BSE (brousse service express). Tous droits réservés.</p>
+    <p class="ft-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+var gals=document.querySelectorAll('.gal-item');
+var lb=document.getElementById('lightbox');
+var lbImg=document.getElementById('lb-img');
+var lbClose=document.getElementById('lb-close');
+function openLb(src,alt){lbImg.src=src;lbImg.alt=alt||'';lb.classList.add('open');document.body.style.overflow='hidden';}
+function closeLb(){lb.classList.remove('open');document.body.style.overflow='';}
+gals.forEach(function(g){
+g.addEventListener('click',function(){openLb(g.dataset.src,g.querySelector('img').alt);});
+g.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openLb(g.dataset.src,g.querySelector('img').alt);}});
+});
+lbClose.addEventListener('click',closeLb);
+lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+
+var form=document.getElementById('contact-form');
+var btn=document.getElementById('form-btn');
+var lbl=document.getElementById('btn-label');
+var loader=document.getElementById('form-loader');
+var msg=document.getElementById('form-msg');
+function req(el){return el.value.trim()==='';}
+form.addEventListener('submit',function(e){
+e.preventDefault();
+var nom=document.getElementById('f-nom');
+var email=document.getElementById('f-email');
+var tel=document.getElementById('f-tel');
+var message=document.getElementById('f-msg');
+var ok=true;
+[nom,email,tel,message].forEach(function(f){f.classList.remove('err');});
+if(req(nom)){nom.classList.add('err');ok=false;}
+if(req(email)||!email.value.includes('@')){email.classList.add('err');ok=false;}
+if(req(tel)){tel.classList.add('err');ok=false;}
+if(req(message)){message.classList.add('err');ok=false;}
+if(!ok)return;
+btn.disabled=true;lbl.style.display='none';loader.style.display='block';
+setTimeout(function(){
+loader.style.display='none';lbl.style.display='';btn.disabled=false;
+msg.classList.add('show');form.reset();
+},1400);
+});
+})();
+</script>
+</body>
+</html>
