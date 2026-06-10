@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Normandie — Nouméa</title>
+<meta name="description" content="Normandie, couvreur professionnel à Nouméa, Nouvelle-Calédonie. Rénovation, étanchéité, charpente. Devis gratuit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Inter:wght@400;500;600&family=Manrope:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#2E6B3E;
+--cs:#4A7C9E;
+--ca:#E8A020;
+--cb:#F5F5F5;
+--ct:#1A1A1A;
+--cw:#ffffff;
+--cd:#111;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ct);background:var(--cb);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+
+/* UTILS */
+.h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;line-height:1.05;text-transform:uppercase}
+.h2{font-family:'Barlow Condensed',sans-serif;font-weight:700;line-height:1.1;text-transform:uppercase}
+.h3{font-family:'Barlow Condensed',sans-serif;font-weight:700;line-height:1.15}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.b{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border-radius:4px;font-weight:600;font-size:15px;cursor:pointer;border:none;transition:opacity .2s,transform .2s;min-height:48px}
+.b:hover{opacity:.88;transform:translateY(-1px)}
+.b-accent{background:var(--ca);color:#fff}
+.b-outline{background:transparent;color:#fff;border:2px solid #fff}
+.b-full{width:100%}
+.tag{display:inline-block;background:var(--ca);color:#fff;font-weight:700;font-size:13px;padding:6px 14px;border-radius:20px;letter-spacing:.5px}
+
+/* BANDEAU PROMO */
+#promo{position:fixed;top:0;left:0;right:0;z-index:1001;height:44px;background:#ffd500;text-align:center;line-height:44px}
+#promo a{font-family:'Manrope','Inter',system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;letter-spacing:.3px}
+#promo a:hover{opacity:.85}
+
+/* HEADER */
+#hdr{position:fixed;top:44px;left:0;right:0;z-index:1000;background:rgba(20,40,24,.96);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.08);transition:background .3s}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:26px;color:#fff;letter-spacing:1px}
+.logo span{color:var(--ca)}
+nav{display:flex;gap:28px}
+nav a{color:rgba(255,255,255,.85);font-size:14px;font-weight:500;transition:color .2s}
+nav a:hover{color:var(--ca)}
+.hdr-cta{display:flex;align-items:center;gap:12px}
+.tel-link{color:var(--ca);font-weight:600;font-size:15px;display:flex;align-items:center;gap:6px}
+#burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+#burger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:transform .3s,opacity .3s}
+#mob-nav{display:none;position:fixed;top:108px;left:0;right:0;background:rgba(20,40,24,.98);z-index:999;padding:20px 20px 28px;flex-direction:column;gap:4px}
+#mob-nav a{color:#fff;font-size:16px;font-weight:500;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+#mob-nav .b{margin-top:16px}
+#mob-nav.open{display:flex}
+
+/* HERO */
+#hero{min-height:100vh;position:relative;display:flex;align-items:center;background:url('https://i.ibb.co/Q71LzTLh/Normandie-0.jpg') center/cover no-repeat;padding-top:108px}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(120deg,rgba(20,50,28,.88) 0%,rgba(20,50,28,.55) 60%,rgba(10,25,14,.2) 100%)}
+.hero-content{position:relative;z-index:1;max-width:680px}
+.hero-badge{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.pulse{animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(232,160,32,.5)}50%{box-shadow:0 0 0 10px rgba(232,160,32,0)}}
+.hero-content .h1{font-size:clamp(44px,7vw,86px);color:#fff;margin-bottom:18px}
+.hero-content .h1 em{color:var(--ca);font-style:normal}
+.hero-sub{color:rgba(255,255,255,.85);font-size:clamp(15px,2vw,18px);line-height:1.6;margin-bottom:32px;max-width:520px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:1;display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,.6);font-size:12px}
+.scroll-arr{width:20px;height:30px;border:2px solid rgba(255,255,255,.4);border-radius:10px;position:relative}
+.scroll-arr::after{content:'';position:absolute;top:5px;left:50%;transform:translateX(-50%);width:4px;height:8px;background:rgba(255,255,255,.6);border-radius:2px;animation:scrolld 1.8s infinite}
+@keyframes scrolld{0%{opacity:1;transform:translateX(-50%) translateY(0)}100%{opacity:0;transform:translateX(-50%) translateY(10px)}}
+
+/* STATS */
+#stats{background:var(--cp);padding:56px 0;position:relative}
+#stats::before{content:'';position:absolute;top:-28px;left:0;right:0;height:56px;background:var(--cp);clip-path:polygon(0 100%,100% 0,100% 100%)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stat-n{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(44px,6vw,72px);color:var(--ca);line-height:1}
+.stat-l{color:rgba(255,255,255,.85);font-size:14px;font-weight:500;margin-top:6px;line-height:1.4}
+
+/* FALLBACK REVEAL */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+nav{display:none}
+.hdr-cta .b{display:none}
+#burger{display:flex}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+#promo{height:40px;line-height:40px}
+#promo a{font-size:13px}
+#hdr{top:40px}
+.hdr-in{height:56px}
+#mob-nav{top:96px}
+#hero{padding-top:96px}
+.hero-btns .b{width:100%}
+.hero-btns{flex-direction:column}
+.stats-grid{grid-template-columns:repeat(2,1fr);gap:16px}
+.wrap{padding:0 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div id="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="wrap hdr-in">
+    <a href="#hero" class="logo">Nor<span>mandie</span></a>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#processus">Processus</a>
+      <a href="#galerie">Réalisations</a>
+      <a href="#devis">Devis</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="hdr-cta">
+      <a href="tel:" class="tel-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Appeler
+      </a>
+      <a href="#devis" class="b b-accent">Devis gratuit</a>
+    </div>
+    <button id="burger" aria-label="Menu" onclick="document.getElementById('mob-nav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav id="mob-nav">
+  <a href="#services" onclick="this.closest('#mob-nav').classList.remove('open')">Services</a>
+  <a href="#expertise" onclick="this.closest('#mob-nav').classList.remove('open')">Expertise</a>
+  <a href="#processus" onclick="this.closest('#mob-nav').classList.remove('open')">Processus</a>
+  <a href="#galerie" onclick="this.closest('#mob-nav').classList.remove('open')">Réalisations</a>
+  <a href="#devis" onclick="this.closest('#mob-nav').classList.remove('open')">Devis</a>
+  <a href="#devis" class="b b-accent b-full" onclick="this.closest('#mob-nav').classList.remove('open')">Devis gratuit</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-overlay"></div>
+  <div class="wrap hero-content">
+    <div class="hero-badge">
+      <span class="tag pulse">Devis gratuit</span>
+      <span style="color:rgba(255,255,255,.7);font-size:13px;font-weight:500;">Réponse sous 24h</span>
+    </div>
+    <h1 class="h1">Votre toit,<br>nos <em>20 ans</em><br>d'expertise</h1>
+    <p class="hero-sub">Couvreur de confiance à Nouméa — rénovation, étanchéité, charpente. Nous connaissons chaque climat de Nouvelle-Calédonie.</p>
+    <div class="hero-btns">
+      <a href="#devis" class="b b-accent">Demander un devis gratuit</a>
+      <a href="#services" class="b b-outline">Nos services</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <div class="scroll-arr"></div>
+    <span>Découvrir</span>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div>
+        <div class="stat-n" data-target="20">0</div>
+        <div class="stat-l">Années<br>d'expérience</div>
+      </div>
+      <div>
+        <div class="stat-n" data-target="500">0</div>
+        <div class="stat-l">Toitures<br>rénovées</div>
+      </div>
+      <div>
+        <div class="stat-n" data-target="350">0</div>
+        <div class="stat-l">Clients<br>locaux</div>
+      </div>
+      <div>
+        <div class="stat-n" data-target="100">0</div>
+        <div class="stat-l">% satisfaction<br>clients</div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+/* SERVICES */
+#services{padding:80px 0;background:var(--cb)}
+#services .s-head{text-align:center;margin-bottom:48px}
+#services .s-head .h2{font-size:clamp(32px,5vw,52px);color:var(--ct);margin-bottom:12px}
+#services .s-head p{color:#555;font-size:16px;max-width:520px;margin:0 auto}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.c-srv{background:#fff;border-radius:8px;padding:32px 24px;box-shadow:0 2px 16px rgba(0,0,0,.07);transition:transform .25s,box-shadow .25s;border-top:3px solid var(--cp)}
+.c-srv:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(0,0,0,.12)}
+.c-srv-ico{width:52px;height:52px;background:rgba(46,107,62,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.c-srv-ico svg{stroke:var(--cp)}
+.c-srv .h3{font-size:22px;color:var(--ct);margin-bottom:10px}
+.c-srv p{color:#555;font-size:14px;line-height:1.65;margin-bottom:18px}
+.c-srv .b-link{color:var(--cp);font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:4px;transition:gap .2s}
+.c-srv .b-link:hover{gap:8px}
+
+/* METIER */
+#metier{padding:80px 0;background:#1a2e1e;position:relative;overflow:hidden}
+#metier::before{content:'';position:absolute;inset:0;background:url('https://i.ibb.co/nsf2bhCY/Normandie-1.jpg') center/cover no-repeat;opacity:.12}
+.met-in{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.met-txt .h2{font-size:clamp(30px,4.5vw,50px);color:#fff;margin-bottom:16px}
+.met-txt .lead{color:rgba(255,255,255,.8);font-size:16px;line-height:1.7;margin-bottom:28px}
+.chk-list{display:flex;flex-direction:column;gap:14px;margin-bottom:32px}
+.chk-item{display:flex;align-items:flex-start;gap:12px;color:rgba(255,255,255,.85);font-size:15px;line-height:1.5}
+.chk-ico{flex-shrink:0;width:22px;height:22px;background:var(--ca);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.chk-ico svg{stroke:#fff}
+.met-img-wrap{position:relative}
+.met-img-wrap img{border-radius:8px;width:100%;object-fit:cover;height:420px}
+.met-badge{position:absolute;bottom:-18px;right:-18px;background:var(--ca);color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;padding:16px 20px;border-radius:6px;text-align:center;line-height:1.3}
+
+/* PROCESSUS */
+#processus{padding:80px 0;background:var(--cb)}
+#processus .s-head{text-align:center;margin-bottom:56px}
+#processus .s-head .h2{font-size:clamp(30px,5vw,50px);color:var(--ct);margin-bottom:12px}
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.proc-grid::before{content:'';position:absolute;top:36px;left:12.5%;right:12.5%;height:2px;background:linear-gradient(90deg,var(--cp),var(--ca));z-index:0}
+.c-proc{text-align:center;padding:0 16px;position:relative;z-index:1}
+.proc-num{width:72px;height:72px;border-radius:50%;background:var(--cp);color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:28px;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;border:4px solid var(--cb)}
+.c-proc .h3{font-size:18px;color:var(--ct);margin-bottom:8px}
+.c-proc p{color:#666;font-size:14px;line-height:1.55}
+
+/* GALERIE */
+#galerie{padding:80px 0;background:#0f1f12}
+#galerie .s-head{text-align:center;margin-bottom:40px}
+#galerie .s-head .h2{font-size:clamp(30px,5vw,50px);color:#fff;margin-bottom:10px}
+#galerie .s-head p{color:rgba(255,255,255,.65);font-size:15px}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal-item{border-radius:6px;overflow:hidden;cursor:pointer;position:relative;aspect-ratio:1}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-item::after{content:'🔍';position:absolute;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;font-size:28px;opacity:0;transition:opacity .25s}
+.gal-item:hover::after{opacity:1}
+#lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;align-items:center;justify-content:center}
+#lb.open{display:flex}
+#lb img{max-width:90vw;max-height:88vh;border-radius:6px;object-fit:contain}
+#lb-close{position:absolute;top:20px;right:24px;color:#fff;font-size:36px;cursor:pointer;line-height:1;background:none;border:none;font-family:inherit}
+
+/* FORMULAIRE */
+#devis{padding:80px 0;background:var(--cb)}
+.dv-wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.dv-info .h2{font-size:clamp(28px,4vw,46px);color:var(--ct);margin-bottom:14px}
+.dv-info p{color:#555;font-size:15px;line-height:1.7;margin-bottom:24px}
+.dv-contact-item{display:flex;align-items:center;gap:12px;color:var(--ct);font-weight:500;font-size:15px;margin-bottom:12px}
+.dv-contact-item svg{stroke:var(--cp)}
+form{background:#fff;border-radius:8px;padding:36px 32px;box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.fld{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+.fld label{font-size:13px;font-weight:600;color:var(--ct);letter-spacing:.3px}
+.fld input,.fld textarea,.fld select{border:1.5px solid #ddd;border-radius:4px;padding:12px 14px;font-family:'Inter',sans-serif;font-size:15px;color:var(--ct);background:#fafafa;transition:border-color .2s,box-shadow .2s;width:100%}
+.fld input:focus,.fld textarea:focus{outline:none;border-color:var(--cp);box-shadow:0 0 0 3px rgba(46,107,62,.1)}
+.fld textarea{resize:vertical;min-height:110px}
+.fld.err input,.fld.err textarea{border-color:#d9392c}
+.err-msg{color:#d9392c;font-size:12px;display:none}
+.fld.err .err-msg{display:block}
+.form-ok{display:none;text-align:center;padding:24px;background:rgba(46,107,62,.08);border-radius:6px;border:1px solid rgba(46,107,62,.3)}
+.form-ok svg{stroke:var(--cp);margin-bottom:10px}
+.form-ok p{color:var(--cp);font-weight:600;font-size:16px}
+.btn-submit{position:relative;overflow:hidden}
+.ld{display:none;width:18px;height:18px;border:2.5px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* PREUVE SOCIALE */
+#preuves{padding:80px 0;background:#fff}
+#preuves .s-head{text-align:center;margin-bottom:48px}
+#preuves .s-head .h2{font-size:clamp(28px,4.5vw,48px);color:var(--ct);margin-bottom:12px}
+.google-note{display:flex;flex-direction:column;align-items:center;gap:8px;margin-bottom:48px}
+.gn-score{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:72px;color:var(--cp);line-height:1}
+.stars{display:flex;gap:4px}
+.stars svg{fill:var(--ca);stroke:none}
+.gn-label{color:#666;font-size:14px;margin-top:4px}
+.badges-row{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:56px}
+.bdg{display:flex;align-items:center;gap:10px;background:var(--cb);border-radius:6px;padding:12px 20px;border:1px solid #e0e0e0;font-size:14px;font-weight:600;color:var(--ct)}
+.bdg svg{stroke:var(--cp)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.c-testi{background:var(--cb);border-radius:8px;padding:24px;border-left:3px solid var(--ca)}
+.testi-stars{display:flex;gap:3px;margin-bottom:12px}
+.testi-stars svg{fill:var(--ca);stroke:none;width:16px;height:16px}
+.testi-txt{color:#333;font-size:14px;line-height:1.65;margin-bottom:16px;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:10px}
+.testi-av{width:38px;height:38px;border-radius:50%;background:var(--cp);color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center}
+.testi-name{font-weight:600;font-size:14px;color:var(--ct)}
+.testi-date{font-size:12px;color:#888}
+
+/* FOOTER */
+#footer{background:var(--cp);padding:56px 0 28px;color:rgba(255,255,255,.85)}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.ft-brand .logo{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:26px;color:#fff;letter-spacing:1px;margin-bottom:14px;display:block}
+.ft-brand .logo span{color:var(--ca)}
+.ft-brand p{font-size:14px;line-height:1.65;color:rgba(255,255,255,.75);margin-bottom:18px}
+.ft-social{display:flex;gap:12px}
+.ft-social a{width:40px;height:40px;border-radius:6px;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;transition:background .2s}
+.ft-social a:hover{background:var(--ca)}
+.ft-social svg{stroke:#fff;fill:none}
+.ft-col h4{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:17px;color:#fff;margin-bottom:16px;letter-spacing:.5px;text-transform:uppercase}
+.ft-col ul{display:flex;flex-direction:column;gap:10px}
+.ft-col ul li a{font-size:14px;color:rgba(255,255,255,.75);transition:color .2s}
+.ft-col ul li a:hover{color:var(--ca)}
+.ft-col .ft-addr{font-size:14px;line-height:1.7;color:rgba(255,255,255,.75)}
+.ft-col .ft-addr a{color:var(--ca);font-weight:600}
+.ft-bar{border-top:1px solid rgba(255,255,255,.15);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.ft-bar span{font-size:13px;color:rgba(255,255,255,.55)}
+.ft-bar a{color:rgba(255,255,255,.75);font-size:13px;font-weight:600;transition:color .2s}
+.ft-bar a:hover{color:var(--ca)}
+
+/* RESPONSIVE PART2 */
+@media(max-width:900px){
+.srv-grid{grid-template-columns:1fr 1fr}
+.met-in{grid-template-columns:1fr}
+.proc-grid{grid-template-columns:repeat(2,1fr)}
+.proc-grid::before{display:none}
+.dv-wrap{grid-template-columns:1fr}
+.testi-grid{grid-template-columns:1fr 1fr}
+.ft-grid{grid-template-columns:1fr 1fr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+.srv-grid{grid-template-columns:1fr}
+.proc-grid{grid-template-columns:1fr}
+.testi-grid{grid-template-columns:1fr}
+.ft-grid{grid-template-columns:1fr}
+.met-img-wrap img{height:260px}
+.met-badge{right:0;bottom:-14px}
+form{padding:24px 16px}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.dv-wrap{gap:32px}
+#processus .s-head,.srv-grid,.proc-grid{padding:0}
+}
+</style>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="s-head">
+      <h2 class="h2">Nos prestations<br>de couverture</h2>
+      <p>Du diagnostic à la garantie, nous intervenons sur tous types de toitures à Nouméa et ses environs.</p>
+    </div>
+    <div class="srv-grid">
+      <div class="c-srv">
+        <div class="c-srv-ico">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3 class="h3">Rénovation de toiture</h3>
+        <p>Remplacement complet ou partiel de couverture, adaptation aux conditions climatiques de Nouvelle-Calédonie.</p>
+        <a href="#devis" class="b-link">Demander un devis <span>→</span></a>
+      </div>
+      <div class="c-srv">
+        <div class="c-srv-ico">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3 class="h3">Étanchéité</h3>
+        <p>Traitement des infiltrations, poses de membranes et résines adaptées aux fortes pluies tropicales.</p>
+        <a href="#devis" class="b-link">Demander un devis <span>→</span></a>
+      </div>
+      <div class="c-srv">
+        <div class="c-srv-ico">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <h3 class="h3">Charpente</h3>
+        <p>Conception, renforcement et réparation de charpentes bois ou métalliques pour toiture résidentielle ou commerciale.</p>
+        <a href="#devis" class="b-link">Demander un devis <span>→</span></a>
+      </div>
+      <div class="c-srv">
+        <div class="c-srv-ico">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h3 class="h3">Diagnostic & inspection</h3>
+        <p>Bilan complet de l'état de votre toiture avant achat ou en prévention, avec rapport détaillé remis sous 48h.</p>
+        <a href="#devis" class="b-link">Demander un devis <span>→</span></a>
+      </div>
+      <div class="c-srv">
+        <div class="c-srv-ico">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h3 class="h3">Réparations urgentes</h3>
+        <p>Intervention rapide après cyclone, tempête ou fuite active — protection immédiate de votre bien.</p>
+        <a href="#devis" class="b-link">Demander un devis <span>→</span></a>
+      </div>
+      <div class="c-srv">
+        <div class="c-srv-ico">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="h3">Entretien & garantie</h3>
+        <p>Contrats d'entretien annuel et garantie décennale sur l'ensemble de nos travaux de couverture.</p>
+        <a href="#devis" class="b-link">Demander un devis <span>→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section id="metier">
+  <div class="wrap">
+    <div class="met-in">
+      <div class="met-txt">
+        <span class="tag" style="margin-bottom:18px;display:inline-block;">Artisan local depuis 20 ans</span>
+        <h2 class="h2">Pas de promesses<br>creuses — des toits<br>qui tiennent</h2>
+        <p class="lead">Depuis 20 ans, Normandie intervient sur les toitures de Nouméa et de toute la Nouvelle-Calédonie. Nous connaissons les contraintes locales : chaleur intense, saison des pluies tropicales, vents violents. Chaque chantier est traité avec le soin d'un artisan, pas d'une chaîne industrielle.</p>
+        <ul class="chk-list">
+          <li class="chk-item">
+            <span class="chk-ico"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Matériaux adaptés au climat calédonien
+          </li>
+          <li class="chk-item">
+            <span class="chk-ico"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Équipe qualifiée, 100% locale
+          </li>
+          <li class="chk-item">
+            <span class="chk-ico"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Devis clair, sans surprise sur la facture
+          </li>
+          <li class="chk-item">
+            <span class="chk-ico"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Garantie décennale sur tous les travaux
+          </li>
+        </ul>
+        <a href="#devis" class="b b-accent">Obtenir mon devis gratuit</a>
+      </div>
+      <div class="met-img-wrap">
+        <img src="https://i.ibb.co/nsf2bhCY/Normandie-1.jpg" alt="Couvreur Normandie au travail à Nouméa" loading="lazy">
+        <div class="met-badge">Garantie<br>décennale</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSUS -->
+<section id="processus">
+  <div class="wrap">
+    <div class="s-head">
+      <h2 class="h2">Notre processus d'intervention</h2>
+      <p style="color:#555;font-size:16px;">Simple, transparent, efficace — de la prise de contact à la garantie.</p>
+    </div>
+    <div class="proc-grid">
+      <div class="c-proc">
+        <div class="proc-num">01</div>
+        <h3 class="h3">Prise de contact</h3>
+        <p>Appelez-nous ou remplissez le formulaire — nous vous rappelons sous 24h pour planifier la visite.</p>
+      </div>
+      <div class="c-proc">
+        <div class="proc-num">02</div>
+        <h3 class="h3">Diagnostic</h3>
+        <p>Inspection complète de votre toiture sur site, identification précise des zones à traiter.</p>
+      </div>
+      <div class="c-proc">
+        <div class="proc-num">03</div>
+        <h3 class="h3">Devis & intervention</h3>
+        <p>Devis détaillé remis gratuitement, travaux réalisés par notre équipe dans les délais convenus.</p>
+      </div>
+      <div class="c-proc">
+        <div class="proc-num">04</div>
+        <h3 class="h3">Garantie</h3>
+        <p>Livraison avec garantie décennale. Nous restons disponibles pour tout suivi après chantier.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section id="galerie">
+  <div class="wrap">
+    <div class="s-head">
+      <h2 class="h2">Nos réalisations</h2>
+      <p>Quelques chantiers réalisés à Nouméa et en Nouvelle-Calédonie.</p>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item" onclick="openLb('https://i.ibb.co/Q71LzTLh/Normandie-0.jpg')">
+        <img src="https://i.ibb.co/Q71LzTLh/Normandie-0.jpg" alt="Réalisation toiture Normandie" loading="lazy">
+      </div>
+      <div class="gal-item" onclick="openLb('https://i.ibb.co/nsf2bhCY/Normandie-1.jpg')">
+        <img src="https://i.ibb.co/nsf2bhCY/Normandie-1.jpg" alt="Chantier couverture Nouméa" loading="lazy">
+      </div>
+      <div class="gal-item" onclick="openLb('https://i.ibb.co/1YRgPHyq/Normandie-2.jpg')">
+        <img src="https://i.ibb.co/1YRgPHyq/Normandie-2.jpg" alt="Rénovation toiture Nouvelle-Calédonie" loading="lazy">
+      </div>
+      <div class="gal-item" onclick="openLb('https://i.ibb.co/S4SFHWwJ/Normandie-3.jpg')">
+        <img src="https://i.ibb.co/S4SFHWwJ/Normandie-3.jpg" alt="Étanchéité toiture Nouméa" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lb" onclick="closeLb()">
+  <button id="lb-close" onclick="closeLb()">×</button>
+  <img id="lb-img" src="" alt="Photo agrandie">
+</div>
+
+<!-- FORMULAIRE -->
+<section id="devis">
+  <div class="wrap">
+    <div class="dv-wrap">
+      <div class="dv-info">
+        <h2 class="h2">Demandez votre<br>devis gratuit</h2>
+        <p>Décrivez votre projet en quelques lignes, nous vous recontactons rapidement pour planifier un passage sur site — sans engagement.</p>
+        <div class="dv-contact-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Nouméa, Nouvelle-Calédonie
+        </div>
+        <div class="dv-contact-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <a href="tel:" style="color:var(--cp);font-weight:600;">Nous appeler</a>
+        </div>
+        <div class="dv-contact-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          <a href="https://www.facebook.com/korailnormandie" target="_blank" rel="noopener" style="color:var(--cp);font-weight:600;">Facebook Korail Normandie</a>
+        </div>
+        <img src="https://i.ibb.co/S4SFHWwJ/Normandie-3.jpg" alt="Couvreur Normandie Nouméa" loading="lazy" style="border-radius:8px;margin-top:24px;width:100%;object-fit:cover;max-height:200px;">
+      </div>
+      <div>
+        <form id="frm" action="#" novalidate>
+          <div id="form-ok" class="form-ok">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <p>Votre demande a bien été envoyée !<br>Nous vous recontactons sous 24h.</p>
+          </div>
+          <div id="form-fields">
+            <div class="fld" id="f-nom">
+              <label for="nom">Nom complet *</label>
+              <input type="text" id="nom" name="nom" placeholder="Jean Dupont" autocomplete="name">
+              <span class="err-msg">Veuillez saisir votre nom.</span>
+            </div>
+            <div class="fld" id="f-email">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" placeholder="jean@email.com" autocomplete="email">
+              <span class="err-msg">Adresse email invalide.</span>
+            </div>
+            <div class="fld" id="f-tel">
+              <label for="tel">Téléphone</label>
+              <input type="tel" id="tel" name="tel" placeholder="+687 XX XX XX" autocomplete="tel">
+              <span class="err-msg">Numéro invalide.</span>
+            </div>
+            <div class="fld" id="f-msg">
+              <label for="msg">Votre projet *</label>
+              <textarea id="msg" name="msg" placeholder="Décrivez votre toiture et les travaux souhaités…"></textarea>
+              <span class="err-msg">Veuillez décrire votre projet.</span>
+            </div>
+            <button type="submit" class="b b-accent b-full btn-submit" id="btn-sub">
+              <span id="btn-txt">Envoyer ma demande</span>
+              <span class="ld" id="btn-ld"></span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section id="preuves">
+  <div class="wrap">
+    <div class="s-head">
+      <h2 class="h2">Ils nous font confiance</h2>
+      <p style="color:#555;font-size:15px;">Vos voisins nous connaissent — voici ce qu'ils disent.</p>
+    </div>
+    <div class="google-note">
+      <div class="gn-score">5.0</div>
+      <div class="stars">
+        <svg width="28" height="28" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="28" height="28" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="28" height="28" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="28" height="28" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="28" height="28" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <span class="gn-label">Note Google — soyez le premier à laisser un avis</span>
+    </div>
+    <div class="badges-row">
+      <div class="bdg">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Garantie décennale
+      </div>
+      <div class="bdg">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Devis sous 24h
+      </div>
+      <div class="bdg">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        Équipe locale
+      </div>
+      <div class="bdg">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        20 ans d'expérience
+      </div>
+    </div>
+    <div class="testi-grid">
+      <div class="c-testi">
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testi-txt">"Intervention rapide après les fortes pluies, équipe professionnelle et toiture parfaitement étanchéifiée. Je recommande sans hésiter."</p>
+        <div class="testi-author">
+          <div class="testi-av">M</div>
+          <div>
+            <div class="testi-name">Marie L.</div>
+            <div class="testi-date">Propriétaire, Nouméa</div>
+          </div>
+        </div>
+      </div>
+      <div class="c-testi">
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testi-txt">"Devis clair, prix honnête, travail soigné. La charpente a été renforcée en deux jours. Aucune mauvaise surprise sur la facture."</p>
+        <div class="testi-author">
+          <div class="testi-av">P</div>
+          <div>
+            <div class="testi-name">Patrick T.</div>
+            <div class="testi-date">Propriétaire, Nouméa</div>
+          </div>
+        </div>
+      </div>
+      <div class="c-testi">
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testi-txt">"Société sérieuse, à l'écoute et réactive. Toiture complètement refaite, on ne voit que la qualité. Merci à toute l'équipe Normandie !"</p>
+        <div class="testi-author">
+          <div class="testi-av">S</div>
+          <div>
+            <div class="testi-name">Sophie K.</div>
+            <div class="testi-date">Propriétaire, Nouméa</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer" id="contact">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <span class="logo">Nor<span>mandie</span></span>
+        <p>Couvreur artisan à Nouméa depuis 20 ans. Rénovation, étanchéité, charpente — qualité garantie sur toute la Nouvelle-Calédonie.</p>
+        <div class="ft-social">
+          <a href="https://www.facebook.com/korailnormandie" target="_blank" rel="noopener" aria-label="Facebook Normandie">
+            <svg width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="ft-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#services">Nos services</a></li>
+          <li><a href="#metier">Notre expertise</a></li>
+          <li><a href="#processus">Notre processus</a></li>
+          <li><a href="#galerie">Réalisations</a></li>
+          <li><a href="#devis">Devis gratuit</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Contact</h4>
+        <p class="ft-addr">
+          Normandie<br>
+          Nouméa, Nouvelle-Calédonie<br><br>
+          <a href="tel:">Nous appeler</a><br><br>
+          <a href="https://www.facebook.com/korailnormandie" target="_blank" rel="noopener">Facebook Korail Normandie</a>
+        </p>
+      </div>
+    </div>
+    <div class="ft-bar">
+      <span>© 2026 Normandie. Tous droits réservés.</span>
+      <a href="https://setup.nc" target="_blank" rel="noopener">Site réalisé par Setup NC</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+var nums=document.querySelectorAll('.stat-n'),obs;
+function animN(el){var t=+el.dataset.target,d=1400,s=16,st=Math.ceil(t/(d/s));var i=setInterval(function(){var c=+el.textContent;if(c<t){el.textContent=Math.min(c+st,t)+(el.dataset.suffix||'')}else{el.textContent=t+(el.dataset.suffix||'');clearInterval(i)}},s)}
+if('IntersectionObserver' in window){obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){animN(e.target);obs.unobserve(e.target)}})},{threshold:.5});nums.forEach(function(n){obs.observe(n)})}else{nums.forEach(animN)}
+function openLb(s){var l=document.getElementById('lb');document.getElementById('lb-img').src=s;l.classList.add('open')}
+function closeLb(){document.getElementById('lb').classList.remove('open')}
+document.getElementById('frm').addEventListener('submit',function(e){
+e.preventDefault();
+var ok=true;
+var nm=document.getElementById('nom'),em=document.getElementById('email'),ms=document.getElementById('msg');
+var ef=document.getElementById('f-nom'),ee=document.getElementById('f-email'),ef2=document.getElementById('f-msg');
+ef.classList.remove('err');ee.classList.remove('err');ef2.classList.remove('err');
+if(!nm.value.trim()){ef.classList.add('err');ok=false}
+if(!em.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)){ee.classList.add('err');ok=false}
+if(!ms.value.trim()){ef2.classList.add('err');ok=false}
+if(!ok)return;
+var bt=document.getElementById('btn-sub'),tx=document.getElementById('btn-txt'),ld=document.getElementById('btn-ld');
+bt.disabled=true;tx.style.display='none';ld.style.display='inline-block';
+setTimeout(function(){
+document.getElementById('form-fields').style.display='none';
+document.getElementById('form-ok').style.display='block';
+},1200)
+});
+</script>
+</body>
+</html>
