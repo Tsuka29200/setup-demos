@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dr Marion LAURENT — Dumbéa</title>
+<meta name="description" content="Dr Marion LAURENT, chirurgien-dentiste à Dumbéa, Nouvelle-Calédonie. Prenez soin de votre sourire avec une expertise orthodontique de confiance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Roboto+Slab:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#2AB5C5;
+--cs:#1A7A87;
+--ca:#E8743B;
+--ct:#313131;
+--cb:#fff;
+--r:.75rem;
+--sh:0 2px 8px rgba(0,0,0,.08);
+--sh2:0 6px 24px rgba(0,0,0,.14);
+--tr:200ms ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans',system-ui,sans-serif;color:var(--ct);background:var(--cb);overflow-x:hidden;font-size:16px;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+.h1,.h2,.h3,.h4{font-family:'Roboto Slab',Georgia,serif;font-weight:700;line-height:1.2}
+.h1{font-size:clamp(2rem,5vw,3.2rem)}
+.h2{font-size:clamp(1.6rem,3.5vw,2.4rem)}
+.h3{font-size:clamp(1.1rem,2.5vw,1.5rem)}
+.h4{font-size:1rem;font-weight:600}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.s{padding:80px 0}
+.s-sm{padding:48px 0}
+.b{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:50px;font-family:'Open Sans',sans-serif;font-weight:600;font-size:1rem;cursor:pointer;border:none;transition:background var(--tr),transform var(--tr),opacity var(--tr);text-align:center;min-height:48px}
+.b-primary{background:var(--ca);color:#fff}
+.b-primary:hover{background:#D1662F;transform:translateY(-1px)}
+.b-outline{background:transparent;color:#fff;border:2px solid #fff}
+.b-outline:hover{background:rgba(255,255,255,.15)}
+.b-teal{background:var(--cp);color:#fff}
+.b-teal:hover{background:var(--cs)}
+.tag{display:inline-block;background:rgba(42,181,197,.12);color:var(--cs);font-size:.8rem;font-weight:600;padding:4px 12px;border-radius:50px;text-transform:uppercase;letter-spacing:.6px}
+/* BANDEAU PROMO */
+.promo{position:fixed;top:0;left:0;right:0;height:44px;background:#ffd500;z-index:1001;display:flex;align-items:center;justify-content:center}
+.promo a{font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;line-height:44px;letter-spacing:.3px;color:#4375ff;text-align:center}
+.promo a:hover{opacity:.85}
+/* HEADER */
+.nav{position:fixed;top:44px;left:0;right:0;z-index:1000;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);box-shadow:0 1px 0 rgba(0,0,0,.06);transition:top var(--tr)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px}
+.logo{font-family:'Roboto Slab',serif;font-weight:700;font-size:1.15rem;color:var(--cs);line-height:1.2;flex-shrink:0}
+.logo span{display:block;font-size:.7rem;font-weight:400;color:var(--ct);opacity:.7;font-family:'Open Sans',sans-serif;letter-spacing:.4px;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{font-size:.9rem;font-weight:600;color:var(--ct);opacity:.8;transition:opacity var(--tr),color var(--tr)}
+.nav-links a:hover{opacity:1;color:var(--cp)}
+.nav-cta{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.tel-link{font-weight:700;color:var(--cs);font-size:.95rem;display:flex;align-items:center;gap:6px}
+.tel-link:hover{color:var(--ca)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
+.burger span{display:block;width:24px;height:2px;background:var(--ct);border-radius:2px;transition:transform var(--tr),opacity var(--tr)}
+.mob-menu{display:none;position:fixed;top:114px;left:0;right:0;background:#fff;box-shadow:var(--sh2);padding:24px;z-index:999;flex-direction:column;gap:16px}
+.mob-menu.open{display:flex}
+.mob-menu a{font-size:1rem;font-weight:600;color:var(--ct);padding:10px 0;border-bottom:1px solid rgba(0,0,0,.06)}
+.mob-menu .b{width:100%;justify-content:center;margin-top:8px}
+/* HERO */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;background:url('https://i.ibb.co/nspkpsjD/Dr-Marion-LAURENT-0.jpg') center/cover no-repeat;padding-top:114px}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(105deg,rgba(26,122,135,.88) 0%,rgba(26,122,135,.7) 45%,rgba(42,181,197,.3) 100%)}
+.hero-in{position:relative;z-index:1;max-width:680px}
+.hero .tag{background:rgba(255,255,255,.2);color:#fff;margin-bottom:20px}
+.hero .h1{color:#fff;margin-bottom:20px;text-shadow:0 2px 12px rgba(0,0,0,.18)}
+.hero p{color:rgba(255,255,255,.92);font-size:1.15rem;margin-bottom:36px;max-width:520px}
+.hero-btns{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.scroll-ind{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,.7);font-size:.75rem;letter-spacing:.5px;animation:bounce 2s infinite}
+.scroll-ind svg{width:22px;height:22px;stroke:rgba(255,255,255,.7)}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+/* STATS */
+.stats{background:var(--cp);padding:56px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stat-val{font-family:'Roboto Slab',serif;font-weight:700;font-size:clamp(2rem,4vw,2.8rem);color:#fff;line-height:1;display:block}
+.stat-lbl{font-size:.85rem;color:rgba(255,255,255,.85);margin-top:6px;font-weight:500;letter-spacing:.3px}
+.stat-sep{width:2px;background:rgba(255,255,255,.2);margin:0 auto}
+/* FALLBACK animations */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+/* RESPONSIVE */
+@media(max-width:900px){
+.nav-links{display:none}
+.burger{display:flex}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.stat-sep{display:none}
+}
+@media(max-width:480px){
+.wrap{padding:0 16px}
+.s{padding:56px 0}
+.promo a{font-size:13px;line-height:40px}
+.promo{height:40px}
+.nav{top:40px}
+.mob-menu{top:110px}
+.hero{padding-top:110px}
+.hero p{font-size:1rem}
+.hero-btns{flex-direction:column;align-items:stretch}
+.hero-btns .b{width:100%;justify-content:center}
+.stats-grid{grid-template-columns:repeat(2,1fr);gap:16px}
+.b{padding:14px 20px;font-size:.95rem}
+.nav-in{height:64px}
+.nav-cta .b{display:none}
+}
+@media(max-width:360px){
+.h1{font-size:1.7rem}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="nav" id="top">
+  <div class="wrap nav-in">
+    <a href="#" class="logo">
+      Dr Marion LAURENT
+      <span>Chirurgien-Dentiste · Dumbéa</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#praticien">La praticienne</a></li>
+      <li><a href="#services">Soins</a></li>
+      <li><a href="#galerie">Cabinet</a></li>
+      <li><a href="#rdv">Rendez-vous</a></li>
+      <li><a href="#infos">Accès</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="b b-primary" href="#rdv">Prendre RDV</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-menu" id="mob-menu">
+  <a href="#praticien" class="mob-link">La praticienne</a>
+  <a href="#services" class="mob-link">Soins</a>
+  <a href="#galerie" class="mob-link">Cabinet</a>
+  <a href="#rdv" class="mob-link">Rendez-vous</a>
+  <a href="#infos" class="mob-link">Accès &amp; horaires</a>
+  <a class="b b-primary" href="#rdv">Prendre rendez-vous</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="wrap hero-in">
+    <span class="tag">Chirurgien-Dentiste à Dumbéa</span>
+    <h1 class="h1">Votre sourire mérite<br>une expertise de confiance</h1>
+    <p>Le Dr Marion LAURENT vous accueille dans son cabinet de Dumbéa pour prendre soin de vos dents avec douceur, précision et une vraie attention portée à chaque patient.</p>
+    <div class="hero-btns">
+      <a class="b b-primary" href="#rdv">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Prendre rendez-vous
+      </a>
+      <a class="b b-outline" href="#praticien">Découvrir le cabinet</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    <span>Défiler</span>
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div>
+        <span class="stat-val" data-target="5">0</span>
+        <div class="stat-lbl">⭐ Note Google /5</div>
+      </div>
+      <div>
+        <span class="stat-val" data-target="100">0</span>
+        <div class="stat-lbl">% patients satisfaits</div>
+      </div>
+      <div>
+        <span class="stat-val" data-target="1">0</span>
+        <div class="stat-lbl">Cabinet à Dumbéa</div>
+      </div>
+      <div>
+        <span class="stat-val" data-target="365">0</span>
+        <div class="stat-lbl">jours/an à votre service</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+var burger=document.getElementById('burger'),mob=document.getElementById('mob-menu');
+burger.addEventListener('click',function(){mob.classList.toggle('open')});
+mob.querySelectorAll('.mob-link,.b').forEach(function(l){l.addEventListener('click',function(){mob.classList.remove('open')})});
+(function(){
+var vals=document.querySelectorAll('.stat-val');
+var done=false;
+function run(){
+if(done)return;done=true;
+vals.forEach(function(el){
+var t=+el.dataset.target,d=1400,s=30,st=0;
+var ti=setInterval(function(){
+st+=s;
+var p=Math.min(st/d,1);
+var ease=1-Math.pow(1-p,3);
+el.textContent=Math.round(ease*t)+(t===365?'+':t===5?'/5':'%'==el.nextElementSibling.textContent.charAt(0)?'':'');
+if(t===100)el.textContent=Math.round(ease*t)+'%';
+else if(t===365)el.textContent=Math.round(ease*t)+'+';
+else if(t===5)el.textContent=Math.round(ease*t*10)/10;
+else el.textContent=Math.round(ease*t);
+if(p>=1)clearInterval(ti);
+},s);
+});
+}
+var sec=document.querySelector('.stats');
+var obs=new IntersectionObserver(function(e){if(e[0].isIntersecting)run();},{threshold:.3});
+obs.observe(sec);
+})();
+</script>
+<style>
+/* PART 2 STYLES */
+.s-alt{background:#f7fdfe}
+.s-teal{background:var(--cp)}
+.s-dark{background:var(--cs)}
+.sec-head{text-align:center;max-width:640px;margin:0 auto 56px}
+.sec-head .tag{margin-bottom:14px}
+.sec-head .h2{margin-bottom:14px}
+.sec-head p{color:#555;font-size:1rem}
+/* SERVICES */
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.srv-c{background:#fff;border-radius:var(--r);box-shadow:var(--sh);padding:36px 28px;display:flex;flex-direction:column;gap:14px;transition:box-shadow var(--tr),transform var(--tr)}
+.srv-c:hover{box-shadow:var(--sh2);transform:translateY(-4px)}
+.srv-ico{width:56px;height:56px;background:rgba(42,181,197,.1);border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.srv-ico svg{width:28px;height:28px;stroke:var(--cp)}
+.srv-c .h3{color:var(--cs)}
+.srv-c p{font-size:.92rem;color:#555;flex:1}
+/* METIER */
+.met-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.met-grid.rev{direction:rtl}
+.met-grid.rev>*{direction:ltr}
+.met-img{border-radius:1.2rem;overflow:hidden;box-shadow:var(--sh2);aspect-ratio:4/3}
+.met-img img{width:100%;height:100%;object-fit:cover}
+.met-txt{display:flex;flex-direction:column;gap:20px}
+.met-txt .h2{color:var(--cs)}
+.met-txt p{color:#555;font-size:1rem}
+.checks{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.checks li{display:flex;align-items:flex-start;gap:10px;font-size:.95rem;color:var(--ct)}
+.checks svg{width:20px;height:20px;stroke:var(--cp);flex-shrink:0;margin-top:2px}
+/* GALERIE */
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.gal-item{border-radius:var(--r);overflow:hidden;cursor:pointer;aspect-ratio:1;position:relative}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-item::after{content:'';position:absolute;inset:0;background:rgba(26,122,135,0);transition:background var(--tr)}
+.gal-item:hover::after{background:rgba(26,122,135,.18)}
+/* LIGHTBOX */
+.lbox{position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:2000;display:none;align-items:center;justify-content:center;padding:24px}
+.lbox.open{display:flex}
+.lbox img{max-width:90vw;max-height:85vh;border-radius:var(--r);object-fit:contain}
+.lbox-cl{position:absolute;top:20px;right:24px;background:none;border:none;cursor:pointer;color:#fff;font-size:2rem;line-height:1}
+/* FORMULAIRE */
+.rdv-wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.rdv-info{display:flex;flex-direction:column;gap:24px}
+.rdv-info .h2{color:var(--cs)}
+.rdv-info p{color:#555}
+.hor-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.hor-list li{display:flex;justify-content:space-between;font-size:.9rem;padding:8px 0;border-bottom:1px solid rgba(0,0,0,.06)}
+.hor-list li span:first-child{font-weight:600;color:var(--ct)}
+.hor-list li span:last-child{color:#666}
+.form-card{background:#fff;border-radius:1.2rem;box-shadow:var(--sh2);padding:40px 36px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f-grp{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.f-grp label{font-size:.85rem;font-weight:600;color:var(--cs)}
+.f-grp input,.f-grp textarea,.f-grp select{width:100%;padding:12px 16px;border:1.5px solid #e0eff1;border-radius:.5rem;font-family:'Open Sans',sans-serif;font-size:.95rem;color:var(--ct);background:#fafeff;outline:none;transition:border-color var(--tr)}
+.f-grp input:focus,.f-grp textarea:focus{border-color:var(--cp)}
+.f-grp input.err,.f-grp textarea.err{border-color:#e05;}
+.f-grp textarea{resize:vertical;min-height:110px}
+.f-ok{display:none;background:#f0fbfc;border:1.5px solid var(--cp);border-radius:.5rem;padding:16px;color:var(--cs);font-weight:600;text-align:center;margin-top:8px}
+.f-ok.show{display:block}
+/* PREUVE SOCIALE */
+.ps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px}
+.ps-c{background:#fff;border-radius:var(--r);box-shadow:var(--sh);padding:28px 24px;display:flex;flex-direction:column;gap:12px;transition:box-shadow var(--tr)}
+.ps-c:hover{box-shadow:var(--sh2)}
+.stars{color:#F5B900;font-size:1.1rem;letter-spacing:2px}
+.ps-c p{font-size:.92rem;color:#555;flex:1;font-style:italic}
+.ps-author{font-weight:700;font-size:.85rem;color:var(--cs)}
+.g-badge{display:flex;align-items:center;gap:20px;background:#fff;border-radius:1rem;box-shadow:var(--sh2);padding:24px 32px;width:fit-content;margin:0 auto 16px}
+.g-score{font-family:'Roboto Slab',serif;font-weight:700;font-size:3rem;color:var(--cs);line-height:1}
+.g-right{display:flex;flex-direction:column;gap:4px}
+.g-stars{color:#F5B900;font-size:1.4rem;letter-spacing:3px}
+.g-sub{font-size:.8rem;color:#888}
+.badges-row{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:40px}
+.badge{display:flex;align-items:center;gap:10px;background:#f7fdfe;border:1.5px solid rgba(42,181,197,.2);border-radius:50px;padding:10px 20px;font-size:.85rem;font-weight:600;color:var(--cs)}
+.badge svg{width:18px;height:18px;stroke:var(--cp)}
+/* FOOTER */
+.footer{background:var(--cs);color:#fff;padding:56px 0 0}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.15)}
+.ft-logo{font-family:'Roboto Slab',serif;font-weight:700;font-size:1.2rem;margin-bottom:10px}
+.ft-logo span{display:block;font-size:.75rem;font-weight:400;opacity:.7;font-family:'Open Sans',sans-serif;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.ft-p{font-size:.88rem;opacity:.8;line-height:1.7;margin-bottom:16px}
+.ft-soc{display:flex;gap:12px;align-items:center}
+.ft-soc a{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;transition:background var(--tr)}
+.ft-soc a:hover{background:rgba(255,255,255,.25)}
+.ft-soc svg{width:20px;height:20px;fill:#fff}
+.ft-h{font-family:'Roboto Slab',serif;font-weight:700;font-size:.95rem;margin-bottom:16px;opacity:.95}
+.ft-ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.ft-ul a{font-size:.88rem;opacity:.75;transition:opacity var(--tr)}
+.ft-ul a:hover{opacity:1}
+.ft-address{font-size:.88rem;opacity:.8;line-height:1.8}
+.ft-address a{color:#fff;text-decoration:underline;text-underline-offset:3px;opacity:.9}
+.ft-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;padding:18px 0;font-size:.8rem;opacity:.65}
+/* RESPONSIVE PART 2 */
+@media(max-width:900px){
+.srv-grid{grid-template-columns:repeat(2,1fr)}
+.met-grid,.met-grid.rev{grid-template-columns:1fr;direction:ltr;gap:36px}
+.rdv-wrap{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.ps-grid{grid-template-columns:1fr 1fr}
+.ft-grid{grid-template-columns:1fr 1fr;gap:32px}
+}
+@media(max-width:480px){
+.srv-grid,.ps-grid{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+.f-row{grid-template-columns:1fr}
+.form-card{padding:28px 20px}
+.ft-grid{grid-template-columns:1fr;gap:28px}
+.g-badge{flex-direction:column;text-align:center;padding:20px 24px}
+.ft-bottom{flex-direction:column;text-align:center}
+.rdv-info .h2{font-size:1.5rem}
+.badges-row{gap:10px}
+}
+</style>
+
+<!-- ======================== SERVICES ======================== -->
+<section class="s" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">Nos soins</span>
+      <h2 class="h2">Des soins adaptés à chaque sourire</h2>
+      <p>Que vous ayez besoin d'un suivi régulier ou d'un traitement spécifique, le Dr Laurent vous propose une prise en charge complète et personnalisée.</p>
+    </div>
+    <div class="srv-grid">
+      <div class="srv-c">
+        <div class="srv-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        </div>
+        <h3 class="h3">Consultation &amp; bilan</h3>
+        <p>Un premier rendez-vous pour faire le point sur votre santé bucco-dentaire, poser vos questions et établir ensemble un plan de soins adapté.</p>
+        <a class="b b-teal" href="#rdv">Prendre RDV</a>
+      </div>
+      <div class="srv-c">
+        <div class="srv-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/><circle cx="7" cy="6" r="2"/><circle cx="17" cy="12" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+        </div>
+        <h3 class="h3">Détartrage &amp; hygiène</h3>
+        <p>Un nettoyage professionnel régulier pour préserver vos gencives, éliminer le tartre et maintenir un sourire sain au quotidien.</p>
+        <a class="b b-teal" href="#rdv">Prendre RDV</a>
+      </div>
+      <div class="srv-c">
+        <div class="srv-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-5 8-11a8 8 0 0 0-16 0c0 6 8 11 8 11z"/><path d="M12 11v-4m0 0l-2 2m2-2l2 2"/></svg>
+        </div>
+        <h3 class="h3">Soins conservateurs</h3>
+        <p>Traitement des caries, soins des canaux et restaurations pour conserver vos dents naturelles le plus longtemps possible.</p>
+        <a class="b b-teal" href="#rdv">Prendre RDV</a>
+      </div>
+      <div class="srv-c">
+        <div class="srv-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 12h8M12 8v8"/></svg>
+        </div>
+        <h3 class="h3">Orthodontie</h3>
+        <p>Corrections des alignements dentaires pour retrouver un sourire équilibré et fonctionnel, chez l'enfant comme chez l'adulte.</p>
+        <a class="b b-teal" href="#rdv">Prendre RDV</a>
+      </div>
+      <div class="srv-c">
+        <div class="srv-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 0 18A9 9 0 0 0 12 3z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <h3 class="h3">Prothèses dentaires</h3>
+        <p>Couronnes, bridges ou prothèses amovibles pour restaurer votre confort masticatoire et l'esthétique de votre sourire.</p>
+        <a class="b b-teal" href="#rdv">Prendre RDV</a>
+      </div>
+      <div class="srv-c">
+        <div class="srv-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5 10-10"/><circle cx="12" cy="12" r="9"/></svg>
+        </div>
+        <h3 class="h3">Urgences dentaires</h3>
+        <p>Douleur aiguë, dent cassée ou abcès — le cabinet s'organise pour vous recevoir rapidement et soulager votre douleur sans délai.</p>
+        <a class="b b-teal" href="#rdv">Prendre RDV</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== SECTION MÉTIER ======================== -->
+<section class="s s-alt" id="praticien">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">La praticienne</span>
+      <h2 class="h2">Une dentiste engagée pour votre santé</h2>
+      <p>Derrière chaque sourire soigné, il y a une approche humaine, rigoureuse et bienveillante.</p>
+    </div>
+
+    <div class="met-grid">
+      <div class="met-img">
+        <img src="https://i.ibb.co/1f73sZsS/Dr-Marion-LAURENT-1.jpg" alt="Dr Marion LAURENT dans son cabinet à Dumbéa" loading="lazy">
+      </div>
+      <div class="met-txt">
+        <span class="tag">Parcours &amp; formation</span>
+        <h2 class="h2">Dr Marion LAURENT</h2>
+        <p>Chirurgien-dentiste installée à Dumbéa, le Dr Marion LAURENT accompagne ses patients avec rigueur et écoute depuis son cabinet en Nouvelle-Calédonie. Formée en France métropolitaine, elle allie expertise clinique et approche humaine pour offrir des soins de qualité dans un environnement serein.</p>
+        <ul class="checks">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Diplôme d'État de chirurgie dentaire
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Formation continue en orthodontie et prothèse
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Conventionnée CAFAT — prise en charge simplifiée
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Accueil chaleureux, patients de tous âges bienvenus
+          </li>
+        </ul>
+        <a class="b b-primary" href="#rdv">Prendre rendez-vous</a>
+      </div>
+    </div>
+
+    <div style="margin-top:72px"></div>
+
+    <div class="met-grid rev">
+      <div class="met-img">
+        <img src="https://i.ibb.co/GfHYY7VH/Dr-Marion-LAURENT-2.jpg" alt="Cabinet dentaire Dr Marion LAURENT à Dumbéa" loading="lazy">
+      </div>
+      <div class="met-txt">
+        <span class="tag">Philosophie de soin</span>
+        <h2 class="h2">Un cabinet pensé pour vous mettre à l'aise</h2>
+        <p>Chez le Dr Laurent, chaque consultation commence par une écoute attentive. Expliquer les soins, rassurer les patients anxieux et respecter le rythme de chacun font partie intégrante de sa pratique quotidienne à Dumbéa.</p>
+        <ul class="checks">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Écoute et transparence à chaque étape
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Devis clair avant tout traitement significatif
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Matériel moderne et protocoles d'hygiène stricts
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Suivi personnalisé sur le long terme
+          </li>
+        </ul>
+        <a class="b b-teal" href="#services">Voir les soins proposés</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== GALERIE ======================== -->
+<section class="s" id="galerie">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">Le cabinet</span>
+      <h2 class="h2">Un espace serein à Dumbéa</h2>
+      <p>Découvrez le cabinet du Dr Laurent : un environnement conçu pour votre confort et votre tranquillité d'esprit.</p>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item" data-src="https://i.ibb.co/nspkpsjD/Dr-Marion-LAURENT-0.jpg">
+        <img src="https://i.ibb.co/nspkpsjD/Dr-Marion-LAURENT-0.jpg" alt="Dr Marion LAURENT" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/1f73sZsS/Dr-Marion-LAURENT-1.jpg">
+        <img src="https://i.ibb.co/1f73sZsS/Dr-Marion-LAURENT-1.jpg" alt="Cabinet dentaire Dumbéa" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/GfHYY7VH/Dr-Marion-LAURENT-2.jpg">
+        <img src="https://i.ibb.co/GfHYY7VH/Dr-Marion-LAURENT-2.jpg" alt="Salle de soins Dr Laurent" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/rR0hhbQM/Dr-Marion-LAURENT-3.jpg">
+        <img src="https://i.ibb.co/rR0hhbQM/Dr-Marion-LAURENT-3.jpg" alt="Équipement dentaire moderne" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lbox" id="lbox" role="dialog" aria-modal="true">
+  <button class="lbox-cl" id="lbox-cl" aria-label="Fermer">&#x2715;</button>
+  <img id="lbox-img" src="" alt="Photo agrandie">
+</div>
+
+<!-- ======================== FORMULAIRE ======================== -->
+<section class="s s-alt" id="rdv">
+  <div class="wrap">
+    <div class="rdv-wrap">
+      <div class="rdv-info">
+        <span class="tag">Prise de rendez-vous</span>
+        <h2 class="h2">Réservez votre consultation</h2>
+        <p>Remplissez le formulaire ci-contre et le cabinet vous recontacte dans les meilleurs délais pour confirmer votre rendez-vous.</p>
+        <div>
+          <div class="ft-h" style="color:var(--cs);font-size:1rem;margin-bottom:14px">Horaires d'ouverture</div>
+          <ul class="hor-list">
+            <li><span>Lundi – Vendredi</span><span>8h00 – 17h00</span></li>
+            <li><span>Samedi</span><span>Sur rendez-vous</span></li>
+            <li><span>Dimanche &amp; jours fériés</span><span>Fermé</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="ft-h" style="color:var(--cs);font-size:1rem;margin-bottom:10px">Informations pratiques</div>
+          <ul class="checks">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Conventionné CAFAT
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Mutuelles acceptées
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Accès parking à proximité
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <div class="ft-h" style="color:var(--cs);font-size:1.1rem;margin-bottom:24px">Votre message</div>
+        <form id="contact-form" action="#" novalidate>
+          <div class="f-row">
+            <div class="f-grp">
+              <label for="f-nom">Nom complet *</label>
+              <input type="text" id="f-nom" name="nom" placeholder="Votre nom" autocomplete="name">
+            </div>
+            <div class="f-grp">
+              <label for="f-tel">Téléphone *</label>
+              <input type="tel" id="f-tel" name="tel" placeholder="XX XX XX XX" autocomplete="tel">
+            </div>
+          </div>
+          <div class="f-grp">
+            <label for="f-email">Adresse e-mail *</label>
+            <input type="email" id="f-email" name="email" placeholder="votre@email.com" autocomplete="email">
+          </div>
+          <div class="f-grp">
+            <label for="f-motif">Motif de la consultation</label>
+            <select id="f-motif" name="motif">
+              <option value="">Sélectionnez un motif</option>
+              <option>Première consultation</option>
+              <option>Détartrage / Nettoyage</option>
+              <option>Urgence dentaire</option>
+              <option>Soin conservateur</option>
+              <option>Orthodontie</option>
+              <option>Prothèse</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="f-grp">
+            <label for="f-msg">Message</label>
+            <textarea id="f-msg" name="message" placeholder="Décrivez brièvement votre besoin ou posez vos questions..."></textarea>
+          </div>
+          <button type="submit" class="b b-primary" id="f-btn" style="width:100%;justify-content:center">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Envoyer ma demande
+          </button>
+          <div class="f-ok" id="f-ok">
+            ✓ Votre message a bien été envoyé. Nous vous recontacterons très prochainement !
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== PREUVE SOCIALE ======================== -->
+<section class="s" id="avis">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">Avis patients</span>
+      <h2 class="h2">Ils nous font confiance</h2>
+      <p>La satisfaction de nos patients est notre meilleure récompense. Retrouvez leurs témoignages authentiques.</p>
+    </div>
+
+    <div class="g-badge">
+      <div class="g-score">5</div>
+      <div class="g-right">
+        <div class="g-stars">★★★★★</div>
+        <div style="font-weight:700;color:var(--cs);font-size:1rem">Note parfaite sur Google</div>
+        <div class="g-sub">Basé sur les avis patients vérifiés</div>
+      </div>
+    </div>
+
+    <div class="ps-grid">
+      <div class="ps-c">
+        <div class="stars">★★★★★</div>
+        <p>"Le Dr Laurent est à l'écoute et explique chaque étape du soin. Je me suis sentie en confiance dès la première consultation. Je recommande vivement !"</p>
+        <span class="ps-author">— Patiente à Dumbéa</span>
+      </div>
+      <div class="ps-c">
+        <div class="stars">★★★★★</div>
+        <p>"Enfin un cabinet où l'on prend vraiment le temps. Mon fils appréhendait beaucoup le dentiste — il repart maintenant sans problème. Merci Docteur Laurent !"</p>
+        <span class="ps-author">— Parent d'un jeune patient</span>
+      </div>
+      <div class="ps-c">
+        <div class="stars">★★★★★</div>
+        <p>"Accueil très chaleureux, cabinet propre et bien équipé. Les soins sont expliqués clairement et le devis est transparent. Exactement ce qu'on cherche."</p>
+        <span class="ps-author">— Patient de Dumbéa</span>
+      </div>
+    </div>
+
+    <div class="badges-row">
+      <div class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-5 8-11a8 8 0 0 0-16 0c0 6 8 11 8 11z"/><circle cx="12" cy="11" r="3"/></svg>
+        Cabinet à Dumbéa
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Conventionné CAFAT
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Note Google 5 / 5
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Urgences prises en charge
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== INFORMATIONS PRATIQUES ======================== -->
+<section class="s s-alt" id="infos">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">Accès au cabinet</span>
+      <h2 class="h2">Nous trouver à Dumbéa</h2>
+      <p>Le cabinet est facilement accessible depuis Dumbéa et les communes environnantes de Nouvelle-Calédonie.</p>
+    </div>
+    <div class="met-grid">
+      <div class="met-txt">
+        <h3 class="h3" style="color:var(--cs)">Adresse &amp; contact</h3>
+        <p>R9PP+FJP, Dumbéa<br>Nouvelle-Calédonie</p>
+        <ul class="checks">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-5 8-11a8 8 0 0 0-16 0c0 6 8 11 8 11z"/><circle cx="12" cy="11" r="3"/></svg>
+            Parking disponible à proximité
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Accessible aux personnes à mobilité réduite
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            Prise de rendez-vous par téléphone ou via ce site
+          </li>
+        </ul>
+        <a class="b b-primary" href="#rdv">Prendre rendez-vous</a>
+      </div>
+      <div class="met-img">
+        <iframe title="Localisation cabinet Dr Marion LAURENT Dumbéa" src="https://www.google.com/maps?q=R9PP%2BFJP+Dumb%C3%A9a+Nouvelle-Cal%C3%A9donie&output=embed" width="100%" height="100%" style="min-height:320px;border:0;border-radius:1.2rem" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== FOOTER ======================== -->
+<footer class="footer" id="contact">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div>
+        <div class="ft-logo">
+          Dr Marion LAURENT
+          <span>Chirurgien-Dentiste · Dumbéa</span>
+        </div>
+        <p class="ft-p">Prendre soin de votre sourire avec expertise et bienveillance, au cœur de Dumbéa, en Nouvelle-Calédonie.</p>
+        <div class="ft-soc">
+          <a href="https://www.facebook.com/drlaurentmarion" target="_blank" rel="noopener" aria-label="Facebook Dr Marion LAURENT">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="ft-h">Navigation</div>
+        <ul class="ft-ul">
+          <li><a href="#praticien">La praticienne</a></li>
+          <li><a href="#services">Soins proposés</a></li>
+          <li><a href="#galerie">Le cabinet</a></li>
+          <li><a href="#rdv">Prendre rendez-vous</a></li>
+          <li><a href="#avis">Avis patients</a></li>
+          <li><a href="#infos">Accès &amp; horaires</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft-h">Informations</div>
+        <address class="ft-address" style="font-style:normal">
+          R9PP+FJP, Dumbéa<br>
+          Nouvelle-Calédonie<br><br>
+          <strong>Horaires :</strong><br>
+          Lun – Ven : 8h00 – 17h00<br>
+          Sam : Sur rendez-vous<br><br>
+          <strong>Urgences :</strong> Contactez le cabinet<br><br>
+          CAFAT · Mutuelles acceptées
+        </address>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span>© 2026 Dr Marion LAURENT. Tous droits réservés.</span>
+      <span>Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline;text-underline-offset:3px;opacity:1">Setup NC</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+var lbox=document.getElementById('lbox'),limg=document.getElementById('lbox-img');
+document.querySelectorAll('.gal-item').forEach(function(el){
+  el.addEventListener('click',function(){
+    limg.src=el.dataset.src;
+    lbox.classList.add('open');
+    document.body.style.overflow='hidden';
+  });
+});
+document.getElementById('lbox-cl').addEventListener('click',function(){
+  lbox.classList.remove('open');
+  document.body.style.overflow='';
+});
+lbox.addEventListener('click',function(e){
+  if(e.target===lbox){lbox.classList.remove('open');document.body.style.overflow='';}
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){lbox.classList.remove('open');document.body.style.overflow='';}
+});
+(function(){
+  var form=document.getElementById('contact-form');
+  var ok=document.getElementById('f-ok');
+  var btn=document.getElementById('f-btn');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var valid=true;
+    ['f-nom','f-tel','f-email'].forEach(function(id){
+      var el=document.getElementById(id);
+      el.classList.remove('err');
+      if(!el.value.trim()){el.classList.add('err');valid=false;}
+    });
+    var em=document.getElementById('f-email');
+    if(em.value&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value)){em.classList.add('err');valid=false;}
+    if(!valid)return;
+    btn.textContent='Envoi en cours…';
+    btn.disabled=true;
+    setTimeout(function(){
+      form.reset();
+      btn.textContent='Envoyer ma demande';
+      btn.disabled=false;
+      ok.classList.add('show');
+      setTimeout(function(){ok.classList.remove('show');},6000);
+    },1200);
+  });
+})();
+</script>
+</body>
+</html>
