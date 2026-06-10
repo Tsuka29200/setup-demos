@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AVENUE DE LA FÊTE — Nouméa</title>
+<meta name="description" content="Boutique de décoration festive à Nouméa — anniversaires, baptêmes, soirées à thème. Ballons, décorations et articles de fête colorés pour tous vos événements en Nouvelle-Calédonie.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Manrope:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#D81B60;
+--cs:#FFFFFF;
+--ca:#FDD835;
+--ct:#2C2C2C;
+--cb:#FFFFFF;
+--cp-dark:#b01550;
+--radius:16px;
+--shadow:0 8px 32px rgba(216,27,96,0.18);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;color:var(--ct);background:var(--cb);overflow-x:hidden;font-size:16px}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU SETUP NC */
+.setup-bar{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;display:flex;align-items:center;justify-content:center}
+.setup-bar a{font-family:'Manrope','Nunito',sans-serif;font-weight:700;font-size:14px;color:#4375ff;letter-spacing:0.3px;line-height:44px;text-align:center}
+.setup-bar a:hover{opacity:0.85}
+
+/* HEADER */
+.hdr{position:sticky;top:44px;left:0;width:100%;background:var(--cs);z-index:1000;box-shadow:0 2px 16px rgba(216,27,96,0.10);border-bottom:2px solid var(--ca)}
+.hdr-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-txt{font-size:1.25rem;font-weight:900;color:var(--cp);letter-spacing:-0.5px;line-height:1.1}
+.logo-txt span{color:var(--ct)}
+.logo-balloons{font-size:1.5rem;line-height:1}
+.nav{display:flex;gap:24px;list-style:none;align-items:center}
+.nav a{font-size:0.875rem;font-weight:700;color:var(--ct);transition:color .25s}
+.nav a:hover{color:var(--cp)}
+.hdr-cta{display:flex;align-items:center;gap:12px}
+.b-primary{background:var(--cp);color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.875rem;padding:10px 22px;border-radius:50px;border:none;cursor:pointer;transition:background .3s,transform .2s;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
+.b-primary:hover{background:var(--cp-dark);transform:translateY(-2px)}
+.b-cta{background:var(--ca);color:var(--ct);font-family:'Nunito',sans-serif;font-weight:800;font-size:0.875rem;padding:10px 22px;border-radius:50px;border:none;cursor:pointer;transition:background .3s,color .3s,transform .2s;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
+.b-cta:hover{background:var(--cp);color:#fff;transform:translateY(-2px)}
+.b-outline{background:transparent;color:var(--cp);font-family:'Nunito',sans-serif;font-weight:800;font-size:0.875rem;padding:9px 20px;border-radius:50px;border:2px solid var(--cp);cursor:pointer;transition:background .3s,color .3s,transform .2s;display:inline-flex;align-items:center;gap:6px}
+.b-outline:hover{background:var(--cp);color:#fff;transform:translateY(-2px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{display:block;width:24px;height:2.5px;background:var(--cp);border-radius:2px;transition:transform .3s,opacity .3s}
+.mob-nav{display:none;position:fixed;top:112px;left:0;width:100%;background:#fff;z-index:999;box-shadow:0 8px 24px rgba(216,27,96,0.12);padding:16px 24px 24px;flex-direction:column;gap:4px}
+.mob-nav.open{display:flex}
+.mob-nav a{font-size:1rem;font-weight:700;color:var(--ct);padding:12px 0;border-bottom:1px solid #f5f5f5;transition:color .2s}
+.mob-nav a:hover{color:var(--cp)}
+.mob-nav .b-cta{margin-top:12px;width:100%;justify-content:center;font-size:1rem;padding:14px}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background:url('https://i.ibb.co/JWZ9g6sL/AVENUE-DE-LA-F-TE-0.jpg') center/cover no-repeat;padding-top:0}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(216,27,96,0.82) 0%,rgba(44,44,44,0.65) 100%);z-index:1}
+.hero-content{position:relative;z-index:2;text-align:center;padding:80px 24px 60px;max-width:760px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--ca);color:var(--ct);font-weight:800;font-size:0.8rem;padding:7px 18px;border-radius:50px;letter-spacing:0.8px;text-transform:uppercase;margin-bottom:22px;animation:badgePulse 2.4s ease-in-out infinite}
+@keyframes badgePulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(253,216,53,0.5)}50%{transform:scale(1.04);box-shadow:0 0 0 8px rgba(253,216,53,0)}}
+.hero h1{font-size:clamp(2.2rem,6vw,4rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:18px;text-shadow:0 2px 12px rgba(0,0,0,0.3)}
+.hero h1 .accent{color:var(--ca)}
+.hero-sub{font-size:clamp(1rem,2.5vw,1.25rem);color:rgba(255,255,255,0.92);font-weight:600;line-height:1.6;margin-bottom:36px;max-width:560px;margin-left:auto;margin-right:auto}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.hero-btns .b-cta{font-size:1rem;padding:14px 32px;border-radius:50px}
+.hero-btns .b-outline-w{background:transparent;color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;padding:13px 30px;border-radius:50px;border:2px solid rgba(255,255,255,0.8);cursor:pointer;transition:background .3s,color .3s;display:inline-flex;align-items:center;gap:8px}
+.hero-btns .b-outline-w:hover{background:#fff;color:var(--cp)}
+.promo-strip{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.25);border-radius:50px;padding:10px 24px;color:#fff;font-size:0.875rem;font-weight:700;animation:stripGlow 3s ease-in-out infinite}
+@keyframes stripGlow{0%,100%{background:rgba(255,255,255,0.15)}50%{background:rgba(255,255,255,0.25)}}
+.promo-strip .dot{width:8px;height:8px;background:var(--ca);border-radius:50%;animation:badgePulse 1.5s ease-in-out infinite}
+.scroll-ind{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,0.75);font-size:0.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;animation:scrollBounce 2s ease-in-out infinite}
+@keyframes scrollBounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+.scroll-arr{width:28px;height:28px;border:2px solid rgba(255,255,255,0.6);border-radius:50%;display:flex;align-items:center;justify-content:center}
+
+/* BANDE STATS */
+.stats{background:var(--cp);padding:56px 24px}
+.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stat-item{display:flex;flex-direction:column;align-items:center;gap:8px}
+.stat-icon{font-size:2rem;line-height:1}
+.stat-num{font-size:clamp(2rem,4vw,2.8rem);font-weight:900;color:#fff;line-height:1}
+.stat-lbl{font-size:0.85rem;font-weight:700;color:rgba(255,255,255,0.85);letter-spacing:0.5px;text-transform:uppercase}
+
+/* CATÉGORIES */
+.s{padding:72px 24px}
+.s-inner{max-width:1200px;margin:0 auto}
+.s-tag{display:inline-block;background:rgba(216,27,96,0.08);color:var(--cp);font-size:0.8rem;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;padding:6px 16px;border-radius:50px;margin-bottom:12px}
+.h2{font-size:clamp(1.7rem,4vw,2.5rem);font-weight:900;color:var(--ct);line-height:1.2;margin-bottom:8px}
+.h2 span{color:var(--cp)}
+.s-sub{font-size:1rem;color:#666;font-weight:600;line-height:1.6;max-width:540px;margin-bottom:40px}
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.c-cat{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3;cursor:pointer;display:block}
+.c-cat img{width:100%;height:100%;object-fit:cover;transition:transform .5s;image-rendering:auto}
+.c-cat:hover img{transform:scale(1.07)}
+.c-cat-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(216,27,96,0.85) 0%,rgba(44,44,44,0.1) 60%);transition:opacity .3s;display:flex;flex-direction:column;justify-content:flex-end;padding:20px}
+.c-cat:hover .c-cat-overlay{background:linear-gradient(to top,rgba(176,21,80,0.92) 0%,rgba(44,44,44,0.2) 60%)}
+.c-cat-name{font-size:1.1rem;font-weight:900;color:#fff;line-height:1.2;margin-bottom:6px}
+.c-cat-link{font-size:0.8rem;font-weight:700;color:var(--ca);letter-spacing:0.5px}
+.c-cat-badge{position:absolute;top:14px;right:14px;background:var(--ca);color:var(--ct);font-size:0.72rem;font-weight:800;padding:5px 12px;border-radius:50px;letter-spacing:0.3px;animation:badgePulse 2s ease-in-out infinite}
+
+/* PROMOS */
+.s-promo{background:#fdf0f5;padding:72px 24px}
+.promo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.c-promo{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 20px rgba(216,27,96,0.08);transition:transform .3s,box-shadow .3s;position:relative}
+.c-promo:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.c-promo-img{position:relative;aspect-ratio:4/3;overflow:hidden}
+.c-promo-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.c-promo:hover .c-promo-img img{transform:scale(1.06)}
+.badge-promo{position:absolute;top:12px;left:12px;background:var(--cp);color:#fff;font-size:0.78rem;font-weight:800;padding:5px 12px;border-radius:50px;letter-spacing:0.3px;animation:badgePulse 2.2s ease-in-out infinite}
+.badge-new{position:absolute;top:12px;left:12px;background:#00b894;color:#fff;font-size:0.78rem;font-weight:800;padding:5px 12px;border-radius:50px;letter-spacing:0.3px}
+.c-promo-body{padding:18px 20px 22px}
+.c-promo-name{font-size:1rem;font-weight:800;color:var(--ct);margin-bottom:6px}
+.c-promo-desc{font-size:0.875rem;color:#777;font-weight:600;line-height:1.5;margin-bottom:14px}
+.c-promo-footer{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.price-old{font-size:0.85rem;color:#aaa;text-decoration:line-through;font-weight:600}
+.price-new{font-size:1.25rem;font-weight:900;color:var(--cp)}
+.b-sm{background:var(--ca);color:var(--ct);font-family:'Nunito',sans-serif;font-weight:800;font-size:0.8rem;padding:8px 16px;border-radius:50px;border:none;cursor:pointer;transition:background .3s,color .3s,transform .2s;display:inline-flex;align-items:center;gap:5px}
+.b-sm:hover{background:var(--cp);color:#fff;transform:translateY(-2px)}
+
+/* BESTSELLERS */
+.best-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px}
+.c-best{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:0 2px 12px rgba(44,44,44,0.08);transition:transform .3s,box-shadow .3s;cursor:pointer}
+.c-best:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.c-best-img{aspect-ratio:1;overflow:hidden;position:relative}
+.c-best-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.c-best:hover .c-best-img img{transform:scale(1.07)}
+.stock-badge{position:absolute;bottom:10px;left:10px;background:rgba(216,27,96,0.92);color:#fff;font-size:0.72rem;font-weight:800;padding:4px 10px;border-radius:50px}
+.c-best-body{padding:14px 16px 18px}
+.c-best-name{font-size:0.95rem;font-weight:800;color:var(--ct);margin-bottom:4px;line-height:1.3}
+.c-best-price{font-size:1.1rem;font-weight:900;color:var(--cp);margin-bottom:12px}
+.b-add{width:100%;background:var(--ca);color:var(--ct);font-family:'Nunito',sans-serif;font-weight:800;font-size:0.85rem;padding:10px;border-radius:50px;border:none;cursor:pointer;transition:background .3s,color .3s;min-height:40px}
+.b-add:hover{background:var(--cp);color:#fff}
+
+/* INFOS PRATIQUES */
+.s-info{background:var(--cp);padding:72px 24px}
+.info-inner{max-width:1100px;margin:0 auto}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:40px}
+.c-info{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:var(--radius);padding:28px 24px;text-align:center;backdrop-filter:blur(4px)}
+.c-info-icon{font-size:2.2rem;margin-bottom:14px;display:block}
+.c-info-title{font-size:1rem;font-weight:800;color:#fff;margin-bottom:10px}
+.c-info-text{font-size:0.9rem;color:rgba(255,255,255,0.85);font-weight:600;line-height:1.7}
+.c-info-text strong{color:#fff}
+.h2-w{font-size:clamp(1.7rem,4vw,2.5rem);font-weight:900;color:#fff;line-height:1.2;margin-bottom:8px}
+.s-tag-w{display:inline-block;background:rgba(255,255,255,0.2);color:#fff;font-size:0.8rem;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;padding:6px 16px;border-radius:50px;margin-bottom:12px}
+.s-sub-w{font-size:1rem;color:rgba(255,255,255,0.85);font-weight:600;line-height:1.6;max-width:540px}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.cat-grid{grid-template-columns:repeat(2,1fr)}
+.promo-grid{grid-template-columns:repeat(2,1fr)}
+.best-grid{grid-template-columns:repeat(2,1fr)}
+.stats-inner{grid-template-columns:repeat(2,1fr);gap:32px}
+.info-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+.hdr-inner{padding:0 16px;height:60px}
+.nav{display:none}
+.hdr-cta .b-cta{display:none}
+.hamburger{display:flex}
+.hero-content{padding:100px 16px 80px}
+.hero-btns{gap:12px}
+.hero-btns .b-cta,.hero-btns .b-outline-w{width:100%;justify-content:center}
+.cat-grid{grid-template-columns:1fr 1fr;gap:12px}
+.promo-grid{grid-template-columns:1fr}
+.best-grid{grid-template-columns:1fr 1fr;gap:12px}
+.s{padding:48px 16px}
+.s-promo{padding:48px 16px}
+.s-info{padding:48px 16px}
+.stats{padding:40px 16px}
+}
+@media(max-width:480px){
+.cat-grid{grid-template-columns:1fr}
+.best-grid{grid-template-columns:1fr}
+.hdr-inner{height:56px}
+.setup-bar a{font-size:13px;line-height:40px}
+.setup-bar{height:40px}
+.hdr{top:40px}
+.mob-nav{top:96px}
+}
+
+/* FALLBACK ANIMATIONS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU SETUP NC -->
+<div class="setup-bar">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-inner">
+    <a href="#" class="logo">
+      <span class="logo-balloons">🎈</span>
+      <div class="logo-txt">AVENUE<br><span>DE LA FÊTE</span></div>
+    </a>
+    <nav>
+      <ul class="nav">
+        <li><a href="#categories">Catégories</a></li>
+        <li><a href="#promos">Offres</a></li>
+        <li><a href="#bestsellers">Bestsellers</a></li>
+        <li><a href="#avis">Avis</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hdr-cta">
+      <a href="https://www.facebook.com/avenuedelafete" target="_blank" rel="noopener" class="b-cta">📘 Suivez-nous</a>
+      <button class="hamburger" id="hambBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav class="mob-nav" id="mobNav">
+    <a href="#categories" onclick="closeMob()">Catégories</a>
+    <a href="#promos" onclick="closeMob()">Offres du moment</a>
+    <a href="#bestsellers" onclick="closeMob()">Bestsellers</a>
+    <a href="#avis" onclick="closeMob()">Avis clients</a>
+    <a href="#contact" onclick="closeMob()">Contact</a>
+    <a href="https://www.facebook.com/avenuedelafete" target="_blank" rel="noopener" class="b-cta">📘 Notre page Facebook</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🎉 Nouméa's Party Shop N°1</div>
+    <h1>La fête commence<br>ici, à <span class="accent">Nouméa</span> !</h1>
+    <p class="hero-sub">Ballons, décorations et articles festifs pour vos anniversaires, baptêmes et soirées à thème. Votre boutique de fête préférée en Nouvelle-Calédonie.</p>
+    <div class="hero-btns">
+      <a href="#categories" class="b-cta">🎊 Découvrir nos collections</a>
+      <a href="#contact" class="b-outline-w">📍 Nous trouver</a>
+    </div>
+    <div class="promo-strip">
+      <span class="dot"></span>
+      ✨ Nouveau stock de décorations vient d'arriver — venez découvrir nos nouveautés en boutique !
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>Découvrir</span>
+    <div class="scroll-arr">
+      <svg width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1l5 5 5-5" stroke="rgba(255,255,255,0.8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<section class="stats">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <span class="stat-icon">🎈</span>
+      <span class="stat-num" data-target="500">0</span>
+      <span class="stat-lbl">Références en boutique</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-icon">⭐</span>
+      <span class="stat-num" data-target="4.5" data-decimal="1">0</span>
+      <span class="stat-lbl">Note Google / 5</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-icon">🎁</span>
+      <span class="stat-num" data-target="100">0</span>
+      <span class="stat-lbl">Familles heureuses</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-icon">📅</span>
+      <span class="stat-num" data-target="6">0</span>
+      <span class="stat-lbl">Jours d'ouverture</span>
+    </div>
+  </div>
+</section>
+
+<!-- CATÉGORIES -->
+<section class="s" id="categories">
+  <div class="s-inner">
+    <span class="s-tag">🎊 Nos univers festifs</span>
+    <h2 class="h2">Chaque fête a son <span>univers</span></h2>
+    <p class="s-sub">De l'anniversaire au baptême, découvrez nos collections thématiques pour créer des souvenirs inoubliables.</p>
+    <div class="cat-grid">
+      <a href="#contact" class="c-cat">
+        <img src="https://i.ibb.co/dw5dTvkV/AVENUE-DE-LA-F-TE-1.jpg" alt="Décoration anniversaire" loading="lazy">
+        <div class="c-cat-overlay">
+          <span class="c-cat-name">🎂 Anniversaires</span>
+          <span class="c-cat-link">Explorer la collection →</span>
+        </div>
+        <span class="c-cat-badge">Bestseller</span>
+      </a>
+      <a href="#contact" class="c-cat">
+        <img src="https://i.ibb.co/jPR4svTb/AVENUE-DE-LA-F-TE-2.jpg" alt="Décoration baptême" loading="lazy">
+        <div class="c-cat-overlay">
+          <span class="c-cat-name">👶 Baptêmes & Naissances</span>
+          <span class="c-cat-link">Explorer la collection →</span>
+        </div>
+      </a>
+      <a href="#contact" class="c-cat">
+        <img src="https://i.ibb.co/ynFb4Lkp/AVENUE-DE-LA-F-TE-3.jpg" alt="Soirées à thème" loading="lazy">
+        <div class="c-cat-overlay">
+          <span class="c-cat-name">🪩 Soirées à Thème</span>
+          <span class="c-cat-link">Explorer la collection →</span>
+        </div>
+        <span class="c-cat-badge">Nouveautés</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PROMOS -->
+<section class="s-promo" id="promos">
+  <div class="s-inner">
+    <span class="s-tag">🏷️ Sélection du moment</span>
+    <h2 class="h2">Offres <span>spéciales</span> boutique</h2>
+    <p class="s-sub">Des articles festifs sélectionnés pour vous — disponibles en boutique à Nouméa.</p>
+    <div class="promo-grid">
+      <div class="c-promo">
+        <div class="c-promo-img">
+          <img src="https://i.ibb.co/dw5dTvkV/AVENUE-DE-LA-F-TE-1.jpg" alt="Kit décoration anniversaire" loading="lazy">
+          <span class="badge-promo">⚡ Offre boutique</span>
+        </div>
+        <div class="c-promo-body">
+          <p class="c-promo-name">Kit Décoration Anniversaire</p>
+          <p class="c-promo-desc">Ballons, guirlandes et accessoires pour une fête réussie. Coloré et festif.</p>
+          <div class="c-promo-footer">
+            <span class="price-new">En boutique</span>
+            <button class="b-sm">Voir →</button>
+          </div>
+        </div>
+      </div>
+      <div class="c-promo">
+        <div class="c-promo-img">
+          <img src="https://i.ibb.co/jPR4svTb/AVENUE-DE-LA-F-TE-2.jpg" alt="Décoration baptême douce" loading="lazy">
+          <span class="badge-new">🌟 Nouveauté</span>
+        </div>
+        <div class="c-promo-body">
+          <p class="c-promo-name">Décoration Baptême & Naissance</p>
+          <p class="c-promo-desc">Une sélection douce et élégante pour célébrer les tout-petits avec amour.</p>
+          <div class="c-promo-footer">
+            <span class="price-new">En boutique</span>
+            <button class="b-sm">Voir →</button>
+          </div>
+        </div>
+      </div>
+      <div class="c-promo">
+        <div class="c-promo-img">
+          <img src="https://i.ibb.co/ynFb4Lkp/AVENUE-DE-LA-F-TE-3.jpg" alt="Accessoires soirée thème" loading="lazy">
+          <span class="badge-promo">🎉 Coup de cœur</span>
+        </div>
+        <div class="c-promo-body">
+          <p class="c-promo-name">Accessoires Soirée à Thème</p>
+          <p class="c-promo-desc">Photobooth, déco de table, ballons géants — créez l'ambiance de vos rêves.</p>
+          <div class="c-promo-footer">
+            <span class="price-new">En boutique</span>
+            <button class="b-sm">Voir →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BESTSELLERS -->
+<section class="s" id="bestsellers">
+  <div class="s-inner">
+    <span class="s-tag">🔥 Les incontournables</span>
+    <h2 class="h2">Bestsellers <span>du moment</span></h2>
+    <p class="s-sub">Les articles que les familles calédoniennes adorent — ceux qu'on retrouve dans toutes les belles fêtes de Nouméa.</p>
+    <div class="best-grid">
+      <div class="c-best">
+        <div class="c-best-img">
+          <img src="https://i.ibb.co/JWZ9g6sL/AVENUE-DE-LA-F-TE-0.jpg" alt="Ballons multicolores" loading="lazy">
+          <span class="stock-badge">⚡ Stock limité</span>
+        </div>
+        <div class="c-best-body">
+          <p class="c-best-name">Ballons Multicolores Festifs</p>
+          <p class="c-best-price">En boutique</p>
+          <button class="b-add">🛍️ Voir en boutique</button>
+        </div>
+      </div>
+      <div class="c-best">
+        <div class="c-best-img">
+          <img src="https://i.ibb.co/dw5dTvkV/AVENUE-DE-LA-F-TE-1.jpg" alt="Guirlandes décoratives" loading="lazy">
+        </div>
+        <div class="c-best-body">
+          <p class="c-best-name">Guirlandes & Fanions</p>
+          <p class="c-best-price">En boutique</p>
+          <button class="b-add">🛍️ Voir en boutique</button>
+        </div>
+      </div>
+      <div class="c-best">
+        <div class="c-best-img">
+          <img src="https://i.ibb.co/jPR4svTb/AVENUE-DE-LA-F-TE-2.jpg" alt="Décorations de table" loading="lazy">
+          <span class="stock-badge">❤️ Coup de cœur</span>
+        </div>
+        <div class="c-best-body">
+          <p class="c-best-name">Décorations de Table</p>
+          <p class="c-best-price">En boutique</p>
+          <button class="b-add">🛍️ Voir en boutique</button>
+        </div>
+      </div>
+      <div class="c-best">
+        <div class="c-best-img">
+          <img src="https://i.ibb.co/ynFb4Lkp/AVENUE-DE-LA-F-TE-3.jpg" alt="Accessoires photobooth" loading="lazy">
+        </div>
+        <div class="c-best-body">
+          <p class="c-best-name">Accessoires Photobooth</p>
+          <p class="c-best-price">En boutique</p>
+          <button class="b-add">🛍️ Voir en boutique</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFOS PRATIQUES -->
+<section class="s-info" id="infos">
+  <div class="info-inner">
+    <span class="s-tag-w">📍 Votre boutique à Nouméa</span>
+    <h2 class="h2-w">Venez nous rendre visite !</h2>
+    <p class="s-sub-w">Rue Auguste Benebig, Nouméa — Nouvelle-Calédonie</p>
+    <div class="info-grid">
+      <div class="c-info">
+        <span class="c-info-icon">🕐</span>
+        <p class="c-info-title">Horaires d'ouverture</p>
+        <p class="c-info-text">
+          <strong>Lundi – Vendredi</strong><br>
+          8h00 – 12h00 / 13h30 – 17h30<br><br>
+          <strong>Samedi</strong><br>
+          8h00 – 12h00<br><br>
+          <strong>Dimanche :</strong> Fermé
+        </p>
+      </div>
+      <div class="c-info">
+        <span class="c-info-icon">📍</span>
+        <p class="c-info-title">Adresse & Accès</p>
+        <p class="c-info-text">
+          <strong>Rue Auguste Benebig</strong><br>
+          Nouméa, Nouvelle-Calédonie<br><br>
+          Parking disponible à proximité.<br>
+          Venez en famille découvrir notre boutique rose et festive !
+        </p>
+      </div>
+      <div class="c-info">
+        <span class="c-info-icon">🎁</span>
+        <p class="c-info-title">Services boutique</p>
+        <p class="c-info-text">
+          <strong>Vente en boutique</strong><br>
+          Large choix en stock immédiat<br><br>
+          <strong>Conseils personnalisés</strong><br>
+          Notre équipe vous guide pour créer la fête parfaite.<br><br>
+          <a href="https://www.facebook.com/avenuedelafete" target="_blank" rel="noopener" style="color:#FDD835;font-weight:800">📘 Contactez-nous sur Facebook</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+var h=document.getElementById('hambBtn'),n=document.getElementById('mobNav');
+function closeMob(){n.classList.remove('open')}
+h.addEventListener('click',function(){n.classList.toggle('open')});
+document.addEventListener('click',function(e){if(!h.contains(e.target)&&!n.contains(e.target))closeMob()});
+var obs=new IntersectionObserver(function(entries){
+entries.forEach(function(e){
+if(e.isIntersecting){
+var el=e.target,target=parseFloat(el.dataset.target),dec=parseInt(el.dataset.decimal)||0,dur=1600,start=null;
+(function tick(ts){
+if(!start)start=ts;
+var p=Math.min((ts-start)/dur,1),val=p*target;
+el.textContent=dec?val.toFixed(dec):Math.floor(val);
+if(p<1)requestAnimationFrame(tick);else el.textContent=dec?target.toFixed(dec):target;
+})(performance.now());
+obs.unobserve(el);
+}
+});
+},{threshold:0.4});
+document.querySelectorAll('[data-target]').forEach(function(el){obs.observe(el)});
+</script>
+<style>
+.s-svc{background:#fdf0f5;padding:72px 24px}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.c-svc{background:#fff;border-radius:var(--radius);padding:32px 24px;box-shadow:0 4px 20px rgba(216,27,96,0.07);transition:transform .3s,box-shadow .3s;text-align:center}
+.c-svc:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.c-svc-icon{width:64px;height:64px;background:rgba(216,27,96,0.08);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:1.8rem}
+.c-svc-title{font-size:1.05rem;font-weight:800;color:var(--ct);margin-bottom:10px}
+.c-svc-desc{font-size:0.875rem;color:#777;font-weight:600;line-height:1.6;margin-bottom:18px}
+.s-metier{padding:80px 24px}
+.metier-inner{max-width:1100px;margin:0 auto}
+.metier-row{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:48px}
+.metier-img{border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3;box-shadow:var(--shadow)}
+.metier-img img{width:100%;height:100%;object-fit:cover}
+.metier-txt .s-tag{margin-bottom:12px}
+.metier-txt .h2{margin-bottom:14px}
+.metier-txt p{font-size:0.95rem;color:#666;font-weight:600;line-height:1.75;margin-bottom:20px}
+.checks{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.checks li{display:flex;align-items:flex-start;gap:10px;font-size:0.9rem;font-weight:700;color:var(--ct)}
+.checks li::before{content:"✓";display:flex;align-items:center;justify-content:center;width:22px;height:22px;background:var(--cp);color:#fff;border-radius:50%;font-size:0.75rem;font-weight:800;flex-shrink:0;margin-top:1px}
+.s-galerie{background:#fdf0f5;padding:72px 24px}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+.gal-item{border-radius:12px;overflow:hidden;aspect-ratio:1;cursor:pointer;position:relative}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gal-item:hover img{transform:scale(1.07)}
+.gal-overlay{position:absolute;inset:0;background:rgba(216,27,96,0);display:flex;align-items:center;justify-content:center;transition:background .3s}
+.gal-item:hover .gal-overlay{background:rgba(216,27,96,0.4)}
+.gal-overlay svg{opacity:0;transition:opacity .3s}
+.gal-item:hover .gal-overlay svg{opacity:1}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:2000;align-items:center;justify-content:center;padding:20px}
+.lightbox.active{display:flex}
+.lb-img{max-width:90vw;max-height:85vh;border-radius:12px;object-fit:contain}
+.lb-close{position:absolute;top:20px;right:24px;background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:1.5rem;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.lb-close:hover{background:var(--cp)}
+.s-form{padding:72px 24px}
+.form-wrap{max-width:680px;margin:0 auto}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:36px}
+.f-group{display:flex;flex-direction:column;gap:6px}
+.f-group.full{grid-column:1/-1}
+.f-label{font-size:0.82rem;font-weight:800;color:var(--ct);letter-spacing:0.3px;text-transform:uppercase}
+.f-input{font-family:'Nunito',sans-serif;font-size:0.95rem;font-weight:600;color:var(--ct);background:#fff;border:2px solid #eee;border-radius:10px;padding:13px 16px;outline:none;transition:border .2s,box-shadow .2s;width:100%}
+.f-input:focus{border-color:var(--cp);box-shadow:0 0 0 3px rgba(216,27,96,0.12)}
+.f-input::placeholder{color:#bbb}
+textarea.f-input{resize:vertical;min-height:120px}
+.f-err{font-size:0.78rem;font-weight:700;color:var(--cp);display:none}
+.f-err.show{display:block}
+.f-submit{width:100%;margin-top:8px;background:var(--cp);color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;padding:15px;border-radius:50px;border:none;cursor:pointer;transition:background .3s,transform .2s;min-height:52px;display:flex;align-items:center;justify-content:center;gap:8px}
+.f-submit:hover{background:var(--cp-dark);transform:translateY(-2px)}
+.f-success{display:none;background:rgba(216,27,96,0.07);border:2px solid var(--cp);border-radius:var(--radius);padding:28px;text-align:center;margin-top:24px}
+.f-success.show{display:block}
+.f-success p{font-size:1rem;font-weight:700;color:var(--cp)}
+.s-avis{background:#fdf0f5;padding:72px 24px}
+.stars-big{font-size:2.5rem;letter-spacing:2px;color:var(--ca);margin-bottom:8px}
+.note-big{font-size:3.5rem;font-weight:900;color:var(--cp);line-height:1}
+.note-lbl{font-size:0.9rem;font-weight:700;color:#888;margin-top:4px}
+.avis-hero{display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:48px}
+.badges-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:20px}
+.badge-item{display:inline-flex;align-items:center;gap:7px;background:#fff;border:2px solid rgba(216,27,96,0.15);border-radius:50px;padding:8px 18px;font-size:0.82rem;font-weight:800;color:var(--ct)}
+.badge-item span{font-size:1rem}
+.avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.c-avis{background:#fff;border-radius:var(--radius);padding:24px;box-shadow:0 2px 12px rgba(44,44,44,0.07);transition:transform .3s}
+.c-avis:hover{transform:translateY(-4px)}
+.avis-stars{color:var(--ca);font-size:1.1rem;margin-bottom:10px;letter-spacing:1px}
+.avis-txt{font-size:0.9rem;color:#555;font-weight:600;line-height:1.65;margin-bottom:16px;font-style:italic}
+.avis-author{display:flex;align-items:center;gap:10px}
+.avis-avatar{width:38px;height:38px;background:var(--cp);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:0.9rem;flex-shrink:0}
+.avis-name{font-size:0.875rem;font-weight:800;color:var(--ct)}
+.avis-date{font-size:0.75rem;color:#aaa;font-weight:600}
+.footer{background:var(--cp);padding:56px 24px 0}
+.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;padding-bottom:48px}
+.footer-brand .logo-txt{color:#fff;margin-bottom:12px;display:block;font-size:1.3rem;font-weight:900}
+.footer-brand p{font-size:0.875rem;color:rgba(255,255,255,0.8);font-weight:600;line-height:1.7;margin-bottom:20px}
+.soc-row{display:flex;gap:12px}
+.soc-btn{width:40px;height:40px;background:rgba(255,255,255,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .2s;border:1px solid rgba(255,255,255,0.2)}
+.soc-btn:hover{background:rgba(255,255,255,0.3)}
+.soc-btn svg{width:20px;height:20px;fill:#fff}
+.footer-col h4{font-size:0.9rem;font-weight:800;color:#fff;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:18px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col ul a{font-size:0.875rem;font-weight:600;color:rgba(255,255,255,0.8);transition:color .2s}
+.footer-col ul a:hover{color:var(--ca)}
+.footer-col address{font-style:normal;font-size:0.875rem;color:rgba(255,255,255,0.85);font-weight:600;line-height:1.8}
+.footer-col address a{color:var(--ca);font-weight:800}
+.footer-col address a:hover{opacity:0.85}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.15);padding:18px 24px;max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.footer-bottom p{font-size:0.8rem;color:rgba(255,255,255,0.7);font-weight:600}
+.footer-bottom a{color:var(--ca);font-weight:800}
+.footer-bottom a:hover{opacity:0.85}
+@media(max-width:900px){
+.svc-grid{grid-template-columns:1fr}
+.metier-row{grid-template-columns:1fr;gap:32px}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.avis-grid{grid-template-columns:1fr}
+.footer-inner{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+.form-grid{grid-template-columns:1fr}
+.footer-bottom{flex-direction:column;text-align:center}
+.s-svc,.s-metier,.s-galerie,.s-form,.s-avis,.footer{padding-left:16px;padding-right:16px}
+.avis-grid{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+.svc-grid,.avis-grid{gap:16px}
+.badges-row{gap:8px}
+}
+@media(max-width:480px){
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.metier-row{gap:24px}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s-svc" id="services">
+  <div class="s-inner">
+    <span class="s-tag">✨ Ce que nous faisons</span>
+    <h2 class="h2">Des services pensés<br><span>pour votre fête</span></h2>
+    <p class="s-sub">Tout ce qu'il vous faut pour organiser un événement mémorable, réuni en un seul endroit à Nouméa.</p>
+    <div class="svc-grid">
+      <div class="c-svc">
+        <div class="c-svc-icon">🎈</div>
+        <h3 class="c-svc-title">Vente d'articles festifs</h3>
+        <p class="c-svc-desc">Ballons, guirlandes, confettis, décorations de table — plus de 500 références disponibles en boutique pour tous vos événements.</p>
+        <a href="#contact" class="b-outline">Découvrir →</a>
+      </div>
+      <div class="c-svc">
+        <div class="c-svc-icon">🎂</div>
+        <h3 class="c-svc-title">Thèmes personnalisés</h3>
+        <p class="c-svc-desc">Anniversaire, baptême, soirée à thème — notre équipe vous aide à composer une décoration cohérente et colorée selon votre univers.</p>
+        <a href="#contact" class="b-outline">En savoir plus →</a>
+      </div>
+      <div class="c-svc">
+        <div class="c-svc-icon">💡</div>
+        <h3 class="c-svc-title">Conseils en boutique</h3>
+        <p class="c-svc-desc">Venez avec vos idées, repartez avec un projet complet. Notre équipe passionnée vous guide pour créer la fête dont vous rêvez.</p>
+        <a href="#contact" class="b-outline">Nous contacter →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s-metier" id="metier">
+  <div class="metier-inner">
+    <div class="metier-row">
+      <div class="metier-img">
+        <img src="https://i.ibb.co/dw5dTvkV/AVENUE-DE-LA-F-TE-1.jpg" alt="Intérieur boutique Avenue de la Fête" loading="lazy">
+      </div>
+      <div class="metier-txt">
+        <span class="s-tag">🎊 Notre histoire</span>
+        <h2 class="h2">La boutique festive<br><span>de Nouméa</span></h2>
+        <p>Avenue de la Fête, c'est la boutique de référence pour transformer chaque célébration en souvenir inoubliable. Installée rue Auguste Benebig à Nouméa, notre enseigne rose vif est devenue un repère incontournable pour toutes les familles calédoniennes qui aiment les belles fêtes.</p>
+        <p>Des ballons multicolores aux kits de décoration complets, nous mettons à votre disposition une sélection soignée d'articles festifs pour chaque occasion — parce que chaque moment mérite d'être célébré avec éclat.</p>
+        <ul class="checks">
+          <li>Large choix d'articles en stock immédiat</li>
+          <li>Conseils personnalisés par notre équipe passionnée</li>
+          <li>Collections renouvelées régulièrement</li>
+          <li>Boutique accessible et accueillante pour toute la famille</li>
+        </ul>
+        <a href="#contact" class="b-primary">Planifier ma fête 🎉</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s-galerie" id="galerie">
+  <div class="s-inner">
+    <span class="s-tag">📸 Notre univers</span>
+    <h2 class="h2">La fête en <span>images</span></h2>
+    <p class="s-sub">Un aperçu de nos collections et de l'ambiance colorée qui vous attend en boutique à Nouméa.</p>
+    <div class="gal-grid">
+      <div class="gal-item" data-src="https://i.ibb.co/JWZ9g6sL/AVENUE-DE-LA-F-TE-0.jpg" data-alt="Avenue de la Fête — façade">
+        <img src="https://i.ibb.co/JWZ9g6sL/AVENUE-DE-LA-F-TE-0.jpg" alt="Avenue de la Fête — façade" loading="lazy">
+        <div class="gal-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        </div>
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/dw5dTvkV/AVENUE-DE-LA-F-TE-1.jpg" data-alt="Décoration anniversaire">
+        <img src="https://i.ibb.co/dw5dTvkV/AVENUE-DE-LA-F-TE-1.jpg" alt="Décoration anniversaire" loading="lazy">
+        <div class="gal-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        </div>
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/jPR4svTb/AVENUE-DE-LA-F-TE-2.jpg" data-alt="Décoration baptême">
+        <img src="https://i.ibb.co/jPR4svTb/AVENUE-DE-LA-F-TE-2.jpg" alt="Décoration baptême" loading="lazy">
+        <div class="gal-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        </div>
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/ynFb4Lkp/AVENUE-DE-LA-F-TE-3.jpg" data-alt="Soirées à thème">
+        <img src="https://i.ibb.co/ynFb4Lkp/AVENUE-DE-LA-F-TE-3.jpg" alt="Soirées à thème" loading="lazy">
+        <div class="gal-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lbClose" aria-label="Fermer">✕</button>
+  <img class="lb-img" id="lbImg" src="" alt="">
+</div>
+
+<!-- FORMULAIRE -->
+<section class="s-form" id="contact">
+  <div class="form-wrap">
+    <div style="text-align:center;margin-bottom:8px">
+      <span class="s-tag">📬 Contactez-nous</span>
+    </div>
+    <h2 class="h2" style="text-align:center">Parlons de votre<br><span>prochaine fête</span></h2>
+    <p class="s-sub" style="text-align:center;margin-left:auto;margin-right:auto">Une question sur nos produits, une idée de décoration ? Notre équipe est là pour vous répondre.</p>
+    <form id="contactForm" action="#" novalidate>
+      <div class="form-grid">
+        <div class="f-group">
+          <label class="f-label" for="fname">Votre prénom et nom</label>
+          <input class="f-input" type="text" id="fname" name="nom" placeholder="Marie Dupont" autocomplete="name">
+          <span class="f-err" id="errNom">Merci d'indiquer votre nom.</span>
+        </div>
+        <div class="f-group">
+          <label class="f-label" for="femail">Adresse e-mail</label>
+          <input class="f-input" type="email" id="femail" name="email" placeholder="marie@email.com" autocomplete="email">
+          <span class="f-err" id="errEmail">Merci d'indiquer un e-mail valide.</span>
+        </div>
+        <div class="f-group">
+          <label class="f-label" for="ftel">Téléphone</label>
+          <input class="f-input" type="tel" id="ftel" name="telephone" placeholder="+687 XX XX XX" autocomplete="tel">
+          <span class="f-err" id="errTel">Merci d'indiquer votre téléphone.</span>
+        </div>
+        <div class="f-group">
+          <label class="f-label" for="fevent">Type d'événement</label>
+          <input class="f-input" type="text" id="fevent" name="evenement" placeholder="Anniversaire, baptême…">
+        </div>
+        <div class="f-group full">
+          <label class="f-label" for="fmsg">Votre message</label>
+          <textarea class="f-input" id="fmsg" name="message" placeholder="Décrivez votre projet de décoration, vos couleurs, le nombre d'invités…"></textarea>
+          <span class="f-err" id="errMsg">Merci d'écrire un message.</span>
+        </div>
+        <div class="f-group full">
+          <button class="f-submit" type="submit" id="fBtn">
+            <span id="fBtnTxt">Envoyer ma demande 🎉</span>
+            <span id="fLoader" style="display:none">⏳ Envoi en cours…</span>
+          </button>
+        </div>
+      </div>
+    </form>
+    <div class="f-success" id="fSuccess">
+      <p>🎊 Merci pour votre message ! Notre équipe vous recontacte très bientôt pour créer ensemble votre plus belle fête.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s-avis" id="avis">
+  <div class="s-inner">
+    <div class="avis-hero">
+      <span class="s-tag">⭐ Avis clients</span>
+      <div class="stars-big">★★★★★</div>
+      <div class="note-big">4.5<span style="font-size:1.5rem;font-weight:700;color:#888">/5</span></div>
+      <p class="note-lbl">Basé sur 8 avis Google vérifiés</p>
+      <div class="badges-row">
+        <div class="badge-item"><span>🏆</span> Boutique de confiance</div>
+        <div class="badge-item"><span>💬</span> Équipe à l'écoute</div>
+        <div class="badge-item"><span>🎁</span> Large choix</div>
+        <div class="badge-item"><span>📍</span> Référence à Nouméa</div>
+      </div>
+    </div>
+    <div class="avis-grid">
+      <div class="c-avis">
+        <div class="avis-stars">★★★★★</div>
+        <p class="avis-txt">« Une boutique magnifique et très bien fournie ! J'ai trouvé tout ce qu'il me fallait pour l'anniversaire de ma fille. L'équipe est adorable et de bon conseil. »</p>
+        <div class="avis-author">
+          <div class="avis-avatar">M</div>
+          <div>
+            <p class="avis-name">Manon T.</p>
+            <p class="avis-date">Nouméa · Avis Google</p>
+          </div>
+        </div>
+      </div>
+      <div class="c-avis">
+        <div class="avis-stars">★★★★★</div>
+        <p class="avis-txt">« Je recommande vivement ! Les décorations sont très jolies et les prix sont raisonnables. Mon baptême était sublime grâce à eux. Merci Avenue de la Fête ! »</p>
+        <div class="avis-author">
+          <div class="avis-avatar">S</div>
+          <div>
+            <p class="avis-name">Sophie K.</p>
+            <p class="avis-date">Nouméa · Avis Google</p>
+          </div>
+        </div>
+      </div>
+      <div class="c-avis">
+        <div class="avis-stars">★★★★☆</div>
+        <p class="avis-txt">« Super boutique avec une ambiance festive dès l'entrée ! Le choix est impressionnant pour tous types de fêtes. J'y reviens à chaque fois que j'organise un événement. »</p>
+        <div class="avis-author">
+          <div class="avis-avatar">J</div>
+          <div>
+            <p class="avis-name">Jean-Paul M.</p>
+            <p class="avis-date">Nouméa · Avis Google</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo-txt">🎈 AVENUE DE LA FÊTE</span>
+      <p>Votre boutique de décoration festive à Nouméa — anniversaires, baptêmes, soirées à thème. Tout ce qu'il faut pour que chaque fête soit inoubliable.</p>
+      <div class="soc-row">
+        <a href="https://www.facebook.com/avenuedelafete" target="_blank" rel="noopener" class="soc-btn" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.514c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#categories">Nos catégories</a></li>
+        <li><a href="#promos">Offres du moment</a></li>
+        <li><a href="#bestsellers">Bestsellers</a></li>
+        <li><a href="#galerie">Galerie photos</a></li>
+        <li><a href="#avis">Avis clients</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Informations</h4>
+      <address>
+        <strong style="color:#fff">AVENUE DE LA FÊTE</strong><br>
+        Rue Auguste Benebig<br>
+        Nouméa, Nouvelle-Calédonie<br><br>
+        <strong style="color:#fff">Horaires</strong><br>
+        Lun–Ven : 8h–12h / 13h30–17h30<br>
+        Samedi : 8h–12h<br>
+        Dimanche : Fermé<br><br>
+        <a href="https://www.facebook.com/avenuedelafete" target="_blank" rel="noopener">📘 Notre page Facebook</a>
+      </address>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 AVENUE DE LA FÊTE. Tous droits réservés.</p>
+    <p>Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+  </div>
+</footer>
+
+<script>
+var h=document.getElementById('hambBtn'),n=document.getElementById('mobNav');
+function closeMob(){n.classList.remove('open')}
+if(h)h.addEventListener('click',function(){n.classList.toggle('open')});
+document.addEventListener('click',function(e){if(h&&!h.contains(e.target)&&n&&!n.contains(e.target))closeMob()});
+
+var lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg'),lbClose=document.getElementById('lbClose');
+document.querySelectorAll('.gal-item').forEach(function(el){
+  el.addEventListener('click',function(){
+    lbImg.src=el.dataset.src;
+    lbImg.alt=el.dataset.alt||'';
+    lb.classList.add('active');
+    document.body.style.overflow='hidden';
+  });
+});
+function closeLb(){lb.classList.remove('active');document.body.style.overflow=''}
+if(lbClose)lbClose.addEventListener('click',closeLb);
+if(lb)lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
+
+var form=document.getElementById('contactForm');
+if(form){
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var ok=true;
+    var nm=document.getElementById('fname'),em=document.getElementById('femail'),tel=document.getElementById('ftel'),msg=document.getElementById('fmsg');
+    var eN=document.getElementById('errNom'),eE=document.getElementById('errEmail'),eT=document.getElementById('errTel'),eM=document.getElementById('errMsg');
+    eN.classList.remove('show');eE.classList.remove('show');eT.classList.remove('show');eM.classList.remove('show');
+    if(!nm.value.trim()){eN.classList.add('show');ok=false}
+    if(!em.value.trim()||!/\S+@\S+\.\S+/.test(em.value)){eE.classList.add('show');ok=false}
+    if(!tel.value.trim()){eT.classList.add('show');ok=false}
+    if(!msg.value.trim()){eM.classList.add('show');ok=false}
+    if(!ok)return;
+    var btn=document.getElementById('fBtn'),bt=document.getElementById('fBtnTxt'),bl=document.getElementById('fLoader');
+    btn.disabled=true;bt.style.display='none';bl.style.display='inline';
+    setTimeout(function(){
+      form.style.display='none';
+      document.getElementById('fSuccess').classList.add('show');
+    },1400);
+  });
+}
+
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      var el=e.target,target=parseFloat(el.dataset.target),dec=parseInt(el.dataset.decimal)||0,dur=1600,start=null;
+      (function tick(ts){
+        if(!start)start=ts;
+        var p=Math.min((ts-start)/dur,1),val=p*target;
+        el.textContent=dec?val.toFixed(dec):Math.floor(val);
+        if(p<1)requestAnimationFrame(tick);else el.textContent=dec?target.toFixed(dec):target;
+      })(performance.now());
+      obs.unobserve(el);
+    }
+  });
+},{threshold:0.4});
+document.querySelectorAll('[data-target]').forEach(function(el){obs.observe(el)});
+</script>
+</body>
+</html>
