@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CURL STUDIO — Nouméa</title>
+<meta name="description" content="Barbershop urbain contemporain au cœur de Nouméa. Coupes précises, fades, rasage. 5 Av. du Maréchal Foch — Appelez le 44.15.68">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#1A1A1A;
+--cs:#3AADA8;
+--ca:#C8973A;
+--cb:#F5F0E8;
+--ct:#1A1A1A;
+--cw:#ffffff;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Oswald',sans-serif;color:var(--ct);background:var(--cw);overflow-x:hidden;font-size:16px}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+
+/* BANDEAU PROMO */
+.promo{
+position:fixed;top:0;left:0;width:100%;height:44px;
+background:#ffd500;z-index:1001;
+text-align:center;line-height:44px;
+}
+.promo a{
+font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;
+font-weight:700;font-size:14px;letter-spacing:0.3px;
+color:#4375ff;
+}
+.promo a:hover{opacity:0.85}
+
+/* HEADER */
+.hdr{
+position:fixed;top:44px;left:0;width:100%;height:64px;
+background:var(--cp);z-index:1000;
+display:flex;align-items:center;justify-content:space-between;
+padding:0 32px;
+}
+.hdr-logo{
+font-family:'Oswald',sans-serif;font-weight:700;font-size:22px;
+color:var(--cw);letter-spacing:2px;text-transform:uppercase;
+}
+.hdr-logo span{color:var(--ca)}
+.nav{display:flex;gap:28px;align-items:center}
+.nav a{
+font-family:'Oswald',sans-serif;font-weight:500;font-size:14px;
+color:var(--cw);text-transform:uppercase;letter-spacing:1px;
+transition:color 200ms;
+}
+.nav a:hover{color:var(--cs)}
+.hdr-cta{
+background:var(--cs);color:var(--cw);
+font-family:'Oswald',sans-serif;font-weight:600;font-size:14px;
+letter-spacing:1px;text-transform:uppercase;
+padding:10px 22px;border-radius:4px;
+transition:background 200ms,color 200ms;
+white-space:nowrap;
+}
+.hdr-cta:hover{background:var(--cw);color:var(--cs)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.ham span{width:24px;height:2px;background:var(--cw);border-radius:2px;transition:transform 300ms,opacity 300ms}
+.mob-nav{
+display:none;position:fixed;top:108px;left:0;width:100%;
+background:var(--cp);z-index:999;
+flex-direction:column;padding:24px 24px 32px;gap:20px;
+}
+.mob-nav.open{display:flex}
+.mob-nav a{
+font-family:'Oswald',sans-serif;font-weight:500;font-size:18px;
+color:var(--cw);text-transform:uppercase;letter-spacing:1px;
+border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px;
+}
+.mob-nav .hdr-cta{text-align:center;border-radius:4px;padding:14px}
+
+/* HERO */
+.hero{
+min-height:100vh;padding-top:108px;
+display:grid;grid-template-columns:1fr 1fr;
+}
+.hero-l{
+background:var(--cp);
+display:flex;flex-direction:column;justify-content:center;
+padding:64px 56px;
+}
+.hero-tag{
+font-size:12px;font-weight:500;letter-spacing:3px;
+color:var(--ca);text-transform:uppercase;margin-bottom:20px;
+}
+.h1{
+font-family:'Oswald',sans-serif;font-weight:700;
+font-size:clamp(36px,4.5vw,64px);
+color:var(--cw);text-transform:uppercase;line-height:1.05;
+margin-bottom:20px;
+}
+.h1 em{color:var(--ca);font-style:normal}
+.hero-sub{
+font-size:15px;font-weight:400;color:rgba(255,255,255,0.72);
+line-height:1.6;margin-bottom:36px;max-width:380px;
+}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:48px}
+.btn-p{
+background:var(--cs);color:var(--cw);
+font-family:'Oswald',sans-serif;font-weight:600;
+font-size:14px;letter-spacing:1.5px;text-transform:uppercase;
+padding:14px 28px;border-radius:4px;border:2px solid var(--cs);
+transition:background 200ms,color 200ms;cursor:pointer;
+}
+.btn-p:hover{background:var(--cw);color:var(--cs)}
+.btn-s{
+background:transparent;color:var(--cw);
+font-family:'Oswald',sans-serif;font-weight:600;
+font-size:14px;letter-spacing:1.5px;text-transform:uppercase;
+padding:14px 28px;border-radius:4px;border:2px solid rgba(255,255,255,0.4);
+transition:border-color 200ms,color 200ms;cursor:pointer;
+}
+.btn-s:hover{border-color:var(--ca);color:var(--ca)}
+.hero-info{
+display:flex;gap:24px;align-items:center;flex-wrap:wrap;
+}
+.hero-info-item{
+display:flex;align-items:center;gap:8px;
+font-size:13px;color:rgba(255,255,255,0.6);letter-spacing:0.5px;
+}
+.hero-info-item svg{flex-shrink:0}
+.hero-r{
+position:relative;overflow:hidden;min-height:500px;
+}
+.hero-img{
+width:100%;height:100%;object-fit:cover;
+position:absolute;inset:0;
+}
+.hero-overlay{
+position:absolute;inset:0;
+background:linear-gradient(135deg,rgba(26,26,26,0.25) 0%,transparent 60%);
+}
+.scroll-ind{
+position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
+display:flex;flex-direction:column;align-items:center;gap:8px;
+color:var(--cw);font-size:11px;letter-spacing:2px;text-transform:uppercase;
+opacity:0.7;
+}
+.scroll-ind::after{
+content:'';width:1px;height:40px;background:var(--ca);
+animation:scrollpulse 1.8s ease-in-out infinite;
+}
+@keyframes scrollpulse{0%,100%{opacity:0.3;transform:scaleY(0.5)}50%{opacity:1;transform:scaleY(1)}}
+
+/* BANDE STATS */
+.stats{
+background:var(--cp);padding:56px 32px;
+}
+.stats-grid{
+max-width:1100px;margin:0 auto;
+display:grid;grid-template-columns:repeat(4,1fr);gap:32px;
+text-align:center;
+}
+.stat-val{
+font-family:'Oswald',sans-serif;font-weight:700;
+font-size:clamp(36px,4vw,56px);color:var(--ca);
+line-height:1;margin-bottom:10px;
+}
+.stat-lbl{
+font-size:13px;font-weight:400;color:rgba(255,255,255,0.65);
+text-transform:uppercase;letter-spacing:2px;
+}
+.stat-div{
+width:1px;background:rgba(255,255,255,0.1);
+margin:0 auto;height:100%;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.hdr{padding:0 20px}
+.nav{display:none}
+.ham{display:flex}
+.hero{grid-template-columns:1fr}
+.hero-r{min-height:320px;position:relative;height:320px}
+.hero-img{position:absolute}
+.hero-l{padding:48px 24px}
+.stats-grid{grid-template-columns:repeat(2,1fr);gap:40px 20px}
+}
+@media(max-width:480px){
+.promo{height:40px;line-height:40px}
+.promo a{font-size:13px}
+.hdr{top:40px;height:56px;padding:0 16px}
+.mob-nav{top:96px}
+.hero{padding-top:96px}
+.hero-l{padding:40px 16px}
+.hero-btns .btn-p,.hero-btns .btn-s{width:100%;text-align:center}
+.hero-btns{flex-direction:column}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.stat-val{font-size:32px}
+}
+
+/* FALLBACK ANIMATIONS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">
+    Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.
+  </a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr">
+  <a href="#hero" class="hdr-logo">Curl<span>&nbsp;Studio</span></a>
+  <nav class="nav">
+    <a href="#services">Services</a>
+    <a href="#galerie">Galerie</a>
+    <a href="#equipe">Équipe</a>
+    <a href="#contact">Contact</a>
+    <a href="tel:+68744156" class="hdr-cta">44.15.68</a>
+  </nav>
+  <button class="ham" id="hamBtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-nav" id="mobNav">
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#galerie" onclick="closeMenu()">Galerie</a>
+  <a href="#equipe" onclick="closeMenu()">Équipe</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <a href="tel:+68744156" class="hdr-cta">Appeler le 44.15.68</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-l">
+    <p class="hero-tag">Barbershop — Nouméa, Nouvelle-Calédonie</p>
+    <h1 class="h1">Votre<br>fade <em>parfait</em><br>à Nouméa</h1>
+    <p class="hero-sub">Coupes précises, fades nets, rasage soigné. Au cœur du centre-ville, à deux pas du port — Curl Studio vous reçoit sans compromis.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-p">Prendre rendez-vous</a>
+      <a href="#services" class="btn-s">Voir les tarifs</a>
+    </div>
+    <div class="hero-info">
+      <div class="hero-info-item">
+        <svg width="14" height="14" fill="none" stroke="#C8973A" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        5 Av. du Maréchal Foch, Nouméa
+      </div>
+      <div class="hero-info-item">
+        <svg width="14" height="14" fill="none" stroke="#C8973A" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 4.18 2 2 0 015.09 2h3a2 2 0 012 1.72c.13 1.05.38 2.08.73 3.07a2 2 0 01-.45 2.11L9.09 10.1A16 16 0 0013.9 14.9l1.2-1.28a2 2 0 012.11-.45c.99.35 2.02.6 3.07.73A2 2 0 0122 16.92z"/></svg>
+        44.15.68
+      </div>
+    </div>
+  </div>
+  <div class="hero-r">
+    <img src="https://i.ibb.co/ccBXFNRP/CURL-STUDIO-0.jpg" alt="Curl Studio Nouméa — coupe de cheveux professionnelle" class="hero-img" loading="eager">
+    <div class="hero-overlay"></div>
+    <div class="scroll-ind">Scroll</div>
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<section class="stats" id="stats">
+  <div class="stats-grid">
+    <div>
+      <div class="stat-val" data-target="500">0</div>
+      <div class="stat-lbl">Clients satisfaits</div>
+    </div>
+    <div>
+      <div class="stat-val" data-target="5">0</div>
+      <div class="stat-lbl">Années d'expérience</div>
+    </div>
+    <div>
+      <div class="stat-val" data-target="12">0</div>
+      <div class="stat-lbl">Services proposés</div>
+    </div>
+    <div>
+      <div class="stat-val" data-target="100">0</div>
+      <div class="stat-lbl">% Précision garantie</div>
+    </div>
+  </div>
+</section>
+<style>
+/* SERVICES */
+.srv{background:var(--cb);padding:96px 32px}
+.s-hd{text-align:center;margin-bottom:56px}
+.s-hd h2{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(28px,3.5vw,48px);text-transform:uppercase;letter-spacing:2px;color:var(--cp);margin-bottom:12px}
+.s-hd p{font-size:15px;color:#666;max-width:480px;margin:0 auto}
+.s-hd h2 span{color:var(--cs)}
+.srv-filters{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+.flt{background:transparent;border:2px solid var(--cp);color:var(--cp);font-family:'Oswald',sans-serif;font-weight:500;font-size:13px;letter-spacing:1px;text-transform:uppercase;padding:8px 20px;border-radius:4px;cursor:pointer;transition:background 200ms,color 200ms}
+.flt.active,.flt:hover{background:var(--cp);color:var(--cw)}
+.srv-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.sc{background:var(--cw);border-radius:12px;border:1px solid rgba(200,151,58,0.3);padding:32px 28px;transition:transform 300ms,border-left-color 300ms;border-left:3px solid transparent;position:relative;overflow:hidden}
+.sc:hover{transform:translateY(-2px);border-left-color:var(--ca)}
+.sc-ico{width:44px;height:44px;background:rgba(58,173,168,0.12);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.sc-ico svg{width:22px;height:22px;stroke:var(--cs);fill:none;stroke-width:2}
+.sc h3{font-family:'Oswald',sans-serif;font-weight:600;font-size:18px;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;color:var(--cp)}
+.sc p{font-size:14px;color:#666;line-height:1.6;margin-bottom:20px}
+.sc-meta{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding-top:16px;border-top:1px solid rgba(0,0,0,0.07)}
+.sc-price{font-family:'Oswald',sans-serif;font-weight:700;font-size:22px;color:var(--ca)}
+.sc-dur{font-size:12px;color:#999;letter-spacing:1px;text-transform:uppercase}
+.sc-btn{font-family:'Oswald',sans-serif;font-weight:600;font-size:12px;letter-spacing:1px;text-transform:uppercase;background:var(--cs);color:var(--cw);padding:8px 16px;border-radius:4px;border:2px solid var(--cs);transition:background 200ms,color 200ms;cursor:pointer}
+.sc-btn:hover{background:var(--cw);color:var(--cs)}
+
+/* METIER */
+.met{background:var(--cw);padding:96px 32px}
+.met-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.met-inner.rev{direction:rtl}
+.met-inner.rev>*{direction:ltr}
+.met-txt h2{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(26px,3vw,42px);text-transform:uppercase;letter-spacing:2px;color:var(--cp);margin-bottom:8px}
+.met-txt h2 em{color:var(--ca);font-style:normal}
+.met-acc{width:48px;height:3px;background:var(--cs);margin-bottom:24px}
+.met-txt p{font-size:15px;color:#555;line-height:1.75;margin-bottom:24px}
+.met-list{display:flex;flex-direction:column;gap:12px}
+.met-item{display:flex;align-items:flex-start;gap:12px;font-size:14px;color:var(--cp)}
+.met-item svg{flex-shrink:0;margin-top:2px;stroke:var(--cs);fill:none;stroke-width:2.5}
+.met-img{border-radius:12px;overflow:hidden;position:relative}
+.met-img img{width:100%;height:420px;object-fit:cover;transition:transform 400ms}
+.met-img:hover img{transform:scale(1.03)}
+.met-img::after{content:'';position:absolute;inset:0;border-radius:12px;border:3px solid var(--ca);opacity:0;transition:opacity 300ms}
+.met-img:hover::after{opacity:1}
+
+/* GALERIE */
+.gal{background:var(--cb);padding:96px 32px}
+.gal-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.gi{position:relative;overflow:hidden;aspect-ratio:1;cursor:pointer}
+.gi img{width:100%;height:100%;object-fit:cover;transition:transform 400ms}
+.gi:hover img{transform:scale(1.06)}
+.gi-ov{position:absolute;inset:0;background:rgba(26,26,26,0.5);opacity:0;display:flex;align-items:center;justify-content:center;transition:opacity 300ms}
+.gi:hover .gi-ov{opacity:1}
+.gi-ov svg{stroke:var(--cw);fill:none;stroke-width:2;width:32px;height:32px}
+.lb{position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:2000;display:none;align-items:center;justify-content:center;padding:20px}
+.lb.open{display:flex}
+.lb img{max-width:90vw;max-height:90vh;border-radius:6px;object-fit:contain}
+.lb-cl{position:absolute;top:20px;right:24px;background:none;border:none;cursor:pointer;color:var(--cw);font-size:32px;line-height:1;font-family:'Oswald',sans-serif}
+
+/* FORMULAIRE */
+.frm{background:var(--cp);padding:96px 32px}
+.frm-inner{max-width:680px;margin:0 auto}
+.frm-inner h2{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(26px,3vw,42px);text-transform:uppercase;letter-spacing:2px;color:var(--cw);margin-bottom:8px}
+.frm-inner h2 span{color:var(--ca)}
+.frm-sub{font-size:15px;color:rgba(255,255,255,0.6);margin-bottom:40px}
+.fg{margin-bottom:20px}
+.fg label{display:block;font-family:'Oswald',sans-serif;font-size:13px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:8px}
+.fi{width:100%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.2);border-radius:6px;color:var(--cw);font-family:'Oswald',sans-serif;font-size:15px;padding:14px 16px;transition:border-color 200ms;outline:none}
+.fi:focus{border-color:var(--cs)}
+.fi.err{border-color:#e74c3c}
+textarea.fi{height:120px;resize:vertical}
+.frm-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.ferr{font-size:12px;color:#e74c3c;margin-top:6px;display:none}
+.ferr.show{display:block}
+.fsuc{background:rgba(58,173,168,0.15);border:1px solid var(--cs);border-radius:8px;padding:20px 24px;color:var(--cs);font-family:'Oswald',sans-serif;font-size:16px;letter-spacing:1px;text-align:center;display:none;margin-top:24px}
+.fsuc.show{display:block}
+.btn-sub{width:100%;background:var(--cs);color:var(--cw);font-family:'Oswald',sans-serif;font-weight:600;font-size:15px;letter-spacing:2px;text-transform:uppercase;padding:16px;border:2px solid var(--cs);border-radius:4px;cursor:pointer;transition:background 200ms,color 200ms;min-height:48px}
+.btn-sub:hover{background:var(--cw);color:var(--cs)}
+.btn-sub:disabled{opacity:0.6;cursor:not-allowed}
+
+/* PREUVE SOCIALE */
+.ps{background:var(--cb);padding:96px 32px}
+.ps-top{max-width:1100px;margin:0 auto 56px;display:grid;grid-template-columns:1fr 2fr;gap:48px;align-items:start}
+.ps-score{background:var(--cw);border-radius:12px;padding:40px 32px;text-align:center;border:2px solid rgba(200,151,58,0.3)}
+.ps-num{font-family:'Oswald',sans-serif;font-weight:700;font-size:72px;color:var(--ca);line-height:1}
+.ps-stars{display:flex;justify-content:center;gap:4px;margin:12px 0}
+.star{width:20px;height:20px;fill:var(--ca)}
+.ps-label{font-size:13px;color:#999;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+.ps-ct{font-size:13px;color:#aaa}
+.tes-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.tc{background:var(--cw);border-radius:8px;padding:28px 24px;border-left:4px solid var(--ca)}
+.tc blockquote{font-size:14px;color:#444;line-height:1.7;font-style:italic;margin-bottom:16px}
+.tc cite{font-family:'Oswald',sans-serif;font-weight:600;font-size:13px;color:var(--cp);text-transform:uppercase;letter-spacing:1px;font-style:normal}
+.ps-badges{max-width:1100px;margin:0 auto;display:flex;gap:24px;flex-wrap:wrap;justify-content:center}
+.badge{display:flex;align-items:center;gap:12px;background:var(--cw);border-radius:8px;padding:16px 24px;border:1px solid rgba(0,0,0,0.08)}
+.badge svg{stroke:var(--cs);fill:none;stroke-width:2;width:24px;height:24px;flex-shrink:0}
+.badge span{font-family:'Oswald',sans-serif;font-size:14px;font-weight:500;color:var(--cp);text-transform:uppercase;letter-spacing:0.5px}
+
+/* FOOTER */
+.ftr{background:var(--cp);padding:64px 32px 32px;color:var(--cw)}
+.ftr-top{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.ftr-brand h3{font-family:'Oswald',sans-serif;font-weight:700;font-size:22px;letter-spacing:2px;text-transform:uppercase;color:var(--cw);margin-bottom:4px}
+.ftr-brand h3 span{color:var(--ca)}
+.ftr-brand p{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.7;margin-top:12px}
+.ftr-col h4{font-family:'Oswald',sans-serif;font-weight:600;font-size:14px;letter-spacing:2px;text-transform:uppercase;color:var(--ca);margin-bottom:16px}
+.ftr-col p,.ftr-col a{font-size:14px;color:rgba(255,255,255,0.65);line-height:2;display:block;transition:color 200ms}
+.ftr-col a:hover{color:var(--cs)}
+.ftr-social{display:flex;gap:16px;margin-top:16px}
+.fsoc{width:40px;height:40px;border-radius:6px;border:1px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;transition:border-color 200ms,background 200ms}
+.fsoc:hover{border-color:var(--cs);background:rgba(58,173,168,0.15)}
+.fsoc svg{stroke:var(--cw);fill:none;stroke-width:2;width:20px;height:20px}
+.ftr-bot{max-width:1100px;margin:0 auto;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:space-between;flex-wrap:gap;gap:12px}
+.ftr-bot p{font-size:13px;color:rgba(255,255,255,0.4)}
+.ftr-bot a{color:rgba(255,255,255,0.6);transition:color 200ms}
+.ftr-bot a:hover{color:var(--cs)}
+
+/* RESPONSIVE PART 2 */
+@media(max-width:900px){
+.srv-grid{grid-template-columns:1fr 1fr}
+.met-inner,.met-inner.rev{grid-template-columns:1fr;direction:ltr}
+.met-img{order:-1}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.ps-top{grid-template-columns:1fr}
+.tes-grid{grid-template-columns:1fr}
+.ftr-top{grid-template-columns:1fr 1fr;gap:32px}
+.frm-row{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+.srv{padding:64px 16px}
+.met{padding:64px 16px}
+.gal{padding:64px 16px}
+.frm{padding:64px 16px}
+.ps{padding:64px 16px}
+.ftr{padding:48px 16px 24px}
+.srv-grid{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:1fr 1fr}
+.ftr-top{grid-template-columns:1fr}
+.ps-top{gap:24px}
+.btn-p,.btn-s{width:100%;text-align:center}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="srv" id="services">
+  <div class="s-hd">
+    <h2>Nos <span>Prestations</span></h2>
+    <p>Tarifs transparents, qualité constante — chaque visite au studio compte.</p>
+  </div>
+  <div class="srv-filters">
+    <button class="flt active" data-cat="all">Tout voir</button>
+    <button class="flt" data-cat="coupe">Coupes</button>
+    <button class="flt" data-cat="rasage">Rasage</button>
+    <button class="flt" data-cat="soin">Soins</button>
+  </div>
+  <div class="srv-grid">
+    <div class="sc" data-cat="coupe">
+      <div class="sc-ico">
+        <svg viewBox="0 0 24 24"><path d="M6 9a3 3 0 100-6 3 3 0 000 6z"/><path d="M6 9l10 5"/><path d="M6 15a3 3 0 100 6 3 3 0 000-6z"/><path d="M6 15l10-5"/><path d="M19 7l-6.5 5 6.5 5"/></svg>
+      </div>
+      <h3>Coupe Homme</h3>
+      <p>Coupe ciselée aux ciseaux et à la tondeuse, finition nette, contours définis.</p>
+      <div class="sc-meta">
+        <div>
+          <div class="sc-price">2 900 XPF</div>
+          <div class="sc-dur">~30 min</div>
+        </div>
+        <a href="#contact" class="sc-btn">Réserver</a>
+      </div>
+    </div>
+    <div class="sc" data-cat="coupe">
+      <div class="sc-ico">
+        <svg viewBox="0 0 24 24"><path d="M3 3l7.5 7.5M21 3l-7.5 7.5M9 21l3-3 3 3"/><path d="M12 18V12"/><path d="M8 8c0-2.2 1.8-4 4-4s4 1.8 4 4"/></svg>
+      </div>
+      <h3>Fade &amp; Dégradé</h3>
+      <p>Dégradé progressif haut de gamme — skin fade, low fade ou mid fade selon votre style.</p>
+      <div class="sc-meta">
+        <div>
+          <div class="sc-price">3 500 XPF</div>
+          <div class="sc-dur">~45 min</div>
+        </div>
+        <a href="#contact" class="sc-btn">Réserver</a>
+      </div>
+    </div>
+    <div class="sc" data-cat="rasage">
+      <div class="sc-ico">
+        <svg viewBox="0 0 24 24"><path d="M4 4h6l2 4-2 4H4L6 8 4 4z"/><path d="M10 8h10"/><path d="M18 5l3 3-3 3"/></svg>
+      </div>
+      <h3>Rasage Traditionnel</h3>
+      <p>Rasoir droit, serviette chaude, baume après-rasage. Le rituel classique à Nouméa.</p>
+      <div class="sc-meta">
+        <div>
+          <div class="sc-price">3 200 XPF</div>
+          <div class="sc-dur">~40 min</div>
+        </div>
+        <a href="#contact" class="sc-btn">Réserver</a>
+      </div>
+    </div>
+    <div class="sc" data-cat="coupe">
+      <div class="sc-ico">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+      </div>
+      <h3>Coupe Enfant</h3>
+      <p>Coupe soignée pour les moins de 12 ans, en toute décontraction.</p>
+      <div class="sc-meta">
+        <div>
+          <div class="sc-price">2 000 XPF</div>
+          <div class="sc-dur">~25 min</div>
+        </div>
+        <a href="#contact" class="sc-btn">Réserver</a>
+      </div>
+    </div>
+    <div class="sc" data-cat="rasage">
+      <div class="sc-ico">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+      </div>
+      <h3>Taille de Barbe</h3>
+      <p>Mise en forme, contours nets et hydratation. Barbe travaillée avec précision.</p>
+      <div class="sc-meta">
+        <div>
+          <div class="sc-price">1 800 XPF</div>
+          <div class="sc-dur">~20 min</div>
+        </div>
+        <a href="#contact" class="sc-btn">Réserver</a>
+      </div>
+    </div>
+    <div class="sc" data-cat="soin">
+      <div class="sc-ico">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3>Forfait Complet</h3>
+      <p>Coupe + barbe + rasage — le combo signature Curl Studio, tout inclus.</p>
+      <div class="sc-meta">
+        <div>
+          <div class="sc-price">5 900 XPF</div>
+          <div class="sc-dur">~75 min</div>
+        </div>
+        <a href="#contact" class="sc-btn">Réserver</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION METIER -->
+<section class="met" id="metier">
+  <div class="met-inner">
+    <div class="met-txt">
+      <h2>L'art du <em>barbier</em><br>au cœur de Nouméa</h2>
+      <div class="met-acc"></div>
+      <p>Curl Studio, c'est un barbershop urbain installé au centre-ville de Nouméa, à deux pas du port. Ici, chaque coupe est pensée pour durer — traits nets, dégradés propres, finitions irréprochables.</p>
+      <p>Le climat tropical calédonien demande des coupes adaptées : légèreté, précision et entretien facile. Notre équipe connaît les spécificités locales et adapte chaque prestation.</p>
+      <ul class="met-list">
+        <li class="met-item">
+          <svg width="16" height="16" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Coupes adaptées aux cheveux tropicaux
+        </li>
+        <li class="met-item">
+          <svg width="16" height="16" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Tarifs affichés, sans surprise
+        </li>
+        <li class="met-item">
+          <svg width="16" height="16" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Accueil sans rendez-vous ou sur réservation
+        </li>
+        <li class="met-item">
+          <svg width="16" height="16" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Studio en plein centre-ville, accessible
+        </li>
+      </ul>
+    </div>
+    <div class="met-img">
+      <img src="https://i.ibb.co/NnxrFW1R/CURL-STUDIO-1.jpg" alt="Barbier au travail — Curl Studio Nouméa" loading="lazy">
+    </div>
+  </div>
+  <div class="met-inner rev" style="max-width:1100px;margin:64px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+    <div class="met-img">
+      <img src="https://i.ibb.co/wN6rp7Dy/CURL-STUDIO-2.jpg" alt="Intérieur Curl Studio — ambiance barbershop contemporain" loading="lazy">
+    </div>
+    <div class="met-txt">
+      <h2>Un studio <em>pensé</em><br>pour vous</h2>
+      <div class="met-acc"></div>
+      <p>L'ambiance Curl Studio, c'est le sérieux du métier sans la froideur. Un espace propre, efficace, où vous êtes pris en charge du premier regard jusqu'à la dernière finition.</p>
+      <p>Que ce soit pour votre coupe hebdomadaire ou un rendu impeccable avant un événement, le studio s'adapte à votre emploi du temps et à votre style.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="gal" id="galerie">
+  <div class="s-hd">
+    <h2>Notre <span>Galerie</span></h2>
+    <p>Le travail parle de lui-même — cliquez pour agrandir.</p>
+  </div>
+  <div class="gal-grid">
+    <div class="gi" onclick="openLb(this)">
+      <img src="https://i.ibb.co/ccBXFNRP/CURL-STUDIO-0.jpg" alt="Curl Studio — photo 1" loading="lazy">
+      <div class="gi-ov"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div>
+    </div>
+    <div class="gi" onclick="openLb(this)">
+      <img src="https://i.ibb.co/NnxrFW1R/CURL-STUDIO-1.jpg" alt="Curl Studio — photo 2" loading="lazy">
+      <div class="gi-ov"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div>
+    </div>
+    <div class="gi" onclick="openLb(this)">
+      <img src="https://i.ibb.co/wN6rp7Dy/CURL-STUDIO-2.jpg" alt="Curl Studio — photo 3" loading="lazy">
+      <div class="gi-ov"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div>
+    </div>
+    <div class="gi" onclick="openLb(this)">
+      <img src="https://i.ibb.co/cXbxJK0X/CURL-STUDIO-3.jpg" alt="Curl Studio — photo 4" loading="lazy">
+      <div class="gi-ov"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div>
+    </div>
+    <div class="gi" onclick="openLb(this)">
+      <img src="https://i.ibb.co/ccBXFNRP/CURL-STUDIO-0.jpg" alt="Curl Studio — photo 5" loading="lazy">
+      <div class="gi-ov"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div>
+    </div>
+    <div class="gi" onclick="openLb(this)">
+      <img src="https://i.ibb.co/NnxrFW1R/CURL-STUDIO-1.jpg" alt="Curl Studio — photo 6" loading="lazy">
+      <div class="gi-ov"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" onclick="closeLb()">
+  <button class="lb-cl" onclick="closeLb()">&times;</button>
+  <img id="lb-img" src="" alt="Curl Studio galerie">
+</div>
+
+<!-- FORMULAIRE -->
+<section class="frm" id="contact">
+  <div class="frm-inner">
+    <h2>Prenez <span>Rendez-vous</span></h2>
+    <p class="frm-sub">Écrivez-nous ou appelez directement le <a href="tel:+68744156" style="color:var(--ca)">44.15.68</a> — on vous répond vite.</p>
+    <form id="cForm" action="#" novalidate>
+      <div class="frm-row">
+        <div class="fg">
+          <label for="f-nom">Votre prénom</label>
+          <input class="fi" type="text" id="f-nom" name="nom" placeholder="Jean-Marie" autocomplete="given-name">
+          <div class="ferr" id="e-nom">Merci d'indiquer votre prénom.</div>
+        </div>
+        <div class="fg">
+          <label for="f-email">Email</label>
+          <input class="fi" type="email" id="f-email" name="email" placeholder="vous@exemple.com" autocomplete="email">
+          <div class="ferr" id="e-email">Adresse email invalide.</div>
+        </div>
+      </div>
+      <div class="fg">
+        <label for="f-tel">Téléphone</label>
+        <input class="fi" type="tel" id="f-tel" name="tel" placeholder="44 15 68" autocomplete="tel">
+        <div class="ferr" id="e-tel">Numéro de téléphone requis.</div>
+      </div>
+      <div class="fg">
+        <label for="f-msg">Message</label>
+        <textarea class="fi" id="f-msg" name="message" placeholder="Quel service vous intéresse ? Vos disponibilités..."></textarea>
+        <div class="ferr" id="e-msg">Merci de saisir votre message.</div>
+      </div>
+      <button type="submit" class="btn-sub" id="fBtn">Envoyer ma demande</button>
+      <div class="fsuc" id="fSuc">✓ Votre demande a bien été envoyée — on vous rappelle rapidement !</div>
+    </form>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="ps" id="avis">
+  <div class="s-hd">
+    <h2>Ils nous font <span>confiance</span></h2>
+    <p>Curl Studio, premier barbershop contemporain du centre-ville de Nouméa.</p>
+  </div>
+  <div class="ps-top">
+    <div class="ps-score">
+      <div class="ps-label">Note Google</div>
+      <div class="ps-num">5.0</div>
+      <div class="ps-stars">
+        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <div class="ps-ct">Barbershop du centre-ville de Nouméa</div>
+    </div>
+    <div class="tes-grid">
+      <div class="tc">
+        <blockquote>« Le meilleur fade que j'ai eu depuis longtemps. Précis, propre, et l'ambiance du studio est top. Je reviens chaque mois. »</blockquote>
+        <cite>— Théo M., Nouméa</cite>
+      </div>
+      <div class="tc">
+        <blockquote>« Accueil pro, coupe parfaite et tarifs corrects. Enfin un vrai barbershop à Nouméa centre. Recommande sans hésiter. »</blockquote>
+        <cite>— Kevin R., Nouméa</cite>
+      </div>
+      <div class="tc">
+        <blockquote>« Pris sans rendez-vous un samedi matin, servi rapidement. La barbe et la coupe, les deux nickel. »</blockquote>
+        <cite>— Soane T., Nouméa</cite>
+      </div>
+      <div class="tc">
+        <blockquote>« Mon fils et moi, on y va ensemble. Les enfants sont bien accueillis et le résultat est toujours soigné. »</blockquote>
+        <cite>— Laurent D., Nouméa</cite>
+      </div>
+    </div>
+  </div>
+  <div class="ps-badges">
+    <div class="badge">
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span>Prestation garantie</span>
+    </div>
+    <div class="badge">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <span>Ouvert 6j/7</span>
+    </div>
+    <div class="badge">
+      <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span>Centre-ville Nouméa</span>
+    </div>
+    <div class="badge">
+      <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+      <span>Studio de confiance</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ftr" id="footer">
+  <div class="ftr-top">
+    <div class="ftr-brand">
+      <h3>Curl<span>&nbsp;Studio</span></h3>
+      <p>Barbershop urbain contemporain au cœur de Nouméa. Coupes précises, fades nets, rasage soigné — depuis le centre-ville.</p>
+      <div class="ftr-social">
+        <a href="https://www.facebook.com/CurlStudioNC" target="_blank" rel="noopener" class="fsoc" aria-label="Facebook Curl Studio">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="ftr-col">
+      <h4>Nous trouver</h4>
+      <p>5 Av. du Maréchal Foch</p>
+      <p>Nouméa 98800</p>
+      <p>Nouvelle-Calédonie</p>
+      <a href="tel:+68744156" style="margin-top:8px;color:var(--ca);font-weight:600">44.15.68</a>
+    </div>
+    <div class="ftr-col">
+      <h4>Prestations</h4>
+      <a href="#services">Coupe Homme</a>
+      <a href="#services">Fade &amp; Dégradé</a>
+      <a href="#services">Rasage Traditionnel</a>
+      <a href="#services">Taille de Barbe</a>
+      <a href="#services">Forfait Complet</a>
+    </div>
+  </div>
+  <div class="ftr-bot">
+    <p>© 2026 CURL STUDIO. Tous droits réservés.</p>
+    <p>Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+  </div>
+</footer>
+
+<script>
+var hBtn=document.getElementById('hamBtn'),mNav=document.getElementById('mobNav');
+function closeMenu(){mNav.classList.remove('open')}
+hBtn.addEventListener('click',function(){mNav.classList.toggle('open')});
+
+document.querySelectorAll('.flt').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.flt').forEach(function(x){x.classList.remove('active')});
+    b.classList.add('active');
+    var cat=b.dataset.cat;
+    document.querySelectorAll('.sc').forEach(function(c){
+      c.style.display=(cat==='all'||c.dataset.cat===cat)?'':'none';
+    });
+  });
+});
+
+function openLb(el){
+  var s=el.querySelector('img').src;
+  document.getElementById('lb-img').src=s;
+  document.getElementById('lb').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLb(){
+  document.getElementById('lb').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
+
+document.getElementById('cForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var ok=true;
+  var fields=[
+    {id:'f-nom',err:'e-nom',check:function(v){return v.length>1}},
+    {id:'f-email',err:'e-email',check:function(v){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)}},
+    {id:'f-tel',err:'e-tel',check:function(v){return v.length>4}},
+    {id:'f-msg',err:'e-msg',check:function(v){return v.length>4}}
+  ];
+  fields.forEach(function(f){
+    var el=document.getElementById(f.id),er=document.getElementById(f.err);
+    if(!f.check(el.value.trim())){el.classList.add('err');er.classList.add('show');ok=false;}
+    else{el.classList.remove('err');er.classList.remove('show');}
+  });
+  if(!ok)return;
+  var btn=document.getElementById('fBtn');
+  btn.disabled=true;btn.textContent='Envoi en cours…';
+  setTimeout(function(){
+    document.getElementById('fSuc').classList.add('show');
+    btn.style.display='none';
+    document.getElementById('cForm').reset();
+  },900);
+});
+
+var sVals=document.querySelectorAll('.stat-val');
+function animStats(){
+  sVals.forEach(function(el){
+    var tgt=parseInt(el.dataset.target),dur=1600,step=16,inc=tgt/(dur/step),cur=0;
+    var t=setInterval(function(){
+      cur+=inc;if(cur>=tgt){cur=tgt;clearInterval(t);}
+      el.textContent=Math.floor(cur)+(tgt===100?'%':'+');
+    },step);
+  });
+}
+var sObs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){animStats();sObs.disconnect();}});
+},{threshold:0.3});
+var statsEl=document.getElementById('stats');
+if(statsEl)sObs.observe(statsEl);
+</script>
+</body>
+</html>
