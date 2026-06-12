@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DESSANGE - Coiffeur Nouméa — Nouméa</title>
+<meta name="description" content="Salon DESSANGE à Nouméa, Nouvelle-Calédonie. Savoir-faire parisien au cœur calédonien. Coiffure, soins et expertise capillaire au Complexe Commercial La Promenade.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#1a1a1a;
+--cs:#f5f5f5;
+--ca:#c8a96e;
+--cf:#f5f0e8;
+--ct:#2c2c2c;
+--cw:#ffffff;
+--r:12px;
+--tr:0.3s ease-out;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',system-ui,sans-serif;color:var(--ct);background:var(--cf);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU */
+.promo{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;display:flex;align-items:center;justify-content:center}
+.promo a{font-family:'Manrope','Plus Jakarta Sans',system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;letter-spacing:0.3px;line-height:44px;transition:opacity .2s}
+.promo a:hover{opacity:.85}
+
+/* HEADER */
+.hdr{position:fixed;top:44px;left:0;width:100%;z-index:1000;background:rgba(245,240,232,0.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(200,169,110,0.2);transition:box-shadow var(--tr)}
+.hdr.scrolled{box-shadow:0 2px 20px rgba(26,26,26,0.08)}
+.hdr-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:68px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;letter-spacing:3px;color:var(--cp);text-transform:uppercase}
+.logo span{color:var(--ca)}
+.nav{display:flex;align-items:center;gap:32px}
+.nav a{font-size:13px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--cp);position:relative;transition:color var(--tr)}
+.nav a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--ca);transition:width var(--tr)}
+.nav a:hover::after{width:100%}
+.nav a:hover{color:var(--ca)}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 28px;border-radius:4px;font-family:'Manrope',sans-serif;font-weight:600;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;transition:all var(--tr);cursor:pointer;border:none}
+.btn-gold{background:var(--ca);color:var(--cw)}
+.btn-gold:hover{background:#b8965e;transform:translateY(-2px);box-shadow:0 6px 20px rgba(200,169,110,0.35)}
+.btn-outline{background:transparent;color:var(--cp);border:1.5px solid var(--cp)}
+.btn-outline:hover{background:var(--cp);color:var(--cw)}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hbg span{width:24px;height:2px;background:var(--cp);transition:all var(--tr)}
+.mob-nav{display:none;position:fixed;top:112px;left:0;width:100%;background:var(--cf);border-bottom:1px solid rgba(200,169,110,0.2);z-index:999;padding:24px;flex-direction:column;gap:20px}
+.mob-nav a{font-size:15px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--cp);padding:8px 0;border-bottom:1px solid rgba(200,169,110,0.15)}
+.mob-nav.open{display:flex}
+
+/* HERO */
+.hero{min-height:100vh;padding-top:112px;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+.hero-txt{background:var(--cf);display:flex;flex-direction:column;justify-content:center;padding:80px 60px 80px 80px;position:relative;z-index:2}
+.hero-txt::after{content:'';position:absolute;right:-1px;top:0;width:80px;height:100%;background:linear-gradient(to right,var(--cf),transparent);z-index:1}
+.hero-eyebrow{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--ca);margin-bottom:20px}
+.hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,5vw,72px);font-weight:500;line-height:1.1;color:var(--cp);margin-bottom:24px}
+.hero-h1 em{font-style:italic;color:var(--ca)}
+.hero-sub{font-size:16px;line-height:1.7;color:#5a5a5a;max-width:420px;margin-bottom:40px}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
+.hero-addr{margin-top:48px;padding-top:32px;border-top:1px solid rgba(200,169,110,0.3);display:flex;align-items:center;gap:10px;font-size:13px;color:#7a7a7a}
+.hero-addr svg{color:var(--ca);flex-shrink:0}
+.hero-img{position:relative;overflow:hidden}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.hero-img::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(26,26,26,0.15) 0%,transparent 60%);z-index:1}
+.hero-badge{position:absolute;bottom:40px;left:40px;z-index:2;background:rgba(245,240,232,0.95);backdrop-filter:blur(8px);border:1px solid rgba(200,169,110,0.4);border-radius:8px;padding:16px 20px;display:flex;align-items:center;gap:12px}
+.hero-badge-stars{color:var(--ca);font-size:14px;letter-spacing:2px}
+.hero-badge-txt{font-size:12px;line-height:1.4}
+.hero-badge-txt strong{display:block;font-size:15px;font-weight:700;color:var(--cp)}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#9a9a9a;z-index:3}
+.scroll-ind span{width:1px;height:48px;background:linear-gradient(to bottom,var(--ca),transparent);animation:scrollpulse 2s ease-in-out infinite}
+@keyframes scrollpulse{0%,100%{opacity:.4;transform:scaleY(0.7)}50%{opacity:1;transform:scaleY(1)}}
+
+/* STATS */
+.stats{background:var(--cp);padding:60px 24px;position:relative;overflow:hidden}
+.stats::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(200,169,110,0.03) 0px,rgba(200,169,110,0.03) 1px,transparent 1px,transparent 40px)}
+.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:40px}
+.stat-item{text-align:center;position:relative}
+.stat-item+.stat-item::before{content:'';position:absolute;left:0;top:20%;height:60%;width:1px;background:rgba(200,169,110,0.2)}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5vw,64px);font-weight:500;color:var(--ca);line-height:1;display:block}
+.stat-lbl{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:rgba(245,240,232,0.6);margin-top:8px;display:block}
+
+/* REVEAL */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease-out,transform .7s ease-out}
+.rv.vis{opacity:1;transform:none}
+.rv-d1{transition-delay:.1s}
+.rv-d2{transition-delay:.2s}
+.rv-d3{transition-delay:.3s}
+.rv-d4{transition-delay:.4s}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.hero{grid-template-columns:1fr}
+.hero-img{height:55vh;order:-1}
+.hero-txt{padding:48px 32px;text-align:center}
+.hero-txt::after{display:none}
+.hero-sub{max-width:100%}
+.hero-ctas{justify-content:center}
+.hero-addr{justify-content:center}
+.hero-badge{left:20px;bottom:20px}
+.stats-inner{grid-template-columns:repeat(2,1fr);gap:32px}
+.stat-item+.stat-item::before{display:none}
+.nav{display:none}
+.hbg{display:flex}
+}
+@media(max-width:480px){
+.hdr-inner{padding:0 16px}
+.hero-txt{padding:36px 16px}
+.hero-h1{font-size:38px}
+.btn{padding:14px 20px;font-size:12px;width:100%}
+.hero-ctas{flex-direction:column}
+.stats{padding:40px 16px}
+.stats-inner{grid-template-columns:repeat(2,1fr);gap:24px}
+.promo a{font-size:13px;line-height:40px}
+.promo{height:40px}
+.hdr{top:40px}
+.hdr-inner{height:60px}
+.hero{padding-top:100px}
+.mob-nav{top:100px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr" id="hdr">
+  <div class="hdr-inner">
+    <a href="#" class="logo">Dessange<span>.</span></a>
+    <nav class="nav">
+      <a href="#services">Prestations</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#equipe">L'équipe</a>
+      <a href="#temoignages">Avis</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="tel:+68727211" class="btn btn-gold" style="margin-left:16px">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="margin-right:8px"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.56-.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+      27.21.11
+    </a>
+    <div class="hbg" id="hbg" aria-label="Menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-nav" id="mob-nav">
+  <a href="#services" onclick="closeMob()">Prestations</a>
+  <a href="#galerie" onclick="closeMob()">Galerie</a>
+  <a href="#equipe" onclick="closeMob()">L'équipe</a>
+  <a href="#temoignages" onclick="closeMob()">Avis</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="tel:+68727211" class="btn btn-gold" style="margin-top:8px;text-align:center">Appeler : 27.21.11</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-txt">
+    <p class="hero-eyebrow rv">Salon DESSANGE — Nouméa</p>
+    <h1 class="hero-h1 rv rv-d1">Savoir-faire<br>parisien,<br><em>cœur calédonien</em></h1>
+    <p class="hero-sub rv rv-d2">Au cœur de Nouméa, nos coiffeurs vous accueillent avec l'excellence DESSANGE et la chaleur propre à la Nouvelle-Calédonie.</p>
+    <div class="hero-ctas rv rv-d3">
+      <a href="#booking" class="btn btn-gold">Réserver une coupe</a>
+      <a href="#services" class="btn btn-outline">Nos prestations</a>
+    </div>
+    <div class="hero-addr rv rv-d4">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Complexe Commercial La Promenade, Nouméa 98800
+    </div>
+  </div>
+  <div class="hero-img">
+    <img src="https://i.ibb.co/TBcqqpgB/DESSANGE-Coiffeur-Noum-a-0.jpg" alt="Salon DESSANGE Nouméa — coiffure haut de gamme" loading="eager" fetchpriority="high">
+    <div class="hero-badge">
+      <div>
+        <div class="hero-badge-stars">★★★★★</div>
+      </div>
+      <div class="hero-badge-txt">
+        <strong>4,7 / 5</strong>
+        32 avis Google
+      </div>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span></span>
+    Découvrir
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="stats">
+  <div class="stats-inner">
+    <div class="stat-item rv">
+      <span class="stat-num" data-target="15">0</span>
+      <span class="stat-lbl">Ans d'expertise</span>
+    </div>
+    <div class="stat-item rv rv-d1">
+      <span class="stat-num" data-target="32">0</span>
+      <span class="stat-lbl">Avis Google</span>
+    </div>
+    <div class="stat-item rv rv-d2">
+      <span class="stat-num" data-target="4">0</span>
+      <span class="stat-lbl">Coiffeurs passionnés</span>
+    </div>
+    <div class="stat-item rv rv-d3">
+      <span class="stat-num" data-target="100">0</span>
+      <span class="stat-lbl">% satisfaction client</span>
+    </div>
+  </div>
+</section>
+
+<script>
+var hdr=document.getElementById('hdr'),hbg=document.getElementById('hbg'),mob=document.getElementById('mob-nav');
+window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>10)});
+hbg.addEventListener('click',function(){mob.classList.toggle('open')});
+function closeMob(){mob.classList.remove('open')}
+
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll('.rv').forEach(function(el){obs.observe(el)});
+
+var nos=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){
+  var el=e.target,t=+el.dataset.target,d=1800,s=60,st=performance.now();
+  (function anim(now){
+    var p=Math.min((now-st)/d,1),v=Math.round(p*p*(3-2*p)*t);
+    el.textContent=v+(t===4?'+':t===100?'%':'+');
+    if(p<1)requestAnimationFrame(anim);
+    else el.textContent=t+(t===4?'+':t===100?'%':'+');
+  })(performance.now());
+  nos.unobserve(e.target);
+}})},{threshold:.3});
+document.querySelectorAll('.stat-num').forEach(function(el){nos.observe(el)});
+</script>
+<style>
+.s{padding:96px 24px}
+.s-inner{max-width:1100px;margin:0 auto}
+.s-tag{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--ca);margin-bottom:12px;display:block}
+.s-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,56px);font-weight:500;color:var(--cp);line-height:1.1;margin-bottom:16px}
+.s-title em{font-style:italic;color:var(--ca)}
+.s-sub{font-size:16px;line-height:1.7;color:#5a5a5a;max-width:560px;margin-bottom:56px}
+.s-light{background:var(--cf)}
+.s-white{background:var(--cw)}
+.s-dark{background:var(--cp)}
+
+/* SERVICES */
+.svc-filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:48px}
+.svc-btn{background:transparent;border:1.5px solid rgba(200,169,110,0.35);color:var(--ct);padding:8px 22px;border-radius:40px;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all var(--tr)}
+.svc-btn.active,.svc-btn:hover{background:var(--ca);border-color:var(--ca);color:var(--cw)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.svc-card{background:var(--cw);border-radius:var(--r);padding:32px 28px;border:1px solid rgba(200,169,110,0.15);border-bottom:3px solid transparent;transition:all var(--tr);position:relative;overflow:hidden}
+.svc-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(26,26,26,0.1);border-bottom-color:var(--ca)}
+.svc-icon{width:48px;height:48px;background:rgba(200,169,110,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:var(--ca)}
+.svc-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--cp);margin-bottom:8px}
+.svc-desc{font-size:14px;line-height:1.6;color:#6a6a6a;margin-bottom:20px}
+.svc-meta{display:flex;align-items:center;justify-content:space-between;padding-top:20px;border-top:1px solid rgba(200,169,110,0.15)}
+.svc-price{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--ca)}
+.svc-dur{font-size:11px;font-weight:600;letter-spacing:1px;color:#9a9a9a;text-transform:uppercase}
+.svc-hidden{display:none}
+
+/* MÉTIER */
+.met-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.met-grid.rev{direction:rtl}
+.met-grid.rev>*{direction:ltr}
+.met-img{border-radius:var(--r);overflow:hidden;position:relative}
+.met-img img{width:100%;height:480px;object-fit:cover;transition:transform .6s ease}
+.met-img:hover img{transform:scale(1.03)}
+.met-img::after{content:'';position:absolute;inset:0;border-radius:var(--r);box-shadow:inset 0 0 0 1px rgba(200,169,110,0.2)}
+.met-accent{width:48px;height:3px;background:var(--ca);margin-bottom:24px;border-radius:2px}
+.met-body{font-size:15px;line-height:1.8;color:#5a5a5a;margin-bottom:32px}
+.met-checks{display:flex;flex-direction:column;gap:12px}
+.met-check{display:flex;align-items:flex-start;gap:12px;font-size:14px;color:var(--ct);font-weight:500}
+.met-check svg{color:var(--ca);flex-shrink:0;margin-top:2px}
+.met-sep{margin:64px 0;border:none;border-top:1px solid rgba(200,169,110,0.2)}
+
+/* GALERIE */
+.gal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.gal-item{border-radius:var(--r);overflow:hidden;cursor:pointer;position:relative;aspect-ratio:4/3}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-item::after{content:'';position:absolute;inset:0;background:rgba(26,26,26,0);transition:background var(--tr)}
+.gal-item:hover::after{background:rgba(26,26,26,0.25)}
+.gal-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity var(--tr);z-index:1}
+.gal-item:hover .gal-overlay{opacity:1}
+.gal-overlay svg{color:var(--cw);filter:drop-shadow(0 2px 8px rgba(0,0,0,0.4))}
+.lb{position:fixed;inset:0;background:rgba(10,10,10,0.95);z-index:9999;display:none;align-items:center;justify-content:center}
+.lb.open{display:flex}
+.lb img{max-width:90vw;max-height:85vh;object-fit:contain;border-radius:8px}
+.lb-close{position:absolute;top:24px;right:24px;background:rgba(200,169,110,0.2);border:1px solid rgba(200,169,110,0.4);color:var(--cw);width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px;transition:background var(--tr)}
+.lb-close:hover{background:var(--ca)}
+
+/* FORMULAIRE */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.form-full{grid-column:1/-1}
+.fg{display:flex;flex-direction:column;gap:6px}
+.fg label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cp)}
+.fg input,.fg textarea,.fg select{background:var(--cf);border:1.5px solid rgba(200,169,110,0.25);border-radius:8px;padding:14px 16px;font-size:15px;font-family:'Manrope',sans-serif;color:var(--ct);transition:border-color var(--tr);outline:none;width:100%}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--ca)}
+.fg input.err,.fg textarea.err{border-color:#e05a4b}
+.fg textarea{resize:vertical;min-height:120px}
+.form-submit{margin-top:8px}
+.form-msg{display:none;background:rgba(200,169,110,0.12);border:1px solid rgba(200,169,110,0.4);border-radius:8px;padding:20px 24px;font-size:15px;color:var(--ct);margin-top:20px;text-align:center}
+.form-msg.show{display:block}
+.form-wrap{background:var(--cw);border-radius:16px;padding:48px;box-shadow:0 4px 40px rgba(26,26,26,0.07)}
+
+/* PREUVE SOCIALE */
+.rating-hero{text-align:center;margin-bottom:64px}
+.rating-num{font-family:'Cormorant Garamond',serif;font-size:96px;font-weight:300;color:var(--ca);line-height:1}
+.rating-stars{font-size:28px;color:var(--ca);letter-spacing:4px;margin:8px 0}
+.rating-count{font-size:14px;color:#7a7a7a;font-weight:500}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.testi-card{background:var(--cw);border-radius:var(--r);padding:32px 28px;border:1px solid rgba(200,169,110,0.15);transition:all var(--tr)}
+.testi-card:hover{box-shadow:0 8px 32px rgba(26,26,26,0.08);transform:translateY(-2px)}
+.testi-stars{color:var(--ca);font-size:14px;letter-spacing:2px;margin-bottom:16px}
+.testi-txt{font-size:15px;line-height:1.7;color:#4a4a4a;font-style:italic;margin-bottom:20px}
+.testi-auth{display:flex;align-items:center;gap:12px}
+.testi-av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--ca),#8a6a3e);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:var(--cw)}
+.testi-name{font-size:14px;font-weight:700;color:var(--cp)}
+.testi-date{font-size:12px;color:#9a9a9a}
+.badges{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:56px}
+.badge{display:flex;align-items:center;gap:12px;background:var(--cw);border:1px solid rgba(200,169,110,0.2);border-radius:10px;padding:16px 24px}
+.badge svg{color:var(--ca)}
+.badge-txt{font-size:13px;font-weight:600;color:var(--cp)}
+
+/* FOOTER */
+.ftr{background:var(--cp);color:rgba(245,240,232,0.75);padding:72px 24px 0}
+.ftr-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:60px;padding-bottom:56px;border-bottom:1px solid rgba(200,169,110,0.15)}
+.ftr-brand .logo{color:var(--cf);margin-bottom:20px;display:block}
+.ftr-brand .logo span{color:var(--ca)}
+.ftr-desc{font-size:14px;line-height:1.7;max-width:300px;margin-bottom:28px}
+.ftr-socials{display:flex;gap:14px;align-items:center}
+.ftr-soc{width:40px;height:40px;border-radius:50%;border:1px solid rgba(200,169,110,0.3);display:flex;align-items:center;justify-content:center;color:rgba(245,240,232,0.7);transition:all var(--tr)}
+.ftr-soc:hover{background:var(--ca);border-color:var(--ca);color:var(--cw)}
+.ftr-soc.ig:hover{animation:none}
+.ftr-h{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--cf);margin-bottom:24px}
+.ftr-links{display:flex;flex-direction:column;gap:10px}
+.ftr-links a{font-size:14px;color:rgba(245,240,232,0.65);transition:color var(--tr)}
+.ftr-links a:hover{color:var(--ca)}
+.ftr-addr{font-size:14px;line-height:1.8}
+.ftr-addr a{color:var(--ca);font-weight:600}
+.ftr-addr a:hover{opacity:.8}
+.ftr-bottom{max-width:1100px;margin:0 auto;padding:24px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.ftr-copy{font-size:12px;color:rgba(245,240,232,0.4)}
+.ftr-setup{font-size:12px;color:rgba(200,169,110,0.6)}
+.ftr-setup a{color:var(--ca);font-weight:600}
+.ftr-setup a:hover{opacity:.8}
+
+@media(max-width:900px){
+.svc-grid{grid-template-columns:repeat(2,1fr)}
+.met-grid,.met-grid.rev{grid-template-columns:1fr;direction:ltr;gap:40px}
+.met-img img{height:320px}
+.form-grid{grid-template-columns:1fr}
+.form-full{grid-column:1}
+.form-wrap{padding:32px 24px}
+.testi-grid{grid-template-columns:1fr}
+.ftr-inner{grid-template-columns:1fr 1fr;gap:40px}
+.ftr-brand{grid-column:1/-1}
+}
+@media(max-width:480px){
+.s{padding:64px 16px}
+.svc-grid{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:1fr}
+.ftr-inner{grid-template-columns:1fr;gap:32px}
+.ftr-brand{grid-column:1}
+.ftr-bottom{flex-direction:column;text-align:center}
+.badges{flex-direction:column;align-items:center}
+.rating-num{font-size:72px}
+.form-wrap{padding:24px 16px}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s s-white" id="services">
+  <div class="s-inner">
+    <span class="s-tag rv">Nos prestations</span>
+    <h2 class="s-title rv rv-d1">L'excellence<br><em>à chaque soin</em></h2>
+    <p class="s-sub rv rv-d2">Coupe, couleur, soin ou mise en beauté — nos coiffeurs adaptent chaque prestation à votre personnalité et à votre style.</p>
+    <div class="svc-filters rv rv-d2">
+      <button class="svc-btn active" data-filter="all">Tout voir</button>
+      <button class="svc-btn" data-filter="coupe">Coupes</button>
+      <button class="svc-btn" data-filter="couleur">Couleurs</button>
+      <button class="svc-btn" data-filter="soin">Soins</button>
+      <button class="svc-btn" data-filter="style">Coiffage</button>
+    </div>
+    <div class="svc-grid">
+
+      <div class="svc-card rv" data-cat="coupe">
+        <div class="svc-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M6 3a3 3 0 110 6 3 3 0 010-6zM18 15a3 3 0 110 6 3 3 0 010-6zM20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L4 4"/></svg>
+        </div>
+        <div class="svc-name">Coupe femme</div>
+        <p class="svc-desc">Coupe personnalisée, shampoing, séchage et finitions soignées selon votre morphologie.</p>
+        <div class="svc-meta">
+          <span class="svc-price">À partir de 3 500 XPF</span>
+          <span class="svc-dur">~45 min</span>
+        </div>
+      </div>
+
+      <div class="svc-card rv rv-d1" data-cat="coupe">
+        <div class="svc-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M6 3a3 3 0 110 6 3 3 0 010-6zM18 15a3 3 0 110 6 3 3 0 010-6zM20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L4 4"/></svg>
+        </div>
+        <div class="svc-name">Coupe homme</div>
+        <p class="svc-desc">Coupe masculine classique ou contemporaine, shampoing et finitions pour un résultat net et élégant.</p>
+        <div class="svc-meta">
+          <span class="svc-price">À partir de 2 200 XPF</span>
+          <span class="svc-dur">~30 min</span>
+        </div>
+      </div>
+
+      <div class="svc-card rv rv-d2" data-cat="couleur">
+        <div class="svc-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 22a7 7 0 007-7c0-2-1-3.9-2.5-5.5l-4.5-4.5-4.5 4.5C6 11.1 5 13 5 15a7 7 0 007 7z"/></svg>
+        </div>
+        <div class="svc-name">Coloration</div>
+        <p class="svc-desc">Coloration pleine, racines ou tons sur tons. Des nuances lumineuses qui respectent la fibre capillaire.</p>
+        <div class="svc-meta">
+          <span class="svc-price">À partir de 5 500 XPF</span>
+          <span class="svc-dur">~60 min</span>
+        </div>
+      </div>
+
+      <div class="svc-card rv rv-d1" data-cat="couleur">
+        <div class="svc-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <div class="svc-name">Balayage & mèches</div>
+        <p class="svc-desc">Technique de balayage ou de mèches pour un effet naturel, lumineux et personnalisé.</p>
+        <div class="svc-meta">
+          <span class="svc-price">À partir de 8 000 XPF</span>
+          <span class="svc-dur">~90 min</span>
+        </div>
+      </div>
+
+      <div class="svc-card rv rv-d2" data-cat="soin">
+        <div class="svc-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <div class="svc-name">Soin profond</div>
+        <p class="svc-desc">Masque restructurant ou soin nourrissant pour des cheveux revitalisés, doux et brillants.</p>
+        <div class="svc-meta">
+          <span class="svc-price">À partir de 2 800 XPF</span>
+          <span class="svc-dur">~20 min</span>
+        </div>
+      </div>
+
+      <div class="svc-card rv rv-d3" data-cat="style">
+        <div class="svc-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <div class="svc-name">Mise en forme</div>
+        <p class="svc-desc">Brushing, lissage ou coiffage créatif pour sublimer votre chevelure au quotidien ou pour une occasion.</p>
+        <div class="svc-meta">
+          <span class="svc-price">À partir de 3 000 XPF</span>
+          <span class="svc-dur">~40 min</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s s-light" id="metier">
+  <div class="s-inner">
+    <div class="met-grid rv">
+      <div class="met-img">
+        <img src="https://i.ibb.co/6SRW0Wz/DESSANGE-Coiffeur-Noum-a-1.jpg" alt="Coiffeur DESSANGE au travail à Nouméa" loading="lazy">
+      </div>
+      <div>
+        <span class="s-tag">Notre savoir-faire</span>
+        <h2 class="s-title">L'art de la<br><em>coiffure parisienne</em><br>à Nouméa</h2>
+        <div class="met-accent"></div>
+        <p class="met-body">Depuis son ouverture au Complexe Commercial La Promenade, le salon DESSANGE de Nouméa incarne une promesse simple : apporter l'expertise d'un réseau parisien reconnu dans l'intimité chaleureuse d'un salon calédonien.</p>
+        <div class="met-checks">
+          <div class="met-check">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Techniques issues des meilleurs instituts de formation DESSANGE
+          </div>
+          <div class="met-check">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Diagnostic capillaire personnalisé à chaque visite
+          </div>
+          <div class="met-check">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Ambiance accueillante, rendez-vous respectés
+          </div>
+          <div class="met-check">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Tarifs transparents, sans surprise
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="met-sep">
+
+    <div class="met-grid rev rv">
+      <div class="met-img">
+        <img src="https://i.ibb.co/C55Pw5fc/DESSANGE-Coiffeur-Noum-a-2.jpg" alt="Ambiance salon DESSANGE Nouméa" loading="lazy">
+      </div>
+      <div>
+        <span class="s-tag">Notre engagement</span>
+        <h2 class="s-title">Chaque client,<br><em>une attention</em><br>singulière</h2>
+        <div class="met-accent"></div>
+        <p class="met-body">Nos coiffeurs prennent le temps d'écouter vos envies avant chaque prestation. Votre style de vie, la texture de vos cheveux et vos habitudes du quotidien guident chacun de leurs gestes.</p>
+        <div class="met-checks">
+          <div class="met-check">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Écoute et conseil avant chaque prestation
+          </div>
+          <div class="met-check">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Résultats adaptés à votre quotidien
+          </div>
+          <div class="met-check">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Fidélité récompensée, suivi personnalisé
+          </div>
+        </div>
+        <a href="#booking" class="btn btn-gold" style="margin-top:32px;display:inline-flex">Prendre rendez-vous</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s s-white" id="galerie">
+  <div class="s-inner">
+    <span class="s-tag rv">Galerie</span>
+    <h2 class="s-title rv rv-d1">Le salon en<br><em>images</em></h2>
+    <p class="s-sub rv rv-d2">Découvrez l'ambiance de notre salon et les créations de nos coiffeurs.</p>
+    <div class="gal-grid">
+      <div class="gal-item rv" data-src="https://i.ibb.co/TBcqqpgB/DESSANGE-Coiffeur-Noum-a-0.jpg">
+        <img src="https://i.ibb.co/TBcqqpgB/DESSANGE-Coiffeur-Noum-a-0.jpg" alt="DESSANGE Nouméa - Photo 1" loading="lazy">
+        <div class="gal-overlay"><svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gal-item rv rv-d1" data-src="https://i.ibb.co/6SRW0Wz/DESSANGE-Coiffeur-Noum-a-1.jpg">
+        <img src="https://i.ibb.co/6SRW0Wz/DESSANGE-Coiffeur-Noum-a-1.jpg" alt="DESSANGE Nouméa - Photo 2" loading="lazy">
+        <div class="gal-overlay"><svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gal-item rv rv-d2" data-src="https://i.ibb.co/C55Pw5fc/DESSANGE-Coiffeur-Noum-a-2.jpg">
+        <img src="https://i.ibb.co/C55Pw5fc/DESSANGE-Coiffeur-Noum-a-2.jpg" alt="DESSANGE Nouméa - Photo 3" loading="lazy">
+        <div class="gal-overlay"><svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gal-item rv rv-d3" data-src="https://i.ibb.co/7xtf4Yt6/DESSANGE-Coiffeur-Noum-a-3.jpg">
+        <img src="https://i.ibb.co/7xtf4Yt6/DESSANGE-Coiffeur-Noum-a-3.jpg" alt="DESSANGE Nouméa - Photo 4" loading="lazy">
+        <div class="gal-overlay"><svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <div class="lb-close" id="lb-close">✕</div>
+  <img src="" id="lb-img" alt="Galerie DESSANGE Nouméa">
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section class="s s-light" id="temoignages">
+  <div class="s-inner">
+    <div class="rating-hero rv">
+      <div class="rating-num">4,7</div>
+      <div class="rating-stars">★★★★★</div>
+      <div class="rating-count">Note Google — 32 avis vérifiés</div>
+    </div>
+    <span class="s-tag rv" style="text-align:center;display:block">Ce que disent nos clients</span>
+    <h2 class="s-title rv rv-d1" style="text-align:center">Ils nous font<br><em>confiance</em></h2>
+    <div class="testi-grid">
+      <div class="testi-card rv">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-txt">«&nbsp;Un salon élégant, une équipe à l'écoute. Ma coupe est exactement ce que je voulais. Je reviendrai sans hésiter&nbsp;!&nbsp;»</p>
+        <div class="testi-auth">
+          <div class="testi-av">M</div>
+          <div>
+            <div class="testi-name">Marie-Christine L.</div>
+            <div class="testi-date">Nouméa · Google</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card rv rv-d1">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-txt">«&nbsp;Excellent accueil, service rapide et professionnel. Le balayage est magnifique, exactement la teinte que j'avais demandée.&nbsp;»</p>
+        <div class="testi-auth">
+          <div class="testi-av">S</div>
+          <div>
+            <div class="testi-name">Sophie V.</div>
+            <div class="testi-date">Nouméa · Google</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card rv rv-d2">
+        <div class="testi-stars">★★★★☆</div>
+        <p class="testi-txt">«&nbsp;Très bonne expérience. Coupe propre, conseils pertinents et ambiance agréable. Le meilleur salon de la promenade.&nbsp;»</p>
+        <div class="testi-auth">
+          <div class="testi-av">T</div>
+          <div>
+            <div class="testi-name">Thomas R.</div>
+            <div class="testi-date">Nouméa · Google</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="badges rv rv-d1">
+      <div class="badge">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div class="badge-txt">Réseau DESSANGE Paris</div>
+      </div>
+      <div class="badge">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <div class="badge-txt">4,7/5 · 32 avis Google</div>
+      </div>
+      <div class="badge">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div class="badge-txt">Rendez-vous en 48h</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE -->
+<section class="s s-white" id="booking">
+  <div class="s-inner">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start" class="contact-wrap">
+      <div>
+        <span class="s-tag rv">Contact & réservation</span>
+        <h2 class="s-title rv rv-d1">Prenez<br><em>rendez-vous</em></h2>
+        <p class="met-body rv rv-d2">Remplissez le formulaire ou appelez-nous directement. Nous vous confirmons votre rendez-vous dans les plus brefs délais.</p>
+        <div class="met-checks rv rv-d3" style="margin-top:32px">
+          <div class="met-check">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 10.8a2 2 0 011.72-2.18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6z"/></svg>
+            <a href="tel:+68727211">27.21.11</a>
+          </div>
+          <div class="met-check">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Complexe Commercial La Promenade, Nouméa
+          </div>
+          <div class="met-check">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Lun–Sam : 8h30–18h30
+          </div>
+        </div>
+      </div>
+      <div class="form-wrap rv rv-d2">
+        <form id="cform" action="#" novalidate>
+          <div class="form-grid">
+            <div class="fg">
+              <label for="fname">Prénom & Nom</label>
+              <input type="text" id="fname" name="nom" placeholder="Marie Dupont" autocomplete="name">
+            </div>
+            <div class="fg">
+              <label for="ftel">Téléphone</label>
+              <input type="tel" id="ftel" name="telephone" placeholder="XX XX XX" autocomplete="tel">
+            </div>
+            <div class="fg form-full">
+              <label for="femail">Adresse e-mail</label>
+              <input type="email" id="femail" name="email" placeholder="marie@email.com" autocomplete="email">
+            </div>
+            <div class="fg form-full">
+              <label for="fservice">Prestation souhaitée</label>
+              <select id="fservice" name="service">
+                <option value="">— Choisissez une prestation —</option>
+                <option>Coupe femme</option>
+                <option>Coupe homme</option>
+                <option>Coloration</option>
+                <option>Balayage & mèches</option>
+                <option>Soin profond</option>
+                <option>Mise en forme</option>
+                <option>Autre</option>
+              </select>
+            </div>
+            <div class="fg form-full">
+              <label for="fmsg">Message (facultatif)</label>
+              <textarea id="fmsg" name="message" placeholder="Précisez vos souhaits, disponibilités…"></textarea>
+            </div>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;font-size:14px">
+              Envoyer ma demande
+            </button>
+          </div>
+          <div class="form-msg" id="fmsg-ok">
+            ✦&nbsp; Merci ! Votre demande a bien été envoyée. Nous vous contacterons très prochainement pour confirmer votre rendez-vous.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ftr" id="contact">
+  <div class="ftr-inner">
+    <div class="ftr-brand">
+      <span class="logo ftr-brand-logo">Dessange<span>.</span></span>
+      <p class="ftr-desc">Savoir-faire parisien au cœur calédonien. Le salon DESSANGE de Nouméa vous accueille au Complexe Commercial La Promenade pour des prestations coiffure haut de gamme.</p>
+      <div class="ftr-socials">
+        <a href="https://www.facebook.com/DESSANGE.Paris" target="_blank" rel="noopener" class="ftr-soc" aria-label="Facebook DESSANGE Paris">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="http://instagram.com/dessangenoumea" target="_blank" rel="noopener" class="ftr-soc ig" aria-label="Instagram DESSANGE Nouméa">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="ftr-h">Navigation</div>
+      <div class="ftr-links">
+        <a href="#services">Nos prestations</a>
+        <a href="#metier">Notre savoir-faire</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#temoignages">Avis clients</a>
+        <a href="#booking">Prendre rendez-vous</a>
+      </div>
+    </div>
+    <div>
+      <div class="ftr-h">Nous trouver</div>
+      <div class="ftr-addr">
+        <p>Complexe Commercial La Promenade</p>
+        <p>Nouméa 98800</p>
+        <p>Nouvelle-Calédonie</p>
+        <p style="margin-top:12px"><a href="tel:+68727211">27.21.11</a></p>
+        <p style="margin-top:16px;font-size:13px;color:rgba(245,240,232,0.5)">Lun – Sam : 8h30 – 18h30</p>
+      </div>
+    </div>
+  </div>
+  <div class="ftr-bottom">
+    <span class="ftr-copy">© 2026 DESSANGE - Coiffeur Nouméa. Tous droits réservés.</span>
+    <span class="ftr-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></span>
+  </div>
+</footer>
+
+<script>
+var obs2=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');obs2.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.rv').forEach(function(el){obs2.observe(el)});
+
+document.querySelectorAll('.svc-btn').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.svc-btn').forEach(function(x){x.classList.remove('active')});
+    b.classList.add('active');
+    var f=b.dataset.filter;
+    document.querySelectorAll('.svc-card').forEach(function(c){
+      c.style.display=(f==='all'||c.dataset.cat===f)?'':'none';
+    });
+  });
+});
+
+var lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img');
+document.querySelectorAll('.gal-item').forEach(function(item){
+  item.addEventListener('click',function(){
+    lbImg.src=item.dataset.src;
+    lb.classList.add('open');
+  });
+});
+document.getElementById('lb-close').addEventListener('click',function(){lb.classList.remove('open')});
+lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('open')});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('open')});
+
+document.getElementById('cform').addEventListener('submit',function(e){
+  e.preventDefault();
+  var ok=true;
+  ['fname','femail','ftel'].forEach(function(id){
+    var el=document.getElementById(id);
+    el.classList.remove('err');
+    if(!el.value.trim()){el.classList.add('err');ok=false;}
+  });
+  if(!ok)return;
+  var btn=this.querySelector('button[type=submit]');
+  btn.textContent='Envoi en cours…';btn.disabled=true;
+  setTimeout(function(){
+    document.getElementById('fmsg-ok').classList.add('show');
+    btn.style.display='none';
+  },900);
+});
+</script>
+
+</body>
+</html>
