@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GRAND QUARTIER — Nouméa</title>
+<meta name="description" content="Bijouterie de prestige à Nouméa, Nouvelle-Calédonie. Découvrez l'univers GRAND QUARTIER : bijoux, montres et créations d'exception au 30 rue de Sébastopol.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Nunito:wght@300;400;600;700&family=Alex+Brush&family=Manrope:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+--color-bg:#0d0d0d;
+--color-primary:#1a1a1a;
+--color-secondary:#d4a800;
+--color-accent:#f1d600;
+--color-text:#f5f0e0;
+--color-text-muted:rgba(245,240,224,0.65);
+--r:16px;
+--trans:400ms cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--color-bg);color:var(--color-text);font-family:'Nunito',sans-serif;overflow-x:hidden;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,6vw,5rem);font-weight:300;line-height:1.1;letter-spacing:.02em}
+.h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,4vw,3.2rem);font-weight:400;letter-spacing:.03em}
+.h3{font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,2.5vw,1.8rem);font-weight:400}
+.ab{font-family:'Alex Brush',cursive;font-size:1.1rem;color:var(--color-secondary);letter-spacing:.05em}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 32px;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:700;font-size:.95rem;cursor:pointer;border:none;transition:all var(--trans);min-height:48px;text-align:center}
+.btn-gold{background:var(--color-secondary);color:#0d0d0d}
+.btn-gold:hover{background:var(--color-accent);box-shadow:0 0 24px rgba(212,168,0,.4),inset 0 0 15px rgba(212,168,0,.3);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--color-text);border:1.5px solid var(--color-secondary)}
+.btn-outline:hover{background:rgba(212,168,0,.1);box-shadow:inset 0 0 15px rgba(212,168,0,.3);transform:translateY(-2px)}
+.underline-gold{position:relative;display:inline-block}
+.underline-gold::after{content:'';position:absolute;bottom:-6px;left:0;width:0;height:2px;background:var(--color-secondary);transition:width .6s ease}
+.underline-gold:hover::after,.underline-gold.active::after{width:100%}
+/* ───── BANDEAU PROMO ───── */
+#promo-band{position:fixed;top:0;left:0;right:0;height:44px;background:#ffd500;z-index:1001;display:flex;align-items:center;justify-content:center}
+#promo-band a{font-family:'Manrope','Plus Jakarta Sans',system-ui,sans-serif;font-weight:700;font-size:14px;color:#4375ff;line-height:44px;letter-spacing:.3px;text-align:center;display:block;width:100%}
+#promo-band a:hover{opacity:.85}
+/* ───── HEADER ───── */
+#hdr{position:fixed;top:44px;left:0;right:0;z-index:1000;height:72px;background:rgba(13,13,13,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,168,0,.15);transition:background var(--trans)}
+#hdr.scrolled{background:rgba(13,13,13,.98)}
+.hdr-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo-wrap{display:flex;flex-direction:column;line-height:1}
+.logo-main{font-family:'Alex Brush',cursive;font-size:1.75rem;color:var(--color-text);letter-spacing:.08em}
+.logo-sub{font-family:'Nunito',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--color-secondary)}
+nav{display:flex;align-items:center;gap:32px}
+nav a{font-family:'Nunito',sans-serif;font-size:.85rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-muted);transition:color var(--trans);position:relative}
+nav a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--color-secondary);transition:width .3s ease}
+nav a:hover{color:var(--color-text)}
+nav a:hover::after{width:100%}
+.hdr-cta{display:flex;align-items:center;gap:12px}
+.tel-link{font-family:'Nunito',sans-serif;font-size:.85rem;font-weight:700;color:var(--color-secondary);letter-spacing:.05em}
+.tel-link:hover{color:var(--color-accent)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.ham span{display:block;width:24px;height:2px;background:var(--color-text);transition:all .3s ease;border-radius:2px}
+.ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.ham.open span:nth-child(2){opacity:0}
+.ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mob-nav{display:none;position:fixed;top:116px;left:0;right:0;background:rgba(13,13,13,.98);border-bottom:1px solid rgba(212,168,0,.2);padding:24px;z-index:999;flex-direction:column;gap:20px}
+.mob-nav.open{display:flex}
+.mob-nav a{font-size:1rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--color-text-muted);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);transition:color .3s}
+.mob-nav a:hover{color:var(--color-secondary)}
+.mob-nav .btn{margin-top:8px;width:100%}
+/* ───── HERO ───── */
+#hero{position:relative;min-height:100vh;display:flex;align-items:stretch;margin-top:116px}
+.hero-left{flex:1;display:flex;flex-direction:column;justify-content:center;padding:80px 60px 80px 0;background:var(--color-primary);position:relative;z-index:2}
+.hero-left::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--color-primary) 60%,transparent 100%);pointer-events:none}
+.hero-right{flex:1;position:relative;overflow:hidden;min-height:560px}
+.hero-right img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform var(--trans)}
+.hero-right:hover img{transform:scale(1.02)}
+.hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--color-primary) 0%,transparent 30%)}
+.hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.hero-line{width:40px;height:1px;background:var(--color-secondary)}
+.hero-content{position:relative;z-index:1}
+.hero-content .h1{margin-bottom:24px}
+.hero-content .h1 em{font-style:italic;color:var(--color-secondary)}
+.hero-desc{font-size:1.05rem;color:var(--color-text-muted);max-width:440px;margin-bottom:40px;line-height:1.75}
+.hero-btns{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:48px}
+.hero-trust{display:flex;align-items:center;gap:16px;padding:16px 24px;background:rgba(212,168,0,.08);border:1px solid rgba(212,168,0,.2);border-radius:12px;max-width:340px}
+.stars{color:var(--color-secondary);font-size:1rem;letter-spacing:2px}
+.trust-text{font-size:.8rem;color:var(--color-text-muted);line-height:1.4}
+.trust-text strong{color:var(--color-text);font-size:.95rem;display:block}
+.scroll-ind{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--color-text-muted);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;z-index:10;animation:bob 2s ease-in-out infinite}
+.scroll-ind::before{content:'';width:1px;height:40px;background:linear-gradient(to bottom,var(--color-secondary),transparent)}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+/* ───── BANDE STATS ───── */
+#stats{background:var(--color-primary);border-top:1px solid rgba(212,168,0,.2);border-bottom:1px solid rgba(212,168,0,.2);padding:56px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat-item{text-align:center;padding:24px 16px;position:relative}
+.stat-item:not(:last-child)::after{content:'';position:absolute;right:0;top:20%;height:60%;width:1px;background:rgba(212,168,0,.2)}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:300;color:var(--color-secondary);line-height:1;display:block;transition:color var(--trans)}
+.stat-unit{font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,2.5vw,2rem);color:var(--color-accent)}
+.stat-label{font-family:'Nunito',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--color-text-muted);margin-top:8px;display:block}
+/* ───── FALLBACK ANIMATIONS ───── */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+/* ───── RESPONSIVE ───── */
+@media(max-width:900px){
+#hero{flex-direction:column;min-height:auto}
+.hero-left{padding:60px 24px 40px;flex:none}
+.hero-right{min-height:320px;flex:none}
+.hero-right::after{background:linear-gradient(to bottom,var(--color-primary) 0%,transparent 30%)}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.stat-item:nth-child(2)::after{display:none}
+nav{display:none}
+.hdr-cta .btn{display:none}
+.ham{display:flex}
+}
+@media(max-width:480px){
+#promo-band{height:40px}
+#promo-band a{font-size:13px;line-height:40px}
+#hdr{top:40px;height:64px}
+.hdr-inner{height:64px}
+.mob-nav{top:104px}
+#hero{margin-top:104px}
+.logo-main{font-size:1.5rem}
+.hero-left{padding:48px 16px 32px}
+.hero-btns .btn{width:100%}
+.hero-btns{flex-direction:column}
+.stats-grid{grid-template-columns:1fr 1fr}
+.stat-item::after{display:none}
+.wrap{padding:0 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO SETUP NC -->
+<div id="promo-band">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">
+    Ce site vous plaît&nbsp;? Prenez rendez-vous pour l'activer.
+  </a>
+</div>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="wrap hdr-inner">
+    <a href="#hero" class="logo-wrap">
+      <span class="logo-main">Grand Quartier</span>
+      <span class="logo-sub">Bijouterie · Nouméa</span>
+    </a>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#equipe">Équipe</a>
+      <a href="#temoignages">Avis</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="hdr-cta">
+      <a href="#contact" class="btn btn-gold">Prendre rendez-vous</a>
+      <button class="ham" id="ham-btn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-nav" id="mob-nav">
+  <a href="#services">Services</a>
+  <a href="#galerie">Galerie</a>
+  <a href="#equipe">Équipe</a>
+  <a href="#temoignages">Avis</a>
+  <a href="#contact">Contact</a>
+  <a href="#contact" class="btn btn-gold">Prendre rendez-vous</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-content wrap" style="padding-right:0">
+      <div class="hero-eyebrow">
+        <span class="hero-line"></span>
+        <span class="ab">Depuis Nouméa</span>
+      </div>
+      <h1 class="h1">
+        L'art du bijou,<br>
+        <em>l'âme du Pacifique.</em>
+      </h1>
+      <p class="hero-desc">
+        Au cœur de Nouméa, GRAND QUARTIER vous invite dans un écrin de lumière et de raffinement — où chaque pièce raconte une histoire, chaque métal précieux reflète l'éclat de nos îles.
+      </p>
+      <div class="hero-btns">
+        <a href="#services" class="btn btn-gold">Découvrir nos créations</a>
+        <a href="#contact" class="btn btn-outline">Nous contacter</a>
+      </div>
+      <div class="hero-trust">
+        <div>
+          <div class="stars">★★★★★</div>
+          <div style="font-size:.65rem;color:var(--color-text-muted);margin-top:2px">4.3 / 5</div>
+        </div>
+        <div class="trust-text">
+          <strong>86 avis clients</strong>
+          La référence bijouterie à Nouméa
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img
+      src="https://i.ibb.co/JFRJLRS0/GRAND-QUARTIER-0.jpg"
+      alt="GRAND QUARTIER — Bijouterie de prestige à Nouméa"
+      loading="eager"
+      fetchpriority="high"
+    >
+  </div>
+  <span class="scroll-ind">Découvrir</span>
+</section>
+
+<!-- BANDE STATS -->
+<section id="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-num" data-target="86" data-suffix="">0</span>
+        <span class="stat-unit"> avis</span>
+        <span class="stat-label">Clients satisfaits</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="4.3" data-suffix="" data-float="true">0</span>
+        <span class="stat-unit">/5</span>
+        <span class="stat-label">Note Google</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="20" data-suffix="+">0</span>
+        <span class="stat-unit"></span>
+        <span class="stat-label">Années d'expertise</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="100" data-suffix="%">0</span>
+        <span class="stat-unit"></span>
+        <span class="stat-label">Authenticité garantie</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var ham=document.getElementById('ham-btn'),mn=document.getElementById('mob-nav');
+  ham.addEventListener('click',function(){
+    ham.classList.toggle('open');
+    mn.classList.toggle('open');
+  });
+  mn.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
+      ham.classList.remove('open');
+      mn.classList.remove('open');
+    });
+  });
+  var hdr=document.getElementById('hdr');
+  window.addEventListener('scroll',function(){
+    hdr.classList.toggle('scrolled',window.scrollY>60);
+  },{passive:true});
+  var animated=false;
+  function animStats(){
+    if(animated)return;
+    var nums=document.querySelectorAll('.stat-num[data-target]');
+    var allVis=true;
+    nums.forEach(function(n){
+      var r=n.getBoundingClientRect();
+      if(r.top>window.innerHeight)allVis=false;
+    });
+    if(!allVis)return;
+    animated=true;
+    nums.forEach(function(el){
+      var target=parseFloat(el.dataset.target),isFloat=el.dataset.float==='true',suffix=el.dataset.suffix||'',start=0,dur=1800,s=null;
+      function step(ts){
+        if(!s)s=ts;
+        var p=Math.min((ts-s)/dur,1),ease=1-Math.pow(1-p,3),val=start+(target-start)*ease;
+        el.textContent=(isFloat?val.toFixed(1):Math.round(val))+suffix;
+        if(p<1)requestAnimationFrame(step);
+        else el.textContent=(isFloat?target.toFixed(1):target)+suffix;
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  window.addEventListener('scroll',animStats,{passive:true});
+  animStats();
+})();
+</script>
+<style>
+.s{padding:96px 0}
+.s-dark{background:var(--color-primary)}
+.s-title{text-align:center;margin-bottom:16px}
+.s-sub{text-align:center;color:var(--color-text-muted);font-size:1.05rem;max-width:560px;margin:0 auto 56px}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.srv-card{background:var(--color-primary);border-radius:var(--r);padding:36px 28px;border:1px solid rgba(212,168,0,.12);border-left:3px solid transparent;transition:all var(--trans);position:relative;overflow:hidden}
+.srv-card:hover{border-left-color:var(--color-accent);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.4)}
+.srv-icon{width:52px;height:52px;background:rgba(212,168,0,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.srv-icon svg{width:26px;height:26px;stroke:var(--color-secondary);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.srv-card .h3{margin-bottom:12px;color:var(--color-text)}
+.srv-card p{font-size:.9rem;color:var(--color-text-muted);line-height:1.7;margin-bottom:20px}
+.srv-link{font-size:.82rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--color-secondary);display:inline-flex;align-items:center;gap:6px;transition:gap var(--trans)}
+.srv-link:hover{gap:10px;color:var(--color-accent)}
+.metier-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:80px}
+.metier-grid.rev{direction:rtl}
+.metier-grid.rev>*{direction:ltr}
+.metier-img{border-radius:var(--r);overflow:hidden;position:relative}
+.metier-img img{width:100%;height:420px;object-fit:cover;transition:transform var(--trans)}
+.metier-img:hover img{transform:scale(1.02)}
+.metier-img::before{content:'';position:absolute;inset:0;border:1px solid rgba(212,168,0,.2);border-radius:var(--r);z-index:1;pointer-events:none}
+.metier-tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--color-secondary);background:rgba(212,168,0,.1);padding:6px 14px;border-radius:50px;margin-bottom:16px}
+.metier-text .h2{margin-bottom:20px}
+.metier-text p{color:var(--color-text-muted);line-height:1.8;margin-bottom:24px}
+.checks{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.checks li{display:flex;align-items:flex-start;gap:12px;font-size:.92rem;color:var(--color-text-muted)}
+.checks li::before{content:'';width:20px;height:20px;min-width:20px;background:rgba(212,168,0,.15);border-radius:50%;border:1.5px solid var(--color-secondary);display:flex;align-items:center;justify-content:center;margin-top:2px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d4a800' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-size:12px;background-repeat:no-repeat;background-position:center}
+.gal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.gal-item{border-radius:var(--r);overflow:hidden;cursor:pointer;position:relative}
+.gal-item img{width:100%;height:300px;object-fit:cover;transition:transform var(--trans)}
+.gal-item:hover img{transform:scale(1.04)}
+.gal-item::after{content:'⊕';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:2.5rem;color:var(--color-secondary);background:rgba(13,13,13,.45);opacity:0;transition:opacity var(--trans)}
+.gal-item:hover::after{opacity:1}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center;padding:24px}
+.lightbox.open{display:flex}
+.lb-inner{position:relative;max-width:900px;width:100%}
+.lb-inner img{border-radius:12px;width:100%;max-height:80vh;object-fit:contain}
+.lb-close{position:absolute;top:-44px;right:0;background:none;border:none;color:var(--color-text);font-size:2rem;cursor:pointer;line-height:1;padding:4px 12px;transition:color .2s}
+.lb-close:hover{color:var(--color-secondary)}
+.form-wrap{max-width:680px;margin:0 auto}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+.fld{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
+.fld label{font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--color-secondary)}
+.fld input,.fld textarea,.fld select{background:rgba(255,255,255,.04);border:none;border-bottom:1.5px solid rgba(212,168,0,.3);border-radius:0;padding:12px 4px;color:var(--color-text);font-family:'Nunito',sans-serif;font-size:.95rem;outline:none;transition:border-color var(--trans);width:100%}
+.fld input:focus,.fld textarea:focus{border-bottom-color:var(--color-accent)}
+.fld textarea{resize:vertical;min-height:120px}
+.fld input.err,.fld textarea.err{border-bottom-color:#e05;animation:shake .3s ease}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.form-success{display:none;text-align:center;padding:40px;background:rgba(212,168,0,.08);border:1px solid rgba(212,168,0,.25);border-radius:var(--r)}
+.form-success svg{width:56px;height:56px;stroke:var(--color-secondary);fill:none;stroke-width:1.5;margin:0 auto 16px}
+.form-success h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;margin-bottom:8px}
+.form-success p{color:var(--color-text-muted)}
+.loader{display:none;width:20px;height:20px;border:2px solid rgba(0,0,0,.3);border-top-color:#0d0d0d;border-radius:50%;animation:spin .7s linear infinite;margin:0 auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+.rating-big{display:flex;flex-direction:column;align-items:center;padding:48px 40px;background:rgba(212,168,0,.06);border:1px solid rgba(212,168,0,.2);border-radius:var(--r);text-align:center}
+.rating-num{font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:300;color:var(--color-secondary);line-height:1}
+.rating-stars{color:var(--color-secondary);font-size:1.5rem;letter-spacing:4px;margin:8px 0}
+.rating-count{font-size:.85rem;color:var(--color-text-muted)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.testi-card{background:var(--color-primary);border-radius:var(--r);padding:28px;border:1px solid rgba(212,168,0,.1);transition:all var(--trans)}
+.testi-card:hover{border-color:rgba(212,168,0,.3);transform:translateY(-3px)}
+.testi-stars{color:var(--color-secondary);font-size:.9rem;margin-bottom:12px;letter-spacing:2px}
+.testi-text{font-size:.9rem;color:var(--color-text-muted);line-height:1.7;margin-bottom:16px;font-style:italic}
+.testi-author{font-weight:700;font-size:.85rem;color:var(--color-text)}
+.testi-date{font-size:.75rem;color:var(--color-text-muted);margin-top:2px}
+.badges-row{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:48px}
+.badge{display:flex;align-items:center;gap:10px;padding:14px 24px;background:var(--color-primary);border:1px solid rgba(212,168,0,.2);border-radius:50px;font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--color-text-muted)}
+.badge svg{width:20px;height:20px;stroke:var(--color-secondary);fill:none;stroke-width:1.5}
+.insta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:48px}
+.insta-item{border-radius:10px;overflow:hidden;aspect-ratio:1;position:relative;cursor:pointer}
+.insta-item img{width:100%;height:100%;object-fit:cover;transition:transform var(--trans)}
+.insta-item:hover img{transform:scale(1.06)}
+.insta-item::after{content:'@grandquartier.nc';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;letter-spacing:.05em;color:#fff;background:rgba(212,168,0,.55);opacity:0;transition:opacity var(--trans);text-align:center;padding:8px}
+.insta-item:hover::after{opacity:1}
+footer{background:var(--color-primary);border-top:1px solid rgba(212,168,0,.2);padding:64px 0 32px}
+.ft-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.ft-logo{font-family:'Alex Brush',cursive;font-size:2rem;color:var(--color-text);margin-bottom:8px}
+.ft-tagline{font-size:.8rem;color:var(--color-text-muted);letter-spacing:.15em;text-transform:uppercase;margin-bottom:20px}
+.ft-addr{font-size:.88rem;color:var(--color-text-muted);line-height:1.8}
+.ft-addr a{color:var(--color-secondary);transition:color .2s}
+.ft-addr a:hover{color:var(--color-accent)}
+.ft-socials{display:flex;gap:12px;margin-top:20px}
+.ft-soc{width:40px;height:40px;background:rgba(212,168,0,.1);border:1px solid rgba(212,168,0,.2);border-radius:8px;display:flex;align-items:center;justify-content:center;transition:all var(--trans)}
+.ft-soc:hover{background:rgba(212,168,0,.2);border-color:var(--color-secondary)}
+.ft-soc svg{width:20px;height:20px;fill:var(--color-secondary)}
+.ft-heading{font-size:.75rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--color-secondary);margin-bottom:16px}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-links a{font-size:.88rem;color:var(--color-text-muted);transition:color .2s}
+.ft-links a:hover{color:var(--color-text)}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
+.ft-copy{font-size:.78rem;color:var(--color-text-muted)}
+.ft-setup{font-size:.78rem;color:var(--color-text-muted)}
+.ft-setup a{color:var(--color-secondary);font-weight:700;transition:color .2s}
+.ft-setup a:hover{color:var(--color-accent)}
+@media(max-width:900px){
+.srv-grid{grid-template-columns:1fr}
+.metier-grid{grid-template-columns:1fr;gap:32px}
+.metier-grid.rev{direction:ltr}
+.testi-grid{grid-template-columns:1fr}
+.insta-grid{grid-template-columns:repeat(2,1fr)}
+.ft-grid{grid-template-columns:1fr;gap:32px}
+.form-row{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+.s{padding:64px 0}
+.rating-big{padding:32px 20px}
+.badges-row{flex-direction:column;align-items:center}
+.ft-bottom{flex-direction:column;text-align:center}
+.gal-item img{height:220px}
+.metier-img img{height:280px}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s" id="services">
+  <div class="wrap">
+    <p class="ab s-title">Ce que nous faisons</p>
+    <h2 class="h2 s-title underline-gold">Nos Expertises</h2>
+    <p class="s-sub">De la création sur-mesure à l'entretien de vos pièces les plus précieuses, GRAND QUARTIER vous accompagne à chaque étape de votre histoire avec le bijou.</p>
+    <div class="srv-grid">
+
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+        </div>
+        <h3 class="h3">Bijoux &amp; Joaillerie</h3>
+        <p>Bagues, colliers, bracelets et boucles d'oreilles d'exception. Chaque pièce est sélectionnée pour sa qualité et son éclat intemporel.</p>
+        <a href="#contact" class="srv-link">En savoir plus →</a>
+      </div>
+
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        </div>
+        <h3 class="h3">Montres de Prestige</h3>
+        <p>Garde-temps mécaniques et quartz des plus grandes maisons horlogères. Un univers de précision et de raffinement à porter au quotidien.</p>
+        <a href="#contact" class="srv-link">En savoir plus →</a>
+      </div>
+
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <h3 class="h3">Créations Sur-Mesure</h3>
+        <p>Concrétisez votre vision avec notre atelier. Bijou unique, alliance personnalisée ou pièce familiale transmise — nous donnons vie à vos émotions.</p>
+        <a href="#contact" class="srv-link">Prendre rendez-vous →</a>
+      </div>
+
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h3 class="h3">Réparation &amp; Restauration</h3>
+        <p>Redonnez éclat et vie à vos bijoux anciens ou abîmés. Nos artisans traitent chaque pièce avec le soin qu'elle mérite, quelle que soit sa valeur sentimentale.</p>
+        <a href="#contact" class="srv-link">Nous confier une pièce →</a>
+      </div>
+
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <h3 class="h3">Cadeaux &amp; Occasions</h3>
+        <p>Anniversaire, mariage, naissance ou simple déclaration — GRAND QUARTIER vous guide vers le cadeau qui touche, dans un écrin digne de l'instant.</p>
+        <a href="#contact" class="srv-link">Trouver le cadeau idéal →</a>
+      </div>
+
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+        </div>
+        <h3 class="h3">Expertise &amp; Estimation</h3>
+        <p>Vous souhaitez connaître la valeur de vos pièces ? Notre équipe réalise des estimations professionnelles dans la confidentialité et la bienveillance.</p>
+        <a href="#contact" class="srv-link">Demander une expertise →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s s-dark" id="metier">
+  <div class="wrap">
+
+    <div class="metier-grid">
+      <div class="metier-img">
+        <img src="https://i.ibb.co/SWNJzdc/GRAND-QUARTIER-1.jpg" alt="Vitrine GRAND QUARTIER — bijoux en exposition" loading="lazy">
+      </div>
+      <div class="metier-text">
+        <span class="metier-tag">Notre histoire</span>
+        <h2 class="h2">L'excellence joaillière au cœur de Nouméa</h2>
+        <p>Depuis des années, GRAND QUARTIER s'impose comme la référence en bijouterie-joaillerie à Nouméa. Installée rue de Sébastopol, notre maison allie rigueur artisanale et sens inné de l'accueil calédonien.</p>
+        <p>Nous croyons que le luxe n'est pas inaccessible — il se partage, se transmet, s'adapte à chacun. C'est cette conviction qui guide chaque conseil, chaque création, chaque réparation confiée à nos mains expertes.</p>
+        <ul class="checks">
+          <li>Sélection rigoureuse des matières premières et pierres précieuses</li>
+          <li>Conseil personnalisé et écoute de chaque projet</li>
+          <li>Expertise reconnue par plus de 86 clients satisfaits</li>
+          <li>Savoir-faire local ancré dans la communauté de Nouméa</li>
+        </ul>
+        <a href="#contact" class="btn btn-gold">Prendre rendez-vous</a>
+      </div>
+    </div>
+
+    <div class="metier-grid rev">
+      <div class="metier-img">
+        <img src="https://i.ibb.co/HLsnZPzM/GRAND-QUARTIER-3.jpg" alt="Détail montre mécanique — GRAND QUARTIER" loading="lazy">
+      </div>
+      <div class="metier-text">
+        <span class="metier-tag">Notre philosophie</span>
+        <h2 class="h2">La lumière du Pacifique dans chaque pièce</h2>
+        <p>La Nouvelle-Calédonie possède une lumière unique — intense, dorée, vibrante. C'est cette lumière que nous cherchons à capturer dans chaque bijou que nous proposons ou créons.</p>
+        <p>Chaque visite en boutique est une invitation à ralentir, à contempler, à choisir avec soin. Nos vitrines racontent des histoires. Notre équipe vous aide à écrire la vôtre.</p>
+        <ul class="checks">
+          <li>Ambiance boutique pensée pour l'émotion et la sérénité</li>
+          <li>Pièces uniques et séries limitées des grandes maisons</li>
+          <li>Façade architecturale emblématique de Nouméa</li>
+          <li>Engagement durable envers la qualité et l'authenticité</li>
+        </ul>
+        <a href="#galerie" class="btn btn-outline">Voir la galerie</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s" id="galerie">
+  <div class="wrap">
+    <p class="ab s-title">Nos créations</p>
+    <h2 class="h2 s-title underline-gold">Galerie</h2>
+    <p class="s-sub">Un aperçu de l'univers GRAND QUARTIER — vitrines, pièces d'exception et instants de prestige capturés au cœur de Nouméa.</p>
+    <div class="gal-grid">
+      <div class="gal-item" data-src="https://i.ibb.co/JFRJLRS0/GRAND-QUARTIER-0.jpg" data-alt="GRAND QUARTIER — façade boutique Nouméa">
+        <img src="https://i.ibb.co/JFRJLRS0/GRAND-QUARTIER-0.jpg" alt="GRAND QUARTIER — façade boutique Nouméa" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/SWNJzdc/GRAND-QUARTIER-1.jpg" data-alt="Vitrines GRAND QUARTIER — bijoux en lumière">
+        <img src="https://i.ibb.co/SWNJzdc/GRAND-QUARTIER-1.jpg" alt="Vitrines GRAND QUARTIER — bijoux en lumière" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/0p50d2Fb/GRAND-QUARTIER-2.jpg" data-alt="Collection GRAND QUARTIER — gros plan bijou">
+        <img src="https://i.ibb.co/0p50d2Fb/GRAND-QUARTIER-2.jpg" alt="Collection GRAND QUARTIER — gros plan bijou" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/HLsnZPzM/GRAND-QUARTIER-3.jpg" data-alt="GRAND QUARTIER — montre et métaux précieux">
+        <img src="https://i.ibb.co/HLsnZPzM/GRAND-QUARTIER-3.jpg" alt="GRAND QUARTIER — montre et métaux précieux" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galerie image agrandie">
+  <div class="lb-inner">
+    <button class="lb-close" id="lb-close" aria-label="Fermer">✕</button>
+    <img id="lb-img" src="" alt="">
+  </div>
+</div>
+
+<!-- FORMULAIRE -->
+<section class="s s-dark" id="contact">
+  <div class="wrap">
+    <p class="ab s-title">Parlons de votre projet</p>
+    <h2 class="h2 s-title underline-gold">Nous Contacter</h2>
+    <p class="s-sub">Une question, un projet sur-mesure, une réparation à confier ? Notre équipe vous répond dans les plus brefs délais.</p>
+    <div class="form-wrap">
+      <div class="form-success" id="form-success">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Message envoyé avec succès</h3>
+        <p>Merci de votre confiance. L'équipe GRAND QUARTIER vous contactera dans les meilleurs délais.</p>
+      </div>
+      <form id="contact-form" action="#" novalidate>
+        <div class="form-row">
+          <div class="fld">
+            <label for="f-nom">Nom complet</label>
+            <input type="text" id="f-nom" name="nom" placeholder="Votre nom" autocomplete="name">
+          </div>
+          <div class="fld">
+            <label for="f-email">Adresse e-mail</label>
+            <input type="email" id="f-email" name="email" placeholder="votre@email.com" autocomplete="email">
+          </div>
+        </div>
+        <div class="fld">
+          <label for="f-tel">Téléphone</label>
+          <input type="tel" id="f-tel" name="tel" placeholder="+687 XX XX XX" autocomplete="tel">
+        </div>
+        <div class="fld">
+          <label for="f-msg">Votre message</label>
+          <textarea id="f-msg" name="message" placeholder="Décrivez votre projet ou votre demande…"></textarea>
+        </div>
+        <div class="loader" id="form-loader"></div>
+        <button type="submit" class="btn btn-gold" id="form-btn" style="width:100%;margin-top:8px">Envoyer ma demande</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s" id="temoignages">
+  <div class="wrap">
+    <p class="ab s-title">Ce qu'ils disent</p>
+    <h2 class="h2 s-title underline-gold">Avis Clients</h2>
+    <p class="s-sub">La confiance de nos clients calédoniens est notre plus belle récompense. Voici quelques-uns de leurs témoignages.</p>
+
+    <div class="rating-big" style="max-width:320px;margin:0 auto 56px">
+      <span class="rating-num">4.3</span>
+      <div class="rating-stars">★★★★★</div>
+      <span class="rating-count">Basé sur 86 avis Google</span>
+    </div>
+
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Une boutique d'exception à Nouméa. L'accueil est chaleureux, les conseils précieux et les bijoux tout simplement magnifiques. Je n'irai nulle part ailleurs."</p>
+        <div class="testi-author">Marie-Hélène C.</div>
+        <div class="testi-date">Il y a 2 mois · Nouméa</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"J'ai fait réparer une montre de famille ici. Le travail est impeccable, rendu dans les délais annoncés. Une vraie maison de confiance, je recommande vivement."</p>
+        <div class="testi-author">Jean-Pierre M.</div>
+        <div class="testi-date">Il y a 1 mois · Nouméa</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★☆</div>
+        <p class="testi-text">"Très belle sélection de bijoux et montres. La façade de la boutique est magnifique. Personnel attentionné qui prend le temps d'expliquer chaque pièce."</p>
+        <div class="testi-author">Sophie T.</div>
+        <div class="testi-date">Il y a 3 mois · Nouvelle-Calédonie</div>
+      </div>
+    </div>
+
+    <div class="badges-row">
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        Note Google 4.3/5
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+        Boutique physique Nouméa
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        Authenticité garantie
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        20+ ans d'expertise
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM SIMULÉ -->
+<section class="s s-dark" id="instagram">
+  <div class="wrap">
+    <p class="ab s-title">Suivez-nous</p>
+    <h2 class="h2 s-title underline-gold">@grandquartier.nc</h2>
+    <p class="s-sub">Rejoignez notre communauté sur Instagram et découvrez en avant-première nos nouvelles pièces, coulisses et instants de beauté.</p>
+    <div class="insta-grid">
+      <a href="https://www.instagram.com/grandquartier.nc" target="_blank" rel="noopener" class="insta-item">
+        <img src="https://i.ibb.co/JFRJLRS0/GRAND-QUARTIER-0.jpg" alt="GRAND QUARTIER Instagram" loading="lazy">
+      </a>
+      <a href="https://www.instagram.com/grandquartier.nc" target="_blank" rel="noopener" class="insta-item">
+        <img src="https://i.ibb.co/SWNJzdc/GRAND-QUARTIER-1.jpg" alt="GRAND QUARTIER Instagram" loading="lazy">
+      </a>
+      <a href="https://www.instagram.com/grandquartier.nc" target="_blank" rel="noopener" class="insta-item">
+        <img src="https://i.ibb.co/0p50d2Fb/GRAND-QUARTIER-2.jpg" alt="GRAND QUARTIER Instagram" loading="lazy">
+      </a>
+      <a href="https://www.instagram.com/grandquartier.nc" target="_blank" rel="noopener" class="insta-item">
+        <img src="https://i.ibb.co/HLsnZPzM/GRAND-QUARTIER-3.jpg" alt="GRAND QUARTIER Instagram" loading="lazy">
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:32px">
+      <a href="https://www.instagram.com/grandquartier.nc" target="_blank" rel="noopener" class="btn btn-outline">Voir notre Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="ft-grid">
+      <div>
+        <div class="ft-logo">Grand Quartier</div>
+        <div class="ft-tagline">Bijouterie · Joaillerie · Nouméa</div>
+        <div class="ft-addr">
+          30 Rue de Sébastopol<br>
+          Nouméa, Nouvelle-Calédonie<br><br>
+          <a href="https://www.google.com/maps/search/30+Rue+de+Sebastopol+Nouméa" target="_blank" rel="noopener">Voir sur Google Maps →</a>
+        </div>
+        <div class="ft-socials">
+          <a href="https://www.facebook.com/grandquartier" target="_blank" rel="noopener" class="ft-soc" aria-label="Facebook GRAND QUARTIER">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/grandquartier.nc" target="_blank" rel="noopener" class="ft-soc" aria-label="Instagram GRAND QUARTIER">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="ft-heading">Navigation</div>
+        <ul class="ft-links">
+          <li><a href="#services">Nos expertises</a></li>
+          <li><a href="#metier">Notre histoire</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#temoignages">Avis clients</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft-heading">Horaires</div>
+        <div class="ft-addr" style="line-height:2">
+          Lundi – Vendredi<br>
+          <strong style="color:var(--color-text)">8h30 – 17h30</strong><br>
+          Samedi<br>
+          <strong style="color:var(--color-text)">8h30 – 12h00</strong><br>
+          Dimanche &amp; jours fériés<br>
+          <strong style="color:var(--color-text-muted)">Fermé</strong>
+        </div>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span class="ft-copy">© 2026 GRAND QUARTIER. Tous droits réservés.</span>
+      <span class="ft-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+var gi=document.querySelectorAll('.gal-item'),lb=document.getElementById('lightbox'),lbImg=document.getElementById('lb-img'),lbClose=document.getElementById('lb-close');
+function openLb(src,alt){lbImg.src=src;lbImg.alt=alt;lb.classList.add('open');document.body.style.overflow='hidden';}
+function closeLb(){lb.classList.remove('open');document.body.style.overflow='';lbImg.src='';}
+gi.forEach(function(item){item.addEventListener('click',function(){openLb(item.dataset.src,item.dataset.alt);});});
+lbClose.addEventListener('click',closeLb);
+lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+
+var form=document.getElementById('contact-form'),succ=document.getElementById('form-success'),loader=document.getElementById('form-loader'),btn=document.getElementById('form-btn');
+form.addEventListener('submit',function(e){
+e.preventDefault();
+var nom=document.getElementById('f-nom'),email=document.getElementById('f-email'),msg=document.getElementById('f-msg'),ok=true;
+[nom,email,msg].forEach(function(f){f.classList.remove('err');});
+if(!nom.value.trim()){nom.classList.add('err');ok=false;}
+if(!email.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)){email.classList.add('err');ok=false;}
+if(!msg.value.trim()){msg.classList.add('err');ok=false;}
+if(!ok)return;
+btn.disabled=true;loader.style.display='block';btn.style.display='none';
+setTimeout(function(){loader.style.display='none';form.style.display='none';succ.style.display='block';},1400);
+});
+
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){var n=en.target.querySelector('.stat-num');if(n)n.dispatchEvent(new Event('visible'));}});},{threshold:0.3});
+document.querySelectorAll('.stat-item').forEach(function(i){obs.observe(i);});
+})();
+</script>
+</body>
+</html>
