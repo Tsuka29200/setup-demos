@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bijouterie Jama Création — Nouméa</title>
+<meta name="description" content="Bijouterie artisanale au cœur de Nouméa, Nouvelle-Calédonie. Créations uniques, alliances, bijoux sur mesure. Consultez nos collections et prenez rendez-vous.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#3A3A3A;
+--cs:#F0B400;
+--ca:#D4AF37;
+--bg:#F5F0E8;
+--ct:#1A1A1A;
+--white:#fff;
+--radius:4px;
+--trans:300ms ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Cormorant Garamond',Georgia,serif;background:var(--bg);color:var(--ct);overflow-x:hidden;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+/* BANDEAU PROMO */
+#promo{position:fixed;top:0;left:0;width:100%;height:64px;background:#ffd500;z-index:1001;box-shadow:0 2px 10px rgba(0,0,0,.20);display:flex;align-items:center;justify-content:center}
+#promo a{font-family:"Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:17px;color:#4375ff;letter-spacing:.3px;line-height:64px;text-align:center;transition:opacity var(--trans)}
+#promo a:hover{opacity:.85}
+#promo strong{font-weight:800;font-size:1.15em}
+/* HEADER */
+.hdr{position:fixed;top:64px;left:0;width:100%;background:rgba(58,58,58,.97);backdrop-filter:blur(8px);z-index:1000;border-bottom:1px solid rgba(240,180,0,.18)}
+.hdr-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:700;color:var(--white);letter-spacing:.5px;line-height:1.2}
+.logo span{color:var(--cs)}
+nav{display:flex;align-items:center;gap:28px}
+nav a{font-family:'Manrope',sans-serif;font-size:.82rem;font-weight:600;color:rgba(255,255,255,.82);letter-spacing:.8px;text-transform:uppercase;transition:color var(--trans)}
+nav a:hover{color:var(--cs)}
+.hdr-cta{font-family:'Manrope',sans-serif;font-size:.82rem;font-weight:700;padding:10px 22px;background:linear-gradient(135deg,var(--cs),var(--ca));color:#1a1a1a;border-radius:var(--radius);letter-spacing:.5px;text-transform:uppercase;transition:opacity var(--trans);white-space:nowrap}
+.hdr-cta:hover{opacity:.88}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.burger span{width:24px;height:2px;background:var(--white);border-radius:2px;transition:transform var(--trans),opacity var(--trans)}
+.mob-nav{display:none;position:fixed;top:132px;left:0;width:100%;background:rgba(58,58,58,.98);z-index:999;flex-direction:column;padding:24px 24px 32px;gap:20px}
+.mob-nav.open{display:flex}
+.mob-nav a{font-family:'Manrope',sans-serif;font-size:1rem;font-weight:600;color:rgba(255,255,255,.85);letter-spacing:.5px;text-transform:uppercase;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.mob-nav a:last-child{border:none;margin-top:8px;text-align:center;background:linear-gradient(135deg,var(--cs),var(--ca));color:#1a1a1a;padding:14px;border-radius:var(--radius)}
+/* HERO */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;background-image:url('https://i.ibb.co/39FQzyKK/Bijouterie-Jama-Cr-ation-0.jpg');background-size:cover;background-position:center;padding-top:132px}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(26,26,26,.72) 0%,rgba(58,58,58,.55) 55%,rgba(26,26,26,.78) 100%)}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 80%,rgba(240,180,0,.07) 0%,transparent 65%);pointer-events:none}
+.hero-body{position:relative;z-index:1;text-align:center;max-width:780px;padding:0 24px}
+.hero-tag{display:inline-block;font-family:'Manrope',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--cs);border:1px solid rgba(240,180,0,.4);padding:6px 18px;border-radius:2px;margin-bottom:24px}
+.h1{font-size:clamp(2.6rem,6vw,5rem);font-weight:300;color:var(--white);line-height:1.1;letter-spacing:.5px;margin-bottom:16px}
+.h1 em{font-style:italic;color:var(--cs)}
+.hero-sub{font-family:'Manrope',sans-serif;font-size:clamp(.95rem,2vw,1.1rem);font-weight:400;color:rgba(255,255,255,.82);max-width:520px;margin:0 auto 36px;line-height:1.7}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.b-pri{font-family:'Manrope',sans-serif;font-size:.9rem;font-weight:700;padding:15px 34px;background:linear-gradient(135deg,var(--cs),var(--ca));color:#1a1a1a;border-radius:var(--radius);letter-spacing:.5px;text-transform:uppercase;transition:opacity var(--trans),transform var(--trans);min-height:48px;display:inline-flex;align-items:center}
+.b-pri:hover{opacity:.9;transform:translateY(-2px)}
+.b-sec{font-family:'Manrope',sans-serif;font-size:.9rem;font-weight:600;padding:14px 32px;border:1.5px solid rgba(255,255,255,.55);color:var(--white);border-radius:var(--radius);letter-spacing:.5px;text-transform:uppercase;transition:border-color var(--trans),background var(--trans);min-height:48px;display:inline-flex;align-items:center}
+.b-sec:hover{border-color:var(--cs);background:rgba(240,180,0,.08)}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.5);font-family:'Manrope',sans-serif;font-size:.7rem;letter-spacing:1.5px;text-transform:uppercase}
+.scroll-ind svg{animation:scrollbounce 2s infinite}
+@keyframes scrollbounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+/* STATS */
+.stats{background:var(--cp);padding:72px 24px}
+.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stat{text-align:center;padding:8px}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,4vw,3.6rem);font-weight:700;color:var(--cs);line-height:1;display:block}
+.stat-lbl{font-family:'Manrope',sans-serif;font-size:.8rem;font-weight:600;color:rgba(255,255,255,.72);letter-spacing:1.5px;text-transform:uppercase;margin-top:8px;display:block}
+.stat-div{width:32px;height:1px;background:rgba(240,180,0,.35);margin:12px auto 0}
+/* FALLBACK REVEAL */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+/* RESPONSIVE */
+@media(max-width:900px){
+nav{display:none}
+.hdr-cta{display:none}
+.burger{display:flex}
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+#promo{height:56px}
+#promo a{font-size:15px;line-height:56px;padding:0 12px}
+.hdr-inner{padding:0 16px}
+.mob-nav{top:120px}
+.hero{padding-top:120px}
+.hero-body{padding:0 16px}
+.h1{font-size:2.2rem}
+.hero-btns{flex-direction:column;align-items:center}
+.b-pri,.b-sec{width:100%;justify-content:center}
+.stats{padding:48px 16px}
+.stats-inner{grid-template-columns:repeat(2,1fr);gap:16px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div id="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">
+    Ce site vous plaît ? Activez-le dès <strong>4 900 F HT/mois</strong> — Prenez rendez-vous.
+  </a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr" id="top">
+  <div class="hdr-inner">
+    <a href="#hero" class="logo">Jama <span>Création</span></a>
+    <nav>
+      <a href="#collections">Collections</a>
+      <a href="#savoir-faire">Savoir-faire</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="tel:+68727.54.22" class="hdr-cta">☎ 27.54.22</a>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<nav class="mob-nav" id="mob-nav">
+  <a href="#collections">Collections</a>
+  <a href="#savoir-faire">Savoir-faire</a>
+  <a href="#galerie">Galerie</a>
+  <a href="#contact">Contact</a>
+  <a href="tel:+68727.54.22">☎ 27.54.22</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-body">
+    <span class="hero-tag">Joaillerie Artisanale · Nouméa</span>
+    <h1 class="h1">L'art de l'or<br><em>au cœur de Nouméa</em></h1>
+    <p class="hero-sub">Depuis le centre-ville de Nouméa, Bijouterie Jama Création façonne des bijoux uniques qui portent votre histoire, illuminés par la lumière du lagon.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="b-pri">Consultation personnalisée</a>
+      <a href="#collections" class="b-sec">Découvrir les collections</a>
+    </div>
+  </div>
+  <div class="scroll-ind" aria-hidden="true">
+    <svg width="18" height="28" viewBox="0 0 18 28" fill="none"><rect x="1" y="1" width="16" height="26" rx="8" stroke="rgba(255,255,255,0.45)" stroke-width="1.5"/><circle cx="9" cy="8" r="2.5" fill="rgba(240,180,0,0.7)"/></svg>
+    Défiler
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="stats">
+  <div class="stats-inner">
+    <div class="stat">
+      <span class="stat-num" data-target="20">0</span>
+      <span class="stat-lbl">Années d'expertise</span>
+      <div class="stat-div"></div>
+    </div>
+    <div class="stat">
+      <span class="stat-num" data-target="100">0</span>
+      <span class="stat-lbl">Créations sur mesure</span>
+      <div class="stat-div"></div>
+    </div>
+    <div class="stat">
+      <span class="stat-num" data-target="3">0</span>
+      <span class="stat-lbl">Collections phares</span>
+      <div class="stat-div"></div>
+    </div>
+    <div class="stat">
+      <span class="stat-num" data-target="1">0</span>
+      <span class="stat-lbl">Adresse unique à Nouméa</span>
+      <div class="stat-div"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+var burger=document.getElementById('burger'),mn=document.getElementById('mob-nav');
+burger.addEventListener('click',function(){mn.classList.toggle('open')});
+document.querySelectorAll('.mob-nav a').forEach(function(a){a.addEventListener('click',function(){mn.classList.remove('open')})});
+var nums=document.querySelectorAll('.stat-num[data-target]'),done=false;
+function animStats(){
+  if(done)return;
+  var rect=document.querySelector('.stats').getBoundingClientRect();
+  if(rect.top<window.innerHeight*0.85){
+    done=true;
+    nums.forEach(function(el){
+      var target=+el.dataset.target,dur=1600,start=null;
+      function step(ts){if(!start)start=ts;var p=Math.min((ts-start)/dur,1),val=Math.round(p*target);el.textContent=val+(target>=100?'+':'');if(p<1)requestAnimationFrame(step)}
+      requestAnimationFrame(step);
+    });
+  }
+}
+window.addEventListener('scroll',animStats,{passive:true});
+animStats();
+</script>
+<style>
+.s{padding:88px 24px}
+.s-dark{background:var(--cp);color:var(--white)}
+.s-cream{background:var(--bg)}
+.s-white{background:#fff}
+.s-inner{max-width:1100px;margin:0 auto}
+.s-tag{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--cs);display:block;margin-bottom:14px}
+.s-tag-light{color:var(--cs)}
+.h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;line-height:1.15;letter-spacing:.3px}
+.h2 em{font-style:italic;color:var(--ca)}
+.h3{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:600;line-height:1.2}
+.p-lead{font-family:'Manrope',sans-serif;font-size:1rem;color:rgba(26,26,26,.78);line-height:1.75;max-width:620px}
+.p-lead-light{color:rgba(255,255,255,.75)}
+.divider{width:48px;height:2px;background:linear-gradient(90deg,var(--cs),var(--ca));margin:20px 0 36px}
+/* SERVICES */
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px}
+.srv-card{background:#fff;border-radius:6px;padding:36px 28px;text-align:center;border:1px solid rgba(212,175,55,.18);transition:transform var(--trans),box-shadow var(--trans)}
+.srv-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(58,58,58,.12)}
+.srv-icon{width:56px;height:56px;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(240,180,0,.12),rgba(212,175,55,.08));border-radius:50%}
+.srv-icon svg{width:28px;height:28px;stroke:var(--ca);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.srv-card .h3{margin-bottom:12px;font-size:1.35rem}
+.srv-card p{font-family:'Manrope',sans-serif;font-size:.9rem;color:rgba(26,26,26,.68);line-height:1.7}
+.srv-cta{display:inline-flex;align-items:center;gap:6px;font-family:'Manrope',sans-serif;font-size:.8rem;font-weight:700;color:var(--ca);letter-spacing:.8px;text-transform:uppercase;margin-top:18px;transition:gap var(--trans)}
+.srv-cta:hover{gap:10px}
+/* METIER */
+.metier-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:56px}
+.metier-grid.rev{direction:rtl}
+.metier-grid.rev>*{direction:ltr}
+.metier-img{border-radius:6px;overflow:hidden;position:relative}
+.metier-img img{width:100%;height:380px;object-fit:cover;display:block;transition:transform .6s ease}
+.metier-img:hover img{transform:scale(1.04)}
+.metier-img::after{content:'';position:absolute;inset:0;border:1px solid rgba(212,175,55,.22);border-radius:6px;pointer-events:none}
+.metier-txt{padding:8px 0}
+.check-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:24px}
+.check-list li{display:flex;align-items:flex-start;gap:12px;font-family:'Manrope',sans-serif;font-size:.92rem;color:rgba(26,26,26,.78);line-height:1.6}
+.check-list li::before{content:'';width:18px;height:18px;min-width:18px;background:linear-gradient(135deg,var(--cs),var(--ca));border-radius:50%;display:inline-block;margin-top:2px;position:relative}
+.check-list li::before{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E%3Ccircle cx='9' cy='9' r='9' fill='%23D4AF37'/%3E%3Cpolyline points='5,9 8,12 13,6' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") center/contain no-repeat}
+/* GALERIE */
+.gal-header{text-align:center;margin-bottom:48px}
+.gal-header .divider{margin:20px auto 0}
+.gal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.gal-item{overflow:hidden;border-radius:6px;cursor:pointer;position:relative;aspect-ratio:4/3}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-item::after{content:'';position:absolute;inset:0;background:rgba(26,26,26,0);transition:background var(--trans)}
+.gal-item:hover::after{background:rgba(26,26,26,.25)}
+.gal-item:nth-child(1){grid-row:span 2;aspect-ratio:auto}
+.gal-item:nth-child(1) img{height:100%}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center;padding:24px}
+.lightbox.open{display:flex}
+.lightbox img{max-width:92vw;max-height:88vh;object-fit:contain;border-radius:4px}
+.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;line-height:1;opacity:.8;transition:opacity var(--trans)}
+.lb-close:hover{opacity:1}
+/* FORMULAIRE */
+.form-wrap{max-width:680px;margin:0 auto;background:#fff;border-radius:8px;padding:48px;box-shadow:0 8px 40px rgba(58,58,58,.08);border:1px solid rgba(212,175,55,.14)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.f-group{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
+.f-group label{font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(26,26,26,.6)}
+.f-group input,.f-group textarea{font-family:'Manrope',sans-serif;font-size:.95rem;border:1.5px solid rgba(58,58,58,.18);border-radius:var(--radius);padding:12px 16px;background:#fafafa;color:var(--ct);transition:border-color var(--trans);outline:none}
+.f-group input:focus,.f-group textarea:focus{border-color:var(--ca);background:#fff}
+.f-group textarea{resize:vertical;min-height:120px}
+.f-error{font-family:'Manrope',sans-serif;font-size:.78rem;color:#c0392b;display:none;margin-top:2px}
+.f-group.err input,.f-group.err textarea{border-color:#c0392b}
+.f-group.err .f-error{display:block}
+.f-submit{width:100%;min-height:52px;font-family:'Manrope',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;background:linear-gradient(135deg,var(--cs),var(--ca));color:#1a1a1a;border:none;border-radius:var(--radius);cursor:pointer;transition:opacity var(--trans),transform var(--trans);display:flex;align-items:center;justify-content:center;gap:10px}
+.f-submit:hover{opacity:.88;transform:translateY(-1px)}
+.f-success{display:none;text-align:center;padding:32px 0}
+.f-success svg{width:52px;height:52px;stroke:var(--ca);fill:none;stroke-width:1.5;margin:0 auto 16px}
+.f-success .h3{font-size:1.6rem;margin-bottom:8px}
+.f-success p{font-family:'Manrope',sans-serif;font-size:.95rem;color:rgba(26,26,26,.7)}
+/* PREUVE SOCIALE */
+.stars{display:flex;align-items:center;gap:4px}
+.star{width:20px;height:20px}
+.star-full{fill:var(--cs);stroke:var(--cs)}
+.star-half{fill:url(#half);stroke:var(--cs)}
+.star-empty{fill:none;stroke:var(--cs)}
+.rating-big{font-family:'Cormorant Garamond',serif;font-size:3.8rem;font-weight:700;color:var(--cs);line-height:1}
+.rating-wrap{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;padding:36px;background:rgba(240,180,0,.06);border:1px solid rgba(212,175,55,.2);border-radius:8px}
+.rating-lbl{font-family:'Manrope',sans-serif;font-size:.82rem;font-weight:600;color:rgba(26,26,26,.6);letter-spacing:1px;text-transform:uppercase}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.review-card{background:#fff;border-radius:6px;padding:28px;border:1px solid rgba(212,175,55,.14)}
+.review-head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.review-av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--cp),#555);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;color:var(--white);flex-shrink:0}
+.review-name{font-family:'Manrope',sans-serif;font-size:.9rem;font-weight:700;color:var(--ct)}
+.review-date{font-family:'Manrope',sans-serif;font-size:.75rem;color:rgba(26,26,26,.45);margin-top:2px}
+.review-text{font-family:'Manrope',sans-serif;font-size:.88rem;color:rgba(26,26,26,.72);line-height:1.7;font-style:italic}
+.badges{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:48px}
+.badge{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid rgba(212,175,55,.2);border-radius:40px;padding:12px 24px}
+.badge svg{width:22px;height:22px;flex-shrink:0}
+.badge span{font-family:'Manrope',sans-serif;font-size:.82rem;font-weight:700;color:var(--ct);letter-spacing:.3px}
+.ps-header{display:flex;align-items:center;gap:48px;flex-wrap:wrap;margin-bottom:16px}
+/* FOOTER */
+.ftr{background:var(--cp);color:rgba(255,255,255,.82);padding:64px 24px 32px}
+.ftr-inner{max-width:1100px;margin:0 auto}
+.ftr-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.ftr-logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--white);margin-bottom:14px}
+.ftr-logo span{color:var(--cs)}
+.ftr p,.ftr address{font-family:'Manrope',sans-serif;font-size:.88rem;line-height:1.75;font-style:normal;color:rgba(255,255,255,.72)}
+.ftr a{color:rgba(255,255,255,.72);transition:color var(--trans)}
+.ftr a:hover{color:var(--cs)}
+.ftr-h{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cs);margin-bottom:16px;display:block}
+.ftr-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ftr-links a{font-family:'Manrope',sans-serif;font-size:.88rem}
+.ftr-sep{border:none;border-top:1px solid rgba(255,255,255,.1);margin:32px 0}
+.ftr-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.ftr-bottom p{font-family:'Manrope',sans-serif;font-size:.78rem;color:rgba(255,255,255,.45)}
+.ftr-bottom a{color:rgba(255,255,255,.55)}
+.ftr-bottom a:hover{color:var(--cs)}
+/* RESPONSIVE PART 2 */
+@media(max-width:900px){
+.srv-grid{grid-template-columns:repeat(2,1fr)}
+.metier-grid,.metier-grid.rev{grid-template-columns:1fr;gap:32px;direction:ltr}
+.metier-img img{height:280px}
+.review-grid{grid-template-columns:1fr 1fr}
+.ftr-grid{grid-template-columns:1fr 1fr}
+.form-row{grid-template-columns:1fr}
+.ps-header{flex-direction:column;align-items:flex-start;gap:24px}
+}
+@media(max-width:480px){
+.s{padding:64px 16px}
+.srv-grid{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:1fr}
+.gal-item:nth-child(1){grid-row:span 1;aspect-ratio:4/3}
+.review-grid{grid-template-columns:1fr}
+.ftr-grid{grid-template-columns:1fr;gap:32px}
+.form-wrap{padding:28px 20px}
+.ftr{padding:48px 16px 28px}
+.badges{flex-direction:column;align-items:center}
+.ftr-bottom{flex-direction:column;text-align:center}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s s-cream" id="collections">
+  <div class="s-inner">
+    <span class="s-tag">Nos savoir-faire</span>
+    <h2 class="h2">Des créations qui portent<br><em>votre histoire</em></h2>
+    <div class="divider"></div>
+    <div class="srv-grid">
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+        </div>
+        <h3 class="h3">Bijoux sur mesure</h3>
+        <p>De la bague de fiançailles au collier unique, chaque pièce est imaginée avec vous et façonnée à la main dans notre atelier.</p>
+        <a href="#contact" class="srv-cta">Prendre rendez-vous →</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </div>
+        <h3 class="h3">Alliances &amp; bagues</h3>
+        <p>Un symbole d'éternité travaillé avec rigueur et passion. Nos alliances reflètent la lumière dorée du lagon calédonien.</p>
+        <a href="#contact" class="srv-cta">Découvrir →</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="h3">Retouche &amp; restauration</h3>
+        <p>Redonnez vie à un bijou de famille ou adaptez une pièce ancienne à votre morphologie. Notre atelier prend soin de chaque détail.</p>
+        <a href="#contact" class="srv-cta">Nous contacter →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s s-white" id="savoir-faire">
+  <div class="s-inner">
+    <div class="metier-grid">
+      <div class="metier-img">
+        <img src="https://i.ibb.co/MyfHqGx0/Bijouterie-Jama-Cr-ation-1.jpg" alt="Façade de Bijouterie Jama Création à Nouméa" loading="lazy" width="600" height="380">
+      </div>
+      <div class="metier-txt">
+        <span class="s-tag">Notre histoire</span>
+        <h2 class="h2">Une enseigne ancrée<br><em>au cœur de Nouméa</em></h2>
+        <div class="divider"></div>
+        <p class="p-lead">Nichée rue du Général Mangin, Bijouterie Jama Création est bien plus qu'une boutique. C'est un lieu de rencontre entre l'artisanat exigeant et la chaleur calédonienne — où chaque visiteur repart avec une pièce qui lui ressemble.</p>
+        <ul class="check-list">
+          <li>Créations artisanales façonnées à la main</li>
+          <li>Conseil personnalisé pour chaque projet</li>
+          <li>Ancrage local fort au centre de Nouméa</li>
+          <li>Identité visuelle distinctive aux motifs floraux</li>
+        </ul>
+      </div>
+    </div>
+    <div class="metier-grid rev" style="margin-top:72px">
+      <div class="metier-img">
+        <img src="https://i.ibb.co/0RypgKm6/Bijouterie-Jama-Cr-ation-2.jpg" alt="Détail de créations Jama Création" loading="lazy" width="600" height="380">
+      </div>
+      <div class="metier-txt">
+        <span class="s-tag">Notre démarche</span>
+        <h2 class="h2">L'or travaillé avec<br><em>âme et précision</em></h2>
+        <div class="divider"></div>
+        <p class="p-lead">De la première esquisse à la pièce finie, chaque étape de création est conduite avec la même exigence. Nos clients font confiance à notre regard, à notre technique, et à notre amour du beau travail.</p>
+        <ul class="check-list">
+          <li>Matériaux de qualité sélectionnés avec soin</li>
+          <li>Écoute attentive de chaque envie et contrainte</li>
+          <li>Délais respectés, finitions irréprochables</li>
+          <li>Un suivi de bout en bout, jusqu'à la livraison</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s s-dark" id="galerie">
+  <div class="s-inner">
+    <div class="gal-header">
+      <span class="s-tag s-tag-light">Galerie</span>
+      <h2 class="h2" style="color:#fff">La boutique &amp; ses <em>créations</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item" data-src="https://i.ibb.co/39FQzyKK/Bijouterie-Jama-Cr-ation-0.jpg">
+        <img src="https://i.ibb.co/39FQzyKK/Bijouterie-Jama-Cr-ation-0.jpg" alt="Bijouterie Jama Création — façade Nouméa" loading="lazy" width="800" height="600">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/MyfHqGx0/Bijouterie-Jama-Cr-ation-1.jpg">
+        <img src="https://i.ibb.co/MyfHqGx0/Bijouterie-Jama-Cr-ation-1.jpg" alt="Bijouterie Jama Création — enseigne" loading="lazy" width="800" height="600">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/0RypgKm6/Bijouterie-Jama-Cr-ation-2.jpg">
+        <img src="https://i.ibb.co/0RypgKm6/Bijouterie-Jama-Cr-ation-2.jpg" alt="Bijouterie Jama Création — vitrine" loading="lazy" width="800" height="600">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/93SknPjR/Bijouterie-Jama-Cr-ation-3.jpg">
+        <img src="https://i.ibb.co/93SknPjR/Bijouterie-Jama-Cr-ation-3.jpg" alt="Bijouterie Jama Création — détail bijoux" loading="lazy" width="800" height="600">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Agrandissement photo">
+  <button class="lb-close" id="lb-close" aria-label="Fermer">&times;</button>
+  <img src="" alt="Photo agrandie" id="lb-img">
+</div>
+
+<!-- FORMULAIRE -->
+<section class="s s-cream" id="contact">
+  <div class="s-inner">
+    <div style="text-align:center;margin-bottom:48px">
+      <span class="s-tag">Consultation personnalisée</span>
+      <h2 class="h2">Parlons de votre <em>projet</em></h2>
+      <div class="divider" style="margin:20px auto"></div>
+      <p class="p-lead" style="margin:0 auto;text-align:center">Bijoux sur mesure, retouche ou simple question : notre équipe vous répond dans les meilleurs délais.</p>
+    </div>
+    <div class="form-wrap">
+      <form id="cform" action="#" novalidate>
+        <div class="form-row">
+          <div class="f-group">
+            <label for="fname">Votre nom</label>
+            <input type="text" id="fname" name="nom" placeholder="Marie Dupont" autocomplete="name">
+            <span class="f-error">Veuillez entrer votre nom.</span>
+          </div>
+          <div class="f-group">
+            <label for="femail">Adresse e-mail</label>
+            <input type="email" id="femail" name="email" placeholder="marie@example.com" autocomplete="email">
+            <span class="f-error">E-mail invalide.</span>
+          </div>
+        </div>
+        <div class="f-group">
+          <label for="ftel">Téléphone</label>
+          <input type="tel" id="ftel" name="tel" placeholder="27 54 22" autocomplete="tel">
+          <span class="f-error">Numéro invalide.</span>
+        </div>
+        <div class="f-group">
+          <label for="fmsg">Votre message</label>
+          <textarea id="fmsg" name="message" placeholder="Décrivez votre projet, vos questions…"></textarea>
+          <span class="f-error">Veuillez écrire un message.</span>
+        </div>
+        <button type="submit" class="f-submit" id="fsub">
+          <span id="fsub-txt">Envoyer ma demande</span>
+          <svg id="fsub-spin" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="display:none;animation:spin .8s linear infinite"><path d="M12 2a10 10 0 0 1 10 10"/></svg>
+        </button>
+      </form>
+      <div class="f-success" id="fsuccess">
+        <svg viewBox="0 0 24 24" stroke="var(--ca)"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+        <h3 class="h3">Message envoyé !</h3>
+        <p>Merci pour votre message. Nous vous répondrons très prochainement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s s-white" id="avis">
+  <div class="s-inner">
+    <div class="ps-header">
+      <div>
+        <span class="s-tag">Avis clients</span>
+        <h2 class="h2">Ce que disent<br><em>nos clients</em></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="rating-wrap">
+        <span class="rating-big">3.4</span>
+        <svg width="0" height="0" aria-hidden="true"><defs><linearGradient id="half"><stop offset="50%" stop-color="#F0B400"/><stop offset="50%" stop-color="#e0e0e0"/></linearGradient></defs></svg>
+        <div class="stars" aria-label="Note 3.4 sur 5">
+          <svg class="star" viewBox="0 0 24 24"><polygon class="star-full" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><polygon class="star-full" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><polygon class="star-full" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><polygon class="star-half" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><polygon class="star-empty" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+        </div>
+        <span class="rating-lbl">Note Google · 5 avis</span>
+      </div>
+    </div>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="review-head">
+          <div class="review-av">S</div>
+          <div>
+            <div class="review-name">Sophie M.</div>
+            <div class="review-date">Il y a 3 mois</div>
+          </div>
+        </div>
+        <div class="stars" style="margin-bottom:12px">
+          <svg class="star" viewBox="0 0 24 24"><polygon class="star-full" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><polygon class="star-full" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><polygon class="star-full" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><polygon class="star-full" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><polygon class="star-full" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+        </div>
+        <p class="review-text">« Une belle boutique avec un accueil chaleureux. J'ai trouvé exactement ce que je cherchais pour offrir un cadeau unique. »</p>
+      </div>
+      <div class="review-card">
+        <div class="review-head">
+          <div class="review-av">P</div>
+          <div>
+            <div class="review-name">Pierre L.</div>
+            <div class="review-date">Il y a 6 mois</div>
+          </div>
+        </div>
+        <div class="stars" style="margin-bottom:12px">
+          <svg class="star" viewBox="0 0 24 24"><polygon class="star-full" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><polygon class="star-full" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><polygon class="star-full" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><polygon class="star-full" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><polygon class="star-empty" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+        </div>
+        <p class="review-text">« Très bonne adresse en centre-ville de Nouméa. Le travail de retouche sur ma bague de famille a été parfait. Je recommande. »</p>
+      </div>
+      <div class="review-card">
+        <div class="review-head">
+          <div class="review-av">A</div>
+          <div>
+            <div class="review-name">Anne-Claire V.</div>
+            <div class="review-date">Il y a 1 an</div>
+          </div>
+        </div>
+        <div class="stars" style="margin-bottom:12px">
+          <svg class="star" viewBox="0 0 24 24"><polygon class="star-full" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><polygon class="star-full" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><polygon class="star-full" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><polygon class="star-empty" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><polygon class="star-empty" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+        </div>
+        <p class="review-text">« Enseigne distinctive et bijoux de caractère. J'apprécie l'identité artisanale de cette boutique, rare dans le centre de Nouméa. »</p>
+      </div>
+    </div>
+    <div class="badges">
+      <div class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--ca)" stroke-width="1.8" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Artisan joaillier local</span>
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--ca)" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+        <span>Créations sur mesure</span>
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--ca)" stroke-width="1.8" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Centre-ville Nouméa</span>
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--ca)" stroke-width="1.8" stroke-linecap="round"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+        <span>Noté sur Google</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ftr" id="footer">
+  <div class="ftr-inner">
+    <div class="ftr-grid">
+      <div>
+        <div class="ftr-logo">Jama <span>Création</span></div>
+        <address>
+          Bijouterie Jama Création<br>
+          Rue du Général Mangin<br>
+          Nouméa 98800, Nouvelle-Calédonie<br><br>
+          <a href="tel:+68727.54.22">☎ 27.54.22</a>
+        </address>
+      </div>
+      <div>
+        <span class="ftr-h">Navigation</span>
+        <ul class="ftr-links">
+          <li><a href="#collections">Nos savoir-faire</a></li>
+          <li><a href="#savoir-faire">Notre histoire</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#avis">Avis clients</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="ftr-h">Horaires</span>
+        <p>Lundi – Vendredi<br>8h30 – 17h30<br><br>Samedi<br>9h00 – 12h00</p>
+      </div>
+    </div>
+    <hr class="ftr-sep">
+    <div class="ftr-bottom">
+      <p>© 2026 Bijouterie Jama Création. Tous droits réservés.</p>
+      <p>Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+    </div>
+  </div>
+</footer>
+
+<style>
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+
+<script>
+var b=document.getElementById('burger'),mn=document.getElementById('mob-nav');
+if(b&&mn){b.addEventListener('click',function(){mn.classList.toggle('open')})}
+var lb=document.getElementById('lightbox'),lbImg=document.getElementById('lb-img'),lbClose=document.getElementById('lb-close');
+document.querySelectorAll('.gal-item').forEach(function(el){
+  el.addEventListener('click',function(){
+    lbImg.src=el.dataset.src;
+    lbImg.alt=el.querySelector('img').alt;
+    lb.classList.add('open');
+    document.body.style.overflow='hidden';
+  });
+});
+function closeLb(){lb.classList.remove('open');document.body.style.overflow=''}
+lbClose.addEventListener('click',closeLb);
+lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
+var form=document.getElementById('cform'),fsub=document.getElementById('fsub'),fsubtxt=document.getElementById('fsub-txt'),fsubspin=document.getElementById('fsub-spin'),fsuccess=document.getElementById('fsuccess');
+function vld(id,fn){var g=document.getElementById(id).closest('.f-group'),v=document.getElementById(id).value.trim();if(!fn(v)){g.classList.add('err');return false}g.classList.remove('err');return true}
+form.addEventListener('submit',function(e){
+  e.preventDefault();
+  var ok=vld('fname',function(v){return v.length>1});
+  ok=vld('femail',function(v){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)})&&ok;
+  ok=vld('fmsg',function(v){return v.length>3})&&ok;
+  if(!ok)return;
+  fsubtxt.textContent='Envoi en cours…';fsubspin.style.display='block';fsub.disabled=true;
+  setTimeout(function(){form.style.display='none';fsuccess.style.display='block'},1400);
+});
+</script>
+</body>
+</html>
