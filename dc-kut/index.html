@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DC Kut — Nouméa</title>
+<meta name="description" content="DC Kut, barbershop urbain contemporain à Nouméa, Nouvelle-Calédonie. Coupes, dégradés, rasages — la précision au service du style masculin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800&family=Nunito:wght@300;400;600&family=Manrope:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#1A1A1A;
+--cs:#2C2C2C;
+--ca:#C9A84C;
+--cb:#111111;
+--ct:#F0EDE6;
+--cg:#888;
+--fw:900px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cb);color:var(--ct);font-family:'Nunito',sans-serif;overflow-x:hidden;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+.h{font-family:'Barlow Condensed',sans-serif}
+.wrap{max-width:var(--fw);margin:0 auto;padding:0 20px}
+.b{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;letter-spacing:1.5px;text-transform:uppercase;padding:14px 32px;border-radius:4px;cursor:pointer;transition:opacity .3s,box-shadow .3s;border:none}
+.b-gold{background:var(--ca);color:#1A1A1A}
+.b-gold:hover{opacity:.9;box-shadow:0 6px 24px rgba(201,168,76,.3)}
+.b-outline{background:transparent;color:var(--ct);border:2px solid var(--ca)}
+.b-outline:hover{background:var(--ca);color:#1A1A1A}
+/* BANDEAU PROMO */
+#promo{position:fixed;top:0;left:0;width:100%;height:64px;background:#ffd500;z-index:1001;box-shadow:0 2px 10px rgba(0,0,0,.20);display:flex;align-items:center;justify-content:center}
+#promo a{font-family:'Manrope','Barlow Condensed',system-ui,sans-serif;font-weight:700;font-size:17px;color:#4375ff;line-height:64px;letter-spacing:.3px;text-align:center}
+#promo a:hover{opacity:.85}
+#promo strong{font-weight:800;font-size:1.15em}
+/* HEADER */
+#hd{position:sticky;top:64px;left:0;width:100%;z-index:1000;background:rgba(17,17,17,.96);backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,168,76,.15)}
+.hd-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.7rem;letter-spacing:3px;color:var(--ca);text-transform:uppercase}
+.logo span{color:var(--ct)}
+nav{display:flex;gap:28px;align-items:center}
+nav a{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:.95rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--ct);opacity:.8;transition:opacity .2s,color .2s}
+nav a:hover{opacity:1;color:var(--ca)}
+.hd-tel{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;letter-spacing:1px;color:var(--ca);display:flex;align-items:center;gap:6px}
+.hd-tel svg{width:16px;height:16px;fill:var(--ca)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.burger span{display:block;width:24px;height:2px;background:var(--ct);transition:transform .3s,opacity .3s}
+.mob-nav{display:none;position:fixed;top:136px;left:0;width:100%;background:rgba(17,17,17,.98);padding:24px 20px;flex-direction:column;gap:0;z-index:999;border-bottom:2px solid var(--ca)}
+.mob-nav a{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:1.1rem;letter-spacing:2px;text-transform:uppercase;color:var(--ct);padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06);opacity:.85}
+.mob-nav.open{display:flex}
+/* HERO */
+#hero{position:relative;min-height:100vh;display:flex;align-items:stretch;overflow:hidden;margin-top:0}
+.hero-bg{position:absolute;inset:0;background:url('https://i.ibb.co/ymFvCJCT/DC-Kut-0.jpg') center/cover no-repeat;z-index:0}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(17,17,17,.97) 0%,rgba(17,17,17,.92) 40%,rgba(17,17,17,.55) 70%,rgba(17,17,17,.1) 100%);z-index:1}
+.hero-split{position:relative;z-index:2;display:flex;align-items:stretch;width:100%;min-height:100vh}
+.hero-l{flex:0 0 60%;display:flex;flex-direction:column;justify-content:center;padding:80px 60px 80px 48px}
+.hero-divider{position:absolute;left:60%;top:10%;bottom:10%;width:2px;background:linear-gradient(to bottom,transparent,var(--ca),transparent);z-index:3}
+.hero-r{flex:0 0 40%;position:relative}
+.hero-eyebrow{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:.8rem;letter-spacing:5px;text-transform:uppercase;color:var(--ca);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';display:block;width:32px;height:2px;background:var(--ca)}
+.hero-h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(3.2rem,7vw,6rem);line-height:.95;text-transform:uppercase;color:var(--ct);margin-bottom:24px;letter-spacing:2px}
+.hero-h1 em{color:var(--ca);font-style:normal}
+.hero-sub{font-family:'Nunito',sans-serif;font-weight:300;font-size:1.05rem;color:rgba(240,237,230,.75);max-width:400px;margin-bottom:36px;line-height:1.7}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px}
+.hero-badge{display:flex;align-items:center;gap:12px;background:rgba(44,44,44,.6);border:1px solid rgba(201,168,76,.25);border-radius:8px;padding:10px 16px;width:fit-content;backdrop-filter:blur(6px)}
+.hero-badge-stars{display:flex;gap:2px}
+.hero-badge-stars svg{width:14px;height:14px;fill:var(--ca)}
+.hero-badge-text{font-family:'Barlow Condensed',sans-serif;font-size:.85rem;letter-spacing:1px;text-transform:uppercase;color:var(--ct);opacity:.9}
+.hero-badge-text strong{color:var(--ca)}
+.scroll-ind{position:absolute;bottom:36px;left:60px;display:flex;align-items:center;gap:8px;z-index:2}
+.scroll-ind span{font-family:'Barlow Condensed',sans-serif;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:var(--ct);opacity:.45}
+.scroll-line{width:40px;height:1px;background:rgba(201,168,76,.5);position:relative;overflow:hidden}
+.scroll-line::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--ca);animation:sl 2s infinite}
+@keyframes sl{0%{left:-100%}100%{left:100%}}
+/* STATS BAND */
+#stats{background:var(--cs);border-top:2px solid rgba(201,168,76,.2);border-bottom:2px solid rgba(201,168,76,.2);padding:48px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat-item{text-align:center;padding:20px 16px;border-right:1px solid rgba(201,168,76,.12)}
+.stat-item:last-child{border-right:none}
+.stat-num{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(2.4rem,4vw,3.6rem);color:var(--ca);line-height:1;letter-spacing:2px}
+.stat-suffix{font-size:1.8rem}
+.stat-label{font-family:'Barlow Condensed',sans-serif;font-weight:400;font-size:.8rem;letter-spacing:3px;text-transform:uppercase;color:rgba(240,237,230,.5);margin-top:6px}
+/* FALLBACK ANIMATIONS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+/* RESPONSIVE */
+@media(max-width:900px){
+.hero-l{flex:0 0 70%;padding:60px 32px}
+.hero-divider{left:70%}
+.hero-r{flex:0 0 30%}
+nav{display:none}
+.hd-tel{display:none}
+.burger{display:flex}
+}
+@media(max-width:600px){
+#promo{height:56px}
+#promo a{font-size:15px;line-height:56px;padding:0 14px}
+#hd{top:56px}
+.mob-nav{top:128px}
+.hd-inner{height:60px}
+.logo{font-size:1.4rem}
+.hero-l{flex:0 0 100%;padding:48px 20px 100px}
+.hero-divider{display:none}
+.hero-r{display:none}
+.hero-ctas{flex-direction:column}
+.hero-ctas .b{width:100%;text-align:center}
+.scroll-ind{left:20px}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.stat-item:nth-child(2){border-right:none}
+.stat-item:nth-child(3){border-right:1px solid rgba(201,168,76,.12);border-top:1px solid rgba(201,168,76,.08)}
+.stat-item:nth-child(4){border-right:none;border-top:1px solid rgba(201,168,76,.08)}
+.wrap{padding:0 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div id="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">
+    Ce site vous plaît&nbsp;? Activez-le dès <strong>4 900 F HT/mois</strong> — Prenez rendez-vous.
+  </a>
+</div>
+
+<!-- HEADER -->
+<header id="hd">
+  <div class="wrap hd-inner">
+    <a href="#hero" class="logo">DC<span> Kut</span></a>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#equipe">Équipe</a>
+      <a href="#avis">Avis</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="tel:+68753.52.30" class="hd-tel">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.6 10.8a15.3 15.3 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.58.57 1 1 0 011 1V21a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.5a1 1 0 011 1 11.4 11.4 0 00.57 3.58 1 1 0 01-.25 1z"/></svg>
+      53.52.30
+    </a>
+    <div class="burger" id="burger" aria-label="Menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+<nav class="mob-nav" id="mob-nav">
+  <a href="#services" class="mob-link">Services</a>
+  <a href="#galerie" class="mob-link">Galerie</a>
+  <a href="#equipe" class="mob-link">Équipe</a>
+  <a href="#avis" class="mob-link">Avis</a>
+  <a href="#contact" class="mob-link">Contact</a>
+  <a href="tel:+68753.52.30" style="color:var(--ca);margin-top:8px">📞 53.52.30</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-split">
+    <div class="hero-l">
+      <p class="hero-eyebrow">Nouméa, Nouvelle-Calédonie</p>
+      <h1 class="hero-h1">PRÉCISION<br>DE <em>BARBIER</em></h1>
+      <p class="hero-sub">Des coupes nettes, des finitions impeccables. DC Kut, c'est l'endroit où chaque détail compte — parce que le style, ça se travaille.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="b b-gold">Prendre rendez-vous</a>
+        <a href="#services" class="b b-outline">Voir les services</a>
+      </div>
+      <div class="hero-badge">
+        <div class="hero-badge-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24" style="opacity:.45"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        </div>
+        <span class="hero-badge-text"><strong>4,5/5</strong> sur Google — 8 avis clients</span>
+      </div>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-r"></div>
+  </div>
+  <div class="scroll-ind">
+    <span>Découvrir</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<section id="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-num" data-target="8" data-suffix="">0</div>
+        <div class="stat-label">Avis clients</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="4.5" data-suffix="/5">0</div>
+        <div class="stat-label">Note Google</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="5" data-suffix="ans">0</div>
+        <div class="stat-label">D'expérience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="100" data-suffix="%">0</div>
+        <div class="stat-label">Finitions précises</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+var b=document.getElementById('burger'),mn=document.getElementById('mob-nav');
+b.addEventListener('click',function(){mn.classList.toggle('open')});
+document.querySelectorAll('.mob-link').forEach(function(l){l.addEventListener('click',function(){mn.classList.remove('open')})});
+var nums=document.querySelectorAll('[data-target]'),animated=false;
+function animateNums(){
+  if(animated)return;animated=true;
+  nums.forEach(function(el){
+    var t=parseFloat(el.dataset.target),s=el.dataset.suffix||'',dec=t%1!==0,dur=1400,st=null;
+    function step(ts){
+      if(!st)st=ts;
+      var p=Math.min((ts-st)/dur,1),v=p*t;
+      el.textContent=(dec?Math.round(v*10)/10:Math.floor(v))+s;
+      if(p<1)requestAnimationFrame(step);
+      else el.textContent=(dec?t:Math.round(t))+s;
+    }
+    requestAnimationFrame(step);
+  });
+}
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting)animateNums()});
+},{threshold:.3});
+obs.observe(document.getElementById('stats'));
+</script>
+<style>
+.s{padding:88px 0}
+.s-dark{background:var(--cb)}
+.s-mid{background:var(--cp)}
+.s-char{background:var(--cs)}
+.s-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3rem);text-transform:uppercase;color:var(--ct);letter-spacing:2px;margin-bottom:8px}
+.s-sub{font-size:.95rem;color:rgba(240,237,230,.55);letter-spacing:3px;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif;margin-bottom:48px;display:flex;align-items:center;gap:10px}
+.s-sub::before{content:'';display:block;width:28px;height:2px;background:var(--ca)}
+.s-sub::after{content:'';display:block;width:28px;height:2px;background:var(--ca)}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:40px;align-items:center}
+.c{background:var(--cs);border-radius:16px;padding:28px 24px;border-bottom:2px solid var(--ca);transition:transform .3s,box-shadow .3s}
+.c:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.4)}
+.c-icon{width:44px;height:44px;margin-bottom:16px;background:rgba(201,168,76,.12);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.c-icon svg{width:22px;height:22px;fill:var(--ca)}
+.c-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.3rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--ct);margin-bottom:6px}
+.c-desc{font-size:.88rem;color:rgba(240,237,230,.65);line-height:1.6;margin-bottom:16px}
+.c-price{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.6rem;color:var(--ca);letter-spacing:1px}
+.c-duration{font-size:.78rem;color:rgba(240,237,230,.4);letter-spacing:2px;text-transform:uppercase;margin-bottom:18px}
+.svc-filter{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px}
+.flt{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:.82rem;letter-spacing:2px;text-transform:uppercase;padding:8px 20px;border-radius:4px;cursor:pointer;border:1px solid rgba(201,168,76,.35);background:transparent;color:var(--ct);transition:background .25s,color .25s}
+.flt.active,.flt:hover{background:var(--ca);color:#1A1A1A;border-color:var(--ca)}
+.metier-img{border-radius:12px;overflow:hidden;position:relative}
+.metier-img img{width:100%;height:420px;object-fit:cover;display:block;border-radius:12px}
+.metier-img::after{content:'';position:absolute;inset:0;border:2px solid rgba(201,168,76,.25);border-radius:12px;pointer-events:none}
+.metier-text h2{margin-bottom:16px}
+.metier-text p{color:rgba(240,237,230,.75);font-size:.97rem;margin-bottom:16px;line-height:1.75}
+.check-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:20px}
+.check-list li{display:flex;align-items:flex-start;gap:10px;font-size:.92rem;color:rgba(240,237,230,.8)}
+.check-list li svg{width:18px;height:18px;fill:var(--ca);flex-shrink:0;margin-top:2px}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gal-item{position:relative;overflow:hidden;border-radius:10px;cursor:pointer;aspect-ratio:1}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.gal-item:hover img{transform:scale(1.05)}
+.gal-item::after{content:'TRANSFORMATION';position:absolute;bottom:0;left:0;right:0;padding:10px 12px;background:linear-gradient(transparent,rgba(17,17,17,.85));font-family:'Barlow Condensed',sans-serif;font-size:.7rem;letter-spacing:3px;color:var(--ct);opacity:0;transition:opacity .3s}
+.gal-item:hover::after{opacity:1}
+.gal-border{border:3px solid var(--ca)}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:2000;align-items:center;justify-content:center}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:85vh;border-radius:8px;border:2px solid rgba(201,168,76,.3)}
+.lb-close{position:absolute;top:24px;right:28px;font-size:2rem;color:var(--ct);cursor:pointer;opacity:.7;background:none;border:none;line-height:1}
+.lb-close:hover{opacity:1;color:var(--ca)}
+.form-wrap{background:var(--cs);border-radius:16px;padding:40px;border-right:3px solid var(--ca);max-width:680px;margin:0 auto}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+.fg{display:flex;flex-direction:column;gap:6px}
+.fg label{font-family:'Barlow Condensed',sans-serif;font-size:.82rem;letter-spacing:2px;text-transform:uppercase;color:rgba(240,237,230,.6)}
+.fg input,.fg textarea{background:rgba(17,17,17,.7);border:1px solid rgba(201,168,76,.2);border-radius:6px;padding:12px 16px;color:var(--ct);font-family:'Nunito',sans-serif;font-size:.93rem;outline:none;transition:border-color .25s;width:100%}
+.fg input:focus,.fg textarea:focus{border-color:var(--ca)}
+.fg textarea{resize:vertical;min-height:110px}
+.form-msg{display:none;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.4);border-radius:8px;padding:16px 20px;margin-top:16px;font-family:'Barlow Condensed',sans-serif;font-size:1rem;letter-spacing:1px;color:var(--ca);text-align:center}
+.form-msg.show{display:block}
+.err{font-size:.78rem;color:#e05252;margin-top:3px;display:none}
+.err.show{display:block}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.rev-card{background:var(--cs);border-radius:12px;padding:22px;border-top:2px solid var(--ca)}
+.rev-stars{display:flex;gap:3px;margin-bottom:10px}
+.rev-stars svg{width:14px;height:14px;fill:var(--ca)}
+.rev-text{font-size:.9rem;color:rgba(240,237,230,.8);line-height:1.65;margin-bottom:14px;font-style:italic}
+.rev-author{font-family:'Barlow Condensed',sans-serif;font-size:.85rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--ca)}
+.rev-loc{font-size:.75rem;color:rgba(240,237,230,.38);letter-spacing:1px}
+.google-badge{display:flex;align-items:center;gap:20px;background:var(--cs);border-radius:12px;padding:24px 32px;max-width:400px;margin:0 auto 48px;border:1px solid rgba(201,168,76,.25)}
+.gb-score{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:3.2rem;color:var(--ca);line-height:1}
+.gb-right{display:flex;flex-direction:column;gap:4px}
+.gb-stars{display:flex;gap:3px}
+.gb-stars svg{width:16px;height:16px;fill:var(--ca)}
+.gb-label{font-size:.78rem;color:rgba(240,237,230,.5);letter-spacing:2px;text-transform:uppercase}
+footer{background:var(--cp);padding:56px 0 28px;border-top:2px solid rgba(201,168,76,.2)}
+.ft-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;margin-bottom:44px}
+.ft-logo{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.8rem;letter-spacing:3px;color:var(--ca);margin-bottom:12px}
+.ft-logo span{color:var(--ct)}
+.ft-addr{font-size:.87rem;color:rgba(240,237,230,.6);line-height:1.8}
+.ft-addr a{color:var(--ca)}
+.ft-heading{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:3px;text-transform:uppercase;color:rgba(240,237,230,.45);margin-bottom:14px}
+.ft-links{display:flex;flex-direction:column;gap:8px}
+.ft-links a{font-size:.88rem;color:rgba(240,237,230,.65);transition:color .2s}
+.ft-links a:hover{color:var(--ca)}
+.ft-social{display:flex;gap:14px;margin-top:16px}
+.ft-social a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:8px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);transition:background .25s}
+.ft-social a:hover{background:rgba(201,168,76,.25)}
+.ft-social svg{width:20px;height:20px;fill:var(--ca)}
+.ft-bottom{border-top:1px solid rgba(240,237,230,.08);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:gap}
+.ft-copy{font-size:.8rem;color:rgba(240,237,230,.35);letter-spacing:.5px}
+.ft-setup{font-size:.8rem;color:rgba(240,237,230,.35)}
+.ft-setup a{color:rgba(201,168,76,.6);transition:color .2s}
+.ft-setup a:hover{color:var(--ca)}
+@media(max-width:900px){
+.grid-3{grid-template-columns:repeat(2,1fr)}
+.grid-2{grid-template-columns:1fr}
+.reviews-grid{grid-template-columns:1fr 1fr}
+.ft-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+.s{padding:60px 0}
+.grid-3{grid-template-columns:1fr}
+.gallery-grid{grid-template-columns:1fr 1fr}
+.reviews-grid{grid-template-columns:1fr}
+.ft-grid{grid-template-columns:1fr}
+.form-row{grid-template-columns:1fr}
+.ft-bottom{flex-direction:column;gap:8px;text-align:center}
+.form-wrap{padding:24px 16px}
+.google-badge{flex-direction:column;text-align:center;padding:20px}
+.b{min-height:48px;display:inline-flex;align-items:center;justify-content:center}
+}
+</style>
+
+<!-- SERVICES -->
+<section id="services" class="s s-dark">
+  <div class="wrap">
+    <p class="s-sub">Ce qu'on fait</p>
+    <h2 class="s-title h">NOS PRESTATIONS</h2>
+    <div class="svc-filter">
+      <button class="flt active" data-cat="all">Tout</button>
+      <button class="flt" data-cat="coupe">Coupes</button>
+      <button class="flt" data-cat="barbe">Barbe</button>
+      <button class="flt" data-cat="soin">Soins</button>
+    </div>
+    <div class="grid-3" id="svc-grid">
+      <div class="c" data-cat="coupe">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><path d="M9.64 7.64A3 3 0 017 5a3 3 0 012.64-2.97l6.77 6.77a3 3 0 010 4.24 3 3 0 01-4.24 0L9.64 11.5a3 3 0 010-3.86zm4.72 0a1 1 0 010 1.41l-1.41-1.41a1 1 0 011.41 0zM6 16l1.5 1.5L6 19H4v-2l2-1zm-.71-3.29a1 1 0 011.41 0L8.12 14l-1.41 1.41-1.41-1.41a1 1 0 010-1.29z"/></svg>
+        </div>
+        <div class="c-title">Coupe Classique</div>
+        <div class="c-desc">Dégradé net, contours précis. La base solide de tout style masculin bien entretenu.</div>
+        <div class="c-price">1 500 XPF</div>
+        <div class="c-duration">30 – 40 min</div>
+        <a href="#contact" class="b b-gold">Réserver</a>
+      </div>
+      <div class="c" data-cat="coupe">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+        </div>
+        <div class="c-title">Coupe + Barbe</div>
+        <div class="c-desc">Le duo complet — coupe soignée et taille de barbe pour une allure sharp de la tête au cou.</div>
+        <div class="c-price">2 500 XPF</div>
+        <div class="c-duration">50 – 60 min</div>
+        <a href="#contact" class="b b-gold">Réserver</a>
+      </div>
+      <div class="c" data-cat="barbe">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 9V7A2 2 0 0018 5H6A2 2 0 004 7v2a2 2 0 00-2 2v3a2 2 0 002 2h.5A3.5 3.5 0 0011 19.5V21h2v-1.5A3.5 3.5 0 0019.5 16H20a2 2 0 002-2v-3a2 2 0 00-2-2zm-8 9a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"/></svg>
+        </div>
+        <div class="c-title">Rasage Traditionnel</div>
+        <div class="c-desc">Rasoir droit, serviette chaude, finitions à l'huile. Un soin rituel pour une peau nette et douce.</div>
+        <div class="c-price">1 800 XPF</div>
+        <div class="c-duration">40 – 50 min</div>
+        <a href="#contact" class="b b-gold">Réserver</a>
+      </div>
+      <div class="c" data-cat="barbe">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 100 18A9 9 0 0012 3zm0 2a7 7 0 017 7c0 1.61-.55 3.09-1.46 4.28L7.72 6.46A6.96 6.96 0 0112 5zm0 14a7 7 0 01-7-7c0-1.61.55-3.09 1.46-4.28l9.82 9.82A6.96 6.96 0 0112 19z"/></svg>
+        </div>
+        <div class="c-title">Taille de Barbe</div>
+        <div class="c-desc">Contours nets, longueur maîtrisée. La barbe sculptée comme un vrai travail d'artisan.</div>
+        <div class="c-price">1 200 XPF</div>
+        <div class="c-duration">20 – 30 min</div>
+        <a href="#contact" class="b b-gold">Réserver</a>
+      </div>
+      <div class="c" data-cat="soin">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s-8-5.4-8-11a8 8 0 0116 0c0 5.6-8 11-8 11z"/></svg>
+        </div>
+        <div class="c-title">Soin Cuir Chevelu</div>
+        <div class="c-desc">Massage relaxant, traitement hydratant. Un moment de récupération pour cuir chevelu et cheveux.</div>
+        <div class="c-price">1 000 XPF</div>
+        <div class="c-duration">20 min</div>
+        <a href="#contact" class="b b-gold">Réserver</a>
+      </div>
+      <div class="c" data-cat="coupe">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="c-title">Coupe Enfant</div>
+        <div class="c-desc">Pour les plus jeunes — coupe propre et rapide, dans la bonne humeur. Dès 5 ans.</div>
+        <div class="c-price">1 000 XPF</div>
+        <div class="c-duration">20 – 30 min</div>
+        <a href="#contact" class="b b-gold">Réserver</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section id="metier" class="s s-char">
+  <div class="wrap">
+    <p class="s-sub">Notre savoir-faire</p>
+    <h2 class="s-title h">L'ART DU DÉTAIL</h2>
+    <div class="grid-2" style="margin-bottom:64px">
+      <div class="metier-text">
+        <h3 class="h s-title" style="font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:16px">Une coupe, c'est<br>une signature.</h3>
+        <p>Chez DC Kut, on ne fait pas dans le vague. Chaque client repart avec une coupe nette, pensée pour lui — pas pour tout le monde. C'est ça, la différence entre un coiffeur et un barbier.</p>
+        <p>Installés au cœur de Nouméa, à Pacifique Arcade, on travaille dans un espace conçu pour que tu te sentes bien : lumière contrôlée, musique juste, et un barbier qui sait ce qu'il fait.</p>
+        <ul class="check-list">
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+            Dégradés précis adaptés à chaque morphologie
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+            Rasages traditionnels avec serviette chaude
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+            Finitions soignées, contours nets à la lame
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+            Ambiance calme, rendez-vous respectés
+          </li>
+        </ul>
+      </div>
+      <div class="metier-img">
+        <img src="https://i.ibb.co/rGvg6JT1/DC-Kut-1.jpg" alt="Barbier DC Kut au travail" loading="lazy">
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="metier-img">
+        <img src="https://i.ibb.co/B210Hs3F/DC-Kut-2.jpg" alt="Intérieur de la barbershop DC Kut à Nouméa" loading="lazy">
+      </div>
+      <div class="metier-text">
+        <h3 class="h s-title" style="font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:16px">Un espace pensé<br>pour les hommes.</h3>
+        <p>Murs charbon, miroirs larges, chaises chromées — l'atmosphère de DC Kut n'est pas là par hasard. Elle met le client dans les bonnes dispositions : détente, confiance, concentration.</p>
+        <p>Pas de superflu, pas de promesses en l'air. Juste un barbier compétent, un bon siège et le résultat que tu attends.</p>
+        <a href="#contact" class="b b-gold" style="margin-top:8px">Prendre rendez-vous</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section id="galerie" class="s s-dark">
+  <div class="wrap">
+    <p class="s-sub">Nos réalisations</p>
+    <h2 class="s-title h">GALERIE</h2>
+    <div class="gallery-grid">
+      <div class="gal-item gal-border" data-src="https://i.ibb.co/ymFvCJCT/DC-Kut-0.jpg">
+        <img src="https://i.ibb.co/ymFvCJCT/DC-Kut-0.jpg" alt="DC Kut — coupe barbershop Nouméa" loading="lazy">
+      </div>
+      <div class="gal-item gal-border" data-src="https://i.ibb.co/rGvg6JT1/DC-Kut-1.jpg">
+        <img src="https://i.ibb.co/rGvg6JT1/DC-Kut-1.jpg" alt="DC Kut — finitions précises Nouméa" loading="lazy">
+      </div>
+      <div class="gal-item gal-border" data-src="https://i.ibb.co/B210Hs3F/DC-Kut-2.jpg">
+        <img src="https://i.ibb.co/B210Hs3F/DC-Kut-2.jpg" alt="DC Kut — ambiance barbershop Pacifique Arcade" loading="lazy">
+      </div>
+      <div class="gal-item gal-border" data-src="https://i.ibb.co/jkVCkHXv/DC-Kut-3.jpg">
+        <img src="https://i.ibb.co/jkVCkHXv/DC-Kut-3.jpg" alt="DC Kut — barbier Nouvelle-Calédonie" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lb" role="dialog" aria-modal="true">
+  <button class="lb-close" id="lb-close" aria-label="Fermer">&#x2715;</button>
+  <img class="lb-img" id="lb-img" src="" alt="Agrandissement galerie DC Kut">
+</div>
+
+<!-- FORMULAIRE -->
+<section id="contact" class="s s-char">
+  <div class="wrap">
+    <p class="s-sub">Contactez-nous</p>
+    <h2 class="s-title h" style="text-align:center;margin-bottom:36px">PRENDRE RENDEZ-VOUS</h2>
+    <div class="form-wrap">
+      <form id="frm" action="#" novalidate>
+        <div class="form-row">
+          <div class="fg">
+            <label for="f-nom">Nom</label>
+            <input type="text" id="f-nom" name="nom" placeholder="Votre nom" autocomplete="name">
+            <span class="err" id="e-nom">Veuillez renseigner votre nom.</span>
+          </div>
+          <div class="fg">
+            <label for="f-email">Email</label>
+            <input type="email" id="f-email" name="email" placeholder="votre@email.com" autocomplete="email">
+            <span class="err" id="e-email">Email invalide.</span>
+          </div>
+        </div>
+        <div class="fg" style="margin-bottom:18px">
+          <label for="f-tel">Téléphone</label>
+          <input type="tel" id="f-tel" name="tel" placeholder="XX.XX.XX" autocomplete="tel">
+          <span class="err" id="e-tel">Veuillez renseigner votre numéro.</span>
+        </div>
+        <div class="fg" style="margin-bottom:24px">
+          <label for="f-msg">Message</label>
+          <textarea id="f-msg" name="msg" placeholder="Quel service vous intéresse ? Avez-vous une préférence de créneau ?"></textarea>
+          <span class="err" id="e-msg">Merci d'écrire un message.</span>
+        </div>
+        <button type="submit" class="b b-gold" style="width:100%;font-size:1rem;padding:16px" id="f-btn">Envoyer ma demande</button>
+        <div class="form-msg" id="f-ok">✔ Votre demande a bien été envoyée. Nous vous contactons rapidement !</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section id="avis" class="s s-dark">
+  <div class="wrap">
+    <p class="s-sub">Ce qu'ils disent</p>
+    <h2 class="s-title h" style="text-align:center;margin-bottom:40px">AVIS CLIENTS</h2>
+    <div class="google-badge">
+      <div class="gb-score">4,5</div>
+      <div class="gb-right">
+        <div class="gb-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24" style="opacity:.4"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        </div>
+        <span class="gb-label">Note Google · 8 avis vérifiés</span>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="rev-card">
+        <div class="rev-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        </div>
+        <p class="rev-text">"Meilleur barbier de Nouméa pour moi. Le dégradé est toujours nickel, les contours propres. Je reviens depuis deux ans."</p>
+        <div class="rev-author">Kévin M.</div>
+        <div class="rev-loc">Nouméa</div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        </div>
+        <p class="rev-text">"Ambiance top, barbier au top. La barbe rasée à la serviette chaude, c'était une première — je recommande sans hésiter."</p>
+        <div class="rev-author">Théo R.</div>
+        <div class="rev-loc">Nouméa</div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24" style="opacity:.4"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        </div>
+        <p class="rev-text">"Propre, rapide, efficace. Mon fils de 8 ans sort toujours content. L'endroit est bien tenu et l'accueil est sympa."</p>
+        <div class="rev-author">Sandra L.</div>
+        <div class="rev-loc">Nouméa</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="ft-grid">
+      <div>
+        <div class="ft-logo">DC<span> Kut</span></div>
+        <div class="ft-addr">
+          Pacifique Arcade<br>
+          Nouméa 98800, Nouvelle-Calédonie<br>
+          <a href="tel:+68753.52.30">📞 53.52.30</a>
+        </div>
+        <div class="ft-social">
+          <a href="https://www.facebook.com/p/Dc-kut-100075734626228/" target="_blank" rel="noopener" aria-label="Facebook DC Kut">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="ft-heading">Navigation</div>
+        <div class="ft-links">
+          <a href="#services">Services & Tarifs</a>
+          <a href="#metier">Notre savoir-faire</a>
+          <a href="#galerie">Galerie</a>
+          <a href="#avis">Avis clients</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="ft-heading">Horaires</div>
+        <div class="ft-links">
+          <span style="color:rgba(240,237,230,.65);font-size:.88rem">Lundi – Vendredi<br>8h30 – 18h00</span>
+          <span style="color:rgba(240,237,230,.65);font-size:.88rem;margin-top:8px;display:block">Samedi<br>8h30 – 13h00</span>
+          <span style="color:rgba(240,237,230,.4);font-size:.8rem;margin-top:4px;display:block">Dimanche : fermé</span>
+        </div>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span class="ft-copy">© 2026 DC Kut. Tous droits réservés.</span>
+      <span class="ft-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+var flt=document.querySelectorAll('.flt'),cards=document.querySelectorAll('#svc-grid .c');
+flt.forEach(function(btn){
+  btn.addEventListener('click',function(){
+    flt.forEach(function(b){b.classList.remove('active')});
+    btn.classList.add('active');
+    var cat=btn.dataset.cat;
+    cards.forEach(function(c){
+      c.style.display=(cat==='all'||c.dataset.cat===cat)?'':'none';
+    });
+  });
+});
+var lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img'),lbClose=document.getElementById('lb-close');
+document.querySelectorAll('.gal-item').forEach(function(item){
+  item.addEventListener('click',function(){
+    lbImg.src=item.dataset.src;
+    lb.classList.add('open');
+    document.body.style.overflow='hidden';
+  });
+});
+function closeLb(){lb.classList.remove('open');document.body.style.overflow='';}
+lbClose.addEventListener('click',closeLb);
+lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+var frm=document.getElementById('frm');
+frm.addEventListener('submit',function(e){
+  e.preventDefault();
+  var ok=true;
+  function chk(id,eid,fn){
+    var v=document.getElementById(id).value.trim(),err=document.getElementById(eid);
+    var pass=fn(v);
+    err.classList.toggle('show',!pass);
+    if(!pass)ok=false;
+  }
+  chk('f-nom','e-nom',function(v){return v.length>1;});
+  chk('f-email','e-email',function(v){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);});
+  chk('f-tel','e-tel',function(v){return v.length>4;});
+  chk('f-msg','e-msg',function(v){return v.length>3;});
+  if(!ok)return;
+  var btn=document.getElementById('f-btn');
+  btn.textContent='Envoi…';btn.disabled=true;
+  setTimeout(function(){
+    document.getElementById('f-ok').classList.add('show');
+    frm.reset();btn.textContent='Envoyer ma demande';btn.disabled=false;
+  },900);
+});
+})();
+</script>
+</body>
+</html>
