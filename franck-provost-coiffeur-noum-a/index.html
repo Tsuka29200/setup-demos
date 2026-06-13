@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Franck Provost - Coiffeur Nouméa — Nouméa</title>
+<meta name="description" content="Salon de coiffure haut de gamme à Nouméa, Nouvelle-Calédonie. Expertise, précision et élégance parisienne au service de votre style.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#262a2c;
+--cs:#21515d;
+--ca:#c9a96e;
+--cb:#f5f2ee;
+--ct:#262a2c;
+--cw:#ffffff;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--cb);color:var(--ct);overflow-x:hidden;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU PROMO */
+.promo{
+position:fixed;top:0;left:0;width:100%;height:64px;
+background:#ffd500;z-index:1001;
+box-shadow:0 2px 10px rgba(0,0,0,.20);
+display:flex;align-items:center;justify-content:center;
+font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;
+font-weight:700;font-size:17px;line-height:64px;
+letter-spacing:.3px;text-align:center;
+}
+.promo a{color:#4375ff;transition:opacity .2s}
+.promo a:hover{opacity:.85}
+.promo strong{font-weight:800;font-size:1.15em}
+
+/* HEADER */
+.nav{
+position:fixed;top:64px;left:0;width:100%;
+background:var(--cp);z-index:1000;
+display:flex;align-items:center;justify-content:space-between;
+padding:0 40px;height:70px;
+border-bottom:1px solid rgba(201,169,110,.25);
+}
+.nav-logo{
+font-family:'Playfair Display',serif;
+font-size:1.1rem;font-weight:700;color:var(--cw);
+letter-spacing:.15em;text-transform:uppercase;
+}
+.nav-logo span{color:var(--ca)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{
+color:rgba(255,255,255,.75);font-size:.85rem;
+font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+transition:color .2s;
+}
+.nav-links a:hover{color:var(--ca)}
+.nav-cta{
+background:transparent;border:1px solid var(--ca);
+color:var(--ca);font-family:'Nunito',sans-serif;
+font-weight:700;font-size:.8rem;letter-spacing:.1em;
+text-transform:uppercase;padding:10px 22px;
+cursor:pointer;transition:background .2s,color .2s;white-space:nowrap;
+}
+.nav-cta:hover{background:var(--ca);color:var(--cp)}
+.nav-tel{color:rgba(255,255,255,.6);font-size:.82rem;font-weight:600;margin-right:16px;transition:color .2s}
+.nav-tel:hover{color:var(--ca)}
+.nav-right{display:flex;align-items:center;gap:0}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{width:24px;height:2px;background:var(--cw);transition:all .3s;display:block}
+.mob-menu{
+display:none;position:fixed;top:134px;left:0;width:100%;
+background:var(--cp);z-index:999;padding:24px 20px;
+border-top:1px solid rgba(201,169,110,.2);
+}
+.mob-menu.open{display:block}
+.mob-menu ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+.mob-menu a{color:rgba(255,255,255,.8);font-size:1rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.mob-menu .nav-cta{display:block;text-align:center;margin-top:16px;padding:14px;width:100%}
+
+/* HERO */
+.hero{
+min-height:100vh;padding-top:134px;
+display:grid;grid-template-columns:1fr 1fr;
+}
+.hero-left{
+background:var(--cp);
+display:flex;flex-direction:column;justify-content:center;
+padding:80px 60px;position:relative;overflow:hidden;
+}
+.hero-left::after{
+content:'';position:absolute;bottom:0;right:0;
+width:1px;height:60%;background:var(--ca);opacity:.4;
+}
+.hero-eyebrow{
+font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;
+color:var(--ca);font-weight:700;margin-bottom:20px;
+display:flex;align-items:center;gap:12px;
+}
+.hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--ca)}
+.hero-h1{
+font-family:'Playfair Display',serif;
+font-size:clamp(2.4rem,4vw,3.8rem);
+font-weight:700;color:var(--cw);
+line-height:1.12;letter-spacing:.02em;
+text-transform:uppercase;margin-bottom:12px;
+}
+.hero-h1 em{font-style:italic;color:var(--ca)}
+.hero-sub{
+color:rgba(255,255,255,.6);font-size:1rem;
+font-weight:300;max-width:360px;margin-bottom:40px;line-height:1.7;
+}
+.hero-ctас{display:flex;gap:16px;flex-wrap:wrap}
+.b-primary{
+background:var(--ca);color:var(--cp);
+border:2px solid var(--ca);font-family:'Nunito',sans-serif;
+font-weight:700;font-size:.85rem;letter-spacing:.1em;
+text-transform:uppercase;padding:14px 30px;
+cursor:pointer;transition:background .25s,color .25s;
+display:inline-block;min-height:48px;
+}
+.b-primary:hover{background:transparent;color:var(--ca)}
+.b-outline{
+background:transparent;color:var(--cw);
+border:2px solid rgba(255,255,255,.35);
+font-family:'Nunito',sans-serif;font-weight:700;
+font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;
+padding:14px 30px;cursor:pointer;
+transition:border-color .25s,color .25s;
+display:inline-block;min-height:48px;
+}
+.b-outline:hover{border-color:var(--cw);color:var(--cw)}
+.hero-badges{
+display:flex;gap:20px;margin-top:48px;padding-top:32px;
+border-top:1px solid rgba(255,255,255,.08);
+}
+.hero-badge{display:flex;align-items:center;gap:10px}
+.hero-badge-icon{
+width:38px;height:38px;border:1px solid var(--ca);
+display:flex;align-items:center;justify-content:center;
+color:var(--ca);font-size:1rem;flex-shrink:0;
+}
+.hero-badge-text{font-size:.75rem;color:rgba(255,255,255,.55);line-height:1.4;font-weight:600}
+.hero-badge-text strong{display:block;color:var(--cw);font-size:.88rem}
+.hero-right{
+position:relative;overflow:hidden;min-height:500px;
+}
+.hero-img{
+width:100%;height:100%;object-fit:cover;
+filter:grayscale(15%) contrast(1.05);
+}
+.hero-img-overlay{
+position:absolute;inset:0;
+background:linear-gradient(to right,rgba(38,42,44,.35),transparent);
+}
+.hero-scroll{
+position:absolute;bottom:36px;left:50%;
+transform:translateX(-50%);
+display:flex;flex-direction:column;align-items:center;gap:8px;
+color:rgba(255,255,255,.45);font-size:.68rem;
+letter-spacing:.18em;text-transform:uppercase;
+}
+.hero-scroll-line{
+width:1px;height:40px;background:var(--ca);
+animation:scrollpulse 2s ease-in-out infinite;
+}
+@keyframes scrollpulse{0%,100%{opacity:.3;transform:scaleY(.5)}50%{opacity:1;transform:scaleY(1)}}
+
+/* STATS */
+.stats{background:var(--cs);padding:60px 40px}
+.stats-grid{
+max-width:1100px;margin:0 auto;
+display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+}
+.stat-item{
+text-align:center;padding:20px 10px;
+position:relative;
+}
+.stat-item:not(:last-child)::after{
+content:'';position:absolute;right:0;top:20%;height:60%;
+width:1px;background:rgba(201,169,110,.25);
+}
+.stat-num{
+font-family:'Playfair Display',serif;
+font-size:clamp(2rem,3.5vw,3rem);font-weight:700;
+color:var(--ca);line-height:1;margin-bottom:8px;
+}
+.stat-label{
+font-size:.78rem;color:rgba(255,255,255,.6);
+letter-spacing:.1em;text-transform:uppercase;font-weight:600;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.nav-links,.nav-right{display:none}
+.hamburger{display:flex}
+.hero{grid-template-columns:1fr}
+.hero-right{display:none}
+.hero-left{padding:60px 32px;min-height:calc(100vh - 134px)}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.stat-item:nth-child(2)::after{display:none}
+}
+@media(max-width:480px){
+.promo{height:56px;line-height:56px;font-size:15px}
+.nav{top:56px;height:60px;padding:0 16px}
+.nav-logo{font-size:.9rem}
+.mob-menu{top:116px}
+.hero{padding-top:116px}
+.hero-left{padding:48px 16px}
+.hero-h1{font-size:2rem}
+.hero-ctас{flex-direction:column}
+.b-primary,.b-outline{width:100%;text-align:center}
+.hero-badges{flex-direction:column;gap:14px}
+.stats{padding:40px 16px}
+.stats-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+.stat-item::after{display:none!important}
+.stat-item{padding:16px 8px}
+}
+
+/* FALLBACK ANIMATIONS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">
+    Ce site vous plaît ? Activez-le dès <strong>4 900 F HT/mois</strong> — Prenez rendez-vous.
+  </a>
+</div>
+
+<!-- HEADER -->
+<nav class="nav">
+  <div class="nav-logo">Franck <span>Provost</span></div>
+  <ul class="nav-links">
+    <li><a href="#services">Prestations</a></li>
+    <li><a href="#galerie">Galerie</a></li>
+    <li><a href="#equipe">Équipe</a></li>
+    <li><a href="#avis">Avis</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="tel:+687276706" class="nav-tel">☎ 27.67.06</a>
+    <a href="#contact" class="nav-cta">Réserver</a>
+  </div>
+  <button class="hamburger" id="hbg" aria-label="Menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <ul>
+    <li><a href="#services" onclick="toggleMenu()">Prestations</a></li>
+    <li><a href="#galerie" onclick="toggleMenu()">Galerie</a></li>
+    <li><a href="#equipe" onclick="toggleMenu()">Équipe</a></li>
+    <li><a href="#avis" onclick="toggleMenu()">Avis</a></li>
+    <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+    <li><a href="tel:+687276706">☎ 27.67.06</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta" onclick="toggleMenu()">Prendre rendez-vous</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Nouméa, Nouvelle-Calédonie</p>
+    <h1 class="hero-h1">Franck<br><em>Provost</em><br>Coiffeur</h1>
+    <p class="hero-sub">L'élégance parisienne au cœur de Nouméa. Expertise, précision et soin du détail pour révéler votre meilleur style.</p>
+    <div class="hero-ctас">
+      <a href="#contact" class="b-primary">Prendre rendez-vous</a>
+      <a href="#services" class="b-outline">Découvrir les prestations</a>
+    </div>
+    <div class="hero-badges">
+      <div class="hero-badge">
+        <div class="hero-badge-icon">★</div>
+        <div class="hero-badge-text">
+          <strong>4.7 / 5</strong>83 avis Google
+        </div>
+      </div>
+      <div class="hero-badge">
+        <div class="hero-badge-icon">✦</div>
+        <div class="hero-badge-text">
+          <strong>Savoir-faire</strong>Coupe & soin expert
+        </div>
+      </div>
+      <div class="hero-badge">
+        <div class="hero-badge-icon">◈</div>
+        <div class="hero-badge-text">
+          <strong>Nouméa</strong>8 Rue Auguste Brun
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img
+      src="https://i.ibb.co/jkTPY7hY/Franck-Provost-Coiffeur-Noum-a-0.jpg"
+      alt="Franck Provost Coiffeur Nouméa"
+      class="hero-img"
+      loading="eager"
+    >
+    <div class="hero-img-overlay"></div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span>Découvrir</span>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="stats">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-num" data-target="83">0</div>
+      <div class="stat-label">Avis clients</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="47" data-decimal="true">0</div>
+      <div class="stat-label">Note Google / 5</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="10">0</div>
+      <div class="stat-label">Ans d'expertise</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="100">0</div>
+      <div class="stat-label">% satisfaction</div>
+    </div>
+  </div>
+</section>
+
+<script>
+function toggleMenu(){
+  document.getElementById('mobMenu').classList.toggle('open');
+}
+window.addEventListener('scroll',function(){
+  var n=document.querySelector('.nav');
+  n&&(n.style.boxShadow=scrollY>10?'0 4px 20px rgba(0,0,0,.35)':'none');
+});
+(function(){
+  var nums=document.querySelectorAll('[data-target]');
+  var done=false;
+  function animCount(){
+    if(done)return;
+    var s=document.querySelector('.stats');
+    if(!s)return;
+    var r=s.getBoundingClientRect();
+    if(r.top<window.innerHeight*.9){
+      done=true;
+      nums.forEach(function(el){
+        var t=+el.getAttribute('data-target');
+        var dec=el.getAttribute('data-decimal');
+        var start=0,dur=1600,s2=null;
+        function step(ts){
+          if(!s2)s2=ts;
+          var p=Math.min((ts-s2)/dur,1);
+          var v=Math.round(p*t);
+          el.textContent=dec?(v/10).toFixed(1):v+(el.parentElement.querySelector('.stat-label').textContent.includes('%')?'%':'');
+          if(p<1)requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }
+  }
+  window.addEventListener('scroll',animCount,{passive:true});
+  animCount();
+})();
+</script>
+<style>
+/* SERVICES */
+.s-services{background:var(--cb);padding:100px 40px}
+.s-hd{text-align:center;margin-bottom:60px}
+.s-hd h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;color:var(--cp);letter-spacing:.04em;text-transform:uppercase;margin-bottom:12px}
+.s-hd p{color:rgba(38,42,44,.6);font-size:1rem;max-width:520px;margin:0 auto}
+.s-hd .u-line{width:48px;height:2px;background:var(--ca);margin:16px auto 0}
+.filter-bar{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+.f-btn{background:transparent;border:1px solid rgba(38,42,44,.2);color:var(--cp);font-family:'Nunito',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;padding:8px 20px;cursor:pointer;transition:all .25s;border-radius:2px}
+.f-btn:hover,.f-btn.active{background:var(--cp);color:var(--cw);border-color:var(--cp)}
+.srv-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.c-srv{background:var(--cw);border-radius:12px;padding:36px 28px;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s;cursor:default;border:1px solid rgba(38,42,44,.07)}
+.c-srv::before{content:'';position:absolute;left:0;top:0;width:3px;height:0;background:var(--ca);transition:height .35s}
+.c-srv:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(38,42,44,.1)}
+.c-srv:hover::before{height:100%}
+.c-srv-icon{font-size:1.8rem;margin-bottom:16px;line-height:1}
+.c-srv-cat{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ca);font-weight:700;margin-bottom:8px}
+.c-srv h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--cp);margin-bottom:8px}
+.c-srv-desc{font-size:.88rem;color:rgba(38,42,44,.6);line-height:1.6;margin-bottom:20px}
+.c-srv-meta{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid rgba(38,42,44,.07)}
+.c-srv-price{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--cp)}
+.c-srv-dur{font-size:.72rem;color:rgba(38,42,44,.45);font-weight:600;letter-spacing:.06em}
+.c-srv-link{font-size:.72rem;font-weight:700;color:var(--ca);letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid var(--ca);transition:opacity .2s}
+.c-srv-link:hover{opacity:.7}
+
+/* MÉTIER */
+.s-metier{background:var(--cp);padding:100px 40px}
+.metier-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.metier-inner.rev{direction:rtl}
+.metier-inner.rev>*{direction:ltr}
+.metier-txt .eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ca);font-weight:700;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.metier-txt .eyebrow::before{content:'';width:28px;height:1px;background:var(--ca)}
+.metier-txt h2{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,2.8vw,2.4rem);font-weight:700;color:var(--cw);line-height:1.2;margin-bottom:20px;text-transform:uppercase}
+.metier-txt p{color:rgba(255,255,255,.6);font-size:.95rem;line-height:1.8;margin-bottom:28px}
+.check-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.check-list li{display:flex;align-items:flex-start;gap:12px;color:rgba(255,255,255,.75);font-size:.9rem}
+.check-list li::before{content:'✦';color:var(--ca);font-size:.7rem;margin-top:4px;flex-shrink:0}
+.metier-img-wrap{border-radius:12px;overflow:hidden;position:relative}
+.metier-img-wrap img{width:100%;height:480px;object-fit:cover;filter:grayscale(20%) contrast(1.05);transition:transform .5s}
+.metier-img-wrap:hover img{transform:scale(1.03)}
+.metier-img-badge{position:absolute;bottom:24px;left:24px;background:var(--ca);color:var(--cp);padding:12px 20px;font-weight:800;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+
+/* GALERIE */
+.s-galerie{background:var(--cb);padding:100px 40px}
+.gal-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.gal-item{position:relative;overflow:hidden;border-radius:8px;cursor:pointer;aspect-ratio:4/3}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s,filter .4s;filter:grayscale(15%)}
+.gal-item:hover img{transform:scale(1.05);filter:grayscale(0%)}
+.gal-overlay{position:absolute;inset:0;background:rgba(38,42,44,.45);opacity:0;display:flex;align-items:center;justify-content:center;transition:opacity .35s}
+.gal-item:hover .gal-overlay{opacity:1}
+.gal-plus{color:var(--cw);font-size:2rem;font-weight:300;border:1px solid rgba(255,255,255,.6);width:52px;height:52px;display:flex;align-items:center;justify-content:center;border-radius:50%}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:88vh;object-fit:contain;border-radius:4px}
+.lb-close{position:absolute;top:24px;right:32px;color:var(--cw);font-size:2rem;cursor:pointer;background:none;border:none;line-height:1;opacity:.7;transition:opacity .2s}
+.lb-close:hover{opacity:1}
+
+/* FORMULAIRE */
+.s-contact{background:var(--cs);padding:100px 40px}
+.contact-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start}
+.contact-info .eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ca);font-weight:700;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.contact-info .eyebrow::before{content:'';width:28px;height:1px;background:var(--ca)}
+.contact-info h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,2.5vw,2.2rem);font-weight:700;color:var(--cw);text-transform:uppercase;margin-bottom:20px;line-height:1.2}
+.contact-info p{color:rgba(255,255,255,.6);font-size:.9rem;line-height:1.8;margin-bottom:32px}
+.ci-item{display:flex;gap:14px;align-items:flex-start;margin-bottom:20px}
+.ci-icon{color:var(--ca);font-size:1rem;margin-top:2px;flex-shrink:0}
+.ci-text{font-size:.88rem;color:rgba(255,255,255,.7);line-height:1.6}
+.ci-text strong{display:block;color:var(--cw);font-weight:700;margin-bottom:2px}
+.form-wrap{background:var(--cw);border-radius:12px;padding:40px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+.fg label{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:rgba(38,42,44,.6)}
+.fg input,.fg textarea,.fg select{border:1px solid rgba(38,42,44,.15);border-radius:6px;padding:12px 14px;font-family:'Nunito',sans-serif;font-size:.9rem;color:var(--cp);background:var(--cb);transition:border-color .25s;width:100%}
+.fg input:focus,.fg textarea:focus{outline:none;border-color:var(--ca)}
+.fg textarea{resize:vertical;min-height:110px}
+.form-err{font-size:.75rem;color:#c0392b;margin-top:4px;display:none}
+.form-err.show{display:block}
+.b-submit{width:100%;background:var(--cp);color:var(--cw);border:2px solid var(--cp);font-family:'Nunito',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;padding:15px;cursor:pointer;transition:background .25s,color .25s;border-radius:4px;min-height:48px;display:flex;align-items:center;justify-content:center;gap:10px}
+.b-submit:hover{background:transparent;color:var(--cp)}
+.form-success{display:none;text-align:center;padding:32px 20px}
+.form-success.show{display:block}
+.form-success h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--cp);margin-bottom:10px}
+.form-success p{color:rgba(38,42,44,.6);font-size:.9rem}
+.form-success .tick{font-size:2.5rem;margin-bottom:16px}
+
+/* PREUVE SOCIALE */
+.s-avis{background:var(--cb);padding:100px 40px}
+.avis-top{max-width:1100px;margin:0 auto 60px;display:grid;grid-template-columns:auto 1fr;gap:60px;align-items:center}
+.avis-score{text-align:center;background:var(--cp);border-radius:12px;padding:40px 48px}
+.avis-num{font-family:'Playfair Display',serif;font-size:4.5rem;font-weight:700;color:var(--ca);line-height:1}
+.avis-stars{color:var(--ca);font-size:1.4rem;letter-spacing:3px;margin:8px 0}
+.avis-count{font-size:.78rem;color:rgba(255,255,255,.5);letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+.avis-badges{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:24px}
+.badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(38,42,44,.12);border-radius:30px;padding:8px 16px;font-size:.78rem;font-weight:700;color:var(--cp);background:var(--cw)}
+.badge span{color:var(--ca)}
+.testi-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.c-testi{background:var(--cw);border-radius:12px;padding:28px;border:1px solid rgba(38,42,44,.07);position:relative}
+.c-testi::before{content:'\201C';font-family:'Playfair Display',serif;font-size:4rem;color:var(--ca);opacity:.3;position:absolute;top:12px;left:20px;line-height:1}
+.t-stars{color:var(--ca);font-size:.9rem;letter-spacing:2px;margin-bottom:12px}
+.t-txt{font-size:.88rem;color:rgba(38,42,44,.7);line-height:1.7;margin-bottom:20px;font-style:italic}
+.t-author{display:flex;align-items:center;gap:12px}
+.t-avatar{width:40px;height:40px;border-radius:50%;background:var(--cs);display:flex;align-items:center;justify-content:center;color:var(--cw);font-weight:700;font-size:.9rem;flex-shrink:0}
+.t-name{font-weight:700;font-size:.85rem;color:var(--cp)}
+.t-date{font-size:.72rem;color:rgba(38,42,44,.4)}
+
+/* FOOTER */
+.footer{background:var(--cp);padding:70px 40px 30px}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:60px;margin-bottom:50px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08)}
+.footer-brand .logo{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--cw);letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px}
+.footer-brand .logo span{color:var(--ca)}
+.footer-brand p{font-size:.85rem;color:rgba(255,255,255,.45);line-height:1.8;max-width:280px;margin-bottom:24px}
+.footer-social{display:flex;gap:14px;align-items:center}
+.soc-link{width:42px;height:42px;border:1px solid rgba(201,169,110,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);transition:border-color .25s,color .25s,background .25s}
+.soc-link:hover{border-color:var(--ca);color:var(--ca);background:rgba(201,169,110,.08)}
+.soc-link svg{width:18px;height:18px;fill:currentColor}
+.footer-col h4{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ca);font-weight:700;margin-bottom:20px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col ul li a{font-size:.85rem;color:rgba(255,255,255,.5);transition:color .2s}
+.footer-col ul li a:hover{color:var(--ca)}
+.footer-addr{font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.9}
+.footer-addr a{color:rgba(255,255,255,.5);transition:color .2s}
+.footer-addr a:hover{color:var(--ca)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:.75rem;color:rgba(255,255,255,.3)}
+.footer-setup{font-size:.75rem;color:rgba(255,255,255,.3)}
+.footer-setup a{color:var(--ca);font-weight:700}
+
+/* RESPONSIVE PART2 */
+@media(max-width:900px){
+.srv-grid{grid-template-columns:1fr 1fr}
+.metier-inner{grid-template-columns:1fr;gap:40px}
+.metier-inner.rev{direction:ltr}
+.gal-grid{grid-template-columns:1fr 1fr}
+.contact-inner{grid-template-columns:1fr;gap:40px}
+.avis-top{grid-template-columns:1fr;gap:32px}
+.avis-score{padding:32px}
+.testi-grid{grid-template-columns:1fr}
+.footer-top{grid-template-columns:1fr;gap:40px}
+}
+@media(max-width:480px){
+.s-services,.s-metier,.s-galerie,.s-contact,.s-avis{padding:70px 16px}
+.srv-grid{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:1fr}
+.form-row{grid-template-columns:1fr}
+.form-wrap{padding:24px 16px}
+.footer{padding:50px 16px 24px}
+.footer-bottom{flex-direction:column;text-align:center}
+.testi-grid{grid-template-columns:1fr}
+.avis-num{font-size:3.5rem}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s-services" id="services">
+  <div class="s-hd">
+    <p style="font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ca);font-weight:700;margin-bottom:12px">Nos Prestations</p>
+    <h2>L'Art du Détail</h2>
+    <div class="u-line"></div>
+    <p>Chaque prestation est pensée pour sublimer votre style, avec des techniques adaptées aux exigences du climat tropical de Nouméa.</p>
+  </div>
+  <div class="filter-bar">
+    <button class="f-btn active" data-cat="all">Tout</button>
+    <button class="f-btn" data-cat="coupe">Coupes</button>
+    <button class="f-btn" data-cat="barbe">Barbe</button>
+    <button class="f-btn" data-cat="soin">Soins</button>
+    <button class="f-btn" data-cat="couleur">Couleur</button>
+  </div>
+  <div class="srv-grid" id="srvGrid">
+    <div class="c-srv" data-cat="coupe">
+      <div class="c-srv-icon">✂</div>
+      <div class="c-srv-cat">Coupes</div>
+      <h3>Coupe Homme</h3>
+      <p class="c-srv-desc">Coupe précise et personnalisée, adaptée à votre morphologie et votre style de vie. Finitions soignées, résultat impeccable.</p>
+      <div class="c-srv-meta">
+        <div>
+          <div class="c-srv-price">À partir de 3 500 XPF</div>
+          <div class="c-srv-dur">⏱ 30–45 min</div>
+        </div>
+        <a href="#contact" class="c-srv-link">Réserver</a>
+      </div>
+    </div>
+    <div class="c-srv" data-cat="coupe">
+      <div class="c-srv-icon">💈</div>
+      <div class="c-srv-cat">Coupes</div>
+      <h3>Coupe + Brushing</h3>
+      <p class="c-srv-desc">Coupe expertement exécutée suivie d'un brushing professionnel pour une mise en forme parfaite et durable.</p>
+      <div class="c-srv-meta">
+        <div>
+          <div class="c-srv-price">À partir de 5 500 XPF</div>
+          <div class="c-srv-dur">⏱ 45–60 min</div>
+        </div>
+        <a href="#contact" class="c-srv-link">Réserver</a>
+      </div>
+    </div>
+    <div class="c-srv" data-cat="barbe">
+      <div class="c-srv-icon">🪒</div>
+      <div class="c-srv-cat">Barbe</div>
+      <h3>Taille de Barbe</h3>
+      <p class="c-srv-desc">Mise en forme et taille précise de la barbe, avec contours nets. Un rituel de soin pour une allure soignée au quotidien.</p>
+      <div class="c-srv-meta">
+        <div>
+          <div class="c-srv-price">À partir de 2 500 XPF</div>
+          <div class="c-srv-dur">⏱ 20–30 min</div>
+        </div>
+        <a href="#contact" class="c-srv-link">Réserver</a>
+      </div>
+    </div>
+    <div class="c-srv" data-cat="barbe">
+      <div class="c-srv-icon">⚔</div>
+      <div class="c-srv-cat">Barbe</div>
+      <h3>Rasage au Coupe-Chou</h3>
+      <p class="c-srv-desc">Le rasage traditionnel à la lame droite : un geste ancestral pour une peau nette et douce, une expérience de soin unique.</p>
+      <div class="c-srv-meta">
+        <div>
+          <div class="c-srv-price">À partir de 4 000 XPF</div>
+          <div class="c-srv-dur">⏱ 30–40 min</div>
+        </div>
+        <a href="#contact" class="c-srv-link">Réserver</a>
+      </div>
+    </div>
+    <div class="c-srv" data-cat="soin">
+      <div class="c-srv-icon">◈</div>
+      <div class="c-srv-cat">Soins</div>
+      <h3>Soin Cheveux Hydratant</h3>
+      <p class="c-srv-desc">Traitement nourrissant formulé pour les cheveux exposés à l'humidité tropicale. Restitue brillance et vitalité en profondeur.</p>
+      <div class="c-srv-meta">
+        <div>
+          <div class="c-srv-price">À partir de 4 500 XPF</div>
+          <div class="c-srv-dur">⏱ 20–30 min</div>
+        </div>
+        <a href="#contact" class="c-srv-link">Réserver</a>
+      </div>
+    </div>
+    <div class="c-srv" data-cat="couleur">
+      <div class="c-srv-icon">✦</div>
+      <div class="c-srv-cat">Couleur</div>
+      <h3>Coloration & Mèches</h3>
+      <p class="c-srv-desc">Techniques de coloration maîtrisées pour sublimer ou transformer votre couleur naturelle. Résultat précis, tenue longue durée.</p>
+      <div class="c-srv-meta">
+        <div>
+          <div class="c-srv-price">Sur devis</div>
+          <div class="c-srv-dur">⏱ 60–120 min</div>
+        </div>
+        <a href="#contact" class="c-srv-link">Réserver</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MÉTIER -->
+<section class="s-metier" id="metier">
+  <div class="metier-inner" style="max-width:1100px;margin:0 auto 80px">
+    <div class="metier-txt">
+      <p class="eyebrow">Notre Savoir-Faire</p>
+      <h2>L'Expertise au Service de Votre Style</h2>
+      <p>Chez Franck Provost Nouméa, chaque geste est le fruit d'une formation rigoureuse et d'une passion sincère pour la coiffure. Nous comprenons les spécificités des cheveux exposés au soleil et à l'humidité de la Nouvelle-Calédonie — et nous adaptons chaque prestation à cette réalité.</p>
+      <ul class="check-list">
+        <li>Techniques de coupe précises, respectueuses de votre texture capillaire naturelle</li>
+        <li>Conseils personnalisés pour entretenir votre style entre chaque visite</li>
+        <li>Soins adaptés aux cheveux fragilisés par le climat tropical</li>
+        <li>Une relation de confiance construite sur la durée, à Nouméa</li>
+      </ul>
+    </div>
+    <div class="metier-img-wrap">
+      <img src="https://i.ibb.co/FqmfDQhR/Franck-Provost-Coiffeur-Noum-a-1.jpg" alt="Expertise coiffure Franck Provost Nouméa" loading="lazy">
+      <div class="metier-img-badge">Expert à Nouméa</div>
+    </div>
+  </div>
+  <div class="metier-inner rev" style="max-width:1100px;margin:0 auto">
+    <div class="metier-txt">
+      <p class="eyebrow">Notre Approche</p>
+      <h2>Un Salon Pensé pour Vous</h2>
+      <p>L'ambiance épurée du salon reflète notre philosophie : ici, pas de superflu. Chaque détail — de l'accueil à la finition — est pensé pour que vous repartiez satisfait, confiant, et avec un style qui vous ressemble vraiment.</p>
+      <ul class="check-list">
+        <li>Accueil chaleureux dans un cadre élégant et apaisant</li>
+        <li>Diagnostic capillaire offert à chaque première visite</li>
+        <li>Produits de qualité professionnelle pour un résultat durable</li>
+        <li>Prise en charge attentive, du shampooing à la finition</li>
+      </ul>
+    </div>
+    <div class="metier-img-wrap">
+      <img src="https://i.ibb.co/VWW5BNqM/Franck-Provost-Coiffeur-Noum-a-2.jpg" alt="Salon Franck Provost Nouméa intérieur" loading="lazy">
+      <div class="metier-img-badge">8 Rue Auguste Brun</div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s-galerie" id="galerie">
+  <div class="s-hd">
+    <p style="font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ca);font-weight:700;margin-bottom:12px">Galerie</p>
+    <h2>Nos Réalisations</h2>
+    <div class="u-line"></div>
+    <p>Le résultat parle. Découvrez quelques-unes de nos créations, reflet de notre engagement pour l'excellence.</p>
+  </div>
+  <div class="gal-grid" style="max-width:1100px;margin:0 auto">
+    <div class="gal-item" onclick="openLb('https://i.ibb.co/jkTPY7hY/Franck-Provost-Coiffeur-Noum-a-0.jpg','Franck Provost Coiffeur Nouméa')">
+      <img src="https://i.ibb.co/jkTPY7hY/Franck-Provost-Coiffeur-Noum-a-0.jpg" alt="Réalisation coiffure 1" loading="lazy">
+      <div class="gal-overlay"><div class="gal-plus">+</div></div>
+    </div>
+    <div class="gal-item" onclick="openLb('https://i.ibb.co/FqmfDQhR/Franck-Provost-Coiffeur-Noum-a-1.jpg','Expertise Franck Provost')">
+      <img src="https://i.ibb.co/FqmfDQhR/Franck-Provost-Coiffeur-Noum-a-1.jpg" alt="Réalisation coiffure 2" loading="lazy">
+      <div class="gal-overlay"><div class="gal-plus">+</div></div>
+    </div>
+    <div class="gal-item" onclick="openLb('https://i.ibb.co/VWW5BNqM/Franck-Provost-Coiffeur-Noum-a-2.jpg','Salon Franck Provost Nouméa')">
+      <img src="https://i.ibb.co/VWW5BNqM/Franck-Provost-Coiffeur-Noum-a-2.jpg" alt="Réalisation coiffure 3" loading="lazy">
+      <div class="gal-overlay"><div class="gal-plus">+</div></div>
+    </div>
+    <div class="gal-item" onclick="openLb('https://i.ibb.co/LXJR72C8/Franck-Provost-Coiffeur-Noum-a-3.jpg','Résultat Franck Provost')">
+      <img src="https://i.ibb.co/LXJR72C8/Franck-Provost-Coiffeur-Noum-a-3.jpg" alt="Réalisation coiffure 4" loading="lazy">
+      <div class="gal-overlay"><div class="gal-plus">+</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lb" onclick="closeLb(event)">
+  <button class="lb-close" onclick="closeLb()">&times;</button>
+  <img class="lb-img" id="lbImg" src="" alt="">
+</div>
+
+<!-- FORMULAIRE -->
+<section class="s-contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <p class="eyebrow">Contact</p>
+      <h2>Prenez Rendez-Vous</h2>
+      <p>Contactez-nous pour réserver votre créneau. Notre équipe vous répondra dans les plus brefs délais.</p>
+      <div class="ci-item">
+        <div class="ci-icon">📍</div>
+        <div class="ci-text">
+          <strong>Adresse</strong>8 Rue Auguste Brun<br>Nouméa 98800, Nouvelle-Calédonie
+        </div>
+      </div>
+      <div class="ci-item">
+        <div class="ci-icon">📞</div>
+        <div class="ci-text">
+          <strong>Téléphone</strong><a href="tel:+687276706" style="color:rgba(255,255,255,.5)">27.67.06</a>
+        </div>
+      </div>
+      <div class="ci-item">
+        <div class="ci-icon">🕐</div>
+        <div class="ci-text">
+          <strong>Horaires</strong>Lun – Sam : 9h00 – 18h30<br>Dimanche : Fermé
+        </div>
+      </div>
+    </div>
+    <div class="form-wrap">
+      <div id="formContent">
+        <form id="cForm" action="#" novalidate>
+          <div class="form-row">
+            <div class="fg">
+              <label for="fn">Prénom & Nom</label>
+              <input type="text" id="fn" placeholder="Marie Dupont" autocomplete="name">
+              <span class="form-err" id="fn-err">Veuillez indiquer votre nom.</span>
+            </div>
+            <div class="fg">
+              <label for="ft">Téléphone</label>
+              <input type="tel" id="ft" placeholder="27.XX.XX" autocomplete="tel">
+              <span class="form-err" id="ft-err">Téléphone requis.</span>
+            </div>
+          </div>
+          <div class="fg">
+            <label for="fe">Email</label>
+            <input type="email" id="fe" placeholder="marie@email.com" autocomplete="email">
+            <span class="form-err" id="fe-err">Email invalide.</span>
+          </div>
+          <div class="fg">
+            <label for="fs">Prestation souhaitée</label>
+            <select id="fs">
+              <option value="">— Sélectionner —</option>
+              <option>Coupe Homme</option>
+              <option>Coupe + Brushing</option>
+              <option>Taille de Barbe</option>
+              <option>Rasage au Coupe-Chou</option>
+              <option>Soin Cheveux Hydratant</option>
+              <option>Coloration & Mèches</option>
+              <option>Autre / Question</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="fm">Message</label>
+            <textarea id="fm" placeholder="Précisez vos disponibilités ou toute question..."></textarea>
+          </div>
+          <button type="submit" class="b-submit" id="bSub">
+            <span id="subTxt">Envoyer ma demande</span>
+            <span id="subLoad" style="display:none">⏳</span>
+          </button>
+        </form>
+      </div>
+      <div class="form-success" id="formOk">
+        <div class="tick">✅</div>
+        <h3>Message envoyé !</h3>
+        <p>Merci pour votre demande. Nous vous recontacterons très prochainement pour confirmer votre rendez-vous.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s-avis" id="avis">
+  <div class="s-hd">
+    <p style="font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ca);font-weight:700;margin-bottom:12px">Avis Clients</p>
+    <h2>Ce Que Disent Nos Clients</h2>
+    <div class="u-line"></div>
+  </div>
+  <div class="avis-top">
+    <div class="avis-score">
+      <div class="avis-num">4.7</div>
+      <div class="avis-stars">★★★★★</div>
+      <div class="avis-count">83 avis Google</div>
+    </div>
+    <div>
+      <div class="avis-badges">
+        <div class="badge"><span>✦</span> Savoir-faire reconnu</div>
+        <div class="badge"><span>✦</span> Accueil chaleureux</div>
+        <div class="badge"><span>✦</span> Résultats précis</div>
+        <div class="badge"><span>✦</span> Salon haut de gamme</div>
+      </div>
+      <p style="font-size:.9rem;color:rgba(38,42,44,.6);line-height:1.8;max-width:560px">Nos clients de Nouméa et de toute la Nouvelle-Calédonie nous font confiance pour leur style au quotidien. Leur satisfaction est notre meilleure récompense.</p>
+    </div>
+  </div>
+  <div class="testi-grid" style="max-width:1100px;margin:0 auto">
+    <div class="c-testi">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-txt">Excellent salon, je suis venu pour une coupe et un rasage. Franck est très professionnel, le résultat est impeccable. Je recommande vivement à tous les hommes de Nouméa qui cherchent un vrai savoir-faire.</p>
+      <div class="t-author">
+        <div class="t-avatar">MK</div>
+        <div>
+          <div class="t-name">Marc K.</div>
+          <div class="t-date">Avis Google – Nouméa</div>
+        </div>
+      </div>
+    </div>
+    <div class="c-testi">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-txt">Super expérience ! L'ambiance du salon est très agréable, l'accueil est parfait. La coupe est bien réalisée et les conseils pour l'entretien des cheveux avec notre climat sont vraiment utiles.</p>
+      <div class="t-author">
+        <div class="t-avatar">SL</div>
+        <div>
+          <div class="t-name">Sophie L.</div>
+          <div class="t-date">Avis Google – Nouméa</div>
+        </div>
+      </div>
+    </div>
+    <div class="c-testi">
+      <div class="t-stars">★★★★☆</div>
+      <p class="t-txt">Je cherchais un coiffeur de qualité à Nouméa depuis longtemps. J'ai enfin trouvé. Professionnalisme, écoute et précision au rendez-vous. Mon brushing a tenu plusieurs jours malgré l'humidité.</p>
+      <div class="t-author">
+        <div class="t-avatar">TR</div>
+        <div>
+          <div class="t-name">Thomas R.</div>
+          <div class="t-date">Avis Google – Nouméa</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">Franck <span>Provost</span></div>
+        <p>Salon de coiffure haut de gamme au cœur de Nouméa. Élégance, précision et expertise pour révéler votre meilleur style en Nouvelle-Calédonie.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/p/Franck-Provost-Noum%C3%A9a-61557570100428/?locale=fr_FR" target="_blank" rel="noopener" class="soc-link" aria-label="Facebook Franck Provost Nouméa">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/franckprovostnoumea" target="_blank" rel="noopener" class="soc-link" aria-label="Instagram Franck Provost Nouméa">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#services">Prestations & Tarifs</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#avis">Avis Clients</a></li>
+          <li><a href="#contact">Prendre Rendez-Vous</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Informations</h4>
+        <div class="footer-addr">
+          <p>8 Rue Auguste Brun<br>Nouméa 98800<br>Nouvelle-Calédonie</p>
+          <br>
+          <p><a href="tel:+687276706">☎ 27.67.06</a></p>
+          <br>
+          <p>Lun – Sam : 9h00 – 18h30<br>Dimanche : Fermé</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Franck Provost - Coiffeur Nouméa. Tous droits réservés.</p>
+      <p class="footer-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+function openLb(src,alt){var l=document.getElementById('lb'),i=document.getElementById('lbImg');i.src=src;i.alt=alt;l.classList.add('open');document.body.style.overflow='hidden';}
+function closeLb(e){if(!e||e.target===document.getElementById('lb')||e.currentTarget.classList.contains('lb-close')){document.getElementById('lb').classList.remove('open');document.body.style.overflow='';}}
+(function(){
+var fb=document.querySelectorAll('.f-btn');
+fb.forEach(function(b){b.addEventListener('click',function(){fb.forEach(function(x){x.classList.remove('active')});b.classList.add('active');var cat=b.getAttribute('data-cat');document.querySelectorAll('.c-srv').forEach(function(c){c.style.display=(cat==='all'||c.getAttribute('data-cat')===cat)?'':'none';});});});
+})();
+(function(){
+var form=document.getElementById('cForm');
+if(!form)return;
+form.addEventListener('submit',function(e){
+e.preventDefault();
+var ok=true;
+var fn=document.getElementById('fn'),fe=document.getElementById('fe'),ft=document.getElementById('ft');
+document.querySelectorAll('.form-err').forEach(function(el){el.classList.remove('show')});
+if(!fn.value.trim()){document.getElementById('fn-err').classList.add('show');ok=false;}
+if(!ft.value.trim()){document.getElementById('ft-err').classList.add('show');ok=false;}
+if(!fe.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)){document.getElementById('fe-err').classList.add('show');ok=false;}
+if(!ok)return;
+var st=document.getElementById('subTxt'),sl=document.getElementById('subLoad'),sb=document.getElementById('bSub');
+st.style.display='none';sl.style.display='inline';sb.disabled=true;
+setTimeout(function(){document.getElementById('formContent').style.display='none';document.getElementById('formOk').classList.add('show');},1400);
+});
+})();
+</script>
+</body>
+</html>
