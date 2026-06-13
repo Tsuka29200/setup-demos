@@ -2,653 +2,733 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Unicorn Barber — Nouméa</title>
-<meta name="description" content="Barbershop premium à Nouméa, Nouvelle-Calédonie. Coupes, barbe et grooming haut de gamme au 47 Rue Auguste Benebig.">
+<meta name="description" content="Barbier décalé au cœur de Nouméa. Coupes, dégradés et soins barbe avec une identité unique. Réserve ta séance au 47 Rue Auguste Benebig.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Barlow+Condensed:wght@300;400;600;700;900&family=Cormorant+Garamond:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
---cp:#1A1A1A;
---cs:#B8A14A;
---ca:#B8A14A;
---ct:#F5F0E8;
---cb:#111111;
---cw:#FFFFFF;
---cd:#222222;
-}
+:root{--cp:#1A1A1A;--cs:#B8962E;--ca:#B8962E;--ct:#F0F0F0;--cb:#111111;--cw:#ffffff;--cgold:#B8962E;--ease:cubic-bezier(.34,1.56,.64,1)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--cb);color:var(--ct);font-family:'Oswald',sans-serif;font-weight:300;overflow-x:hidden;padding-top:88px}
+body{background:var(--cb);color:var(--ct);font-family:'Nunito',sans-serif;overflow-x:hidden;font-size:16px}
 img{max-width:100%;height:auto;display:block}
 a{text-decoration:none;color:inherit}
 ul{list-style:none}
+.h1{font-family:'Cormorant Garamond',serif;font-weight:700;line-height:1.05;letter-spacing:-.02em}
+.h2{font-family:'Barlow Condensed',sans-serif;font-weight:900;text-transform:uppercase;letter-spacing:.04em;line-height:1.1}
+.h3{font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.b{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 32px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:transform .25s var(--ease),opacity .25s ease,box-shadow .25s ease;border:none;min-height:48px}
+.b:hover{transform:translateY(-3px);opacity:.92;box-shadow:0 8px 28px rgba(184,150,46,.35)}
+.b-primary{background:var(--ca);color:#111}
+.b-outline{background:transparent;color:var(--ct);border:2px solid var(--ca)}
+.b-outline:hover{background:var(--ca);color:#111}
+.b-full{width:100%}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.s{padding:80px 0}
+@media(max-width:768px){.s{padding:56px 0}.container{padding:0 16px}}
 
 /* BANDEAU PROMO */
-.promo-bar{position:fixed;top:0;left:0;width:100%;height:44px;background:#ffd500;z-index:1001;display:flex;align-items:center;justify-content:center}
-.promo-bar a{font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:14px;line-height:44px;letter-spacing:.3px;color:#4375ff;text-align:center;opacity:1;transition:opacity .2s}
-.promo-bar a:hover{opacity:.85}
+#promo{position:fixed;top:0;left:0;width:100%;height:64px;background:#ffd500;z-index:1001;box-shadow:0 2px 10px rgba(0,0,0,.20)}
+#promo a{display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-family:"Ageo","Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:17px;line-height:64px;letter-spacing:.3px;color:#4375ff;text-align:center}
+#promo a:hover{opacity:.85}
+#promo strong{font-weight:800;font-size:1.15em}
+@media(max-width:768px){#promo{height:56px}#promo a{font-size:15px;line-height:56px;padding:0 12px}}
 
 /* HEADER */
-.hdr{position:fixed;top:44px;left:0;width:100%;height:64px;background:rgba(17,17,17,.97);border-bottom:1px solid rgba(184,161,74,.2);z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 32px}
-.hdr-logo{font-size:22px;font-weight:700;letter-spacing:3px;color:var(--ct);text-transform:uppercase}
-.hdr-logo span{color:var(--cs)}
-.hdr-nav{display:flex;align-items:center;gap:32px}
-.hdr-nav a{font-size:13px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--ct);opacity:.8;transition:opacity .2s}
-.hdr-nav a:hover{opacity:1;color:var(--cs)}
-.hdr-cta{background:var(--cs);color:#111;font-family:'Oswald',sans-serif;font-weight:600;font-size:13px;letter-spacing:2px;text-transform:uppercase;border:none;padding:10px 24px;cursor:pointer;transition:opacity .2s}
-.hdr-cta:hover{opacity:.85}
-.hdr-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
-.hdr-burger span{display:block;width:24px;height:2px;background:var(--ct);transition:transform .3s,opacity .3s}
-.mob-nav{display:none;position:fixed;top:108px;left:0;width:100%;background:rgba(17,17,17,.99);border-top:1px solid rgba(184,161,74,.2);z-index:999;padding:24px 24px 32px;flex-direction:column;gap:0}
-.mob-nav.open{display:flex}
-.mob-nav a{font-size:16px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--ct);padding:14px 0;border-bottom:1px solid rgba(184,161,74,.1)}
-.mob-nav a:last-child{border:none}
+#header{position:sticky;top:64px;left:0;width:100%;z-index:1000;background:rgba(17,17,17,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(184,150,46,.18);transition:background .3s ease}
+.nav-wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ct);display:flex;align-items:center;gap:10px}
+.logo-ub{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;background:var(--ca);color:#111;border-radius:4px;font-size:1.1rem;font-weight:900;letter-spacing:.05em}
+.logo-horn{width:28px;height:28px}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:.95rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(240,240,240,.75);transition:color .2s ease}
+.nav-links a:hover{color:var(--ca)}
+.nav-cta{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;padding:10px 24px;background:var(--ca);color:#111;border-radius:4px;transition:transform .25s var(--ease),opacity .2s ease}
+.nav-cta:hover{transform:translateY(-2px);opacity:.9}
+.nav-tel{display:flex;align-items:center;gap:6px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:.9rem;letter-spacing:.06em;color:var(--ca)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
+.burger span{display:block;width:26px;height:2px;background:var(--ct);border-radius:2px;transition:transform .3s ease,opacity .3s ease}
+@media(max-width:768px){.nav-links,.nav-tel{display:none}.burger{display:flex}.nav-cta{padding:8px 16px;font-size:.8rem}}
+.mob-menu{display:none;flex-direction:column;gap:0;background:rgba(17,17,17,.98);border-top:1px solid rgba(184,150,46,.2);padding:8px 0}
+.mob-menu.open{display:flex}
+.mob-menu a{padding:14px 24px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ct);border-bottom:1px solid rgba(255,255,255,.06);transition:color .2s ease}
+.mob-menu a:hover{color:var(--ca)}
+@media(max-width:480px){.logo span.logo-text{display:none}}
 
 /* HERO */
-.hero{position:relative;min-height:100vh;display:flex;align-items:stretch;overflow:hidden}
-.hero-img{position:absolute;inset:0;background:url('https://i.ibb.co/zWXQJzYw/Unicorn-Barber-0.jpg') center/cover no-repeat}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(17,17,17,.97) 45%,rgba(17,17,17,.35) 100%)}
-.hero-content{position:relative;z-index:2;display:flex;align-items:center;width:100%;max-width:1200px;margin:0 auto;padding:80px 32px}
-.hero-left{max-width:560px}
-.hero-eyebrow{font-size:12px;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--cs);margin-bottom:20px;display:flex;align-items:center;gap:12px}
-.hero-eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--cs)}
-.hero-h1{font-size:clamp(48px,6vw,88px);font-weight:700;line-height:.95;text-transform:uppercase;letter-spacing:2px;color:var(--ct);margin-bottom:24px}
-.hero-h1 em{color:var(--cs);font-style:normal}
-.hero-sub{font-family:'Oswald',sans-serif;font-size:16px;font-weight:300;line-height:1.6;color:rgba(245,240,232,.75);max-width:420px;margin-bottom:40px;letter-spacing:.5px}
+#hero{position:relative;min-height:100vh;margin-top:0;display:grid;grid-template-columns:1fr 1fr}
+.hero-left{background:var(--cp);display:flex;flex-direction:column;justify-content:center;padding:80px 56px 80px 48px;position:relative;z-index:2}
+.hero-tag{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:.85rem;letter-spacing:.25em;text-transform:uppercase;color:var(--ca);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.hero-tag::before{content:'';display:block;width:32px;height:2px;background:var(--ca)}
+.hero-title{font-size:clamp(3rem,5vw,5.5rem);color:var(--ct);margin-bottom:8px}
+.hero-title em{font-style:italic;color:var(--ca)}
+.hero-line{width:80px;height:3px;background:var(--ca);margin:20px 0 28px;position:relative;overflow:hidden}
+.hero-line::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:rgba(255,255,255,.6);animation:pulse-line 2.4s ease-in-out infinite}
+@keyframes pulse-line{0%,100%{left:-100%}50%{left:100%}}
+.hero-sub{font-family:'Nunito',sans-serif;font-size:1.05rem;line-height:1.7;color:rgba(240,240,240,.72);max-width:400px;margin-bottom:36px}
 .hero-btns{display:flex;gap:16px;flex-wrap:wrap}
-.btn-primary{background:var(--cs);color:#111;font-family:'Oswald',sans-serif;font-weight:600;font-size:14px;letter-spacing:2.5px;text-transform:uppercase;padding:16px 36px;border:none;cursor:pointer;transition:opacity .2s,transform .2s;display:inline-block}
-.btn-primary:hover{opacity:.85;transform:translateY(-1px)}
-.btn-outline{background:transparent;color:var(--ct);font-family:'Oswald',sans-serif;font-weight:500;font-size:14px;letter-spacing:2.5px;text-transform:uppercase;padding:15px 36px;border:1px solid rgba(245,240,232,.4);cursor:pointer;transition:border-color .2s,color .2s,transform .2s;display:inline-block}
-.btn-outline:hover{border-color:var(--cs);color:var(--cs);transform:translateY(-1px)}
-.hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.5}
-.hero-scroll span{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--ct)}
-.hero-scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--cs),transparent);animation:scrollline 1.8s ease-in-out infinite}
-@keyframes scrollline{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.hero-right{position:relative;overflow:hidden}
+.hero-right img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:brightness(.85) contrast(1.05)}
+.hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--cp) 0%,transparent 40%)}
+.hero-address{margin-top:40px;display:flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-size:.9rem;letter-spacing:.06em;color:rgba(240,240,240,.5)}
+.hero-address svg{color:var(--ca);flex-shrink:0}
+.scroll-ind{position:absolute;bottom:32px;left:48px;display:flex;align-items:center;gap:10px;font-family:'Barlow Condensed',sans-serif;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(240,240,240,.4);z-index:3}
+.scroll-dot{width:8px;height:8px;border-radius:50%;background:var(--ca);animation:bob .9s ease-in-out infinite alternate}
+@keyframes bob{from{transform:translateY(0)}to{transform:translateY(6px)}}
+@media(max-width:900px){#hero{grid-template-columns:1fr}.hero-right{min-height:45vw;max-height:420px}.hero-right::after{background:linear-gradient(to bottom,var(--cp) 0%,transparent 30%)}.hero-left{padding:60px 24px 48px}}
+@media(max-width:480px){#hero{grid-template-columns:1fr}.hero-right{min-height:56vw}.hero-left{padding:48px 16px 40px}.hero-btns{flex-direction:column}.hero-btns .b{width:100%}.scroll-ind{left:16px;bottom:20px}}
 
 /* STATS */
-.stats{background:var(--cp);border-top:1px solid rgba(184,161,74,.2);border-bottom:1px solid rgba(184,161,74,.2);padding:60px 32px}
-.stats-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
-.stat-item{display:flex;flex-direction:column;align-items:center;gap:8px}
-.stat-num{font-size:clamp(40px,5vw,64px);font-weight:700;color:var(--cs);line-height:1;letter-spacing:-1px}
-.stat-label{font-size:12px;font-weight:400;letter-spacing:3px;text-transform:uppercase;color:rgba(245,240,232,.6)}
-.stat-divider{width:1px;background:rgba(184,161,74,.2);display:none}
+#stats{background:var(--cp);border-top:1px solid rgba(184,150,46,.25);border-bottom:1px solid rgba(184,150,46,.25)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat-item{padding:48px 24px;text-align:center;position:relative}
+.stat-item:not(:last-child)::after{content:'';position:absolute;right:0;top:25%;height:50%;width:1px;background:rgba(184,150,46,.2)}
+.stat-num{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(2.6rem,4vw,4rem);color:var(--ca);line-height:1;margin-bottom:8px}
+.stat-label{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:.9rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(240,240,240,.6)}
+@media(max-width:768px){.stats-grid{grid-template-columns:repeat(2,1fr)}.stat-item:nth-child(2)::after,.stat-item:nth-child(4)::after{display:none}.stat-item:nth-child(1)::after,.stat-item:nth-child(2)::after{display:block}.stat-item:nth-child(2)::after{display:none}.stat-item{padding:36px 16px}}
+@media(max-width:480px){.stats-grid{grid-template-columns:1fr 1fr}.stat-item:nth-child(2n)::after{display:none}}
 
 /* FALLBACK ANIMATIONS */
 .reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-.hdr-nav,.hdr-cta{display:none}
-.hdr-burger{display:flex}
-.stats-grid{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:480px){
-body{padding-top:84px}
-.promo-bar{height:40px}
-.promo-bar a{font-size:13px;line-height:40px}
-.hdr{top:40px;height:44px;padding:0 16px}
-.mob-nav{top:84px}
-.hdr-logo{font-size:18px}
-.hero-content{padding:60px 16px}
-.hero-btns{flex-direction:column}
-.btn-primary,.btn-outline{width:100%;text-align:center;min-height:48px;display:flex;align-items:center;justify-content:center}
-.stats{padding:40px 16px}
-.stats-grid{grid-template-columns:repeat(2,1fr);gap:24px}
-}
 </style>
 </head>
 <body>
 
 <!-- BANDEAU PROMO -->
-<div class="promo-bar">
-  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">Ce site vous plaît ? Prenez rendez-vous pour l'activer.</a>
+<div id="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">
+    Ce site vous plaît&nbsp;? Activez-le dès <strong>4 900 F HT/mois</strong>&nbsp;— Prenez rendez-vous.
+  </a>
 </div>
 
 <!-- HEADER -->
-<header class="hdr" id="top">
-  <a href="#top" class="hdr-logo">Unicorn<span>Barber</span></a>
-  <nav class="hdr-nav">
-    <a href="#prestations">Prestations</a>
-    <a href="#galerie">Galerie</a>
-    <a href="#equipe">Équipe</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <a href="#contact" class="hdr-cta">Réserver</a>
-  <button class="hdr-burger" id="burger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+<header id="header">
+  <div class="container">
+    <nav class="nav-wrap">
+      <a href="#hero" class="logo" aria-label="Unicorn Barber — accueil">
+        <span class="logo-ub">UB</span>
+        <svg class="logo-horn" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+          <polygon points="14,2 18,18 14,15 10,18" fill="#002395"/>
+          <polygon points="14,2 18,18 14,15 10,18" fill="none" stroke="#EF4135" stroke-width="0" />
+          <polygon points="14,15 18,18 16,24 12,24 10,18" fill="#ffffff"/>
+          <polygon points="12,24 16,24 15,28 13,28" fill="#EF4135"/>
+        </svg>
+        <span class="logo-text">Unicorn Barber</span>
+      </a>
+      <div class="nav-links">
+        <a href="#services">Prestations</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#equipe">L'équipe</a>
+        <a href="#avis">Avis</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a href="#contact" class="nav-cta">Réserver</a>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <nav class="mob-menu" id="mob-menu" aria-label="Menu mobile">
+      <a href="#services" class="mob-link">Prestations</a>
+      <a href="#galerie" class="mob-link">Galerie</a>
+      <a href="#equipe" class="mob-link">L'équipe</a>
+      <a href="#avis" class="mob-link">Avis</a>
+      <a href="#contact" class="mob-link">Réserver</a>
+    </nav>
+  </div>
 </header>
 
-<!-- MOBILE NAV -->
-<nav class="mob-nav" id="mobnav">
-  <a href="#prestations" class="mob-link">Prestations</a>
-  <a href="#galerie" class="mob-link">Galerie</a>
-  <a href="#equipe" class="mob-link">Équipe</a>
-  <a href="#contact" class="mob-link">Contact</a>
-  <a href="#contact" class="mob-link" style="color:var(--cs)">Réserver</a>
-</nav>
-
 <!-- HERO -->
-<section class="hero" id="hero">
-  <div class="hero-img"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-left">
-      <div class="hero-eyebrow">Barbershop Premium — Nouméa</div>
-      <h1 class="hero-h1">L'Art<br>du <em>Barber</em><br>Affûté.</h1>
-      <p class="hero-sub">Coupe de prestige, taille de barbe et grooming haut de gamme. 47 Rue Auguste Benebig, au cœur de Nouméa.</p>
-      <div class="hero-btns">
-        <a href="#contact" class="btn-primary">Prendre rendez-vous</a>
-        <a href="#prestations" class="btn-outline">Voir les prestations</a>
-      </div>
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-tag">Nouméa, Nouvelle-Calédonie</p>
+    <h1 class="h1 hero-title">
+      Ton style,<br><em>ton identité.</em>
+    </h1>
+    <div class="hero-line"></div>
+    <p class="hero-sub">Le barbier décalé de Nouméa. Des mains d'artiste, une âme urbaine — chaque coupe devient une signature, chaque visite une expérience.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="b b-primary">Réserve ta séance</a>
+      <a href="#services" class="b b-outline">Voir les prestations</a>
+    </div>
+    <div class="hero-address">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      47 Rue Auguste Benebig, Nouméa
+    </div>
+    <div class="scroll-ind">
+      <span class="scroll-dot"></span>
+      Découvrir
     </div>
   </div>
-  <div class="hero-scroll">
-    <div class="hero-scroll-line"></div>
-    <span>Scroll</span>
+  <div class="hero-right">
+    <img src="https://i.ibb.co/sJg03Pmj/Unicorn-Barber-0.jpg" alt="Coupe de qualité chez Unicorn Barber à Nouméa" loading="eager" fetchpriority="high">
   </div>
 </section>
 
-<!-- BANDE STATS -->
-<section class="stats">
-  <div class="stats-grid">
-    <div class="stat-item">
-      <span class="stat-num" data-target="5">0</span>
-      <span class="stat-label">Note Google /5</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num" data-target="3">0</span>
-      <span class="stat-label">Avis clients</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num" data-target="100">0</span>
-      <span class="stat-label">% Satisfaction</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num" data-target="1">0</span>
-      <span class="stat-label">Adresse Nouméa</span>
+<!-- STATS -->
+<section id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-num" data-target="5" data-suffix="/5">5/5</div>
+        <div class="stat-label">Note Google</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="100" data-suffix="%">100%</div>
+        <div class="stat-label">Clients satisfaits</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="3" data-suffix=" avis">3 avis</div>
+        <div class="stat-label">Avis vérifiés</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="1" data-suffix=" adresse">#1</div>
+        <div class="stat-label">Barbier décalé Nouméa</div>
+      </div>
     </div>
   </div>
 </section>
 
 <script>
-var burger=document.getElementById('burger'),mobnav=document.getElementById('mobnav');
-burger.addEventListener('click',function(){mobnav.classList.toggle('open')});
-document.querySelectorAll('.mob-link').forEach(function(l){l.addEventListener('click',function(){mobnav.classList.remove('open')})});
-var observed=false;
-var io=new IntersectionObserver(function(entries){
-  if(observed)return;
-  entries.forEach(function(e){
-    if(e.isIntersecting){
-      observed=true;
-      document.querySelectorAll('.stat-num').forEach(function(el){
-        var target=+el.dataset.target,start=0,dur=1600,step=16;
-        var timer=setInterval(function(){
-          start+=Math.ceil(target/(dur/step));
-          if(start>=target){start=target;clearInterval(timer);}
-          el.textContent=start;
-        },step);
+var b=document.getElementById('burger'),m=document.getElementById('mob-menu');
+b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.remove('open');b.setAttribute('aria-expanded','false')})});
+(function(){
+  var nums=document.querySelectorAll('.stat-num[data-target]');
+  if(!nums.length)return;
+  var seen=false;
+  function animate(){
+    if(seen)return;
+    var r=document.getElementById('stats').getBoundingClientRect();
+    if(r.top<window.innerHeight*.9){
+      seen=true;
+      nums.forEach(function(el){
+        var t=+el.dataset.target,s=el.dataset.suffix||'',d=Math.ceil(t>10?1200:800),st=performance.now();
+        function step(now){
+          var p=Math.min((now-st)/d,1),v=Math.round(p*t);
+          el.textContent=(t===5?'5':v)+s;
+          if(p<1)requestAnimationFrame(step);
+          else el.textContent=(t===1?'#1':t)+s;
+        }
+        requestAnimationFrame(step);
       });
     }
-  });
-},{threshold:.3});
-var statsEl=document.querySelector('.stats');
-if(statsEl)io.observe(statsEl);
+  }
+  window.addEventListener('scroll',animate,{passive:true});
+  animate();
+})();
 </script>
 <style>
-.s{padding:80px 32px}
-.s-dark{background:var(--cb)}
-.s-mid{background:var(--cp)}
-.s-title{font-size:clamp(32px,4vw,52px);font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--ct);margin-bottom:8px}
-.s-eyebrow{font-size:11px;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--cs);margin-bottom:16px;display:flex;align-items:center;gap:10px}
-.s-eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--cs)}
-.s-sub{font-size:15px;font-weight:300;color:rgba(245,240,232,.65);letter-spacing:.5px;margin-bottom:56px;max-width:480px}
-.s-head{margin-bottom:56px}
-.wrap{max-width:1200px;margin:0 auto}
-
 /* SERVICES */
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
-.svc-card{background:var(--cp);padding:40px 32px;border:1px solid rgba(184,161,74,.12);transition:border-color .3s,transform .3s;cursor:default;display:flex;flex-direction:column;gap:16px}
-.svc-card:hover{border-color:var(--cs);transform:translateY(-4px)}
-.svc-icon{width:40px;height:40px;fill:none;stroke:var(--cs);stroke-width:1.5}
-.svc-name{font-size:20px;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--ct)}
-.svc-desc{font-size:14px;font-weight:300;line-height:1.7;color:rgba(245,240,232,.65)}
-.svc-meta{display:flex;align-items:center;gap:16px;margin-top:auto;padding-top:16px;border-top:1px solid rgba(184,161,74,.15)}
-.svc-price{font-size:22px;font-weight:700;color:var(--cs)}
-.svc-dur{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.45)}
-.svc-cta{margin-top:8px;font-size:12px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--cs);opacity:0;transform:translateY(4px);transition:opacity .3s,transform .3s}
-.svc-card:hover .svc-cta{opacity:1;transform:translateY(0)}
-.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px}
-.filter-btn{background:transparent;border:1px solid rgba(184,161,74,.3);color:rgba(245,240,232,.65);font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:8px 20px;cursor:pointer;transition:all .2s}
-.filter-btn.active,.filter-btn:hover{background:var(--cs);border-color:var(--cs);color:#111}
+#services{background:var(--cb)}
+.s-head{text-align:center;margin-bottom:56px}
+.s-head .h2{font-size:clamp(2rem,4vw,3.2rem);color:var(--ct);margin-bottom:16px}
+.s-head p{color:rgba(240,240,240,.6);font-size:1rem;max-width:520px;margin:0 auto}
+.s-filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:44px}
+.s-filter{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;padding:8px 20px;border-radius:3px;border:1px solid rgba(184,150,46,.35);background:transparent;color:rgba(240,240,240,.65);cursor:pointer;transition:background .2s ease,color .2s ease,border-color .2s ease}
+.s-filter.active,.s-filter:hover{background:var(--ca);color:#111;border-color:var(--ca)}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.srv-card{background:var(--cp);border-radius:10px;border:1px solid rgba(184,150,46,.18);padding:32px 28px;display:flex;flex-direction:column;gap:16px;transition:transform .3s var(--ease),border-color .3s ease,box-shadow .3s ease}
+.srv-card:hover{transform:translateY(-4px);border-color:var(--ca);box-shadow:0 12px 40px rgba(184,150,46,.18)}
+.srv-icon{width:48px;height:48px;border-radius:8px;background:rgba(184,150,46,.12);display:flex;align-items:center;justify-content:center}
+.srv-icon svg{width:24px;height:24px;stroke:var(--ca);fill:none;stroke-width:1.8}
+.srv-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.2rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ct)}
+.srv-desc{font-size:.9rem;line-height:1.65;color:rgba(240,240,240,.6);flex:1}
+.srv-meta{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid rgba(184,150,46,.15)}
+.srv-price{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.4rem;color:var(--ca);letter-spacing:.04em}
+.srv-dur{font-family:'Barlow Condensed',sans-serif;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(240,240,240,.4)}
+@media(max-width:900px){.srv-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.srv-grid{grid-template-columns:1fr}}
 
-/* METIER */
-.metier-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:80px}
-.metier-grid.rev{direction:rtl}
-.metier-grid.rev>*{direction:ltr}
-.metier-img{position:relative;overflow:hidden}
-.metier-img img{width:100%;height:420px;object-fit:cover;display:block;transition:transform .6s}
-.metier-img:hover img{transform:scale(1.04)}
-.metier-img::after{content:'';position:absolute;inset:0;border:2px solid rgba(184,161,74,.25);pointer-events:none}
-.metier-body{}
-.metier-p{font-size:16px;font-weight:300;line-height:1.8;color:rgba(245,240,232,.75);margin-bottom:24px}
-.check-list{display:flex;flex-direction:column;gap:12px;margin-top:24px}
-.check-item{display:flex;align-items:flex-start;gap:12px;font-size:14px;font-weight:400;color:rgba(245,240,232,.8);letter-spacing:.5px}
-.check-item::before{content:'';display:block;min-width:16px;height:16px;background:var(--cs);clip-path:polygon(14% 44%,0 65%,50% 100%,100% 16%,80% 0%,43% 62%);margin-top:2px}
+/* MÉTIER */
+#metier{background:var(--cp)}
+.metier-wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.metier-tag{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:.85rem;letter-spacing:.25em;text-transform:uppercase;color:var(--ca);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.metier-tag::before{content:'';display:block;width:32px;height:2px;background:var(--ca)}
+.metier-title{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(2rem,3.5vw,3rem);color:var(--ct);line-height:1.15;margin-bottom:24px}
+.metier-title em{font-style:italic;color:var(--ca)}
+.metier-body{font-size:1rem;line-height:1.8;color:rgba(240,240,240,.7);margin-bottom:32px}
+.metier-checks{display:flex;flex-direction:column;gap:14px}
+.metier-check{display:flex;align-items:flex-start;gap:14px}
+.chk-ico{width:22px;height:22px;border-radius:50%;background:rgba(184,150,46,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.chk-ico svg{width:12px;height:12px;stroke:var(--ca);stroke-width:3;fill:none}
+.chk-text{font-size:.95rem;line-height:1.6;color:rgba(240,240,240,.7)}
+.chk-text strong{color:var(--ct);font-weight:700}
+.metier-img{border-radius:12px;overflow:hidden;position:relative}
+.metier-img img{width:100%;height:520px;object-fit:cover;object-position:center;transition:transform .6s ease}
+.metier-img:hover img{transform:scale(1.03)}
+.metier-img-badge{position:absolute;bottom:24px;left:24px;background:var(--ca);color:#111;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;padding:8px 18px;border-radius:4px}
+@media(max-width:900px){.metier-wrap{grid-template-columns:1fr;gap:40px}.metier-img img{height:340px}}
+@media(max-width:480px){.metier-img img{height:260px}}
 
 /* GALERIE */
-.gal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:4px}
-.gal-item{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:4/3}
-.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.gal-item:hover img{transform:scale(1.07)}
-.gal-overlay{position:absolute;inset:0;background:rgba(17,17,17,.45);opacity:0;transition:opacity .3s;display:flex;align-items:center;justify-content:center}
-.gal-item:hover .gal-overlay{opacity:1}
-.gal-plus{width:40px;height:40px;border:1.5px solid var(--cs);border-radius:50%;display:flex;align-items:center;justify-content:center}
-.gal-plus::before,.gal-plus::after{content:'';position:absolute;background:var(--cs)}
-.gal-plus::before{width:16px;height:1.5px}
-.gal-plus::after{width:1.5px;height:16px}
-.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:2000;align-items:center;justify-content:center}
-.lightbox.open{display:flex}
-.lb-img{max-width:90vw;max-height:88vh;object-fit:contain}
-.lb-close{position:absolute;top:20px;right:28px;font-size:32px;color:var(--ct);cursor:pointer;line-height:1;opacity:.7;transition:opacity .2s;background:none;border:none;font-family:'Oswald',sans-serif}
-.lb-close:hover{opacity:1}
+#galerie{background:var(--cb)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal-item{border-radius:8px;overflow:hidden;cursor:pointer;position:relative;aspect-ratio:1}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease,filter .4s ease}
+.gal-item::after{content:'';position:absolute;inset:0;background:rgba(184,150,46,0);transition:background .3s ease}
+.gal-item:hover img{transform:scale(1.06);filter:brightness(.85)}
+.gal-item:hover::after{background:rgba(184,150,46,.12)}
+.gal-zoom{position:absolute;bottom:12px;right:12px;width:36px;height:36px;background:var(--ca);border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(.7);transition:opacity .3s ease,transform .3s var(--ease)}
+.gal-zoom svg{width:16px;height:16px;stroke:#111;fill:none;stroke-width:2.5}
+.gal-item:hover .gal-zoom{opacity:1;transform:scale(1)}
+@media(max-width:768px){.gal-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.gal-grid{grid-template-columns:repeat(2,1fr);gap:8px}}
+/* LIGHTBOX */
+.lbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center;padding:24px}
+.lbox.open{display:flex}
+.lbox-img{max-width:90vw;max-height:90vh;border-radius:8px;object-fit:contain}
+.lbox-close{position:absolute;top:20px;right:24px;background:var(--ca);border:none;color:#111;width:44px;height:44px;border-radius:50%;font-size:1.4rem;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:900}
 
 /* FORMULAIRE */
+#contact{background:var(--cp)}
 .form-wrap{max-width:680px;margin:0 auto}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
-.field{display:flex;flex-direction:column;gap:6px}
-.field label{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(245,240,232,.55)}
-.field input,.field textarea{background:rgba(255,255,255,.05);border:1px solid rgba(184,161,74,.25);color:var(--ct);font-family:'Oswald',sans-serif;font-size:15px;font-weight:300;padding:14px 16px;outline:none;transition:border-color .2s;width:100%}
-.field input:focus,.field textarea:focus{border-color:var(--cs)}
-.field textarea{resize:vertical;min-height:120px}
-.field input.err,.field textarea.err{border-color:#c0392b}
-.form-submit{width:100%;margin-top:8px}
-.form-success{display:none;background:rgba(184,161,74,.12);border:1px solid var(--cs);padding:20px 24px;text-align:center;font-size:15px;color:var(--cs);letter-spacing:1px;margin-top:16px}
-.form-success.show{display:block}
-.field-full{margin-bottom:16px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.form-group{display:flex;flex-direction:column;gap:8px}
+.form-group.full{grid-column:1/-1}
+.form-label{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(240,240,240,.7)}
+.form-input{background:rgba(255,255,255,.06);border:1px solid rgba(184,150,46,.25);border-radius:6px;padding:13px 16px;color:var(--ct);font-family:'Nunito',sans-serif;font-size:.95rem;outline:none;transition:border-color .2s ease,background .2s ease;width:100%;min-height:48px}
+.form-input:focus{border-color:var(--ca);background:rgba(184,150,46,.07)}
+.form-input::placeholder{color:rgba(240,240,240,.3)}
+textarea.form-input{min-height:130px;resize:vertical}
+.form-err{font-size:.8rem;color:#e05c5c;display:none}
+.form-group.invalid .form-err{display:block}
+.form-group.invalid .form-input{border-color:#e05c5c}
+.form-success{display:none;text-align:center;padding:40px 24px;background:rgba(184,150,46,.1);border:1px solid rgba(184,150,46,.35);border-radius:10px}
+.form-success svg{width:48px;height:48px;stroke:var(--ca);fill:none;stroke-width:1.8;margin:0 auto 16px}
+.form-success h3{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.5rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ct);margin-bottom:8px}
+.form-success p{color:rgba(240,240,240,.65);font-size:.95rem}
+.form-btn-wrap{display:flex;justify-content:center;margin-top:8px}
+@media(max-width:600px){.form-grid{grid-template-columns:1fr}}
 
-/* PREUVE SOCIALE */
-.rating-block{display:flex;align-items:center;gap:20px;margin-bottom:48px}
-.rating-big{font-size:72px;font-weight:700;color:var(--cs);line-height:1}
-.rating-stars{display:flex;flex-direction:column;gap:4px}
-.stars{display:flex;gap:4px}
-.star{width:20px;height:20px;fill:var(--cs)}
-.rating-label{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.5)}
+/* AVIS */
+#avis{background:var(--cb)}
+.avis-top{display:flex;align-items:center;justify-content:center;gap:48px;margin-bottom:56px;flex-wrap:wrap}
+.avis-score{text-align:center}
+.avis-num{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:5rem;color:var(--ca);line-height:1}
+.avis-stars{display:flex;gap:4px;justify-content:center;margin:8px 0}
+.avis-stars svg{width:22px;height:22px;fill:var(--ca)}
+.avis-count{font-family:'Barlow Condensed',sans-serif;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(240,240,240,.5)}
+.avis-sep{width:1px;height:80px;background:rgba(184,150,46,.2)}
+.avis-badges{display:flex;flex-direction:column;gap:14px}
+.avis-badge{display:flex;align-items:center;gap:12px;background:rgba(184,150,46,.08);border:1px solid rgba(184,150,46,.2);border-radius:8px;padding:12px 20px}
+.avis-badge svg{width:22px;height:22px;stroke:var(--ca);fill:none;stroke-width:1.8;flex-shrink:0}
+.avis-badge span{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(240,240,240,.8)}
 .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.testi-card{background:var(--cp);border:1px solid rgba(184,161,74,.15);padding:28px 24px;display:flex;flex-direction:column;gap:12px}
-.testi-text{font-size:14px;font-weight:300;line-height:1.7;color:rgba(245,240,232,.8);font-style:italic}
-.testi-text::before{content:'\201C';font-size:32px;color:var(--cs);line-height:.6;display:block;margin-bottom:4px}
-.testi-author{font-size:13px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--ct)}
-.testi-via{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(245,240,232,.35)}
-.badge-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:48px}
-.badge{background:rgba(184,161,74,.1);border:1px solid rgba(184,161,74,.3);padding:12px 24px;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--cs)}
+.testi-card{background:var(--cp);border-radius:10px;border:1px solid rgba(184,150,46,.18);padding:28px 24px;display:flex;flex-direction:column;gap:14px}
+.testi-stars{display:flex;gap:3px}
+.testi-stars svg{width:16px;height:16px;fill:var(--ca)}
+.testi-text{font-size:.95rem;line-height:1.7;color:rgba(240,240,240,.72);font-style:italic;flex:1}
+.testi-author{display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid rgba(184,150,46,.12)}
+.testi-avatar{width:42px;height:42px;border-radius:50%;background:var(--ca);display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1rem;color:#111;flex-shrink:0}
+.testi-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ct)}
+.testi-loc{font-size:.8rem;color:rgba(240,240,240,.4)}
+@media(max-width:768px){.testi-grid{grid-template-columns:1fr}.avis-sep{display:none}}
 
 /* FOOTER */
-.ftr{background:var(--cp);border-top:1px solid rgba(184,161,74,.2);padding:60px 32px 32px}
-.ftr-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:48px}
-.ftr-brand{font-size:24px;font-weight:700;letter-spacing:3px;color:var(--ct);text-transform:uppercase;margin-bottom:16px}
-.ftr-brand span{color:var(--cs)}
-.ftr-addr{font-size:14px;font-weight:300;line-height:1.8;color:rgba(245,240,232,.6)}
-.ftr-addr a{color:rgba(245,240,232,.6);transition:color .2s}
-.ftr-addr a:hover{color:var(--cs)}
-.ftr-social{display:flex;gap:12px;margin-top:20px}
-.ftr-soc-link{width:40px;height:40px;border:1px solid rgba(184,161,74,.3);display:flex;align-items:center;justify-content:center;transition:border-color .2s,background .2s}
-.ftr-soc-link:hover{border-color:var(--cs);background:rgba(184,161,74,.1)}
-.ftr-soc-link svg{width:20px;height:20px;fill:rgba(245,240,232,.6);transition:fill .2s}
-.ftr-soc-link:hover svg{fill:var(--cs)}
-.ftr-col-title{font-size:12px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--cs);margin-bottom:20px}
-.ftr-links{display:flex;flex-direction:column;gap:10px}
-.ftr-links a{font-size:14px;font-weight:300;color:rgba(245,240,232,.6);transition:color .2s;letter-spacing:.5px}
-.ftr-links a:hover{color:var(--ct)}
-.ftr-hours{display:flex;flex-direction:column;gap:8px}
-.ftr-hour-row{display:flex;justify-content:space-between;gap:16px;font-size:13px;font-weight:300;color:rgba(245,240,232,.6)}
-.ftr-hour-row span:last-child{color:rgba(245,240,232,.45)}
-.ftr-bottom{max-width:1200px;margin:0 auto;border-top:1px solid rgba(184,161,74,.12);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.ftr-copy{font-size:12px;color:rgba(245,240,232,.35);letter-spacing:.5px}
-.ftr-setup{font-size:12px;color:rgba(245,240,232,.35);letter-spacing:.5px}
-.ftr-setup a{color:rgba(184,161,74,.6);transition:color .2s}
-.ftr-setup a:hover{color:var(--cs)}
-
-@media(max-width:900px){
-.svc-grid{grid-template-columns:1fr}
-.metier-grid{grid-template-columns:1fr;gap:32px}
-.metier-grid.rev{direction:ltr}
-.testi-grid{grid-template-columns:1fr}
-.ftr-grid{grid-template-columns:1fr;gap:32px}
-.gal-grid{grid-template-columns:1fr 1fr}
-.form-row{grid-template-columns:1fr}
-}
-@media(max-width:480px){
-.s{padding:56px 16px}
-.svc-card{padding:28px 20px}
-.gal-grid{grid-template-columns:1fr 1fr;gap:2px}
-.metier-img img{height:260px}
-.rating-big{font-size:52px}
-.ftr{padding:40px 16px 24px}
-.ftr-bottom{flex-direction:column;align-items:flex-start}
-.badge-row{flex-direction:column}
-}
+#footer{background:var(--cp);border-top:1px solid rgba(184,150,46,.25);padding:64px 0 0}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(184,150,46,.15)}
+.footer-brand .logo{margin-bottom:18px;display:inline-flex}
+.footer-tagline{font-size:.9rem;line-height:1.7;color:rgba(240,240,240,.55);max-width:280px;margin-bottom:24px}
+.footer-socials{display:flex;gap:12px;align-items:center}
+.footer-social{width:42px;height:42px;border-radius:6px;border:1px solid rgba(184,150,46,.3);display:flex;align-items:center;justify-content:center;transition:background .2s ease,border-color .2s ease}
+.footer-social:hover{background:var(--ca);border-color:var(--ca)}
+.footer-social:hover svg{stroke:#111}
+.footer-social svg{width:20px;height:20px;stroke:rgba(240,240,240,.7);fill:none;stroke-width:1.8;transition:stroke .2s ease}
+.footer-col-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ca);margin-bottom:20px}
+.footer-links{display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-size:.9rem;color:rgba(240,240,240,.55);transition:color .2s ease}
+.footer-links a:hover{color:var(--ca)}
+.footer-addr{display:flex;flex-direction:column;gap:10px}
+.footer-addr-item{display:flex;align-items:flex-start;gap:10px;font-size:.9rem;color:rgba(240,240,240,.55);line-height:1.5}
+.footer-addr-item svg{width:16px;height:16px;stroke:var(--ca);fill:none;stroke-width:2;flex-shrink:0;margin-top:2px}
+.footer-addr-item a{color:rgba(240,240,240,.55);transition:color .2s ease}
+.footer-addr-item a:hover{color:var(--ca)}
+.footer-bottom{padding:20px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:.82rem;color:rgba(240,240,240,.35);letter-spacing:.04em}
+.footer-setup{font-size:.82rem;color:rgba(240,240,240,.35)}
+.footer-setup a{color:var(--ca);font-weight:700;transition:opacity .2s ease}
+.footer-setup a:hover{opacity:.75}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr;gap:36px}}
+@media(max-width:480px){.footer-bottom{flex-direction:column;text-align:center}}
 </style>
 
 <!-- SERVICES -->
-<section class="s s-dark" id="prestations">
-  <div class="wrap">
+<section id="services" class="s">
+  <div class="container">
     <div class="s-head">
-      <div class="s-eyebrow">Ce que nous faisons</div>
-      <h2 class="s-title">Prestations</h2>
-      <p class="s-sub">Du grooming affûté à la coupe signature — chaque passage chez Unicorn Barber est une expérience.</p>
-      <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">Tout</button>
-        <button class="filter-btn" data-filter="coupe">Coupe</button>
-        <button class="filter-btn" data-filter="barbe">Barbe</button>
-        <button class="filter-btn" data-filter="soin">Soin</button>
-      </div>
+      <h2 class="h2">Nos Prestations</h2>
+      <p>Chaque prestation est pensée pour révéler ta version la plus affûtée. Choisis, on s'occupe du reste.</p>
     </div>
-    <div class="svc-grid" id="svcGrid">
-      <div class="svc-card" data-cat="coupe">
-        <svg class="svc-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 2v6l3 3-3 3v6M18 2v6l-3 3 3 3v6M9 12h6"/></svg>
-        <div class="svc-name">Coupe de prestige</div>
-        <div class="svc-desc">Coupe adaptée à votre morphologie, finitions rasoir et styling inclus. Résultat net, identité affirmée.</div>
-        <div class="svc-meta">
-          <span class="svc-price">à partir de 2 500 XPF</span>
-          <span class="svc-dur">~45 min</span>
+    <div class="s-filters">
+      <button class="s-filter active" data-cat="all">Tout voir</button>
+      <button class="s-filter" data-cat="coupe">Coupe</button>
+      <button class="s-filter" data-cat="barbe">Barbe</button>
+      <button class="s-filter" data-cat="soin">Soins</button>
+    </div>
+    <div class="srv-grid">
+      <div class="srv-card" data-cat="coupe">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24"><path d="M6 2v4M18 2v4M3 10h18M5 18c0-1.1.9-2 2-2h10a2 2 0 012 2v2a2 2 0 01-2 2H7a2 2 0 01-2-2v-2z"/></svg>
         </div>
-        <a href="#contact" class="svc-cta">Réserver →</a>
+        <div class="srv-title">Coupe Classique</div>
+        <div class="srv-desc">Une coupe nette et précise, taillée à la main pour un résultat impeccable. La base, mais élevée au rang d'art.</div>
+        <div class="srv-meta">
+          <span class="srv-price">2 500 XPF</span>
+          <span class="srv-dur">~30 min</span>
+        </div>
+        <a href="#contact" class="b b-outline">Réserver</a>
       </div>
-      <div class="svc-card" data-cat="barbe">
-        <svg class="svc-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3c-4 0-7 2.5-7 7 0 2.5 1 4.5 2.5 6L12 21l4.5-5c1.5-1.5 2.5-3.5 2.5-6 0-4.5-3-7-7-7z"/><path d="M9 10h6M9 13h6"/></svg>
-        <div class="svc-name">Taille de barbe</div>
-        <div class="svc-desc">Contours précis au rasoir droit, serviette chaude, huile de soin. La barbe sculptée comme un art.</div>
-        <div class="svc-meta">
-          <span class="svc-price">à partir de 1 800 XPF</span>
-          <span class="svc-dur">~30 min</span>
+      <div class="srv-card" data-cat="coupe">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 2.8 1.5 5.2 3.7 6.5L8 20h8l-.7-4.5C17.5 14.2 19 11.8 19 9c0-4-3-7-7-7z"/></svg>
         </div>
-        <a href="#contact" class="svc-cta">Réserver →</a>
+        <div class="srv-title">Dégradé</div>
+        <div class="srv-desc">Du skin fade au dégradé haut, chaque transition est maîtrisée au millimètre. La signature Unicorn Barber.</div>
+        <div class="srv-meta">
+          <span class="srv-price">3 000 XPF</span>
+          <span class="srv-dur">~45 min</span>
+        </div>
+        <a href="#contact" class="b b-outline">Réserver</a>
       </div>
-      <div class="svc-card" data-cat="coupe">
-        <svg class="svc-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="6" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><path d="M6 8v8M6 8l12 10M6 16l12-10"/></svg>
-        <div class="svc-name">Coupe + Barbe</div>
-        <div class="svc-desc">Le combo signature Unicorn Barber — coupe restructurée et barbe taillée en une seule séance complète.</div>
-        <div class="svc-meta">
-          <span class="svc-price">à partir de 3 800 XPF</span>
-          <span class="svc-dur">~70 min</span>
+      <div class="srv-card" data-cat="barbe">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 7c0 0 2 10 9 10s9-10 9-10"/><path d="M12 17v4M9 21h6"/></svg>
         </div>
-        <a href="#contact" class="svc-cta">Réserver →</a>
+        <div class="srv-title">Taille de Barbe</div>
+        <div class="srv-desc">Modelage, rasage au rasoir traditionnel et finitions à la serviette chaude. Ta barbe mérite le traitement royal.</div>
+        <div class="srv-meta">
+          <span class="srv-price">2 000 XPF</span>
+          <span class="srv-dur">~25 min</span>
+        </div>
+        <a href="#contact" class="b b-outline">Réserver</a>
       </div>
-      <div class="svc-card" data-cat="soin">
-        <svg class="svc-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8 6 5 9 5 13a7 7 0 0014 0c0-4-3-7-7-11z"/></svg>
-        <div class="svc-name">Soin du visage</div>
-        <div class="svc-desc">Masque purifiant, hydratation ciblée et massage facial. Peau remise à neuf, regard affûté.</div>
-        <div class="svc-meta">
-          <span class="svc-price">à partir de 2 000 XPF</span>
-          <span class="svc-dur">~30 min</span>
+      <div class="srv-card" data-cat="coupe barbe">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>
         </div>
-        <a href="#contact" class="svc-cta">Réserver →</a>
+        <div class="srv-title">Combo Coupe + Barbe</div>
+        <div class="srv-desc">L'expérience complète : coupe dégradée et taille de barbe en une seule séance pour repartir au top du style.</div>
+        <div class="srv-meta">
+          <span class="srv-price">4 500 XPF</span>
+          <span class="srv-dur">~60 min</span>
+        </div>
+        <a href="#contact" class="b b-primary">Réserver</a>
       </div>
-      <div class="svc-card" data-cat="coupe">
-        <svg class="svc-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg>
-        <div class="svc-name">Coupe enfant</div>
-        <div class="svc-desc">Pour les juniors de moins de 12 ans. Coupe soignée dans la bonne humeur, finitions propres garanties.</div>
-        <div class="svc-meta">
-          <span class="svc-price">à partir de 1 500 XPF</span>
-          <span class="svc-dur">~30 min</span>
+      <div class="srv-card" data-cat="soin">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/></svg>
         </div>
-        <a href="#contact" class="svc-cta">Réserver →</a>
+        <div class="srv-title">Soin Cuir Chevelu</div>
+        <div class="srv-desc">Masque hydratant, massage relaxant et soins ciblés pour un cuir chevelu sain et des cheveux revitalisés.</div>
+        <div class="srv-meta">
+          <span class="srv-price">2 000 XPF</span>
+          <span class="srv-dur">~20 min</span>
+        </div>
+        <a href="#contact" class="b b-outline">Réserver</a>
       </div>
-      <div class="svc-card" data-cat="barbe">
-        <svg class="svc-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 3l14 9-14 9V3z"/><path d="M19 12H5"/></svg>
-        <div class="svc-name">Rasage intégral</div>
-        <div class="svc-desc">Rasage complet au rasoir droit, mousse de soin, serviette chaude et finition aftershave premium.</div>
-        <div class="svc-meta">
-          <span class="svc-price">à partir de 2 200 XPF</span>
-          <span class="svc-dur">~40 min</span>
+      <div class="srv-card" data-cat="soin">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
         </div>
-        <a href="#contact" class="svc-cta">Réserver →</a>
+        <div class="srv-title">Design & Contour</div>
+        <div class="srv-desc">Tracé des contours au rasoir pour des lignes nettes qui structurent le visage. Les détails qui font toute la différence.</div>
+        <div class="srv-meta">
+          <span class="srv-price">1 500 XPF</span>
+          <span class="srv-dur">~15 min</span>
+        </div>
+        <a href="#contact" class="b b-outline">Réserver</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- SECTION MÉTIER -->
-<section class="s s-mid" id="metier">
-  <div class="wrap">
-    <div class="s-head">
-      <div class="s-eyebrow">Notre savoir-faire</div>
-      <h2 class="s-title">L'Atelier</h2>
-      <p class="s-sub">Chez Unicorn Barber, chaque geste est précis. Chaque client repart avec une identité visuelle affirmée.</p>
-    </div>
-    <div class="metier-grid">
+<section id="metier" class="s">
+  <div class="container">
+    <div class="metier-wrap">
+      <div>
+        <p class="metier-tag">Notre philosophie</p>
+        <h2 class="metier-title">Le barbier décalé<br>de <em>Nouméa</em></h2>
+        <p class="metier-body">Chez Unicorn Barber, on ne fait pas que couper les cheveux. On sculpte des identités. Basés au cœur de Nouméa, on mêle le savoir-faire barber traditionnel à une esthétique urbaine assumée, portée par une envie folle de se démarquer dans cette ville qui pulse.</p>
+        <div class="metier-checks">
+          <div class="metier-check">
+            <div class="chk-ico">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <p class="chk-text"><strong>Artisanat de précision</strong> — Chaque coupe est travaillée à la main, au millimètre, sans compromis.</p>
+          </div>
+          <div class="metier-check">
+            <div class="chk-ico">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <p class="chk-text"><strong>Identité assumée</strong> — Une esthétique manga et urbaine qui revendique l'originalité calédonienne.</p>
+          </div>
+          <div class="metier-check">
+            <div class="chk-ico">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <p class="chk-text"><strong>Expérience mémorable</strong> — De l'accueil à la finition, chaque détail est pensé pour toi.</p>
+          </div>
+          <div class="metier-check">
+            <div class="chk-ico">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <p class="chk-text"><strong>Ancrage local</strong> — Fiers d'être 100% Nouméa, on porte haut les couleurs de la Calédonie.</p>
+          </div>
+        </div>
+      </div>
       <div class="metier-img">
-        <img src="https://i.ibb.co/m58cDywF/Unicorn-Barber-1.jpg" alt="Barbier au travail chez Unicorn Barber Nouméa" loading="lazy">
-      </div>
-      <div class="metier-body">
-        <div class="s-eyebrow">Précision & Identité</div>
-        <h3 class="s-title" style="font-size:clamp(24px,3vw,38px);margin-bottom:20px">Barbier de quartier,<br>niveau atelier.</h3>
-        <p class="metier-p">Unicorn Barber, c'est l'alliance entre l'artisanat du rasoir droit et l'énergie d'un shop urbain ancré à Nouméa. Ici, pas de travail à la chaîne — chaque coupe est pensée pour la morphologie, le style et la personnalité du client.</p>
-        <p class="metier-p">Entre les murs du 47 Rue Auguste Benebig, l'ambiance tattoo-culture et le souci du détail se retrouvent dans chaque prestation.</p>
-        <ul class="check-list">
-          <li class="check-item">Techniques de coupe et de taille de barbe maîtrisées</li>
-          <li class="check-item">Matériel professionnel désinfecté à chaque passage</li>
-          <li class="check-item">Ambiance shop authentique, sans chichi</li>
-          <li class="check-item">Accueil personnalisé, sans file d'attente imposée</li>
-        </ul>
-      </div>
-    </div>
-    <div class="metier-grid rev">
-      <div class="metier-img">
-        <img src="https://i.ibb.co/7Nvz9bHJ/Unicorn-Barber-3.jpg" alt="Intérieur Unicorn Barber Nouméa" loading="lazy">
-      </div>
-      <div class="metier-body">
-        <div class="s-eyebrow">Culture & Communauté</div>
-        <h3 class="s-title" style="font-size:clamp(24px,3vw,38px);margin-bottom:20px">Un shop,<br>une identité.</h3>
-        <p class="metier-p">Unicorn Barber est né d'une passion pour le grooming masculin et la culture urbaine. Le nom, l'univers visuel, le soin apporté à chaque détail — tout parle d'un projet construit avec conviction à Nouméa.</p>
-        <p class="metier-p">Clients réguliers ou première visite : chaque homme qui pousse la porte repart avec la coupe qu'il mérite.</p>
-        <ul class="check-list">
-          <li class="check-item">Installé à Nouméa, au service de la communauté locale</li>
-          <li class="check-item">Identité visuelle forte, shop reconnaissable</li>
-          <li class="check-item">Tarifs transparents, sans surprise</li>
-          <li class="check-item">Note Google 5/5 — la satisfaction avant tout</li>
-        </ul>
+        <img src="https://i.ibb.co/4R7GpYFr/Unicorn-Barber-1.jpg" alt="L'ambiance Unicorn Barber à Nouméa" loading="lazy">
+        <div class="metier-img-badge">Nouméa, NC</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- GALERIE -->
-<section class="s s-dark" id="galerie">
-  <div class="wrap">
+<section id="galerie" class="s">
+  <div class="container">
     <div class="s-head">
-      <div class="s-eyebrow">Le travail parle</div>
-      <h2 class="s-title">Galerie</h2>
-      <p class="s-sub">Quelques aperçus de l'univers Unicorn Barber — l'ambiance, le soin, le résultat.</p>
+      <h2 class="h2">La Galerie</h2>
+      <p>Chaque transformation raconte une histoire. Voici les nôtres.</p>
     </div>
     <div class="gal-grid">
-      <div class="gal-item" data-src="https://i.ibb.co/zWXQJzYw/Unicorn-Barber-0.jpg">
-        <img src="https://i.ibb.co/zWXQJzYw/Unicorn-Barber-0.jpg" alt="Unicorn Barber Nouméa" loading="lazy">
-        <div class="gal-overlay"><div class="gal-plus"></div></div>
+      <div class="gal-item" data-src="https://i.ibb.co/sJg03Pmj/Unicorn-Barber-0.jpg" data-alt="Unicorn Barber Nouméa">
+        <img src="https://i.ibb.co/sJg03Pmj/Unicorn-Barber-0.jpg" alt="Unicorn Barber Nouméa" loading="lazy">
+        <div class="gal-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
       </div>
-      <div class="gal-item" data-src="https://i.ibb.co/m58cDywF/Unicorn-Barber-1.jpg">
-        <img src="https://i.ibb.co/m58cDywF/Unicorn-Barber-1.jpg" alt="Barbier Unicorn Nouméa" loading="lazy">
-        <div class="gal-overlay"><div class="gal-plus"></div></div>
+      <div class="gal-item" data-src="https://i.ibb.co/4R7GpYFr/Unicorn-Barber-1.jpg" data-alt="Ambiance Unicorn Barber">
+        <img src="https://i.ibb.co/4R7GpYFr/Unicorn-Barber-1.jpg" alt="Ambiance Unicorn Barber" loading="lazy">
+        <div class="gal-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
       </div>
-      <div class="gal-item" data-src="https://i.ibb.co/0ybc3N5s/Unicorn-Barber-2.jpg">
-        <img src="https://i.ibb.co/0ybc3N5s/Unicorn-Barber-2.jpg" alt="Coupe barbershop Nouméa" loading="lazy">
-        <div class="gal-overlay"><div class="gal-plus"></div></div>
+      <div class="gal-item" data-src="https://i.ibb.co/1tbbtZFJ/Unicorn-Barber-2.jpg" data-alt="Coupe dégradé Unicorn Barber">
+        <img src="https://i.ibb.co/1tbbtZFJ/Unicorn-Barber-2.jpg" alt="Coupe dégradé Unicorn Barber" loading="lazy">
+        <div class="gal-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
       </div>
-      <div class="gal-item" data-src="https://i.ibb.co/7Nvz9bHJ/Unicorn-Barber-3.jpg">
-        <img src="https://i.ibb.co/7Nvz9bHJ/Unicorn-Barber-3.jpg" alt="Unicorn Barber shop Nouméa" loading="lazy">
-        <div class="gal-overlay"><div class="gal-plus"></div></div>
+      <div class="gal-item" data-src="https://i.ibb.co/4wSnPK3y/Unicorn-Barber-3.jpg" data-alt="Style Unicorn Barber Nouméa">
+        <img src="https://i.ibb.co/4wSnPK3y/Unicorn-Barber-3.jpg" alt="Style Unicorn Barber Nouméa" loading="lazy">
+        <div class="gal-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lb">
-  <button class="lb-close" id="lbClose">✕</button>
-  <img class="lb-img" id="lbImg" src="" alt="Galerie Unicorn Barber">
+<div class="lbox" id="lbox" role="dialog" aria-modal="true" aria-label="Agrandissement photo">
+  <button class="lbox-close" id="lbox-close" aria-label="Fermer">✕</button>
+  <img class="lbox-img" id="lbox-img" src="" alt="">
 </div>
 
 <!-- FORMULAIRE -->
-<section class="s s-mid" id="contact">
-  <div class="wrap">
+<section id="contact" class="s">
+  <div class="container">
     <div class="s-head">
-      <div class="s-eyebrow">On vous attend</div>
-      <h2 class="s-title">Réserver</h2>
-      <p class="s-sub">Envoyez-nous un message — on revient vers vous rapidement pour confirmer votre créneau.</p>
+      <h2 class="h2">Prends rendez-vous</h2>
+      <p>Envoie-nous un message, on revient vers toi rapidement pour confirmer ta séance.</p>
     </div>
     <div class="form-wrap">
-      <form id="contactForm" action="#" novalidate>
-        <div class="form-row">
-          <div class="field">
-            <label for="fname">Prénom & Nom</label>
-            <input type="text" id="fname" name="nom" placeholder="Votre nom" autocomplete="name">
-          </div>
-          <div class="field">
-            <label for="femail">Email</label>
-            <input type="email" id="femail" name="email" placeholder="votre@email.com" autocomplete="email">
-          </div>
-        </div>
-        <div class="field field-full">
-          <label for="ftel">Téléphone</label>
-          <input type="tel" id="ftel" name="telephone" placeholder="+687 XX XX XX" autocomplete="tel">
-        </div>
-        <div class="field field-full">
-          <label for="fmsg">Message</label>
-          <textarea id="fmsg" name="message" placeholder="Prestation souhaitée, jour et heure préférés..."></textarea>
-        </div>
-        <button type="submit" class="btn-primary form-submit">Envoyer ma demande</button>
-      </form>
-      <div class="form-success" id="formSuccess">
-        ✓ &nbsp;Message envoyé — nous vous recontactons très vite.
+      <div class="form-success" id="form-success">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg>
+        <h3>Message envoyé !</h3>
+        <p>On t'a bien reçu. L'équipe Unicorn Barber te rappelle très vite pour confirmer ta séance.</p>
       </div>
+      <form id="contact-form" action="#" novalidate>
+        <div class="form-grid">
+          <div class="form-group" id="fg-nom">
+            <label class="form-label" for="f-nom">Prénom & Nom</label>
+            <input class="form-input" type="text" id="f-nom" name="nom" placeholder="Ex : Kévin Boulard" autocomplete="name">
+            <span class="form-err">Ce champ est requis.</span>
+          </div>
+          <div class="form-group" id="fg-email">
+            <label class="form-label" for="f-email">Email</label>
+            <input class="form-input" type="email" id="f-email" name="email" placeholder="ton@email.com" autocomplete="email">
+            <span class="form-err">Adresse email invalide.</span>
+          </div>
+          <div class="form-group" id="fg-tel">
+            <label class="form-label" for="f-tel">Téléphone</label>
+            <input class="form-input" type="tel" id="f-tel" name="tel" placeholder="Ex : 75 12 34" autocomplete="tel">
+            <span class="form-err">Ce champ est requis.</span>
+          </div>
+          <div class="form-group" id="fg-service">
+            <label class="form-label" for="f-service">Prestation souhaitée</label>
+            <select class="form-input" id="f-service" name="service">
+              <option value="">-- Choisir --</option>
+              <option>Coupe Classique</option>
+              <option>Dégradé</option>
+              <option>Taille de Barbe</option>
+              <option>Combo Coupe + Barbe</option>
+              <option>Soin Cuir Chevelu</option>
+              <option>Design & Contour</option>
+            </select>
+          </div>
+          <div class="form-group full" id="fg-msg">
+            <label class="form-label" for="f-msg">Message</label>
+            <textarea class="form-input" id="f-msg" name="message" placeholder="Un créneau préféré, une question… dis-nous tout."></textarea>
+            <span class="form-err">Ce champ est requis.</span>
+          </div>
+          <div class="form-group full form-btn-wrap">
+            <button type="submit" class="b b-primary" id="form-submit" style="">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Envoyer ma demande
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 </section>
 
 <!-- PREUVE SOCIALE -->
-<section class="s s-dark" id="avis">
-  <div class="wrap">
+<section id="avis" class="s">
+  <div class="container">
     <div class="s-head">
-      <div class="s-eyebrow">Ce qu'ils en disent</div>
-      <h2 class="s-title">Avis clients</h2>
+      <h2 class="h2">Ce qu'ils disent</h2>
+      <p>La réputation se construit coupe après coupe. Voici le verdict de nos clients.</p>
     </div>
-    <div class="rating-block">
-      <div class="rating-big">5</div>
-      <div class="rating-stars">
-        <div class="stars">
-          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg>
-          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg>
-          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg>
-          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg>
-          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg>
+    <div class="avis-top">
+      <div class="avis-score">
+        <div class="avis-num">5</div>
+        <div class="avis-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
-        <div class="rating-label">Note Google · 3 avis</div>
+        <div class="avis-count">3 avis Google vérifiés</div>
+      </div>
+      <div class="avis-sep"></div>
+      <div class="avis-badges">
+        <div class="avis-badge">
+          <svg viewBox="0 0 24 24"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/></svg>
+          <span>100% clients satisfaits</span>
+        </div>
+        <div class="avis-badge">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Note parfaite 5/5</span>
+        </div>
+        <div class="avis-badge">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          <span>Barbier décalé Nouméa</span>
+        </div>
       </div>
     </div>
     <div class="testi-grid">
       <div class="testi-card">
-        <div class="testi-text">Meilleur barbier de Nouméa. Ambiance top, coupe au poil — je reviens à chaque fois avec le sourire. Rien à redire.</div>
-        <div class="testi-author">Manu T.</div>
-        <div class="testi-via">Avis Google ★★★★★</div>
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testi-text">"Franchement le meilleur barber de Nouméa. Le dégradé est propre, l'ambiance est top et le gars est à l'écoute. Je reviendrai sans hésiter !"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">MT</div>
+          <div>
+            <div class="testi-name">Manu T.</div>
+            <div class="testi-loc">Nouméa, Nouvelle-Calédonie</div>
+          </div>
+        </div>
       </div>
       <div class="testi-card">
-        <div class="testi-text">Prestation impeccable, le barbier sait exactement ce qu'il fait. L'ambiance du shop est vraiment unique. Je recommande.</div>
-        <div class="testi-author">Dylan R.</div>
-        <div class="testi-via">Avis Google ★★★★★</div>
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testi-text">"Concept vraiment original, j'adore l'identité visuelle. Le résultat est nickel, le contour est au millimètre. Un vrai endroit où on prend soin de toi."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">JR</div>
+          <div>
+            <div class="testi-name">Jordan R.</div>
+            <div class="testi-loc">Nouméa, Nouvelle-Calédonie</div>
+          </div>
+        </div>
       </div>
       <div class="testi-card">
-        <div class="testi-text">Coupe + barbe en un passage, résultat parfait. Cadre soigné, accueil au top. C'est mon barbier désormais.</div>
-        <div class="testi-author">Kévin M.</div>
-        <div class="testi-via">Avis Google ★★★★★</div>
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testi-text">"J'y suis allé sur recommandation et je comprends pourquoi tout le monde en parle. Le combo coupe + barbe, c'est juste parfait. Endroit unique à Nouméa."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">SK</div>
+          <div>
+            <div class="testi-name">Samuel K.</div>
+            <div class="testi-loc">Nouméa, Nouvelle-Calédonie</div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="badge-row">
-      <div class="badge">★ Note Google 5/5</div>
-      <div class="badge">✓ 3 Avis vérifiés</div>
-      <div class="badge">⚡ Réponse rapide</div>
-      <div class="badge">✦ Barbershop Nouméa</div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="ftr">
-  <div class="ftr-grid">
-    <div>
-      <div class="ftr-brand">Unicorn<span>Barber</span></div>
-      <div class="ftr-addr">
-        47 Rue Auguste Benebig<br>
-        Nouméa, Nouvelle-Calédonie<br><br>
-        <a href="https://www.facebook.com/UnicornBarberNC" target="_blank" rel="noopener">facebook.com/UnicornBarberNC</a>
-      </div>
-      <div class="ftr-social">
-        <a href="https://www.facebook.com/UnicornBarberNC" target="_blank" rel="noopener" class="ftr-soc-link" aria-label="Facebook Unicorn Barber">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#hero" class="logo" aria-label="Unicorn Barber accueil">
+          <span class="logo-ub">UB</span>
+          <span>Unicorn Barber</span>
         </a>
+        <p class="footer-tagline">Le barbier décalé de Nouméa. Coupes de caractère, identité unique, expérience mémorable.</p>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/UnicornBarberNC/" target="_blank" rel="noopener" class="footer-social" aria-label="Facebook Unicorn Barber">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Navigation</p>
+        <div class="footer-links">
+          <a href="#services">Prestations</a>
+          <a href="#metier">Notre philosophie</a>
+          <a href="#galerie">Galerie</a>
+          <a href="#avis">Avis clients</a>
+          <a href="#contact">Réserver</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Nous trouver</p>
+        <div class="footer-addr">
+          <div class="footer-addr-item">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <span>47 Rue Auguste Benebig<br>Nouméa, Nouvelle-Calédonie</span>
+          </div>
+          <div class="footer-addr-item">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            <a href="https://www.facebook.com/UnicornBarberNC/" target="_blank" rel="noopener">Facebook</a>
+          </div>
+        </div>
       </div>
     </div>
-    <div>
-      <div class="ftr-col-title">Navigation</div>
-      <div class="ftr-links">
-        <a href="#prestations">Prestations</a>
-        <a href="#metier">Notre atelier</a>
-        <a href="#galerie">Galerie</a>
-        <a href="#avis">Avis clients</a>
-        <a href="#contact">Réserver</a>
-      </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Unicorn Barber. Tous droits réservés.</p>
+      <p class="footer-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
     </div>
-    <div>
-      <div class="ftr-col-title">Horaires</div>
-      <div class="ftr-hours">
-        <div class="ftr-hour-row"><span>Lun – Ven</span><span>9h – 18h</span></div>
-        <div class="ftr-hour-row"><span>Samedi</span><span>8h – 17h</span></div>
-        <div class="ftr-hour-row"><span>Dimanche</span><span>Fermé</span></div>
-      </div>
-    </div>
-  </div>
-  <div class="ftr-bottom">
-    <div class="ftr-copy">© 2026 Unicorn Barber. Tous droits réservés.</div>
-    <div class="ftr-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></div>
   </div>
 </footer>
 
 <script>
-var fbtns=document.querySelectorAll('.filter-btn'),cards=document.querySelectorAll('.svc-card');
-fbtns.forEach(function(b){b.addEventListener('click',function(){
-  fbtns.forEach(function(x){x.classList.remove('active')});
-  b.classList.add('active');
-  var f=b.dataset.filter;
-  cards.forEach(function(c){c.style.display=(f==='all'||c.dataset.cat===f)?'flex':'none'});
-})});
-
-var lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg');
-document.querySelectorAll('.gal-item').forEach(function(el){
-  el.addEventListener('click',function(){
-    lbImg.src=el.dataset.src;
-    lb.classList.add('open');
-  });
-});
-document.getElementById('lbClose').addEventListener('click',function(){lb.classList.remove('open')});
-lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('open')});
-document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('open')});
-
-var form=document.getElementById('contactForm'),suc=document.getElementById('formSuccess');
-form.addEventListener('submit',function(e){
-  e.preventDefault();
-  var ok=true;
-  ['fname','femail','fmsg'].forEach(function(id){
-    var el=document.getElementById(id);
-    el.classList.remove('err');
-    if(!el.value.trim()){el.classList.add('err');ok=false;}
-  });
-  var em=document.getElementById('femail');
-  if(em.value&&!/\S+@\S+\.\S+/.test(em.value)){em.classList.add('err');ok=false;}
-  if(!ok)return;
-  form.style.display='none';
-  suc.classList.add('show');
-});
+var bf=document.querySelectorAll('.s-filter');
+bf.forEach(function(f){f.addEventListener('click',function(){bf.forEach(function(x){x.classList.remove('active')});f.classList.add('active');var cat=f.dataset.cat;document.querySelectorAll('.srv-card').forEach(function(c){c.style.display=(cat==='all'||c.dataset.cat.indexOf(cat)>-1)?'flex':'none'})})});
+var lb=document.getElementById('lbox'),li=document.getElementById('lbox-img'),lc=document.getElementById('lbox-close');
+document.querySelectorAll('.gal-item').forEach(function(i){i.addEventListener('click',function(){li.src=i.dataset.src;li.alt=i.dataset.alt||'';lb.classList.add('open');document.body.style.overflow='hidden'})});
+lc.addEventListener('click',function(){lb.classList.remove('open');document.body.style.overflow=''});
+lb.addEventListener('click',function(e){if(e.target===lb){lb.classList.remove('open');document.body.style.overflow=''}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){lb.classList.remove('open');document.body.style.overflow=''}});
+var cf=document.getElementById('contact-form'),fs=document.getElementById('form-success');
+function vld(id,fn){var g=document.getElementById('fg-'+id),v=document.getElementById('f-'+id).value.trim();var ok=fn(v);g.classList.toggle('invalid',!ok);return ok}
+cf.addEventListener('submit',function(e){e.preventDefault();var ok=true;if(!vld('nom',function(v){return v.length>1}))ok=false;if(!vld('email',function(v){return/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)}))ok=false;if(!vld('tel',function(v){return v.length>4}))ok=false;if(!vld('msg',function(v){return v.length>2}))ok=false;if(ok){cf.style.display='none';fs.style.display='block'}});
 </script>
 </body>
 </html>
