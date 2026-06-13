@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evolution Bijoux Noumea — Nouméa</title>
+<meta name="description" content="Bijouterie artisanale à Nouméa, Nouvelle-Calédonie. Argent massif, pierres naturelles, créations uniques. Visitez notre boutique au 27 Rue de Sebastopol.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Lato:wght@300;400;700&family=Manrope:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--cp:#7B2D42;--cs:#C0C0C0;--ca:#C8972B;--ct:#F5F0E8;--cb:#1A1A1A}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cb);color:var(--ct);font-family:'Lato',sans-serif;overflow-x:hidden;line-height:1.6}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:600;line-height:1.2}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.h1{font-size:clamp(2.8rem,7vw,5.5rem);letter-spacing:0.04em}
+.h2{font-size:clamp(2rem,4vw,3.2rem);letter-spacing:0.03em}
+.h3{font-size:clamp(1.3rem,2.5vw,1.8rem)}
+.lato{font-family:'Lato',sans-serif}
+.b{display:inline-block;padding:14px 32px;border-radius:2px;font-family:'Lato',sans-serif;font-weight:700;font-size:0.95rem;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background 250ms ease-in,color 250ms ease-in,border-color 250ms ease-in;min-height:48px;border:2px solid transparent}
+.b-gold{background:var(--ca);color:var(--cb);border-color:var(--ca)}
+.b-gold:hover{background:var(--cp);color:var(--ct);border-color:var(--cp)}
+.b-outline{background:transparent;color:var(--ct);border-color:var(--ct)}
+.b-outline:hover{background:var(--ct);color:var(--cb)}
+.reveal{opacity:1;transform:none;transition:opacity 600ms cubic-bezier(0.16,1,0.3,1),transform 600ms cubic-bezier(0.16,1,0.3,1)}
+.reveal.hidden{opacity:0;transform:translateY(50px)}
+
+/* BANDEAU PROMO */
+#promo{position:fixed;top:0;left:0;width:100%;height:64px;background:#ffd500;z-index:1001;box-shadow:0 2px 10px rgba(0,0,0,0.20);display:flex;align-items:center;justify-content:center}
+#promo a{font-family:'Manrope','Lato',system-ui,sans-serif;font-weight:700;font-size:17px;color:#4375ff;letter-spacing:0.3px;line-height:64px;text-align:center;display:block;width:100%}
+#promo a:hover{opacity:0.85}
+#promo strong{font-weight:800;font-size:1.15em}
+
+/* HEADER */
+#nav{position:fixed;top:64px;left:0;width:100%;background:rgba(26,26,26,0.97);backdrop-filter:blur(8px);z-index:1000;border-bottom:1px solid rgba(192,192,192,0.12);transition:top 0.3s}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--ct);white-space:nowrap;letter-spacing:0.05em}
+.logo span{color:var(--ca)}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{font-family:'Lato',sans-serif;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cs);transition:color 250ms}
+.nav-links a:hover{color:var(--ca)}
+.nav-cta{font-size:0.8rem;padding:10px 20px;white-space:nowrap}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--ct);transition:all 300ms}
+.mob-menu{display:none;position:fixed;top:132px;left:0;width:100%;background:rgba(26,26,26,0.99);z-index:999;padding:24px;flex-direction:column;gap:0;border-bottom:1px solid rgba(192,192,192,0.15)}
+.mob-menu a{display:block;padding:16px 0;font-family:'Lato',sans-serif;font-size:1rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cs);border-bottom:1px solid rgba(192,192,192,0.08)}
+.mob-menu a:last-child{border-bottom:none;margin-top:16px;text-align:center}
+.mob-menu.open{display:flex}
+
+/* HERO */
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background:url('https://i.ibb.co/KxbTJxCV/Evolution-Bijoux-Noumea-0.jpg') center center/cover no-repeat;margin-top:132px}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(26,26,26,0.72) 0%,rgba(123,45,66,0.38) 60%,rgba(26,26,26,0.80) 100%)}
+.hero-content{position:relative;z-index:1;text-align:center;max-width:860px;padding:40px 24px}
+.hero-badge{display:inline-block;font-family:'Lato',sans-serif;font-size:0.78rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--ca);border:1px solid rgba(200,151,43,0.5);padding:6px 18px;margin-bottom:28px;border-radius:1px}
+.hero-title{color:var(--ct);margin-bottom:20px;text-shadow:0 2px 20px rgba(0,0,0,0.5)}
+.hero-title em{font-style:italic;color:var(--ca)}
+.hero-sub{font-family:'Lato',sans-serif;font-size:clamp(1rem,2vw,1.2rem);color:rgba(245,240,232,0.85);max-width:560px;margin:0 auto 36px;font-weight:300;letter-spacing:0.03em}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.scroll-ind{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(245,240,232,0.5);font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase}
+.scroll-ind::after{content:'';display:block;width:1px;height:40px;background:linear-gradient(to bottom,rgba(200,151,43,0.8),transparent);animation:sc 1.6s ease-in-out infinite}
+@keyframes sc{0%,100%{opacity:0.3;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.2)}}
+
+/* STATS BAND */
+#stats{background:var(--cp);padding:64px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat{text-align:center;padding:24px 16px;border-right:1px solid rgba(245,240,232,0.15)}
+.stat:last-child{border-right:none}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,4vw,3.6rem);font-weight:700;color:var(--ca);line-height:1;display:block;margin-bottom:8px}
+.stat-lbl{font-family:'Lato',sans-serif;font-size:0.8rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,240,232,0.75);font-weight:300}
+
+@media(max-width:900px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .stat{border-right:none;border-bottom:1px solid rgba(245,240,232,0.12)}
+  .stat:nth-child(odd){border-right:1px solid rgba(245,240,232,0.12)}
+  .stat:nth-child(3),.stat:nth-child(4){border-bottom:none}
+}
+@media(max-width:480px){
+  #promo{height:56px}
+  #promo a{font-size:13px;line-height:1.3;padding:8px 16px;height:56px;display:flex;align-items:center;justify-content:center}
+  #nav{top:56px}
+  #hero{margin-top:120px}
+  .mob-menu{top:120px}
+  .hero-btns .b{width:100%}
+  .stats-grid{grid-template-columns:1fr 1fr}
+}
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div id="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">
+    Ce site vous plaît ? Activez-le dès <strong>4 900 F HT/mois</strong> — Prenez rendez-vous.
+  </a>
+</div>
+
+<!-- HEADER -->
+<header id="nav">
+  <div class="wrap nav-inner">
+    <a href="#hero" class="logo">Evolution <span>Bijoux</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Nos créations</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#univers">Notre univers</a></li>
+      <li><a href="#avis">Avis</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="tel:+687818625" class="b b-gold nav-cta">☎ 81.86.25</a>
+    <button class="hamburger" id="hbg" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-menu" id="mob">
+  <a href="#services" onclick="closeMob()">Nos créations</a>
+  <a href="#galerie" onclick="closeMob()">Galerie</a>
+  <a href="#univers" onclick="closeMob()">Notre univers</a>
+  <a href="#avis" onclick="closeMob()">Avis clients</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="tel:+687818625" class="b b-gold">☎ 81.86.25</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Bijouterie artisanale · Nouméa</div>
+    <h1 class="h1 hero-title">Argent &amp; <em>Lumière</em></h1>
+    <p class="hero-sub">Bijoux artisanaux en argent massif et pierres naturelles, façonnés avec passion au cœur de Nouvelle-Calédonie.</p>
+    <div class="hero-btns">
+      <a href="#galerie" class="b b-gold">Découvrir les créations</a>
+      <a href="#contact" class="b b-outline">Nous rendre visite</a>
+    </div>
+  </div>
+  <div class="scroll-ind">Découvrir</div>
+</section>
+
+<!-- BANDE STATS -->
+<section id="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat reveal">
+        <span class="stat-num" data-target="5">0</span>
+        <span class="stat-lbl">Note Google /5</span>
+      </div>
+      <div class="stat reveal">
+        <span class="stat-num" data-target="100">0</span>
+        <span class="stat-lbl">% Argent massif</span>
+      </div>
+      <div class="stat reveal">
+        <span class="stat-num" data-target="27">0</span>
+        <span class="stat-lbl">Rue de Sebastopol</span>
+      </div>
+      <div class="stat reveal">
+        <span class="stat-num" data-target="1">0</span>
+        <span class="stat-lbl">Boutique unique à Nouméa</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+var hbg=document.getElementById('hbg'),mob=document.getElementById('mob');
+function closeMob(){mob.classList.remove('open')}
+hbg.addEventListener('click',function(){mob.classList.toggle('open')});
+</script>
+<style>
+/* SERVICES */
+#services{padding:96px 0;background:var(--cb)}
+.s-head{text-align:center;margin-bottom:64px}
+.s-head p{font-size:1.05rem;color:var(--cs);margin-top:16px;font-weight:300;max-width:560px;margin-left:auto;margin-right:auto}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.srv-card{background:rgba(255,255,255,0.03);border:1px solid rgba(192,192,192,0.12);padding:40px 28px;text-align:center;transition:border-color 300ms,box-shadow 300ms;border-radius:2px}
+.srv-card:hover{border-color:rgba(200,151,43,0.5);box-shadow:0 0 28px rgba(200,151,43,0.08)}
+.srv-icon{width:52px;height:52px;margin:0 auto 24px;opacity:0.9}
+.srv-card .h3{color:var(--ct);margin-bottom:12px}
+.srv-card p{color:var(--cs);font-size:0.92rem;font-weight:300;line-height:1.7}
+
+/* METIER */
+#univers{padding:96px 0;background:#141414}
+.met-block{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:80px}
+.met-block:last-child{margin-bottom:0}
+.met-block.rev{direction:rtl}
+.met-block.rev>*{direction:ltr}
+.met-img{position:relative;border-radius:2px;overflow:hidden}
+.met-img img{width:100%;height:380px;object-fit:cover;display:block;box-shadow:0 8px 40px rgba(0,0,0,0.5)}
+.met-img::after{content:'';position:absolute;inset:0;border:1px solid rgba(200,151,43,0.2);pointer-events:none;border-radius:2px}
+.met-txt .pre{font-family:'Lato',sans-serif;font-size:0.75rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--ca);display:block;margin-bottom:16px}
+.met-txt .h2{color:var(--ct);margin-bottom:20px}
+.met-txt p{color:var(--cs);font-size:0.97rem;font-weight:300;line-height:1.8;margin-bottom:16px}
+.checks{list-style:none;margin-top:24px;display:flex;flex-direction:column;gap:10px}
+.checks li{display:flex;align-items:center;gap:12px;font-size:0.9rem;color:var(--ct);font-family:'Lato',sans-serif}
+.checks li::before{content:'';display:block;width:18px;height:18px;min-width:18px;border-radius:50%;background:var(--ca);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231A1A1A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-size:11px;background-repeat:no-repeat;background-position:center}
+
+/* GALERIE */
+#galerie{padding:96px 0;background:var(--cb)}
+.gal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:56px}
+.gal-item{position:relative;overflow:hidden;cursor:pointer;border-radius:2px;aspect-ratio:4/3}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform 400ms ease,opacity 400ms ease;opacity:0.85}
+.gal-item:hover img{transform:scale(1.05);opacity:1}
+.gal-item::after{content:'';position:absolute;inset:0;border:2px solid transparent;transition:border-color 300ms;border-radius:2px}
+.gal-item:hover::after{border-color:var(--ca)}
+.gal-item:nth-child(1){grid-row:span 2;aspect-ratio:auto}
+.gal-item:nth-child(1) img{height:100%}
+.lb{display:none;position:fixed;inset:0;background:rgba(26,26,26,0.93);z-index:2000;align-items:center;justify-content:center;padding:20px}
+.lb.open{display:flex}
+.lb img{max-width:90vw;max-height:88vh;object-fit:contain;border-radius:2px;box-shadow:0 0 60px rgba(0,0,0,0.8)}
+.lb-cl{position:absolute;top:20px;right:28px;background:none;border:none;color:var(--ct);font-size:2.2rem;cursor:pointer;line-height:1;opacity:0.8;transition:opacity 200ms}
+.lb-cl:hover{opacity:1}
+
+/* FORMULAIRE */
+#contact{padding:96px 0;background:linear-gradient(135deg,#1a1a1a 0%,#1e1218 100%)}
+.form-wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.form-info .h2{color:var(--ct);margin-bottom:20px}
+.form-info p{color:var(--cs);font-size:0.95rem;font-weight:300;line-height:1.8;margin-bottom:24px}
+.f-detail{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;font-size:0.9rem;color:var(--ct)}
+.f-detail svg{min-width:20px;margin-top:2px;color:var(--ca)}
+.f-form{background:rgba(255,255,255,0.03);border:1px solid rgba(192,192,192,0.12);padding:40px 32px;border-radius:2px}
+.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
+.fg label{font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--cs);font-family:'Lato',sans-serif}
+.fg input,.fg textarea{background:rgba(255,255,255,0.04);border:1px solid rgba(192,192,192,0.18);color:var(--ct);font-family:'Lato',sans-serif;font-size:0.95rem;padding:12px 16px;border-radius:2px;outline:none;transition:border-color 250ms;width:100%}
+.fg input:focus,.fg textarea:focus{border-color:var(--ca)}
+.fg textarea{resize:vertical;min-height:120px}
+.fg input.err,.fg textarea.err{border-color:#e05;background:rgba(238,0,85,0.06)}
+.b-submit{width:100%;justify-content:center;font-size:1rem;padding:16px;cursor:pointer;font-family:'Lato',sans-serif;font-weight:700;letter-spacing:0.1em}
+.f-success{display:none;text-align:center;padding:32px;color:var(--ca);font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-style:italic}
+.f-success span{display:block;font-family:'Lato',sans-serif;font-size:0.9rem;font-style:normal;color:var(--cs);margin-top:8px}
+
+/* AVIS */
+#avis{padding:96px 0;background:#111}
+.avis-head{text-align:center;margin-bottom:20px}
+.stars{color:var(--ca);font-size:1.6rem;letter-spacing:4px;display:block;margin-bottom:12px}
+.avis-note{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,4rem);color:var(--ct);display:block;margin-bottom:4px}
+.avis-sub{font-size:0.85rem;color:var(--cs);letter-spacing:0.1em;text-transform:uppercase}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.testi-c{background:rgba(255,255,255,0.03);border:1px solid rgba(192,192,192,0.1);padding:28px;border-radius:2px}
+.testi-stars{color:var(--ca);font-size:1rem;margin-bottom:12px;letter-spacing:3px}
+.testi-txt{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--ct);line-height:1.7;margin-bottom:16px}
+.testi-auth{font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--cs)}
+.badges{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:48px}
+.badge{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(192,192,192,0.12);padding:12px 20px;border-radius:2px;font-size:0.82rem;color:var(--ct);letter-spacing:0.08em}
+.badge svg{color:var(--ca)}
+
+/* FOOTER */
+#footer{background:var(--cp);padding:64px 0 32px}
+.ft-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.ft-brand{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--ct);margin-bottom:16px}
+.ft-brand span{color:#f5c87a}
+.ft-p{font-size:0.88rem;color:rgba(245,240,232,0.75);line-height:1.7;font-weight:300}
+.ft-h{font-family:'Lato',sans-serif;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,240,232,0.5);margin-bottom:16px}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-links a{font-size:0.88rem;color:rgba(245,240,232,0.75);transition:color 200ms}
+.ft-links a:hover{color:var(--ca)}
+.ft-addr{font-size:0.88rem;color:rgba(245,240,232,0.75);line-height:1.8;font-weight:300}
+.ft-tel{display:block;color:var(--ca);font-size:1.05rem;font-weight:700;margin-top:8px}
+.soc{display:flex;gap:12px;margin-top:20px;align-items:center}
+.soc a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid rgba(245,240,232,0.2);border-radius:2px;transition:border-color 250ms,background 250ms}
+.soc a:hover{border-color:var(--ca);background:rgba(200,151,43,0.15)}
+.ft-bot{border-top:1px solid rgba(245,240,232,0.15);padding-top:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ft-copy{font-size:0.8rem;color:rgba(245,240,232,0.5)}
+.ft-setup{font-size:0.8rem;color:rgba(245,240,232,0.5)}
+.ft-setup a{color:rgba(245,240,232,0.7);text-decoration:underline;transition:color 200ms}
+.ft-setup a:hover{color:var(--ca)}
+
+@media(max-width:900px){
+  .srv-grid{grid-template-columns:1fr}
+  .met-block{grid-template-columns:1fr;gap:36px}
+  .met-block.rev{direction:ltr}
+  .form-wrap{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .ft-grid{grid-template-columns:1fr}
+  .ft-bot{flex-direction:column;text-align:center}
+}
+@media(max-width:480px){
+  .gal-grid{grid-template-columns:1fr}
+  .gal-item:nth-child(1){grid-row:auto}
+  .f-form{padding:24px 16px}
+  #services,#univers,#galerie,#contact,#avis,#footer{padding:64px 0}
+  .srv-card{padding:28px 20px}
+}
+</style>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="s-head reveal">
+      <h2 class="h2">Nos créations</h2>
+      <p>De l'argent massif aux pierres naturelles, chaque pièce est sélectionnée ou façonnée avec soin pour sublimer votre quotidien.</p>
+    </div>
+    <div class="srv-grid">
+      <div class="srv-card reveal">
+        <svg class="srv-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="26" cy="26" r="25" stroke="#C8972B" stroke-width="1.5"/>
+          <path d="M26 14c0 0-10 8-10 14a10 10 0 0020 0c0-6-10-14-10-14z" stroke="#C0C0C0" stroke-width="1.5" fill="none"/>
+          <circle cx="26" cy="29" r="3" fill="#C8972B"/>
+        </svg>
+        <h3 class="h3">Bijoux en argent massif</h3>
+        <p>Bagues, colliers, bracelets et boucles d'oreilles travaillés dans un argent de qualité, pour un éclat durable et une touche d'authenticité.</p>
+      </div>
+      <div class="srv-card reveal">
+        <svg class="srv-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="26" cy="26" r="25" stroke="#C8972B" stroke-width="1.5"/>
+          <polygon points="26,12 30,22 42,22 32,29 36,40 26,33 16,40 20,29 10,22 22,22" stroke="#C0C0C0" stroke-width="1.5" fill="none"/>
+        </svg>
+        <h3 class="h3">Pierres naturelles</h3>
+        <p>Une sélection de pierres aux couleurs vives et aux énergies singulières : améthyste, turquoise, labradorite et bien d'autres trésors minéraux.</p>
+      </div>
+      <div class="srv-card reveal">
+        <svg class="srv-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="26" cy="26" r="25" stroke="#C8972B" stroke-width="1.5"/>
+          <rect x="15" y="18" width="22" height="16" rx="2" stroke="#C0C0C0" stroke-width="1.5" fill="none"/>
+          <path d="M20 18v-3a6 6 0 0112 0v3" stroke="#C0C0C0" stroke-width="1.5" fill="none"/>
+          <circle cx="26" cy="26" r="2.5" fill="#C8972B"/>
+        </svg>
+        <h3 class="h3">Coffrets cadeaux</h3>
+        <p>Offrez un bijou unique dans un écrin soigné. Une attention précieuse pour marquer les moments qui comptent, à Nouméa et partout en Calédonie.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION METIER -->
+<section id="univers">
+  <div class="wrap">
+    <div class="met-block reveal">
+      <div class="met-img">
+        <img src="https://i.ibb.co/QFwnv7kQ/Evolution-Bijoux-Noumea-1.jpg" alt="Intérieur de la boutique Evolution Bijoux à Nouméa" loading="lazy">
+      </div>
+      <div class="met-txt">
+        <span class="pre">Notre univers</span>
+        <h2 class="h2">Un cabinet de curiosités au cœur de Nouméa</h2>
+        <p>Chez Evolution Bijoux, chaque recoin de la boutique raconte une histoire. Les présentoirs en satin bordeaux, les vitrines baignées de lumière dorée, les pierres disposées comme des trésors découverts : tout invite à prendre le temps de regarder, de toucher, de choisir.</p>
+        <p>Installée au 27 Rue de Sebastopol, la boutique est un espace de curiosité et de découverte, loin de l'uniformité des enseignes commerciales. Ici, l'argenterie côtoie les minéraux bruts, et chaque bijou porte une singularité que l'on ne trouve nulle part ailleurs.</p>
+        <ul class="checks">
+          <li>Argent massif de qualité, sélectionné avec rigueur</li>
+          <li>Pierres naturelles aux origines variées</li>
+          <li>Atmosphère chaleureuse et conseils personnalisés</li>
+          <li>Créations uniques impossibles à trouver en grande surface</li>
+        </ul>
+      </div>
+    </div>
+    <div class="met-block rev reveal">
+      <div class="met-img">
+        <img src="https://i.ibb.co/mCm78WDD/Evolution-Bijoux-Noumea-2.jpg" alt="Bijoux en argent et pierres naturelles — Evolution Bijoux Nouméa" loading="lazy">
+      </div>
+      <div class="met-txt">
+        <span class="pre">Notre philosophie</span>
+        <h2 class="h2">L'authenticité avant tout</h2>
+        <p>Nous croyons que porter un bijou, c'est choisir une histoire. Chaque pièce que nous proposons a été choisie pour sa matière, sa singularité et la façon dont elle peut résonner avec celui ou celle qui la porte.</p>
+        <p>Que vous cherchiez un présent pour un être cher, une pièce pour compléter votre quotidien ou simplement l'envie de vous faire plaisir, vous trouverez chez nous une sélection sincère et généreuse, comme la Calédonie elle-même.</p>
+        <ul class="checks">
+          <li>Accueil chaleureux, sans pression commerciale</li>
+          <li>Bijoux pour toutes les occasions et tous les styles</li>
+          <li>Prix accessibles pour une qualité réelle</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section id="galerie">
+  <div class="wrap">
+    <div class="s-head reveal">
+      <h2 class="h2">La boutique en images</h2>
+      <p>Un aperçu de l'atmosphère unique d'Evolution Bijoux — cliquez sur une image pour l'agrandir.</p>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item reveal" data-src="https://i.ibb.co/KxbTJxCV/Evolution-Bijoux-Noumea-0.jpg">
+        <img src="https://i.ibb.co/KxbTJxCV/Evolution-Bijoux-Noumea-0.jpg" alt="Evolution Bijoux Nouméa — vitrine" loading="lazy">
+      </div>
+      <div class="gal-item reveal" data-src="https://i.ibb.co/QFwnv7kQ/Evolution-Bijoux-Noumea-1.jpg">
+        <img src="https://i.ibb.co/QFwnv7kQ/Evolution-Bijoux-Noumea-1.jpg" alt="Evolution Bijoux — intérieur boutique" loading="lazy">
+      </div>
+      <div class="gal-item reveal" data-src="https://i.ibb.co/mCm78WDD/Evolution-Bijoux-Noumea-2.jpg">
+        <img src="https://i.ibb.co/mCm78WDD/Evolution-Bijoux-Noumea-2.jpg" alt="Evolution Bijoux — bijoux argent et pierres" loading="lazy">
+      </div>
+      <div class="gal-item reveal" data-src="https://i.ibb.co/fG0PfjM2/Evolution-Bijoux-Noumea-3.jpg">
+        <img src="https://i.ibb.co/fG0PfjM2/Evolution-Bijoux-Noumea-3.jpg" alt="Evolution Bijoux — collections" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image agrandie">
+  <button class="lb-cl" id="lb-cl" aria-label="Fermer">&#x2715;</button>
+  <img src="" alt="Vue agrandie" id="lb-img">
+</div>
+
+<!-- FORMULAIRE -->
+<section id="contact">
+  <div class="wrap">
+    <div class="form-wrap">
+      <div class="form-info reveal">
+        <h2 class="h2">Venez nous rendre visite</h2>
+        <p>Notre boutique vous accueille dans une atmosphère unique, loin du bruit de la ville. Que ce soit pour trouver un cadeau, une pièce pour vous-même ou simplement découvrir notre sélection, vous êtes les bienvenus.</p>
+        <div class="f-detail">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>27 Rue de Sebastopol<br>Nouméa 98800, Nouvelle-Calédonie</span>
+        </div>
+        <div class="f-detail">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.72A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.72 6.72l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <a href="tel:+687818625" class="ft-tel" style="margin-top:0">81.86.25</a>
+        </div>
+        <div class="f-detail">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span>Du lundi au samedi<br>Horaires en boutique</span>
+        </div>
+      </div>
+      <div class="f-form reveal">
+        <form id="cform" action="#" novalidate>
+          <div class="fg">
+            <label for="f-nom">Nom complet</label>
+            <input type="text" id="f-nom" name="nom" placeholder="Votre nom" autocomplete="name">
+          </div>
+          <div class="fg">
+            <label for="f-email">Adresse e-mail</label>
+            <input type="email" id="f-email" name="email" placeholder="votre@email.com" autocomplete="email">
+          </div>
+          <div class="fg">
+            <label for="f-tel">Téléphone</label>
+            <input type="tel" id="f-tel" name="tel" placeholder="Votre numéro" autocomplete="tel">
+          </div>
+          <div class="fg">
+            <label for="f-msg">Message</label>
+            <textarea id="f-msg" name="message" placeholder="Une question, une demande particulière…"></textarea>
+          </div>
+          <button type="submit" class="b b-gold b-submit">Envoyer le message</button>
+        </form>
+        <div class="f-success" id="f-ok">
+          Merci, votre message a bien été envoyé !
+          <span>Nous vous répondrons dans les plus brefs délais.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section id="avis">
+  <div class="wrap">
+    <div class="avis-head reveal">
+      <span class="stars">★★★★★</span>
+      <span class="avis-note">5 / 5</span>
+      <span class="avis-sub">Note Google · 3 avis vérifiés</span>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-c reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-txt">"Une boutique hors du commun. Les bijoux en argent sont d'une qualité remarquable et les conseils sont toujours bienveillants. Je recommande chaleureusement à tous les Calédoniens."</p>
+        <span class="testi-auth">— Cliente fidèle, Nouméa</span>
+      </div>
+      <div class="testi-c reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-txt">"J'ai trouvé le cadeau parfait pour l'anniversaire de ma sœur. La sélection de pierres naturelles est vraiment unique à Nouméa. Un endroit où l'on revient avec plaisir."</p>
+        <span class="testi-auth">— Visiteur, Nouvelle-Calédonie</span>
+      </div>
+      <div class="testi-c reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-txt">"L'atmosphère de la boutique est envoûtante. On sent l'amour du travail bien fait. Les bijoux sont beaux, les prix honnêtes et l'accueil sincère. Bravo !"</p>
+        <span class="testi-auth">— Cliente, Nouméa</span>
+      </div>
+    </div>
+    <div class="badges">
+      <div class="badge">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        Note Google 5/5
+      </div>
+      <div class="badge">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        Boutique de caractère
+      </div>
+      <div class="badge">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Accueil personnalisé
+      </div>
+      <div class="badge">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+        Argent &amp; pierres naturelles
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div>
+        <div class="ft-brand">Evolution <span>Bijoux</span></div>
+        <p class="ft-p">Bijouterie artisanale au cœur de Nouméa. Argent massif, pierres naturelles et créations uniques dans une boutique de caractère.</p>
+        <div class="soc">
+          <a href="https://www.facebook.com/p/Evolution-Bijoux-Noum%C3%A9a-100057809013262/?locale=fr_FR" target="_blank" rel="noopener" aria-label="Facebook Evolution Bijoux">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F5F0E8" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <p class="ft-h">Navigation</p>
+        <ul class="ft-links">
+          <li><a href="#services">Nos créations</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#univers">Notre univers</a></li>
+          <li><a href="#avis">Avis clients</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ft-h">Nous trouver</p>
+        <p class="ft-addr">
+          27 Rue de Sebastopol<br>
+          Nouméa 98800<br>
+          Nouvelle-Calédonie
+        </p>
+        <a href="tel:+687818625" class="ft-tel">☎ 81.86.25</a>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <span class="ft-copy">© 2026 Evolution Bijoux Noumea. Tous droits réservés.</span>
+      <span class="ft-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+var hbg=document.getElementById('hbg'),mob=document.getElementById('mob');
+function closeMob(){mob.classList.remove('open')}
+hbg&&hbg.addEventListener('click',function(){mob.classList.toggle('open')});
+
+var lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img');
+document.querySelectorAll('.gal-item').forEach(function(el){
+  el.addEventListener('click',function(){
+    lbImg.src=el.dataset.src||el.querySelector('img').src;
+    lb.classList.add('open');
+  });
+});
+document.getElementById('lb-cl').addEventListener('click',function(){lb.classList.remove('open')});
+lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('open')});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('open')});
+
+var cf=document.getElementById('cform'),fok=document.getElementById('f-ok');
+cf.addEventListener('submit',function(e){
+  e.preventDefault();
+  var ok=true;
+  ['f-nom','f-email','f-msg'].forEach(function(id){
+    var el=document.getElementById(id);
+    el.classList.remove('err');
+    if(!el.value.trim()){el.classList.add('err');ok=false;}
+  });
+  var em=document.getElementById('f-email');
+  if(em.value&&!/\S+@\S+\.\S+/.test(em.value)){em.classList.add('err');ok=false;}
+  if(ok){cf.style.display='none';fok.style.display='block';}
+});
+
+var nums=document.querySelectorAll('.stat-num[data-target]');
+function animNums(entries,obs){
+  entries.forEach(function(en){
+    if(!en.isIntersecting)return;
+    var el=en.target,t=+el.dataset.target,s=0,d=1200,step=16;
+    var ti=setInterval(function(){
+      s+=step;
+      el.textContent=Math.min(Math.round(t*s/d),t);
+      if(s>=d){clearInterval(ti);el.textContent=t;}
+    },step);
+    obs.unobserve(el);
+  });
+}
+if('IntersectionObserver' in window){
+  var no=new IntersectionObserver(animNums,{threshold:0.5});
+  nums.forEach(function(n){no.observe(n);});
+}else{nums.forEach(function(n){n.textContent=n.dataset.target;});}
+
+var revEls=document.querySelectorAll('.reveal');
+if('IntersectionObserver' in window){
+  revEls.forEach(function(el){el.classList.add('hidden');});
+  var ro=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){en.target.classList.remove('hidden');ro.unobserve(en.target);}
+    });
+  },{threshold:0.1});
+  revEls.forEach(function(el){ro.observe(el);});
+}
+</script>
+</body>
+</html>
