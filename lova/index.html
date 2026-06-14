@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lova — Nouméa</title>
+<meta name="description" content="Lova, bijouterie et piercerie à Nouméa, Nouvelle-Calédonie. Découvrez nos collections de bijoux et réservez votre séance de piercing au 37 Rue de Sébastopol.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#C9956A;
+--cs:#D8C0E0;
+--ca:#B07D52;
+--cb:#F7F3F0;
+--ct:#3A2E2E;
+--white:#fff;
+--radius:12px;
+--trans:300ms ease-out;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Cormorant Garamond',Georgia,serif;background:var(--cb);color:var(--ct);overflow-x:hidden;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU PROMO */
+.promo{background:var(--cp);color:var(--white);text-align:center;padding:10px 16px;font-size:14px;font-weight:500;letter-spacing:.5px;z-index:1100;position:relative}
+.promo span{opacity:.85;margin:0 8px}
+
+/* HEADER */
+.hdr{position:sticky;top:0;z-index:1000;background:rgba(247,243,240,.96);backdrop-filter:blur(8px);border-bottom:1px solid rgba(201,149,106,.18);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px;transition:box-shadow var(--trans)}
+.hdr.scrolled{box-shadow:0 2px 20px rgba(201,149,106,.15)}
+.logo{font-size:28px;font-weight:600;color:var(--cp);letter-spacing:2px;animation:sparkle 3s ease-in-out infinite}
+.logo em{font-style:italic;color:var(--ca)}
+.nav{display:flex;gap:28px;list-style:none}
+.nav a{font-size:15px;font-weight:500;color:var(--ct);transition:color var(--trans);position:relative}
+.nav a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--cp);transition:width var(--trans)}
+.nav a:hover{color:var(--cp)}
+.nav a:hover::after{width:100%}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--cp);color:var(--white);border:1.5px solid var(--ca);border-radius:30px;padding:10px 22px;font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;cursor:pointer;transition:background var(--trans),transform var(--trans);min-height:44px;white-space:nowrap}
+.btn:hover{background:var(--ca);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--cp);border:1.5px solid var(--cp)}
+.btn-outline:hover{background:var(--cp);color:var(--white)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.burger span{display:block;width:24px;height:2px;background:var(--ct);border-radius:2px;transition:transform var(--trans),opacity var(--trans)}
+.mob-nav{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--cb);z-index:2000;flex-direction:column;align-items:center;justify-content:center;gap:32px}
+.mob-nav.open{display:flex}
+.mob-nav a{font-size:22px;font-weight:500;color:var(--ct)}
+.mob-nav a:hover{color:var(--cp)}
+.mob-close{position:absolute;top:20px;right:24px;font-size:28px;background:none;border:none;cursor:pointer;color:var(--ct)}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;background:url('https://i.ibb.co/r2mX15Jp/Lova-0.jpg') center/cover no-repeat}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(58,46,46,.62) 0%,rgba(176,125,82,.28) 50%,rgba(216,192,224,.18) 100%)}
+.hero-content{position:relative;z-index:1;max-width:680px;padding:0 24px;margin-left:8%}
+.hero-tag{display:inline-block;background:rgba(201,149,106,.25);border:1px solid rgba(201,149,106,.5);color:var(--white);font-size:13px;letter-spacing:2px;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:20px;backdrop-filter:blur(4px)}
+.h1{font-size:clamp(42px,7vw,80px);font-weight:300;color:var(--white);line-height:1.1;margin-bottom:16px}
+.h1 em{font-style:italic;color:#f0d9c4}
+.hero-sub{font-size:clamp(16px,2.2vw,20px);color:rgba(255,255,255,.88);font-weight:300;margin-bottom:32px;max-width:480px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.hero-btns .btn{font-size:16px;padding:13px 28px}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.7);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;animation:bounce 2s ease-in-out infinite}
+.scroll-arr{width:20px;height:20px;border-right:1.5px solid rgba(255,255,255,.7);border-bottom:1.5px solid rgba(255,255,255,.7);transform:rotate(45deg)}
+
+/* STATS */
+.stats{background:var(--cp);padding:56px 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.stat{text-align:center;padding:16px 8px}
+.stat-n{font-size:clamp(36px,5vw,56px);font-weight:300;color:var(--white);display:block;line-height:1}
+.stat-l{font-size:14px;color:rgba(255,255,255,.85);margin-top:6px;letter-spacing:.5px}
+
+/* ANIMATIONS */
+@keyframes sparkle{0%,100%{opacity:1}50%{opacity:.78}}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+/* REVEAL FALLBACK */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.nav,.hdr .btn{display:none}
+.burger{display:flex}
+.stats{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+.hero-content{margin-left:0;padding:0 16px}
+.hero-btns{flex-direction:column}
+.hero-btns .btn{width:100%}
+.stats{grid-template-columns:repeat(2,1fr);gap:0}
+.stat{padding:20px 8px}
+.hdr{padding:0 16px}
+}
+</style>
+</head>
+<body>
+<div style="background:#ffd500;color:#4375ff;text-align:center;font-family:Manrope,system-ui,-apple-system,sans-serif;font-weight:700;font-size:15px;line-height:1.4;padding:10px 16px;box-shadow:0 2px 10px rgba(0,0,0,.18)">Ce site vous plaît&nbsp;? Activez-le dès <strong style="font-weight:800">4&nbsp;900&nbsp;F HT/mois</strong> &mdash; <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener" style="color:#0d1f3c;text-decoration:underline">Prenez rendez-vous</a></div>
+
+<!-- BANDEAU PROMO -->
+<div class="promo">
+  ✨ Bijouterie &amp; Piercerie à Nouméa <span>·</span> 37 Rue de Sébastopol <span>·</span> <a href="tel:+68751.93.25" style="color:#fff;text-decoration:underline">51.93.25</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr" id="hdr">
+  <a href="#" class="logo">Lov<em>a</em></a>
+  <nav>
+    <ul class="nav">
+      <li><a href="#services">Nos services</a></li>
+      <li><a href="#metier">Notre univers</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#avis">Avis</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <a href="#contact" class="btn" aria-label="Réserver">Réserve ta séance</a>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-nav" id="mob-nav" aria-label="Navigation mobile">
+  <button class="mob-close" id="mob-close" aria-label="Fermer">✕</button>
+  <a href="#services" class="mob-link">Nos services</a>
+  <a href="#metier" class="mob-link">Notre univers</a>
+  <a href="#galerie" class="mob-link">Galerie</a>
+  <a href="#avis" class="mob-link">Avis</a>
+  <a href="#contact" class="mob-link">Contact</a>
+  <a href="#contact" class="btn">Réserve ta séance</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil" aria-label="Accueil Lova">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-tag">✦ Bijouterie · Piercerie · Nouméa</span>
+    <h1 class="h1">L'art de te<br><em>sublimer</em></h1>
+    <p class="hero-sub">Bijoux fins, piercings soignés et une ambiance unique au cœur du Caillou — parce que chaque détail compte.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn">Réserve ta séance de piercing</a>
+      <a href="#services" class="btn btn-outline" style="border-color:rgba(255,255,255,.7);color:#fff">Découvrir la collection</a>
+    </div>
+  </div>
+  <div class="scroll-ind" aria-hidden="true">
+    <span>Explore</span>
+    <div class="scroll-arr"></div>
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<div class="stats" id="stats" aria-label="Chiffres clés">
+  <div class="stat">
+    <span class="stat-n" data-target="500">0</span>
+    <div class="stat-l">Clientes satisfaites</div>
+  </div>
+  <div class="stat">
+    <span class="stat-n" data-target="4">0</span>
+    <div class="stat-l">Note Google ★ sur 5</div>
+  </div>
+  <div class="stat">
+    <span class="stat-n" data-target="100">0</span>
+    <div class="stat-l">Modèles de bijoux</div>
+  </div>
+  <div class="stat">
+    <span class="stat-n" data-target="1">0</span>
+    <div class="stat-l">Adresse à Nouméa</div>
+  </div>
+</div>
+
+<script>
+var hdr=document.getElementById('hdr');
+var burger=document.getElementById('burger');
+var mobNav=document.getElementById('mob-nav');
+var mobClose=document.getElementById('mob-close');
+window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>10)});
+burger.addEventListener('click',function(){mobNav.classList.add('open');burger.setAttribute('aria-expanded','true')});
+mobClose.addEventListener('click',function(){mobNav.classList.remove('open');burger.setAttribute('aria-expanded','false')});
+document.querySelectorAll('.mob-link').forEach(function(l){l.addEventListener('click',function(){mobNav.classList.remove('open');burger.setAttribute('aria-expanded','false')})});
+var counted=false;
+function countUp(){
+if(counted)return;counted=true;
+document.querySelectorAll('[data-target]').forEach(function(el){
+var t=+el.dataset.target,d=1800,s=50,st=Math.ceil(d/s),i=0;
+var tm=setInterval(function(){i++;el.textContent=Math.min(Math.round(t*i/st),t);if(i>=st)clearInterval(tm)},d/st);
+});
+}
+var obs=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting)countUp()})},{threshold:.3});
+obs.observe(document.getElementById('stats'));
+</script>
+<style>
+.s{padding:80px 24px;max-width:1200px;margin:0 auto}
+.s-full{padding:80px 0}
+.s-title{font-size:clamp(32px,4.5vw,52px);font-weight:300;color:var(--ct);text-align:center;margin-bottom:12px}
+.s-title em{font-style:italic;color:var(--cp)}
+.s-sub{text-align:center;color:var(--ct);opacity:.72;font-size:17px;margin-bottom:52px;max-width:520px;margin-left:auto;margin-right:auto}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.c{background:var(--white);border-radius:var(--radius);padding:36px 28px;border-left:3px solid var(--cp);box-shadow:0 4px 24px rgba(216,192,224,.28);transition:transform var(--trans),box-shadow var(--trans)}
+.c:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(201,149,106,.15)}
+.c-icon{width:52px;height:52px;background:linear-gradient(135deg,var(--cp),var(--cs));border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.c-icon svg{width:26px;height:26px;fill:var(--white)}
+.c-title{font-size:20px;font-weight:600;color:var(--ct);margin-bottom:10px}
+.c-desc{font-size:15px;color:var(--ct);opacity:.78;line-height:1.65;margin-bottom:20px}
+.c .btn{font-size:14px;padding:9px 20px}
+.metier-bg{background:linear-gradient(180deg,var(--cb) 0%,rgba(216,192,224,.18) 100%)}
+.alt-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-bottom:64px}
+.alt-row:nth-child(even){direction:rtl}
+.alt-row>*{direction:ltr}
+.alt-img{border-radius:var(--radius);overflow:hidden;box-shadow:0 8px 40px rgba(201,149,106,.18)}
+.alt-img img{width:100%;height:340px;object-fit:cover;transition:transform .5s ease-out}
+.alt-img:hover img{transform:scale(1.04)}
+.alt-body{}
+.alt-tag{display:inline-block;background:rgba(201,149,106,.12);color:var(--ca);font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:16px}
+.alt-h{font-size:clamp(26px,3.5vw,38px);font-weight:300;color:var(--ct);line-height:1.2;margin-bottom:16px}
+.alt-h em{font-style:italic;color:var(--cp)}
+.alt-p{font-size:16px;color:var(--ct);opacity:.78;line-height:1.7;margin-bottom:24px}
+.checks{list-style:none;display:flex;flex-direction:column;gap:10px}
+.checks li{display:flex;align-items:center;gap:10px;font-size:15px;color:var(--ct)}
+.checks li::before{content:'✦';color:var(--cp);font-size:13px;flex-shrink:0}
+.gal-bg{background:var(--cb)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:0 24px;max-width:1200px;margin:0 auto}
+.gal-item{border-radius:10px;overflow:hidden;cursor:pointer;position:relative}
+.gal-item img{width:100%;height:220px;object-fit:cover;transition:transform var(--trans)}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-item::after{content:'🔍';position:absolute;inset:0;background:rgba(58,46,46,.35);display:flex;align-items:center;justify-content:center;font-size:28px;opacity:0;transition:opacity var(--trans)}
+.gal-item:hover::after{opacity:1}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(10,8,8,.88);z-index:3000;align-items:center;justify-content:center}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:88vh;border-radius:10px;object-fit:contain}
+.lb-close{position:absolute;top:20px;right:28px;font-size:36px;color:var(--white);cursor:pointer;background:none;border:none;line-height:1}
+.form-bg{background:linear-gradient(135deg,rgba(201,149,106,.08),rgba(216,192,224,.18))}
+.form-wrap{max-width:640px;margin:0 auto;background:var(--white);border-radius:var(--radius);padding:48px 40px;box-shadow:0 8px 40px rgba(201,149,106,.12)}
+.fg{display:flex;flex-direction:column;gap:20px}
+.fi label{display:block;font-size:14px;font-weight:600;color:var(--ct);margin-bottom:7px;letter-spacing:.3px}
+.fi input,.fi textarea{width:100%;font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--ct);background:var(--cb);border:1.5px solid rgba(201,149,106,.3);border-radius:8px;padding:12px 16px;outline:none;transition:border-color var(--trans)}
+.fi input:focus,.fi textarea:focus{border-color:var(--cp)}
+.fi textarea{resize:vertical;min-height:120px}
+.fi.err input,.fi.err textarea{border-color:#d9534f}
+.fi .ferr{font-size:13px;color:#d9534f;margin-top:4px;display:none}
+.fi.err .ferr{display:block}
+.form-success{display:none;text-align:center;padding:40px 0}
+.form-success-ico{font-size:52px;margin-bottom:16px}
+.form-success h3{font-size:24px;color:var(--cp);margin-bottom:8px}
+.form-success p{color:var(--ct);opacity:.75}
+.avis-bg{background:var(--cb)}
+.stars{color:var(--cp);font-size:22px;letter-spacing:2px;margin-bottom:4px}
+.score-big{font-size:72px;font-weight:300;color:var(--cp);line-height:1}
+.score-label{font-size:14px;color:var(--ct);opacity:.65;margin-top:6px}
+.avis-grid{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:start;max-width:900px;margin:0 auto}
+.avis-score{text-align:center;padding:32px;background:var(--white);border-radius:var(--radius);border-left:3px solid var(--cp);box-shadow:0 4px 24px rgba(216,192,224,.28)}
+.testi{background:var(--white);border-radius:var(--radius);padding:28px;border-left:3px solid var(--cs);box-shadow:0 4px 24px rgba(216,192,224,.2);margin-bottom:20px}
+.testi-stars{color:var(--cp);font-size:16px;margin-bottom:10px}
+.testi-txt{font-size:16px;font-style:italic;color:var(--ct);opacity:.82;line-height:1.6;margin-bottom:12px}
+.testi-auth{font-size:14px;font-weight:600;color:var(--ca)}
+.badges{display:flex;gap:16px;flex-wrap:wrap;margin-top:32px;justify-content:center}
+.badge{display:flex;align-items:center;gap:10px;background:var(--white);border:1.5px solid rgba(201,149,106,.25);border-radius:30px;padding:10px 20px;font-size:14px;font-weight:600;color:var(--ct)}
+.badge svg{width:20px;height:20px;flex-shrink:0}
+.ftr{background:var(--cp);color:var(--white);padding:56px 24px 28px}
+.ftr-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.ftr-brand .logo{color:var(--white);margin-bottom:14px;display:block;font-size:26px}
+.ftr-brand p{font-size:15px;color:rgba(255,255,255,.8);line-height:1.7}
+.ftr-h{font-size:16px;font-weight:600;margin-bottom:16px;letter-spacing:.5px}
+.ftr ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ftr ul a{font-size:15px;color:rgba(255,255,255,.8);transition:color var(--trans)}
+.ftr ul a:hover{color:var(--white)}
+.ftr-tel{display:inline-block;color:var(--white);font-size:18px;font-weight:600;margin-bottom:12px;transition:opacity var(--trans)}
+.ftr-tel:hover{opacity:.8}
+.soc{display:flex;gap:14px;margin-top:14px}
+.soc a{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;transition:background var(--trans)}
+.soc a:hover{background:rgba(255,255,255,.35)}
+.soc svg{width:20px;height:20px;fill:var(--white)}
+.ftr-bot{max-width:1100px;margin:0 auto;border-top:1px solid rgba(255,255,255,.2);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:gap;font-size:13px;color:rgba(255,255,255,.7)}
+.ftr-bot a{color:rgba(255,255,255,.9);text-decoration:underline}
+@media(max-width:900px){
+.grid3{grid-template-columns:1fr}
+.alt-row{grid-template-columns:1fr}
+.alt-row:nth-child(even){direction:ltr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.avis-grid{grid-template-columns:1fr}
+.ftr-inner{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+.s{padding:56px 16px}
+.s-full{padding:56px 0}
+.form-wrap{padding:28px 16px}
+.gal-grid{grid-template-columns:repeat(2,1fr);padding:0 16px}
+.gal-item img{height:160px}
+.ftr{padding:40px 16px 24px}
+.ftr-bot{flex-direction:column;gap:10px;text-align:center}
+.avis-score{padding:24px}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s" id="services" aria-label="Nos services">
+  <h2 class="s-title">Ce qu'on fait <em>pour toi</em></h2>
+  <p class="s-sub">De la pose de piercing aux bijoux fins, Lova t'accompagne pour chaque étape de ton style.</p>
+  <div class="grid3">
+    <div class="c">
+      <div class="c-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a5 5 0 1 1 0 10A5 5 0 0 1 12 2zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm-7 16c0-3.87 3.13-7 7-7s7 3.13 7 7H5z"/></svg>
+      </div>
+      <div class="c-title">Pose de piercing</div>
+      <p class="c-desc">Un geste précis, du matériel stérilisé et une main experte pour chaque piercing — oreilles, nez, nombril et plus encore.</p>
+      <a href="#contact" class="btn">Réserve ta séance</a>
+    </div>
+    <div class="c">
+      <div class="c-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 22C6.49 22 2 17.51 2 12S6.49 2 12 2s10 4.49 10 10-4.49 10-10 10zm0-18c-4.41 0-8 3.59-8 8s3.59 8 8 8 8-3.59 8-8-3.59-8-8-8zm1 13h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+      </div>
+      <div class="c-title">Bijoux &amp; accessoires</div>
+      <p class="c-desc">Une sélection de bijoux soigneusement choisis — anneaux, pierres, dorures — pour sublimer chaque look du quotidien.</p>
+      <a href="#galerie" class="btn">Voir la galerie</a>
+    </div>
+    <div class="c">
+      <div class="c-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      <div class="c-title">Conseils personnalisés</div>
+      <p class="c-desc">Pas sûre de ton choix ? On t'aide à trouver le piercing ou bijou qui te correspond vraiment, selon ton style et ta morphologie.</p>
+      <a href="#contact" class="btn">Nous contacter</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s-full metier-bg" id="metier" aria-label="Notre univers">
+  <div class="s">
+    <h2 class="s-title">L'univers <em>Lova</em></h2>
+    <p class="s-sub">Un espace pensé pour toi, où beauté rime avec bienveillance.</p>
+    <div class="alt-row">
+      <div class="alt-img">
+        <img src="https://i.ibb.co/gLN8P170/Lova-1.jpg" alt="Bijoux Lova Nouméa" loading="lazy">
+      </div>
+      <div class="alt-body">
+        <span class="alt-tag">Notre promesse</span>
+        <h3 class="alt-h">Un soin que tu <em>mérites</em></h3>
+        <p class="alt-p">Chez Lova, chaque cliente est unique. On prend le temps d'écouter, de conseiller et de créer un moment rien qu'à toi — loin du stress, dans une ambiance chaleureuse au cœur de Nouméa.</p>
+        <ul class="checks">
+          <li>Matériel professionnel et stérilisé</li>
+          <li>Bijoux de qualité soigneusement sélectionnés</li>
+          <li>Ambiance douce et bienveillante</li>
+          <li>Conseils post-soin inclus</li>
+        </ul>
+      </div>
+    </div>
+    <div class="alt-row">
+      <div class="alt-img">
+        <img src="https://i.ibb.co/mCRmhcsh/Lova-3.jpg" alt="Piercerie Lova Nouvelle-Calédonie" loading="lazy">
+      </div>
+      <div class="alt-body">
+        <span class="alt-tag">Notre adresse</span>
+        <h3 class="alt-h">Au cœur de <em>Nouméa</em></h3>
+        <p class="alt-p">Retrouve-nous au 37 Rue de Sébastopol, à deux pas du centre-ville. Un endroit facile d'accès, une équipe qui t'accueille avec le sourire.</p>
+        <ul class="checks">
+          <li>Adresse centrale, facile d'accès</li>
+          <li>Rendez-vous sur mesure</li>
+          <li>Ambiance girly et lumineuse</li>
+          <li>Pour toutes les morphologies et tous les styles</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s-full gal-bg" id="galerie" aria-label="Galerie photos">
+  <div class="s">
+    <h2 class="s-title">Notre <em>galerie</em></h2>
+    <p class="s-sub">Quelques instants capturés pour te donner envie de pousser la porte.</p>
+  </div>
+  <div class="gal-grid">
+    <div class="gal-item" role="button" tabindex="0" aria-label="Ouvrir photo 1" data-src="https://i.ibb.co/r2mX15Jp/Lova-0.jpg">
+      <img src="https://i.ibb.co/r2mX15Jp/Lova-0.jpg" alt="Lova bijoux Nouméa 1" loading="lazy">
+    </div>
+    <div class="gal-item" role="button" tabindex="0" aria-label="Ouvrir photo 2" data-src="https://i.ibb.co/gLN8P170/Lova-1.jpg">
+      <img src="https://i.ibb.co/gLN8P170/Lova-1.jpg" alt="Lova bijoux Nouméa 2" loading="lazy">
+    </div>
+    <div class="gal-item" role="button" tabindex="0" aria-label="Ouvrir photo 3" data-src="https://i.ibb.co/XfP9pSSc/Lova-2.jpg">
+      <img src="https://i.ibb.co/XfP9pSSc/Lova-2.jpg" alt="Lova piercing Nouméa 3" loading="lazy">
+    </div>
+    <div class="gal-item" role="button" tabindex="0" aria-label="Ouvrir photo 4" data-src="https://i.ibb.co/mCRmhcsh/Lova-3.jpg">
+      <img src="https://i.ibb.co/mCRmhcsh/Lova-3.jpg" alt="Lova piercing Nouméa 4" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lb" role="dialog" aria-modal="true" aria-label="Aperçu photo">
+  <button class="lb-close" id="lb-close" aria-label="Fermer">✕</button>
+  <img class="lb-img" id="lb-img" src="" alt="Aperçu agrandi">
+</div>
+
+<!-- FORMULAIRE -->
+<section class="s-full form-bg" id="contact" aria-label="Formulaire de contact">
+  <div class="s">
+    <h2 class="s-title">Réserve ta <em>séance</em></h2>
+    <p class="s-sub">Une question, une envie ? Écris-nous et on te répond rapidement.</p>
+    <div class="form-wrap">
+      <div class="form-success" id="form-ok">
+        <div class="form-success-ico">✨</div>
+        <h3>Message envoyé !</h3>
+        <p>Merci, on revient vers toi très vite. À bientôt chez Lova !</p>
+      </div>
+      <form class="fg" id="cform" novalidate>
+        <div class="fi" id="fi-nom">
+          <label for="f-nom">Ton prénom</label>
+          <input type="text" id="f-nom" name="nom" placeholder="Ex : Maeva" autocomplete="given-name">
+          <span class="ferr">Ce champ est requis.</span>
+        </div>
+        <div class="fi" id="fi-email">
+          <label for="f-email">Ton e-mail</label>
+          <input type="email" id="f-email" name="email" placeholder="ton@email.com" autocomplete="email">
+          <span class="ferr">Adresse e-mail invalide.</span>
+        </div>
+        <div class="fi" id="fi-tel">
+          <label for="f-tel">Ton téléphone</label>
+          <input type="tel" id="f-tel" name="tel" placeholder="Ex : 75 00 00" autocomplete="tel">
+          <span class="ferr">Ce champ est requis.</span>
+        </div>
+        <div class="fi" id="fi-msg">
+          <label for="f-msg">Ton message</label>
+          <textarea id="f-msg" name="message" placeholder="Dis-nous ce que tu voudrais faire…"></textarea>
+          <span class="ferr">Ce champ est requis.</span>
+        </div>
+        <button type="submit" class="btn" style="">Envoyer ma demande ✦</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s avis-bg" id="avis" aria-label="Avis clients">
+  <h2 class="s-title">Ce qu'elles <em>disent</em></h2>
+  <p class="s-sub">La confiance de nos clientes est notre plus belle récompense.</p>
+  <div class="avis-grid">
+    <div class="avis-score">
+      <div class="score-big">4</div>
+      <div class="stars">★★★★☆</div>
+      <div class="score-label">sur 5 · Google Avis</div>
+    </div>
+    <div>
+      <div class="testi">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-txt">« Accueil super sympa, piercing fait dans de super conditions. Je recommande vraiment ! »</p>
+        <span class="testi-auth">— Cliente Lova, Nouméa</span>
+      </div>
+      <div class="badges">
+        <div class="badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C9956A" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Matériel stérilisé
+        </div>
+        <div class="badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C9956A" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          Soins personnalisés
+        </div>
+        <div class="badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C9956A" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg>
+          Équipe bienveillante
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ftr" id="footer" aria-label="Pied de page">
+  <div class="ftr-inner">
+    <div class="ftr-brand">
+      <span class="logo">Lova</span>
+      <p>Bijouterie &amp; Piercerie au cœur de Nouméa. Un univers féminin, chaleureux et accessible — pour toutes celles qui aiment se sublimer.</p>
+      <div class="soc">
+        <a href="https://www.facebook.com/Lovapiercing" target="_blank" rel="noopener" aria-label="Facebook Lova">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="ftr-h">Navigation</div>
+      <ul>
+        <li><a href="#services">Nos services</a></li>
+        <li><a href="#metier">Notre univers</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#avis">Avis clients</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="ftr-h">Nous trouver</div>
+      <p style="font-size:15px;color:rgba(255,255,255,.8);line-height:1.7;margin-bottom:14px">37 Rue de Sébastopol<br>Nouméa 98800<br>Nouvelle-Calédonie</p>
+      <a href="tel:+68751.93.25" class="ftr-tel">📞 51.93.25</a>
+      <ul>
+        <li><a href="https://www.facebook.com/Lovapiercing" target="_blank" rel="noopener">Page Facebook</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ftr-bot">
+    <span>© 2026 Lova. Tous droits réservés.</span>
+    <a href="https://setup.nc" target="_blank" rel="noopener">Site réalisé par Setup NC</a>
+  </div>
+</footer>
+
+<script>
+var lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img'),lbClose=document.getElementById('lb-close');
+document.querySelectorAll('.gal-item').forEach(function(el){
+  el.addEventListener('click',function(){lbImg.src=el.dataset.src;lb.classList.add('open')});
+  el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){lbImg.src=el.dataset.src;lb.classList.add('open')}});
+});
+lbClose.addEventListener('click',function(){lb.classList.remove('open');lbImg.src=''});
+lb.addEventListener('click',function(e){if(e.target===lb){lb.classList.remove('open');lbImg.src=''}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('open')});
+var form=document.getElementById('cform'),formOk=document.getElementById('form-ok');
+form.addEventListener('submit',function(e){
+  e.preventDefault();
+  var ok=true;
+  [{id:'fi-nom',inp:'f-nom',type:'req'},{id:'fi-email',inp:'f-email',type:'email'},{id:'fi-tel',inp:'f-tel',type:'req'},{id:'fi-msg',inp:'f-msg',type:'req'}].forEach(function(f){
+    var fi=document.getElementById(f.id),v=document.getElementById(f.inp).value.trim();
+    var valid=f.type==='email'?/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v):v.length>0;
+    fi.classList.toggle('err',!valid);
+    if(!valid)ok=false;
+  });
+  if(ok){form.style.display='none';formOk.style.display='block'}
+});
+document.querySelectorAll('#cform input,#cform textarea').forEach(function(inp){
+  inp.addEventListener('input',function(){inp.closest('.fi').classList.remove('err')});
+});
+window.addEventListener('scroll',function(){document.getElementById('hdr').classList.toggle('scrolled',window.scrollY>10)});
+</script>
+</body>
+</html>
