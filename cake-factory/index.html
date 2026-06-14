@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cake factory — Nouméa</title>
+<meta name="description" content="Biscuiterie artisanale à Nouméa, Nouvelle-Calédonie. Pâtisseries et biscuits faits maison avec passion, dans la tradition du savoir-faire artisanal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#3D4F63;
+--cs:#C4854A;
+--ca:#C4854A;
+--ct:#2B3A4A;
+--cb:#F5F0EA;
+--cw:#fff;
+--r:.4rem;
+--tr:0.3s ease-out;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Playfair Display',serif;background:var(--cb);color:var(--ct);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+
+/* BANDEAU */
+.promo{background:var(--cs);color:var(--cw);text-align:center;padding:.55rem 1rem;font-size:.85rem;letter-spacing:.04em;position:relative;z-index:1100}
+
+/* HEADER */
+.nav{position:sticky;top:0;z-index:1000;background:var(--cp);display:flex;align-items:center;justify-content:space-between;padding:.9rem 2rem;gap:1rem}
+.nav-logo{font-size:1.3rem;font-weight:700;color:var(--cw);letter-spacing:.05em;white-space:nowrap}
+.nav-logo span{color:var(--cs)}
+.nav-links{display:flex;align-items:center;gap:1.6rem}
+.nav-links a{color:rgba(255,255,255,.85);font-size:.88rem;letter-spacing:.03em;transition:color var(--tr)}
+.nav-links a:hover{color:var(--cs)}
+.nav-cta{background:var(--cs);color:var(--cw);padding:.55rem 1.3rem;border-radius:var(--r);font-size:.88rem;font-weight:600;white-space:nowrap;transition:box-shadow var(--tr),transform var(--tr)}
+.nav-cta:hover{box-shadow:0 0 14px rgba(196,133,74,.55);transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.3rem}
+.hamburger span{width:22px;height:2px;background:var(--cw);border-radius:2px;transition:transform var(--tr),opacity var(--tr)}
+.mob-menu{display:none;flex-direction:column;background:var(--cp);padding:1rem 2rem 1.4rem;gap:.9rem;border-top:1px solid rgba(255,255,255,.1)}
+.mob-menu a{color:rgba(255,255,255,.85);font-size:1rem;padding:.3rem 0;transition:color var(--tr)}
+.mob-menu a:hover{color:var(--cs)}
+.mob-menu .nav-cta{text-align:center;margin-top:.3rem}
+.mob-menu.open{display:flex}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('https://i.ibb.co/Z57J4km/Cake-factory-0.jpg') center/cover no-repeat}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(61,79,99,.78) 0%,rgba(43,58,74,.55) 60%,rgba(196,133,74,.18) 100%)}
+.hero-inner{position:relative;z-index:2;text-align:center;padding:2rem 1.2rem;max-width:800px}
+.hero-tag{display:inline-block;background:rgba(196,133,74,.25);border:1px solid rgba(196,133,74,.6);color:var(--cs);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;padding:.38rem .9rem;border-radius:20px;margin-bottom:1.3rem}
+.hero h1{font-size:clamp(2rem,5.5vw,3.8rem);color:var(--cw);line-height:1.18;margin-bottom:1.1rem;font-weight:700}
+.hero h1 em{color:var(--cs);font-style:italic}
+.hero-sub{font-size:clamp(.95rem,2.2vw,1.18rem);color:rgba(255,255,255,.88);max-width:560px;margin:0 auto 2rem;line-height:1.7}
+.hero-btns{display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center}
+.btn-p{background:var(--cs);color:var(--cw);padding:.75rem 1.8rem;border-radius:var(--r);font-size:.95rem;font-weight:600;transition:box-shadow var(--tr),transform var(--tr)}
+.btn-p:hover{box-shadow:0 0 18px rgba(196,133,74,.65);transform:translateY(-2px)}
+.btn-s{background:transparent;color:var(--cw);padding:.73rem 1.8rem;border-radius:var(--r);font-size:.95rem;font-weight:600;border:2px solid rgba(255,255,255,.7);transition:border-color var(--tr),background var(--tr)}
+.btn-s:hover{border-color:var(--cs);background:rgba(196,133,74,.12)}
+.scroll-ind{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;color:rgba(255,255,255,.6);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;z-index:2}
+.scroll-ind::before{content:'';width:1px;height:36px;background:linear-gradient(to bottom,transparent,rgba(196,133,74,.8))}
+.scroll-ind::after{content:'';width:8px;height:8px;border-right:2px solid var(--cs);border-bottom:2px solid var(--cs);transform:rotate(45deg)}
+
+/* STATS */
+.stats{background:var(--cp);padding:4rem 2rem}
+.stats-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;text-align:center}
+.stat-item{padding:1.2rem .5rem}
+.stat-num{font-size:clamp(2rem,4vw,2.8rem);font-weight:700;color:var(--cs);line-height:1;margin-bottom:.5rem}
+.stat-label{font-size:.82rem;color:rgba(255,255,255,.75);letter-spacing:.06em;text-transform:uppercase;line-height:1.4}
+.stat-sep{width:30px;height:2px;background:linear-gradient(to right,var(--cs),transparent);margin:.65rem auto 0}
+
+/* FALLBACK REVEAL */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:700px){
+.nav-links,.nav-cta{display:none}
+.hamburger{display:flex}
+.nav{padding:.8rem 1.2rem}
+}
+@media(max-width:480px){
+.hero-btns .btn-p,.hero-btns .btn-s{width:100%;text-align:center}
+.stats{padding:2.5rem 1rem}
+.stats-grid{grid-template-columns:repeat(2,1fr);gap:1rem}
+.stat-num{font-size:1.9rem}
+}
+</style>
+</head>
+<body>
+<div style="background:#ffd500;color:#4375ff;text-align:center;font-family:Manrope,system-ui,-apple-system,sans-serif;font-weight:700;font-size:15px;line-height:1.4;padding:10px 16px;box-shadow:0 2px 10px rgba(0,0,0,.18)">Ce site vous plaît&nbsp;? Activez-le dès <strong style="font-weight:800">4&nbsp;900&nbsp;F HT/mois</strong> &mdash; <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener" style="color:#0d1f3c;text-decoration:underline">Prenez rendez-vous</a></div>
+
+<!-- BANDEAU PROMO -->
+<div class="promo">🍪 Biscuiterie artisanale à Nouméa — commandez par téléphone : <a href="tel:+68725.97.46" style="color:#fff;font-weight:700;text-decoration:underline">25.97.46</a></div>
+
+<!-- HEADER -->
+<header class="nav" id="top">
+  <a href="#top" class="nav-logo">Cake<span>Factory</span></a>
+  <nav class="nav-links">
+    <a href="#services">Nos produits</a>
+    <a href="#metier">Notre métier</a>
+    <a href="#galerie">Galerie</a>
+    <a href="#temoignages">Avis</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a href="tel:+68725.97.46" class="nav-cta">📞 25.97.46</a>
+  <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+<nav class="mob-menu" id="mobMenu">
+  <a href="#services" onclick="toggleMenu()">Nos produits</a>
+  <a href="#metier" onclick="toggleMenu()">Notre métier</a>
+  <a href="#galerie" onclick="toggleMenu()">Galerie</a>
+  <a href="#temoignages" onclick="toggleMenu()">Avis</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <a href="tel:+68725.97.46" class="nav-cta">📞 25.97.46</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">Biscuiterie artisanale · Nouméa</div>
+    <h1>Saveurs Authentiques<br>de <em>Nouvelle-Calédonie</em></h1>
+    <p class="hero-sub">Des biscuits et pâtisseries faits avec soin, pétris à la main chaque jour, pour les gourmands d'ici et d'ailleurs.</p>
+    <div class="hero-btns">
+      <a href="#galerie" class="btn-p">Découvrir nos créations</a>
+      <a href="#contact" class="btn-s">Nous contacter</a>
+    </div>
+  </div>
+  <div class="scroll-ind">Défiler</div>
+</section>
+
+<!-- BANDE STATS -->
+<section class="stats" id="stats">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-num" data-target="100">0</div>
+      <div class="stat-label">% artisanal</div>
+      <div class="stat-sep"></div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="5">0</div>
+      <div class="stat-label">étoiles Google</div>
+      <div class="stat-sep"></div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="7">0</div>
+      <div class="stat-label">jours sur 7</div>
+      <div class="stat-sep"></div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="1">0</div>
+      <div class="stat-label">adresse à Nouméa</div>
+      <div class="stat-sep"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+function toggleMenu(){document.getElementById('mobMenu').classList.toggle('open')}
+(function(){
+  var nums=document.querySelectorAll('[data-target]');
+  var done=false;
+  function run(){
+    if(done)return;
+    done=true;
+    nums.forEach(function(el){
+      var t=+el.getAttribute('data-target'),s=0,d=t>50?40:t>10?60:80;
+      var i=setInterval(function(){
+        s+=Math.ceil(t/20);
+        if(s>=t){s=t;clearInterval(i)}
+        el.textContent=s;
+      },d);
+    });
+  }
+  var ob=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)run()})},{threshold:.4});
+  var sec=document.querySelector('.stats');
+  if(sec)ob.observe(sec);
+})();
+</script>
+<style>
+.s{padding:5rem 2rem}
+.s-alt{background:var(--cb)}
+.s-dark{background:var(--cp)}
+.s-title{text-align:center;margin-bottom:3rem}
+.s-title h2{font-size:clamp(1.6rem,3.5vw,2.4rem);color:var(--cp);margin-bottom:.6rem}
+.s-title p{color:var(--ct);opacity:.75;font-size:.95rem;max-width:520px;margin:0 auto}
+.s-title .line{width:48px;height:3px;background:var(--cs);margin:.8rem auto 0;border-radius:2px}
+.s-dark .s-title h2{color:var(--cw)}
+.s-dark .s-title p{color:rgba(255,255,255,.7)}
+
+/* SERVICES */
+.srv-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem}
+.srv-card{background:var(--cw);border-radius:.6rem;padding:2rem 1.5rem;text-align:center;transition:transform var(--tr),box-shadow var(--tr);box-shadow:0 2px 12px rgba(61,79,99,.08)}
+.srv-card:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(61,79,99,.14)}
+.srv-icon{width:56px;height:56px;margin:0 auto 1.1rem;background:rgba(196,133,74,.12);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.srv-icon svg{width:28px;height:28px;stroke:var(--cs);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.srv-card h3{font-size:1.1rem;color:var(--cp);margin-bottom:.55rem}
+.srv-card p{font-size:.88rem;color:var(--ct);opacity:.8;line-height:1.65}
+.srv-card .btn-p{display:inline-block;margin-top:1.1rem;font-size:.82rem;padding:.52rem 1.2rem}
+
+/* METIER */
+.metier-wrap{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.metier-img{border-radius:.6rem;overflow:hidden;box-shadow:0 8px 32px rgba(61,79,99,.18)}
+.metier-img img{width:100%;height:420px;object-fit:cover;transition:transform var(--tr)}
+.metier-img:hover img{transform:scale(1.03)}
+.metier-txt h2{font-size:clamp(1.5rem,3vw,2.2rem);color:var(--cp);margin-bottom:1rem}
+.metier-txt p{font-size:.95rem;color:var(--ct);line-height:1.8;margin-bottom:1.2rem;opacity:.88}
+.check-list{display:flex;flex-direction:column;gap:.65rem;margin-top:.5rem}
+.check-list li{display:flex;align-items:flex-start;gap:.7rem;font-size:.9rem;color:var(--ct)}
+.check-list li svg{flex-shrink:0;margin-top:.15rem;width:18px;height:18px;stroke:var(--cs);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* GALERIE */
+.gal-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.gal-item{border-radius:.5rem;overflow:hidden;cursor:pointer;position:relative;aspect-ratio:1}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform var(--tr)}
+.gal-item::after{content:'';position:absolute;inset:0;background:rgba(61,79,99,.15);opacity:0;transition:opacity var(--tr)}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-item:hover::after{opacity:1}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(43,58,74,.93);z-index:2000;align-items:center;justify-content:center;padding:1.5rem}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:88vh;border-radius:.5rem;object-fit:contain;box-shadow:0 12px 48px rgba(0,0,0,.5)}
+.lb-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;color:var(--cw);font-size:2rem;cursor:pointer;line-height:1;transition:color var(--tr)}
+.lb-close:hover{color:var(--cs)}
+
+/* FORMULAIRE */
+.form-wrap{max-width:680px;margin:0 auto;background:var(--cw);border-radius:.7rem;padding:2.5rem 2rem;box-shadow:0 4px 24px rgba(61,79,99,.1)}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.f-group{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1rem}
+.f-group label{font-size:.82rem;color:var(--cp);font-weight:600;letter-spacing:.03em}
+.f-group input,.f-group textarea{background:#f8f5f0;border:1.5px solid #e0d8ce;border-radius:var(--r);padding:.7rem .9rem;font-family:'Playfair Display',serif;font-size:.92rem;color:var(--ct);outline:none;transition:border-color var(--tr)}
+.f-group input:focus,.f-group textarea:focus{border-color:var(--cs)}
+.f-group textarea{resize:vertical;min-height:110px}
+.f-err{font-size:.76rem;color:#c0392b;display:none}
+.f-err.show{display:block}
+.btn-submit{width:100%;background:var(--cs);color:var(--cw);border:none;padding:.85rem;border-radius:var(--r);font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;cursor:pointer;transition:box-shadow var(--tr),transform var(--tr)}
+.btn-submit:hover{box-shadow:0 0 18px rgba(196,133,74,.55);transform:translateY(-1px)}
+.f-success{display:none;text-align:center;padding:1.5rem;color:var(--cp)}
+.f-success.show{display:block}
+.f-success h3{font-size:1.2rem;margin-bottom:.4rem}
+.f-success p{font-size:.9rem;opacity:.8}
+
+/* PREUVE SOCIALE */
+.social-proof{background:var(--cb)}
+.stars{color:var(--cs);font-size:1.5rem;letter-spacing:.1em;margin-bottom:.4rem}
+.rating-block{text-align:center;margin-bottom:3rem}
+.rating-num{font-size:3.5rem;font-weight:700;color:var(--cp);line-height:1}
+.rating-label{font-size:.82rem;color:var(--ct);opacity:.7;margin-top:.3rem;letter-spacing:.06em;text-transform:uppercase}
+.testi-grid{max-width:900px;margin:0 auto 2.5rem;display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.testi-card{background:var(--cw);border-radius:.6rem;padding:1.6rem 1.4rem;box-shadow:0 2px 14px rgba(61,79,99,.08)}
+.testi-name{font-weight:700;color:var(--cp);font-size:.92rem;margin-bottom:.25rem}
+.testi-txt{font-size:.88rem;color:var(--ct);line-height:1.65;opacity:.85;font-style:italic}
+.testi-stars{font-size:.9rem;color:var(--cs);margin-bottom:.5rem}
+.badges{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;max-width:700px;margin:0 auto}
+.badge{background:var(--cp);color:var(--cw);border-radius:20px;padding:.45rem 1.1rem;font-size:.78rem;letter-spacing:.05em;display:flex;align-items:center;gap:.5rem}
+.badge svg{width:16px;height:16px;fill:var(--cs);flex-shrink:0}
+
+/* FOOTER */
+.footer{background:var(--cp);color:rgba(255,255,255,.85);padding:3.5rem 2rem 1.5rem}
+.footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem}
+.footer h4{color:var(--cw);font-size:1rem;margin-bottom:1rem;letter-spacing:.04em}
+.footer p,.footer address{font-size:.86rem;line-height:1.75;font-style:normal}
+.footer a{color:rgba(255,255,255,.75);transition:color var(--tr)}
+.footer a:hover{color:var(--cs)}
+.footer-nav{display:flex;flex-direction:column;gap:.5rem}
+.footer-nav a{font-size:.86rem}
+.soc-links{display:flex;gap:1rem;margin-top:.8rem}
+.soc-links a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;background:rgba(255,255,255,.1);border-radius:50%;transition:background var(--tr)}
+.soc-links a:hover{background:var(--cs)}
+.soc-links svg{width:20px;height:20px;fill:var(--cw)}
+.footer-bottom{max-width:1100px;margin:0 auto;border-top:1px solid rgba(255,255,255,.12);padding-top:1.2rem;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.6rem;font-size:.78rem;color:rgba(255,255,255,.5)}
+.footer-bottom a{color:rgba(255,255,255,.5)}
+.footer-bottom a:hover{color:var(--cs)}
+
+@media(max-width:900px){
+.srv-grid{grid-template-columns:repeat(2,1fr)}
+.metier-wrap{grid-template-columns:1fr}
+.metier-img{order:-1}
+.metier-img img{height:280px}
+.testi-grid{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+.srv-grid{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.f-row{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr}
+.s{padding:3rem 1rem}
+.form-wrap{padding:1.6rem 1rem}
+.footer{padding:2.5rem 1rem 1.2rem}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s s-alt" id="services">
+  <div class="s-title">
+    <h2>Nos Créations Artisanales</h2>
+    <p>Chaque produit est préparé avec soin, à Nouméa, selon des recettes transmises avec passion.</p>
+    <div class="line"></div>
+  </div>
+  <div class="srv-grid">
+    <div class="srv-card">
+      <div class="srv-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12h8M12 8v8"/></svg>
+      </div>
+      <h3>Biscuits Maison</h3>
+      <p>Croquants, dorés, généreux — nos biscuits sont façonnés à la main chaque matin, avec des ingrédients soigneusement sélectionnés.</p>
+      <a href="#contact" class="btn-p">Commander</a>
+    </div>
+    <div class="srv-card">
+      <div class="srv-icon">
+        <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+      </div>
+      <h3>Gâteaux & Pâtisseries</h3>
+      <p>Des pâtisseries généreuses pour vos moments gourmands, préparées avec une pâte travaillée avec amour, sans compromis sur la qualité.</p>
+      <a href="#contact" class="btn-p">Commander</a>
+    </div>
+    <div class="srv-card">
+      <div class="srv-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      </div>
+      <h3>Commandes Personnalisées</h3>
+      <p>Anniversaires, fêtes, événements d'entreprise — nous créons des douceurs sur mesure pour vos occasions les plus précieuses.</p>
+      <a href="#contact" class="btn-p">Nous écrire</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION METIER -->
+<section class="s" id="metier" style="">
+  <div class="metier-wrap">
+    <div class="metier-img">
+      <img src="https://i.ibb.co/nsV0pPHC/Cake-factory-1.jpg" alt="Artisan boulanger Cake Factory Nouméa" loading="lazy">
+    </div>
+    <div class="metier-txt">
+      <h2>Un Savoir-Faire Ancré à Nouméa</h2>
+      <p>Chez Cake Factory, chaque fournée raconte quelque chose de simple et d'essentiel : le respect des bons ingrédients, le geste précis, et la fierté de partager une gourmandise authentique avec les habitants de Nouméa.</p>
+      <p>Nous croyons que les meilleures saveurs naissent de la régularité et de l'attention portée à chaque étape — du mélange des pâtes jusqu'à la sortie du four.</p>
+      <ul class="check-list">
+        <li>
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Produits fabriqués artisanalement, sans précipitation
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Recettes travaillées pour une texture et un goût irréprochables
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Une équipe passionnée, disponible 7 jours sur 7
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Commandes spéciales acceptées pour tous vos événements
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s s-alt" id="galerie">
+  <div class="s-title">
+    <h2>Nos Réalisations</h2>
+    <p>Un aperçu de ce qui sort de notre atelier, chaque jour, pour votre plus grand plaisir.</p>
+    <div class="line"></div>
+  </div>
+  <div class="gal-grid">
+    <div class="gal-item" onclick="openLb(this)">
+      <img src="https://i.ibb.co/Z57J4km/Cake-factory-0.jpg" alt="Création Cake Factory" loading="lazy">
+    </div>
+    <div class="gal-item" onclick="openLb(this)">
+      <img src="https://i.ibb.co/nsV0pPHC/Cake-factory-1.jpg" alt="Pâtisserie artisanale Nouméa" loading="lazy">
+    </div>
+    <div class="gal-item" onclick="openLb(this)">
+      <img src="https://i.ibb.co/JW1bxqg9/Cake-factory-2.jpg" alt="Biscuits maison Cake Factory" loading="lazy">
+    </div>
+    <div class="gal-item" onclick="openLb(this)">
+      <img src="https://i.ibb.co/s9mCfz1T/Cake-factory-3.jpg" alt="Gourmandises artisanales" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lb" onclick="closeLb(event)">
+  <button class="lb-close" onclick="closeLb()">&times;</button>
+  <img class="lb-img" id="lb-img" src="" alt="Galerie Cake Factory">
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section class="s social-proof" id="temoignages">
+  <div class="s-title">
+    <h2>Ce que disent nos clients</h2>
+    <p>Les avis de ceux qui partagent nos gourmandises, depuis Nouméa.</p>
+    <div class="line"></div>
+  </div>
+  <div class="rating-block">
+    <div class="stars">★★★★★</div>
+    <div class="rating-num">5<span style="font-size:1.6rem;opacity:.5">/5</span></div>
+    <div class="rating-label">Note Google · 2 avis vérifiés</div>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-txt">"Des biscuits comme on n'en trouve nulle part ailleurs à Nouméa. On sent que chaque pièce est faite avec le cœur. On revient chaque semaine !"</p>
+      <div class="testi-name">— Cliente fidèle, Nouméa</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-txt">"J'ai commandé pour l'anniversaire de ma fille, la présentation était magnifique et le goût exceptionnel. Toute la famille a adoré, merci Cake Factory !"</p>
+      <div class="testi-name">— Client satisfait, Nouméa</div>
+    </div>
+  </div>
+  <div class="badges">
+    <div class="badge">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Note 5/5 sur Google
+    </div>
+    <div class="badge">
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Fabrication 100% artisanale
+    </div>
+    <div class="badge">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Ouvert 7j/7 à Nouméa
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE -->
+<section class="s s-dark" id="contact">
+  <div class="s-title">
+    <h2>Contactez-Nous</h2>
+    <p>Une commande, une question ? Nous sommes là pour vous répondre avec plaisir.</p>
+    <div class="line"></div>
+  </div>
+  <div class="form-wrap">
+    <form id="cform" action="#" novalidate>
+      <div class="f-row">
+        <div class="f-group">
+          <label for="fname">Nom complet</label>
+          <input type="text" id="fname" placeholder="Votre nom">
+          <span class="f-err" id="err-name">Veuillez indiquer votre nom.</span>
+        </div>
+        <div class="f-group">
+          <label for="fmail">Adresse e-mail</label>
+          <input type="email" id="fmail" placeholder="votre@email.com">
+          <span class="f-err" id="err-mail">Adresse e-mail invalide.</span>
+        </div>
+      </div>
+      <div class="f-group">
+        <label for="ftel">Téléphone</label>
+        <input type="tel" id="ftel" placeholder="XX.XX.XX">
+      </div>
+      <div class="f-group">
+        <label for="fmsg">Votre message</label>
+        <textarea id="fmsg" placeholder="Décrivez votre commande ou votre demande…"></textarea>
+        <span class="f-err" id="err-msg">Merci d'écrire un message.</span>
+      </div>
+      <button type="submit" class="btn-submit">Envoyer ma demande</button>
+    </form>
+    <div class="f-success" id="fsuccess">
+      <h3>Message envoyé ! 🎉</h3>
+      <p>Merci, nous reviendrons vers vous très prochainement depuis Nouméa.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="footer">
+  <div class="footer-grid">
+    <div>
+      <h4>Cake Factory</h4>
+      <address>
+        Rue Patrice Nielly<br>
+        Nouméa 98800, Nouvelle-Calédonie<br><br>
+        <a href="tel:+68725.97.46">📞 25.97.46</a>
+      </address>
+      <div class="soc-links">
+        <a href="https://www.facebook.com/cakefactorync" target="_blank" rel="noopener" aria-label="Facebook Cake Factory">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <h4>Navigation</h4>
+      <nav class="footer-nav">
+        <a href="#services">Nos produits</a>
+        <a href="#metier">Notre métier</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#temoignages">Avis clients</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <div>
+      <h4>Horaires</h4>
+      <p>Ouvert 7 jours sur 7<br>Rue Patrice Nielly, Nouméa<br><br>Commandes spéciales :<br><a href="tel:+68725.97.46">25.97.46</a></p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Cake Factory. Tous droits réservés.</span>
+    <a href="https://setup.nc" target="_blank" rel="noopener">Site réalisé par Setup NC</a>
+  </div>
+</footer>
+
+<script>
+function openLb(el){var s=el.querySelector('img').src;document.getElementById('lb-img').src=s;document.getElementById('lb').classList.add('open')}
+function closeLb(e){if(!e||e.target!==document.getElementById('lb-img'))document.getElementById('lb').classList.remove('open')}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('lb').classList.remove('open')});
+(function(){
+var f=document.getElementById('cform');
+if(!f)return;
+f.addEventListener('submit',function(e){
+e.preventDefault();
+var n=document.getElementById('fname'),m=document.getElementById('fmail'),msg=document.getElementById('fmsg'),ok=true;
+document.querySelectorAll('.f-err').forEach(function(x){x.classList.remove('show')});
+if(!n.value.trim()){document.getElementById('err-name').classList.add('show');ok=false}
+if(!m.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)){document.getElementById('err-mail').classList.add('show');ok=false}
+if(!msg.value.trim()){document.getElementById('err-msg').classList.add('show');ok=false}
+if(!ok)return;
+f.style.display='none';
+document.getElementById('fsuccess').classList.add('show');
+});
+})();
+</script>
+</body>
+</html>
