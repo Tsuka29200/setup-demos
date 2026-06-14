@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cakes family — Nouméa</title>
+<meta name="description" content="Boulangerie-pâtisserie artisanale à Nouméa, Nouvelle-Calédonie. Pains frais, pâtisseries classiques et snacking artisanal façonnés avec passion. Rue Anatole France, Nouméa.">
+<meta property="og:title" content="Cakes family — Boulangerie artisanale Nouméa">
+<meta property="og:description" content="Pains frais, pâtisseries et snacking artisanal au cœur de Nouméa.">
+<meta property="og:image" content="https://i.ibb.co/DPsghfqv/Cakes-family-0.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#1A1A1A;
+--cs:#C4A882;
+--ca:#C07850;
+--bg:#FAF6F0;
+--tx:#1A1A1A;
+--wh:#ffffff;
+--r8:8px;
+--r16:16px;
+--tr:0.35s ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden;font-size:16px}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* TYPOGRAPHY */
+.gv{font-family:'Great Vibes',cursive}
+.h1{font-size:clamp(2.8rem,7vw,5.5rem);line-height:1.1}
+.h2{font-size:clamp(2rem,4vw,3rem);line-height:1.2}
+.h3{font-size:clamp(1.1rem,2.5vw,1.4rem);line-height:1.3}
+.sub{font-size:clamp(0.95rem,2vw,1.15rem);font-weight:300;line-height:1.7}
+.cap{font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:500}
+
+/* LAYOUT */
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+.s{padding:80px 0}
+.row{display:flex;flex-wrap:wrap;gap:32px;align-items:center}
+.col{flex:1;min-width:280px}
+.center{text-align:center}
+.mt8{margin-top:8px}
+.mt16{margin-top:16px}
+.mt24{margin-top:24px}
+.mt32{margin-top:32px}
+.mt48{margin-top:48px}
+
+/* BUTTONS */
+.b{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border-radius:var(--r8);font-family:'Poppins',sans-serif;font-size:0.95rem;font-weight:500;cursor:pointer;border:none;transition:transform var(--tr),box-shadow var(--tr),background var(--tr);min-height:48px;text-align:center}
+.b-prim{background:var(--ca);color:var(--wh)}
+.b-prim:hover{transform:scale(1.04);box-shadow:0 6px 24px rgba(192,120,80,0.35)}
+.b-out{background:transparent;color:var(--wh);border:2px solid var(--wh)}
+.b-out:hover{background:var(--wh);color:var(--cp);transform:scale(1.04)}
+
+/* BANDEAU PROMO */
+.promo{background:var(--cp);color:var(--wh);text-align:center;padding:10px 16px;font-size:0.82rem;letter-spacing:0.06em;position:relative;z-index:1001}
+.promo a{color:var(--cs);font-weight:600;margin-left:8px}
+.promo a:hover{color:var(--wh)}
+
+/* HEADER */
+.hdr{position:sticky;top:0;z-index:1000;background:var(--cp);padding:0 16px;height:64px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 16px rgba(0,0,0,0.25)}
+.hdr-logo{font-family:'Great Vibes',cursive;font-size:1.8rem;color:var(--cs);letter-spacing:0.02em;white-space:nowrap}
+.hdr-logo span{color:var(--wh)}
+.nav{display:flex;align-items:center;gap:24px}
+.nav a{color:var(--wh);font-size:0.88rem;font-weight:400;letter-spacing:0.04em;opacity:0.85;transition:opacity var(--tr),color var(--tr)}
+.nav a:hover{opacity:1;color:var(--cs)}
+.hdr-cta{display:flex;align-items:center;gap:12px}
+.hdr-tel{color:var(--cs);font-weight:600;font-size:0.9rem;letter-spacing:0.04em;white-space:nowrap;transition:color var(--tr)}
+.hdr-tel:hover{color:var(--wh)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.burger span{width:24px;height:2px;background:var(--wh);border-radius:2px;transition:transform var(--tr),opacity var(--tr);display:block}
+
+/* MOBILE NAV */
+.mob-nav{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background:var(--cp);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:32px}
+.mob-nav.open{display:flex}
+.mob-nav a{font-family:'Great Vibes',cursive;font-size:2.2rem;color:var(--wh);opacity:0.9;transition:color var(--tr)}
+.mob-nav a:hover{color:var(--cs)}
+.mob-close{position:absolute;top:20px;right:20px;background:none;border:none;cursor:pointer;width:40px;height:40px;display:flex;align-items:center;justify-content:center}
+.mob-close::before,.mob-close::after{content:'';position:absolute;width:24px;height:2px;background:var(--wh);border-radius:2px}
+.mob-close::before{transform:rotate(45deg)}
+.mob-close::after{transform:rotate(-45deg)}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background-image:url('https://i.ibb.co/DPsghfqv/Cakes-family-0.png');background-size:cover;background-position:center;background-repeat:no-repeat}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(160deg,rgba(26,26,26,0.82) 0%,rgba(26,26,26,0.55) 50%,rgba(196,168,130,0.18) 100%)}
+.hero-body{position:relative;z-index:2;max-width:780px;padding:0 16px;text-align:center}
+.hero-eyebrow{color:var(--cs);display:block;margin-bottom:12px}
+.hero-h1{color:var(--wh);margin-bottom:20px}
+.hero-sub{color:rgba(255,255,255,0.88);max-width:540px;margin:0 auto 36px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.scroll-ind{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;opacity:0.7}
+.scroll-ind span{color:var(--wh);font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase}
+.scroll-arr{width:20px;height:30px;border:2px solid var(--wh);border-radius:12px;position:relative}
+.scroll-arr::after{content:'';position:absolute;top:5px;left:50%;transform:translateX(-50%);width:4px;height:4px;background:var(--wh);border-radius:50%;animation:scrollb 1.6s infinite}
+@keyframes scrollb{0%{top:5px;opacity:1}80%{top:16px;opacity:0}100%{top:5px;opacity:0}}
+
+/* STATS BAND */
+.stats{background:var(--cp);padding:64px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
+.stat-num{font-family:'Great Vibes',cursive;font-size:clamp(2.4rem,5vw,4rem);color:var(--cs);line-height:1}
+.stat-lbl{color:rgba(255,255,255,0.75);font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;margin-top:6px}
+
+/* REVEAL */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+.rv{opacity:0;transform:translateY(28px);transition:opacity 0.55s ease,transform 0.55s ease}
+.rv.vis{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.nav,.hdr-cta .b{display:none}
+.burger{display:flex}
+.hdr-tel{font-size:0.82rem}
+}
+@media(max-width:640px){
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.s{padding:56px 0}
+}
+@media(max-width:480px){
+.hero-ctas .b{width:100%}
+.hdr-logo{font-size:1.5rem}
+}
+</style>
+</head>
+<body>
+<div style="background:#ffd500;color:#4375ff;text-align:center;font-family:Manrope,system-ui,-apple-system,sans-serif;font-weight:700;font-size:15px;line-height:1.4;padding:10px 16px;box-shadow:0 2px 10px rgba(0,0,0,.18)">Ce site vous plaît&nbsp;? Activez-le dès <strong style="font-weight:800">4&nbsp;900&nbsp;F HT/mois</strong> &mdash; <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener" style="color:#0d1f3c;text-decoration:underline">Prenez rendez-vous</a></div>
+
+<!-- BANDEAU PROMO -->
+<div class="promo">
+  ✨ Pains frais et pâtisseries artisanales à Nouméa — <a href="tel:+687314014">Appelez-nous : 31.40.14</a>
+</div>
+
+<!-- HEADER -->
+<header class="hdr">
+  <a href="#accueil" class="hdr-logo gv">Cakes <span>Family</span></a>
+  <nav class="nav">
+    <a href="#services">Nos créations</a>
+    <a href="#metier">Notre histoire</a>
+    <a href="#galerie">Galerie</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="hdr-cta">
+    <a href="tel:+687314014" class="hdr-tel">📞 31.40.14</a>
+    <a href="#contact" class="b b-prim" style="padding:10px 20px;font-size:0.85rem">Nous trouver</a>
+  </div>
+  <button class="burger" id="bgrBtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- MOBILE NAV -->
+<nav class="mob-nav" id="mobNav">
+  <button class="mob-close" id="navClose" aria-label="Fermer"></button>
+  <a href="#services" class="gv">Nos créations</a>
+  <a href="#metier" class="gv">Notre histoire</a>
+  <a href="#galerie" class="gv">Galerie</a>
+  <a href="#contact" class="gv">Contact</a>
+  <a href="tel:+687314014" class="b b-prim mt16">📞 31.40.14</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-ov"></div>
+  <div class="hero-body">
+    <span class="cap gv hero-eyebrow" style="font-size:1.3rem">Boulangerie-Pâtisserie Artisanale</span>
+    <h1 class="h1 gv hero-h1">L'art du pain fait<br>avec amour</h1>
+    <p class="sub hero-sub">Chaque matin, nous façonnons à la main pains croustillants, pâtisseries dorées et snacking artisanal pour régaler les familles de Nouméa.</p>
+    <div class="hero-ctas">
+      <a href="#galerie" class="b b-prim">Découvrir nos créations</a>
+      <a href="#contact" class="b b-out">Nous trouver</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>Découvrir</span>
+    <div class="scroll-arr"></div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<section class="stats" id="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="rv">
+        <div class="stat-num gv" data-target="100">0</div>
+        <div class="stat-lbl">% artisanal</div>
+      </div>
+      <div class="rv">
+        <div class="stat-num gv" data-target="5">0</div>
+        <div class="stat-lbl">⭐ Note Google</div>
+      </div>
+      <div class="rv">
+        <div class="stat-num gv" data-target="4">0</div>
+        <div class="stat-lbl">Avis clients</div>
+      </div>
+      <div class="rv">
+        <div class="stat-num gv" data-suffix=" h">7</div>
+        <div class="stat-lbl">Du matin — pain frais</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<script>
+var b=document.getElementById('bgrBtn'),n=document.getElementById('mobNav'),c=document.getElementById('navClose');
+b.addEventListener('click',function(){n.classList.add('open')});
+c.addEventListener('click',function(){n.classList.remove('open')});
+n.querySelectorAll('a').forEach(function(l){l.addEventListener('click',function(){n.classList.remove('open')})});
+</script>
+
+<!-- SUITE -->
+<style>
+/* SERVICES */
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px}
+.srv-card{background:var(--wh);border-radius:var(--r16);padding:36px 28px;text-align:center;transition:transform var(--tr),box-shadow var(--tr);border-bottom:3px solid transparent}
+.srv-card:hover{transform:translateY(-6px);box-shadow:0 12px 36px rgba(0,0,0,0.1);border-bottom-color:var(--ca)}
+.srv-ico{width:56px;height:56px;margin:0 auto 20px;background:var(--bg);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.srv-ico svg{width:28px;height:28px}
+.srv-title{font-size:1.05rem;font-weight:600;color:var(--cp);margin-bottom:10px}
+.srv-desc{font-size:0.88rem;color:#555;line-height:1.7;margin-bottom:20px}
+
+/* METIER */
+.met-row{display:flex;flex-wrap:wrap;gap:48px;align-items:center}
+.met-col{flex:1;min-width:280px}
+.met-img{border-radius:var(--r16);overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.12)}
+.met-img img{width:100%;height:360px;object-fit:cover;transition:transform 0.6s ease}
+.met-img:hover img{transform:scale(1.04)}
+.met-checks{list-style:none;margin-top:24px;display:flex;flex-direction:column;gap:12px}
+.met-checks li{display:flex;align-items:flex-start;gap:12px;font-size:0.92rem;line-height:1.6;color:#444}
+.chk{width:22px;height:22px;min-width:22px;background:var(--ca);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.chk svg{width:12px;height:12px}
+.tag-line{display:inline-block;background:var(--bg);border-left:3px solid var(--ca);padding:12px 20px;border-radius:0 var(--r8) var(--r8) 0;font-size:0.9rem;color:#444;font-style:italic;margin-top:24px}
+
+/* GALERIE */
+.gal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:48px}
+.gal-item{border-radius:var(--r16);overflow:hidden;cursor:pointer;position:relative;aspect-ratio:4/3}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease}
+.gal-ov{position:absolute;inset:0;background:rgba(192,120,80,0);display:flex;align-items:center;justify-content:center;transition:background var(--tr)}
+.gal-ov svg{opacity:0;transform:scale(0.7);transition:opacity var(--tr),transform var(--tr)}
+.gal-item:hover img{transform:scale(1.07)}
+.gal-item:hover .gal-ov{background:rgba(192,120,80,0.35)}
+.gal-item:hover .gal-ov svg{opacity:1;transform:scale(1)}
+.lb{display:none;position:fixed;inset:0;background:rgba(26,26,26,0.93);z-index:2000;align-items:center;justify-content:center;padding:20px}
+.lb.open{display:flex}
+.lb-img{max-width:90vw;max-height:88vh;border-radius:var(--r16);object-fit:contain;box-shadow:0 16px 64px rgba(0,0,0,0.5)}
+.lb-close{position:absolute;top:16px;right:16px;background:var(--ca);border:none;color:#fff;width:40px;height:40px;border-radius:50%;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+
+/* FORMULAIRE */
+.frm-wrap{background:var(--wh);border-radius:var(--r16);padding:48px;box-shadow:0 4px 32px rgba(0,0,0,0.07);max-width:680px;margin:0 auto}
+.frm-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.fg{display:flex;flex-direction:column;gap:6px}
+.fg.full{grid-column:1/-1}
+.fg label{font-size:0.82rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--cp)}
+.fg input,.fg textarea{padding:13px 16px;border:1.5px solid #e0d8cf;border-radius:var(--r8);font-family:'Poppins',sans-serif;font-size:0.92rem;background:var(--bg);color:var(--cp);transition:border-color var(--tr),box-shadow var(--tr);outline:none}
+.fg input:focus,.fg textarea:focus{border-color:var(--ca);box-shadow:0 0 0 3px rgba(192,120,80,0.15)}
+.fg textarea{min-height:120px;resize:vertical}
+.frm-err{color:#c0392b;font-size:0.8rem;min-height:16px}
+.frm-ok{background:#f0f9f0;border:1.5px solid #4caf50;border-radius:var(--r8);padding:16px 20px;color:#2d6a2d;font-size:0.92rem;text-align:center;display:none;margin-top:16px}
+.frm-ok.show{display:block}
+.frm-loader{display:none;width:20px;height:20px;border:2px solid rgba(255,255,255,0.4);border-top-color:#fff;border-radius:50%;animation:spin 0.7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* PREUVE SOCIALE */
+.ps-bg{background:var(--cp)}
+.ps-stars{display:flex;gap:4px;justify-content:center;margin-bottom:12px}
+.star{color:var(--cs);font-size:1.6rem}
+.ps-note{font-family:'Great Vibes',cursive;font-size:3.5rem;color:var(--cs);line-height:1}
+.ps-sub{color:rgba(255,255,255,0.65);font-size:0.85rem;margin-top:6px}
+.ps-divider{width:1px;background:rgba(255,255,255,0.15);align-self:stretch}
+.tm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:48px}
+.tm{background:rgba(255,255,255,0.06);border:1px solid rgba(196,168,130,0.2);border-radius:var(--r16);padding:28px}
+.tm-stars{display:flex;gap:3px;margin-bottom:12px}
+.tm-stars span{color:var(--cs);font-size:1rem}
+.tm-text{color:rgba(255,255,255,0.85);font-size:0.9rem;line-height:1.7;font-style:italic}
+.tm-name{color:var(--cs);font-size:0.82rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-top:14px}
+.bdg-row{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:48px}
+.bdg{background:rgba(255,255,255,0.07);border:1px solid rgba(196,168,130,0.25);border-radius:40px;padding:10px 22px;display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.8);font-size:0.82rem;letter-spacing:0.04em}
+.bdg-ico{color:var(--cs);font-size:1.1rem}
+
+/* FOOTER */
+.ftr{background:var(--cp);padding:56px 0 0;border-top:2px solid rgba(196,168,130,0.2)}
+.ftr-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px}
+.ftr-logo{font-family:'Great Vibes',cursive;font-size:2.2rem;color:var(--cs);margin-bottom:14px;display:block}
+.ftr-addr{color:rgba(255,255,255,0.65);font-size:0.88rem;line-height:1.8}
+.ftr-addr a{color:var(--cs);font-weight:600;transition:color var(--tr)}
+.ftr-addr a:hover{color:var(--wh)}
+.ftr-h{font-family:'Great Vibes',cursive;font-size:1.4rem;color:var(--cs);margin-bottom:16px;display:block}
+.ftr-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ftr-links a{color:rgba(255,255,255,0.65);font-size:0.88rem;transition:color var(--tr)}
+.ftr-links a:hover{color:var(--cs)}
+.soc-row{display:flex;gap:12px;margin-top:20px}
+.soc-a{width:40px;height:40px;background:rgba(255,255,255,0.08);border:1px solid rgba(196,168,130,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background var(--tr),border-color var(--tr)}
+.soc-a:hover{background:var(--ca);border-color:var(--ca)}
+.soc-a svg{width:20px;height:20px;fill:#fff}
+.ftr-bottom{background:rgba(0,0,0,0.3);margin-top:48px;padding:16px;text-align:center;font-size:0.78rem;color:rgba(255,255,255,0.4);display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.ftr-bottom a{color:rgba(196,168,130,0.7);transition:color var(--tr)}
+.ftr-bottom a:hover{color:var(--cs)}
+
+/* RESPONSIVE PART 2 */
+@media(max-width:900px){
+.srv-grid{grid-template-columns:repeat(2,1fr)}
+.ftr-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+.srv-grid{grid-template-columns:1fr}
+.tm-grid{grid-template-columns:1fr}
+.frm-grid{grid-template-columns:1fr}
+.frm-wrap{padding:28px 20px}
+.ftr-grid{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.ps-divider{display:none}
+.met-img img{height:240px}
+}
+@media(max-width:480px){
+.gal-grid{grid-template-columns:1fr}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s" id="services">
+  <div class="wrap">
+    <div class="center rv">
+      <span class="cap" style="color:var(--ca)">Ce que nous faisons</span>
+      <h2 class="h2 gv mt8">Nos créations artisanales</h2>
+      <p class="sub mt16" style="max-width:540px;margin-left:auto;margin-right:auto;color:#555">Du pain quotidien aux pâtisseries de fête, chaque création sort de nos mains avec le même soin.</p>
+    </div>
+    <div class="srv-grid">
+      <div class="srv-card rv">
+        <div class="srv-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C07850" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11c0-4.4 2.7-8 6-8s6 3.6 6 8"/><path d="M3 11h12"/><rect x="1" y="11" width="22" height="4" rx="2"/><path d="M5 15v4"/><path d="M19 15v4"/></svg>
+        </div>
+        <div class="srv-title">Pain artisanal frais</div>
+        <p class="srv-desc">Façonné à la main chaque matin, notre pain sort du four avec une croûte croustillante et une mie dorée qui embaument toute la rue.</p>
+        <a href="#contact" class="b b-prim" style="font-size:0.85rem;padding:11px 22px">Commander</a>
+      </div>
+      <div class="srv-card rv">
+        <div class="srv-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C07850" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3c0 0-4 4-4 9s4 9 4 9"/><path d="M3 12h18"/><path d="M5.6 7h12.8"/><path d="M5.6 17h12.8"/></svg>
+        </div>
+        <div class="srv-title">Pâtisseries classiques</div>
+        <p class="srv-desc">Éclairs, mille-feuilles, tartes — nos pâtisseries célèbrent la tradition française avec des garnitures généreuses et des finitions soignées.</p>
+        <a href="#galerie" class="b b-prim" style="font-size:0.85rem;padding:11px 22px">Voir la galerie</a>
+      </div>
+      <div class="srv-card rv">
+        <div class="srv-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C07850" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        </div>
+        <div class="srv-title">Snacking artisanal</div>
+        <p class="srv-desc">Sandwichs garnis, viennoiseries chaudes et petites salades préparées sur place — la pause idéale pour les familles et travailleurs de Nouméa.</p>
+        <a href="#contact" class="b b-prim" style="font-size:0.85rem;padding:11px 22px">Nous trouver</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s" id="metier" style="background:var(--wh)">
+  <div class="wrap">
+    <div class="met-row">
+      <div class="met-col rv">
+        <span class="cap" style="color:var(--ca)">Notre histoire</span>
+        <h2 class="h2 gv mt8">Façonnés avec passion,<br>partagés en famille</h2>
+        <p class="sub mt16" style="color:#555">Depuis notre ouverture, nous façonnons chaque pain et pâtisserie avec passion, rue Anatole France, au cœur de Nouméa. Chez Cakes Family, l'artisanat n'est pas un argument de vente — c'est simplement notre façon de faire.</p>
+        <ul class="met-checks">
+          <li>
+            <span class="chk"><svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>
+            Préparation artisanale chaque matin, sans exception
+          </li>
+          <li>
+            <span class="chk"><svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>
+            Pâtisseries classiques françaises revisitées avec générosité
+          </li>
+          <li>
+            <span class="chk"><svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>
+            Un accueil chaleureux pour toute la famille, tous les jours
+          </li>
+          <li>
+            <span class="chk"><svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>
+            Note parfaite 5/5 — la confiance de nos clients nouméens
+          </li>
+        </ul>
+        <span class="tag-line">"Ici, chaque bouchée raconte l'amour du travail bien fait."</span>
+      </div>
+      <div class="met-col rv">
+        <div class="met-img">
+          <img src="https://i.ibb.co/3mTkcqGX/Cakes-family-1.png" alt="Pâtisseries artisanales Cakes Family Nouméa" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s" id="galerie">
+  <div class="wrap">
+    <div class="center rv">
+      <span class="cap" style="color:var(--ca)">Nos créations en images</span>
+      <h2 class="h2 gv mt8">La vitrine Cakes Family</h2>
+      <p class="sub mt16" style="max-width:520px;margin-left:auto;margin-right:auto;color:#555">Chaque photo est une invitation — une croûte dorée, une garniture généreuse, un moment à partager.</p>
+    </div>
+    <div class="gal-grid mt48">
+      <div class="gal-item rv" data-src="https://i.ibb.co/DPsghfqv/Cakes-family-0.png" data-alt="Vitrine Cakes Family Nouméa">
+        <img src="https://i.ibb.co/DPsghfqv/Cakes-family-0.png" alt="Vitrine Cakes Family Nouméa" loading="lazy">
+        <div class="gal-ov">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        </div>
+      </div>
+      <div class="gal-item rv" data-src="https://i.ibb.co/3mTkcqGX/Cakes-family-1.png" data-alt="Pâtisseries Cakes Family">
+        <img src="https://i.ibb.co/3mTkcqGX/Cakes-family-1.png" alt="Pâtisseries Cakes Family" loading="lazy">
+        <div class="gal-ov">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        </div>
+      </div>
+      <div class="gal-item rv" data-src="https://i.ibb.co/WvCrnTTR/Cakes-family-2.png" data-alt="Pain artisanal Cakes Family">
+        <img src="https://i.ibb.co/WvCrnTTR/Cakes-family-2.png" alt="Pain artisanal Cakes Family" loading="lazy">
+        <div class="gal-ov">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        </div>
+      </div>
+      <div class="gal-item rv" data-src="https://i.ibb.co/SDv3Xj2h/Cakes-family-3.png" data-alt="Snacking artisanal Cakes Family">
+        <img src="https://i.ibb.co/SDv3Xj2h/Cakes-family-3.png" alt="Snacking artisanal Cakes Family" loading="lazy">
+        <div class="gal-ov">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <button class="lb-close" id="lbClose" aria-label="Fermer">✕</button>
+  <img src="" alt="" class="lb-img" id="lbImg">
+</div>
+
+<!-- FORMULAIRE -->
+<section class="s" id="contact" style="background:var(--wh)">
+  <div class="wrap">
+    <div class="center rv">
+      <span class="cap" style="color:var(--ca)">Nous contacter</span>
+      <h2 class="h2 gv mt8">Venez nous rendre visite</h2>
+      <p class="sub mt16" style="max-width:520px;margin-left:auto;margin-right:auto;color:#555">Une question, une commande spéciale ou simplement l'envie de nous dire bonjour — nous sommes là.</p>
+    </div>
+    <div class="frm-wrap rv mt48">
+      <form id="cform" action="#" novalidate>
+        <div class="frm-grid">
+          <div class="fg rv">
+            <label for="fn">Prénom &amp; Nom</label>
+            <input type="text" id="fn" name="fn" placeholder="Marie Dupont" autocomplete="name">
+            <span class="frm-err" id="fn-e"></span>
+          </div>
+          <div class="fg rv">
+            <label for="em">Email</label>
+            <input type="email" id="em" name="em" placeholder="marie@email.com" autocomplete="email">
+            <span class="frm-err" id="em-e"></span>
+          </div>
+          <div class="fg rv">
+            <label for="tel">Téléphone</label>
+            <input type="tel" id="tel" name="tel" placeholder="XX.XX.XX" autocomplete="tel">
+            <span class="frm-err" id="tel-e"></span>
+          </div>
+          <div class="fg rv">
+            <label for="sub">Sujet</label>
+            <input type="text" id="sub" name="sub" placeholder="Commande, renseignement…">
+            <span class="frm-err" id="sub-e"></span>
+          </div>
+          <div class="fg full rv">
+            <label for="msg">Message</label>
+            <textarea id="msg" name="msg" placeholder="Bonjour, je souhaite…"></textarea>
+            <span class="frm-err" id="msg-e"></span>
+          </div>
+          <div class="fg full rv" style="align-items:flex-start">
+            <button type="submit" class="b b-prim" id="fsub" style="width:100%;gap:12px">
+              <span id="fbtn-txt">Envoyer le message</span>
+              <div class="frm-loader" id="floader"></div>
+            </button>
+          </div>
+        </div>
+        <div class="frm-ok" id="frm-ok">✅ Merci ! Votre message a bien été envoyé. Nous vous répondrons très prochainement.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s ps-bg" id="avis">
+  <div class="wrap">
+    <div class="center rv">
+      <span class="cap" style="color:rgba(196,168,130,0.7)">Ce que disent nos clients</span>
+      <h2 class="h2 gv mt8" style="color:var(--wh)">Ils nous font confiance</h2>
+    </div>
+    <div class="row mt48" style="justify-content:center;gap:48px">
+      <div class="center rv" style="min-width:160px">
+        <div class="ps-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <div class="ps-note gv">5/5</div>
+        <div class="ps-sub">Note Google · 4 avis</div>
+      </div>
+      <div class="ps-divider"></div>
+      <div class="rv" style="max-width:420px">
+        <p style="color:rgba(255,255,255,0.8);font-size:0.95rem;line-height:1.8;font-style:italic">"Une boulangerie artisanale comme on en rêve — le pain sent bon dès la porte, les pâtisseries sont généreuses et l'accueil est toujours souriant. Une adresse incontournable à Nouméa."</p>
+        <div class="ps-sub mt16">— Un client fidèle de Cakes Family</div>
+      </div>
+    </div>
+    <div class="tm-grid">
+      <div class="tm rv">
+        <div class="tm-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="tm-text">"Le pain artisanal est excellent, avec une belle croûte dorée. On sent que c'est fait avec soin chaque matin. Je recommande vivement pour toute la famille !"</p>
+        <div class="tm-name">Client Google — Nouméa</div>
+      </div>
+      <div class="tm rv">
+        <div class="tm-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="tm-text">"Les pâtisseries sont délicieuses et les sandwichs du midi sont parfaits pour une pause rapide. Équipe très accueillante, on revient toujours !"</p>
+        <div class="tm-name">Client Google — Nouméa</div>
+      </div>
+    </div>
+    <div class="bdg-row">
+      <div class="bdg rv"><span class="bdg-ico">🏅</span> Note 5/5 Google</div>
+      <div class="bdg rv"><span class="bdg-ico">🥐</span> 100% artisanal</div>
+      <div class="bdg rv"><span class="bdg-ico">📍</span> Adresse Nouméa</div>
+      <div class="bdg rv"><span class="bdg-ico">👨‍👩‍👧</span> Accueil famille</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-grid">
+      <div>
+        <span class="ftr-logo gv">Cakes Family</span>
+        <div class="ftr-addr">
+          Rue Anatole France<br>
+          Nouméa 98800, Nouvelle-Calédonie<br><br>
+          <a href="tel:+687314014">📞 31.40.14</a>
+        </div>
+        <div class="soc-row">
+          <a href="https://www.facebook.com/p/Cakes-Family-NC-61557644267131" class="soc-a" target="_blank" rel="noopener" aria-label="Facebook Cakes Family">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <span class="ftr-h gv">Navigation</span>
+        <ul class="ftr-links">
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#services">Nos créations</a></li>
+          <li><a href="#metier">Notre histoire</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#avis">Avis clients</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="ftr-h gv">Nous trouver</span>
+        <div class="ftr-addr">
+          <strong style="color:rgba(255,255,255,0.85)">Cakes Family</strong><br>
+          Rue Anatole France<br>
+          Nouméa 98800<br>
+          Nouvelle-Calédonie<br><br>
+          <a href="tel:+687314014">31.40.14</a><br><br>
+          <a href="https://www.facebook.com/p/Cakes-Family-NC-61557644267131" target="_blank" rel="noopener">Notre page Facebook →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ftr-bottom">
+    <span>© 2026 Cakes Family. Tous droits réservés.</span>
+    <span>·</span>
+    <span>Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></span>
+  </div>
+</footer>
+
+<script>
+var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('vis')}})},{threshold:0.12});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+
+document.querySelectorAll('.gal-item').forEach(function(gi){
+  gi.addEventListener('click',function(){
+    var lb=document.getElementById('lb'),img=document.getElementById('lbImg');
+    img.src=gi.dataset.src;img.alt=gi.dataset.alt;lb.classList.add('open');
+  });
+});
+document.getElementById('lbClose').addEventListener('click',function(){document.getElementById('lb').classList.remove('open')});
+document.getElementById('lb').addEventListener('click',function(e){if(e.target===this)this.classList.remove('open')});
+
+document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('lb').classList.remove('open')});
+
+var nums=document.querySelectorAll('[data-target]');
+var nio=new IntersectionObserver(function(e){
+  e.forEach(function(x){
+    if(x.isIntersecting){
+      var el=x.target,t=+el.dataset.target,d=1200,s=60,st=Date.now();
+      var tm=setInterval(function(){
+        var p=Math.min((Date.now()-st)/d,1),v=Math.round(p*t);
+        el.textContent=v+(el.dataset.suffix||'');
+        if(p>=1)clearInterval(tm);
+      },s);
+      nio.unobserve(el);
+    }
+  });
+},{threshold:0.5});
+nums.forEach(function(n){nio.observe(n)});
+
+var cf=document.getElementById('cform');
+cf.addEventListener('submit',function(e){
+  e.preventDefault();
+  var ok=true;
+  function ve(id,eid,msg){var v=document.getElementById(id).value.trim(),er=document.getElementById(eid);if(!v){er.textContent=msg;ok=false;}else{er.textContent='';}}
+  ve('fn','fn-e','Veuillez indiquer votre nom.');
+  ve('msg','msg-e','Veuillez saisir votre message.');
+  var em=document.getElementById('em'),ee=document.getElementById('em-e');
+  if(!em.value.trim()){ee.textContent='Veuillez indiquer votre email.';ok=false;}
+  else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value)){ee.textContent='Email invalide.';ok=false;}
+  else{ee.textContent='';}
+  if(!ok)return;
+  var btn=document.getElementById('fsub'),txt=document.getElementById('fbtn-txt'),ld=document.getElementById('floader');
+  btn.disabled=true;txt.textContent='Envoi…';ld.style.display='block';
+  setTimeout(function(){
+    btn.disabled=false;txt.textContent='Envoyer le message';ld.style.display='none';
+    document.getElementById('frm-ok').classList.add('show');
+    cf.reset();
+  },1600);
+});
+</script>
+</body>
+</html>
