@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bakery Sainte-Marie — Nouméa</title>
+<meta name="description" content="Bakery Sainte-Marie, votre boulangerie-pâtisserie artisanale à Nouméa. Pains, viennoiseries et pâtisseries maison, au cœur du quartier.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#C8860A;
+--cs:#4A2A0F;
+--ca:#D4500A;
+--cb:#FAF5EC;
+--ct:#2B1A0A;
+--cw:#FFFFFF;
+--r:.5rem;
+--tr:0.3s ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Lora',serif;background:var(--cb);color:var(--ct);overflow-x:hidden;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+
+/* UTILS */
+.wrap{max-width:1140px;margin:0 auto;padding:0 16px}
+.h1{font-size:clamp(2rem,5vw,3.6rem);font-weight:700;line-height:1.15}
+.h2{font-size:clamp(1.5rem,3.5vw,2.4rem);font-weight:600;line-height:1.25}
+.h3{font-size:clamp(1.1rem,2vw,1.4rem);font-weight:600}
+.tag{display:inline-block;background:var(--cp);color:var(--cw);font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.25rem .7rem;border-radius:2rem;margin-bottom:.75rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:.7rem 1.6rem;border-radius:var(--r);font-family:'Lora',serif;font-weight:600;font-size:1rem;cursor:pointer;transition:background var(--tr),transform var(--tr),box-shadow var(--tr);border:2px solid transparent;text-decoration:none}
+.btn-p{background:var(--ca);color:var(--cw)}
+.btn-p:hover{background:#b83d08;transform:translateY(-2px);box-shadow:0 6px 20px rgba(212,80,10,.35)}
+.btn-o{background:transparent;color:var(--cw);border-color:var(--cw)}
+.btn-o:hover{background:var(--cw);color:var(--ca)}
+.sep{width:56px;height:3px;background:var(--cp);border-radius:2px;margin:.75rem 0 1.25rem}
+
+/* BANDEAU */
+.bnd{background:var(--cs);color:var(--cw);text-align:center;font-size:.82rem;padding:.55rem 16px;position:relative;z-index:1100}
+.bnd a{color:var(--cp);font-weight:700;text-decoration:underline}
+
+/* HEADER */
+.hdr{position:sticky;top:0;z-index:1000;background:rgba(250,245,236,.97);backdrop-filter:blur(6px);border-bottom:1px solid #e4d4b8;transition:box-shadow var(--tr)}
+.hdr.scrolled{box-shadow:0 2px 16px rgba(43,26,10,.12)}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:1rem}
+.logo{display:flex;flex-direction:column;line-height:1.1}
+.logo-name{font-size:1.15rem;font-weight:700;color:var(--cs)}
+.logo-sub{font-size:.72rem;color:var(--cp);letter-spacing:.06em;text-transform:uppercase}
+.nav{display:flex;align-items:center;gap:1.75rem}
+.nav a{font-size:.9rem;font-weight:600;color:var(--ct);position:relative;padding-bottom:2px}
+.nav a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--ca);transition:width var(--tr)}
+.nav a:hover::after{width:100%}
+.hdr-cta{display:flex;align-items:center;gap:.75rem}
+.tel-lnk{font-weight:700;color:var(--cs);font-size:.9rem;display:flex;align-items:center;gap:.4rem}
+.tel-lnk svg{flex-shrink:0}
+.tel-lnk:hover{color:var(--ca)}
+.ham{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;background:none;border:none;cursor:pointer;padding:4px}
+.ham span{display:block;height:2px;background:var(--ct);border-radius:2px;transition:transform var(--tr),opacity var(--tr)}
+.mob-nav{display:none;flex-direction:column;background:var(--cb);border-top:1px solid #e4d4b8;padding:1rem 16px 1.25rem}
+.mob-nav a{display:block;padding:.6rem 0;font-weight:600;font-size:1rem;border-bottom:1px solid #e4d4b8;color:var(--ct)}
+.mob-nav a:last-child{border-bottom:none}
+.mob-nav.open{display:flex}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background:url('https://i.ibb.co/4ZJx7TMk/Bakery-Sainte-Marie-0.jpg') center center/cover no-repeat}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(160deg,rgba(43,26,10,.72) 0%,rgba(74,42,15,.55) 50%,rgba(200,134,10,.25) 100%)}
+.hero-ct{position:relative;z-index:2;text-align:center;color:var(--cw);padding:5rem 16px 4rem;max-width:800px}
+.hero-ct .tag{background:rgba(200,134,10,.85)}
+.hero-ct .h1{color:var(--cw);text-shadow:0 2px 16px rgba(43,26,10,.5);margin-bottom:1rem}
+.hero-ct .h1 em{color:#f0c55a;font-style:normal}
+.hero-sub{font-size:clamp(1rem,2vw,1.2rem);color:rgba(255,255,255,.9);max-width:560px;margin:0 auto 2rem;font-style:italic}
+.hero-btns{display:flex;flex-wrap:wrap;gap:.875rem;justify-content:center}
+.scroll-ind{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:.4rem;color:rgba(255,255,255,.75);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+.scroll-ind svg{animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* STATS */
+.stats{background:var(--cp);padding:3.5rem 16px}
+.stats-g{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;text-align:center}
+.stat-n{font-size:clamp(2rem,4.5vw,3rem);font-weight:700;color:var(--cw);line-height:1}
+.stat-l{font-size:.85rem;color:rgba(255,255,255,.88);margin-top:.35rem;font-style:italic}
+
+/* FALLBACK REVEAL */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+@media(max-width:900px){
+.nav,.hdr-cta .btn{display:none}
+.ham{display:flex}
+.stats-g{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+.stats-g{grid-template-columns:repeat(2,1fr);gap:1rem}
+.stat-n{font-size:1.8rem}
+.hero-btns .btn{width:100%;max-width:320px}
+.tel-lnk span{display:none}
+}
+</style>
+</head>
+<body>
+<div style="background:#ffd500;color:#4375ff;text-align:center;font-family:Manrope,system-ui,-apple-system,sans-serif;font-weight:700;font-size:15px;line-height:1.4;padding:10px 16px;box-shadow:0 2px 10px rgba(0,0,0,.18)">Ce site vous plaît&nbsp;? Activez-le dès <strong style="font-weight:800">4&nbsp;900&nbsp;F HT/mois</strong> &mdash; <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener" style="color:#0d1f3c;text-decoration:underline">Prenez rendez-vous</a></div>
+
+<!-- BANDEAU PROMO -->
+<div class="bnd">
+  🥐 Ouvert tous les jours — <a href="tel:302262">30.22.62</a> — 81 Rue De Charleroi, Nouméa
+</div>
+
+<!-- HEADER -->
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-in">
+    <a href="#hero" class="logo" aria-label="Bakery Sainte-Marie — Accueil">
+      <span class="logo-name">Bakery Sainte-Marie</span>
+      <span class="logo-sub">Boulangerie · Pâtisserie · Nouméa</span>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#services">Nos Produits</a>
+      <a href="#metier">Notre Histoire</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#avis">Avis</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="hdr-cta">
+      <a href="tel:302262" class="tel-lnk" aria-label="Appeler le 30.22.62">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.99 2.82 2 2 0 012.98 1h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L7.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <span>30.22.62</span>
+      </a>
+      <a href="#contact" class="btn btn-p">Commander</a>
+    </div>
+    <button class="ham" id="ham" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mob-nav" id="mob-nav" aria-label="Navigation mobile">
+    <a href="#services" onclick="closeMob()">Nos Produits</a>
+    <a href="#metier" onclick="closeMob()">Notre Histoire</a>
+    <a href="#galerie" onclick="closeMob()">Galerie</a>
+    <a href="#avis" onclick="closeMob()">Avis</a>
+    <a href="#contact" onclick="closeMob()">Contact</a>
+    <a href="tel:302262" style="color:var(--ca);margin-top:.25rem">📞 30.22.62</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero" aria-label="Accueil Bakery Sainte-Marie">
+  <div class="hero-ov"></div>
+  <div class="hero-ct">
+    <span class="tag">Artisan Boulanger · Nouméa</span>
+    <h1 class="h1">Le pain du jour,<br><em>fait avec cœur</em></h1>
+    <p class="hero-sub">Pains dorés, viennoiseries croustillantes et pâtisseries maison — chaque matin, sur la Rue De Charleroi.</p>
+    <div class="hero-btns">
+      <a href="#services" class="btn btn-p">Découvrir nos spécialités</a>
+      <a href="https://www.facebook.com/BakerySainteMarie" target="_blank" rel="noopener" class="btn btn-o">Suivre sur Facebook</a>
+    </div>
+  </div>
+  <div class="scroll-ind" aria-hidden="true">
+    <span>Découvrir</span>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" aria-label="Chiffres clés">
+  <div class="wrap">
+    <div class="stats-g">
+      <div>
+        <div class="stat-n" data-target="30" data-suffix="+">0+</div>
+        <div class="stat-l">années d'artisanat</div>
+      </div>
+      <div>
+        <div class="stat-n" data-target="31" data-suffix="">0</div>
+        <div class="stat-l">avis Google</div>
+      </div>
+      <div>
+        <div class="stat-n" data-target="3.9" data-suffix="/5">0/5</div>
+        <div class="stat-l">note client</div>
+      </div>
+      <div>
+        <div class="stat-n" data-target="7" data-suffix="j/7">0j/7</div>
+        <div class="stat-l">ouvert chaque jour</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+var h=document.getElementById('hdr'),
+    ham=document.getElementById('ham'),
+    mn=document.getElementById('mob-nav');
+
+window.addEventListener('scroll',function(){
+  h.classList.toggle('scrolled',window.scrollY>40);
+});
+
+ham.addEventListener('click',function(){
+  var o=mn.classList.toggle('open');
+  ham.setAttribute('aria-expanded',o);
+  var s=ham.querySelectorAll('span');
+  if(o){s[0].style.transform='rotate(45deg) translate(5px,5px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(5px,-5px)';}
+  else{s[0].style.transform='';s[1].style.opacity='';s[2].style.transform='';}
+});
+
+window.closeMob=function(){
+  mn.classList.remove('open');
+  ham.setAttribute('aria-expanded','false');
+  var s=ham.querySelectorAll('span');
+  s[0].style.transform='';s[1].style.opacity='';s[2].style.transform='';
+};
+
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(!e.isIntersecting)return;
+    var el=e.target,
+        target=parseFloat(el.getAttribute('data-target')),
+        suffix=el.getAttribute('data-suffix')||'',
+        dec=target%1!==0,
+        dur=1400,
+        start=null;
+    function step(ts){
+      if(!start)start=ts;
+      var p=Math.min((ts-start)/dur,1),
+          val=p*target;
+      el.textContent=(dec?val.toFixed(1):Math.floor(val))+suffix;
+      if(p<1)requestAnimationFrame(step);
+      else el.textContent=(dec?target.toFixed(1):target)+suffix;
+    }
+    requestAnimationFrame(step);
+    obs.unobserve(el);
+  });
+},{threshold:.4});
+
+document.querySelectorAll('[data-target]').forEach(function(el){obs.observe(el);});
+})();
+</script>
+<style>
+.s{padding:5rem 0}
+.s-hd{text-align:center;margin-bottom:3rem}
+.s-hd .sep{margin:.75rem auto 1.25rem}
+
+/* SERVICES */
+.srv-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem}
+.srv-c{background:#fff;border-radius:.75rem;padding:2rem 1.5rem;text-align:center;border:1px solid #e4d4b8;transition:transform var(--tr),box-shadow var(--tr),background var(--tr)}
+.srv-c:hover{transform:translateY(-4px);background:#E8D4B8;box-shadow:0 8px 28px rgba(200,134,10,.18)}
+.srv-ic{width:60px;height:60px;background:var(--cp);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.1rem}
+.srv-ic svg{color:#fff}
+.srv-c .h3{margin-bottom:.6rem;color:var(--cs)}
+.srv-c p{font-size:.9rem;color:#5a3e28;line-height:1.6}
+.srv-c .btn{margin-top:1.25rem;font-size:.85rem;min-height:40px;padding:.5rem 1.2rem;background:var(--ca);color:#fff}
+.srv-c .btn:hover{background:#b83d08}
+
+/* METIER */
+.met{background:#fff}
+.met-g{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
+.met-txt .h2{color:var(--cs);margin-bottom:.5rem}
+.met-txt p{color:#5a3e28;margin-bottom:1rem;font-size:.97rem}
+.met-pts{display:flex;flex-direction:column;gap:.65rem;margin-top:1.5rem}
+.met-pt{display:flex;align-items:flex-start;gap:.75rem;font-size:.92rem;color:var(--ct)}
+.met-pt svg{flex-shrink:0;margin-top:2px;color:var(--cp)}
+.met-img{border-radius:1rem;overflow:hidden;box-shadow:0 12px 40px rgba(43,26,10,.15)}
+.met-img img{width:100%;height:420px;object-fit:cover;transition:transform .5s ease}
+.met-img:hover img{transform:scale(1.03)}
+
+/* GALERIE */
+.gal{background:var(--cb)}
+.gal-g{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.gal-it{border-radius:.6rem;overflow:hidden;cursor:pointer;aspect-ratio:1;position:relative}
+.gal-it img{width:100%;height:100%;object-fit:cover;transition:transform var(--tr)}
+.gal-it:hover img{transform:scale(1.06)}
+.gal-ov{position:absolute;inset:0;background:rgba(43,26,10,.35);opacity:0;transition:opacity var(--tr);display:flex;align-items:center;justify-content:center}
+.gal-it:hover .gal-ov{opacity:1}
+.gal-ov svg{color:#fff}
+.lbx{display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.88);align-items:center;justify-content:center;padding:1rem}
+.lbx.on{display:flex}
+.lbx-img{max-width:90vw;max-height:88vh;border-radius:.5rem;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.lbx-cl{position:absolute;top:1.25rem;right:1.25rem;background:none;border:2px solid rgba(255,255,255,.7);color:#fff;width:40px;height:40px;border-radius:50%;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.lbx-cl:hover{background:var(--ca);border-color:var(--ca)}
+
+/* FORMULAIRE */
+.frm{background:#fff}
+.frm-g{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.frm-inf .h2{color:var(--cs);margin-bottom:.5rem}
+.frm-inf p{color:#5a3e28;font-size:.95rem;margin-bottom:1.5rem}
+.frm-det{display:flex;flex-direction:column;gap:.75rem;font-size:.9rem;color:var(--ct)}
+.frm-det a{color:var(--ca);font-weight:700}
+.frm-det a:hover{text-decoration:underline}
+.frm-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.fld{display:flex;flex-direction:column;gap:.35rem}
+.fld label{font-size:.82rem;font-weight:700;color:var(--cs);letter-spacing:.04em;text-transform:uppercase}
+.fld input,.fld textarea{font-family:'Lora',serif;font-size:.95rem;padding:.75rem 1rem;border:1.5px solid #d4c4a8;border-radius:var(--r);background:var(--cb);color:var(--ct);transition:border-color var(--tr),box-shadow var(--tr);width:100%}
+.fld input:focus,.fld textarea:focus{outline:none;border-color:var(--cp);box-shadow:0 0 0 3px rgba(200,134,10,.15)}
+.fld input.err,.fld textarea.err{border-color:#c0392b}
+.fld textarea{resize:vertical;min-height:120px}
+.frm-act{display:flex;align-items:center;gap:1rem;margin-top:.5rem;flex-wrap:wrap}
+.frm-ok{display:none;background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7;border-radius:var(--r);padding:.85rem 1.25rem;font-size:.9rem;font-weight:600;width:100%}
+.frm-ok.on{display:block}
+.frm-ldr{display:none;width:22px;height:22px;border:3px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}
+.frm-ldr.on{display:inline-block}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* AVIS */
+.avis{background:var(--cb)}
+.avis-top{display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap;margin-bottom:3rem}
+.avis-score{text-align:center}
+.avis-num{font-size:4rem;font-weight:700;color:var(--cp);line-height:1}
+.avis-stars{display:flex;gap:3px;justify-content:center;margin:.3rem 0}
+.avis-stars svg{color:#C8860A}
+.avis-tot{font-size:.8rem;color:#7a5a38}
+.avis-bdg{display:flex;flex-direction:column;gap:.6rem}
+.bdg{display:flex;align-items:center;gap:.65rem;background:#fff;border:1px solid #e4d4b8;border-radius:2rem;padding:.5rem 1rem;font-size:.85rem;font-weight:600;color:var(--cs)}
+.bdg svg{color:var(--cp)}
+.tms-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.tm{background:#fff;border-radius:.75rem;padding:1.5rem;border:1px solid #e4d4b8;transition:transform var(--tr),box-shadow var(--tr)}
+.tm:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(200,134,10,.14)}
+.tm-stars{display:flex;gap:2px;margin-bottom:.75rem}
+.tm-stars svg{color:var(--cp)}
+.tm-txt{font-size:.88rem;color:#5a3e28;font-style:italic;line-height:1.65;margin-bottom:.9rem}
+.tm-au{font-weight:700;font-size:.82rem;color:var(--cs)}
+
+/* FOOTER */
+.ftr{background:var(--cs);color:rgba(255,255,255,.9);padding:3.5rem 0 0}
+.ftr-g{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2.5rem;padding-bottom:2.5rem}
+.ftr-logo{font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:.5rem}
+.ftr-sub{font-size:.78rem;color:var(--cp);text-transform:uppercase;letter-spacing:.06em;margin-bottom:1rem}
+.ftr p{font-size:.87rem;color:rgba(255,255,255,.75);line-height:1.7}
+.ftr a{color:rgba(255,255,255,.75);transition:color var(--tr)}
+.ftr a:hover{color:var(--cp)}
+.ftr-ttl{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--cp);margin-bottom:.9rem}
+.ftr-lnks{display:flex;flex-direction:column;gap:.5rem}
+.ftr-lnks a{font-size:.87rem}
+.soc{display:flex;gap:.875rem;margin-top:1.25rem}
+.soc a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.12);transition:background var(--tr)}
+.soc a:hover{background:var(--cp)}
+.soc svg{color:#fff}
+.ftr-bot{border-top:1px solid rgba(255,255,255,.1);padding:1rem 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+.ftr-bot span,.ftr-bot a{font-size:.78rem;color:rgba(255,255,255,.5)}
+.ftr-bot a:hover{color:var(--cp)}
+
+@media(max-width:900px){
+.srv-g{grid-template-columns:repeat(2,1fr)}
+.met-g{grid-template-columns:1fr;gap:2rem}
+.met-img{order:-1}
+.met-img img{height:280px}
+.gal-g{grid-template-columns:repeat(2,1fr)}
+.frm-g{grid-template-columns:1fr;gap:2rem}
+.tms-g{grid-template-columns:1fr}
+.ftr-g{grid-template-columns:1fr 1fr}
+.avis-top{gap:1.5rem}
+}
+@media(max-width:480px){
+.srv-g{grid-template-columns:1fr}
+.frm-row{grid-template-columns:1fr}
+.gal-g{grid-template-columns:repeat(2,1fr)}
+.ftr-g{grid-template-columns:1fr}
+.ftr-bot{flex-direction:column;text-align:center}
+.avis-top{flex-direction:column;align-items:center}
+.s{padding:3.5rem 0}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s srv" id="services" aria-label="Nos produits">
+  <div class="wrap">
+    <div class="s-hd">
+      <span class="tag">Nos Spécialités</span>
+      <h2 class="h2">Des produits faits maison, chaque jour</h2>
+      <div class="sep"></div>
+      <p style="max-width:560px;margin:0 auto;color:#5a3e28;font-size:.97rem">Du four à la vitrine, nos artisans préparent avec soin ce que vous retrouvez chaque matin.</p>
+    </div>
+    <div class="srv-g">
+      <div class="srv-c">
+        <div class="srv-ic">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+        </div>
+        <h3 class="h3">Pains Artisanaux</h3>
+        <p>Baguettes tradition, pains de campagne, pains spéciaux — cuits au four chaque matin pour une croûte dorée et une mie généreuse.</p>
+        <a href="#contact" class="btn">En savoir plus</a>
+      </div>
+      <div class="srv-c">
+        <div class="srv-ic">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <h3 class="h3">Viennoiseries</h3>
+        <p>Croissants beurrés, pains au chocolat, brioches moelleuses — le plaisir du petit-déjeuner, préparé avec amour dès l'aube.</p>
+        <a href="#contact" class="btn">En savoir plus</a>
+      </div>
+      <div class="srv-c">
+        <div class="srv-ic">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <h3 class="h3">Pâtisseries Maison</h3>
+        <p>Tartes, éclairs, millefeuilles et gourmandises de saison — chaque pâtisserie est une création soignée, à savourer sans modération.</p>
+        <a href="#contact" class="btn">En savoir plus</a>
+      </div>
+      <div class="srv-c">
+        <div class="srv-ic">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3 class="h3">Sandwiches & Snacking</h3>
+        <p>Des sandwiches généreux sur pain maison, composés avec des ingrédients frais — la pause déjeuner idéale en plein cœur de Nouméa.</p>
+        <a href="#contact" class="btn">En savoir plus</a>
+      </div>
+      <div class="srv-c">
+        <div class="srv-ic">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        </div>
+        <h3 class="h3">Chocolats & Gourmandises</h3>
+        <p>Chocolats artisanaux, confiseries et douceurs à offrir ou à se faire plaisir — la touche sucrée qui fait toute la différence.</p>
+        <a href="#contact" class="btn">En savoir plus</a>
+      </div>
+      <div class="srv-c">
+        <div class="srv-ic">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <h3 class="h3">Commandes Spéciales</h3>
+        <p>Gâteaux d'anniversaire, pièces montées ou plateaux de fêtes — nos artisans s'adaptent à vos envies et à vos occasions spéciales.</p>
+        <a href="#contact" class="btn">Nous contacter</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s met" id="metier" aria-label="Notre histoire">
+  <div class="wrap">
+    <div class="met-g">
+      <div class="met-txt">
+        <span class="tag">Notre Savoir-Faire</span>
+        <h2 class="h2">Une boulangerie de quartier, une passion au quotidien</h2>
+        <div class="sep"></div>
+        <p>Chez Bakery Sainte-Marie, chaque journée commence bien avant l'aube. Nos boulangers pétrissent, façonnent et cuisent avec une exigence simple : vous offrir le meilleur, frais, chaque matin.</p>
+        <p>Installés au cœur de Nouméa, sur la Rue De Charleroi, nous sommes fiers de faire partie du quotidien de notre quartier depuis des années. Que vous passiez chercher votre baguette, une viennoiserie ou un sandwich pour le déjeuner, vous êtes toujours les bienvenus.</p>
+        <div class="met-pts">
+          <div class="met-pt">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Produits fabriqués sur place, chaque jour</span>
+          </div>
+          <div class="met-pt">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Recettes artisanales transmises avec soin</span>
+          </div>
+          <div class="met-pt">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Commerce de proximité, accueil chaleureux</span>
+          </div>
+          <div class="met-pt">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Ouvert tous les jours pour vous servir</span>
+          </div>
+        </div>
+      </div>
+      <div class="met-img">
+        <img src="https://i.ibb.co/DfhvWHCm/Bakery-Sainte-Marie-1.jpg" alt="Intérieur de la boulangerie Sainte-Marie à Nouméa" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s gal" id="galerie" aria-label="Galerie photos">
+  <div class="wrap">
+    <div class="s-hd">
+      <span class="tag">Galerie</span>
+      <h2 class="h2">Nos produits en images</h2>
+      <div class="sep"></div>
+    </div>
+    <div class="gal-g">
+      <div class="gal-it" role="button" tabindex="0" aria-label="Agrandir photo 1" data-src="https://i.ibb.co/4ZJx7TMk/Bakery-Sainte-Marie-0.jpg">
+        <img src="https://i.ibb.co/4ZJx7TMk/Bakery-Sainte-Marie-0.jpg" alt="Vitrine Bakery Sainte-Marie" loading="lazy">
+        <div class="gal-ov"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+      <div class="gal-it" role="button" tabindex="0" aria-label="Agrandir photo 2" data-src="https://i.ibb.co/DfhvWHCm/Bakery-Sainte-Marie-1.jpg">
+        <img src="https://i.ibb.co/DfhvWHCm/Bakery-Sainte-Marie-1.jpg" alt="Produits de boulangerie" loading="lazy">
+        <div class="gal-ov"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+      <div class="gal-it" role="button" tabindex="0" aria-label="Agrandir photo 3" data-src="https://i.ibb.co/LXkNMLn0/Bakery-Sainte-Marie-2.jpg">
+        <img src="https://i.ibb.co/LXkNMLn0/Bakery-Sainte-Marie-2.jpg" alt="Pâtisseries artisanales" loading="lazy">
+        <div class="gal-ov"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+      <div class="gal-it" role="button" tabindex="0" aria-label="Agrandir photo 4" data-src="https://i.ibb.co/5hM7D81w/Bakery-Sainte-Marie-3.jpg">
+        <img src="https://i.ibb.co/5hM7D81w/Bakery-Sainte-Marie-3.jpg" alt="Sélection de la boulangerie" loading="lazy">
+        <div class="gal-ov"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lbx" id="lbx" role="dialog" aria-label="Visionneuse d'image" aria-modal="true">
+  <img class="lbx-img" id="lbx-img" src="" alt="Photo agrandie">
+  <button class="lbx-cl" id="lbx-cl" aria-label="Fermer">✕</button>
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section class="s avis" id="avis" aria-label="Avis clients">
+  <div class="wrap">
+    <div class="s-hd">
+      <span class="tag">Avis Clients</span>
+      <h2 class="h2">Ce que disent nos habitués</h2>
+      <div class="sep"></div>
+    </div>
+    <div class="avis-top">
+      <div class="avis-score">
+        <div class="avis-num">3.9</div>
+        <div class="avis-stars">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div class="avis-tot">sur 31 avis Google</div>
+      </div>
+      <div class="avis-bdg">
+        <div class="bdg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Commerce de quartier de confiance
+        </div>
+        <div class="bdg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Produits frais chaque jour
+        </div>
+        <div class="bdg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Accueil chaleureux et familial
+        </div>
+      </div>
+    </div>
+    <div class="tms-g">
+      <div class="tm">
+        <div class="tm-stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="tm-txt">"Une boulangerie comme on les aime — les croissants sont à tomber et le personnel est vraiment accueillant. On revient chaque matin !"</p>
+        <div class="tm-au">Marie-Hélène L. · Nouméa</div>
+      </div>
+      <div class="tm">
+        <div class="tm-stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="tm-txt">"Bon pain, bonne adresse dans le quartier. Les sandwiches du midi sont copieux et toujours frais. Je recommande sans hésiter."</p>
+        <div class="tm-au">Patrick D. · Nouméa</div>
+      </div>
+      <div class="tm">
+        <div class="tm-stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="tm-txt">"Les pâtisseries sont vraiment soignées et les prix sont honnêtes. Un vrai artisan de quartier, ça fait du bien d'avoir une telle adresse à Nouméa."</p>
+        <div class="tm-au">Sandrine T. · Nouméa</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE -->
+<section class="s frm" id="contact" aria-label="Nous contacter">
+  <div class="wrap">
+    <div class="frm-g">
+      <div class="frm-inf">
+        <span class="tag">Contact</span>
+        <h2 class="h2">Une question, une commande spéciale ?</h2>
+        <div class="sep"></div>
+        <p>Passez nous voir ou envoyez-nous un message — nous serons ravis de vous répondre et de préparer quelque chose à votre goût.</p>
+        <div class="frm-det">
+          <div>
+            <svg style="display:inline;vertical-align:middle;margin-right:.4rem" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            81 Rue De Charleroi, Nouméa 98800
+          </div>
+          <div>
+            <svg style="display:inline;vertical-align:middle;margin-right:.4rem" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.99 2.82 2 2 0 012.98 1h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L7.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <a href="tel:302262">30.22.62</a>
+          </div>
+          <div>
+            <svg style="display:inline;vertical-align:middle;margin-right:.4rem" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Ouvert tous les jours
+          </div>
+          <div>
+            <svg style="display:inline;vertical-align:middle;margin-right:.4rem" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            <a href="https://www.facebook.com/BakerySainteMarie" target="_blank" rel="noopener">Facebook</a>
+          </div>
+        </div>
+      </div>
+      <form id="frm" action="#" novalidate>
+        <div class="frm-row">
+          <div class="fld">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" placeholder="Votre nom" autocomplete="name">
+          </div>
+          <div class="fld">
+            <label for="tel">Téléphone</label>
+            <input type="tel" id="tel" name="tel" placeholder="Votre numéro" autocomplete="tel">
+          </div>
+        </div>
+        <div class="fld" style="margin-top:1rem">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="votre@email.com" autocomplete="email">
+        </div>
+        <div class="fld" style="margin-top:1rem">
+          <label for="msg">Message</label>
+          <textarea id="msg" name="msg" placeholder="Votre message, commande ou question…"></textarea>
+        </div>
+        <div class="frm-ok" id="frm-ok" role="alert">✅ Message envoyé ! Nous vous répondrons très prochainement.</div>
+        <div class="frm-act">
+          <button type="submit" class="btn btn-p" id="frm-btn" style="min-width:180px">
+            <span id="frm-txt">Envoyer le message</span>
+            <span class="frm-ldr" id="frm-ldr"></span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ftr" aria-label="Pied de page">
+  <div class="wrap">
+    <div class="ftr-g">
+      <div>
+        <div class="ftr-logo">Bakery Sainte-Marie</div>
+        <div class="ftr-sub">Boulangerie · Pâtisserie · Nouméa</div>
+        <p>81 Rue De Charleroi<br>Nouméa 98800, Nouvelle-Calédonie</p>
+        <p style="margin-top:.5rem"><a href="tel:302262">📞 30.22.62</a></p>
+        <div class="soc">
+          <a href="https://www.facebook.com/BakerySainteMarie" target="_blank" rel="noopener" aria-label="Facebook Bakery Sainte-Marie">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="ftr-ttl">Navigation</div>
+        <div class="ftr-lnks">
+          <a href="#services">Nos Produits</a>
+          <a href="#metier">Notre Histoire</a>
+          <a href="#galerie">Galerie</a>
+          <a href="#avis">Avis Clients</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="ftr-ttl">Horaires</div>
+        <p>Ouvert tous les jours<br>Venez nous rendre visite<br>au cœur de Nouméa.</p>
+        <div style="margin-top:1rem">
+          <a href="https://www.facebook.com/BakerySainteMarie" target="_blank" rel="noopener" class="btn btn-p" style="font-size:.85rem;min-height:40px;padding:.5rem 1rem">Voir sur Facebook</a>
+        </div>
+      </div>
+    </div>
+    <div class="ftr-bot">
+      <span>© 2026 Bakery Sainte-Marie. Tous droits réservés.</span>
+      <a href="https://setup.nc" target="_blank" rel="noopener">Site réalisé par Setup NC</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+var lbx=document.getElementById('lbx'),
+    lbxImg=document.getElementById('lbx-img'),
+    lbxCl=document.getElementById('lbx-cl');
+
+document.querySelectorAll('.gal-it').forEach(function(it){
+  it.addEventListener('click',function(){
+    lbxImg.src=it.getAttribute('data-src');
+    lbxImg.alt=it.querySelector('img').alt;
+    lbx.classList.add('on');
+    document.body.style.overflow='hidden';
+  });
+  it.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' ')it.click();});
+});
+
+function closeLbx(){lbx.classList.remove('on');document.body.style.overflow='';}
+lbxCl.addEventListener('click',closeLbx);
+lbx.addEventListener('click',function(e){if(e.target===lbx)closeLbx();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLbx();});
+
+var form=document.getElementById('frm'),
+    btn=document.getElementById('frm-btn'),
+    txt=document.getElementById('frm-txt'),
+    ldr=document.getElementById('frm-ldr'),
+    ok=document.getElementById('frm-ok');
+
+form.addEventListener('submit',function(e){
+  e.preventDefault();
+  var n=document.getElementById('nom'),
+      em=document.getElementById('email'),
+      m=document.getElementById('msg'),
+      err=false;
+  [n,em,m].forEach(function(f){f.classList.remove('err');});
+  if(!n.value.trim()){n.classList.add('err');err=true;}
+  if(!em.value.trim()||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value)){em.classList.add('err');err=true;}
+  if(!m.value.trim()){m.classList.add('err');err=true;}
+  if(err)return;
+  btn.disabled=true;txt.style.display='none';ldr.classList.add('on');
+  setTimeout(function(){
+    ldr.classList.remove('on');txt.style.display='';btn.disabled=false;
+    ok.classList.add('on');form.reset();
+  },1400);
+});
+})();
+</script>
+</body>
+</html>
