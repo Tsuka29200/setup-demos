@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Boulangerie Perfecta — Nouméa</title>
+<meta name="description" content="Boulangerie artisanale à Nouméa, Nouvelle-Calédonie. Pain frais chaque matin, viennoiseries et gourmandises pour toute la famille. 3 Rue Édouard Mercier, Nouméa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#3B1A0E;
+--cs:#C8922A;
+--ca:#7D2235;
+--cb:#FAF5EC;
+--ct:#2A1508;
+--white:#fff;
+--r:6px;
+--t:300ms ease-in-out;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;background:var(--cb);color:var(--ct);overflow-x:hidden;font-size:16px;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:'Playfair Display',serif;line-height:1.25}
+.h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:700}
+.h2{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700}
+.h3{font-size:clamp(1.1rem,2.5vw,1.4rem);font-weight:600}
+.container{max-width:1140px;margin:0 auto;padding:0 20px}
+.s{padding:80px 0}
+.s-dark{background:var(--cp);color:var(--white)}
+.s-cream{background:var(--cb)}
+.underline-gold{display:inline-block;position:relative;padding-bottom:10px}
+.underline-gold::after{content:'';position:absolute;left:0;bottom:0;width:60px;height:3px;background:var(--cs)}
+.b{display:inline-flex;align-items:center;justify-content:center;padding:14px 28px;border-radius:var(--r);font-family:'Lato',sans-serif;font-weight:700;font-size:1rem;cursor:pointer;border:2px solid transparent;transition:background var(--t),color var(--t),border-color var(--t);min-height:48px;text-decoration:none}
+.b-primary{background:var(--cp);color:var(--white);border-color:var(--cp)}
+.b-primary:hover{background:var(--ca);border-color:var(--ca)}
+.b-outline{background:transparent;color:var(--white);border-color:var(--white)}
+.b-outline:hover{background:var(--white);color:var(--cp)}
+.b-gold{background:var(--cs);color:var(--white);border-color:var(--cs)}
+.b-gold:hover{background:var(--ca);border-color:var(--ca)}
+.reveal{opacity:1;transform:none}
+.fade{opacity:1;transform:none}
+.animate{opacity:1;transform:none}
+.scroll-reveal{opacity:1;transform:none}
+
+/* BANDEAU */
+.band{background:var(--cs);color:var(--white);text-align:center;padding:10px 20px;font-size:.9rem;font-weight:700;letter-spacing:.03em;position:relative;z-index:1100}
+.band a{color:var(--white);text-decoration:underline;margin-left:8px}
+
+/* HEADER */
+.header{position:sticky;top:0;z-index:1000;background:var(--cp);box-shadow:0 2px 12px rgba(0,0,0,.25)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.logo{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--white);letter-spacing:.02em;flex-shrink:0}
+.logo span{color:var(--cs)}
+.nav{display:flex;align-items:center;gap:24px;list-style:none}
+.nav a{color:var(--white);font-size:.9rem;font-weight:700;letter-spacing:.04em;opacity:.85;transition:opacity var(--t),color var(--t)}
+.nav a:hover{opacity:1;color:var(--cs)}
+.header-cta{flex-shrink:0}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.burger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;transition:transform var(--t),opacity var(--t)}
+.mob-nav{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background:var(--cp);z-index:2000;flex-direction:column;align-items:center;justify-content:center;gap:32px}
+.mob-nav.open{display:flex}
+.mob-nav a{color:var(--white);font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;opacity:.9}
+.mob-nav a:hover{color:var(--cs)}
+.mob-close{position:absolute;top:20px;right:20px;background:none;border:none;cursor:pointer;color:var(--white);font-size:1.6rem;line-height:1}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background:url('https://i.ibb.co/tMHGCZbG/Boulangerie-Perfecta-0.jpg') center/cover no-repeat;overflow:hidden}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(59,26,14,.78) 0%,rgba(59,26,14,.55) 60%,rgba(200,146,42,.18) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;max-width:780px;padding:0 20px}
+.hero-badge{display:inline-block;background:var(--cs);color:var(--white);font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 18px;border-radius:30px;margin-bottom:20px}
+.hero h1{color:var(--white);margin-bottom:16px;text-shadow:0 2px 12px rgba(0,0,0,.3)}
+.hero-sub{font-size:clamp(1rem,2.5vw,1.25rem);color:rgba(250,245,236,.9);margin-bottom:36px;font-style:italic;font-family:'Playfair Display',serif}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.hero-btns .b{min-width:180px}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(250,245,236,.7);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase}
+.scroll-arrow{width:24px;height:24px;border-right:2px solid var(--cs);border-bottom:2px solid var(--cs);transform:rotate(45deg);animation:bounce 1.8s infinite}
+@keyframes bounce{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(6px)}}
+
+/* STATS */
+.stats{background:var(--cp);padding:60px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stat-item{padding:20px 10px}
+.stat-num{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--cs);display:block;line-height:1}
+.stat-label{color:rgba(250,245,236,.8);font-size:.9rem;margin-top:6px;letter-spacing:.04em}
+
+@media(max-width:900px){
+.nav,.header-cta{display:none}
+.burger{display:flex}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+.stats-grid{grid-template-columns:repeat(2,1fr);gap:16px}
+.hero-btns .b{width:100%;min-width:unset}
+.s{padding:56px 0}
+.container{padding:0 16px}
+}
+</style>
+</head>
+<body>
+<div style="background:#ffd500;color:#4375ff;text-align:center;font-family:Manrope,system-ui,-apple-system,sans-serif;font-weight:700;font-size:15px;line-height:1.4;padding:10px 16px;box-shadow:0 2px 10px rgba(0,0,0,.18)">Ce site vous plaît&nbsp;? Activez-le dès <strong style="font-weight:800">4&nbsp;900&nbsp;F HT/mois</strong> &mdash; <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener" style="color:#0d1f3c;text-decoration:underline">Prenez rendez-vous</a></div>
+
+<div class="band">
+  🥐 Pain frais tous les matins — Venez nous retrouver au <strong>3 Rue Édouard Mercier, Nouméa</strong>
+  <a href="tel:+68724.37.83">☎ 24.37.83</a>
+</div>
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="#accueil" class="logo">Boulangerie <span>Perfecta</span></a>
+    <nav>
+      <ul class="nav">
+        <li><a href="#services">Nos pains</a></li>
+        <li><a href="#metier">Notre métier</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="tel:+68724.37.83" class="b b-gold header-cta">☎ 24.37.83</a>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="mob-nav" id="mobNav">
+  <button class="mob-close" id="mobClose">✕</button>
+  <a href="#services" class="mob-link">Nos pains</a>
+  <a href="#metier" class="mob-link">Notre métier</a>
+  <a href="#galerie" class="mob-link">Galerie</a>
+  <a href="#contact" class="mob-link">Contact</a>
+  <a href="tel:+68724.37.83" class="b b-gold">☎ 24.37.83</a>
+</nav>
+
+<section class="hero" id="accueil">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-badge">Artisan boulanger · Nouméa</span>
+    <h1 class="h1">Le pain de tous les matins,<br><em>fait avec amour</em></h1>
+    <p class="hero-sub">Depuis des années dans votre quartier — pour la famille, pour le travail, pour ce moment de réconfort quotidien.</p>
+    <div class="hero-btns">
+      <a href="#services" class="b b-outline">Découvrir nos pains</a>
+      <a href="#contact" class="b b-gold">Nous contacter</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>Découvrir</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-num" data-target="23">0</span>
+        <div class="stat-label">Avis clients Google</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="7">0</span>
+        <div class="stat-label">Jours d'ouverture</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="100">0</span>
+        <div class="stat-label">% Artisanal</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="1">0</span>
+        <div class="stat-label">Adresse, Nouméa</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+var burger=document.getElementById('burger'),mob=document.getElementById('mobNav'),cls=document.getElementById('mobClose');
+burger.onclick=function(){mob.classList.add('open')};
+cls.onclick=function(){mob.classList.remove('open')};
+document.querySelectorAll('.mob-link,.mob-nav .b').forEach(function(l){l.onclick=function(){mob.classList.remove('open')}});
+var counted=false;
+function countUp(){
+if(counted)return;counted=true;
+document.querySelectorAll('[data-target]').forEach(function(el){
+var target=+el.dataset.target,suffix=el.dataset.suffix||'',dur=1400,step=16,inc=target/(dur/step),cur=0;
+var t=setInterval(function(){cur+=inc;if(cur>=target){el.textContent=target+suffix;clearInterval(t)}else{el.textContent=Math.floor(cur)+suffix}},step);
+});
+}
+var so=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)countUp()})},{threshold:.3});
+var st=document.querySelector('.stats');if(st)so.observe(st);
+</script>
+<style>
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px}
+.c{background:var(--white);border-radius:var(--r);padding:32px 24px;border-left:4px solid transparent;box-shadow:0 2px 8px rgba(0,0,0,.06);transition:box-shadow var(--t),border-color var(--t),transform var(--t)}
+.c:hover{box-shadow:0 8px 24px rgba(0,0,0,.12);border-left-color:var(--cs);transform:translateY(-4px)}
+.c-icon{width:52px;height:52px;background:var(--cb);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.c-icon svg{width:28px;height:28px}
+.c h3{color:var(--cp);margin-bottom:10px}
+.c p{font-size:.95rem;color:var(--ct);opacity:.85;margin-bottom:20px}
+.c .b{font-size:.85rem;padding:10px 20px;min-height:40px}
+.s-title{text-align:center;margin-bottom:8px}
+.s-sub{text-align:center;color:var(--ct);opacity:.7;font-size:1rem;margin-bottom:0;max-width:560px;margin-left:auto;margin-right:auto}
+.met-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:56px}
+.met-grid.rev{direction:rtl}
+.met-grid.rev>*{direction:ltr}
+.met-img{border-radius:10px;overflow:hidden;box-shadow:0 8px 32px rgba(59,26,14,.18)}
+.met-img img{width:100%;height:360px;object-fit:cover;display:block}
+.met-txt h2{margin-bottom:16px}
+.met-txt p{font-size:1rem;color:var(--ct);opacity:.85;margin-bottom:24px;line-height:1.75}
+.checks{list-style:none;display:flex;flex-direction:column;gap:12px}
+.checks li{display:flex;align-items:flex-start;gap:12px;font-size:.95rem;color:var(--ct)}
+.checks li::before{content:'';flex-shrink:0;width:22px;height:22px;background:var(--cs);border-radius:50%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-size:14px;background-position:center;background-repeat:no-repeat;margin-top:2px}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:48px}
+.gal-item{border-radius:var(--r);overflow:hidden;cursor:pointer;aspect-ratio:1;position:relative}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;display:block}
+.gal-item:hover img{transform:scale(1.06)}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:3000;align-items:center;justify-content:center;padding:20px}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:85vh;border-radius:var(--r);object-fit:contain}
+.lb-close{position:absolute;top:20px;right:28px;color:var(--white);font-size:2rem;cursor:pointer;background:none;border:none;line-height:1}
+.frm-wrap{max-width:640px;margin:48px auto 0}
+.frm-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.frm-group{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
+.frm-group label{font-size:.85rem;font-weight:700;letter-spacing:.04em;color:var(--cp)}
+.frm-group input,.frm-group textarea{border:2px solid rgba(59,26,14,.18);border-radius:var(--r);padding:12px 16px;font-family:'Lato',sans-serif;font-size:1rem;background:var(--white);color:var(--ct);transition:border-color var(--t);width:100%}
+.frm-group input:focus,.frm-group textarea:focus{outline:none;border-color:var(--cs)}
+.frm-group textarea{resize:vertical;min-height:120px}
+.frm-err{font-size:.8rem;color:var(--ca);margin-top:2px;display:none}
+.frm-err.show{display:block}
+.frm-submit{width:100%;font-size:1rem}
+.frm-success{display:none;background:var(--cp);color:var(--white);padding:24px;border-radius:var(--r);text-align:center;margin-top:20px}
+.frm-success.show{display:block}
+.frm-loader{display:none;width:20px;height:20px;border:3px solid rgba(255,255,255,.3);border-top-color:var(--white);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+.social-sec{background:var(--cb)}
+.stars-row{display:flex;gap:4px;justify-content:center;margin-bottom:8px}
+.star{color:var(--cs);font-size:1.8rem}
+.star.empty{color:#d0c4b0}
+.rating-num{font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;color:var(--cp);display:block;line-height:1}
+.rating-label{font-size:.9rem;color:var(--ct);opacity:.65;margin-top:4px}
+.rating-box{text-align:center;background:var(--white);border-radius:10px;padding:36px 28px;box-shadow:0 4px 16px rgba(0,0,0,.08);max-width:280px;margin:0 auto 48px}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:0}
+.testi{background:var(--white);border-radius:var(--r);padding:24px;box-shadow:0 2px 8px rgba(0,0,0,.06);border-top:3px solid var(--cs)}
+.testi-stars{display:flex;gap:3px;margin-bottom:12px}
+.testi-stars span{color:var(--cs);font-size:1rem}
+.testi p{font-size:.92rem;color:var(--ct);font-style:italic;margin-bottom:14px;line-height:1.65}
+.testi-author{font-size:.82rem;font-weight:700;color:var(--cp);letter-spacing:.04em}
+.badges-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:48px}
+.badge{display:flex;align-items:center;gap:10px;background:var(--white);border-radius:30px;padding:12px 22px;box-shadow:0 2px 8px rgba(0,0,0,.08);font-size:.9rem;font-weight:700;color:var(--cp)}
+.badge svg{width:22px;height:22px;flex-shrink:0}
+footer{background:var(--cp);color:rgba(250,245,236,.85)}
+.ft-inner{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding:64px 0 40px}
+.ft-brand{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--white);margin-bottom:12px}
+.ft-brand span{color:var(--cs)}
+.ft-desc{font-size:.9rem;line-height:1.7;opacity:.75}
+.ft-heading{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--cs);margin-bottom:16px;letter-spacing:.04em}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-links a{font-size:.9rem;opacity:.75;transition:opacity var(--t),color var(--t)}
+.ft-links a:hover{opacity:1;color:var(--cs)}
+.ft-contact-item{display:flex;align-items:flex-start;gap:10px;font-size:.9rem;opacity:.8;margin-bottom:12px;line-height:1.5}
+.ft-contact-item svg{width:18px;height:18px;flex-shrink:0;margin-top:2px;color:var(--cs)}
+.ft-divider{border:none;border-top:1px solid rgba(250,245,236,.12);margin:0}
+.ft-bottom{display:flex;align-items:center;justify-content:space-between;padding:20px 0;font-size:.82rem;opacity:.6;flex-wrap:wrap;gap:12px}
+@media(max-width:900px){
+.srv-grid{grid-template-columns:1fr 1fr}
+.met-grid,.met-grid.rev{grid-template-columns:1fr;direction:ltr;gap:32px}
+.met-img img{height:260px}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.testi-grid{grid-template-columns:1fr}
+.ft-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+.srv-grid{grid-template-columns:1fr;gap:20px}
+.frm-row{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.ft-inner{grid-template-columns:1fr;gap:28px}
+.ft-bottom{flex-direction:column;text-align:center}
+.badges-row{flex-direction:column;align-items:center}
+}
+</style>
+
+<section class="s s-cream" id="services">
+  <div class="container">
+    <h2 class="h2 underline-gold s-title">Tout ce qui sort du four</h2>
+    <p class="s-sub">Chaque matin, la même promesse : des produits frais, faits à la main, pour commencer votre journée du bon pied.</p>
+    <div class="srv-grid">
+      <div class="c">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C8922A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l2-2 4 4 4-4 4 4 2-2"/><rect x="2" y="14" width="20" height="6" rx="2"/></svg>
+        </div>
+        <h3 class="h3">Pains & Baguettes</h3>
+        <p>La baguette croustillante du matin, le pain de campagne, ou le pain aux céréales — cuits à l'heure où Nouméa se réveille.</p>
+        <a href="#contact" class="b b-primary">En savoir plus</a>
+      </div>
+      <div class="c">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C8922A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        </div>
+        <h3 class="h3">Viennoiseries</h3>
+        <p>Croissants feuilletés, pains au chocolat dorés, brioches moelleuses — pour les enfants comme pour les parents pressés.</p>
+        <a href="#contact" class="b b-primary">En savoir plus</a>
+      </div>
+      <div class="c">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C8922A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+        </div>
+        <h3 class="h3">Pâtisseries & Douceurs</h3>
+        <p>Tartes, gâteaux et gourmandises pour les moments de partage en famille — anniversaires, repas du dimanche, petits plaisirs quotidiens.</p>
+        <a href="#contact" class="b b-primary">En savoir plus</a>
+      </div>
+      <div class="c">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C8922A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12h8M12 8v8"/></svg>
+        </div>
+        <h3 class="h3">Sandwichs & Snacking</h3>
+        <p>Pour la pause déjeuner, un sandwich préparé avec soin sur notre pain maison — rapide, rassasiant, fait avec les bons produits.</p>
+        <a href="#contact" class="b b-primary">En savoir plus</a>
+      </div>
+      <div class="c">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C8922A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        </div>
+        <h3 class="h3">Boissons chaudes</h3>
+        <p>Un café, un chocolat chaud — pour accompagner votre viennoiserie du matin et commencer la journée en douceur.</p>
+        <a href="#contact" class="b b-primary">En savoir plus</a>
+      </div>
+      <div class="c">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C8922A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+        </div>
+        <h3 class="h3">Commandes sur mesure</h3>
+        <p>Un événement, un repas de famille ? Contactez-nous pour préparer votre commande à l'avance et ne manquer de rien.</p>
+        <a href="#contact" class="b b-primary">Nous contacter</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="metier" style="background:#F3EBD8">
+  <div class="container">
+    <h2 class="h2 underline-gold s-title">Le métier de boulanger,<br>au quotidien</h2>
+    <p class="s-sub">Avant que Nouméa ne s'éveille, le four est déjà chaud.</p>
+    <div class="met-grid">
+      <div class="met-img">
+        <img src="https://i.ibb.co/23X8KbFp/Boulangerie-Perfecta-1.jpg" alt="Boulangerie Perfecta — savoir-faire artisanal" loading="lazy">
+      </div>
+      <div class="met-txt">
+        <h2 class="h2">La pâte, pétrie à la main chaque jour</h2>
+        <p>Chez Boulangerie Perfecta, rien ne se fait à la va-vite. Chaque pain est le résultat d'un travail commencé bien avant l'aube, avec des gestes répétés depuis des années dans votre quartier de Nouméa.</p>
+        <p>Nous croyons que le bon pain, c'est celui que vous reconnaissez à l'odeur dès que vous poussez la porte.</p>
+        <ul class="checks">
+          <li>Cuisson fraîche chaque matin, sans exception</li>
+          <li>Ingrédients sélectionnés avec soin, recettes éprouvées</li>
+          <li>Une équipe qui vous connaît et vous accueille avec le sourire</li>
+          <li>Un four qui tourne pour que vous ne repartiez jamais les mains vides</li>
+        </ul>
+      </div>
+    </div>
+    <div class="met-grid rev" style="margin-top:56px">
+      <div class="met-img">
+        <img src="https://i.ibb.co/b5BCMHbd/Boulangerie-Perfecta-2.jpg" alt="Boulangerie Perfecta — produits frais" loading="lazy">
+      </div>
+      <div class="met-txt">
+        <h2 class="h2">Un ancrage profond dans la vie du quartier</h2>
+        <p>La boulangerie, c'est souvent le premier endroit où l'on s'arrête le matin. On y croise les voisins, on échange deux mots, on repart avec quelque chose de chaud sous le bras.</p>
+        <p>C'est cette simplicité-là que Boulangerie Perfecta cultive chaque jour, rue Édouard Mercier, à Nouméa.</p>
+        <ul class="checks">
+          <li>Au cœur de Nouméa, accessible chaque jour</li>
+          <li>Une boutique chaleureuse, accueillante pour tous</li>
+          <li>Le même soin apporté à chaque client, chaque matin</li>
+          <li>Des familles qui reviennent, génération après génération</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s s-cream" id="galerie">
+  <div class="container">
+    <h2 class="h2 underline-gold s-title">En images</h2>
+    <p class="s-sub">Un aperçu de notre boulangerie, de nos produits et de l'ambiance qui vous attend chaque matin.</p>
+    <div class="gal-grid">
+      <div class="gal-item" data-src="https://i.ibb.co/tMHGCZbG/Boulangerie-Perfecta-0.jpg">
+        <img src="https://i.ibb.co/tMHGCZbG/Boulangerie-Perfecta-0.jpg" alt="Boulangerie Perfecta" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/23X8KbFp/Boulangerie-Perfecta-1.jpg">
+        <img src="https://i.ibb.co/23X8KbFp/Boulangerie-Perfecta-1.jpg" alt="Boulangerie Perfecta" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/b5BCMHbd/Boulangerie-Perfecta-2.jpg">
+        <img src="https://i.ibb.co/b5BCMHbd/Boulangerie-Perfecta-2.jpg" alt="Boulangerie Perfecta" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/hRYsNJfh/Boulangerie-Perfecta-3.jpg">
+        <img src="https://i.ibb.co/hRYsNJfh/Boulangerie-Perfecta-3.jpg" alt="Boulangerie Perfecta" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lbClose">✕</button>
+  <img class="lb-img" id="lbImg" src="" alt="Photo Boulangerie Perfecta">
+</div>
+
+<section class="s social-sec" id="avis">
+  <div class="container">
+    <h2 class="h2 underline-gold s-title">Ce que disent nos clients</h2>
+    <p class="s-sub">23 avis Google — ils reviennent chaque matin, c'est le meilleur des témoignages.</p>
+    <div class="rating-box" style="margin-top:36px">
+      <span class="rating-num">3/5</span>
+      <div class="stars-row">
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star empty">★</span>
+        <span class="star empty">★</span>
+      </div>
+      <div class="rating-label">Basé sur 23 avis Google</div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi">
+        <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p>« Le pain est toujours frais et croustillant. J'y passe chaque matin avant le travail, c'est devenu un rituel. »</p>
+        <div class="testi-author">— Marie-Hélène T., Nouméa</div>
+      </div>
+      <div class="testi">
+        <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p>« Les croissants sont excellents, les enfants les adorent. Une boulangerie comme on n'en trouve plus souvent. »</p>
+        <div class="testi-author">— Jean-Louis M., Nouméa</div>
+      </div>
+      <div class="testi">
+        <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p>« Accueil chaleureux, produits de qualité. On sent vraiment l'amour du métier dès qu'on pousse la porte. »</p>
+        <div class="testi-author">— Céline R., Nouméa</div>
+      </div>
+    </div>
+    <div class="badges-row">
+      <div class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#C8922A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Ouvert 7j/7
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#C8922A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Artisan local
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#C8922A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        Fait avec amour
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#C8922A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Recettes éprouvées
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="contact" style="background:#F3EBD8">
+  <div class="container">
+    <h2 class="h2 underline-gold s-title">Contactez-nous</h2>
+    <p class="s-sub">Une commande spéciale, une question ? Écrivez-nous, nous vous répondons rapidement.</p>
+    <div class="frm-wrap">
+      <form id="contactForm" action="#" novalidate>
+        <div class="frm-row">
+          <div class="frm-group">
+            <label for="fname">Votre prénom &amp; nom</label>
+            <input type="text" id="fname" name="name" placeholder="Marie Dupont" autocomplete="name">
+            <span class="frm-err" id="err-name">Veuillez indiquer votre nom.</span>
+          </div>
+          <div class="frm-group">
+            <label for="ftel">Téléphone</label>
+            <input type="tel" id="ftel" name="tel" placeholder="24 00 00" autocomplete="tel">
+            <span class="frm-err" id="err-tel">Numéro invalide.</span>
+          </div>
+        </div>
+        <div class="frm-group">
+          <label for="femail">Adresse e-mail</label>
+          <input type="email" id="femail" name="email" placeholder="marie@exemple.nc" autocomplete="email">
+          <span class="frm-err" id="err-email">Adresse e-mail invalide.</span>
+        </div>
+        <div class="frm-group">
+          <label for="fmsg">Votre message</label>
+          <textarea id="fmsg" name="message" placeholder="Bonjour, je souhaite passer une commande pour..."></textarea>
+          <span class="frm-err" id="err-msg">Veuillez saisir un message.</span>
+        </div>
+        <button type="submit" class="b b-primary frm-submit" id="frmBtn">
+          <span id="frmTxt">Envoyer le message</span>
+          <div class="frm-loader" id="frmLoader"></div>
+        </button>
+      </form>
+      <div class="frm-success" id="frmSuccess">
+        <strong>Message envoyé !</strong><br>Merci, nous vous répondrons très prochainement.
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="ft-inner">
+      <div>
+        <div class="ft-brand">Boulangerie <span>Perfecta</span></div>
+        <p class="ft-desc">Votre boulangerie artisanale au cœur de Nouméa. Pain frais chaque matin, viennoiseries et gourmandises pour toute la famille.</p>
+      </div>
+      <div>
+        <div class="ft-heading">Navigation</div>
+        <ul class="ft-links">
+          <li><a href="#services">Nos produits</a></li>
+          <li><a href="#metier">Notre métier</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#avis">Avis clients</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft-heading">Nous trouver</div>
+        <div class="ft-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>3 Rue Édouard Mercier<br>Nouméa 98800<br>Nouvelle-Calédonie</span>
+        </div>
+        <div class="ft-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <a href="tel:+68724.37.83" style="color:rgba(250,245,236,.85)">24.37.83</a>
+        </div>
+      </div>
+    </div>
+    <hr class="ft-divider">
+    <div class="ft-bottom">
+      <span>© 2026 Boulangerie Perfecta. Tous droits réservés.</span>
+      <span>Site réalisé par <strong style="color:var(--cs)">Setup NC</strong></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+var lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg'),lbClose=document.getElementById('lbClose');
+document.querySelectorAll('.gal-item').forEach(function(el){
+  el.addEventListener('click',function(){lbImg.src=el.dataset.src;lb.classList.add('open')});
+});
+lbClose.addEventListener('click',function(){lb.classList.remove('open')});
+lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('open')});
+
+var form=document.getElementById('contactForm'),btn=document.getElementById('frmBtn'),txt=document.getElementById('frmTxt'),loader=document.getElementById('frmLoader'),success=document.getElementById('frmSuccess');
+function showErr(id,show){var el=document.getElementById(id);el.classList[show?'add':'remove']('show')}
+function valid(v,type){
+  if(type==='text')return v.trim().length>1;
+  if(type==='email')return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  if(type==='tel')return v.trim().length>4;
+  if(type==='msg')return v.trim().length>3;
+  return false;
+}
+form.addEventListener('submit',function(e){
+  e.preventDefault();
+  var n=document.getElementById('fname').value,em=document.getElementById('femail').value,t=document.getElementById('ftel').value,m=document.getElementById('fmsg').value;
+  var ok=true;
+  if(!valid(n,'text')){showErr('err-name',true);ok=false}else showErr('err-name',false);
+  if(!valid(em,'email')){showErr('err-email',true);ok=false}else showErr('err-email',false);
+  if(!valid(t,'tel')){showErr('err-tel',true);ok=false}else showErr('err-tel',false);
+  if(!valid(m,'msg')){showErr('err-msg',true);ok=false}else showErr('err-msg',false);
+  if(!ok)return;
+  txt.style.display='none';loader.style.display='block';btn.disabled=true;
+  setTimeout(function(){loader.style.display='none';form.style.display='none';success.classList.add('show')},1400);
+});
+</script>
+</body>
+</html>
