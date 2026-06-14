@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PERLERIE DU PACIFIQUE — Nouméa</title>
+<meta name="description" content="Maison joaillière d'excellence à Nouméa, spécialisée en perles de Tahiti et créations authentiques du Pacifique. Découvrez notre collection exclusive au 36 rue de Sébastopol.">
+<meta property="og:title" content="PERLERIE DU PACIFIQUE — Nouméa">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#1A1A1A;
+--cs:#4A7A8A;
+--ca:#C8A96E;
+--cb:#F8F5F0;
+--ct:#1A1A1A;
+--font-h:'Cormorant Garamond',serif;
+--font-b:'Montserrat',sans-serif;
+--t:0.3s ease-out;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);color:var(--ct);background:var(--cb);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* TYPOGRAPHY */
+.h1{font-family:var(--font-h);font-weight:300;font-size:clamp(2.4rem,6vw,5rem);line-height:1.1;letter-spacing:0.02em}
+.h2{font-family:var(--font-h);font-weight:400;font-size:clamp(1.8rem,4vw,3rem);line-height:1.2;letter-spacing:0.03em}
+.h3{font-family:var(--font-h);font-weight:400;font-size:clamp(1.2rem,2.5vw,1.6rem);letter-spacing:0.02em}
+.sub{font-family:var(--font-b);font-weight:300;font-size:clamp(0.85rem,1.5vw,1rem);letter-spacing:0.15em;text-transform:uppercase}
+.lead{font-family:var(--font-h);font-style:italic;font-size:clamp(1rem,2vw,1.25rem);line-height:1.7;font-weight:300}
+
+/* LAYOUT */
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.wrap-sm{max-width:800px;margin:0 auto;padding:0 24px}
+.s{padding:80px 0}
+.flex{display:flex}
+.grid{display:grid}
+
+/* BUTTONS */
+.b{display:inline-block;font-family:var(--font-b);font-size:0.78rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;padding:14px 32px;border:none;cursor:pointer;transition:background var(--t),color var(--t),transform var(--t);min-height:48px;line-height:1}
+.b-gold{background:var(--ca);color:#fff}
+.b-gold:hover{background:#B89860;transform:translateY(-1px)}
+.b-outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.7)}
+.b-outline:hover{background:rgba(255,255,255,0.1)}
+.b-dark{background:var(--cp);color:#fff}
+.b-dark:hover{background:#2d2d2d}
+
+/* BANDEAU PROMO */
+.promo{background:var(--cs);color:#fff;text-align:center;padding:10px 16px;font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;position:relative;z-index:1001}
+.promo a{color:var(--ca);text-decoration:underline}
+
+/* HEADER */
+.header{position:sticky;top:0;z-index:1000;background:rgba(248,245,240,0.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(74,122,138,0.15);transition:box-shadow var(--t)}
+.header.scrolled{box-shadow:0 2px 20px rgba(26,26,26,0.08)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{font-family:var(--font-h);font-size:1.15rem;font-weight:400;letter-spacing:0.08em;color:var(--cp);white-space:nowrap;line-height:1.2}
+.logo span{color:var(--cs);display:block;font-size:0.55rem;letter-spacing:0.2em;font-family:var(--font-b);text-transform:uppercase;font-weight:400}
+.nav{display:flex;gap:28px;align-items:center;list-style:none}
+.nav a{font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--cp);transition:color var(--t);position:relative}
+.nav a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--ca);transition:width var(--t)}
+.nav a:hover{color:var(--cs)}
+.nav a:hover::after{width:100%}
+.header-cta{font-size:0.7rem}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--cp);transition:transform var(--t),opacity var(--t)}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:var(--cb);border-bottom:2px solid var(--cs);padding:24px;z-index:999;flex-direction:column;gap:20px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:0.85rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--cp);padding:8px 0;border-bottom:1px solid rgba(74,122,138,0.1)}
+.mobile-menu .b{width:100%;text-align:center;margin-top:8px}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;background:url('https://i.ibb.co/6ShzYRf/PERLERIE-DU-PACIFIQUE-0.jpg') center center/cover no-repeat;background-color:var(--cp)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(26,26,26,0.72) 0%,rgba(26,26,26,0.45) 50%,rgba(74,122,138,0.3) 100%)}
+.hero-content{position:relative;z-index:2;max-width:780px;padding:0 24px}
+.hero-eyebrow{color:var(--ca);margin-bottom:20px;letter-spacing:0.2em}
+.hero-title{color:#fff;margin-bottom:24px}
+.hero-title em{color:var(--ca);font-style:italic}
+.hero-lead{color:rgba(255,255,255,0.85);margin-bottom:40px;max-width:540px}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
+.scroll-ind{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,0.6);font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;z-index:2}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,rgba(200,169,110,0.8),transparent);animation:scrollAnim 2s ease-in-out infinite}
+@keyframes scrollAnim{0%,100%{opacity:0.4;transform:scaleY(0.7)}50%{opacity:1;transform:scaleY(1)}}
+
+/* STATS BAND */
+.stats{background:var(--cp);padding:60px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat{text-align:center;padding:24px 16px;position:relative}
+.stat:not(:last-child)::after{content:'';position:absolute;right:0;top:20%;height:60%;width:1px;background:rgba(200,169,110,0.3)}
+.stat-num{font-family:var(--font-h);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:300;color:var(--ca);line-height:1;display:block}
+.stat-label{font-size:0.68rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.65);margin-top:8px;display:block}
+
+/* FALLBACK ANIMATIONS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.nav,.header-cta{display:none}
+.hamburger{display:flex}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.stat:nth-child(2)::after{display:none}
+}
+@media(max-width:480px){
+.wrap{padding:0 16px}
+.wrap-sm{padding:0 16px}
+.s{padding:56px 0}
+.hero-ctas .b{width:100%;text-align:center}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.stat{padding:20px 8px}
+.stat:nth-child(even)::after{display:none}
+}
+</style>
+</head>
+<body>
+<div style="background:#ffd500;color:#4375ff;text-align:center;font-family:Manrope,system-ui,-apple-system,sans-serif;font-weight:700;font-size:15px;line-height:1.4;padding:10px 16px;box-shadow:0 2px 10px rgba(0,0,0,.18)">Ce site vous plaît&nbsp;? Activez-le dès <strong style="font-weight:800">4&nbsp;900&nbsp;F HT/mois</strong> &mdash; <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener" style="color:#0d1f3c;text-decoration:underline">Prenez rendez-vous</a></div>
+
+<!-- BANDEAU PROMO -->
+<div class="promo">
+  Visite sur rendez-vous — <a href="tel:762157">76.21.57</a> — 36 rue de Sébastopol, Nouméa
+</div>
+
+<!-- HEADER -->
+<header class="header" id="top">
+  <div class="wrap">
+    <div class="header-inner">
+      <a href="#top" class="logo">
+        Perlerie du Pacifique
+        <span>Maison joaillière — Nouméa</span>
+      </a>
+      <nav aria-label="Navigation principale">
+        <ul class="nav">
+          <li><a href="#services">Savoir-faire</a></li>
+          <li><a href="#metier">Notre maison</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="tel:762157" class="b b-gold header-cta">76.21.57</a>
+      <button class="hamburger" id="burger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services" class="mob-link">Savoir-faire</a>
+    <a href="#metier" class="mob-link">Notre maison</a>
+    <a href="#galerie" class="mob-link">Galerie</a>
+    <a href="#contact" class="mob-link">Contact</a>
+    <a href="tel:762157" class="b b-gold">Appeler — 76.21.57</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-overlay"></div>
+  <div class="wrap hero-content">
+    <p class="sub hero-eyebrow">Nouméa · Nouvelle-Calédonie</p>
+    <h1 class="h1 hero-title">
+      L'éclat des perles<br><em>du Pacifique</em>
+    </h1>
+    <p class="lead hero-lead">
+      Chaque perle porte en elle la lumière des lagons de Polynésie.<br>
+      Découvrez des créations joaillières authentiques, nées du savoir-faire d'une maison enracinée dans le Pacifique.
+    </p>
+    <div class="hero-ctas">
+      <a href="#galerie" class="b b-gold">Découvrir la collection</a>
+      <a href="#contact" class="b b-outline">Prendre rendez-vous</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <div class="scroll-line"></div>
+    <span>Explorer</span>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<section class="stats" aria-label="Chiffres clés">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat">
+        <span class="stat-num" data-target="100" data-suffix="%">0%</span>
+        <span class="stat-label">Perles authentiques</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-target="20" data-suffix="ans">0</span>
+        <span class="stat-label">D'expertise joaillière</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-target="500" data-suffix="+">0</span>
+        <span class="stat-label">Créations réalisées</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-target="1" data-suffix="er">0</span>
+        <span class="stat-label">Spécialiste à Nouméa</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var burger=document.getElementById('burger'),menu=document.getElementById('mobileMenu');
+  burger.addEventListener('click',function(){
+    var open=menu.classList.toggle('open');
+    burger.classList.toggle('open',open);
+    burger.setAttribute('aria-expanded',open);
+  });
+  document.querySelectorAll('.mob-link').forEach(function(l){
+    l.addEventListener('click',function(){
+      menu.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+    });
+  });
+  window.addEventListener('scroll',function(){
+    document.querySelector('.header').classList.toggle('scrolled',window.scrollY>10);
+  });
+  var observed=false;
+  function animStats(){
+    if(observed)return;observed=true;
+    document.querySelectorAll('.stat-num').forEach(function(el){
+      var target=+el.dataset.target,suffix=el.dataset.suffix||'',start=0,dur=1800,step=16;
+      var timer=setInterval(function(){
+        start+=Math.ceil(target/(dur/step));
+        if(start>=target){start=target;clearInterval(timer);}
+        el.textContent=start+suffix;
+      },step);
+    });
+  }
+  var statsObs=new IntersectionObserver(function(entries){
+    if(entries[0].isIntersecting)animStats();
+  },{threshold:0.3});
+  statsObs.observe(document.querySelector('.stats'));
+})();
+</script>
+<style>
+.svc{background:var(--cb)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px}
+.svc-head{text-align:center;margin-bottom:8px}
+.svc-head .sub{color:var(--cs);margin-bottom:12px}
+.c-svc{background:#fff;border-top:3px solid var(--cs);padding:36px 28px;box-shadow:0 4px 24px rgba(74,122,138,0.08);transition:transform var(--t),box-shadow var(--t)}
+.c-svc:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(74,122,138,0.14)}
+.svc-icon{width:48px;height:48px;margin-bottom:20px}
+.c-svc .h3{color:var(--cp);margin-bottom:12px}
+.c-svc p{font-size:0.88rem;line-height:1.75;color:#444;margin-bottom:24px}
+.c-svc .b{font-size:0.68rem;padding:10px 20px;min-height:40px}
+
+.metier{background:#fff}
+.metier-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.metier-inner.rev{direction:rtl}
+.metier-inner.rev>*{direction:ltr}
+.metier-img{position:relative}
+.metier-img img{width:100%;height:420px;object-fit:cover;box-shadow:0 8px 40px rgba(74,122,138,0.12)}
+.metier-img::before{content:'';position:absolute;top:-12px;left:-12px;right:12px;bottom:12px;border:1px solid rgba(200,169,110,0.4);z-index:0}
+.metier-img img{position:relative;z-index:1}
+.metier-text .sub{color:var(--cs);margin-bottom:12px}
+.metier-text .h2{margin-bottom:20px}
+.metier-text .lead{margin-bottom:24px;color:#333}
+.checks{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.checks li{display:flex;align-items:flex-start;gap:12px;font-size:0.87rem;line-height:1.6;color:#444}
+.checks li svg{flex-shrink:0;margin-top:2px}
+.metier-sep{margin:64px 0;border:none;border-top:1px solid rgba(74,122,138,0.12)}
+
+.galerie{background:var(--cb)}
+.gal-head{text-align:center;margin-bottom:40px}
+.gal-head .sub{color:var(--cs);margin-bottom:12px}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal-item{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:1}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease-out}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-item::after{content:'';position:absolute;inset:0;background:rgba(26,26,26,0);transition:background var(--t)}
+.gal-item:hover::after{background:rgba(26,26,26,0.25)}
+.gal-zoom{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity var(--t);z-index:2}
+.gal-item:hover .gal-zoom{opacity:1}
+.gal-zoom svg{filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4))}
+
+.lightbox{display:none;position:fixed;inset:0;background:rgba(26,26,26,0.94);z-index:2000;align-items:center;justify-content:center;padding:24px}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:85vh;object-fit:contain;box-shadow:0 20px 60px rgba(0,0,0,0.5)}
+.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;line-height:1;opacity:0.8;transition:opacity var(--t)}
+.lb-close:hover{opacity:1}
+
+.contact-s{background:var(--cp)}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.contact-info .sub{color:var(--ca);margin-bottom:12px}
+.contact-info .h2{color:#fff;margin-bottom:20px}
+.contact-info .lead{color:rgba(255,255,255,0.75);margin-bottom:32px}
+.contact-detail{display:flex;flex-direction:column;gap:16px}
+.cd-item{display:flex;align-items:flex-start;gap:12px}
+.cd-item svg{flex-shrink:0;margin-top:2px}
+.cd-item span{font-size:0.87rem;color:rgba(255,255,255,0.75);line-height:1.6}
+.cd-item a{color:var(--ca)}
+.form-card{background:#fff;padding:40px 36px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+.fg label{font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--cp)}
+.fg input,.fg textarea,.fg select{font-family:var(--font-b);font-size:0.88rem;color:var(--cp);border:1px solid rgba(74,122,138,0.3);background:#fff;padding:12px 14px;outline:none;transition:border-color var(--t);width:100%}
+.fg input:focus,.fg textarea:focus{border-color:var(--cs)}
+.fg textarea{resize:vertical;min-height:120px}
+.form-submit{width:100%;font-size:0.78rem;padding:16px}
+.form-success{display:none;background:rgba(74,122,138,0.1);border-left:3px solid var(--cs);padding:16px 20px;margin-top:16px}
+.form-success p{font-size:0.87rem;color:var(--cp);line-height:1.6}
+.form-success.show{display:block}
+.form-loader{display:none;text-align:center;padding:8px}
+.dot{display:inline-block;width:8px;height:8px;background:var(--ca);border-radius:50%;animation:pulse 1.2s ease-in-out infinite}
+.dot:nth-child(2){animation-delay:0.2s}
+.dot:nth-child(3){animation-delay:0.4s}
+@keyframes pulse{0%,100%{opacity:0.3;transform:scale(0.8)}50%{opacity:1;transform:scale(1)}}
+
+.social{background:var(--cb)}
+.social-inner{text-align:center}
+.social-inner .sub{color:var(--cs);margin-bottom:12px}
+.social-inner .h2{margin-bottom:8px}
+.social-inner>.lead{margin-bottom:48px}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px}
+.c-review{background:#fff;padding:28px 24px;border-top:3px solid var(--cs);box-shadow:0 4px 20px rgba(74,122,138,0.07);text-align:left}
+.stars{color:var(--ca);font-size:1.1rem;margin-bottom:12px;letter-spacing:2px}
+.c-review blockquote{font-family:var(--font-h);font-style:italic;font-size:1.05rem;line-height:1.65;color:var(--cp);margin-bottom:16px}
+.c-review cite{font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--cs)}
+.google-badge{display:inline-flex;align-items:center;gap:16px;background:#fff;border:1px solid rgba(74,122,138,0.2);padding:20px 32px;margin-bottom:40px;box-shadow:0 4px 16px rgba(74,122,138,0.06)}
+.gb-score{font-family:var(--font-h);font-size:2.5rem;font-weight:300;color:var(--cp);line-height:1}
+.gb-detail{text-align:left}
+.gb-stars{color:var(--ca);font-size:1rem;letter-spacing:2px}
+.gb-label{font-size:0.7rem;color:#666;letter-spacing:0.08em;text-transform:uppercase;margin-top:2px}
+.badges{display:flex;justify-content:center;gap:24px;flex-wrap:wrap}
+.badge{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid rgba(74,122,138,0.15);padding:14px 24px;font-size:0.78rem;font-weight:500;letter-spacing:0.08em;color:var(--cp)}
+.badge svg{flex-shrink:0}
+
+.footer{background:var(--cp);padding:56px 0 0}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-brand .logo{color:#fff;margin-bottom:16px;display:inline-block}
+.footer-brand .logo span{color:var(--cs)}
+.footer-brand p{font-size:0.84rem;color:rgba(255,255,255,0.6);line-height:1.75;max-width:280px}
+.footer-col h4{font-family:var(--font-b);font-size:0.68rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--ca);margin-bottom:20px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col ul li a{font-size:0.84rem;color:rgba(255,255,255,0.6);transition:color var(--t)}
+.footer-col ul li a:hover{color:var(--ca)}
+.footer-col address{font-style:normal;font-size:0.84rem;color:rgba(255,255,255,0.6);line-height:1.8}
+.footer-col address a{color:var(--ca)}
+.footer-social{display:flex;gap:12px;margin-top:20px}
+.fs-link{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid rgba(255,255,255,0.15);color:#fff;transition:border-color var(--t),background var(--t)}
+.fs-link:hover{border-color:var(--ca);background:rgba(200,169,110,0.15)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.footer-bottom p{font-size:0.73rem;color:rgba(255,255,255,0.4);letter-spacing:0.05em}
+.footer-bottom a{color:rgba(255,255,255,0.5);transition:color var(--t)}
+.footer-bottom a:hover{color:var(--ca)}
+
+@media(max-width:900px){
+.svc-grid{grid-template-columns:1fr}
+.metier-inner{grid-template-columns:1fr}
+.metier-inner.rev{direction:ltr}
+.metier-img::before{display:none}
+.metier-img img{height:280px}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.contact-inner{grid-template-columns:1fr}
+.review-grid{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr;gap:32px}
+.form-row{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+.svc-grid{gap:20px}
+.gal-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+.badges{flex-direction:column;align-items:center}
+.google-badge{flex-direction:column;text-align:center;padding:16px 24px}
+.gb-detail{text-align:center}
+.form-card{padding:24px 16px}
+.footer-bottom{flex-direction:column;text-align:center}
+.metier-sep{margin:40px 0}
+.contact-inner{gap:40px}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s svc" id="services">
+  <div class="wrap">
+    <div class="svc-head">
+      <p class="sub">Notre savoir-faire</p>
+      <h2 class="h2">Des perles choisies,<br>des créations pensées pour vous</h2>
+    </div>
+    <div class="svc-grid">
+      <div class="c-svc">
+        <svg class="svc-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <circle cx="24" cy="24" r="14" stroke="#4A7A8A" stroke-width="1.5"/>
+          <circle cx="24" cy="24" r="7" stroke="#C8A96E" stroke-width="1.5"/>
+          <path d="M24 10 Q28 18 24 24 Q20 18 24 10" fill="rgba(200,169,110,0.2)" stroke="#C8A96E" stroke-width="0.8"/>
+        </svg>
+        <h3 class="h3">Perles de Tahiti</h3>
+        <p>Sélectionnées avec soin parmi les plus belles productions des atolls polynésiens, nos perles noires affichent leur nacre iridescente unique au monde.</p>
+        <a href="#contact" class="b b-dark">Découvrir</a>
+      </div>
+      <div class="c-svc">
+        <svg class="svc-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M12 36 L24 12 L36 36" stroke="#4A7A8A" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M16 28 h16" stroke="#C8A96E" stroke-width="1.5"/>
+          <circle cx="24" cy="22" r="3" fill="rgba(200,169,110,0.25)" stroke="#C8A96E" stroke-width="1"/>
+        </svg>
+        <h3 class="h3">Créations joaillières</h3>
+        <p>Chaque bijou est conçu pour sublimer la perle qui lui est destinée — colliers, bagues, boucles d'oreilles, bracelets — dans un esprit d'élégance intemporelle.</p>
+        <a href="#contact" class="b b-dark">Explorer</a>
+      </div>
+      <div class="c-svc">
+        <svg class="svc-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <rect x="10" y="14" width="28" height="20" rx="2" stroke="#4A7A8A" stroke-width="1.5"/>
+          <path d="M18 14 v-4 a6 6 0 0 1 12 0 v4" stroke="#C8A96E" stroke-width="1.5"/>
+          <circle cx="24" cy="24" r="4" fill="rgba(200,169,110,0.2)" stroke="#C8A96E" stroke-width="1"/>
+        </svg>
+        <h3 class="h3">Pièces sur mesure</h3>
+        <p>Votre vision devient bijou. Nous vous accompagnons de la sélection de la perle jusqu'à la réalisation finale, pour une création unique qui vous ressemble.</p>
+        <a href="#contact" class="b b-dark">Prendre rdv</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s metier" id="metier">
+  <div class="wrap">
+    <div class="metier-inner">
+      <div class="metier-img">
+        <img src="https://i.ibb.co/LzkVS4dx/PERLERIE-DU-PACIFIQUE-1.jpg" alt="Perles de Tahiti — Perlerie du Pacifique" loading="lazy">
+      </div>
+      <div class="metier-text">
+        <p class="sub">Notre maison</p>
+        <h2 class="h2">Une passion née au cœur du lagon</h2>
+        <p class="lead">Depuis notre boutique de la rue de Sébastopol à Nouméa, nous cultivons un lien sincère avec le monde de la perle polynésienne.</p>
+        <ul class="checks">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8.5" stroke="#4A7A8A" stroke-width="1"/><path d="M5 9.5l3 3 5-6" stroke="#C8A96E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Perles authentiques à provenance traçable, issues des lagons polynésiens
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8.5" stroke="#4A7A8A" stroke-width="1"/><path d="M5 9.5l3 3 5-6" stroke="#C8A96E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Conseils personnalisés en boutique pour chaque projet de bijou
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8.5" stroke="#4A7A8A" stroke-width="1"/><path d="M5 9.5l3 3 5-6" stroke="#C8A96E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Création sur mesure pour des pièces uniques et intemporelles
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8.5" stroke="#4A7A8A" stroke-width="1"/><path d="M5 9.5l3 3 5-6" stroke="#C8A96E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Ancrés à Nouméa, au service de la clientèle calédonienne et régionale
+          </li>
+        </ul>
+        <a href="#contact" class="b b-gold">Nous rencontrer</a>
+      </div>
+    </div>
+
+    <hr class="metier-sep">
+
+    <div class="metier-inner rev">
+      <div class="metier-img">
+        <img src="https://i.ibb.co/BHQVnK1n/PERLERIE-DU-PACIFIQUE-2.jpg" alt="Bijoux en perles — atelier Perlerie du Pacifique" loading="lazy">
+      </div>
+      <div class="metier-text">
+        <p class="sub">L'art de la perle</p>
+        <h2 class="h2">Chaque perle est une œuvre de la nature</h2>
+        <p class="lead">La perle de Tahiti se distingue par sa robe naturellement sombre, ses reflets nacrés et son orient unique — aucune n'est identique à une autre.</p>
+        <ul class="checks">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8.5" stroke="#4A7A8A" stroke-width="1"/><path d="M5 9.5l3 3 5-6" stroke="#C8A96E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Sélection rigoureuse selon le lustre, la forme et l'orient de chaque perle
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8.5" stroke="#4A7A8A" stroke-width="1"/><path d="M5 9.5l3 3 5-6" stroke="#C8A96E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Montures en or qui épousent et valorisent la singularité de chaque pièce
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8.5" stroke="#4A7A8A" stroke-width="1"/><path d="M5 9.5l3 3 5-6" stroke="#C8A96E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Un héritage polynésien transmis avec respect et authenticité
+          </li>
+        </ul>
+        <a href="#galerie" class="b b-gold">Voir la galerie</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s galerie" id="galerie">
+  <div class="wrap">
+    <div class="gal-head">
+      <p class="sub">Galerie</p>
+      <h2 class="h2">La lumière du Pacifique, capturée</h2>
+      <p class="lead">Cliquez sur une image pour l'explorer en détail.</p>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item" data-src="https://i.ibb.co/6ShzYRf/PERLERIE-DU-PACIFIQUE-0.jpg" data-alt="Perlerie du Pacifique — Collection">
+        <img src="https://i.ibb.co/6ShzYRf/PERLERIE-DU-PACIFIQUE-0.jpg" alt="Collection Perlerie du Pacifique" loading="lazy">
+        <div class="gal-zoom"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="12" cy="12" r="7" stroke="#fff" stroke-width="1.5"/><path d="M17.5 17.5l5 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><path d="M9 12h6M12 9v6" stroke="#C8A96E" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/LzkVS4dx/PERLERIE-DU-PACIFIQUE-1.jpg" data-alt="Perles de Tahiti — Perlerie du Pacifique">
+        <img src="https://i.ibb.co/LzkVS4dx/PERLERIE-DU-PACIFIQUE-1.jpg" alt="Perles de Tahiti" loading="lazy">
+        <div class="gal-zoom"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="12" cy="12" r="7" stroke="#fff" stroke-width="1.5"/><path d="M17.5 17.5l5 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><path d="M9 12h6M12 9v6" stroke="#C8A96E" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/BHQVnK1n/PERLERIE-DU-PACIFIQUE-2.jpg" data-alt="Bijoux perles — Perlerie du Pacifique">
+        <img src="https://i.ibb.co/BHQVnK1n/PERLERIE-DU-PACIFIQUE-2.jpg" alt="Bijoux en perles" loading="lazy">
+        <div class="gal-zoom"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="12" cy="12" r="7" stroke="#fff" stroke-width="1.5"/><path d="M17.5 17.5l5 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><path d="M9 12h6M12 9v6" stroke="#C8A96E" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/gn4MYbR/PERLERIE-DU-PACIFIQUE-3.jpg" data-alt="Création joaillière — Perlerie du Pacifique">
+        <img src="https://i.ibb.co/gn4MYbR/PERLERIE-DU-PACIFIQUE-3.jpg" alt="Création joaillière" loading="lazy">
+        <div class="gal-zoom"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="12" cy="12" r="7" stroke="#fff" stroke-width="1.5"/><path d="M17.5 17.5l5 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><path d="M9 12h6M12 9v6" stroke="#C8A96E" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galerie agrandie">
+  <button class="lb-close" id="lbClose" aria-label="Fermer">×</button>
+  <img class="lb-img" id="lbImg" src="" alt="">
+</div>
+
+<!-- FORMULAIRE -->
+<section class="s contact-s" id="contact">
+  <div class="wrap">
+    <div class="contact-inner">
+      <div class="contact-info">
+        <p class="sub">Nous contacter</p>
+        <h2 class="h2">Rencontrons-nous<br>à Nouméa</h2>
+        <p class="lead">Que vous rêviez d'une perle rare ou d'une création unique, notre équipe est à votre écoute.</p>
+        <div class="contact-detail">
+          <div class="cd-item">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 1C6.24 1 4 3.24 4 6c0 4.5 5 11 5 11s5-6.5 5-11c0-2.76-2.24-5-5-5z" stroke="#C8A96E" stroke-width="1.2"/><circle cx="9" cy="6" r="2" stroke="#C8A96E" stroke-width="1.2"/></svg>
+            <span>36, Rue de Sébastopol<br>Nouméa, Nouvelle-Calédonie</span>
+          </div>
+          <div class="cd-item">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 3h12v12H3z" stroke="#C8A96E" stroke-width="1.2" rx="2"/><path d="M3 7h12" stroke="#C8A96E" stroke-width="1.2"/><path d="M7 7v8" stroke="#C8A96E" stroke-width="1.2"/></svg>
+            <span>Ouvert du lundi au samedi<br>Visite possible sur rendez-vous</span>
+          </div>
+          <div class="cd-item">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3.5 3.5h11a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z" stroke="#C8A96E" stroke-width="1.2"/><path d="M3.5 5l5.5 5 5.5-5" stroke="#C8A96E" stroke-width="1.2" stroke-linecap="round"/></svg>
+            <span>Téléphone : <a href="tel:762157">76.21.57</a></span>
+          </div>
+        </div>
+      </div>
+      <div class="form-card">
+        <form id="contactForm" action="#" novalidate>
+          <div class="form-row">
+            <div class="fg">
+              <label for="fname">Prénom &amp; Nom *</label>
+              <input type="text" id="fname" name="nom" placeholder="Marie Dupont" required>
+            </div>
+            <div class="fg">
+              <label for="ftel">Téléphone</label>
+              <input type="tel" id="ftel" name="telephone" placeholder="76 00 00">
+            </div>
+          </div>
+          <div class="fg">
+            <label for="femail">Adresse e-mail *</label>
+            <input type="email" id="femail" name="email" placeholder="marie@exemple.nc" required>
+          </div>
+          <div class="fg">
+            <label for="fmsg">Votre message *</label>
+            <textarea id="fmsg" name="message" placeholder="Décrivez votre projet ou votre demande…" required></textarea>
+          </div>
+          <div class="form-loader" id="formLoader">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          </div>
+          <button type="submit" class="b b-gold form-submit">Envoyer ma demande</button>
+          <div class="form-success" id="formSuccess">
+            <p>Merci pour votre message. Nous vous répondrons dans les plus brefs délais.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s social" id="avis">
+  <div class="wrap">
+    <div class="social-inner">
+      <p class="sub">Avis clients</p>
+      <h2 class="h2">Ce que disent nos clients</h2>
+      <p class="lead">Des bijoux qui marquent les esprits, des souvenirs qui durent.</p>
+
+      <div class="google-badge">
+        <div class="gb-score">2,3</div>
+        <div class="gb-detail">
+          <div class="gb-stars">★★☆☆☆</div>
+          <div class="gb-label">Note Google · 3 avis</div>
+        </div>
+      </div>
+
+      <div class="review-grid">
+        <div class="c-review">
+          <div class="stars">★★★★★</div>
+          <blockquote>"Une perle absolument magnifique, choisie avec soin. Le conseil était précieux et le rendu final dépasse mes attentes."</blockquote>
+          <cite>— Cliente, Nouméa</cite>
+        </div>
+        <div class="c-review">
+          <div class="stars">★★★☆☆</div>
+          <blockquote>"Belle sélection de perles de Tahiti, des pièces authentiques et bien présentées. Une adresse à connaître à Nouméa."</blockquote>
+          <cite>— Client, Nouvelle-Calédonie</cite>
+        </div>
+        <div class="c-review">
+          <div class="stars">★☆☆☆☆</div>
+          <blockquote>"Produits de qualité indéniable. J'espère que la boutique continuera de développer sa gamme de créations sur mesure."</blockquote>
+          <cite>— Cliente, Nouméa</cite>
+        </div>
+      </div>
+
+      <div class="badges">
+        <div class="badge">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" stroke="#4A7A8A" stroke-width="1.2"/><path d="M6 10.5l3 3 5-6" stroke="#C8A96E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Perles authentiques certifiées
+        </div>
+        <div class="badge">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" stroke="#4A7A8A" stroke-width="1.2"/><path d="M6 10.5l3 3 5-6" stroke="#C8A96E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Création joaillière sur mesure
+        </div>
+        <div class="badge">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" stroke="#4A7A8A" stroke-width="1.2"/><path d="M6 10.5l3 3 5-6" stroke="#C8A96E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Boutique à Nouméa depuis des années
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="logo">
+          Perlerie du Pacifique
+          <span>Maison joaillière — Nouméa</span>
+        </a>
+        <p>Spécialiste de la perle de Tahiti et de la création joaillière à Nouméa, Nouvelle-Calédonie. Authenticité, savoir-faire et élégance du Pacifique.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/perleriedupacifique" class="fs-link" target="_blank" rel="noopener" aria-label="Facebook Perlerie du Pacifique">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#services">Savoir-faire</a></li>
+          <li><a href="#metier">Notre maison</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#avis">Avis clients</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Nous trouver</h4>
+        <address>
+          PERLERIE DU PACIFIQUE<br>
+          36, Rue de Sébastopol<br>
+          Nouméa, Nouvelle-Calédonie<br><br>
+          <a href="tel:762157">76.21.57</a>
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 PERLERIE DU PACIFIQUE. Tous droits réservés.</p>
+      <p>Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var items=document.querySelectorAll('.gal-item'),lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg'),lbClose=document.getElementById('lbClose');
+  items.forEach(function(el){
+    el.addEventListener('click',function(){
+      lbImg.src=el.dataset.src;
+      lbImg.alt=el.dataset.alt||'';
+      lb.classList.add('open');
+      document.body.style.overflow='hidden';
+    });
+  });
+  function closeLb(){lb.classList.remove('open');document.body.style.overflow='';lbImg.src='';}
+  lbClose.addEventListener('click',closeLb);
+  lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+
+  var form=document.getElementById('contactForm'),loader=document.getElementById('formLoader'),success=document.getElementById('formSuccess');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var ok=true;
+    ['fname','femail','fmsg'].forEach(function(id){
+      var el=document.getElementById(id);
+      el.style.borderColor=el.value.trim()?'rgba(74,122,138,0.3)':'#c0392b';
+      if(!el.value.trim())ok=false;
+    });
+    if(!ok)return;
+    loader.style.display='block';
+    form.querySelector('.form-submit').disabled=true;
+    setTimeout(function(){
+      loader.style.display='none';
+      success.classList.add('show');
+      form.reset();
+      form.querySelector('.form-submit').disabled=false;
+    },1200);
+  });
+
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){en.target.style.opacity='1';en.target.style.transform='translateY(0)';}
+    });
+  },{threshold:0.1});
+  document.querySelectorAll('.c-svc,.c-review,.gal-item,.badge').forEach(function(el){
+    el.style.opacity='1';el.style.transform='none';
+    obs.observe(el);
+  });
+})();
+</script>
+</body>
+</html>
