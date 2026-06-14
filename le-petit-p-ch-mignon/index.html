@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LE PETIT PÉCHÉ MIGNON — Nouméa</title>
+<meta name="description" content="Boulangerie artisanale au cœur de Nouméa, face au lagon. Pâtisseries, brunchs et créations du jour à déguster sur la terrasse. 109 Rue de Boulari, Nouméa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#1A1A1A;
+--cs:#C4894A;
+--ca:#C65D3A;
+--cb:#FAF7F2;
+--cw:#FFFFFF;
+--fp:'Playfair Display',serif;
+--fs:'Montserrat',sans-serif;
+--r:.4rem;
+--t:all .3s ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fs);background:var(--cb);color:var(--cp);overflow-x:hidden;font-size:16px}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+
+/* UTILS */
+.h1{font-family:var(--fp);font-size:clamp(2.2rem,6vw,5rem);line-height:1.1;font-weight:700}
+.h2{font-family:var(--fp);font-size:clamp(1.8rem,4vw,3rem);line-height:1.2;font-weight:600}
+.h3{font-family:var(--fp);font-size:clamp(1.2rem,2.5vw,1.6rem);font-weight:600}
+.wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+.b{display:inline-flex;align-items:center;justify-content:center;padding:.85rem 2rem;border-radius:var(--r);font-family:var(--fs);font-size:.95rem;font-weight:600;letter-spacing:.04em;cursor:pointer;border:none;transition:var(--t);min-height:48px;text-transform:uppercase}
+.b-primary{background:var(--ca);color:var(--cw)}
+.b-primary:hover{background:#a8492c;box-shadow:0 4px 12px rgba(198,93,58,.35);transform:translateY(-2px)}
+.b-outline{background:transparent;color:var(--cw);border:2px solid var(--cw)}
+.b-outline:hover{background:var(--cw);color:var(--cp);transform:translateY(-2px)}
+.tag{display:inline-block;font-family:var(--fs);font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--cs);margin-bottom:.75rem}
+.sep{width:48px;height:3px;background:var(--cs);margin:1rem 0 1.5rem;border-radius:2px}
+
+/* BANDEAU PROMO */
+.promo{background:var(--cp);color:var(--cw);text-align:center;padding:.6rem 16px;font-family:var(--fs);font-size:.82rem;font-weight:500;letter-spacing:.06em;position:relative;z-index:1100}
+.promo span{color:var(--cs)}
+
+/* HEADER */
+.hdr{position:sticky;top:0;z-index:1000;background:rgba(250,247,242,.97);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid rgba(196,137,74,.18);transition:box-shadow .3s}
+.hdr.scrolled{box-shadow:0 2px 20px rgba(26,26,26,.1)}
+.hdr-inner{display:flex;align-items:center;justify-content:space-between;height:72px;gap:1.5rem}
+.logo{font-family:var(--fp);font-size:1.15rem;font-weight:700;line-height:1.2;color:var(--cp)}
+.logo em{color:var(--ca);font-style:italic}
+.logo span{display:block;font-size:.65rem;font-weight:400;font-family:var(--fs);letter-spacing:.18em;text-transform:uppercase;color:var(--cs);margin-top:.15rem}
+.nav{display:flex;align-items:center;gap:2rem}
+.nav a{font-size:.85rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--cp);position:relative;padding-bottom:2px}
+.nav a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--ca);transition:width .3s}
+.nav a:hover::after{width:100%}
+.hdr-cta{display:flex;align-items:center;gap:1rem}
+.tel-lnk{font-family:var(--fs);font-size:.85rem;font-weight:600;color:var(--ca);display:flex;align-items:center;gap:.4rem}
+.tel-lnk svg{width:16px;height:16px;flex-shrink:0}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.ham span{display:block;width:24px;height:2px;background:var(--cp);transition:var(--t);border-radius:2px}
+.mob-nav{display:none;position:fixed;inset:0;background:var(--cb);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+.mob-nav.open{display:flex}
+.mob-nav a{font-family:var(--fp);font-size:1.6rem;color:var(--cp)}
+.mob-nav a:hover{color:var(--ca)}
+.mob-close{position:absolute;top:24px;right:24px;background:none;border:none;cursor:pointer;font-size:2rem;color:var(--cp)}
+.mob-tel{font-family:var(--fs);font-size:1.1rem;font-weight:600;color:var(--ca);margin-top:1rem}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background-image:url('https://i.ibb.co/0Rbk1K3R/LE-PETIT-P-CH-MIGNON-0.jpg');background-size:cover;background-position:center;background-attachment:fixed}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(26,26,26,.72) 0%,rgba(26,26,26,.45) 60%,rgba(196,137,74,.2) 100%)}
+.hero-body{position:relative;z-index:1;text-align:center;color:var(--cw);padding:2rem 16px;max-width:820px}
+.hero-pre{font-family:var(--fs);font-size:.8rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--cs);margin-bottom:1.25rem}
+.hero-title{margin-bottom:1.5rem}
+.hero-title .sm{font-family:var(--fp);font-size:clamp(1.4rem,4vw,2.8rem);font-weight:400;font-style:italic;display:block;opacity:.9}
+.hero-title .lg{font-family:var(--fp);font-size:clamp(3rem,8vw,6.5rem);font-weight:700;display:block;line-height:1;color:var(--cw);text-shadow:0 2px 20px rgba(0,0,0,.3)}
+.hero-title .cs{color:var(--cs)}
+.hero-sub{font-family:var(--fs);font-size:clamp(.95rem,2.2vw,1.15rem);font-weight:300;line-height:1.7;max-width:540px;margin:0 auto 2.5rem;opacity:.9}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-bottom:3rem}
+.scroll-ind{display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:.7}
+.scroll-ind span{font-family:var(--fs);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase}
+.scroll-ind svg{animation:bounce 1.8s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* STATS */
+.stats{background:var(--cp);padding:4rem 16px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center}
+.stat-num{font-family:var(--fp);font-size:clamp(2.2rem,5vw,3.5rem);font-weight:700;color:var(--cs);line-height:1}
+.stat-lbl{font-family:var(--fs);font-size:.8rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:.5rem}
+
+/* REVEAL */
+.reveal{opacity:1;transform:none;transition:opacity .7s ease,transform .7s ease}
+.reveal.hidden{opacity:0;transform:translateY(28px)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.nav{display:none}
+.hdr-cta .b{display:none}
+.ham{display:flex}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+.hero-ctas{flex-direction:column;align-items:center}
+.hero-ctas .b{width:100%;max-width:320px}
+.stats-grid{grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.hdr-inner{height:64px}
+}
+/* FALLBACK REVEAL */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<div style="background:#ffd500;color:#4375ff;text-align:center;font-family:Manrope,system-ui,-apple-system,sans-serif;font-weight:700;font-size:15px;line-height:1.4;padding:10px 16px;box-shadow:0 2px 10px rgba(0,0,0,.18)">Ce site vous plaît&nbsp;? Activez-le dès <strong style="font-weight:800">4&nbsp;900&nbsp;F HT/mois</strong> &mdash; <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener" style="color:#0d1f3c;text-decoration:underline">Prenez rendez-vous</a></div>
+
+<!-- BANDEAU PROMO -->
+<div class="promo">
+  🥐 Ouvert 7j/7 — Venez savourer nos créations du jour <span>face au lagon</span> · 109 Rue de Boulari, Nouméa
+</div>
+
+<!-- HEADER -->
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-inner">
+    <a href="#hero" class="logo">
+      Le <em>Péché</em> Mignon
+      <span>Boulangerie artisanale · Nouméa</span>
+    </a>
+    <nav class="nav">
+      <a href="#produits">Nos créations</a>
+      <a href="#ambiance">Le lieu</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="hdr-cta">
+      <a href="tel:+687272415" class="tel-lnk">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.08 1.18 2 2 0 012.07 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+        27.24.15
+      </a>
+      <a href="#contact" class="b b-primary">Nous trouver</a>
+    </div>
+    <button class="ham" id="ham" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<div class="mob-nav" id="mobNav">
+  <button class="mob-close" id="mobClose" aria-label="Fermer">×</button>
+  <a href="#produits" class="mob-link">Nos créations</a>
+  <a href="#ambiance" class="mob-link">Le lieu</a>
+  <a href="#galerie" class="mob-link">Galerie</a>
+  <a href="#contact" class="mob-link">Contact</a>
+  <a href="tel:+687272415" class="mob-tel">📞 27.24.15</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-body">
+    <p class="hero-pre">Boulangerie artisanale · Nouméa</p>
+    <h1 class="hero-title h1">
+      <span class="sm">Le</span>
+      <span class="lg">Péché <span class="cs">Mignon</span></span>
+      <span class="sm">de Nouméa</span>
+    </h1>
+    <p class="hero-sub">Vos péchés mignons, nos spécialités. Des créations artisanales à savourer sans culpabilité, face au lagon, sous la tente blanche.</p>
+    <div class="hero-ctas">
+      <a href="#produits" class="b b-primary">Découvrir nos créations</a>
+      <a href="#contact" class="b b-outline">Nous trouver</a>
+    </div>
+    <div class="scroll-ind">
+      <span>Découvrir</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="reveal hidden">
+        <div class="stat-num" data-target="7">0</div>
+        <div class="stat-lbl">Jours sur 7 ouverts</div>
+      </div>
+      <div class="reveal hidden">
+        <div class="stat-num" data-target="100">0<span style="font-size:.6em">%</span></div>
+        <div class="stat-lbl">Fait maison</div>
+      </div>
+      <div class="reveal hidden">
+        <div class="stat-num" data-suffix="★">5</div>
+        <div class="stat-lbl">Note Google</div>
+      </div>
+      <div class="reveal hidden">
+        <div class="stat-num" data-target="109">0</div>
+        <div class="stat-lbl">Rue de Boulari</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+var hdr=document.getElementById('hdr');
+var ham=document.getElementById('ham');
+var mobNav=document.getElementById('mobNav');
+var mobClose=document.getElementById('mobClose');
+window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>40)});
+ham.addEventListener('click',function(){mobNav.classList.add('open')});
+mobClose.addEventListener('click',function(){mobNav.classList.remove('open')});
+mobNav.querySelectorAll('.mob-link').forEach(function(a){a.addEventListener('click',function(){mobNav.classList.remove('open')})});
+
+var counters=document.querySelectorAll('[data-target]');
+var counted=false;
+function runCount(){
+if(counted)return;counted=true;
+counters.forEach(function(el){
+var t=+el.getAttribute('data-target'),s=el.getAttribute('data-suffix')||'',d=Math.ceil(2000/t),c=0;
+var iv=setInterval(function(){c+=Math.ceil(t/60);if(c>=t){c=t;clearInterval(iv)}el.childNodes[0].textContent=c;if(s)el.childNodes[0].textContent=c+s},d)
+})
+}
+var statsObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)runCount()})},{threshold:.3});
+statsObs.observe(document.getElementById('stats'));
+
+var revEls=document.querySelectorAll('.reveal.hidden');
+var revObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('hidden');revObs.unobserve(e.target)}})},{threshold:.15});
+revEls.forEach(function(el){revObs.observe(el)});
+})();
+</script>
+<style>
+.s{padding:5rem 16px}
+.s-alt{background:var(--cw)}
+.s-center{text-align:center}
+.s-center .sep{margin-left:auto;margin-right:auto}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem}
+.srv-c{background:var(--cb);border-top:3px solid var(--cs);border-radius:var(--r);padding:2rem 1.5rem;transition:var(--t)}
+.srv-c:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(26,26,26,.1)}
+.srv-ico{width:52px;height:52px;background:linear-gradient(135deg,var(--cs),var(--ca));border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem}
+.srv-ico svg{width:26px;height:26px;stroke:var(--cw);fill:none;stroke-width:1.8}
+.srv-c .h3{margin-bottom:.75rem;color:var(--cp)}
+.srv-c p{font-size:.9rem;line-height:1.7;color:#444;margin-bottom:1.25rem}
+.met-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:3rem}
+.met-grid.rev{direction:rtl}
+.met-grid.rev>*{direction:ltr}
+.met-img{border-radius:.6rem;overflow:hidden;aspect-ratio:4/3}
+.met-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.met-img:hover img{transform:scale(1.05)}
+.met-txt p{font-size:.95rem;line-height:1.8;color:#444;margin-bottom:1.5rem}
+.chk-list{display:flex;flex-direction:column;gap:.75rem}
+.chk-item{display:flex;align-items:flex-start;gap:.75rem;font-size:.9rem;color:#333}
+.chk-ico{width:22px;height:22px;background:var(--cs);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.1rem}
+.chk-ico svg{width:12px;height:12px;stroke:var(--cw);stroke-width:3;fill:none}
+.gal-s{background:var(--cp)}
+.gal-s .tag{color:var(--cs)}
+.gal-s .h2{color:var(--cw)}
+.gal-s .sep{background:var(--cs)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;margin-top:2.5rem}
+.gal-item{border-radius:var(--r);overflow:hidden;cursor:pointer;aspect-ratio:1;position:relative}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.gal-item:hover img{transform:scale(1.05)}
+.gal-item::after{content:'';position:absolute;inset:0;background:rgba(26,26,26,0);transition:background .3s}
+.gal-item:hover::after{background:rgba(26,26,26,.25)}
+.lbx{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center;padding:1rem}
+.lbx.open{display:flex}
+.lbx-img{max-width:90vw;max-height:90vh;border-radius:var(--r);object-fit:contain}
+.lbx-close{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--cw);font-size:2.5rem;cursor:pointer;line-height:1;z-index:2001}
+.form-s{background:var(--cb)}
+.form-wrap{max-width:680px;margin:3rem auto 0}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.25rem}
+.f-grp{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.25rem}
+.f-lbl{font-family:var(--fs);font-size:.82rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#555}
+.f-inp{padding:.85rem 1rem;border:1.5px solid #ddd;border-radius:var(--r);font-family:var(--fs);font-size:.95rem;background:var(--cw);color:var(--cp);transition:border-color .3s;width:100%}
+.f-inp:focus{outline:none;border-color:var(--ca)}
+.f-inp.err{border-color:#c0392b}
+textarea.f-inp{resize:vertical;min-height:130px}
+.f-btn{width:100%;margin-top:.5rem}
+.f-ok{display:none;background:#f0faf0;border:1.5px solid #27ae60;border-radius:var(--r);padding:1.25rem;text-align:center;color:#1a6b1a;font-family:var(--fs);font-size:.95rem;font-weight:600;margin-top:1rem}
+.f-ok.show{display:block}
+.social-s{background:var(--cw)}
+.stars{display:flex;gap:.25rem;justify-content:center;margin-bottom:.75rem}
+.star{color:var(--cs);font-size:1.4rem}
+.rating-big{font-family:var(--fp);font-size:3.5rem;font-weight:700;color:var(--cp);line-height:1}
+.rating-lbl{font-family:var(--fs);font-size:.82rem;color:#777;margin-top:.25rem}
+.test-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2.5rem}
+.test-c{background:var(--cb);border-radius:var(--r);padding:1.75rem;border-left:3px solid var(--cs)}
+.test-stars{display:flex;gap:.2rem;margin-bottom:.75rem}
+.test-star{color:var(--cs);font-size:1rem}
+.test-txt{font-size:.92rem;line-height:1.7;color:#444;font-style:italic;margin-bottom:1rem}
+.test-aut{font-family:var(--fs);font-size:.8rem;font-weight:600;color:var(--cp);letter-spacing:.06em}
+.badges{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:3rem}
+.badge{display:flex;align-items:center;gap:.6rem;background:var(--cb);border:1.5px solid rgba(196,137,74,.3);border-radius:2rem;padding:.6rem 1.25rem;font-family:var(--fs);font-size:.82rem;font-weight:600;color:var(--cp)}
+.badge svg{width:18px;height:18px;stroke:var(--cs);fill:none;stroke-width:2}
+.ftr{background:var(--cp);color:rgba(255,255,255,.85);padding:4rem 16px 2rem}
+.ftr-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.ftr-brand{font-family:var(--fp);font-size:1.2rem;color:var(--cw);margin-bottom:.75rem}
+.ftr-brand em{color:var(--cs);font-style:italic}
+.ftr p{font-size:.85rem;line-height:1.8;color:rgba(255,255,255,.7)}
+.ftr-ttl{font-family:var(--fs);font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cs);margin-bottom:1rem}
+.ftr-links{display:flex;flex-direction:column;gap:.6rem}
+.ftr-links a{font-size:.85rem;color:rgba(255,255,255,.7);transition:color .3s}
+.ftr-links a:hover{color:var(--cs)}
+.ftr-social{display:flex;gap:1rem;margin-top:1.25rem}
+.soc-lnk{width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;transition:var(--t)}
+.soc-lnk:hover{border-color:var(--cs);background:rgba(196,137,74,.15)}
+.soc-lnk svg{width:20px;height:20px;fill:rgba(255,255,255,.8)}
+.ftr-bot{border-top:1px solid rgba(255,255,255,.1);padding-top:1.75rem;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem}
+.ftr-copy{font-size:.78rem;color:rgba(255,255,255,.45)}
+.ftr-setup{font-size:.78rem;color:rgba(255,255,255,.45)}
+.ftr-setup a{color:var(--cs);font-weight:600}
+.tel-ftr{color:var(--cs);font-weight:600;font-size:.9rem}
+@media(max-width:900px){
+.srv-grid{grid-template-columns:1fr 1fr}
+.met-grid{grid-template-columns:1fr;gap:2rem}
+.met-grid.rev{direction:ltr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.test-grid{grid-template-columns:1fr}
+.ftr-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+.srv-grid{grid-template-columns:1fr}
+.form-row{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.ftr-grid{grid-template-columns:1fr}
+.ftr-bot{flex-direction:column;text-align:center}
+.rating-big{font-size:2.8rem}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s" id="produits">
+  <div class="wrap s-center">
+    <p class="tag">Nos créations</p>
+    <h2 class="h2">À déguster sans culpabilité</h2>
+    <div class="sep"></div>
+    <div class="srv-grid">
+      <div class="srv-c reveal hidden">
+        <div class="srv-ico">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <h3 class="h3">Pâtisseries artisanales</h3>
+        <p>Éclairs, tartes et gourmandises préparés chaque matin avec soin. Des recettes généreuses, des saveurs franches, toujours frais du jour.</p>
+        <a href="#contact" class="b b-primary">Commander</a>
+      </div>
+      <div class="srv-c reveal hidden">
+        <div class="srv-ico">
+          <svg viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 010 8h-1"/><path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
+        </div>
+        <h3 class="h3">Viennoiseries & pains</h3>
+        <p>Croissants feuilletés, pains maison et brioches dorées. La boulangerie dans toute sa sincérité, cuite à la perfection, chaque matin.</p>
+        <a href="#contact" class="b b-primary">Nous trouver</a>
+      </div>
+      <div class="srv-c reveal hidden">
+        <div class="srv-ico">
+          <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"/><rect x="2" y="7" width="16" height="13" rx="2"/><path d="M6 7V5a2 2 0 014 0v2"/></svg>
+        </div>
+        <h3 class="h3">Brunchs & douceurs</h3>
+        <p>Milkshakes, boissons fraîches et formules brunch pour une pause gourmande. Le tout à savourer en terrasse, face au lagon.</p>
+        <a href="#contact" class="b b-primary">En savoir plus</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION METIER -->
+<section class="s s-alt" id="ambiance">
+  <div class="wrap">
+    <div class="s-center">
+      <p class="tag">Notre univers</p>
+      <h2 class="h2">La boulangerie du bord de mer</h2>
+      <div class="sep"></div>
+    </div>
+    <div class="met-grid reveal hidden">
+      <div class="met-img">
+        <img src="https://i.ibb.co/QjbZZNB9/LE-PETIT-P-CH-MIGNON-1.jpg" alt="Terrasse du Petit Péché Mignon face au lagon de Nouméa" loading="lazy">
+      </div>
+      <div class="met-txt">
+        <p>Au 109 Rue de Boulari, sous la tente blanche et ses tables en bois, <strong>Le Petit Péché Mignon</strong> vous accueille dans un cadre ouvert et lumineux. La verdure tropicale, le souffle de la brise et la vue apaisante sur le lagon créent une atmosphère unique à Nouméa.</p>
+        <p>Ici, tout est fait avec les mains. Chaque matin, nos pâtisseries prennent forme dans notre laboratoire, pour être proposées fraîches à nos clients — familles, locaux et voyageurs de passage.</p>
+        <ul class="chk-list">
+          <li class="chk-item">
+            <span class="chk-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Préparations fraîches du jour, sans compromis
+          </li>
+          <li class="chk-item">
+            <span class="chk-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Terrasse ouverte, accueil chaleureux 7j/7
+          </li>
+          <li class="chk-item">
+            <span class="chk-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Ambiance familiale, idéale pour une pause en journée
+          </li>
+          <li class="chk-item">
+            <span class="chk-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Vue lagon et cadre verdoyant en plein cœur de Nouméa
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="met-grid rev reveal hidden" style="margin-top:4rem">
+      <div class="met-img">
+        <img src="https://i.ibb.co/bRvDBDCB/LE-PETIT-P-CH-MIGNON-2.jpg" alt="Pâtisseries artisanales du Petit Péché Mignon" loading="lazy">
+      </div>
+      <div class="met-txt">
+        <p>Le Petit Péché Mignon, c'est aussi une adresse de caractère : enseigne typographique sobre, mobilier bois et chaises noires ajourées, lumière naturelle filtrée par la végétation. Un lieu pensé pour que vous preniez le temps.</p>
+        <p>Nos créations du jour changent au fil des saisons et des inspirations. Revenez souvent — il y a toujours une nouvelle raison de céder à la tentation.</p>
+        <ul class="chk-list">
+          <li class="chk-item">
+            <span class="chk-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Carte évolutive, spécialités tournantes
+          </li>
+          <li class="chk-item">
+            <span class="chk-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Produits de qualité, sélection rigoureuse
+          </li>
+          <li class="chk-item">
+            <span class="chk-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Parfait pour un café matinal ou un brunch dominical
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s gal-s" id="galerie">
+  <div class="wrap s-center">
+    <p class="tag">Galerie</p>
+    <h2 class="h2">L'atmosphère en images</h2>
+    <div class="sep"></div>
+    <div class="gal-grid">
+      <div class="gal-item reveal hidden" data-src="https://i.ibb.co/0Rbk1K3R/LE-PETIT-P-CH-MIGNON-0.jpg">
+        <img src="https://i.ibb.co/0Rbk1K3R/LE-PETIT-P-CH-MIGNON-0.jpg" alt="Terrasse vue lagon Petit Péché Mignon" loading="lazy">
+      </div>
+      <div class="gal-item reveal hidden" data-src="https://i.ibb.co/QjbZZNB9/LE-PETIT-P-CH-MIGNON-1.jpg">
+        <img src="https://i.ibb.co/QjbZZNB9/LE-PETIT-P-CH-MIGNON-1.jpg" alt="Ambiance boulangerie Nouméa" loading="lazy">
+      </div>
+      <div class="gal-item reveal hidden" data-src="https://i.ibb.co/bRvDBDCB/LE-PETIT-P-CH-MIGNON-2.jpg">
+        <img src="https://i.ibb.co/bRvDBDCB/LE-PETIT-P-CH-MIGNON-2.jpg" alt="Pâtisseries artisanales" loading="lazy">
+      </div>
+      <div class="gal-item reveal hidden" data-src="https://i.ibb.co/Sw1CLDB1/LE-PETIT-P-CH-MIGNON-3.jpg">
+        <img src="https://i.ibb.co/Sw1CLDB1/LE-PETIT-P-CH-MIGNON-3.jpg" alt="Créations du jour boulangerie" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lbx" id="lbx">
+  <button class="lbx-close" id="lbxClose" aria-label="Fermer">×</button>
+  <img class="lbx-img" id="lbxImg" src="" alt="Photo agrandie">
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section class="s social-s" id="avis">
+  <div class="wrap s-center">
+    <p class="tag">Ce qu'ils en disent</p>
+    <h2 class="h2">Avis de nos clients</h2>
+    <div class="sep"></div>
+    <div class="reveal hidden">
+      <div class="stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <div class="rating-big">5/5</div>
+      <div class="rating-lbl">Note Google · 2 avis vérifiés</div>
+    </div>
+    <div class="test-grid">
+      <div class="test-c reveal hidden">
+        <div class="test-stars">
+          <span class="test-star">★</span><span class="test-star">★</span><span class="test-star">★</span><span class="test-star">★</span><span class="test-star">★</span>
+        </div>
+        <p class="test-txt">"Un endroit magique face au lagon. Les pâtisseries sont absolument délicieuses, tout est fait maison et ça se sent. L'ambiance de la terrasse est parfaite pour un brunch en famille."</p>
+        <div class="test-aut">— Client Google ✓</div>
+      </div>
+      <div class="test-c reveal hidden">
+        <div class="test-stars">
+          <span class="test-star">★</span><span class="test-star">★</span><span class="test-star">★</span><span class="test-star">★</span><span class="test-star">★</span>
+        </div>
+        <p class="test-txt">"Le cadre est superbe, la tente blanche avec vue sur la verdure et le lagon. Les éclairs sont à tomber. Une adresse à ne pas manquer à Nouméa, on y retourne sans hésiter."</p>
+        <div class="test-aut">— Client Google ✓</div>
+      </div>
+    </div>
+    <div class="badges reveal hidden">
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Fait maison garanti
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Ouvert 7j/7
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Terrasse face au lagon
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Note 5/5 Google
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE -->
+<section class="s form-s" id="contact">
+  <div class="wrap s-center">
+    <p class="tag">Nous trouver</p>
+    <h2 class="h2">Venez nous rendre visite</h2>
+    <div class="sep"></div>
+    <p style="color:#555;font-size:.95rem;line-height:1.7;max-width:540px;margin:0 auto">109, Rue de Boulari · Nouméa 98800, Nouvelle-Calédonie · <a href="tel:+687272415" class="tel-lnk" style="font-size:.95rem">27.24.15</a></p>
+    <div class="form-wrap">
+      <form id="cform" action="#" novalidate>
+        <div class="form-row">
+          <div class="f-grp">
+            <label class="f-lbl" for="fname">Nom</label>
+            <input class="f-inp" type="text" id="fname" name="nom" placeholder="Votre nom" autocomplete="name">
+          </div>
+          <div class="f-grp">
+            <label class="f-lbl" for="femail">Email</label>
+            <input class="f-inp" type="email" id="femail" name="email" placeholder="votre@email.com" autocomplete="email">
+          </div>
+        </div>
+        <div class="f-grp">
+          <label class="f-lbl" for="ftel">Téléphone</label>
+          <input class="f-inp" type="tel" id="ftel" name="telephone" placeholder="Votre numéro" autocomplete="tel">
+        </div>
+        <div class="f-grp">
+          <label class="f-lbl" for="fmsg">Message</label>
+          <textarea class="f-inp" id="fmsg" name="message" placeholder="Votre message, une question, une commande spéciale..."></textarea>
+        </div>
+        <button type="submit" class="b b-primary f-btn" id="fsub">Envoyer le message</button>
+        <div class="f-ok" id="fok">
+          ✓ Merci ! Votre message a bien été envoyé. Nous vous répondrons très bientôt.
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-grid">
+      <div>
+        <div class="ftr-brand">Le <em>Péché</em> Mignon</div>
+        <p>Boulangerie artisanale au cœur de Nouméa. Pâtisseries, viennoiseries et brunchs faits maison, à savourer en terrasse face au lagon.</p>
+        <div class="ftr-social">
+          <a href="https://www.facebook.com/p/Le-petit-P%C3%A9ch%C3%A9-Mignon-61579674726202" target="_blank" rel="noopener" class="soc-lnk" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="ftr-ttl">Nous trouver</div>
+        <div class="ftr-links">
+          <span>109, Rue de Boulari</span>
+          <span>Nouméa 98800</span>
+          <span>Nouvelle-Calédonie</span>
+          <a href="tel:+687272415" class="tel-ftr">📞 27.24.15</a>
+        </div>
+      </div>
+      <div>
+        <div class="ftr-ttl">Navigation</div>
+        <div class="ftr-links">
+          <a href="#produits">Nos créations</a>
+          <a href="#ambiance">Le lieu</a>
+          <a href="#galerie">Galerie</a>
+          <a href="#avis">Avis clients</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="ftr-bot">
+      <div class="ftr-copy">© 2026 LE PETIT PÉCHÉ MIGNON. Tous droits réservés.</div>
+      <div class="ftr-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+var items=document.querySelectorAll('.gal-item');
+var lbx=document.getElementById('lbx');
+var lbxImg=document.getElementById('lbxImg');
+var lbxClose=document.getElementById('lbxClose');
+items.forEach(function(el){
+el.addEventListener('click',function(){
+lbxImg.src=el.getAttribute('data-src');
+lbx.classList.add('open');
+document.body.style.overflow='hidden';
+});
+});
+function closeLbx(){lbx.classList.remove('open');document.body.style.overflow='';}
+lbxClose.addEventListener('click',closeLbx);
+lbx.addEventListener('click',function(e){if(e.target===lbx)closeLbx();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLbx();});
+
+var form=document.getElementById('cform');
+var fsub=document.getElementById('fsub');
+var fok=document.getElementById('fok');
+form.addEventListener('submit',function(e){
+e.preventDefault();
+var ok=true;
+['fname','femail','fmsg'].forEach(function(id){
+var el=document.getElementById(id);
+el.classList.remove('err');
+if(!el.value.trim()){el.classList.add('err');ok=false;}
+});
+var em=document.getElementById('femail');
+if(em.value&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value)){em.classList.add('err');ok=false;}
+if(!ok)return;
+fsub.textContent='Envoi...';
+fsub.disabled=true;
+setTimeout(function(){
+form.style.display='none';
+fok.classList.add('show');
+},900);
+});
+
+var revAll=document.querySelectorAll('.reveal.hidden');
+var obs=new IntersectionObserver(function(entries){
+entries.forEach(function(en){
+if(en.isIntersecting){en.target.classList.remove('hidden');obs.unobserve(en.target);}
+});
+},{threshold:.12});
+revAll.forEach(function(el){obs.observe(el);});
+})();
+</script>
+</body>
+</html>
