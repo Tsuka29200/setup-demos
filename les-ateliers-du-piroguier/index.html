@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LES ATELIERS DU PIROGUIER — Nouméa</title>
+<meta name="description" content="Bijouterie artisanale à Nouméa, Nouvelle-Calédonie. Créations uniques en or et argent aux motifs calédoniens : pirogue, cagou, nautile, case. Savoir-faire local authentique.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--color-primary:#1A1A1A;
+--color-secondary:#C9A84C;
+--color-accent:#C9A84C;
+--color-text:#1A1A1A;
+--color-bg:#F5F0E8;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Cormorant Garamond',Georgia,serif;background:var(--color-bg);color:var(--color-text);overflow-x:hidden;font-size:18px;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+
+/* BANDEAU PROMO */
+.promo{background:var(--color-secondary);color:#fff;text-align:center;padding:10px 16px;font-size:14px;letter-spacing:.04em;position:relative;z-index:1100}
+
+/* HEADER */
+.nav{position:sticky;top:0;z-index:1000;background:var(--color-primary);display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:64px;border-bottom:1px solid #2a2a2a}
+.nav-logo{font-size:20px;font-weight:500;color:#fff;letter-spacing:.08em;line-height:1.2;flex-shrink:0}
+.nav-logo span{color:var(--color-secondary)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:#fff;font-size:15px;letter-spacing:.06em;opacity:.85;transition:opacity .3s ease}
+.nav-links a:hover{opacity:1;color:var(--color-secondary)}
+.nav-cta{background:var(--color-secondary);color:#fff;padding:10px 24px;font-family:inherit;font-size:14px;letter-spacing:.08em;border:none;cursor:pointer;transition:opacity .3s ease;white-space:nowrap}
+.nav-cta:hover{opacity:.85}
+.nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.nav-burger span{display:block;width:24px;height:2px;background:#fff;transition:transform .3s ease,opacity .3s ease}
+.mob-menu{display:none;position:fixed;top:64px;left:0;right:0;background:var(--color-primary);z-index:999;padding:24px 16px;flex-direction:column;gap:0}
+.mob-menu a{color:#fff;font-size:18px;letter-spacing:.06em;padding:16px 0;border-bottom:1px solid #2a2a2a;display:block}
+.mob-menu.open{display:flex}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background:url('https://i.ibb.co/dsTTD958/LES-ATELIERS-DU-PIROGUIER-0.jpg') center/cover no-repeat}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(26,26,26,.72) 0%,rgba(26,26,26,.45) 50%,rgba(26,26,26,.65) 100%)}
+.hero-inner{position:relative;z-index:1;text-align:center;padding:0 24px;max-width:860px}
+.hero-eyebrow{display:block;font-size:13px;letter-spacing:.18em;color:var(--color-secondary);text-transform:uppercase;margin-bottom:20px}
+.hero h1{font-size:clamp(2.6rem,7vw,5.2rem);font-weight:300;color:#fff;line-height:1.15;margin-bottom:20px;font-style:italic}
+.hero h1 strong{font-style:normal;font-weight:500}
+.hero-sub{font-size:clamp(1rem,2.5vw,1.35rem);color:rgba(255,255,255,.82);font-weight:300;margin-bottom:40px;max-width:560px;margin-left:auto;margin-right:auto}
+.hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.b-gold{background:var(--color-secondary);color:#fff;padding:14px 36px;font-family:inherit;font-size:15px;letter-spacing:.1em;border:none;cursor:pointer;transition:opacity .3s ease,transform .3s ease;min-height:48px;display:inline-flex;align-items:center}
+.b-gold:hover{opacity:.88;transform:translateY(-2px)}
+.b-outline{background:transparent;color:#fff;padding:14px 36px;font-family:inherit;font-size:15px;letter-spacing:.1em;border:1px solid rgba(255,255,255,.55);cursor:pointer;transition:border-color .3s ease,transform .3s ease;min-height:48px;display:inline-flex;align-items:center}
+.b-outline:hover{border-color:var(--color-secondary);transform:translateY(-2px)}
+.scroll-ind{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.6);font-size:12px;letter-spacing:.12em}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--color-secondary),transparent);animation:scrollpulse 2s ease-in-out infinite}
+@keyframes scrollpulse{0%,100%{opacity:.4;transform:scaleY(.8)}50%{opacity:1;transform:scaleY(1)}}
+
+/* STATS */
+.stats{background:var(--color-primary);padding:60px 32px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;max-width:1100px;margin:0 auto;background:rgba(201,168,76,.2)}
+.stat{background:var(--color-primary);text-align:center;padding:40px 16px}
+.stat-sep{width:32px;height:1px;background:var(--color-secondary);margin:0 auto 16px}
+.stat-num{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:300;color:var(--color-secondary);line-height:1;display:block}
+.stat-label{font-size:14px;letter-spacing:.1em;color:rgba(255,255,255,.7);text-transform:uppercase;margin-top:8px;display:block}
+
+/* FALLBACK REVEAL */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.nav-links,.nav-cta{display:none}
+.nav-burger{display:flex}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+.nav{padding:0 16px}
+.hero-inner{padding:0 16px}
+.hero-ctas .b-gold,.hero-ctas .b-outline{width:100%;justify-content:center}
+.stats{padding:40px 16px}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.stat{padding:28px 12px}
+}
+</style>
+</head>
+<body>
+<div style="background:#ffd500;color:#4375ff;text-align:center;font-family:Manrope,system-ui,-apple-system,sans-serif;font-weight:700;font-size:15px;line-height:1.4;padding:10px 16px;box-shadow:0 2px 10px rgba(0,0,0,.18)">Ce site vous plaît&nbsp;? Activez-le dès <strong style="font-weight:800">4&nbsp;900&nbsp;F HT/mois</strong> &mdash; <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener" style="color:#0d1f3c;text-decoration:underline">Prenez rendez-vous</a></div>
+
+<!-- BANDEAU PROMO -->
+<div class="promo">✦ Bijouterie artisanale à Nouméa — Créations uniques inspirées de la Nouvelle-Calédonie ✦</div>
+
+<!-- HEADER -->
+<header class="nav">
+  <a href="#accueil" class="nav-logo">Les Ateliers<br><span>du Piroguier</span></a>
+  <nav aria-label="Navigation principale">
+    <ul class="nav-links">
+      <li><a href="#savoir-faire">Notre histoire</a></li>
+      <li><a href="#creations">Créations</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <a href="tel:+687277630" class="nav-cta">☎ 27.76.30</a>
+  <button class="nav-burger" aria-label="Menu" id="burger">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-menu" id="mobMenu" aria-label="Menu mobile">
+  <a href="#savoir-faire" onclick="closeMob()">Notre histoire</a>
+  <a href="#creations" onclick="closeMob()">Créations</a>
+  <a href="#galerie" onclick="closeMob()">Galerie</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="tel:+687277630" style="color:var(--color-secondary)">☎ 27.76.30</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil" aria-label="Accueil">
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Nouméa · Nouvelle-Calédonie</span>
+    <h1>Bijoux calédoniens,<br><strong>mains d'artisan</strong></h1>
+    <p class="hero-sub">Chaque pièce naît de nos mains, inspirée par les légendes et paysages de notre île — en or, en argent, pour toujours.</p>
+    <div class="hero-ctas">
+      <a href="#galerie" class="b-gold">Découvrir les créations</a>
+      <a href="#contact" class="b-outline">Nous contacter</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>Découvrir</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<section class="stats" aria-label="Chiffres clés">
+  <div class="stats-grid">
+    <div class="stat">
+      <div class="stat-sep"></div>
+      <span class="stat-num" data-target="30">0</span>
+      <span class="stat-label">Ans de savoir-faire</span>
+    </div>
+    <div class="stat">
+      <div class="stat-sep"></div>
+      <span class="stat-num" data-target="5">0</span>
+      <span class="stat-label">★ Note Google</span>
+    </div>
+    <div class="stat">
+      <div class="stat-sep"></div>
+      <span class="stat-num" data-target="100">0</span>
+      <span class="stat-label">% Fait main</span>
+    </div>
+    <div class="stat">
+      <div class="stat-sep"></div>
+      <span class="stat-num" data-target="1">0</span>
+      <span class="stat-label">Atelier local à Nouméa</span>
+    </div>
+  </div>
+</section>
+
+<script>
+var b=document.getElementById('burger'),m=document.getElementById('mobMenu');
+b.addEventListener('click',function(){m.classList.toggle('open')});
+function closeMob(){m.classList.remove('open')}
+
+var counted=false;
+function countUp(){
+  if(counted)return;counted=true;
+  document.querySelectorAll('.stat-num[data-target]').forEach(function(el){
+    var target=+el.getAttribute('data-target'),dur=1600,step=16,inc=target/(dur/step);
+    var v=0,t=setInterval(function(){
+      v=Math.min(v+inc,target);
+      el.textContent=Math.floor(v)+(target===5?'/5':target===100?'%':'+');
+      if(v>=target)clearInterval(t);
+    },step);
+  });
+}
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)countUp()})},{threshold:.3});
+var statsEl=document.querySelector('.stats');
+if(statsEl)obs.observe(statsEl);
+</script>
+<style>
+.s{padding:80px 32px}
+.s-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:300;text-align:center;margin-bottom:8px;font-style:italic}
+.s-sub{text-align:center;color:#6b6255;font-size:1.05rem;margin-bottom:56px;max-width:560px;margin-left:auto;margin-right:auto}
+.s-line{width:48px;height:1px;background:var(--color-secondary);margin:0 auto 40px}
+
+/* SERVICES */
+.srv{background:var(--color-bg)}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:1100px;margin:0 auto;background:rgba(201,168,76,.15)}
+.c{background:var(--color-bg);padding:40px 32px;transition:transform .3s ease,box-shadow .3s ease}
+.c:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(201,168,76,.18)}
+.c-icon{width:48px;height:48px;margin-bottom:20px}
+.c-title{font-size:1.25rem;font-weight:500;margin-bottom:12px;letter-spacing:.04em}
+.c-desc{font-size:.95rem;color:#5a5045;line-height:1.7;margin-bottom:20px}
+.c-link{font-size:.85rem;letter-spacing:.1em;color:var(--color-secondary);text-transform:uppercase;border-bottom:1px solid var(--color-secondary);padding-bottom:2px;display:inline-block;transition:opacity .3s ease}
+.c-link:hover{opacity:.7}
+
+/* MÉTIER */
+.metier{background:#EEEAE0}
+.metier-inner{max-width:1100px;margin:0 auto}
+.metier-row{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:64px}
+.metier-row:last-child{margin-bottom:0}
+.metier-row.rev{direction:rtl}
+.metier-row.rev>*{direction:ltr}
+.metier-text h3{font-size:clamp(1.4rem,3vw,2rem);font-weight:300;font-style:italic;margin-bottom:16px}
+.metier-text p{font-size:1rem;color:#5a5045;line-height:1.8;margin-bottom:20px}
+.metier-checks{list-style:none;display:flex;flex-direction:column;gap:10px}
+.metier-checks li{display:flex;align-items:flex-start;gap:10px;font-size:.95rem;color:#3a3028}
+.metier-checks li::before{content:'✦';color:var(--color-secondary);flex-shrink:0;margin-top:2px}
+.metier-img{overflow:hidden}
+.metier-img img{width:100%;height:340px;object-fit:cover;transition:transform .5s ease}
+.metier-img:hover img{transform:scale(1.03)}
+
+/* GALERIE */
+.galerie{background:var(--color-bg)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;max-width:1100px;margin:0 auto}
+.gal-item{overflow:hidden;cursor:pointer;aspect-ratio:1;position:relative}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-item::after{content:'';position:absolute;inset:0;background:rgba(201,168,76,0);transition:background .3s ease}
+.gal-item:hover::after{background:rgba(201,168,76,.12)}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:88vh;object-fit:contain}
+.lb-close{position:absolute;top:20px;right:28px;color:#fff;font-size:32px;cursor:pointer;background:none;border:none;line-height:1;opacity:.8;transition:opacity .3s ease}
+.lb-close:hover{opacity:1}
+
+/* FORMULAIRE */
+.contact{background:var(--color-primary)}
+.contact .s-title{color:#fff}
+.contact .s-sub{color:rgba(255,255,255,.65)}
+.contact .s-line{background:var(--color-secondary)}
+.form-wrap{max-width:660px;margin:0 auto}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.f-field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.f-field label{font-size:13px;letter-spacing:.1em;color:rgba(255,255,255,.7);text-transform:uppercase}
+.f-field input,.f-field textarea{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);color:#fff;font-family:inherit;font-size:1rem;padding:12px 16px;transition:border-color .3s ease;width:100%}
+.f-field input:focus,.f-field textarea:focus{outline:none;border-color:var(--color-secondary)}
+.f-field input::placeholder,.f-field textarea::placeholder{color:rgba(255,255,255,.3)}
+.f-field textarea{resize:vertical;min-height:120px}
+.f-err{font-size:12px;color:#e8a87c;margin-top:4px;display:none}
+.f-submit{background:var(--color-secondary);color:#fff;font-family:inherit;font-size:1rem;letter-spacing:.1em;border:none;padding:15px 48px;cursor:pointer;width:100%;min-height:48px;transition:opacity .3s ease,transform .3s ease}
+.f-submit:hover{opacity:.85;transform:translateY(-2px)}
+.f-success{display:none;text-align:center;padding:32px;color:var(--color-secondary);font-size:1.3rem;font-style:italic}
+
+/* PREUVE SOCIALE */
+.social{background:#F0EBE0}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto 48px}
+.review-c{background:#fff;padding:28px 24px;border-top:2px solid var(--color-secondary)}
+.review-stars{color:var(--color-secondary);font-size:1.1rem;margin-bottom:10px;letter-spacing:2px}
+.review-text{font-size:.95rem;color:#4a4035;line-height:1.7;font-style:italic;margin-bottom:14px}
+.review-name{font-size:.85rem;letter-spacing:.08em;color:var(--color-secondary);text-transform:uppercase}
+.google-badge{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;max-width:600px;margin:0 auto;background:#fff;padding:24px 32px}
+.badge-score{font-size:3rem;font-weight:300;color:var(--color-secondary);line-height:1}
+.badge-info{text-align:left}
+.badge-info strong{display:block;font-size:1.1rem;letter-spacing:.04em}
+.badge-info span{font-size:.85rem;color:#6b6255}
+.badges-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:40px}
+.badge-pill{display:flex;align-items:center;gap:8px;border:1px solid rgba(201,168,76,.4);padding:10px 20px;font-size:.85rem;letter-spacing:.06em;color:var(--color-primary)}
+.badge-pill span{color:var(--color-secondary);font-size:1rem}
+
+/* FOOTER */
+.footer{background:var(--color-primary);padding:60px 32px 32px;color:rgba(255,255,255,.75)}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;max-width:1100px;margin:0 auto 48px}
+.footer-brand{font-size:1.15rem;color:#fff;letter-spacing:.06em;margin-bottom:12px}
+.footer-brand span{color:var(--color-secondary)}
+.footer-p{font-size:.9rem;line-height:1.8;margin-bottom:16px}
+.footer-tel{color:var(--color-secondary);font-size:1rem;letter-spacing:.04em}
+.footer-h{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:16px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-size:.9rem;color:rgba(255,255,255,.7);transition:color .3s ease}
+.footer-links a:hover{color:var(--color-secondary)}
+.footer-social{display:flex;gap:12px;margin-top:8px}
+.soc-icon{width:38px;height:38px;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;transition:border-color .3s ease}
+.soc-icon:hover{border-color:var(--color-secondary)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:gap;gap:12px}
+.footer-copy{font-size:.8rem;color:rgba(255,255,255,.4)}
+.footer-setup{font-size:.8rem;color:rgba(255,255,255,.35)}
+.footer-setup a{color:rgba(201,168,76,.7);transition:color .3s ease}
+.footer-setup a:hover{color:var(--color-secondary)}
+
+@media(max-width:900px){
+.srv-grid{grid-template-columns:1fr 1fr}
+.metier-row,.metier-row.rev{grid-template-columns:1fr;direction:ltr}
+.metier-img img{height:260px}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.reviews-grid{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+.s{padding:56px 16px}
+.srv-grid{grid-template-columns:1fr}
+.f-row{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.footer{padding:40px 16px 24px}
+.footer-bottom{flex-direction:column;text-align:center}
+.google-badge{padding:20px 16px}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s srv" id="creations">
+  <p class="s-title">Nos créations & services</p>
+  <div class="s-line"></div>
+  <p class="s-sub">De la création sur mesure à la réparation, chaque geste est posé avec soin dans notre atelier de Nouméa.</p>
+  <div class="srv-grid">
+    <div class="c">
+      <svg class="c-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <circle cx="24" cy="24" r="20" stroke="#C9A84C" stroke-width="1.5"/>
+        <path d="M24 14 L28 22 L38 23.5 L31 30 L32.5 40 L24 36 L15.5 40 L17 30 L10 23.5 L20 22 Z" stroke="#C9A84C" stroke-width="1.2" fill="none"/>
+      </svg>
+      <p class="c-title">Créations sur mesure</p>
+      <p class="c-desc">Votre idée prend forme entre nos mains. Nous concevons des pièces uniques en or ou argent, pensées pour durer et raconter votre histoire.</p>
+      <a href="#contact" class="c-link">Prendre rendez-vous</a>
+    </div>
+    <div class="c">
+      <svg class="c-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path d="M12 36 L24 12 L36 36" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M16 28 L32 28" stroke="#C9A84C" stroke-width="1.2"/>
+        <circle cx="24" cy="10" r="3" stroke="#C9A84C" stroke-width="1.2" fill="none"/>
+      </svg>
+      <p class="c-title">Motifs calédoniens</p>
+      <p class="c-desc">Pirogue, cagou, nautile, case kanak — nos motifs traduisent l'âme de la Nouvelle-Calédonie dans chaque bijou, gravé ou serti à la main.</p>
+      <a href="#galerie" class="c-link">Voir la galerie</a>
+    </div>
+    <div class="c">
+      <svg class="c-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path d="M14 24 C14 18 20 12 24 12 C28 12 34 18 34 24 C34 30 28 36 24 36 C20 36 14 30 14 24Z" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+        <path d="M24 18 L26 22 L30 22.5 L27 25.5 L27.5 30 L24 28 L20.5 30 L21 25.5 L18 22.5 L22 22 Z" stroke="#C9A84C" stroke-width="1" fill="none"/>
+      </svg>
+      <p class="c-title">Or & argent locaux</p>
+      <p class="c-desc">Nous travaillons l'or jaune, l'or blanc et l'argent massif, en valorisant des matières nobles sélectionnées pour leur qualité et leur pureté.</p>
+      <a href="#savoir-faire" class="c-link">Notre matière première</a>
+    </div>
+    <div class="c">
+      <svg class="c-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <rect x="10" y="18" width="28" height="20" rx="1" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+        <path d="M18 18 C18 13.6 21 10 24 10 C27 10 30 13.6 30 18" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <circle cx="24" cy="28" r="3" stroke="#C9A84C" stroke-width="1.2" fill="none"/>
+      </svg>
+      <p class="c-title">Bijoux de cérémonie</p>
+      <p class="c-desc">Alliances, bagues de fiançailles, colliers de mariage — nous accompagnons vos moments les plus précieux avec des pièces qui traversent le temps.</p>
+      <a href="#contact" class="c-link">Nous consulter</a>
+    </div>
+    <div class="c">
+      <svg class="c-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path d="M16 32 L12 36 M32 32 L36 36" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M20 16 L28 16 L32 24 L28 32 L20 32 L16 24 Z" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+        <circle cx="24" cy="24" r="3" fill="#C9A84C" opacity=".4"/>
+      </svg>
+      <p class="c-title">Réparation & restauration</p>
+      <p class="c-desc">Un bijou de famille à redonner vie ? Notre atelier remet en état, renforce et restaure vos pièces en or et argent avec le même soin qu'à leur création.</p>
+      <a href="#contact" class="c-link">Apporter une pièce</a>
+    </div>
+    <div class="c">
+      <svg class="c-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path d="M24 10 C18 10 10 16 10 26 C10 34 16 40 24 40 C32 40 38 34 38 26 C38 16 30 10 24 10Z" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+        <path d="M17 26 C17 22 20 19 24 19 C28 19 31 22 31 26" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+      </svg>
+      <p class="c-title">Conseil & gravure</p>
+      <p class="c-desc">Personnalisez vos créations avec un prénom, une date, un motif. La gravure à la main ajoute une dimension unique et intime à chaque pièce offerte.</p>
+      <a href="#contact" class="c-link">Demander un devis</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s metier" id="savoir-faire">
+  <p class="s-title">Un savoir-faire ancré dans l'île</p>
+  <div class="s-line"></div>
+  <p class="s-sub">L'histoire des Ateliers du Piroguier, c'est celle d'un artisan épris de sa terre et de ses matières.</p>
+  <div class="metier-inner">
+    <div class="metier-row">
+      <div class="metier-text">
+        <h3>L'atelier, cœur de la création</h3>
+        <p>Au 20 Rue Anatole France, à Nouméa, notre atelier est le lieu où naissent toutes nos pièces. La lumière naturelle glisse sur les outils, le métal chaud prend forme sous des mains exercées, et chaque bijou devient une histoire à porter.</p>
+        <p>Nous ne fabriquons pas en série. Chaque création est pensée, discutée et réalisée à la main, dans le respect du temps que mérite un travail bien fait.</p>
+        <ul class="metier-checks">
+          <li>Travail manuel de l'or et de l'argent massif</li>
+          <li>Motifs inspirés du patrimoine calédonien</li>
+          <li>Rendez-vous personnalisé pour chaque projet</li>
+          <li>Pièces signées et garanties</li>
+        </ul>
+      </div>
+      <div class="metier-img">
+        <img src="https://i.ibb.co/mVFWhYvJ/LES-ATELIERS-DU-PIROGUIER-1.jpg" alt="Atelier bijoutier Les Ateliers du Piroguier Nouméa" loading="lazy">
+      </div>
+    </div>
+    <div class="metier-row rev">
+      <div class="metier-text">
+        <h3>Des motifs qui racontent notre île</h3>
+        <p>La pirogue qui fend le lagon, le cagou fier sur son rocher, le nautile aux courbes parfaites, la case silhouettée contre le ciel calédonien — autant d'images que nous transposons en bijou, avec précision et tendresse.</p>
+        <p>Porter une de nos créations, c'est porter un fragment de Nouvelle-Calédonie, façonné par des mains qui aiment cette terre depuis toujours.</p>
+        <ul class="metier-checks">
+          <li>Motifs pirogue, cagou, nautile, case</li>
+          <li>Gravure fine réalisée en atelier</li>
+          <li>Collections pensées pour hommes et femmes</li>
+          <li>Cadeaux souvenirs authentiques de Nouvelle-Calédonie</li>
+        </ul>
+      </div>
+      <div class="metier-img">
+        <img src="https://i.ibb.co/rftM6SpC/LES-ATELIERS-DU-PIROGUIER-2.jpg" alt="Bijoux motifs calédoniens artisanaux Nouméa" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s galerie" id="galerie">
+  <p class="s-title">La galerie</p>
+  <div class="s-line"></div>
+  <p class="s-sub">Chaque image est un aperçu de l'univers des Ateliers du Piroguier — lumière, matière et savoir-faire calédonien.</p>
+  <div class="gal-grid">
+    <div class="gal-item" data-src="https://i.ibb.co/dsTTD958/LES-ATELIERS-DU-PIROGUIER-0.jpg">
+      <img src="https://i.ibb.co/dsTTD958/LES-ATELIERS-DU-PIROGUIER-0.jpg" alt="Bijoux artisanaux Les Ateliers du Piroguier" loading="lazy">
+    </div>
+    <div class="gal-item" data-src="https://i.ibb.co/mVFWhYvJ/LES-ATELIERS-DU-PIROGUIER-1.jpg">
+      <img src="https://i.ibb.co/mVFWhYvJ/LES-ATELIERS-DU-PIROGUIER-1.jpg" alt="Atelier bijoutier Nouméa" loading="lazy">
+    </div>
+    <div class="gal-item" data-src="https://i.ibb.co/rftM6SpC/LES-ATELIERS-DU-PIROGUIER-2.jpg">
+      <img src="https://i.ibb.co/rftM6SpC/LES-ATELIERS-DU-PIROGUIER-2.jpg" alt="Créations or et argent Nouvelle-Calédonie" loading="lazy">
+    </div>
+    <div class="gal-item" data-src="https://i.ibb.co/FLz939pv/LES-ATELIERS-DU-PIROGUIER-3.jpg">
+      <img src="https://i.ibb.co/FLz939pv/LES-ATELIERS-DU-PIROGUIER-3.jpg" alt="Bijoux motifs calédoniens artisanaux" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lb" role="dialog" aria-modal="true" aria-label="Agrandissement photo">
+  <button class="lb-close" id="lbClose" aria-label="Fermer">&#x2715;</button>
+  <img class="lb-img" id="lbImg" src="" alt="Bijou artisanal agrandie">
+</div>
+
+<!-- FORMULAIRE -->
+<section class="s contact" id="contact">
+  <p class="s-title">Nous contacter</p>
+  <div class="s-line"></div>
+  <p class="s-sub">Une idée de création, une pièce à restaurer, une question sur nos bijoux ? Nous vous répondons avec plaisir.</p>
+  <div class="form-wrap">
+    <form id="contactForm" action="#" novalidate>
+      <div class="f-row">
+        <div class="f-field">
+          <label for="fname">Votre nom</label>
+          <input type="text" id="fname" name="nom" placeholder="Marie Dupont" autocomplete="name">
+          <span class="f-err" id="err-nom">Veuillez indiquer votre nom.</span>
+        </div>
+        <div class="f-field">
+          <label for="ftel">Téléphone</label>
+          <input type="tel" id="ftel" name="tel" placeholder="27.76.30" autocomplete="tel">
+        </div>
+      </div>
+      <div class="f-field">
+        <label for="femail">Adresse email</label>
+        <input type="email" id="femail" name="email" placeholder="marie@exemple.nc" autocomplete="email">
+        <span class="f-err" id="err-email">Veuillez saisir un email valide.</span>
+      </div>
+      <div class="f-field">
+        <label for="fmsg">Votre message</label>
+        <textarea id="fmsg" name="message" placeholder="Décrivez votre projet, votre pièce à réparer ou posez-nous vos questions…"></textarea>
+        <span class="f-err" id="err-msg">Veuillez écrire votre message.</span>
+      </div>
+      <button type="submit" class="f-submit" id="fBtn">Envoyer le message</button>
+    </form>
+    <div class="f-success" id="fSuccess">
+      ✦ Merci pour votre message.<br>Nous vous répondrons dans les plus brefs délais.
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s social" id="avis">
+  <p class="s-title">Ce que disent nos clients</p>
+  <div class="s-line"></div>
+  <p class="s-sub">La confiance de nos clients est notre plus belle récompense.</p>
+  <div class="reviews-grid">
+    <div class="review-c">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Des bijoux d'une beauté rare, vraiment faits avec passion. Le motif pirogue que j'ai commandé est exactement ce que j'imaginais — et encore plus beau en vrai."</p>
+      <span class="review-name">Sophie M.</span>
+    </div>
+    <div class="review-c">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Accueil chaleureux, écoute parfaite de ma demande et résultat magnifique. Je recommande Les Ateliers du Piroguier les yeux fermés pour un cadeau unique."</p>
+      <span class="review-name">Julien T.</span>
+    </div>
+    <div class="review-c">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"J'ai fait restaurer un bijou de famille en or. Le travail est impeccable, la pièce retrouve tout son éclat. Un vrai artisan de Nouméa comme il en reste peu."</p>
+      <span class="review-name">Nathalie R.</span>
+    </div>
+  </div>
+  <div class="google-badge">
+    <div class="badge-score">5/5</div>
+    <div class="badge-info">
+      <strong>Note Google</strong>
+      <span>★★★★★ — 4 avis vérifiés</span>
+      <span style="display:block;font-size:.8rem;color:#9b8e80;margin-top:4px">Les Ateliers du Piroguier · Nouméa</span>
+    </div>
+  </div>
+  <div class="badges-row">
+    <div class="badge-pill"><span>✦</span> Artisan local certifié</div>
+    <div class="badge-pill"><span>✦</span> 100% fait main</div>
+    <div class="badge-pill"><span>✦</span> Or & argent massif</div>
+    <div class="badge-pill"><span>✦</span> Création sur mesure</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <p class="footer-brand">Les Ateliers <span>du Piroguier</span></p>
+      <p class="footer-p">Bijouterie artisanale au cœur de Nouméa. Créations uniques en or et argent, inspirées par les paysages et les motifs de la Nouvelle-Calédonie.</p>
+      <a href="tel:+687277630" class="footer-tel">☎ 27.76.30</a>
+      <div class="footer-social" style="margin-top:20px">
+        <a href="https://www.facebook.com/Les-Ateliers-du-Piroguier-476470495777033" target="_blank" rel="noopener" class="soc-icon" aria-label="Facebook Les Ateliers du Piroguier">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#C9A84C" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <p class="footer-h">Navigation</p>
+      <ul class="footer-links">
+        <li><a href="#savoir-faire">Notre histoire</a></li>
+        <li><a href="#creations">Nos services</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#avis">Avis clients</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-h">L'atelier</p>
+      <p class="footer-p">20 Rue Anatole France<br>98800 Nouméa<br>Nouvelle-Calédonie</p>
+      <p class="footer-p" style="margin-top:16px">
+        <strong style="color:rgba(255,255,255,.8);font-size:.85rem;letter-spacing:.06em;text-transform:uppercase">Horaires</strong><br>
+        Du lundi au vendredi<br>
+        Sur rendez-vous le samedi
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 LES ATELIERS DU PIROGUIER. Tous droits réservés.</span>
+    <span class="footer-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.gal-item').forEach(function(el){
+  el.addEventListener('click',function(){
+    var lb=document.getElementById('lb'),img=document.getElementById('lbImg');
+    img.src=el.getAttribute('data-src');
+    lb.classList.add('open');
+  });
+});
+document.getElementById('lbClose').addEventListener('click',function(){document.getElementById('lb').classList.remove('open')});
+document.getElementById('lb').addEventListener('click',function(e){if(e.target===this)this.classList.remove('open')});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('lb').classList.remove('open')});
+
+var form=document.getElementById('contactForm');
+form.addEventListener('submit',function(e){
+  e.preventDefault();
+  var ok=true;
+  var nm=document.getElementById('fname'),em=document.getElementById('femail'),ms=document.getElementById('fmsg');
+  [nm,em,ms].forEach(function(f){f.style.borderColor='rgba(255,255,255,.18)'});
+  document.querySelectorAll('.f-err').forEach(function(el){el.style.display='none'});
+  if(!nm.value.trim()){document.getElementById('err-nom').style.display='block';nm.style.borderColor='#e8a87c';ok=false}
+  if(!em.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)){document.getElementById('err-email').style.display='block';em.style.borderColor='#e8a87c';ok=false}
+  if(!ms.value.trim()){document.getElementById('err-msg').style.display='block';ms.style.borderColor='#e8a87c';ok=false}
+  if(!ok)return;
+  var btn=document.getElementById('fBtn');
+  btn.textContent='Envoi en cours…';btn.disabled=true;
+  setTimeout(function(){
+    form.style.display='none';
+    document.getElementById('fSuccess').style.display='block';
+  },1200);
+});
+
+var ro=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}
+  });
+},{threshold:.12});
+document.querySelectorAll('.c,.review-c,.metier-text').forEach(function(el){
+  el.style.opacity='0';el.style.transform='translateY(20px)';
+  el.style.transition='opacity .5s ease, transform .5s ease';
+  ro.observe(el);
+});
+</script>
+</body>
+</html>
