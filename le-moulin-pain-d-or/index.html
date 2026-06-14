@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LE MOULIN - Pain D'or — Nouméa</title>
+<meta name="description" content="Boulangerie artisanale au cœur de Nouméa, LE MOULIN - Pain D'or vous accueille chaque matin avec des pains et viennoiseries fraîchement préparés dans la tradition.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#C8922A;
+--cs:#8B5E2C;
+--ca:#E8C060;
+--cb:#F7EFE0;
+--ct:#3B2A1A;
+--white:#fff;
+--r:.6rem;
+--t:.4s ease-in-out;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Playfair Display',Georgia,serif;background:var(--cb);color:var(--ct);overflow-x:hidden;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+
+/* BANDEAU PROMO */
+.promo{background:var(--cs);color:var(--white);text-align:center;padding:10px 16px;font-size:.85rem;letter-spacing:.04em;position:relative;z-index:1100}
+.promo strong{color:var(--ca)}
+
+/* HEADER */
+.hdr{position:sticky;top:0;z-index:1000;background:var(--cb);border-bottom:2px solid var(--ca);display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:64px;box-shadow:0 2px 12px rgba(200,146,42,.15)}
+.hdr-logo{font-size:1.15rem;font-weight:700;color:var(--cp);line-height:1.2}
+.hdr-logo span{display:block;font-size:.72rem;font-weight:400;color:var(--cs);letter-spacing:.08em}
+.hdr-nav{display:flex;gap:24px}
+.hdr-nav a{font-size:.88rem;font-weight:600;color:var(--ct);transition:color var(--t);position:relative}
+.hdr-nav a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:2px;background:var(--cp);transition:width var(--t)}
+.hdr-nav a:hover{color:var(--cp)}
+.hdr-nav a:hover::after{width:100%}
+.hdr-cta{display:flex;align-items:center;gap:12px}
+.b{display:inline-flex;align-items:center;justify-content:center;padding:10px 20px;border-radius:var(--r);font-family:inherit;font-weight:700;cursor:pointer;border:none;transition:transform var(--t),box-shadow var(--t),background var(--t);min-height:44px;font-size:.88rem}
+.b-primary{background:var(--cp);color:var(--white)}
+.b-primary:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(200,146,42,.4)}
+.b-outline{background:transparent;color:var(--cp);border:2px solid var(--cp)}
+.b-outline:hover{background:var(--cp);color:var(--white);transform:translateY(-2px)}
+.b-tel{font-size:.82rem;color:var(--cs);font-weight:600;display:flex;align-items:center;gap:6px}
+.b-tel svg{width:16px;height:16px}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{width:24px;height:2px;background:var(--ct);border-radius:2px;transition:var(--t)}
+.mob-nav{display:none;position:fixed;top:64px;left:0;right:0;background:var(--cb);padding:20px 24px;border-bottom:2px solid var(--ca);z-index:999;flex-direction:column;gap:16px;box-shadow:0 8px 24px rgba(59,42,26,.12)}
+.mob-nav.open{display:flex}
+.mob-nav a{font-size:1rem;font-weight:600;color:var(--ct);padding:8px 0;border-bottom:1px solid rgba(200,146,42,.2)}
+.mob-nav a:last-of-type{border-bottom:none}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#1a0f05}
+.hero-bg{position:absolute;inset:0;background-image:url('https://i.ibb.co/20LFLPKD/LE-MOULIN-Pain-D-or-0.png');background-size:cover;background-position:center;background-repeat:no-repeat;will-change:transform}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(59,42,26,.82) 0%,rgba(139,94,44,.55) 50%,rgba(200,146,42,.25) 100%)}
+.hero-inner{position:relative;z-index:2;text-align:center;padding:80px 24px 120px;max-width:760px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(232,192,96,.2);border:1px solid rgba(232,192,96,.5);color:var(--ca);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;padding:6px 16px;border-radius:50px;margin-bottom:24px}
+.h1{font-size:clamp(2.2rem,7vw,4rem);font-weight:700;color:var(--white);line-height:1.15;margin-bottom:16px}
+.h1 em{color:var(--ca);font-style:normal}
+.hero-sub{font-size:clamp(1rem,2.5vw,1.2rem);color:rgba(247,239,224,.88);margin-bottom:36px;max-width:520px;margin-left:auto;margin-right:auto}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.hero-btns .b{font-size:.95rem;padding:14px 28px}
+.b-gold{background:var(--ca);color:var(--ct)}
+.b-gold:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(232,192,96,.5)}
+.b-light{background:rgba(247,239,224,.15);color:var(--white);border:2px solid rgba(247,239,224,.5);backdrop-filter:blur(4px)}
+.b-light:hover{background:rgba(247,239,224,.25);transform:translateY(-2px)}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(247,239,224,.7);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;z-index:2}
+.scroll-ind svg{animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* STATS */
+.stats{background:var(--cp);padding:56px 24px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:960px;margin:0 auto;text-align:center}
+.stat-num{font-size:clamp(2rem,5vw,2.8rem);font-weight:700;color:var(--white);line-height:1}
+.stat-label{font-size:.82rem;color:rgba(247,239,224,.85);margin-top:6px;letter-spacing:.06em}
+.stat-unit{font-size:1.4rem;color:var(--ca)}
+
+/* FALLBACK REVEALS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.hdr-nav,.hdr-cta .b{display:none}
+.hamburger{display:flex}
+.stats-grid{grid-template-columns:repeat(2,1fr);gap:20px}
+.hdr{padding:0 16px}
+}
+@media(max-width:480px){
+.hero-btns{flex-direction:column;align-items:stretch}
+.hero-btns .b{width:100%;min-height:52px}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+<div style="background:#ffd500;color:#4375ff;text-align:center;font-family:Manrope,system-ui,-apple-system,sans-serif;font-weight:700;font-size:15px;line-height:1.4;padding:10px 16px;box-shadow:0 2px 10px rgba(0,0,0,.18)">Ce site vous plaît&nbsp;? Activez-le dès <strong style="font-weight:800">4&nbsp;900&nbsp;F HT/mois</strong> &mdash; <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener" style="color:#0d1f3c;text-decoration:underline">Prenez rendez-vous</a></div>
+
+<!-- HEADER -->
+<header class="hdr" id="top">
+  <a href="#top" class="hdr-logo">
+    LE MOULIN
+    <span>Pain D'or · Nouméa</span>
+  </a>
+  <nav class="hdr-nav">
+    <a href="#services">Nos Pains</a>
+    <a href="#metier">Notre Métier</a>
+    <a href="#galerie">Galerie</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="hdr-cta">
+    <a href="tel:+687438375" class="b-tel">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.11 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      43.83.75
+    </a>
+    <a href="#contact" class="b b-primary">Commander</a>
+  </div>
+  <button class="hamburger" id="ham" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-nav" id="mobnav">
+  <a href="#services" onclick="closeMob()">Nos Pains</a>
+  <a href="#metier" onclick="closeMob()">Notre Métier</a>
+  <a href="#galerie" onclick="closeMob()">Galerie</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="tel:+687438375" class="b b-primary" style="text-align:center">📞 43.83.75</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--ca)"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+      Boulangerie Artisanale · Nouméa
+    </div>
+    <h1 class="h1">Le pain du matin,<br><em>fait avec passion</em></h1>
+    <p class="hero-sub">Depuis l'aube, nous pétrissons pour vous offrir des pains et viennoiseries qui sentent bon le fournil et la tradition calédonienne.</p>
+    <div class="hero-btns">
+      <a href="#services" class="b b-gold">Découvrir nos pains</a>
+      <a href="#contact" class="b b-light">Nous contacter</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>Défiler</span>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="stats">
+  <div class="stats-grid">
+    <div>
+      <div class="stat-num"><span class="cnt" data-target="4">0</span><span class="stat-unit">h</span></div>
+      <div class="stat-label">Du matin, premier pain sorti</div>
+    </div>
+    <div>
+      <div class="stat-num"><span class="cnt" data-target="100">0</span><span class="stat-unit">%</span></div>
+      <div class="stat-label">Fait maison chaque jour</div>
+    </div>
+    <div>
+      <div class="stat-num"><span class="cnt" data-target="4">0</span><span class="stat-unit">★</span></div>
+      <div class="stat-label">Note Google · 5 avis clients</div>
+    </div>
+    <div>
+      <div class="stat-num"><span class="cnt" data-target="1">0</span></div>
+      <div class="stat-label">Adresse au cœur de Nouméa</div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var ham=document.getElementById('ham'),mob=document.getElementById('mobnav'),open=false;
+  ham.addEventListener('click',function(){open=!open;mob.classList.toggle('open',open)});
+  window.closeMob=function(){open=false;mob.classList.remove('open')};
+
+  var counted=false;
+  function runCounters(){
+    if(counted)return;counted=true;
+    document.querySelectorAll('.cnt').forEach(function(el){
+      var target=+el.dataset.target,start=0,dur=1600,step=16;
+      var timer=setInterval(function(){
+        start+=target/(dur/step);
+        if(start>=target){start=target;clearInterval(timer)}
+        el.textContent=Math.floor(start);
+      },step);
+    });
+  }
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)runCounters()})},{threshold:.3});
+  obs.observe(document.querySelector('.stats'));
+})();
+</script>
+<!-- SERVICES -->
+<style>
+.s{padding:72px 24px;max-width:1100px;margin:0 auto}
+.s-full{padding:72px 24px}
+.s-title{text-align:center;margin-bottom:48px}
+.s-title h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;color:var(--ct)}
+.s-title p{color:var(--cs);font-size:1rem;margin-top:8px}
+.s-divider{width:60px;height:3px;background:var(--cp);margin:12px auto 0}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.c{background:var(--white);border-radius:var(--r);padding:32px 24px;text-align:center;box-shadow:0 4px 16px rgba(139,94,44,.1);transition:transform var(--t),box-shadow var(--t)}
+.c:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(200,146,42,.2)}
+.c-ico{width:56px;height:56px;background:rgba(200,146,42,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.c-ico svg{width:28px;height:28px;stroke:var(--cp);fill:none;stroke-width:1.8}
+.c h3{font-size:1.1rem;font-weight:700;color:var(--ct);margin-bottom:8px}
+.c p{font-size:.88rem;color:var(--cs);line-height:1.7}
+.c .b{margin-top:20px;font-size:.82rem;padding:10px 18px}
+.metier-wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;max-width:1100px;margin:0 auto}
+.metier-txt h2{font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:700;color:var(--ct);margin-bottom:16px}
+.metier-txt p{font-size:.95rem;color:var(--cs);line-height:1.85;margin-bottom:20px}
+.check-list{display:flex;flex-direction:column;gap:10px}
+.check-list li{display:flex;align-items:flex-start;gap:10px;font-size:.9rem;color:var(--ct)}
+.check-list li svg{width:18px;height:18px;flex-shrink:0;stroke:var(--cp);fill:none;stroke-width:2.5;margin-top:2px}
+.metier-img{border-radius:12px;overflow:hidden;box-shadow:0 8px 32px rgba(139,94,44,.18)}
+.metier-img img{width:100%;height:380px;object-fit:cover;transition:transform .6s ease}
+.metier-img:hover img{transform:scale(1.03)}
+.gallery-bg{background:var(--ct)}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;max-width:1200px;margin:0 auto}
+.g-item{overflow:hidden;cursor:pointer;position:relative;aspect-ratio:1}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease,filter .4s ease}
+.g-item:hover img{transform:scale(1.06);filter:brightness(1.1)}
+.g-item::after{content:'🔍';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(59,42,26,.45);color:#fff;font-size:1.5rem;opacity:0;transition:opacity var(--t)}
+.g-item:hover::after{opacity:1}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:88vh;border-radius:8px;object-fit:contain}
+.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;line-height:1}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(200,146,42,.6);border:none;color:#fff;font-size:1.5rem;padding:12px 16px;cursor:pointer;border-radius:var(--r)}
+.lb-prev{left:16px}
+.lb-next{right:16px}
+.form-bg{background:var(--cb)}
+.form-inner{max-width:680px;margin:0 auto}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.f-group label{font-size:.85rem;font-weight:600;color:var(--ct)}
+.f-group input,.f-group textarea{font-family:inherit;font-size:.92rem;padding:12px 14px;border:1.5px solid rgba(200,146,42,.35);border-radius:var(--r);background:#fff;color:var(--ct);transition:border-color var(--t)}
+.f-group input:focus,.f-group textarea:focus{outline:none;border-color:var(--cp)}
+.f-group textarea{resize:vertical;min-height:120px}
+.f-error{font-size:.78rem;color:#c0392b;display:none}
+.f-error.show{display:block}
+.f-success{background:rgba(200,146,42,.15);border:1.5px solid var(--cp);color:var(--ct);padding:16px 20px;border-radius:var(--r);text-align:center;font-weight:600;display:none;margin-top:16px}
+.f-success.show{display:block}
+.social-bg{background:#fff}
+.stars{color:var(--cp);font-size:1.4rem;letter-spacing:2px}
+.rating-big{font-size:3rem;font-weight:700;color:var(--cp);line-height:1}
+.rating-sub{font-size:.82rem;color:var(--cs);margin-top:4px}
+.proof-grid{display:grid;grid-template-columns:1fr 2fr;gap:48px;align-items:start;max-width:1000px;margin:0 auto}
+.rating-box{text-align:center;background:var(--cb);padding:32px 24px;border-radius:12px}
+.testi-list{display:flex;flex-direction:column;gap:20px}
+.testi{background:var(--cb);border-radius:var(--r);padding:24px;border-left:4px solid var(--cp)}
+.testi p{font-size:.92rem;font-style:italic;color:var(--ct);line-height:1.75}
+.testi-author{font-size:.8rem;font-weight:700;color:var(--cs);margin-top:10px}
+.badges{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.badge{display:flex;align-items:center;gap:8px;background:var(--cb);border-radius:50px;padding:8px 16px;font-size:.8rem;font-weight:600;color:var(--ct)}
+.badge svg{width:18px;height:18px;stroke:var(--cp);fill:none;stroke-width:2}
+.ftr{background:var(--cs);color:rgba(247,239,224,.9);padding:56px 24px 24px}
+.ftr-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;max-width:1100px;margin:0 auto 40px}
+.ftr h4{font-size:1rem;font-weight:700;color:var(--ca);margin-bottom:14px;letter-spacing:.04em}
+.ftr p,.ftr a{font-size:.88rem;color:rgba(247,239,224,.85);line-height:1.8}
+.ftr a:hover{color:var(--ca)}
+.ftr-bottom{max-width:1100px;margin:0 auto;padding-top:24px;border-top:1px solid rgba(232,192,96,.25);display:flex;justify-content:space-between;align-items:center;flex-wrap:gap;gap:12px;font-size:.78rem;color:rgba(247,239,224,.6)}
+.ftr-bottom a{color:var(--ca)}
+@media(max-width:768px){
+.grid3{grid-template-columns:1fr}
+.metier-wrap{grid-template-columns:1fr;gap:32px}
+.metier-wrap.rev{direction:ltr}
+.gallery-grid{grid-template-columns:repeat(2,1fr)}
+.form-row{grid-template-columns:1fr}
+.proof-grid{grid-template-columns:1fr}
+.ftr-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+.gallery-grid{grid-template-columns:repeat(2,1fr)}
+.s{padding:48px 16px}
+.s-full{padding:48px 16px}
+.ftr{padding:40px 16px 20px}
+.ftr-bottom{flex-direction:column;text-align:center}
+.badges{justify-content:center}
+}
+</style>
+
+<section class="s-full" id="services" style="background:#fff">
+<div class="s">
+<div class="s-title">
+<h2>Nos créations du jour</h2>
+<p>Tout est préparé cette nuit, pour être sur le comptoir dès l'ouverture</p>
+<div class="s-divider"></div>
+</div>
+<div class="grid3">
+<div class="c">
+<div class="c-ico">
+<svg viewBox="0 0 24 24"><path d="M3 11c0-4.4 3.6-8 8-8s8 3.6 8 8v2H3v-2z"/><path d="M3 13h18v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2z"/></svg>
+</div>
+<h3>Pains artisanaux</h3>
+<p>Baguettes tradition, pains de campagne, pains spéciaux façonnés à la main chaque matin dans notre fournil.</p>
+<a href="#contact" class="b b-outline">En savoir plus</a>
+</div>
+<div class="c">
+<div class="c-ico">
+<svg viewBox="0 0 24 24"><path d="M12 2C8 2 4 5 4 9c0 5 8 13 8 13s8-8 8-13c0-4-4-7-8-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+</div>
+<h3>Viennoiseries</h3>
+<p>Croissants feuilletés, pains au chocolat et brioches dorées à la perfection, pour commencer la journée avec douceur.</p>
+<a href="#contact" class="b b-outline">En savoir plus</a>
+</div>
+<div class="c">
+<div class="c-ico">
+<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+</div>
+<h3>Pâtisseries & gâteaux</h3>
+<p>Des douceurs préparées avec soin pour accompagner vos moments en famille, disponibles tous les jours.</p>
+<a href="#contact" class="b b-outline">En savoir plus</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- MÉTIER -->
+<section class="s-full" id="metier" style="background:var(--cb)">
+<div class="s">
+<div class="metier-wrap">
+<div class="metier-txt">
+<h2>Un savoir-faire transmis, une passion renouvelée chaque jour</h2>
+<p>Ici, la journée commence bien avant le lever du soleil. Pétrissage, façonnage, fermentation lente : chaque étape est respectée pour que le pain soit à la hauteur de votre confiance.</p>
+<p>Au cœur de Nouméa, LE MOULIN - Pain D'or défend une boulangerie artisanale honnête, sans raccourcis, avec les bons ingrédients et les bons gestes.</p>
+<ul class="check-list">
+<li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Pétrissage et façonnage entièrement manuels</li>
+<li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Cuisson au four chaque matin dès l'aube</li>
+<li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Produits frais, sans conservateurs ajoutés</li>
+<li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Une équipe passionnée, ancrée dans la communauté nouméenne</li>
+</ul>
+</div>
+<div class="metier-img">
+<img src="https://i.ibb.co/hxrYfDxj/LE-MOULIN-Pain-D-or-1.png" alt="Artisan boulanger au travail au Moulin Pain D'or Nouméa" loading="lazy">
+</div>
+</div>
+<div class="metier-wrap" style="margin-top:64px">
+<div class="metier-img">
+<img src="https://i.ibb.co/8LTLVq15/LE-MOULIN-Pain-D-or-2.png" alt="Pains et viennoiseries fraîches au Moulin Pain D'or" loading="lazy">
+</div>
+<div class="metier-txt">
+<h2>La fraîcheur du matin, tous les jours sans exception</h2>
+<p>Nous ne vendons que ce que nous fabriquons le jour même. Pas de réchauffé, pas de surgelé : chaque pain que vous emportez a été préparé ici, dans ce fournil, cette nuit.</p>
+<p>C'est notre promesse à chaque famille qui pousse la porte de la boulangerie, que ce soit pour la baguette du quotidien ou pour une occasion spéciale.</p>
+<ul class="check-list">
+<li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Stocks limités, toujours frais</li>
+<li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Aucun produit de la veille remis en vente</li>
+<li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Accueil chaleureux, conseils personnalisés</li>
+<li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Accessible à tous au cœur de Nouméa</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- GALERIE -->
+<section class="s-full gallery-bg" id="galerie">
+<div style="max-width:1200px;margin:0 auto;padding:0 24px">
+<div class="s-title" style="padding-top:56px">
+<h2 style="color:var(--white)">Notre fournil en images</h2>
+<p style="color:rgba(247,239,224,.7)">Des pains, des gestes, une ambiance — tout ce qui fait LE MOULIN</p>
+<div class="s-divider"></div>
+</div>
+</div>
+<div class="gallery-grid">
+<div class="g-item" onclick="openLb(0)"><img src="https://i.ibb.co/20LFLPKD/LE-MOULIN-Pain-D-or-0.png" alt="LE MOULIN Pain D'or Nouméa" loading="lazy"></div>
+<div class="g-item" onclick="openLb(1)"><img src="https://i.ibb.co/hxrYfDxj/LE-MOULIN-Pain-D-or-1.png" alt="Boulangerie artisanale Nouméa" loading="lazy"></div>
+<div class="g-item" onclick="openLb(2)"><img src="https://i.ibb.co/8LTLVq15/LE-MOULIN-Pain-D-or-2.png" alt="Pains frais Nouméa" loading="lazy"></div>
+<div class="g-item" onclick="openLb(3)"><img src="https://i.ibb.co/KpLwXqYC/LE-MOULIN-Pain-D-or-3.png" alt="Viennoiseries Moulin Pain D'or" loading="lazy"></div>
+</div>
+<div style="height:56px"></div>
+</section>
+
+<div class="lightbox" id="lb">
+<button class="lb-close" onclick="closeLb()">✕</button>
+<button class="lb-prev" onclick="moveLb(-1)">&#8592;</button>
+<img class="lb-img" id="lb-img" src="" alt="Photo galerie">
+<button class="lb-next" onclick="moveLb(1)">&#8594;</button>
+</div>
+
+<!-- FORMULAIRE -->
+<section class="s-full form-bg" id="contact">
+<div class="s">
+<div class="s-title">
+<h2>Contactez-nous</h2>
+<p>Une commande, une question ? Nous vous répondons rapidement.</p>
+<div class="s-divider"></div>
+</div>
+<div class="form-inner">
+<form id="cform" action="#" novalidate>
+<div class="form-row">
+<div class="f-group">
+<label for="fname">Votre nom</label>
+<input type="text" id="fname" name="nom" placeholder="Marie Dupont" autocomplete="name">
+<span class="f-error" id="err-name">Veuillez indiquer votre nom.</span>
+</div>
+<div class="f-group">
+<label for="ftel">Téléphone</label>
+<input type="tel" id="ftel" name="tel" placeholder="XX.XX.XX" autocomplete="tel">
+</div>
+</div>
+<div class="f-group">
+<label for="femail">Email</label>
+<input type="email" id="femail" name="email" placeholder="marie@email.com" autocomplete="email">
+<span class="f-error" id="err-email">Veuillez entrer un email valide.</span>
+</div>
+<div class="f-group">
+<label for="fmsg">Votre message</label>
+<textarea id="fmsg" name="message" placeholder="Commande spéciale, question, horaires..."></textarea>
+<span class="f-error" id="err-msg">Veuillez écrire un message.</span>
+</div>
+<button type="submit" class="b b-primary" id="fsub" style="width:100%;font-size:1rem;padding:16px">Envoyer le message</button>
+<div class="f-success" id="fsuccess">Merci ! Votre message a bien été envoyé. Nous vous répondrons très vite.</div>
+</form>
+<div style="margin-top:32px;text-align:center">
+<p style="font-size:.88rem;color:var(--cs)">Ou appelez-nous directement :</p>
+<a href="tel:+687438375" class="b b-outline" style="margin-top:12px;font-size:1rem;padding:14px 28px">📞 43.83.75</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s-full social-bg" id="avis">
+<div class="s">
+<div class="s-title">
+<h2>Ce que disent nos clients</h2>
+<p>La confiance de nos voisins nouméens, notre plus belle récompense</p>
+<div class="s-divider"></div>
+</div>
+<div class="proof-grid">
+<div class="rating-box">
+<div class="rating-big">4/5</div>
+<div class="stars">★★★★☆</div>
+<div class="rating-sub">5 avis Google vérifiés</div>
+<div style="margin-top:24px;font-size:.82rem;color:var(--cs);line-height:1.8">
+<strong style="color:var(--ct)">Boulangerie artisanale</strong><br>au cœur de Nouméa
+</div>
+<div class="badges" style="justify-content:center;margin-top:20px">
+<div class="badge"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Artisan local</div>
+<div class="badge"><svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 1-4.5 4.5 1 6.5-5.5-3-5.5 3 1-6.5L3 9l6-1z"/></svg>Pain frais</div>
+</div>
+</div>
+<div class="testi-list">
+<div class="testi">
+<p>« Une boulangerie comme on les aime, avec de vrais pains faits maison. L'odeur en entrant donne envie de tout acheter ! »</p>
+<div class="testi-author">— Client Google ★★★★★</div>
+</div>
+<div class="testi">
+<p>« Je viens ici depuis des années, le pain est toujours aussi bon et l'accueil est chaleureux. Une adresse incontournable à Nouméa. »</p>
+<div class="testi-author">— Client Google ★★★★☆</div>
+</div>
+<div class="testi">
+<p>« Les viennoiseries du matin sont délicieuses, croissants bien feuilletés et brioche moelleuse. Merci à toute l'équipe du Moulin ! »</p>
+<div class="testi-author">— Client Google ★★★★★</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ftr">
+<div class="ftr-grid">
+<div>
+<h4>LE MOULIN — Pain D'or</h4>
+<p>Boulangerie artisanale au cœur de Nouméa.<br>Du pain fait à la main, chaque matin, pour toute la famille.</p>
+<p style="margin-top:16px">QF6C+9XG, Nouméa 98800<br>Nouvelle-Calédonie</p>
+<a href="tel:+687438375" style="display:inline-flex;align-items:center;gap:8px;margin-top:12px;color:var(--ca);font-weight:700">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.11 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+43.83.75
+</a>
+</div>
+<div>
+<h4>Navigation</h4>
+<ul style="display:flex;flex-direction:column;gap:8px">
+<li><a href="#services">Nos pains</a></li>
+<li><a href="#metier">Notre métier</a></li>
+<li><a href="#galerie">Galerie</a></li>
+<li><a href="#avis">Avis clients</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4>Nous trouver</h4>
+<p>Nouméa, Nouvelle-Calédonie</p>
+<p style="margin-top:10px">Ouvert tôt le matin pour vous accueillir avec du pain frais sorti du four.</p>
+<a href="tel:+687438375" class="b b-gold" style="margin-top:20px;width:100%;max-width:200px">Nous appeler</a>
+</div>
+</div>
+<div class="ftr-bottom">
+<span>© 2026 LE MOULIN - Pain D'or. Tous droits réservés.</span>
+<span>Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup</a></span>
+</div>
+</footer>
+
+<script>
+(function(){
+var imgs=['https://i.ibb.co/20LFLPKD/LE-MOULIN-Pain-D-or-0.png','https://i.ibb.co/hxrYfDxj/LE-MOULIN-Pain-D-or-1.png','https://i.ibb.co/8LTLVq15/LE-MOULIN-Pain-D-or-2.png','https://i.ibb.co/KpLwXqYC/LE-MOULIN-Pain-D-or-3.png'];
+var cur=0;
+window.openLb=function(i){cur=i;document.getElementById('lb-img').src=imgs[i];document.getElementById('lb').classList.add('open')};
+window.closeLb=function(){document.getElementById('lb').classList.remove('open')};
+window.moveLb=function(d){cur=(cur+d+imgs.length)%imgs.length;document.getElementById('lb-img').src=imgs[cur]};
+document.getElementById('lb').addEventListener('click',function(e){if(e.target===this)closeLb()});
+
+var form=document.getElementById('cform');
+form.addEventListener('submit',function(e){
+e.preventDefault();
+var ok=true;
+var nm=document.getElementById('fname').value.trim();
+var em=document.getElementById('femail').value.trim();
+var ms=document.getElementById('fmsg').value.trim();
+var en=document.getElementById('err-name');
+var ee=document.getElementById('err-email');
+var em2=document.getElementById('err-msg');
+en.classList.toggle('show',!nm);
+ee.classList.toggle('show',!em||!/^[^@]+@[^@]+\.[^@]+$/.test(em));
+em2.classList.toggle('show',!ms);
+if(!nm||!em||!/^[^@]+@[^@]+\.[^@]+$/.test(em)||!ms)return;
+var btn=document.getElementById('fsub');
+btn.textContent='Envoi...';btn.disabled=true;
+setTimeout(function(){
+document.getElementById('fsuccess').classList.add('show');
+form.reset();btn.textContent='Envoyer le message';btn.disabled=false;
+},900);
+});
+})();
+</script>
+</body>
+</html>
