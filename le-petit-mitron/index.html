@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Le Petit Mitron — Nouméa</title>
+<meta name="description" content="Boulangerie-pâtisserie de quartier à Nouméa, Nouvelle-Calédonie. Viennoiseries, pâtisseries orientales et sucreries fraîches chaque jour. 1 Rue Ange Berlioz, Nouméa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#7AB648;
+--cs:#C8203C;
+--ca:#C8203C;
+--ct:#2C1A0E;
+--cb:#F5F0E8;
+--white:#fff;
+--radius:12px;
+--shadow:0 4px 20px rgba(44,26,14,.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--cb);color:var(--ct);overflow-x:hidden;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+.container{width:100%;max-width:1160px;margin:0 auto;padding:0 20px}
+.b{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;cursor:pointer;border:none;transition:transform .3s,box-shadow .3s;min-height:48px}
+.b-primary{background:var(--ca);color:var(--white)}
+.b-primary:hover{transform:scale(1.05);box-shadow:0 6px 24px rgba(122,182,72,.45)}
+.b-outline{background:transparent;color:var(--white);border:2px solid var(--white)}
+.b-outline:hover{background:var(--white);color:var(--ca);transform:scale(1.05)}
+.h1{font-size:clamp(2rem,5vw,3.6rem);font-weight:900;line-height:1.15}
+.h2{font-size:clamp(1.6rem,3.5vw,2.6rem);font-weight:800;line-height:1.2}
+.h3{font-size:clamp(1.1rem,2vw,1.4rem);font-weight:700}
+.tag{display:inline-block;background:var(--cp);color:var(--white);font-size:.8rem;font-weight:700;padding:4px 14px;border-radius:50px;letter-spacing:.04em;margin-bottom:12px}
+
+/* ── BANDEAU PROMO ── */
+#bandeau{background:var(--cs);color:var(--white);text-align:center;padding:10px 16px;font-size:.88rem;font-weight:700;position:relative;z-index:1100}
+#bandeau a{color:var(--white);text-decoration:underline}
+
+/* ── HEADER ── */
+#header{position:sticky;top:0;z-index:1000;background:var(--white);box-shadow:0 2px 16px rgba(44,26,14,.1);transition:background .3s}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-icon{width:42px;height:42px;background:var(--cp);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.logo-icon svg{width:24px;height:24px}
+.logo-text{font-weight:900;font-size:1.1rem;color:var(--ct);line-height:1.1}
+.logo-text span{color:var(--cp);display:block;font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+nav{display:flex;align-items:center;gap:6px}
+nav a{font-weight:700;font-size:.9rem;color:var(--ct);padding:6px 12px;border-radius:8px;transition:color .3s,background .3s}
+nav a:hover{color:var(--cp);background:rgba(122,182,72,.1)}
+.header-cta{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.tel-link{font-weight:800;font-size:.95rem;color:var(--cp);white-space:nowrap}
+.tel-link:hover{color:var(--cs)}
+#burger{display:none;background:none;border:none;cursor:pointer;padding:6px}
+#burger svg{width:26px;height:26px;stroke:var(--ct)}
+#nav-mobile{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:var(--white);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:20px}
+#nav-mobile.open{display:flex}
+#nav-mobile a{font-size:1.4rem;font-weight:800;color:var(--ct)}
+#nav-mobile a:hover{color:var(--cp)}
+#nav-close{position:absolute;top:20px;right:20px;background:none;border:none;cursor:pointer;font-size:2rem;color:var(--ct)}
+
+/* ── HERO ── */
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;background:url('https://i.ibb.co/d0bp3D8w/Le-Petit-Mitron-0.png') center/cover no-repeat;overflow:hidden}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(44,26,14,.72) 0%,rgba(122,182,72,.35) 100%)}
+.hero-content{position:relative;z-index:2;max-width:700px}
+.hero-content .h1{color:var(--white);margin-bottom:16px;text-shadow:0 2px 12px rgba(0,0,0,.3)}
+.hero-content .h1 em{color:#b8e97a;font-style:normal}
+.hero-sub{color:rgba(255,255,255,.9);font-size:clamp(1rem,2vw,1.2rem);font-weight:600;margin-bottom:32px;max-width:520px}
+.hero-btns{display:flex;flex-wrap:wrap;gap:14px}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,.7);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;z-index:2}
+.scroll-ind span{width:2px;height:40px;background:rgba(255,255,255,.4);border-radius:2px;overflow:hidden;position:relative}
+.scroll-ind span::after{content:'';position:absolute;top:-100%;left:0;width:100%;height:100%;background:var(--white);animation:scrollline 1.6s ease-in-out infinite}
+@keyframes scrollline{0%{top:-100%}100%{top:100%}}
+
+/* ── BANDE STATS ── */
+#stats{background:var(--cp);padding:56px 20px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stat-item{padding:20px 10px}
+.stat-num{font-size:clamp(2rem,4vw,3rem);font-weight:900;color:var(--white);line-height:1;display:block}
+.stat-label{font-size:.88rem;font-weight:700;color:rgba(255,255,255,.85);margin-top:6px;text-transform:uppercase;letter-spacing:.06em}
+
+/* FALLBACK animations */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+nav{display:none}
+.header-cta .b{display:none}
+#burger{display:block}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+.container{padding:0 16px}
+.hero-btns .b{width:100%}
+.stats-grid{grid-template-columns:repeat(2,1fr);gap:16px}
+.stat-num{font-size:2rem}
+}
+</style>
+</head>
+<body>
+<div style="background:#ffd500;color:#4375ff;text-align:center;font-family:Manrope,system-ui,-apple-system,sans-serif;font-weight:700;font-size:15px;line-height:1.4;padding:10px 16px;box-shadow:0 2px 10px rgba(0,0,0,.18)">Ce site vous plaît&nbsp;? Activez-le dès <strong style="font-weight:800">4&nbsp;900&nbsp;F HT/mois</strong> &mdash; <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener" style="color:#0d1f3c;text-decoration:underline">Prenez rendez-vous</a></div>
+
+<!-- BANDEAU PROMO -->
+<div id="bandeau">
+  🥐 Ouvert 7j/7 — Fraîcheur garantie chaque matin &nbsp;|&nbsp; <a href="tel:+68728312">📞 28.31.22</a>
+</div>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="container header-inner">
+    <a href="#hero" class="logo" aria-label="Le Petit Mitron — Accueil">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 13C4 9.13 7.13 6 11 6h2c3.87 0 7 3.13 7 7v1H4v-1z" fill="#fff"/>
+          <rect x="3" y="14" width="18" height="3" rx="1.5" fill="#fff" opacity=".7"/>
+          <path d="M12 3c0 0-1.5 1.5-1.5 3h3C13.5 4.5 12 3 12 3z" fill="#fff"/>
+        </svg>
+      </div>
+      <div class="logo-text">Le Petit Mitron<span>Boulangerie · Nouméa</span></div>
+    </a>
+    <nav aria-label="Navigation principale">
+      <a href="#apropos">Notre histoire</a>
+      <a href="#services">Nos produits</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-cta">
+      <a href="tel:+68728312" class="tel-link">📞 28.31.22</a>
+      <a href="#contact" class="b b-primary">Nous trouver</a>
+    </div>
+    <button id="burger" aria-label="Ouvrir le menu" onclick="document.getElementById('nav-mobile').classList.add('open')">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav id="nav-mobile" aria-label="Menu mobile">
+  <button id="nav-close" onclick="document.getElementById('nav-mobile').classList.remove('open')" aria-label="Fermer">✕</button>
+  <a href="#apropos" onclick="document.getElementById('nav-mobile').classList.remove('open')">Notre histoire</a>
+  <a href="#services" onclick="document.getElementById('nav-mobile').classList.remove('open')">Nos produits</a>
+  <a href="#galerie" onclick="document.getElementById('nav-mobile').classList.remove('open')">Galerie</a>
+  <a href="#contact" onclick="document.getElementById('nav-mobile').classList.remove('open')">Contact</a>
+  <a href="tel:+68728312" class="b b-primary">📞 28.31.22</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <span class="tag">🌿 Boulangerie de quartier · Nouméa</span>
+    <h1 class="h1">Le goût du fait maison,<br><em>tous les matins</em></h1>
+    <p class="hero-sub">Viennoiseries dorées, pâtisseries orientales et douceurs sucrées — préparées avec soin pour votre quartier, chaque jour à Nouméa.</p>
+    <div class="hero-btns">
+      <a href="#services" class="b b-primary">Découvrir nos produits</a>
+      <a href="#contact" class="b b-outline">Nous trouver</a>
+    </div>
+  </div>
+  <div class="scroll-ind" aria-hidden="true">
+    Défiler<span></span>
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<section id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-num" data-target="7">7</span>
+        <p class="stat-label">Jours sur 7</p>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="100">100%</span>
+        <p class="stat-label">Produits frais</p>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="30">30+</span>
+        <p class="stat-label">Spécialités au choix</p>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="1">1</span>
+        <p class="stat-label">Adresse de confiance</p>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+/* ── SERVICES ── */
+#services{padding:80px 0;background:var(--cb)}
+.s-head{text-align:center;margin-bottom:48px}
+.s-head .h2{color:var(--ct);margin-bottom:12px}
+.s-head p{color:#6b5040;font-size:1.05rem;max-width:560px;margin:0 auto}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.c{background:var(--white);border-radius:var(--radius);padding:32px 24px;box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column;gap:12px}
+.c:hover{transform:translateY(-6px);box-shadow:0 12px 36px rgba(44,26,14,.18)}
+.c-icon{width:56px;height:56px;background:rgba(122,182,72,.12);border-radius:14px;display:flex;align-items:center;justify-content:center}
+.c-icon svg{width:28px;height:28px}
+.c .h3{color:var(--ct)}
+.c p{color:#6b5040;font-size:.92rem;flex:1}
+.c-link{color:var(--cp);font-weight:800;font-size:.9rem;transition:color .3s}
+.c-link:hover{color:var(--cs)}
+
+/* ── SECTION MÉTIER ── */
+#metier{padding:80px 0;background:var(--white)}
+.metier-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.metier-inner.reverse{direction:rtl}
+.metier-inner.reverse>*{direction:ltr}
+.metier-text .tag{margin-bottom:14px}
+.metier-text .h2{margin-bottom:16px;color:var(--ct)}
+.metier-text p{color:#6b5040;font-size:1rem;margin-bottom:14px}
+.check-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.check-list li{display:flex;align-items:flex-start;gap:10px;font-weight:700;color:var(--ct);font-size:.95rem}
+.check-list li::before{content:'✓';background:var(--cp);color:var(--white);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:900;flex-shrink:0;margin-top:1px}
+.metier-img{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.metier-img img{width:100%;height:380px;object-fit:cover;transition:transform .4s}
+.metier-img:hover img{transform:scale(1.04)}
+
+/* ── GALERIE ── */
+#galerie{padding:80px 0;background:var(--cb)}
+.galerie-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.g-item{border-radius:var(--radius);overflow:hidden;cursor:pointer;position:relative;box-shadow:var(--shadow);aspect-ratio:1/1}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.g-item:hover img{transform:scale(1.07)}
+.g-overlay{position:absolute;inset:0;background:rgba(44,26,14,.35);opacity:0;transition:opacity .3s;display:flex;align-items:center;justify-content:center}
+.g-item:hover .g-overlay{opacity:1}
+.g-overlay svg{width:40px;height:40px;stroke:#fff}
+#lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:2000;align-items:center;justify-content:center;padding:20px}
+#lightbox.open{display:flex}
+#lb-img{max-width:90vw;max-height:85vh;border-radius:var(--radius);box-shadow:0 0 60px rgba(0,0,0,.5)}
+#lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:2.4rem;cursor:pointer;line-height:1;font-family:'Nunito',sans-serif;font-weight:900}
+
+/* ── FORMULAIRE ── */
+#contact{padding:80px 0;background:var(--white)}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.contact-info .h2{margin-bottom:16px}
+.contact-info p{color:#6b5040;margin-bottom:24px}
+.info-block{display:flex;flex-direction:column;gap:14px}
+.info-line{display:flex;align-items:center;gap:12px;font-weight:700;color:var(--ct)}
+.info-line svg{width:22px;height:22px;flex-shrink:0;stroke:var(--cp);fill:none;stroke-width:2;stroke-linecap:round}
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.form-group label{font-weight:700;font-size:.9rem;color:var(--ct)}
+.form-group input,.form-group textarea{width:100%;padding:12px 16px;border:2px solid #e0d8cc;border-radius:10px;font-family:'Nunito',sans-serif;font-size:.95rem;color:var(--ct);background:var(--cb);transition:border-color .3s;outline:none}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--cp)}
+.form-group textarea{resize:vertical;min-height:120px}
+.form-error{font-size:.8rem;color:var(--cs);font-weight:700;display:none}
+.form-error.show{display:block}
+#form-success{background:rgba(122,182,72,.12);border:2px solid var(--cp);border-radius:var(--radius);padding:20px;text-align:center;color:var(--cp);font-weight:800;font-size:1rem;display:none;margin-top:16px}
+#form-success.show{display:block}
+.btn-submit{width:100%;position:relative;overflow:hidden}
+.btn-loader{display:none;width:18px;height:18px;border:3px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── PREUVE SOCIALE ── */
+#avis{padding:80px 0;background:var(--cb)}
+.avis-head{text-align:center;margin-bottom:48px}
+.note-block{display:flex;flex-direction:column;align-items:center;gap:8px;margin-bottom:40px}
+.stars{display:flex;gap:4px}
+.stars svg{width:32px;height:32px;fill:#f5a623}
+.note-txt{font-size:1rem;color:#6b5040;font-weight:700}
+.temoignages{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.temoignage{background:var(--white);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+.temoignage .stars svg{width:18px;height:18px}
+.temoignage p{color:#6b5040;font-size:.92rem;margin:10px 0 14px;font-style:italic}
+.temoignage .auteur{font-weight:800;font-size:.88rem;color:var(--ct)}
+.badges{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:48px}
+.badge{background:var(--white);border:2px solid var(--cp);border-radius:50px;padding:10px 22px;font-weight:800;font-size:.88rem;color:var(--cp);display:flex;align-items:center;gap:8px}
+
+/* ── FOOTER ── */
+#footer{background:var(--ct);color:rgba(255,255,255,.85);padding:56px 0 24px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand .logo-text{color:#fff}
+.footer-brand .logo-text span{color:rgba(255,255,255,.6)}
+.footer-brand p{margin-top:14px;font-size:.9rem;color:rgba(255,255,255,.7);max-width:280px;line-height:1.7}
+.footer-social{display:flex;gap:12px;margin-top:20px;align-items:center}
+.social-link{width:40px;height:40px;background:rgba(255,255,255,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;transition:background .3s}
+.social-link:hover{background:var(--cp)}
+.social-link svg{width:20px;height:20px;fill:#fff}
+.footer-col h4{color:#fff;font-size:1rem;font-weight:800;margin-bottom:16px;letter-spacing:.03em}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-col ul a{color:rgba(255,255,255,.7);font-size:.9rem;font-weight:600;transition:color .3s}
+.footer-col ul a:hover{color:var(--cp)}
+.footer-addr{color:rgba(255,255,255,.7);font-size:.88rem;line-height:1.8;display:flex;flex-direction:column;gap:4px}
+.footer-addr a{color:rgba(255,255,255,.85);font-weight:700}
+.footer-addr a:hover{color:var(--cp)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;font-size:.82rem;color:rgba(255,255,255,.5)}
+.footer-bottom a{color:rgba(255,255,255,.6);font-weight:700}
+.footer-bottom a:hover{color:var(--cp)}
+
+/* ── RESPONSIVE PART 2 ── */
+@media(max-width:900px){
+.services-grid{grid-template-columns:repeat(2,1fr)}
+.metier-inner,.metier-inner.reverse{grid-template-columns:1fr;direction:ltr}
+.metier-inner.reverse .metier-text{order:1}
+.metier-inner.reverse .metier-img{order:2}
+.galerie-grid{grid-template-columns:repeat(2,1fr)}
+.contact-inner{grid-template-columns:1fr}
+.temoignages{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+.services-grid{grid-template-columns:1fr}
+.galerie-grid{grid-template-columns:repeat(2,1fr)}
+.footer-grid{grid-template-columns:1fr}
+.footer-bottom{flex-direction:column;text-align:center}
+.metier-img img{height:220px}
+#services,#metier,#galerie,#contact,#avis{padding:56px 0}
+}
+</style>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="s-head">
+      <span class="tag">Ce que nous préparons</span>
+      <h2 class="h2">De la vitrine à votre table</h2>
+      <p>Chaque jour, nous garnissons notre vitrine avec générosité. Voici ce qui vous attend au Petit Mitron.</p>
+    </div>
+    <div class="services-grid">
+      <div class="c">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#7AB648" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8 2 4 5.5 4 9c0 2.5 1.5 4.7 3.5 5.8V17h9v-2.2C18.5 13.7 20 11.5 20 9c0-3.5-4-7-8-7z"/><rect x="7" y="17" width="10" height="2" rx="1"/><rect x="9" y="19" width="6" height="2" rx="1"/></svg>
+        </div>
+        <h3 class="h3">Viennoiseries fraîches</h3>
+        <p>Croissants, pains au chocolat, chaussons et brioche — croustillants et dorés dès l'ouverture, préparés chaque matin pour vous.</p>
+        <a href="#galerie" class="c-link">Voir la galerie →</a>
+      </div>
+      <div class="c">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#7AB648" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12c0-2.2 1.8-4 4-4s4 1.8 4 4-1.8 4-4 4"/><circle cx="12" cy="12" r="2"/></svg>
+        </div>
+        <h3 class="h3">Pâtisseries orientales</h3>
+        <p>Baklavas, cornes de gazelle, makrout et autres douceurs au miel et aux amandes — une tradition sucrée qui fait le bonheur du quartier.</p>
+        <a href="#galerie" class="c-link">Voir la galerie →</a>
+      </div>
+      <div class="c">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#7AB648" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+        </div>
+        <h3 class="h3">Pains & Baguettes</h3>
+        <p>La baguette tradition, le pain de mie, le pain complet… La base de chaque repas, cuite à point pour que votre table commence bien.</p>
+        <a href="#galerie" class="c-link">Voir la galerie →</a>
+      </div>
+      <div class="c">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#7AB648" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="10" x2="9.01" y2="10" stroke-width="3"/><line x1="15" y1="10" x2="15.01" y2="10" stroke-width="3"/></svg>
+        </div>
+        <h3 class="h3">Gâteaux & Sucreries</h3>
+        <p>Éclairs, mille-feuilles, tartes aux fruits et gâteaux moelleux — pour les petits moments de plaisir comme les grandes occasions.</p>
+        <a href="#contact" class="c-link">Nous contacter →</a>
+      </div>
+      <div class="c">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#7AB648" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2"/><path d="M3 8h14v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8z"/><line x1="6" y1="2" x2="6" y2="8"/><line x1="10" y1="2" x2="10" y2="8"/><line x1="14" y1="2" x2="14" y2="8"/></svg>
+        </div>
+        <h3 class="h3">Sandwichs & Snacking</h3>
+        <p>Pour la pause déjeuner ou un encas rapide : sandwichs garnis et viennoiseries salées préparés avec les mêmes produits frais du jour.</p>
+        <a href="#contact" class="c-link">Nous trouver →</a>
+      </div>
+      <div class="c">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#7AB648" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <h3 class="h3">Commandes spéciales</h3>
+        <p>Pièces montées, plateaux sucrés pour vos événements ou simplement votre gâteau préféré en grande quantité — parlez-nous de votre projet.</p>
+        <a href="#contact" class="c-link">Passer commande →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section id="apropos">
+  <div id="metier">
+    <div class="container">
+      <div class="metier-inner">
+        <div class="metier-text">
+          <span class="tag">Notre histoire</span>
+          <h2 class="h2">Une boulangerie ancrée dans son quartier</h2>
+          <p>Au Petit Mitron, on croit que la boulangerie est bien plus qu'un commerce. C'est un point de repère, un endroit où le quotidien commence bien. Depuis notre adresse de la Rue Ange Berlioz à Nouméa, nous accueillons chaque matin nos habitués avec la même fierté : vous offrir le meilleur de notre four.</p>
+          <p>Notre vitrine reflète la diversité de la Nouvelle-Calédonie : côté occidental avec nos baguettes croustillantes et viennoiseries dorées, côté oriental avec nos pâtisseries au miel et aux épices. Parce que chez nous, tout le monde se retrouve.</p>
+          <ul class="check-list">
+            <li>Produits préparés chaque jour, sans compromis</li>
+            <li>Une vitrine généreuse qui change avec les saisons</li>
+            <li>Un accueil chaleureux, à deux pas de chez vous</li>
+            <li>Ouvert 7 jours sur 7 pour votre quotidien</li>
+          </ul>
+        </div>
+        <div class="metier-img">
+          <img src="https://i.ibb.co/tTf44LM8/Le-Petit-Mitron-1.png" alt="Intérieur du Petit Mitron avec ses vitrines généreuses" loading="lazy">
+        </div>
+      </div>
+      <div class="metier-inner reverse" style="margin-top:64px">
+        <div class="metier-text">
+          <span class="tag">Notre savoir-faire</span>
+          <h2 class="h2">La générosité comme signature</h2>
+          <p>Notre mur vert et nos vitrines rouges sont devenus des repères dans le paysage de Nouméa. À l'intérieur, les plateaux débordent de couleurs et de parfums : sirop de miel, beurre chaud, amandes grillées. Une expérience qui réveille les sens à n'importe quelle heure de la journée.</p>
+          <p>Qu'il fasse chaud ou que le temps soit doux, nos vitrines réfrigérées gardent vos douceurs à la perfection — une petite fraîcheur bienvenue sous le soleil calédonien.</p>
+          <ul class="check-list">
+            <li>Pâtisseries orientales artisanales</li>
+            <li>Viennoiseries cuites chaque matin</li>
+            <li>Recettes transmises et perfectionnées</li>
+          </ul>
+        </div>
+        <div class="metier-img">
+          <img src="https://i.ibb.co/wrBxT1fr/Le-Petit-Mitron-2.png" alt="Pâtisseries et viennoiseries du Petit Mitron" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section id="galerie">
+  <div class="container">
+    <div class="s-head">
+      <span class="tag">Notre vitrine en images</span>
+      <h2 class="h2">Tout ce qui vous attend</h2>
+      <p>Cliquez sur une photo pour l'agrandir — et venez vous faire votre propre avis au 1 Rue Ange Berlioz.</p>
+    </div>
+    <div class="galerie-grid">
+      <div class="g-item" onclick="openLightbox('https://i.ibb.co/d0bp3D8w/Le-Petit-Mitron-0.png')">
+        <img src="https://i.ibb.co/d0bp3D8w/Le-Petit-Mitron-0.png" alt="Façade du Petit Mitron à Nouméa" loading="lazy">
+        <div class="g-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      </div>
+      <div class="g-item" onclick="openLightbox('https://i.ibb.co/tTf44LM8/Le-Petit-Mitron-1.png')">
+        <img src="https://i.ibb.co/tTf44LM8/Le-Petit-Mitron-1.png" alt="Vitrines et produits du Petit Mitron" loading="lazy">
+        <div class="g-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      </div>
+      <div class="g-item" onclick="openLightbox('https://i.ibb.co/wrBxT1fr/Le-Petit-Mitron-2.png')">
+        <img src="https://i.ibb.co/wrBxT1fr/Le-Petit-Mitron-2.png" alt="Pâtisseries et viennoiseries du Petit Mitron" loading="lazy">
+        <div class="g-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      </div>
+      <div class="g-item" onclick="openLightbox('https://i.ibb.co/Jw1M8b2G/Le-Petit-Mitron-3.png')">
+        <img src="https://i.ibb.co/Jw1M8b2G/Le-Petit-Mitron-3.png" alt="Douceurs et sucreries du Petit Mitron" loading="lazy">
+        <div class="g-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" role="dialog" aria-label="Image agrandie" onclick="closeLightbox()">
+  <button id="lb-close" onclick="closeLightbox()" aria-label="Fermer">✕</button>
+  <img id="lb-img" src="" alt="Photo agrandie du Petit Mitron">
+</div>
+
+<!-- FORMULAIRE -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="contact-info">
+        <span class="tag">Nous trouver</span>
+        <h2 class="h2">Venez nous rendre visite</h2>
+        <p>On vous attend avec le sourire et la vitrine bien garnie. Pour toute question ou commande spéciale, contactez-nous !</p>
+        <div class="info-block">
+          <div class="info-line">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>1 Rue Ange Berlioz, Nouméa 98800<br>Nouvelle-Calédonie</span>
+          </div>
+          <div class="info-line">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2z"/></svg>
+            <a href="tel:+68728312">28.31.22</a>
+          </div>
+          <div class="info-line">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Ouvert 7j/7 — tous les matins</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <form id="form-contact" action="#" novalidate>
+          <div class="form-group">
+            <label for="f-nom">Votre nom</label>
+            <input type="text" id="f-nom" name="nom" placeholder="Marie Dupont" autocomplete="name">
+            <span class="form-error" id="e-nom">Veuillez indiquer votre nom.</span>
+          </div>
+          <div class="form-group">
+            <label for="f-email">Adresse e-mail</label>
+            <input type="email" id="f-email" name="email" placeholder="marie@exemple.com" autocomplete="email">
+            <span class="form-error" id="e-email">Adresse e-mail invalide.</span>
+          </div>
+          <div class="form-group">
+            <label for="f-tel">Téléphone</label>
+            <input type="tel" id="f-tel" name="tel" placeholder="XX.XX.XX" autocomplete="tel">
+          </div>
+          <div class="form-group">
+            <label for="f-msg">Votre message</label>
+            <textarea id="f-msg" name="message" placeholder="Bonjour, je souhaite passer une commande…"></textarea>
+            <span class="form-error" id="e-msg">Merci d'écrire un message.</span>
+          </div>
+          <button type="submit" class="b b-primary btn-submit">
+            <span id="btn-txt">Envoyer le message</span>
+            <span class="btn-loader" id="btn-loader"></span>
+          </button>
+          <div id="form-success">🎉 Message bien reçu ! Nous vous répondrons très vite.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section id="avis">
+  <div class="container">
+    <div class="avis-head">
+      <span class="tag">Ce qu'on dit de nous</span>
+      <h2 class="h2">La boulangerie préférée du quartier</h2>
+    </div>
+    <div class="note-block">
+      <div class="stars" aria-label="Note 5 sur 5">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <p class="note-txt">Soyez parmi les premiers à laisser votre avis sur Google !</p>
+    </div>
+    <div class="temoignages">
+      <div class="temoignage">
+        <div class="stars" aria-label="5 étoiles">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p>« Les viennoiseries sont toujours fraîches et dorées à souhait. Mon croissant du matin, c'est sacré ! »</p>
+        <span class="auteur">— Un habitué du quartier</span>
+      </div>
+      <div class="temoignage">
+        <div class="stars" aria-label="5 étoiles">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p>« Les pâtisseries orientales sont un régal. On ne trouve pas ça partout à Nouméa, et c'est fait avec soin. »</p>
+        <span class="auteur">— Une cliente fidèle</span>
+      </div>
+      <div class="temoignage">
+        <div class="stars" aria-label="5 étoiles">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p>« La boulangerie de notre quartier par excellence. Accueil chaleureux, produits de qualité, ouverts tous les jours ! »</p>
+        <span class="auteur">— Un voisin reconnaissant</span>
+      </div>
+    </div>
+    <div class="badges">
+      <div class="badge">🥐 Viennoiseries artisanales</div>
+      <div class="badge">🍯 Pâtisseries orientales</div>
+      <div class="badge">📅 Ouvert 7j/7</div>
+      <div class="badge">📍 Boulangerie de quartier</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 13C4 9.13 7.13 6 11 6h2c3.87 0 7 3.13 7 7v1H4v-1z" fill="#fff"/><rect x="3" y="14" width="18" height="3" rx="1.5" fill="#fff" opacity=".7"/><path d="M12 3c0 0-1.5 1.5-1.5 3h3C13.5 4.5 12 3 12 3z" fill="#fff"/></svg>
+          </div>
+          <div class="logo-text">Le Petit Mitron<span>Boulangerie · Nouméa</span></div>
+        </div>
+        <p>Votre boulangerie-pâtisserie de quartier à Nouméa. Viennoiseries, pâtisseries orientales et douceurs fraîches, 7 jours sur 7.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/p/Le-petit-mitron-boulangerie-100063787520358" target="_blank" rel="noopener" class="social-link" aria-label="Suivre Le Petit Mitron sur Facebook">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#apropos">Notre histoire</a></li>
+          <li><a href="#services">Nos produits</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#avis">Avis clients</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Nous trouver</h4>
+        <div class="footer-addr">
+          <span>Le Petit Mitron</span>
+          <span>1 Rue Ange Berlioz</span>
+          <span>Nouméa 98800</span>
+          <span>Nouvelle-Calédonie</span>
+          <a href="tel:+68728312">📞 28.31.22</a>
+          <span style="margin-top:8px;font-size:.82rem;opacity:.7">Ouvert 7j/7 — tous les matins</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Le Petit Mitron. Tous droits réservés.</span>
+      <a href="https://setup.nc" target="_blank" rel="noopener">Site réalisé par Setup NC</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function openLightbox(src){var l=document.getElementById('lightbox');document.getElementById('lb-img').src=src;l.classList.add('open');document.body.style.overflow='hidden'}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow=''}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox()});
+document.getElementById('form-contact').addEventListener('submit',function(e){
+e.preventDefault();
+var n=document.getElementById('f-nom').value.trim();
+var em=document.getElementById('f-email').value.trim();
+var msg=document.getElementById('f-msg').value.trim();
+var ok=true;
+var en=document.getElementById('e-nom');var ee=document.getElementById('e-email');var em2=document.getElementById('e-msg');
+en.classList.remove('show');ee.classList.remove('show');em2.classList.remove('show');
+if(!n){en.classList.add('show');ok=false}
+if(!em||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){ee.classList.add('show');ok=false}
+if(!msg){em2.classList.add('show');ok=false}
+if(!ok)return;
+var bt=document.getElementById('btn-txt');var bl=document.getElementById('btn-loader');
+bt.style.display='none';bl.style.display='inline-block';
+setTimeout(function(){bl.style.display='none';bt.style.display='inline';document.getElementById('form-success').classList.add('show');document.getElementById('form-contact').reset()},1400)
+});
+</script>
+</body>
+</html>
