@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Les mitrons — Nouméa</title>
+<meta name="description" content="Boulangerie de quartier à Nouméa, Nouvelle-Calédonie. Pain frais, viennoiseries et douceurs maison chaque jour. Les Mitrons, 1 Rue Lavoisier.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#8B1A2F;
+--cs:#D4860A;
+--ca:#F5A623;
+--cb:#FFFDF7;
+--ct:#3B1010;
+--r:8px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--cb);color:var(--ct);overflow-x:hidden;font-size:16px}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU PROMO */
+.promo{background:var(--ca);color:var(--ct);text-align:center;padding:10px 16px;font-size:14px;font-weight:600;position:relative;z-index:1001}
+.promo span{font-family:'Playfair Display',serif}
+
+/* HEADER */
+.header{position:sticky;top:0;z-index:1000;background:var(--cb);border-bottom:2px solid var(--ca);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px;box-shadow:0 2px 12px rgba(139,26,47,.10)}
+.logo{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:900;color:var(--cp);letter-spacing:.5px;line-height:1}
+.logo span{color:var(--cs)}
+.nav{display:flex;gap:28px;list-style:none}
+.nav a{font-size:.92rem;font-weight:500;color:var(--ct);transition:color .25s}
+.nav a:hover{color:var(--cp)}
+.hcta{background:var(--cp);color:#fff;font-family:'Outfit',sans-serif;font-weight:600;font-size:.88rem;padding:10px 20px;border-radius:var(--r);border:none;cursor:pointer;transition:background .25s}
+.hcta:hover{background:var(--cs)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--cp);border-radius:2px;transition:transform .3s,opacity .3s}
+.mob-nav{display:none;position:fixed;top:104px;left:0;right:0;background:var(--cb);border-bottom:2px solid var(--ca);padding:20px 24px;z-index:999;flex-direction:column;gap:16px}
+.mob-nav a{font-size:1rem;font-weight:500;color:var(--ct);padding:8px 0;border-bottom:1px solid rgba(139,26,47,.1)}
+.mob-nav a:last-child{border:none}
+.mob-nav.open{display:flex}
+
+/* HERO */
+.hero{min-height:100vh;background:url('https://i.ibb.co/3yMDngWj/Les-mitrons-0.png') center center/cover no-repeat;position:relative;display:flex;align-items:center;justify-content:center}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(135deg,rgba(139,26,47,.82) 0%,rgba(59,16,16,.65) 55%,rgba(212,134,10,.35) 100%)}
+.hero-ct{position:relative;z-index:2;text-align:center;padding:0 20px;max-width:780px}
+.hero-badge{display:inline-block;background:var(--ca);color:var(--ct);font-size:.8rem;font-weight:700;padding:5px 16px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px}
+.h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,6vw,4.2rem);font-weight:900;color:#fff;line-height:1.12;margin-bottom:18px}
+.h1 em{color:var(--ca);font-style:normal}
+.hero-sub{font-size:clamp(.95rem,2.2vw,1.18rem);color:rgba(255,255,255,.9);font-weight:300;max-width:540px;margin:0 auto 32px;line-height:1.65}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-p{background:var(--ca);color:var(--ct);font-family:'Outfit',sans-serif;font-weight:700;font-size:.95rem;padding:14px 30px;border-radius:var(--r);border:none;cursor:pointer;transition:background .25s,transform .2s;min-height:48px}
+.btn-p:hover{background:#e6921a;transform:translateY(-2px)}
+.btn-s{background:transparent;color:#fff;font-family:'Outfit',sans-serif;font-weight:600;font-size:.95rem;padding:14px 30px;border-radius:var(--r);border:2px solid rgba(255,255,255,.7);cursor:pointer;transition:border-color .25s,background .25s;min-height:48px}
+.btn-s:hover{border-color:#fff;background:rgba(255,255,255,.12)}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,.7);font-size:.75rem;letter-spacing:1px;text-transform:uppercase}
+.scroll-arr{width:24px;height:24px;border-right:2px solid rgba(255,255,255,.7);border-bottom:2px solid rgba(255,255,255,.7);transform:rotate(45deg);animation:bob .9s ease-in-out infinite alternate}
+@keyframes bob{from{transform:rotate(45deg) translateY(-4px)}to{transform:rotate(45deg) translateY(4px)}}
+
+/* STATS */
+.stats{background:var(--cp);padding:56px 24px}
+.stats-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
+.stat-n{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3rem);font-weight:900;color:var(--ca);line-height:1}
+.stat-l{font-size:.85rem;font-weight:500;color:rgba(255,255,255,.85);margin-top:6px;text-transform:uppercase;letter-spacing:.8px}
+.stat-sep{width:40px;height:2px;background:rgba(245,166,35,.4);margin:10px auto 0}
+
+/* FALLBACK REVEAL */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:700px){
+.nav,.hcta{display:none}
+.hamburger{display:flex}
+}
+@media(max-width:480px){
+.header{padding:0 16px}
+.hero-btns{flex-direction:column;align-items:stretch}
+.btn-p,.btn-s{width:100%;text-align:center}
+.stats{padding:40px 16px}
+.stats-grid{grid-template-columns:repeat(2,1fr);gap:24px}
+}
+</style>
+</head>
+<body>
+<div style="background:#ffd500;color:#4375ff;text-align:center;font-family:Manrope,system-ui,-apple-system,sans-serif;font-weight:700;font-size:15px;line-height:1.4;padding:10px 16px;box-shadow:0 2px 10px rgba(0,0,0,.18)">Ce site vous plaît&nbsp;? Activez-le dès <strong style="font-weight:800">4&nbsp;900&nbsp;F HT/mois</strong> &mdash; <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener" style="color:#0d1f3c;text-decoration:underline">Prenez rendez-vous</a></div>
+
+<!-- BANDEAU PROMO -->
+<div class="promo">
+  <span>🥐 Pain frais chaque matin à Nouméa</span> — 1 Rue Lavoisier, venez nous rendre visite !
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <a href="#accueil" class="logo">Les <span>Mitrons</span></a>
+  <nav>
+    <ul class="nav">
+      <li><a href="#produits">Nos pains</a></li>
+      <li><a href="#metier">Notre métier</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <a href="#contact" class="hcta">Passer commande</a>
+  <button class="hamburger" id="hbg" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<nav class="mob-nav" id="mobnav">
+  <a href="#produits" onclick="closeMob()">Nos pains</a>
+  <a href="#metier" onclick="closeMob()">Notre métier</a>
+  <a href="#galerie" onclick="closeMob()">Galerie</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="#contact" class="btn-p" style="text-align:center" onclick="closeMob()">Passer commande</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-ov"></div>
+  <div class="hero-ct">
+    <div class="hero-badge">Boulangerie artisanale · Nouméa</div>
+    <h1 class="h1">Le pain de <em>chez nous</em>,<br>fait avec le cœur</h1>
+    <p class="hero-sub">Chaque matin, on pétrit, on façonne et on enfourne pour toi. Les Mitrons, c'est la boulangerie de quartier qui sent bon dès l'aurore, au cœur de Nouméa.</p>
+    <div class="hero-btns">
+      <a href="#produits" class="btn-p">Découvrir nos pains</a>
+      <a href="#contact" class="btn-s">Nous trouver</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>Découvrir</span>
+    <div class="scroll-arr"></div>
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<section class="stats" id="stats">
+  <div class="stats-grid">
+    <div>
+      <div class="stat-n" data-target="100">0</div>
+      <div class="stat-sep"></div>
+      <div class="stat-l">% artisanal</div>
+    </div>
+    <div>
+      <div class="stat-n" data-target="5">0</div>
+      <div class="stat-sep"></div>
+      <div class="stat-l">Étoiles Google ★</div>
+    </div>
+    <div>
+      <div class="stat-n" data-target="7">0</div>
+      <div class="stat-sep"></div>
+      <div class="stat-l">Jours sur 7</div>
+    </div>
+    <div>
+      <div class="stat-n" data-target="1">0</div>
+      <div class="stat-sep"></div>
+      <div class="stat-l">Adresse, au cœur de Nouméa</div>
+    </div>
+  </div>
+</section>
+
+<script>
+var hbg=document.getElementById('hbg'),mob=document.getElementById('mobnav');
+function closeMob(){mob.classList.remove('open')}
+hbg.addEventListener('click',function(){mob.classList.toggle('open')});
+
+var counted=false;
+function runCount(){
+  if(counted)return;
+  counted=true;
+  document.querySelectorAll('[data-target]').forEach(function(el){
+    var end=+el.dataset.target,dur=1400,start=performance.now();
+    function tick(now){
+      var p=Math.min((now-start)/dur,1);
+      var ease=1-Math.pow(1-p,3);
+      el.textContent=Math.round(ease*end)+(end===100?'%':'');
+      if(p<1)requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  });
+}
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting)runCount()});
+},{threshold:.3});
+obs.observe(document.querySelector('.stats'));
+</script>
+<style>
+.s{padding:72px 24px;max-width:1100px;margin:0 auto}
+.s-full{padding:72px 24px}
+.s-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;color:var(--cp);text-align:center;margin-bottom:12px}
+.s-sub{text-align:center;color:var(--ct);opacity:.75;font-size:.97rem;max-width:520px;margin:0 auto 48px;line-height:1.6}
+.s-line{width:56px;height:3px;background:var(--cs);margin:12px auto 36px;border-radius:2px}
+
+/* SERVICES */
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.srv-c{background:#fff;border-radius:12px;padding:36px 28px;text-align:center;border:1.5px solid rgba(139,26,47,.08);transition:box-shadow .25s,transform .25s}
+.srv-c:hover{box-shadow:0 8px 32px rgba(212,134,10,.22);transform:translateY(-4px)}
+.srv-ico{width:56px;height:56px;background:rgba(139,26,47,.07);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+.srv-ico svg{width:28px;height:28px}
+.srv-h{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--cp);margin-bottom:10px}
+.srv-p{font-size:.9rem;color:var(--ct);opacity:.8;line-height:1.65;margin-bottom:18px}
+.srv-lnk{font-size:.85rem;font-weight:600;color:var(--cs);border-bottom:1.5px solid var(--ca);padding-bottom:2px;transition:color .2s}
+.srv-lnk:hover{color:var(--cp)}
+
+/* MÉTIER */
+.met-bg{background:#fff7ee}
+.met-inner{max-width:1100px;margin:0 auto;padding:72px 24px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.met-img{border-radius:14px;overflow:hidden;box-shadow:0 8px 32px rgba(139,26,47,.14)}
+.met-img img{width:100%;height:380px;object-fit:cover}
+.met-tag{display:inline-block;background:var(--ca);color:var(--ct);font-size:.75rem;font-weight:700;padding:4px 14px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
+.met-h{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.8vw,2rem);font-weight:900;color:var(--cp);line-height:1.25;margin-bottom:16px}
+.met-p{font-size:.97rem;color:var(--ct);line-height:1.75;opacity:.85;margin-bottom:20px}
+.met-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.met-list li{display:flex;align-items:flex-start;gap:12px;font-size:.92rem;color:var(--ct)}
+.met-list li::before{content:'';width:20px;height:20px;min-width:20px;background:var(--cp);border-radius:50%;display:flex;align-items:center;justify-content:center;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='white'%3E%3Cpath d='M4 10l4 4 8-8' stroke='white' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-size:cover}
+
+/* GALERIE */
+.gal-bg{background:var(--cb)}
+.gal-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.gal-it{border-radius:10px;overflow:hidden;cursor:pointer;position:relative;aspect-ratio:1}
+.gal-it img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.gal-it:hover img{transform:scale(1.06)}
+.gal-ov{position:absolute;inset:0;background:rgba(139,26,47,.45);opacity:0;transition:opacity .3s;display:flex;align-items:center;justify-content:center}
+.gal-ov svg{width:36px;height:36px;fill:#fff}
+.gal-it:hover .gal-ov{opacity:1}
+.lbx{display:none;position:fixed;inset:0;background:rgba(59,16,16,.93);z-index:2000;align-items:center;justify-content:center;padding:24px}
+.lbx.open{display:flex}
+.lbx img{max-width:90vw;max-height:88vh;border-radius:10px;object-fit:contain}
+.lbx-cl{position:absolute;top:20px;right:24px;background:none;border:none;cursor:pointer;color:#fff;font-size:2.2rem;line-height:1}
+
+/* FORMULAIRE */
+.frm-bg{background:var(--cp)}
+.frm-inner{max-width:680px;margin:0 auto;padding:72px 24px}
+.frm-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.4rem);font-weight:900;color:#fff;text-align:center;margin-bottom:10px}
+.frm-sub{text-align:center;color:rgba(255,255,255,.8);font-size:.95rem;margin-bottom:40px;line-height:1.6}
+.frm-line{width:50px;height:3px;background:var(--ca);margin:10px auto 32px;border-radius:2px}
+.frm-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.frm-grp{display:flex;flex-direction:column;gap:6px}
+.frm-grp label{font-size:.83rem;font-weight:600;color:rgba(255,255,255,.85);text-transform:uppercase;letter-spacing:.6px}
+.frm-grp input,.frm-grp textarea{background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:var(--r);padding:12px 16px;font-family:'Outfit',sans-serif;font-size:.95rem;color:#fff;outline:none;transition:border-color .2s;width:100%}
+.frm-grp input::placeholder,.frm-grp textarea::placeholder{color:rgba(255,255,255,.45)}
+.frm-grp input:focus,.frm-grp textarea:focus{border-color:var(--ca)}
+.frm-grp textarea{resize:vertical;min-height:120px}
+.frm-err{font-size:.78rem;color:var(--ca);margin-top:3px;display:none}
+.frm-grp.err input,.frm-grp.err textarea{border-color:var(--ca)}
+.frm-grp.err .frm-err{display:block}
+.frm-btn{width:100%;background:var(--ca);color:var(--ct);font-family:'Outfit',sans-serif;font-weight:700;font-size:1rem;padding:15px;border:none;border-radius:var(--r);cursor:pointer;margin-top:8px;min-height:48px;transition:background .25s,transform .2s}
+.frm-btn:hover{background:#e6921a;transform:translateY(-2px)}
+.frm-ok{display:none;text-align:center;background:rgba(245,166,35,.15);border:2px solid var(--ca);border-radius:var(--r);padding:28px;margin-top:20px}
+.frm-ok p{color:#fff;font-size:1rem;font-weight:600;line-height:1.6}
+.frm-ok span{font-size:2.2rem;display:block;margin-bottom:10px}
+
+/* PREUVE SOCIALE */
+.ps-bg{background:#fff}
+.ps-inner{max-width:1100px;margin:0 auto;padding:72px 24px}
+.ps-note{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:48px;flex-wrap:wrap}
+.ps-score{font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:900;color:var(--cp);line-height:1}
+.ps-stars{color:var(--cs);font-size:1.6rem;letter-spacing:2px;display:block}
+.ps-nb{font-size:.82rem;color:var(--ct);opacity:.65}
+.ps-logo{font-size:.78rem;font-weight:700;color:var(--ct);opacity:.5;letter-spacing:.5px}
+.ps-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-bottom:48px}
+.ps-c{background:var(--cb);border-radius:12px;padding:28px 24px;border:1.5px solid rgba(139,26,47,.08)}
+.ps-quote{font-size:1.6rem;color:var(--ca);line-height:1;margin-bottom:8px}
+.ps-txt{font-size:.93rem;color:var(--ct);line-height:1.7;font-style:italic;margin-bottom:14px}
+.ps-auth{font-size:.82rem;font-weight:600;color:var(--cp)}
+.ps-badges{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.ps-badge{background:rgba(139,26,47,.06);border:1.5px solid rgba(139,26,47,.15);border-radius:30px;padding:10px 22px;font-size:.82rem;font-weight:600;color:var(--cp);display:flex;align-items:center;gap:8px}
+
+/* FOOTER */
+.footer{background:var(--cp);color:#fff;padding:56px 24px 0}
+.footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:48px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.15)}
+.ft-logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:#fff;margin-bottom:12px}
+.ft-logo span{color:var(--ca)}
+.ft-p{font-size:.88rem;color:rgba(255,255,255,.75);line-height:1.7;margin-bottom:18px}
+.ft-adr{font-size:.85rem;color:rgba(255,255,255,.7);line-height:1.8}
+.ft-adr strong{color:#fff}
+.ft-h{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#fff;margin-bottom:16px}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-links a{font-size:.88rem;color:rgba(255,255,255,.7);transition:color .2s}
+.ft-links a:hover{color:var(--ca)}
+.ft-soc{display:flex;gap:14px;margin-top:6px}
+.ft-soc a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:rgba(255,255,255,.12);border-radius:8px;transition:background .25s}
+.ft-soc a:hover{background:var(--cs)}
+.ft-soc svg{width:20px;height:20px;fill:#fff}
+.ft-bottom{max-width:1100px;margin:0 auto;padding:18px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.ft-copy{font-size:.78rem;color:rgba(255,255,255,.55)}
+.ft-setup{font-size:.78rem;color:rgba(255,255,255,.55)}
+.ft-setup a{color:var(--ca);font-weight:600}
+
+@media(max-width:900px){
+.srv-grid{grid-template-columns:1fr 1fr}
+.met-inner{grid-template-columns:1fr;gap:32px}
+.met-img img{height:260px}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+.ps-cards{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+.s{padding:48px 16px}
+.s-full{padding:48px 16px}
+.srv-grid{grid-template-columns:1fr}
+.frm-row{grid-template-columns:1fr}
+.met-inner{padding:48px 16px}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.footer-grid{grid-template-columns:1fr}
+.ft-bottom{flex-direction:column;align-items:flex-start}
+.frm-inner{padding:48px 16px}
+.ps-inner{padding:48px 16px}
+.ps-cards{grid-template-columns:1fr}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s-full" id="produits" style="background:var(--cb)">
+<div class="s">
+<h2 class="s-title">Ce qu'on te prépare chaque jour</h2>
+<div class="s-line"></div>
+<p class="s-sub">Du pain à la douceur sucrée, tout est fait maison ici. On démarre avant l'aube pour que tu trouves tout frais à ton arrivée.</p>
+<div class="srv-grid">
+  <div class="srv-c">
+    <div class="srv-ico">
+      <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="14" cy="16" rx="10" ry="7" stroke="#8B1A2F" stroke-width="2"/><path d="M8 13c0-4 3-8 6-8s6 4 6 8" stroke="#D4860A" stroke-width="2" stroke-linecap="round"/></svg>
+    </div>
+    <div class="srv-h">Pains artisanaux</div>
+    <p class="srv-p">Pain de tradition, baguette croustillante, pain complet… pétrissés à la main chaque matin avec les bons ingrédients.</p>
+    <a href="#contact" class="srv-lnk">Commander →</a>
+  </div>
+  <div class="srv-c">
+    <div class="srv-ico">
+      <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 18 C6 10 10 6 14 6 C18 6 22 10 22 18" stroke="#8B1A2F" stroke-width="2" stroke-linecap="round"/><path d="M4 18h20" stroke="#D4860A" stroke-width="2" stroke-linecap="round"/><rect x="10" y="18" width="8" height="4" rx="2" stroke="#8B1A2F" stroke-width="1.5"/></svg>
+    </div>
+    <div class="srv-h">Viennoiseries</div>
+    <p class="srv-p">Croissants beurrés, pains au chocolat, pains aux raisins… un régal pour le petit-déjeuner ou la pause de l'après-midi.</p>
+    <a href="#contact" class="srv-lnk">Commander →</a>
+  </div>
+  <div class="srv-c">
+    <div class="srv-ico">
+      <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="10" width="18" height="12" rx="3" stroke="#8B1A2F" stroke-width="2"/><path d="M9 10V8a5 5 0 0 1 10 0v2" stroke="#D4860A" stroke-width="2" stroke-linecap="round"/><circle cx="14" cy="16" r="2" fill="#D4860A"/></svg>
+    </div>
+    <div class="srv-h">Pâtisseries & douceurs</div>
+    <p class="srv-p">Tartes, éclairs, chaussons et gâteaux du jour. Des recettes généreuses pensées pour se faire plaisir sans chichis.</p>
+    <a href="#contact" class="srv-lnk">Commander →</a>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="met-bg" id="metier">
+<div class="met-inner">
+  <div class="met-img">
+    <img src="https://i.ibb.co/wFxGkKWd/Les-mitrons-1.png" alt="Le fournil des Mitrons à Nouméa" loading="lazy">
+  </div>
+  <div>
+    <span class="met-tag">Notre savoir-faire</span>
+    <h2 class="met-h">Un métier de passion,<br>transmis avec fierté</h2>
+    <p class="met-p">Chez les Mitrons, on est boulangers avant tout. Chaque fournée est le résultat d'un vrai travail de nuit, d'une pâte qu'on laisse reposer le temps qu'il faut, d'un four qu'on surveille à l'œil.</p>
+    <p class="met-p">Installés en plein cœur de Nouméa, rue Lavoisier, on accueille chaque jour les habitués avec le sourire et des produits frais du matin.</p>
+    <ul class="met-list">
+      <li>Cuisson artisanale chaque matin, sans exception</li>
+      <li>Ingrédients sélectionnés pour leur qualité</li>
+      <li>Accueil chaleureux, service rapide et souriant</li>
+      <li>Une boulangerie de quartier, accessible à tous</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<!-- GALERIE -->
+<section class="s-full gal-bg" id="galerie">
+<div class="s">
+<h2 class="s-title">Dans notre boulangerie</h2>
+<div class="s-line"></div>
+<p class="s-sub">Quelques images du quotidien aux Mitrons — le pain, le fournil, l'ambiance de Nouméa.</p>
+</div>
+<div class="gal-grid" style="max-width:1100px;margin:0 auto;padding:0 24px 72px">
+  <div class="gal-it" onclick="openLbx('https://i.ibb.co/3yMDngWj/Les-mitrons-0.png')">
+    <img src="https://i.ibb.co/3yMDngWj/Les-mitrons-0.png" alt="Les Mitrons boulangerie Nouméa" loading="lazy">
+    <div class="gal-ov"><svg viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35M11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0 0v3M3 11h3M18 11h3M11 3v3" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+  </div>
+  <div class="gal-it" onclick="openLbx('https://i.ibb.co/wFxGkKWd/Les-mitrons-1.png')">
+    <img src="https://i.ibb.co/wFxGkKWd/Les-mitrons-1.png" alt="Le fournil des Mitrons" loading="lazy">
+    <div class="gal-ov"><svg viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35M11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0 0v3M3 11h3M18 11h3M11 3v3" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+  </div>
+  <div class="gal-it" onclick="openLbx('https://i.ibb.co/nNB5WhsF/Les-mitrons-2.png')">
+    <img src="https://i.ibb.co/nNB5WhsF/Les-mitrons-2.png" alt="Pains artisanaux Les Mitrons" loading="lazy">
+    <div class="gal-ov"><svg viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35M11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0 0v3M3 11h3M18 11h3M11 3v3" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+  </div>
+  <div class="gal-it" onclick="openLbx('https://i.ibb.co/ns1fPc6f/Les-mitrons-3.png')">
+    <img src="https://i.ibb.co/ns1fPc6f/Les-mitrons-3.png" alt="Viennoiseries Les Mitrons Nouméa" loading="lazy">
+    <div class="gal-ov"><svg viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35M11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0 0v3M3 11h3M18 11h3M11 3v3" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+  </div>
+</div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lbx" id="lbx" onclick="closeLbx()">
+  <button class="lbx-cl" onclick="closeLbx()" aria-label="Fermer">&#x2715;</button>
+  <img id="lbx-img" src="" alt="Photo Les Mitrons agrandie">
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section class="ps-bg" id="avis">
+<div class="ps-inner">
+<h2 class="s-title">Ce qu'on dit des Mitrons</h2>
+<div class="s-line"></div>
+<div class="ps-note">
+  <div class="ps-score">5<span style="font-size:1.8rem;color:var(--ct);opacity:.4">/5</span></div>
+  <div>
+    <span class="ps-stars">★★★★★</span>
+    <span class="ps-nb">2 avis Google vérifiés</span>
+    <span class="ps-logo">GOOGLE REVIEWS</span>
+  </div>
+</div>
+<div class="ps-cards">
+  <div class="ps-c">
+    <div class="ps-quote">❝</div>
+    <p class="ps-txt">Une boulangerie comme on en cherche dans le quartier. Le pain est toujours frais, les viennoiseries fondent en bouche et l'accueil est vraiment sympa. On y revient chaque matin !</p>
+    <div class="ps-auth">⭐⭐⭐⭐⭐ — Client fidèle, Nouméa</div>
+  </div>
+  <div class="ps-c">
+    <div class="ps-quote">❝</div>
+    <p class="ps-txt">Enfin une vraie boulangerie artisanale près de chez nous. La baguette est croustillante à souhait et les gâteaux sont généreux. Les Mitrons, c'est une bonne adresse à Nouméa.</p>
+    <div class="ps-auth">⭐⭐⭐⭐⭐ — Client Google, Nouméa</div>
+  </div>
+</div>
+<div class="ps-badges">
+  <div class="ps-badge">🥖 Pain artisanal</div>
+  <div class="ps-badge">☀️ Ouvert 7j/7</div>
+  <div class="ps-badge">📍 Cœur de Nouméa</div>
+  <div class="ps-badge">🤝 Accueil chaleureux</div>
+</div>
+</div>
+</section>
+
+<!-- FORMULAIRE -->
+<section class="frm-bg" id="contact">
+<div class="frm-inner">
+<h2 class="frm-title">Passe nous voir ou commande</h2>
+<div class="frm-line"></div>
+<p class="frm-sub">Tu veux réserver une commande ou juste nous poser une question ? Écris-nous ici, on te répond vite.</p>
+<form id="frm" action="#" novalidate>
+  <div class="frm-row">
+    <div class="frm-grp" id="fg-nom">
+      <label for="f-nom">Ton prénom</label>
+      <input type="text" id="f-nom" placeholder="Marie" autocomplete="given-name">
+      <span class="frm-err">Dis-nous ton prénom !</span>
+    </div>
+    <div class="frm-grp" id="fg-email">
+      <label for="f-email">Ton email</label>
+      <input type="email" id="f-email" placeholder="marie@mail.com" autocomplete="email">
+      <span class="frm-err">Un email valide, s'il te plaît.</span>
+    </div>
+  </div>
+  <div class="frm-grp" id="fg-tel" style="margin-bottom:16px">
+    <label for="f-tel">Téléphone</label>
+    <input type="tel" id="f-tel" placeholder="+687 XX XX XX" autocomplete="tel">
+    <span class="frm-err">Numéro invalide.</span>
+  </div>
+  <div class="frm-grp" id="fg-msg" style="margin-bottom:20px">
+    <label for="f-msg">Ton message</label>
+    <textarea id="f-msg" placeholder="Je voudrais commander des baguettes pour samedi matin…"></textarea>
+    <span class="frm-err">Dis-nous ce dont tu as besoin.</span>
+  </div>
+  <button type="submit" class="frm-btn" id="frm-btn">Envoyer ma demande →</button>
+</form>
+<div class="frm-ok" id="frm-ok">
+  <span>🥐</span>
+  <p>Merci ! On a bien reçu ton message.<br>On te répond très vite. À bientôt aux Mitrons !</p>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="footer-grid">
+  <div>
+    <div class="ft-logo">Les <span>Mitrons</span></div>
+    <p class="ft-p">Boulangerie artisanale de quartier au cœur de Nouméa. Pain frais, viennoiseries et douceurs maison, 7 jours sur 7.</p>
+    <address class="ft-adr" style="font-style:normal">
+      <strong>Les Mitrons</strong><br>
+      1 Rue Lavoisier<br>
+      98800 Nouméa, Nouvelle-Calédonie
+    </address>
+  </div>
+  <div>
+    <div class="ft-h">Navigation</div>
+    <ul class="ft-links">
+      <li><a href="#produits">Nos pains</a></li>
+      <li><a href="#metier">Notre métier</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#avis">Avis clients</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="ft-h">Nous suivre</div>
+    <div class="ft-soc">
+      <a href="https://www.facebook.com/LesMitronsNc" target="_blank" rel="noopener" aria-label="Facebook Les Mitrons">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+    </div>
+    <p class="ft-adr" style="margin-top:20px">Retrouve-nous chaque matin rue Lavoisier pour ton pain frais !</p>
+  </div>
+</div>
+<div class="ft-bottom">
+  <span class="ft-copy">© 2026 Les Mitrons. Tous droits réservés.</span>
+  <span class="ft-setup">Site réalisé par <a href="https://setupnc.com" target="_blank" rel="noopener">Setup NC</a></span>
+</div>
+</footer>
+
+<script>
+function openLbx(s){var l=document.getElementById('lbx');document.getElementById('lbx-img').src=s;l.classList.add('open')}
+function closeLbx(){document.getElementById('lbx').classList.remove('open')}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLbx()});
+
+document.getElementById('frm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var ok=true;
+  var fields=[
+    {id:'f-nom',gid:'fg-nom',fn:function(v){return v.trim().length>1}},
+    {id:'f-email',gid:'fg-email',fn:function(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)}},
+    {id:'f-msg',gid:'fg-msg',fn:function(v){return v.trim().length>4}}
+  ];
+  fields.forEach(function(f){
+    var el=document.getElementById(f.id);
+    var grp=document.getElementById(f.gid);
+    if(!f.fn(el.value)){grp.classList.add('err');ok=false}
+    else grp.classList.remove('err');
+  });
+  if(!ok)return;
+  var btn=document.getElementById('frm-btn');
+  btn.textContent='Envoi en cours…';btn.disabled=true;
+  setTimeout(function(){
+    document.getElementById('frm').style.display='none';
+    document.getElementById('frm-ok').style.display='block';
+  },900);
+});
+</script>
+</body>
+</html>
