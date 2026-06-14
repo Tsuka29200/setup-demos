@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>L'HERITAGE — Nouméa</title>
+<meta name="description" content="Boulangerie-pâtisserie artisanale L'Héritage à Nouméa, Nouvelle-Calédonie. Pains, viennoiseries et pâtisseries façonnés chaque matin avec passion.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--cp:#2B1A0E;--cs:#C9A84C;--ca:#C9A84C;--ct:#2B1A0E;--cb:#F5F0E8;--white:#fff;--r:4px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--ct);background:var(--cb);overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Playfair Display',serif}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU PROMO */
+.promo{background:var(--cs);color:var(--cp);text-align:center;padding:10px 16px;font-size:13px;font-weight:500;letter-spacing:.5px;position:relative;z-index:1100}
+.promo strong{font-weight:700}
+
+/* HEADER */
+.hdr{position:sticky;top:0;z-index:1000;background:rgba(43,26,14,.96);backdrop-filter:blur(6px);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px;border-bottom:1px solid rgba(201,168,76,.2)}
+.hdr-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--white);letter-spacing:1px;line-height:1}
+.hdr-logo span{color:var(--cs)}
+.hdr-nav{display:flex;gap:28px;list-style:none}
+.hdr-nav a{color:rgba(255,255,255,.85);font-size:14px;font-weight:400;transition:color .2s;position:relative;padding-bottom:2px}
+.hdr-nav a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--cs);transition:width .2s}
+.hdr-nav a:hover{color:var(--white)}
+.hdr-nav a:hover::after{width:100%}
+.hdr-right{display:flex;align-items:center;gap:16px}
+.hdr-tel{color:var(--cs);font-size:14px;font-weight:500;display:flex;align-items:center;gap:6px}
+.hdr-tel svg{width:14px;height:14px;fill:var(--cs)}
+.b{display:inline-flex;align-items:center;justify-content:center;padding:10px 22px;border-radius:var(--r);font-family:'Inter',sans-serif;font-weight:500;font-size:14px;cursor:pointer;border:none;transition:background .2s,transform .15s}
+.b-gold{background:var(--ca);color:var(--cp)}
+.b-gold:hover{background:#B8942D;transform:translateY(-1px)}
+.b-outline{background:transparent;color:var(--white);border:1px solid rgba(201,168,76,.5)}
+.b-outline:hover{border-color:var(--cs);color:var(--cs)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--white);transition:transform .3s,opacity .3s}
+.mob-nav{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(43,26,14,.98);z-index:999;padding:24px;flex-direction:column;gap:0}
+.mob-nav a{color:var(--white);font-size:16px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);display:block}
+.mob-nav a:last-child{border-bottom:none}
+.mob-nav.open{display:flex}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background:url('https://i.ibb.co/gFyV3ggv/L-HERITAGE-0.jpg') center/cover no-repeat}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(43,26,14,.82) 0%,rgba(43,26,14,.55) 50%,rgba(43,26,14,.75) 100%)}
+.hero-inner{position:relative;z-index:1;text-align:center;padding:0 16px;max-width:800px}
+.hero-tag{display:inline-block;background:rgba(201,168,76,.2);border:1px solid rgba(201,168,76,.5);color:var(--cs);font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:6px 16px;border-radius:2px;margin-bottom:24px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(42px,8vw,88px);font-weight:700;color:var(--white);line-height:1.05;margin-bottom:12px}
+.hero h1 em{color:var(--cs);font-style:italic}
+.hero-sub{color:rgba(245,240,232,.85);font-size:clamp(15px,2.5vw,19px);font-weight:300;margin-bottom:10px;line-height:1.6}
+.hero-baseline{font-family:'Playfair Display',serif;font-style:italic;color:var(--cs);font-size:clamp(14px,2vw,17px);margin-bottom:36px;opacity:.9}
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:56px}
+.hero-ctas .b{min-height:48px;padding:13px 28px;font-size:15px}
+.hero-scroll{display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(245,240,232,.6);font-size:12px;letter-spacing:1.5px;text-transform:uppercase}
+.scroll-arrow{width:20px;height:20px;border-right:1px solid var(--cs);border-bottom:1px solid var(--cs);transform:rotate(45deg);animation:bounce 1.6s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(5px)}}
+
+/* ORNEMENT */
+.orn{display:flex;align-items:center;gap:12px;justify-content:center;margin:0 auto 20px}
+.orn-line{width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--cs))}
+.orn-line.r{background:linear-gradient(90deg,var(--cs),transparent)}
+.orn svg{width:20px;height:20px;fill:var(--cs)}
+
+/* STATS */
+.stats{background:var(--cp);padding:60px 24px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1000px;margin:0 auto}
+.stat-item{text-align:center;padding:20px 12px}
+.stat-num{font-family:'Playfair Display',serif;font-size:clamp(36px,6vw,56px);font-weight:700;color:var(--cs);line-height:1;display:block}
+.stat-label{color:rgba(245,240,232,.75);font-size:13px;letter-spacing:1px;text-transform:uppercase;margin-top:8px;display:block}
+.stat-sep{width:1px;background:rgba(201,168,76,.2);align-self:stretch}
+
+/* FALLBACK ANIMATIONS */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+@media(max-width:900px){.stats-grid{grid-template-columns:repeat(2,1fr)}.stat-sep{display:none}}
+@media(max-width:680px){.hdr-nav,.hdr-right .b,.hdr-tel{display:none}.hamburger{display:flex}.hero-ctas{flex-direction:column;align-items:center}.hero-ctas .b{width:100%;max-width:320px}.stats-grid{grid-template-columns:repeat(2,1fr);gap:16px}}
+@media(max-width:375px){.hdr-logo{font-size:18px}.hero h1{font-size:36px}}
+</style>
+</head>
+<body>
+<div style="background:#ffd500;color:#4375ff;text-align:center;font-family:Manrope,system-ui,-apple-system,sans-serif;font-weight:700;font-size:15px;line-height:1.4;padding:10px 16px;box-shadow:0 2px 10px rgba(0,0,0,.18)">Ce site vous plaît&nbsp;? Activez-le dès <strong style="font-weight:800">4&nbsp;900&nbsp;F HT/mois</strong> &mdash; <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener" style="color:#0d1f3c;text-decoration:underline">Prenez rendez-vous</a></div>
+
+<!-- BANDEAU PROMO -->
+<div class="promo">🥐 <strong>Ouvert 7j/7</strong> — Fraîcheur garantie chaque matin à Nouméa · <strong>27.37.57</strong></div>
+
+<!-- HEADER -->
+<header class="hdr">
+  <a href="#accueil" class="hdr-logo">L'<span>Héritage</span></a>
+  <nav>
+    <ul class="hdr-nav">
+      <li><a href="#histoire">Notre histoire</a></li>
+      <li><a href="#produits">Nos produits</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="hdr-right">
+    <a href="tel:272737" class="hdr-tel">
+      <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      27.37.57
+    </a>
+    <a href="#contact" class="b b-gold">Nous trouver</a>
+    <div class="hamburger" id="ham" aria-label="Menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mob-nav" id="mobNav">
+  <a href="#histoire" onclick="closeMob()">Notre histoire</a>
+  <a href="#produits" onclick="closeMob()">Nos produits</a>
+  <a href="#galerie" onclick="closeMob()">Galerie</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="tel:272737" style="color:var(--cs);font-weight:600;margin-top:8px">📞 27.37.57</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">Boulangerie · Pâtisserie · Nouméa</div>
+    <h1>L'art du pain,<br><em>transmis</em> de main en main</h1>
+    <p class="hero-sub">Une maison artisanale au cœur de la Baie des Dames,<br>où chaque fournée raconte une histoire de passion.</p>
+    <p class="hero-baseline">"La main qui pétrit, l'âme qui nourrit."</p>
+    <div class="hero-ctas">
+      <a href="#produits" class="b b-gold">Découvrir nos créations</a>
+      <a href="#contact" class="b b-outline">Nous rendre visite</a>
+    </div>
+    <div class="hero-scroll">
+      <span>Découvrir</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="stats">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <span class="stat-num" data-target="7">0</span>
+      <span class="stat-label">Jours sur 7</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="100" data-suffix="%">0</span>
+      <span class="stat-label">Artisanal &amp; local</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="4" data-decimal=".5">0</span>
+      <span class="stat-label">Note Google / 5</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="30">0</span>
+      <span class="stat-label">Avis clients</span>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var ham=document.getElementById('ham'),mob=document.getElementById('mobNav'),open=false;
+  function toggle(){open=!open;mob.classList.toggle('open',open)}
+  ham.addEventListener('click',toggle);
+  ham.addEventListener('keydown',function(e){if(e.key==='Enter')toggle()});
+  window.closeMob=function(){open=false;mob.classList.remove('open')};
+  var nums=document.querySelectorAll('.stat-num[data-target]'),done=false;
+  function count(){
+    if(done)return;done=true;
+    nums.forEach(function(el){
+      var t=+el.dataset.target,suf=el.dataset.suffix||'',dec=el.dataset.decimal||'',dur=1400,start=null;
+      requestAnimationFrame(function step(ts){
+        if(!start)start=ts;
+        var p=Math.min((ts-start)/dur,1),val=Math.round(p*t);
+        el.textContent=val+(p===1?dec:'')+suf;
+        if(p<1)requestAnimationFrame(step);
+      });
+    });
+  }
+  var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)count()})},{threshold:.3});
+  obs.observe(document.querySelector('.stats'));
+})();
+</script>
+<style>
+.s{padding:80px 24px;max-width:1100px;margin:0 auto}
+.s-full{padding:80px 0}
+.s-inner{max-width:1100px;margin:0 auto;padding:0 24px}
+.s-title{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,42px);font-weight:700;color:var(--cp);text-align:center;margin-bottom:12px}
+.s-sub{text-align:center;color:#6b5c4e;font-size:15px;max-width:560px;margin:0 auto 48px;line-height:1.7}
+.s-dark{background:var(--cp)}
+.s-dark .s-title{color:var(--white)}
+.s-dark .s-sub{color:rgba(245,240,232,.7)}
+.s-beige{background:var(--cb)}
+
+/* SERVICES */
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.srv-card{background:var(--white);border-radius:6px;padding:36px 28px;text-align:center;border:1px solid rgba(43,26,14,.08);transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden}
+.srv-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--cs);transform:scaleX(0);transition:transform .25s}
+.srv-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(43,26,14,.1)}
+.srv-card:hover::after{transform:scaleX(1)}
+.srv-icon{width:56px;height:56px;background:rgba(201,168,76,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.srv-icon svg{width:26px;height:26px;fill:var(--cs)}
+.srv-card h3{font-family:'Playfair Display',serif;font-size:20px;color:var(--cp);margin-bottom:12px}
+.srv-card p{font-size:14px;color:#6b5c4e;line-height:1.7;margin-bottom:20px}
+.srv-card .b{font-size:13px;padding:8px 18px;min-height:40px}
+
+/* METIER */
+.met-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:60px}
+.met-grid.rev{direction:rtl}
+.met-grid.rev>*{direction:ltr}
+.met-img{border-radius:6px;overflow:hidden;position:relative}
+.met-img img{width:100%;height:360px;object-fit:cover;transition:transform .4s}
+.met-img:hover img{transform:scale(1.03)}
+.met-img-frame{border:2px solid var(--cs);border-radius:6px;position:absolute;inset:12px;pointer-events:none}
+.met-text h2{font-family:'Playfair Display',serif;font-size:clamp(24px,3.5vw,36px);color:var(--white);margin-bottom:16px;line-height:1.2}
+.met-text p{color:rgba(245,240,232,.8);font-size:15px;line-height:1.8;margin-bottom:24px}
+.met-pts{list-style:none;display:flex;flex-direction:column;gap:12px}
+.met-pt{display:flex;align-items:flex-start;gap:10px;color:rgba(245,240,232,.85);font-size:14px}
+.met-pt svg{width:18px;height:18px;fill:var(--cs);flex-shrink:0;margin-top:2px}
+
+/* GALERIE */
+.gal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.gal-item{border-radius:4px;overflow:hidden;border:1px solid rgba(201,168,76,.3);cursor:pointer;position:relative}
+.gal-item img{width:100%;height:260px;object-fit:cover;opacity:.9;transition:opacity .25s,transform .3s}
+.gal-item:hover img{opacity:1;transform:scale(1.04)}
+.gal-item:hover{box-shadow:0 0 0 2px var(--cs)}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center;padding:20px}
+.lightbox.open{display:flex}
+.lightbox img{max-width:90vw;max-height:90vh;border-radius:4px;border:2px solid var(--cs)}
+.lb-close{position:absolute;top:20px;right:24px;color:var(--white);font-size:32px;cursor:pointer;background:none;border:none;line-height:1}
+
+/* FORMULAIRE */
+.form-wrap{background:var(--white);border-radius:8px;padding:48px 40px;max-width:640px;margin:0 auto;box-shadow:0 8px 40px rgba(43,26,14,.1)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
+.form-group label{font-size:13px;font-weight:500;color:var(--cp);letter-spacing:.3px}
+.form-group input,.form-group textarea{border:1px solid rgba(43,26,14,.2);border-radius:4px;padding:12px 14px;font-family:'Inter',sans-serif;font-size:14px;color:var(--cp);background:var(--cb);transition:border-color .2s;width:100%}
+.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--cs)}
+.form-group input.err,.form-group textarea.err{border-color:#c0392b}
+.form-group textarea{min-height:120px;resize:vertical}
+.form-msg{display:none;background:rgba(201,168,76,.15);border:1px solid var(--cs);border-radius:4px;padding:16px;text-align:center;color:var(--cp);font-size:15px;margin-top:16px}
+.form-msg.show{display:block}
+
+/* PREUVE SOCIALE */
+.ps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.ps-card{background:var(--white);border-radius:6px;padding:28px 24px;border:1px solid rgba(43,26,14,.08)}
+.ps-stars{color:var(--cs);font-size:18px;margin-bottom:12px;letter-spacing:2px}
+.ps-text{font-size:14px;color:#5a4a3a;line-height:1.7;margin-bottom:16px;font-style:italic}
+.ps-author{font-weight:600;font-size:13px;color:var(--cp)}
+.ps-rating{text-align:center;margin-bottom:48px}
+.ps-big{font-family:'Playfair Display',serif;font-size:72px;font-weight:700;color:var(--cs);line-height:1}
+.ps-label{font-size:14px;color:rgba(245,240,232,.7);margin-top:4px}
+.ps-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.3);border-radius:40px;padding:10px 20px;font-size:13px;color:var(--white);margin:6px}
+.ps-badge svg{width:16px;height:16px;fill:var(--cs)}
+.ps-badges{text-align:center;margin-top:32px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+
+/* FOOTER */
+.ftr{background:var(--cp);padding:60px 24px 32px;border-top:2px solid rgba(201,168,76,.3)}
+.ftr-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;max-width:1100px;margin:0 auto 48px}
+.ftr-brand{font-family:'Playfair Display',serif;font-size:24px;color:var(--white);margin-bottom:12px}
+.ftr-brand span{color:var(--cs)}
+.ftr-desc{color:rgba(245,240,232,.65);font-size:14px;line-height:1.7;margin-bottom:20px}
+.ftr-social{display:flex;gap:12px;align-items:center}
+.ftr-soc-link{width:40px;height:40px;border-radius:50%;border:1px solid rgba(201,168,76,.4);display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s}
+.ftr-soc-link:hover{background:var(--cs);border-color:var(--cs)}
+.ftr-soc-link svg{width:20px;height:20px;fill:var(--white)}
+.ftr-col h4{font-family:'Playfair Display',serif;color:var(--cs);font-size:15px;margin-bottom:16px;letter-spacing:.5px}
+.ftr-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ftr-col ul a{color:rgba(245,240,232,.65);font-size:14px;transition:color .2s}
+.ftr-col ul a:hover{color:var(--cs)}
+.ftr-addr{color:rgba(245,240,232,.65);font-size:14px;line-height:1.9}
+.ftr-addr strong{color:var(--white)}
+.ftr-addr a{color:var(--cs);font-weight:500}
+.ftr-bottom{max-width:1100px;margin:0 auto;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.ftr-copy{color:rgba(245,240,232,.45);font-size:12px}
+.ftr-setup{color:rgba(245,240,232,.45);font-size:12px}
+.ftr-setup a{color:var(--cs);opacity:.8}
+
+@media(max-width:900px){
+.srv-grid{grid-template-columns:1fr 1fr}
+.met-grid{grid-template-columns:1fr;gap:32px}
+.met-grid.rev{direction:ltr}
+.ps-grid{grid-template-columns:1fr}
+.ftr-grid{grid-template-columns:1fr 1fr;gap:32px}
+}
+@media(max-width:600px){
+.srv-grid{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:1fr}
+.form-row{grid-template-columns:1fr}
+.ftr-grid{grid-template-columns:1fr}
+.ftr-bottom{flex-direction:column;text-align:center}
+.form-wrap{padding:28px 20px}
+.s{padding:60px 16px}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s s-beige" id="produits">
+  <div class="orn">
+    <div class="orn-line"></div>
+    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+    <div class="orn-line r"></div>
+  </div>
+  <h2 class="s-title">Notre savoir-faire</h2>
+  <p class="s-sub">Chaque matin à Nouméa, nos artisans façonnent avec soin des créations qui font la fierté de L'Héritage.</p>
+  <div class="srv-grid">
+    <div class="srv-card">
+      <div class="srv-icon">
+        <svg viewBox="0 0 24 24"><path d="M18.5 3c-1.5 0-2.8.7-3.7 1.8C13.9 3.7 12.6 3 11 3 8.2 3 6 5.2 6 8c0 3.9 5 9 6 10 1-1 6-6.1 6-10 0-.5-.1-1-.2-1.5.4.1.8.2 1.2.2 1.9 0 3.5-1.3 3.9-3H18.5zM11 16.2C9.4 14.3 7 11.2 7 8c0-2.2 1.8-4 4-4 1.3 0 2.4.6 3.1 1.5C13.4 6.9 13 8 13 9.3c0 2.7 1.9 5.4 3.3 7.1C14.6 18.5 12.4 20 12 20c-.5 0-3.1-2-1-3.8z"/></svg>
+      </div>
+      <h3>Pains artisanaux</h3>
+      <p>Pétris à la main, cuits au four selon des méthodes traditionnelles. Baguettes, pains de campagne et spécialités du fournil pour commencer la journée.</p>
+      <a href="#contact" class="b b-gold">Nous trouver</a>
+    </div>
+    <div class="srv-card">
+      <div class="srv-icon">
+        <svg viewBox="0 0 24 24"><path d="M18 4H6C4.9 4 4 4.9 4 6v2c0 .7.4 1.4 1 1.7V18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V9.7c.6-.4 1-1 1-1.7V6c0-1.1-.9-2-2-2zm-7 14H9v-4h2v4zm4 0h-2v-4h2v4zm3-9H6V6h12v3z"/></svg>
+      </div>
+      <h3>Viennoiseries</h3>
+      <p>Croissants feuilletés, pains au chocolat et brioches dorées : une sélection de viennoiseries préparées chaque matin pour vous offrir le meilleur de la tradition.</p>
+      <a href="#contact" class="b b-gold">Nous trouver</a>
+    </div>
+    <div class="srv-card">
+      <div class="srv-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 3C8.13 3 5 6.13 5 10c0 2.76 1.58 5.15 3.9 6.37L8 18h8l-.9-1.63C17.42 15.15 19 12.76 19 10c0-3.87-3.13-7-7-7zm0 2c2.76 0 5 2.24 5 5s-2.24 5-5 5-5-2.24-5-5 2.24-5 5-5zm-1 9h2v4h-2v-4z"/></svg>
+      </div>
+      <h3>Pâtisseries</h3>
+      <p>Des créations délicates qui allient technique et générosité. Tartes, entremets et gâteaux de saison façonnés avec des ingrédients choisis pour leur qualité.</p>
+      <a href="#contact" class="b b-gold">Nous trouver</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION METIER -->
+<section class="s-full s-dark" id="histoire">
+  <div class="s-inner">
+    <div class="orn">
+      <div class="orn-line"></div>
+      <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:var(--cs)"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61z"/></svg>
+      <div class="orn-line r"></div>
+    </div>
+    <h2 class="s-title" style="color:var(--white);margin-bottom:48px">Notre histoire &amp; notre engagement</h2>
+    <div class="met-grid">
+      <div class="met-img">
+        <img src="https://i.ibb.co/ksmhHrMj/L-HERITAGE-1.jpg" alt="Fournil de L'Héritage" loading="lazy">
+        <div class="met-img-frame"></div>
+      </div>
+      <div class="met-text">
+        <h2>Une maison ancrée dans la Baie des Dames</h2>
+        <p>L'Héritage est né d'une conviction simple : le bon pain se mérite. Installés sur la route de la Baie des Dames à Nouméa, nos artisans boulangers travaillent chaque nuit pour que vos matins soient à la hauteur.</p>
+        <p>Ici, rien n'est industriel. Chaque pâte est pétrie, chaque croûte est surveillée, chaque fournée est une promesse renouvelée envers nos clients fidèles de Nouvelle-Calédonie.</p>
+        <ul class="met-pts">
+          <li class="met-pt"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Travail artisanal, façonnage à la main</li>
+          <li class="met-pt"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Fournées fraîches chaque matin, 7j/7</li>
+          <li class="met-pt"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Recettes transmises avec passion et rigueur</li>
+          <li class="met-pt"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Une équipe fière de servir la communauté nouméenne</li>
+        </ul>
+      </div>
+    </div>
+    <div class="met-grid rev" style="margin-top:48px">
+      <div class="met-img">
+        <img src="https://i.ibb.co/xttztB0v/L-HERITAGE-3.jpg" alt="Pâtisseries L'Héritage" loading="lazy">
+        <div class="met-img-frame"></div>
+      </div>
+      <div class="met-text">
+        <h2>Le goût de l'authentique, chaque jour</h2>
+        <p>De la baguette tradition au gâteau d'occasion, chaque produit qui sort de notre fournil est le fruit d'heures de travail et d'une exigence sans compromis sur la qualité.</p>
+        <p>Parce qu'à Nouméa, le petit-déjeuner est un moment sacré, L'Héritage s'engage à vous offrir ce qu'il y a de meilleur — à deux pas de chez vous, chaque matin.</p>
+        <ul class="met-pts">
+          <li class="met-pt"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Sélection rigoureuse des matières premières</li>
+          <li class="met-pt"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Pâtisseries de saison et créations régulières</li>
+          <li class="met-pt"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Accueil chaleureux et conseil personnalisé</li>
+          <li class="met-pt"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Une adresse de confiance depuis des années</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s s-beige" id="galerie">
+  <div class="orn">
+    <div class="orn-line"></div>
+    <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:var(--cs)"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+    <div class="orn-line r"></div>
+  </div>
+  <h2 class="s-title">Galerie</h2>
+  <p class="s-sub">Un aperçu de nos créations et de l'atmosphère chaleureuse de notre boulangerie à Nouméa.</p>
+  <div class="gal-grid">
+    <div class="gal-item" onclick="openLb('https://i.ibb.co/gFyV3ggv/L-HERITAGE-0.jpg')">
+      <img src="https://i.ibb.co/gFyV3ggv/L-HERITAGE-0.jpg" alt="L'Héritage boulangerie Nouméa" loading="lazy">
+    </div>
+    <div class="gal-item" onclick="openLb('https://i.ibb.co/ksmhHrMj/L-HERITAGE-1.jpg')">
+      <img src="https://i.ibb.co/ksmhHrMj/L-HERITAGE-1.jpg" alt="Fournil artisanal L'Héritage" loading="lazy">
+    </div>
+    <div class="gal-item" onclick="openLb('https://i.ibb.co/DgDVFgYx/L-HERITAGE-2.jpg')">
+      <img src="https://i.ibb.co/DgDVFgYx/L-HERITAGE-2.jpg" alt="Pains et viennoiseries L'Héritage" loading="lazy">
+    </div>
+    <div class="gal-item" onclick="openLb('https://i.ibb.co/xttztB0v/L-HERITAGE-3.jpg')">
+      <img src="https://i.ibb.co/xttztB0v/L-HERITAGE-3.jpg" alt="Pâtisseries L'Héritage Nouméa" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lb" onclick="closeLb()">
+  <button class="lb-close" onclick="closeLb()" aria-label="Fermer">&#215;</button>
+  <img id="lb-img" src="" alt="Photo L'Héritage">
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section class="s-full s-dark" id="avis">
+  <div class="s-inner">
+    <div class="orn">
+      <div class="orn-line"></div>
+      <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:var(--cs)"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61z"/></svg>
+      <div class="orn-line r"></div>
+    </div>
+    <h2 class="s-title" style="color:var(--white)">Ce que disent nos clients</h2>
+    <p class="s-sub">La confiance de Nouméa, construite croissant après croissant.</p>
+    <div class="ps-rating">
+      <div class="ps-big">4.5</div>
+      <div style="color:var(--cs);font-size:24px;margin:8px 0">★★★★½</div>
+      <div class="ps-label">Note Google · 30 avis vérifiés</div>
+    </div>
+    <div class="ps-grid">
+      <div class="ps-card">
+        <div class="ps-stars">★★★★★</div>
+        <p class="ps-text">"Une boulangerie comme on les aime — du vrai pain croustillant, des croissants bien beurrés, et une équipe toujours souriante le matin. Mon adresse incontournable à Nouméa."</p>
+        <span class="ps-author">Marie-Christine L.</span>
+      </div>
+      <div class="ps-card">
+        <div class="ps-stars">★★★★★</div>
+        <p class="ps-text">"Les pâtisseries sont absolument délicieuses. On sent le travail artisanal dans chaque bouchée. Merci à toute l'équipe de L'Héritage pour votre constance et votre passion."</p>
+        <span class="ps-author">Jean-Paul M.</span>
+      </div>
+      <div class="ps-card">
+        <div class="ps-stars">★★★★☆</div>
+        <p class="ps-text">"Boulangerie de quartier avec une vraie âme. Les viennoiseries du samedi matin sont un rituel chez nous. La baguette tradition est parmi les meilleures de la ville."</p>
+        <span class="ps-author">Sophie R.</span>
+      </div>
+    </div>
+    <div class="ps-badges">
+      <div class="ps-badge"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Ouvert 7j/7</div>
+      <div class="ps-badge"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>100% artisanal</div>
+      <div class="ps-badge"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Fournée fraîche chaque matin</div>
+      <div class="ps-badge"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Référencé Google</div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE -->
+<section class="s s-beige" id="contact">
+  <div class="orn">
+    <div class="orn-line"></div>
+    <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:var(--cs)"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+    <div class="orn-line r"></div>
+  </div>
+  <h2 class="s-title">Nous contacter</h2>
+  <p class="s-sub">Une question, une commande spéciale ou simplement l'envie de nous dire bonjour ? Écrivez-nous.</p>
+  <div class="form-wrap">
+    <form id="cform" action="#" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fname">Nom complet *</label>
+          <input type="text" id="fname" name="nom" placeholder="Votre nom">
+        </div>
+        <div class="form-group">
+          <label for="femail">Email *</label>
+          <input type="email" id="femail" name="email" placeholder="votre@email.com">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="ftel">Téléphone</label>
+        <input type="tel" id="ftel" name="telephone" placeholder="Ex : 27 37 57">
+      </div>
+      <div class="form-group">
+        <label for="fmsg">Message *</label>
+        <textarea id="fmsg" name="message" placeholder="Votre message…"></textarea>
+      </div>
+      <button type="submit" class="b b-gold" style="width:100%;min-height:48px;font-size:15px" id="fsub">Envoyer le message</button>
+      <div class="form-msg" id="fmsg-ok">✓ Merci ! Votre message a bien été envoyé. Nous vous répondrons très prochainement.</div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ftr">
+  <div class="ftr-grid">
+    <div>
+      <div class="ftr-brand">L'<span>Héritage</span></div>
+      <p class="ftr-desc">Boulangerie-pâtisserie artisanale au cœur de Nouméa. Chaque matin, nos artisans façonnent avec passion des créations qui font la fierté de la Baie des Dames.</p>
+      <div class="ftr-social">
+        <a href="https://www.facebook.com/boulangerielheritage" target="_blank" rel="noopener" class="ftr-soc-link" aria-label="Facebook L'Héritage">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="ftr-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#histoire">Notre histoire</a></li>
+        <li><a href="#produits">Nos produits</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#avis">Avis clients</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="ftr-col">
+      <h4>Nous trouver</h4>
+      <address class="ftr-addr" style="font-style:normal">
+        <strong>L'HERITAGE</strong><br>
+        6 Rte de la Baie des Dames<br>
+        Nouméa 98800<br>
+        Nouvelle-Calédonie<br><br>
+        <a href="tel:272737">📞 27.37.57</a><br><br>
+        <strong style="color:rgba(245,240,232,.65);font-weight:400">Ouvert 7 jours sur 7</strong>
+      </address>
+    </div>
+  </div>
+  <div class="ftr-bottom">
+    <span class="ftr-copy">© 2026 L'HERITAGE. Tous droits réservés.</span>
+    <span class="ftr-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  function openLb(src){var l=document.getElementById('lb');document.getElementById('lb-img').src=src;l.classList.add('open');document.body.style.overflow='hidden'}
+  function closeLb(){document.getElementById('lb').classList.remove('open');document.body.style.overflow=''}
+  window.openLb=openLb;window.closeLb=closeLb;
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
+
+  var form=document.getElementById('cform');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=document.getElementById('fname'),em=document.getElementById('femail'),msg=document.getElementById('fmsg'),ok=true;
+    [n,em,msg].forEach(function(f){f.classList.remove('err')});
+    if(!n.value.trim()){n.classList.add('err');ok=false}
+    if(!em.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)){em.classList.add('err');ok=false}
+    if(!msg.value.trim()){msg.classList.add('err');ok=false}
+    if(!ok)return;
+    var btn=document.getElementById('fsub');
+    btn.textContent='Envoi…';btn.disabled=true;
+    setTimeout(function(){
+      document.getElementById('fmsg-ok').classList.add('show');
+      form.reset();btn.textContent='Envoyer le message';btn.disabled=false;
+    },900);
+  });
+})();
+</script>
+</body>
+</html>
