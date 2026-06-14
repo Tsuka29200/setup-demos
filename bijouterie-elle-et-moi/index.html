@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bijouterie Elle et Moi — Nouméa</title>
+<meta name="description" content="Bijouterie artisanale à Nouméa, Nouvelle-Calédonie. Créations uniques, perles de Tahiti, bijoux sur mesure à la Baie de la Moselle.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#2C2C2C;
+--cs:#E8A0A8;
+--ca:#C9963A;
+--cf:#FAF6F2;
+--ct:#2C2C2C;
+--cw:#ffffff;
+--cg:#6b6b6b;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Cormorant Garamond',Georgia,serif;background:var(--cf);color:var(--ct);overflow-x:hidden;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+
+/* BANDEAU PROMO */
+.promo{position:fixed;top:0;left:0;width:100%;height:64px;background:#ffd500;z-index:1001;box-shadow:0 2px 10px rgba(0,0,0,.20);display:flex;align-items:center;justify-content:center}
+.promo a{font-family:"Manrope","Plus Jakarta Sans",system-ui,sans-serif;font-weight:700;font-size:17px;color:#4375ff;line-height:64px;letter-spacing:.3px;text-align:center;display:block;width:100%;transition:opacity .2s}
+.promo a:hover{opacity:.85}
+.promo strong{font-weight:800;font-size:1.15em}
+
+/* HEADER */
+.nav{position:fixed;top:64px;left:0;width:100%;background:rgba(250,246,242,.97);backdrop-filter:blur(8px);z-index:1000;border-bottom:1px solid rgba(201,150,58,.15);transition:box-shadow .3s}
+.nav.scrolled{box-shadow:0 2px 20px rgba(44,44,44,.10)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--cp);letter-spacing:.5px;white-space:nowrap}
+.logo span{color:var(--ca)}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{font-family:'Manrope',sans-serif;font-size:13px;font-weight:600;color:var(--cp);letter-spacing:.8px;text-transform:uppercase;position:relative;padding-bottom:3px}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1.5px;background:var(--ca);transition:width .3s}
+.nav-links a:hover::after{width:100%}
+.nav-cta{font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;letter-spacing:.5px;background:var(--cp);color:var(--cw);padding:12px 24px;border:2px solid var(--cp);transition:background .3s,color .3s;white-space:nowrap;min-height:48px;display:inline-flex;align-items:center}
+.nav-cta:hover{background:var(--cs);color:var(--cp);border-color:var(--cs)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--cp);transition:transform .3s,opacity .3s}
+.mob-menu{display:none;position:fixed;top:136px;left:0;width:100%;background:var(--cf);z-index:999;padding:24px 16px;border-bottom:1px solid rgba(201,150,58,.2);flex-direction:column;gap:0}
+.mob-menu.open{display:flex}
+.mob-menu a{font-family:'Manrope',sans-serif;font-size:15px;font-weight:600;color:var(--cp);padding:16px 0;border-bottom:1px solid rgba(44,44,44,.08);letter-spacing:.5px}
+.mob-menu .nav-cta{margin-top:16px;text-align:center;justify-content:center;width:100%}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background-image:url('https://i.ibb.co/WJLh046/Bijouterie-Elle-et-Moi-0.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;padding-top:136px}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(44,44,44,.72) 0%,rgba(44,44,44,.45) 50%,rgba(201,150,58,.18) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;max-width:860px;padding:0 24px}
+.hero-label{font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cs);margin-bottom:24px;display:block}
+.h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:300;color:var(--cw);line-height:1.1;margin-bottom:8px;letter-spacing:.5px}
+.h1 em{font-style:italic;color:var(--cs)}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,2.5vw,1.7rem);color:rgba(250,246,242,.85);font-weight:300;font-style:italic;margin-bottom:40px;max-width:600px;margin-left:auto;margin-right:auto}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.b-primary{font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--ca);color:var(--cw);padding:16px 36px;border:2px solid var(--ca);min-height:48px;display:inline-flex;align-items:center;transition:background .3s,color .3s,border-color .3s}
+.b-primary:hover{background:transparent;color:var(--ca)}
+.b-outline{font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:transparent;color:var(--cw);padding:16px 36px;border:2px solid rgba(250,246,242,.6);min-height:48px;display:inline-flex;align-items:center;transition:background .3s,border-color .3s}
+.b-outline:hover{background:rgba(250,246,242,.12);border-color:var(--cw)}
+.scroll-ind{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(250,246,242,.6)}
+.scroll-ind span{font-family:'Manrope',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase}
+.scroll-arrow{width:20px;height:30px;border:1.5px solid rgba(250,246,242,.4);border-radius:10px;position:relative}
+.scroll-arrow::after{content:'';position:absolute;top:6px;left:50%;transform:translateX(-50%);width:4px;height:4px;background:rgba(250,246,242,.6);border-radius:50%;animation:scrolldot 1.8s infinite}
+@keyframes scrolldot{0%{top:6px;opacity:1}80%{top:16px;opacity:0}100%{top:6px;opacity:0}}
+
+/* STATS */
+.stats{background:var(--cp);padding:64px 24px}
+.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.stat{text-align:center;padding:24px 16px;position:relative}
+.stat::after{content:'';position:absolute;right:0;top:20%;height:60%;width:1px;background:rgba(201,150,58,.3)}
+.stat:last-child::after{display:none}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,4vw,3.6rem);font-weight:600;color:var(--ca);line-height:1;display:block}
+.stat-label{font-family:'Manrope',sans-serif;font-size:12px;font-weight:500;color:rgba(250,246,242,.7);letter-spacing:1.2px;text-transform:uppercase;margin-top:8px;display:block}
+
+/* FALLBACK REVEAL */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.nav-links,.nav-cta{display:none}
+.hamburger{display:flex}
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+.stat::after{display:none}
+.stat:nth-child(odd)::after{content:'';display:block;position:absolute;right:0;top:20%;height:60%;width:1px;background:rgba(201,150,58,.3)}
+}
+@media(max-width:480px){
+.promo{height:56px}
+.promo a{font-size:15px;line-height:56px;padding:0 12px}
+.nav{top:56px}
+.mob-menu{top:128px}
+.hero{padding-top:128px}
+.hero-btns{flex-direction:column;align-items:center}
+.b-primary,.b-outline{width:100%;justify-content:center}
+.stats-inner{grid-template-columns:1fr 1fr;gap:16px}
+.stat{padding:16px 8px}
+.stat:nth-child(odd)::after{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO -->
+<div class="promo">
+  <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener">
+    Ce site vous plaît ? Activez-le dès <strong>4 900 F HT/mois</strong> — Prenez rendez-vous.
+  </a>
+</div>
+
+<!-- HEADER -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#accueil" class="logo">Elle <span>&</span> Moi</a>
+    <ul class="nav-links">
+      <li><a href="#services">Créations</a></li>
+      <li><a href="#metier">Notre histoire</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="tel:+687837830" class="nav-cta">✦ 83.78.30</a>
+    <button class="hamburger" id="hbg" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MENU MOBILE -->
+<div class="mob-menu" id="mobmenu">
+  <a href="#services" onclick="closeMob()">Créations</a>
+  <a href="#metier" onclick="closeMob()">Notre histoire</a>
+  <a href="#galerie" onclick="closeMob()">Galerie</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="tel:+687837830" class="nav-cta">✦ 83.78.30</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-label">Bijouterie artisanale · Nouméa, Nouvelle-Calédonie</span>
+    <h1 class="h1">Chaque pièce raconte<br><em>une histoire océanienne</em></h1>
+    <p class="hero-sub">Créations uniques inspirées des trésors du lagon, façonnées avec soin à la Baie de la Moselle.</p>
+    <div class="hero-btns">
+      <a href="#galerie" class="b-primary">Découvrir la collection</a>
+      <a href="#contact" class="b-outline">Nous contacter</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <div class="scroll-arrow"></div>
+    <span>Découvrir</span>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="stats">
+  <div class="stats-inner">
+    <div class="stat">
+      <span class="stat-num" data-target="15">0</span>
+      <span class="stat-label">Années d'artisanat</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num" data-target="100" data-suffix="%">0</span>
+      <span class="stat-label">Pièces uniques</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num" data-target="4.7" data-decimal="1">0</span>
+      <span class="stat-label">Note Google /5</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num" data-target="1" data-prefix="Baie de la">Moselle</span>
+      <span class="stat-label">Adresse à Nouméa</span>
+    </div>
+  </div>
+</section>
+
+<script>
+var n=document.getElementById('nav'),h=document.getElementById('hbg'),m=document.getElementById('mobmenu'),o=false;
+window.addEventListener('scroll',function(){n.classList.toggle('scrolled',window.scrollY>10)});
+h.addEventListener('click',function(){o=!o;m.classList.toggle('open',o)});
+function closeMob(){o=false;m.classList.remove('open')}
+(function(){
+var els=document.querySelectorAll('.stat-num[data-target]');
+var done=false;
+function run(){
+if(done)return;done=true;
+els.forEach(function(el){
+var t=parseFloat(el.dataset.target),d=parseInt(el.dataset.decimal)||0,s=el.dataset.suffix||'',dur=1600,st=performance.now();
+function step(now){
+var p=Math.min((now-st)/dur,1),v=t*p;
+el.textContent=d?v.toFixed(d):Math.floor(v);
+el.textContent+=s;
+if(p<1)requestAnimationFrame(step);
+}
+requestAnimationFrame(step);
+});
+}
+var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)run()})},{threshold:.3});
+document.querySelectorAll('.stats').forEach(function(e){io.observe(e)});
+})();
+</script>
+<style>
+.s{padding:96px 24px}
+.s-light{background:var(--cf)}
+.s-dark{background:var(--cp)}
+.s-cream{background:#f3ede7}
+.s-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:400;color:var(--cp);text-align:center;margin-bottom:12px}
+.s-title.light{color:var(--cw)}
+.s-sub{font-family:'Manrope',sans-serif;font-size:14px;color:var(--cg);text-align:center;letter-spacing:.5px;margin-bottom:56px;max-width:560px;margin-left:auto;margin-right:auto}
+.s-sub.light{color:rgba(250,246,242,.7)}
+.s-inner{max-width:1100px;margin:0 auto}
+.s-label{font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--ca);text-align:center;margin-bottom:16px;display:block}
+
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.svc-card{background:var(--cw);padding:40px 32px;text-align:center;border:1px solid rgba(201,150,58,.12);transition:box-shadow .3s,transform .3s}
+.svc-card:hover{box-shadow:0 8px 32px rgba(201,150,58,.15);transform:translateY(-4px)}
+.svc-icon{width:56px;height:56px;margin:0 auto 24px;display:flex;align-items:center;justify-content:center;background:rgba(232,160,168,.12);border-radius:50%}
+.svc-icon svg{width:28px;height:28px;stroke:var(--ca);fill:none;stroke-width:1.5}
+.svc-name{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--cp);margin-bottom:12px}
+.svc-desc{font-family:'Manrope',sans-serif;font-size:13px;color:var(--cg);line-height:1.7;margin-bottom:24px}
+.svc-link{font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ca);position:relative;display:inline-block;padding-bottom:3px}
+.svc-link::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1.5px;background:var(--ca);transition:width .3s}
+.svc-link:hover::after{width:100%}
+
+/* METIER */
+.metier-wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.metier-wrap.rev{direction:rtl}
+.metier-wrap.rev>*{direction:ltr}
+.metier-img{position:relative;overflow:hidden}
+.metier-img img{width:100%;height:480px;object-fit:cover;transition:transform .6s}
+.metier-img:hover img{transform:scale(1.03)}
+.metier-img::before{content:'';position:absolute;inset:0;border:2px solid rgba(201,150,58,.3);z-index:1;pointer-events:none}
+.metier-text{padding:16px 0}
+.metier-text .s-label{text-align:left}
+.metier-h{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:400;color:var(--cp);line-height:1.2;margin-bottom:20px}
+.metier-p{font-family:'Manrope',sans-serif;font-size:14px;color:var(--cg);line-height:1.8;margin-bottom:24px}
+.checks{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.checks li{font-family:'Manrope',sans-serif;font-size:13px;color:var(--ct);display:flex;align-items:center;gap:12px}
+.checks li::before{content:'';width:20px;height:20px;min-width:20px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C9963A' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/contain no-repeat}
+
+/* GALERIE */
+.gal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.gal-item{overflow:hidden;cursor:pointer;position:relative}
+.gal-item:first-child{grid-column:1/-1}
+.gal-item img{width:100%;height:340px;object-fit:cover;transition:transform .4s}
+.gal-item:first-child img{height:480px}
+.gal-item:hover img{transform:scale(1.03)}
+.gal-over{position:absolute;inset:0;background:rgba(44,44,44,0);display:flex;align-items:center;justify-content:center;transition:background .3s}
+.gal-over svg{opacity:0;transition:opacity .3s;stroke:var(--cw);fill:none;stroke-width:1.5;width:36px;height:36px}
+.gal-item:hover .gal-over{background:rgba(44,44,44,.35)}
+.gal-item:hover .gal-over svg{opacity:1}
+.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center;padding:16px}
+.lb.open{display:flex}
+.lb-img{max-width:90vw;max-height:90vh;object-fit:contain}
+.lb-close{position:absolute;top:24px;right:24px;background:none;border:none;color:var(--cw);font-size:2rem;cursor:pointer;line-height:1;padding:8px}
+
+/* FORMULAIRE */
+.form-wrap{max-width:700px;margin:0 auto}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.fg{display:flex;flex-direction:column;gap:6px}
+.fg.full{grid-column:1/-1}
+.fg label{font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--cp)}
+.fg input,.fg textarea{font-family:'Manrope',sans-serif;font-size:14px;color:var(--cp);background:var(--cw);border:1.5px solid rgba(44,44,44,.15);padding:14px 16px;outline:none;transition:border-color .3s;min-height:48px}
+.fg input:focus,.fg textarea:focus{border-color:var(--ca)}
+.fg textarea{min-height:130px;resize:vertical}
+.form-err{font-family:'Manrope',sans-serif;font-size:11px;color:#c0392b;margin-top:4px;display:none}
+.form-err.show{display:block}
+.form-ok{display:none;text-align:center;padding:32px;background:rgba(201,150,58,.1);border:1.5px solid var(--ca)}
+.form-ok.show{display:block}
+.form-ok p{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--cp)}
+.form-ok span{font-family:'Manrope',sans-serif;font-size:13px;color:var(--cg)}
+.btn-submit{font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--cp);color:var(--cw);border:2px solid var(--cp);padding:16px 40px;min-height:52px;cursor:pointer;width:100%;margin-top:8px;transition:background .3s,color .3s;display:flex;align-items:center;justify-content:center;gap:10px}
+.btn-submit:hover{background:var(--cs);color:var(--cp);border-color:var(--cs)}
+.loader{display:none;width:18px;height:18px;border:2px solid rgba(250,246,242,.3);border-top-color:var(--cw);border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* PREUVE SOCIALE */
+.rating-hero{text-align:center;margin-bottom:64px}
+.stars{display:inline-flex;gap:4px;margin-bottom:16px}
+.stars svg{width:28px;height:28px;fill:var(--ca)}
+.rating-num{font-family:'Cormorant Garamond',serif;font-size:3.6rem;font-weight:600;color:var(--cp);display:block;line-height:1}
+.rating-txt{font-family:'Manrope',sans-serif;font-size:13px;color:var(--cg);margin-top:6px}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px}
+.testi-card{background:var(--cw);padding:32px 28px;border-top:3px solid var(--ca)}
+.testi-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--cp);margin-bottom:20px;line-height:1.6}
+.testi-author{font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;color:var(--cg);letter-spacing:.5px;text-transform:uppercase}
+.testi-stars{display:flex;gap:3px;margin-bottom:12px}
+.testi-stars svg{width:14px;height:14px;fill:var(--ca)}
+.badges{display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+.badge{display:flex;align-items:center;gap:10px;padding:16px 24px;border:1px solid rgba(201,150,58,.2);background:var(--cw)}
+.badge svg{width:22px;height:22px;stroke:var(--ca);fill:none;stroke-width:1.5}
+.badge span{font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;color:var(--cp);letter-spacing:.5px;text-transform:uppercase}
+
+/* FOOTER */
+.footer{background:var(--cp);padding:64px 24px 32px}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--cw);margin-bottom:16px}
+.footer-brand span{color:var(--ca)}
+.footer-p{font-family:'Manrope',sans-serif;font-size:13px;color:rgba(250,246,242,.65);line-height:1.8}
+.footer-h{font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ca);margin-bottom:20px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-family:'Manrope',sans-serif;font-size:13px;color:rgba(250,246,242,.65);transition:color .3s}
+.footer-links a:hover{color:var(--ca)}
+.footer-tel{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--cw);display:block;margin-bottom:16px;transition:color .3s}
+.footer-tel:hover{color:var(--ca)}
+.footer-addr{font-family:'Manrope',sans-serif;font-size:12px;color:rgba(250,246,242,.55);line-height:1.8}
+.social-row{display:flex;gap:12px;margin-top:20px}
+.social-btn{width:40px;height:40px;border:1px solid rgba(201,150,58,.3);display:flex;align-items:center;justify-content:center;transition:border-color .3s,background .3s}
+.social-btn:hover{background:var(--ca);border-color:var(--ca)}
+.social-btn svg{width:20px;height:20px;fill:rgba(250,246,242,.7);transition:fill .3s}
+.social-btn:hover svg{fill:var(--cw)}
+.footer-bar{border-top:1px solid rgba(201,150,58,.15);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:gap;gap:12px}
+.footer-copy{font-family:'Manrope',sans-serif;font-size:12px;color:rgba(250,246,242,.4)}
+.footer-setup{font-family:'Manrope',sans-serif;font-size:12px;color:rgba(250,246,242,.4)}
+.footer-setup a{color:rgba(250,246,242,.6);transition:color .3s}
+.footer-setup a:hover{color:var(--ca)}
+
+@media(max-width:900px){
+.svc-grid{grid-template-columns:1fr}
+.metier-wrap,.metier-wrap.rev{grid-template-columns:1fr;direction:ltr}
+.metier-img img{height:320px}
+.testi-grid{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr;gap:32px}
+.gal-grid{grid-template-columns:1fr}
+.gal-item:first-child{grid-column:auto}
+.gal-item img,.gal-item:first-child img{height:260px}
+}
+@media(max-width:480px){
+.s{padding:64px 16px}
+.form-grid{grid-template-columns:1fr}
+.footer-bar{flex-direction:column;text-align:center}
+.rating-num{font-size:2.8rem}
+.badges{flex-direction:column;align-items:center}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s s-light" id="services">
+  <div class="s-inner">
+    <span class="s-label">Nos créations</span>
+    <h2 class="s-title">L'art du bijou, à votre mesure</h2>
+    <p class="s-sub">De la perle de Tahiti aux créations sur mesure, chaque pièce naît d'un savoir-faire artisanal ancré dans notre univers océanien.</p>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+        </div>
+        <h3 class="svc-name">Perles de Tahiti</h3>
+        <p class="svc-desc">Sélectionnées pour leur éclat nacré unique, nos perles de Tahiti aux reflets vert-gris sont montées à la main dans nos ateliers.</p>
+        <a href="#contact" class="svc-link">Découvrir →</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="svc-name">Bijoux sur mesure</h3>
+        <p class="svc-desc">Votre histoire mérite une pièce unique. Nous concevons ensemble le bijou qui vous ressemble, de l'esquisse à la création finale.</p>
+        <a href="#contact" class="svc-link">Prendre rendez-vous →</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3 class="svc-name">Cadeaux & occasions</h3>
+        <p class="svc-desc">Fiançailles, anniversaire, naissance… Offrez un souvenir éternel avec nos pièces signature, présentées dans un écrin raffiné.</p>
+        <a href="#contact" class="svc-link">Nous écrire →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s s-cream" id="metier">
+  <div class="s-inner">
+    <div class="metier-wrap">
+      <div class="metier-img">
+        <img src="https://i.ibb.co/xn9px5r/Bijouterie-Elle-et-Moi-1.jpg" alt="Atelier bijouterie Elle et Moi Nouméa" loading="lazy">
+      </div>
+      <div class="metier-text">
+        <span class="s-label">Notre histoire</span>
+        <h2 class="metier-h">Une bijouterie née d'une passion pour l'Océanie</h2>
+        <p class="metier-p">Nichée au cœur de la Baie de la Moselle à Nouméa, Elle et Moi est bien plus qu'une bijouterie. C'est un lieu de confidence, où chaque cliente trouve la pièce qui lui ressemble et raconte son histoire.</p>
+        <p class="metier-p">Nous puisons notre inspiration dans la richesse naturelle de la Nouvelle-Calédonie — la lumière du lagon, les reflets nacrés, la douceur de l'Océanie — pour créer des bijoux qui traversent le temps.</p>
+        <ul class="checks">
+          <li>Créations artisanales façonnées à la main</li>
+          <li>Perles de Tahiti authentiques et sélectionnées</li>
+          <li>Accompagnement personnalisé pour chaque projet</li>
+          <li>Adresse emblématique, Baie de la Moselle, Nouméa</li>
+        </ul>
+        <a href="#contact" class="b-primary">Nous rendre visite</a>
+      </div>
+    </div>
+    <div class="metier-wrap rev" style="margin-top:80px">
+      <div class="metier-img">
+        <img src="https://i.ibb.co/r2cm5kWz/Bijouterie-Elle-et-Moi-2.jpg" alt="Bijoux artisanaux Elle et Moi" loading="lazy">
+      </div>
+      <div class="metier-text">
+        <span class="s-label">Notre savoir-faire</span>
+        <h2 class="metier-h">Chaque détail est pensé avec soin</h2>
+        <p class="metier-p">Du choix du métal à la sélection de la pierre, chaque étape de création est guidée par l'exigence et l'amour du beau. Nos bijoux sont conçus pour durer, pour être transmis, pour émouvoir.</p>
+        <p class="metier-p">Venez nous rencontrer en boutique pour découvrir notre collection et partager avec nous votre vision du bijou idéal.</p>
+        <ul class="checks">
+          <li>Matériaux nobles et durables</li>
+          <li>Finitions soignées à chaque pièce</li>
+          <li>Conseil chaleureux, sans pression</li>
+          <li>Créations adaptées à tous les budgets</li>
+        </ul>
+        <a href="#galerie" class="b-primary">Voir la galerie</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s s-light" id="galerie">
+  <div class="s-inner">
+    <span class="s-label">Galerie</span>
+    <h2 class="s-title">L'univers Elle et Moi</h2>
+    <p class="s-sub">Un aperçu de nos créations et de l'atmosphère unique de notre boutique à Nouméa.</p>
+    <div class="gal-grid">
+      <div class="gal-item" data-src="https://i.ibb.co/WJLh046/Bijouterie-Elle-et-Moi-0.jpg">
+        <img src="https://i.ibb.co/WJLh046/Bijouterie-Elle-et-Moi-0.jpg" alt="Bijouterie Elle et Moi Nouméa" loading="lazy">
+        <div class="gal-over"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div>
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/xn9px5r/Bijouterie-Elle-et-Moi-1.jpg">
+        <img src="https://i.ibb.co/xn9px5r/Bijouterie-Elle-et-Moi-1.jpg" alt="Atelier bijouterie Elle et Moi" loading="lazy">
+        <div class="gal-over"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div>
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/r2cm5kWz/Bijouterie-Elle-et-Moi-2.jpg">
+        <img src="https://i.ibb.co/r2cm5kWz/Bijouterie-Elle-et-Moi-2.jpg" alt="Créations bijoux Nouvelle-Calédonie" loading="lazy">
+        <div class="gal-over"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div>
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/Zp4Jxg2Y/Bijouterie-Elle-et-Moi-3.jpg">
+        <img src="https://i.ibb.co/Zp4Jxg2Y/Bijouterie-Elle-et-Moi-3.jpg" alt="Perles de Tahiti Elle et Moi" loading="lazy">
+        <div class="gal-over"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <button class="lb-close" id="lbclose" aria-label="Fermer">✕</button>
+  <img class="lb-img" id="lbimg" src="" alt="Bijouterie Elle et Moi">
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section class="s s-cream" id="avis">
+  <div class="s-inner">
+    <span class="s-label">Ce que disent nos clientes</span>
+    <div class="rating-hero">
+      <div class="stars">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <span class="rating-num">4.7<span style="font-size:1.8rem;color:var(--cg)">/5</span></span>
+      <p class="rating-txt">Note Google — 3 avis vérifiés</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testi-text">"Une boutique magnifique, des bijoux d'une qualité exceptionnelle. J'ai trouvé ma bague de fiançailles parfaite, le conseil était précieux et bienveillant."</p>
+        <span class="testi-author">— Marie-Laure T.</span>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testi-text">"Les perles de Tahiti sont d'une beauté rare. L'équipe prend vraiment le temps d'expliquer chaque pièce, on ressort avec une vraie histoire à raconter."</p>
+        <span class="testi-author">— Sophie D.</span>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testi-text">"Un endroit unique à Nouméa. On sent immédiatement la passion et le soin apportés à chaque création. Je recommande sans hésiter pour un cadeau inoubliable."</p>
+        <span class="testi-author">— Isabelle M.</span>
+      </div>
+    </div>
+    <div class="badges">
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Bijouterie certifiée</span>
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+        <span>Perles de Tahiti authentiques</span>
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <span>Créations artisanales</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE -->
+<section class="s s-light" id="contact">
+  <div class="s-inner">
+    <span class="s-label">Nous contacter</span>
+    <h2 class="s-title">Parlons de votre projet</h2>
+    <p class="s-sub">Un projet de bijou, une question sur nos créations ? Écrivez-nous, nous vous répondons avec plaisir.</p>
+    <div class="form-wrap">
+      <div class="form-ok" id="formok">
+        <p>Merci pour votre message ✦</p>
+        <span>Nous vous répondrons dans les meilleurs délais.</span>
+      </div>
+      <form id="cform" action="#" novalidate>
+        <div class="form-grid">
+          <div class="fg">
+            <label for="fname">Votre prénom et nom</label>
+            <input type="text" id="fname" name="nom" placeholder="Marie Dupont" autocomplete="name">
+            <span class="form-err" id="err-nom">Veuillez indiquer votre nom.</span>
+          </div>
+          <div class="fg">
+            <label for="ftel">Téléphone</label>
+            <input type="tel" id="ftel" name="tel" placeholder="83.00.00" autocomplete="tel">
+          </div>
+          <div class="fg full">
+            <label for="femail">Adresse e-mail</label>
+            <input type="email" id="femail" name="email" placeholder="marie@email.nc" autocomplete="email">
+            <span class="form-err" id="err-email">Veuillez saisir un e-mail valide.</span>
+          </div>
+          <div class="fg full">
+            <label for="fmsg">Votre message</label>
+            <textarea id="fmsg" name="message" placeholder="Décrivez votre projet ou posez-nous votre question…"></textarea>
+            <span class="form-err" id="err-msg">Veuillez écrire votre message.</span>
+          </div>
+        </div>
+        <button type="submit" class="btn-submit" id="fbtn">
+          <span id="btntxt">Envoyer votre message</span>
+          <div class="loader" id="floader"></div>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Elle <span>&</span> Moi</div>
+        <p class="footer-p">Bijouterie artisanale au cœur de Nouméa, inspirée par les trésors de l'Océanie. Chaque pièce est une histoire à porter.</p>
+        <div class="social-row">
+          <a href="https://www.facebook.com/Bijouterieelleetmoi" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook Elle et Moi">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-h">Navigation</p>
+        <ul class="footer-links">
+          <li><a href="#services">Créations</a></li>
+          <li><a href="#metier">Notre histoire</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#avis">Avis clients</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-h">Nous trouver</p>
+        <a href="tel:+687837830" class="footer-tel">83.78.30</a>
+        <p class="footer-addr">Bijouterie Elle et Moi<br>Baie de la Moselle<br>Nouméa 98800<br>Nouvelle-Calédonie</p>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <span class="footer-copy">© 2026 Bijouterie Elle et Moi. Tous droits réservés.</span>
+      <span class="footer-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+var items=document.querySelectorAll('.gal-item'),lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg'),lbclose=document.getElementById('lbclose');
+items.forEach(function(el){el.addEventListener('click',function(){lbimg.src=el.dataset.src;lb.classList.add('open')})});
+lbclose.addEventListener('click',function(){lb.classList.remove('open')});
+lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('open')});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('open')});
+})();
+(function(){
+var form=document.getElementById('cform'),btn=document.getElementById('fbtn'),btntxt=document.getElementById('btntxt'),loader=document.getElementById('floader'),ok=document.getElementById('formok');
+function vld(id,test){var el=document.getElementById(id);el.classList.toggle('show',!test);return test}
+form.addEventListener('submit',function(e){
+e.preventDefault();
+var nom=document.getElementById('fname').value.trim(),email=document.getElementById('femail').value.trim(),msg=document.getElementById('fmsg').value.trim();
+var v1=vld('err-nom',nom.length>1),v2=vld('err-email',/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)),v3=vld('err-msg',msg.length>4);
+if(!v1||!v2||!v3)return;
+btntxt.textContent='Envoi…';loader.style.display='block';btn.disabled=true;
+setTimeout(function(){form.style.display='none';ok.classList.add('show')},1400);
+});
+})();
+</script>
+</body>
+</html>
