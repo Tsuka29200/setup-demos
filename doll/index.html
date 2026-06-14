@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOLL — Nouméa</title>
+<meta name="description" content="DOLL, bijouterie artisanale à Nouméa, Nouvelle-Calédonie. Créations uniques, sur mesure, travaillées à la main dans notre atelier de la Rue de l'Alma.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#C8A96E;
+--cs:#E8DDD0;
+--ca:#B5622A;
+--cb:#FAF7F2;
+--ct:#2C2118;
+--ff:'Cormorant Garamond',serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--ff);background:var(--cb);color:var(--ct);overflow-x:hidden;font-size:18px;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+
+/* BANDEAU */
+.promo{background:var(--ct);color:var(--cs);text-align:center;padding:10px 16px;font-size:13px;letter-spacing:.08em;position:relative;z-index:1001}
+.promo strong{color:var(--cp)}
+
+/* HEADER */
+.hdr{position:sticky;top:0;z-index:1000;background:rgba(250,247,242,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--cs)}
+.hdr-i{max-width:1200px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-size:26px;font-weight:600;letter-spacing:.18em;color:var(--ct)}
+.logo span{color:var(--cp)}
+.nav{display:flex;gap:28px;list-style:none}
+.nav a{font-size:14px;letter-spacing:.08em;font-weight:500;color:var(--ct);transition:color .3s}
+.nav a:hover{color:var(--cp)}
+.hdr-cta{background:var(--ca);color:#fff;padding:10px 22px;font-family:var(--ff);font-size:14px;letter-spacing:.1em;font-weight:500;border:none;cursor:pointer;transition:background .3s,transform .3s;white-space:nowrap}
+.hdr-cta:hover{background:var(--cp);transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--ct);transition:transform .3s,opacity .3s}
+.mob-nav{display:none;position:fixed;inset:0;background:var(--cb);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:32px}
+.mob-nav.open{display:flex}
+.mob-nav a{font-size:24px;letter-spacing:.12em;font-weight:500;color:var(--ct)}
+.mob-nav a:hover{color:var(--cp)}
+.mob-close{position:absolute;top:20px;right:24px;background:none;border:none;font-size:28px;cursor:pointer;color:var(--ct)}
+
+/* HERO */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center}
+.hero-bg{position:absolute;inset:0;background-image:url('https://i.ibb.co/C37m6Xr3/DOLL-0.jpg');background-size:cover;background-position:center top}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(135deg,rgba(44,33,24,.72) 0%,rgba(44,33,24,.38) 55%,rgba(200,169,110,.18) 100%)}
+.hero-cnt{position:relative;z-index:1;text-align:center;padding:0 24px;max-width:800px}
+.hero-tag{display:inline-block;font-size:12px;letter-spacing:.22em;color:var(--cp);font-weight:500;margin-bottom:20px;text-transform:uppercase}
+.hero h1{font-size:clamp(3rem,8vw,6.5rem);font-weight:300;color:#fff;line-height:1.05;letter-spacing:.06em;margin-bottom:24px}
+.hero h1 em{font-style:italic;color:var(--cp)}
+.hero-sub{font-size:clamp(1rem,2.5vw,1.35rem);color:rgba(255,255,255,.82);font-weight:300;font-style:italic;margin-bottom:40px;letter-spacing:.04em}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.b-primary{background:var(--cp);color:#fff;padding:14px 36px;font-family:var(--ff);font-size:15px;letter-spacing:.12em;font-weight:500;border:none;cursor:pointer;transition:background .3s,transform .3s}
+.b-primary:hover{background:var(--ca);transform:translateY(-2px)}
+.b-outline{background:transparent;color:#fff;padding:14px 36px;font-family:var(--ff);font-size:15px;letter-spacing:.12em;font-weight:500;border:2px solid rgba(255,255,255,.6);cursor:pointer;transition:border-color .3s,color .3s,transform .3s}
+.b-outline:hover{border-color:var(--cp);color:var(--cp);transform:translateY(-2px)}
+.scroll-ind{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.6);font-size:11px;letter-spacing:.16em}
+.scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,rgba(200,169,110,.8),transparent);animation:scrollpulse 2s ease-in-out infinite}
+@keyframes scrollpulse{0%,100%{opacity:.4;transform:scaleY(.8)}50%{opacity:1;transform:scaleY(1)}}
+
+/* STATS */
+.stats{background:var(--cp);padding:64px 24px}
+.stats-g{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stat{text-align:center;padding:16px 8px}
+.stat-n{font-size:clamp(2.4rem,5vw,3.8rem);font-weight:300;color:#fff;letter-spacing:.04em;line-height:1}
+.stat-l{font-size:13px;letter-spacing:.14em;color:rgba(255,255,255,.78);margin-top:8px;font-weight:400}
+
+/* UTILS */
+.s{padding:96px 24px}
+.s-inner{max-width:1100px;margin:0 auto}
+.s-title{font-size:clamp(1.9rem,4vw,3rem);font-weight:300;letter-spacing:.06em;color:var(--ct);margin-bottom:12px}
+.s-title em{color:var(--cp);font-style:italic}
+.s-sub{font-size:1.05rem;color:#6b5a4e;font-style:italic;margin-bottom:56px;letter-spacing:.03em}
+.divider{width:48px;height:2px;background:var(--cp);margin:16px auto 0}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+.reveal.vis{opacity:1;transform:none}
+
+/* FALLBACK */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.stats-g{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:680px){
+.nav,.hdr-cta{display:none}
+.hamburger{display:flex}
+.hero-btns{flex-direction:column;align-items:center}
+.b-primary,.b-outline{width:100%;max-width:320px}
+}
+@media(max-width:480px){
+.hdr-i{padding:0 16px}
+.s{padding:64px 16px}
+.stats{padding:48px 16px}
+.stats-g{grid-template-columns:repeat(2,1fr);gap:16px}
+.stat-n{font-size:2rem}
+}
+</style>
+</head>
+<body>
+<div style="background:#ffd500;color:#4375ff;text-align:center;font-family:Manrope,system-ui,-apple-system,sans-serif;font-weight:700;font-size:15px;line-height:1.4;padding:10px 16px;box-shadow:0 2px 10px rgba(0,0,0,.18)">Ce site vous plaît&nbsp;? Activez-le dès <strong style="font-weight:800">4&nbsp;900&nbsp;F HT/mois</strong> &mdash; <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener" style="color:#0d1f3c;text-decoration:underline">Prenez rendez-vous</a></div>
+
+<!-- BANDEAU PROMO -->
+<div class="promo">Bijoux artisanaux à Nouméa — <strong>Sur mesure & créations uniques</strong> — Rue de l'Alma &nbsp;·&nbsp; <strong>Tél. 28.87.87</strong></div>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-i">
+    <a href="#accueil" class="logo">D<span>O</span>LL</a>
+    <nav>
+      <ul class="nav">
+        <li><a href="#services">Créations</a></li>
+        <li><a href="#metier">L'atelier</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="tel:+68728.87.87" class="hdr-cta">28.87.87</a>
+    <button class="hamburger" aria-label="Menu" onclick="document.getElementById('mobnav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<div class="mob-nav" id="mobnav">
+  <button class="mob-close" onclick="document.getElementById('mobnav').classList.remove('open')">✕</button>
+  <a href="#services" onclick="document.getElementById('mobnav').classList.remove('open')">Créations</a>
+  <a href="#metier" onclick="document.getElementById('mobnav').classList.remove('open')">L'atelier</a>
+  <a href="#galerie" onclick="document.getElementById('mobnav').classList.remove('open')">Galerie</a>
+  <a href="#contact" onclick="document.getElementById('mobnav').classList.remove('open')">Contact</a>
+  <a href="tel:+68728.87.87" class="hdr-cta" style="margin-top:16px">28.87.87</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-bg"></div>
+  <div class="hero-ov"></div>
+  <div class="hero-cnt">
+    <span class="hero-tag">Bijouterie · Nouméa</span>
+    <h1>L'or à portée<br>de <em>vos mains</em></h1>
+    <p class="hero-sub">Créations artisanales et pièces sur mesure<br>au cœur de la Rue de l'Alma, Nouvelle-Calédonie</p>
+    <div class="hero-btns">
+      <a href="#galerie" class="b-primary">Découvrir la galerie</a>
+      <a href="#contact" class="b-outline">Commander sur mesure</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <div class="scroll-line"></div>
+    <span>DÉFILER</span>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stats-g">
+    <div class="stat reveal">
+      <div class="stat-n" data-target="100">0</div>
+      <div class="stat-l">% FAIT MAIN</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-n" data-target="15">0</div>
+      <div class="stat-l">ANS D'EXPERTISE</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-n" data-target="300">0</div>
+      <div class="stat-l">PIÈCES CRÉÉES</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-n" data-target="1">0</div>
+      <div class="stat-l">ADRESSE À NOUMÉA</div>
+    </div>
+  </div>
+</section>
+<style>
+.svc{background:var(--cs)}
+.svc-g{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.c{background:var(--cb);padding:40px 28px;text-align:center;transition:transform .3s,box-shadow .3s}
+.c:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(44,33,24,.1)}
+.c-ico{width:52px;height:52px;margin:0 auto 20px}
+.c-ico svg{width:100%;height:100%}
+.c-title{font-size:1.25rem;font-weight:500;letter-spacing:.08em;margin-bottom:12px;color:var(--ct)}
+.c-desc{font-size:.95rem;color:#6b5a4e;font-style:italic;line-height:1.7;margin-bottom:24px}
+.b-link{display:inline-block;font-size:13px;letter-spacing:.14em;color:var(--cp);font-weight:500;border-bottom:1px solid transparent;transition:border-color .3s,color .3s}
+.b-link:hover{border-color:var(--cp);color:var(--ca)}
+.met{background:var(--cb)}
+.met-g{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.met-txt .s-title{text-align:left}
+.met-txt .divider{margin:16px 0 0}
+.met-body{font-size:1.05rem;color:#6b5a4e;line-height:1.8;margin:28px 0}
+.met-pts{list-style:none;display:flex;flex-direction:column;gap:12px}
+.met-pts li{display:flex;align-items:flex-start;gap:12px;font-size:.98rem;color:var(--ct)}
+.met-pts li svg{flex-shrink:0;margin-top:3px}
+.met-img{position:relative;overflow:hidden}
+.met-img img{width:100%;height:480px;object-fit:cover;transition:transform .6s}
+.met-img:hover img{transform:scale(1.03)}
+.met-img::after{content:'';position:absolute;inset:0;border:3px solid var(--cp);opacity:.3;pointer-events:none}
+.gal{background:var(--cs)}
+.gal-g{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.gal-item{overflow:hidden;cursor:pointer;position:relative;aspect-ratio:1}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s,opacity .5s}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-item::after{content:'';position:absolute;inset:0;background:rgba(200,169,110,0);transition:background .3s}
+.gal-item:hover::after{background:rgba(200,169,110,.18)}
+.lb{display:none;position:fixed;inset:0;background:rgba(44,33,24,.92);z-index:2000;align-items:center;justify-content:center;padding:24px}
+.lb.open{display:flex}
+.lb-img{max-width:90vw;max-height:85vh;object-fit:contain}
+.lb-close{position:absolute;top:20px;right:28px;background:none;border:none;color:#fff;font-size:32px;cursor:pointer;line-height:1}
+.frm{background:var(--cb)}
+.frm-wrap{max-width:680px;margin:0 auto}
+.frm-wrap .s-title,.frm-wrap .s-sub,.frm-wrap .divider{text-align:center;margin-left:auto;margin-right:auto}
+.form-g{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+.fg{display:flex;flex-direction:column;gap:6px}
+.fg.full{grid-column:1/-1}
+.fg label{font-size:13px;letter-spacing:.12em;font-weight:500;color:var(--ct)}
+.fg input,.fg textarea{font-family:var(--ff);font-size:1rem;padding:12px 16px;background:var(--cs);border:1px solid transparent;color:var(--ct);outline:none;transition:border-color .3s;border-radius:0}
+.fg input:focus,.fg textarea:focus{border-color:var(--cp)}
+.fg textarea{resize:vertical;min-height:130px}
+.frm-sub{display:flex;justify-content:center;margin-top:28px}
+.b-submit{background:var(--ca);color:#fff;padding:14px 48px;font-family:var(--ff);font-size:15px;letter-spacing:.14em;font-weight:500;border:none;cursor:pointer;transition:background .3s,transform .3s;min-height:48px}
+.b-submit:hover{background:var(--cp);transform:translateY(-2px)}
+.frm-ok{display:none;text-align:center;padding:28px;color:var(--ca);font-size:1.15rem;font-style:italic;letter-spacing:.04em}
+.social{background:var(--cs);text-align:center}
+.soc-wrap{max-width:700px;margin:0 auto}
+.soc-stars{display:flex;justify-content:center;gap:6px;margin-bottom:16px}
+.soc-star svg{fill:var(--cp);width:28px;height:28px}
+.soc-score{font-size:3.2rem;font-weight:300;color:var(--ct);letter-spacing:.04em;line-height:1}
+.soc-count{font-size:.9rem;color:#6b5a4e;font-style:italic;margin-top:6px;margin-bottom:40px}
+.soc-badges{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:40px}
+.badge{display:flex;flex-direction:column;align-items:center;gap:8px;padding:20px 24px;background:var(--cb);min-width:140px}
+.badge svg{width:32px;height:32px;fill:var(--cp)}
+.badge span{font-size:12px;letter-spacing:.12em;color:var(--ct);font-weight:500;text-align:center}
+.testi-g{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.testi{background:var(--cb);padding:28px 24px}
+.testi-q{font-size:1rem;color:var(--ct);font-style:italic;line-height:1.7;margin-bottom:16px}
+.testi-a{font-size:12px;letter-spacing:.12em;color:var(--cp);font-weight:500}
+.ftr{background:var(--ct);color:rgba(255,255,255,.82)}
+.ftr-g{max-width:1100px;margin:0 auto;padding:64px 24px 40px;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px}
+.ftr-brand{display:flex;flex-direction:column;gap:16px}
+.ftr-logo{font-size:28px;font-weight:600;letter-spacing:.18em;color:#fff}
+.ftr-logo span{color:var(--cp)}
+.ftr-addr{font-size:.9rem;line-height:1.8;color:rgba(255,255,255,.7)}
+.ftr-tel{display:inline-block;font-size:1.05rem;color:var(--cp);font-weight:500;letter-spacing:.06em;margin-top:4px;transition:color .3s}
+.ftr-tel:hover{color:#fff}
+.ftr-h{font-size:12px;letter-spacing:.18em;color:#fff;font-weight:600;margin-bottom:16px;text-transform:uppercase}
+.ftr-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ftr-links a{font-size:.9rem;color:rgba(255,255,255,.7);transition:color .3s}
+.ftr-links a:hover{color:var(--cp)}
+.ftr-bottom{border-top:1px solid rgba(255,255,255,.12);text-align:center;padding:20px 24px;font-size:12px;color:rgba(255,255,255,.45);letter-spacing:.06em}
+.ftr-bottom a{color:rgba(255,255,255,.55);transition:color .3s}
+.ftr-bottom a:hover{color:var(--cp)}
+@media(max-width:900px){
+.svc-g{grid-template-columns:1fr 1fr}
+.met-g{grid-template-columns:1fr;gap:40px}
+.met-img{order:-1}
+.met-img img{height:340px}
+.testi-g{grid-template-columns:1fr}
+.ftr-g{grid-template-columns:1fr}
+}
+@media(max-width:680px){
+.gal-g{grid-template-columns:repeat(2,1fr)}
+.form-g{grid-template-columns:1fr}
+.soc-badges{gap:12px}
+.badge{min-width:120px;padding:16px}
+}
+@media(max-width:480px){
+.svc-g{grid-template-columns:1fr}
+.gal-g{grid-template-columns:repeat(2,1fr)}
+.b-submit{width:100%}
+.ftr-g{padding:48px 16px 32px}
+.ftr-bottom{padding:16px}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s svc" id="services">
+  <div class="s-inner">
+    <div style="text-align:center">
+      <h2 class="s-title reveal">Nos <em>créations</em></h2>
+      <div class="divider reveal"></div>
+      <p class="s-sub reveal">Chaque pièce est pensée, façonnée et polie à la main dans notre atelier de Nouméa</p>
+    </div>
+    <div class="svc-g">
+      <div class="c reveal">
+        <div class="c-ico">
+          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="26" cy="26" r="24" stroke="#C8A96E" stroke-width="1.5"/>
+            <circle cx="26" cy="26" r="10" stroke="#C8A96E" stroke-width="1.5"/>
+            <line x1="26" y1="2" x2="26" y2="14" stroke="#C8A96E" stroke-width="1.5"/>
+            <line x1="26" y1="38" x2="26" y2="50" stroke="#C8A96E" stroke-width="1.5"/>
+            <line x1="2" y1="26" x2="14" y2="26" stroke="#C8A96E" stroke-width="1.5"/>
+            <line x1="38" y1="26" x2="50" y2="26" stroke="#C8A96E" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <h3 class="c-title">Bagues & Alliances</h3>
+        <p class="c-desc">Anneaux travaillés à la main, ornés de pierres ou épurés, pour chaque moment de vie.</p>
+        <a href="#contact" class="b-link">Demander un devis →</a>
+      </div>
+      <div class="c reveal">
+        <div class="c-ico">
+          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M26 4 L30 18 L44 18 L33 27 L37 41 L26 32 L15 41 L19 27 L8 18 L22 18 Z" stroke="#C8A96E" stroke-width="1.5" fill="none"/>
+          </svg>
+        </div>
+        <h3 class="c-title">Colliers & Pendentifs</h3>
+        <p class="c-desc">Pièces uniques suspendues avec soin, du métal brut à la finition laquée dorée.</p>
+        <a href="#contact" class="b-link">Demander un devis →</a>
+      </div>
+      <div class="c reveal">
+        <div class="c-ico">
+          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="26" cy="36" rx="16" ry="6" stroke="#C8A96E" stroke-width="1.5"/>
+            <path d="M10 36 Q10 16 26 12 Q42 16 42 36" stroke="#C8A96E" stroke-width="1.5" fill="none"/>
+            <circle cx="26" cy="12" r="3" stroke="#C8A96E" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <h3 class="c-title">Bracelets & Joncs</h3>
+        <p class="c-desc">De la manchette sculptée au jonc fin, chaque bracelet épouse la forme du poignet.</p>
+        <a href="#contact" class="b-link">Demander un devis →</a>
+      </div>
+      <div class="c reveal">
+        <div class="c-ico">
+          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="26" cy="18" r="8" stroke="#C8A96E" stroke-width="1.5"/>
+            <line x1="26" y1="26" x2="26" y2="46" stroke="#C8A96E" stroke-width="1.5"/>
+            <line x1="20" y1="38" x2="32" y2="38" stroke="#C8A96E" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <h3 class="c-title">Boucles d'Oreilles</h3>
+        <p class="c-desc">Créoles, puces ou pendantes — chaque paire est équilibrée, précise, portée avec caractère.</p>
+        <a href="#contact" class="b-link">Demander un devis →</a>
+      </div>
+      <div class="c reveal">
+        <div class="c-ico">
+          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="20" width="36" height="22" rx="2" stroke="#C8A96E" stroke-width="1.5"/>
+            <path d="M18 20 Q18 10 26 10 Q34 10 34 20" stroke="#C8A96E" stroke-width="1.5" fill="none"/>
+            <circle cx="26" cy="31" r="4" stroke="#C8A96E" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <h3 class="c-title">Pièces sur Mesure</h3>
+        <p class="c-desc">Vous apportez l'intention, nous apportons la matière. Chaque commande est une création unique.</p>
+        <a href="#contact" class="b-link">Commencer le projet →</a>
+      </div>
+      <div class="c reveal">
+        <div class="c-ico">
+          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M26 6 L32 20 L48 22 L37 33 L40 48 L26 41 L12 48 L15 33 L4 22 L20 20 Z" stroke="#C8A96E" stroke-width="1.5" fill="none"/>
+          </svg>
+        </div>
+        <h3 class="c-title">Retouches & Réparations</h3>
+        <p class="c-desc">Redonnez vie à vos bijoux anciens ou hérités. Notre atelier reçoit toutes les pièces, quel qu'en soit l'état.</p>
+        <a href="#contact" class="b-link">Apporter ma pièce →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s met" id="metier">
+  <div class="s-inner">
+    <div class="met-g">
+      <div class="met-txt reveal">
+        <h2 class="s-title">L'atelier<br><em>DOLL</em></h2>
+        <div class="divider"></div>
+        <p class="met-body">Au cœur de la Rue de l'Alma à Nouméa, DOLL est un atelier de bijouterie artisanale où chaque pièce naît d'un geste précis et d'un matériau choisi. Ici, l'or n'est pas un produit de vitrine — c'est une matière vivante, travaillée à la main, façonnée pour durer.</p>
+        <p class="met-body">Notre démarche est simple : écouter, créer, livrer une pièce qui vous ressemble. Que vous ayez une idée précise ou une simple émotion à transmettre, nous traduisons l'intention en métal.</p>
+        <ul class="met-pts">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#C8A96E" stroke-width="1.3"/><path d="M5 9l3 3 5-5" stroke="#C8A96E" stroke-width="1.3" stroke-linecap="round"/></svg>
+            Fabrication intégralement réalisée à la main
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#C8A96E" stroke-width="1.3"/><path d="M5 9l3 3 5-5" stroke="#C8A96E" stroke-width="1.3" stroke-linecap="round"/></svg>
+            Matières sélectionnées : or, argent, pierres naturelles
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#C8A96E" stroke-width="1.3"/><path d="M5 9l3 3 5-5" stroke="#C8A96E" stroke-width="1.3" stroke-linecap="round"/></svg>
+            Commandes sur mesure acceptées toute l'année
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#C8A96E" stroke-width="1.3"/><path d="M5 9l3 3 5-5" stroke="#C8A96E" stroke-width="1.3" stroke-linecap="round"/></svg>
+            Atelier local, ancré dans le tissu urbain de Nouméa
+          </li>
+        </ul>
+      </div>
+      <div class="met-img reveal">
+        <img src="https://i.ibb.co/Q3s64bV9/DOLL-1.jpg" alt="Atelier DOLL bijouterie Nouméa" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="s gal" id="galerie">
+  <div class="s-inner">
+    <div style="text-align:center">
+      <h2 class="s-title reveal">La <em>galerie</em></h2>
+      <div class="divider reveal"></div>
+      <p class="s-sub reveal">Quelques pièces nées dans notre atelier de la Rue de l'Alma</p>
+    </div>
+    <div class="gal-g">
+      <div class="gal-item reveal" onclick="openLb(this)">
+        <img src="https://i.ibb.co/C37m6Xr3/DOLL-0.jpg" alt="Bijoux DOLL Nouméa" loading="lazy" data-full="https://i.ibb.co/C37m6Xr3/DOLL-0.jpg">
+      </div>
+      <div class="gal-item reveal" onclick="openLb(this)">
+        <img src="https://i.ibb.co/Q3s64bV9/DOLL-1.jpg" alt="Création bijouterie DOLL" loading="lazy" data-full="https://i.ibb.co/Q3s64bV9/DOLL-1.jpg">
+      </div>
+      <div class="gal-item reveal" onclick="openLb(this)">
+        <img src="https://i.ibb.co/xyj2Y3L/DOLL-2.jpg" alt="Pièce sur mesure DOLL" loading="lazy" data-full="https://i.ibb.co/xyj2Y3L/DOLL-2.jpg">
+      </div>
+      <div class="gal-item reveal" onclick="openLb(this)">
+        <img src="https://i.ibb.co/NgFQFBJ9/DOLL-3.jpg" alt="Atelier bijoux Nouméa DOLL" loading="lazy" data-full="https://i.ibb.co/NgFQFBJ9/DOLL-3.jpg">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" onclick="closeLb()">
+  <button class="lb-close" onclick="closeLb()">✕</button>
+  <img class="lb-img" id="lb-img" src="" alt="Bijou DOLL agrandi">
+</div>
+
+<!-- FORMULAIRE -->
+<section class="s frm" id="contact">
+  <div class="s-inner frm-wrap">
+    <h2 class="s-title reveal">Parlons de votre <em>projet</em></h2>
+    <div class="divider reveal"></div>
+    <p class="s-sub reveal">Une question, une idée, une commande sur mesure — nous répondons à chaque message avec attention</p>
+    <form id="cform" action="#" novalidate>
+      <div class="form-g">
+        <div class="fg reveal">
+          <label for="fname">Votre nom</label>
+          <input type="text" id="fname" name="nom" placeholder="Prénom et nom" required>
+        </div>
+        <div class="fg reveal">
+          <label for="femail">Adresse e-mail</label>
+          <input type="email" id="femail" name="email" placeholder="votre@email.com" required>
+        </div>
+        <div class="fg reveal">
+          <label for="ftel">Téléphone</label>
+          <input type="tel" id="ftel" name="telephone" placeholder="Votre numéro">
+        </div>
+        <div class="fg reveal">
+          <label for="fsujet">Sujet</label>
+          <input type="text" id="fsujet" name="sujet" placeholder="Sur mesure, réparation…">
+        </div>
+        <div class="fg full reveal">
+          <label for="fmsg">Votre message</label>
+          <textarea id="fmsg" name="message" placeholder="Décrivez votre projet ou votre pièce…" required></textarea>
+        </div>
+      </div>
+      <div class="frm-sub reveal">
+        <button type="submit" class="b-submit" id="fsub">Envoyer le message</button>
+      </div>
+    </form>
+    <div class="frm-ok" id="frm-ok">✦ Merci — votre message a bien été envoyé. Nous vous répondrons sous 48h.</div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s social" id="avis">
+  <div class="s-inner soc-wrap">
+    <h2 class="s-title reveal">Notre <em>réputation</em></h2>
+    <div class="divider reveal"></div>
+    <div class="soc-stars reveal">
+      <div class="soc-star"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+      <div class="soc-star"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+      <div class="soc-star"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+      <div class="soc-star"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+      <div class="soc-star"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+    </div>
+    <div class="soc-score reveal">5 / 5</div>
+    <p class="soc-count reveal">Noté sur Google · Soyez parmi les premiers à laisser un avis</p>
+    <div class="testi-g">
+      <div class="testi reveal">
+        <p class="testi-q">« Une alliance sur mesure réalisée avec une précision remarquable. L'équipe a su traduire notre vision en une pièce que nous portons chaque jour avec bonheur. »</p>
+        <span class="testi-a">— Marie-Claire, Nouméa</span>
+      </div>
+      <div class="testi reveal">
+        <p class="testi-q">« J'ai apporté un bracelet hérité de ma grand-mère pour une réparation. Rendu comme neuf, avec le même soin que si c'était leur propre création. »</p>
+        <span class="testi-a">— Thomas, Dumbéa</span>
+      </div>
+      <div class="testi reveal">
+        <p class="testi-q">« Un pendentif unique commandé pour un anniversaire. Le résultat dépasse toutes nos attentes — une véritable pièce d'artisan. »</p>
+        <span class="testi-a">— Sophie, Nouméa</span>
+      </div>
+    </div>
+    <div class="soc-badges reveal">
+      <div class="badge">
+        <svg viewBox="0 0 32 32"><path d="M16 2l3.6 7.4L28 10.6l-6 5.8 1.4 8.2L16 20.4l-7.4 4.2 1.4-8.2-6-5.8 8.4-1.2z"/></svg>
+        <span>ARTISAN LOCAL</span>
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 32 32"><rect x="4" y="8" width="24" height="18" rx="2" stroke="#C8A96E" stroke-width="1.5" fill="none"/><path d="M4 13h24" stroke="#C8A96E" stroke-width="1.5"/><circle cx="10" cy="20" r="2" fill="#C8A96E"/></svg>
+        <span>SUR MESURE</span>
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" stroke="#C8A96E" stroke-width="1.5" fill="none"/><path d="M10 16l4 4 8-8" stroke="#C8A96E" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+        <span>QUALITÉ GARANTIE</span>
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 32 32"><path d="M16 4 C16 4 6 10 6 18 a10 10 0 0 0 20 0 C26 10 16 4 16 4z" stroke="#C8A96E" stroke-width="1.5" fill="none"/></svg>
+        <span>FAIT MAIN</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ftr">
+  <div class="ftr-g">
+    <div class="ftr-brand">
+      <div class="ftr-logo">D<span>O</span>LL</div>
+      <p class="ftr-addr">PCJR+5RQ, Rue de l'Alma<br>Nouméa 98800<br>Nouvelle-Calédonie</p>
+      <a href="tel:+68728.87.87" class="ftr-tel">28.87.87</a>
+    </div>
+    <div>
+      <p class="ftr-h">Navigation</p>
+      <ul class="ftr-links">
+        <li><a href="#services">Créations</a></li>
+        <li><a href="#metier">L'atelier</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="ftr-h">Contact</p>
+      <ul class="ftr-links">
+        <li><a href="tel:+68728.87.87">28.87.87</a></li>
+        <li><a href="#contact">Formulaire de contact</a></li>
+        <li><a href="#contact">Commande sur mesure</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ftr-bottom">
+    <p>© 2026 DOLL. Tous droits réservés. &nbsp;·&nbsp; <a href="https://setup.nc" target="_blank" rel="noopener">Site réalisé par Setup</a></p>
+  </div>
+</footer>
+
+<script>
+function openLb(el){var s=el.querySelector('img').getAttribute('data-full');document.getElementById('lb-img').src=s;document.getElementById('lb').classList.add('open');document.body.style.overflow='hidden'}
+function closeLb(){document.getElementById('lb').classList.remove('open');document.body.style.overflow=''}
+document.getElementById('cform').addEventListener('submit',function(e){
+e.preventDefault();
+var n=document.getElementById('fname').value.trim();
+var m=document.getElementById('fmsg').value.trim();
+var em=document.getElementById('femail').value.trim();
+if(!n||!m||!em){return;}
+var sb=document.getElementById('fsub');
+sb.textContent='Envoi…';sb.disabled=true;
+setTimeout(function(){
+document.getElementById('cform').style.display='none';
+document.getElementById('frm-ok').style.display='block';
+},900);
+});
+var nums=document.querySelectorAll('.stat-n[data-target]');
+var counted=false;
+function countUp(){if(counted)return;counted=true;nums.forEach(function(n){var t=+n.getAttribute('data-target'),d=Math.ceil(1200/t),i=0;var iv=setInterval(function(){i+=1;n.textContent=i;if(i>=t)clearInterval(iv);},d);})}
+var obs=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');if(e.target.classList.contains('stat'))countUp();}});},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+document.querySelectorAll('.stat').forEach(function(el){obs.observe(el);});
+</script>
+</body>
+</html>
