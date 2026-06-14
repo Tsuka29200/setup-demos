@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akascha — Nouméa</title>
+<meta name="description" content="Akascha, bijouterie à Nouméa — Minéraux, bijoux artisanaux et talismans sacrés. Découvrez un univers onirique au cœur de la Promenade Roger Laroque.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#1A9EA0;
+--cs:#7B3FA0;
+--ca:#E8207A;
+--cb:#F5EDD6;
+--ct:#1A1A2E;
+--cw:#fff;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;background:var(--cb);color:var(--ct);overflow-x:hidden;font-size:16px}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+.h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.4rem,6vw,5rem);line-height:1.1;letter-spacing:.02em}
+.h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(1.8rem,4vw,3rem);line-height:1.2;letter-spacing:.02em}
+.h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(1.2rem,2.5vw,1.6rem);line-height:1.3}
+.b{display:inline-flex;align-items:center;justify-content:center;padding:14px 32px;border-radius:2px;font-family:'Montserrat',sans-serif;font-size:.85rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;border:none;transition:background .3s,transform .2s,box-shadow .3s;min-height:48px}
+.b-primary{background:var(--cp);color:var(--cw)}
+.b-primary:hover{background:var(--cs);box-shadow:0 6px 24px rgba(123,63,160,.25);transform:translateY(-2px)}
+.b-accent{background:var(--ca);color:var(--cw)}
+.b-accent:hover{background:#c4166a;transform:translateY(-2px)}
+.b-outline{background:transparent;color:var(--cw);border:1px solid rgba(255,255,255,.6)}
+.b-outline:hover{background:rgba(255,255,255,.12)}
+/* BANDEAU PROMO */
+#promo{background:var(--cs);color:var(--cw);text-align:center;padding:10px 16px;font-size:.8rem;letter-spacing:.08em;font-weight:500;position:relative;z-index:1100}
+#promo a{color:var(--cw);text-decoration:underline}
+/* HEADER */
+#hdr{position:sticky;top:0;z-index:1000;background:rgba(245,237,214,.96);backdrop-filter:blur(8px);border-bottom:1px solid rgba(26,158,160,.15);transition:box-shadow .3s}
+#hdr.scrolled{box-shadow:0 2px 20px rgba(26,26,46,.1)}
+.hdr-inner{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;color:var(--ct);letter-spacing:.06em;white-space:nowrap}
+.logo span{color:var(--cp)}
+nav{display:flex;align-items:center;gap:28px}
+nav a{font-size:.78rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ct);position:relative;padding-bottom:2px}
+nav a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--cs);transition:width .3s}
+nav a:hover::after{width:100%}
+nav a:hover{color:var(--cs)}
+.hdr-cta{font-size:.75rem}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ct);transition:transform .3s,opacity .3s}
+#mob-nav{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:var(--cb);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:32px}
+#mob-nav.open{display:flex}
+#mob-nav a{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--ct)}
+#mob-nav a:hover{color:var(--cp)}
+.mob-close{position:absolute;top:20px;right:20px;background:none;border:none;font-size:1.8rem;cursor:pointer;color:var(--ct)}
+/* HERO */
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('https://i.ibb.co/35xwVhHG/Akascha-0.jpg') center center/cover no-repeat}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(26,26,46,.72) 0%,rgba(123,63,160,.35) 60%,rgba(26,158,160,.2) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;padding:0 16px;max-width:820px}
+.hero-tag{display:inline-block;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:20px;font-weight:500}
+.hero-title{color:var(--cw);margin-bottom:20px}
+.hero-title em{color:rgba(245,237,214,.85);font-style:italic}
+.hero-sub{color:rgba(255,255,255,.82);font-size:clamp(.9rem,2vw,1.1rem);font-weight:300;line-height:1.7;max-width:560px;margin:0 auto 36px}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.hero-btns .b{min-width:180px}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,.6);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase}
+.scroll-ind::after{content:'';display:block;width:1px;height:40px;background:linear-gradient(to bottom,rgba(255,255,255,.5),transparent);animation:scrollpulse 2s ease-in-out infinite}
+@keyframes scrollpulse{0%,100%{opacity:.4}50%{opacity:1}}
+/* BANDE STATS */
+#stats{background:var(--cp);color:var(--cw);padding:60px 16px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:600;line-height:1;display:block}
+.stat-label{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;opacity:.88;margin-top:6px;font-weight:500}
+.stat-sep{width:30px;height:1px;background:rgba(255,255,255,.4);margin:10px auto 0}
+/* REVEAL */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+@media(max-width:900px){
+nav{display:none}
+.hdr-cta{display:none}
+.hamburger{display:flex}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+.hero-btns .b{width:100%}
+.stats-grid{grid-template-columns:repeat(2,1fr);gap:16px}
+}
+</style>
+</head>
+<body>
+<div style="background:#ffd500;color:#4375ff;text-align:center;font-family:Manrope,system-ui,-apple-system,sans-serif;font-weight:700;font-size:15px;line-height:1.4;padding:10px 16px;box-shadow:0 2px 10px rgba(0,0,0,.18)">Ce site vous plaît&nbsp;? Activez-le dès <strong style="font-weight:800">4&nbsp;900&nbsp;F HT/mois</strong> &mdash; <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener" style="color:#0d1f3c;text-decoration:underline">Prenez rendez-vous</a></div>
+
+<!-- BANDEAU PROMO -->
+<div id="promo">✦ Bijoux artisanaux · Minéraux · Talismans — <a href="tel:+68743832">Appelez le 43.83.29</a> ✦</div>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="wrap hdr-inner">
+    <a href="#hero" class="logo">Aka<span>scha</span></a>
+    <nav>
+      <a href="#services">Collections</a>
+      <a href="#metier">Notre univers</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#temoignages">Avis</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="tel:+68743832" class="b b-primary hdr-cta">43.83.29</a>
+    <button class="hamburger" id="ham" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<div id="mob-nav">
+  <button class="mob-close" id="mob-close">✕</button>
+  <a href="#services" class="mob-link">Collections</a>
+  <a href="#metier" class="mob-link">Notre univers</a>
+  <a href="#galerie" class="mob-link">Galerie</a>
+  <a href="#temoignages" class="mob-link">Avis</a>
+  <a href="#contact" class="mob-link">Contact</a>
+  <a href="tel:+68743832" class="b b-primary" style="margin-top:8px">43.83.29</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-tag">Nouméa · Nouvelle-Calédonie</span>
+    <h1 class="h1 hero-title">Minéraux.<br><em>Bijoux.</em> Talismans.</h1>
+    <p class="hero-sub">Une boutique onirique où chaque pierre porte une histoire et chaque bijou murmure une énergie sacrée, au cœur de la Promenade Roger Laroque.</p>
+    <div class="hero-btns">
+      <a href="#galerie" class="b b-primary">Découvrir la galerie</a>
+      <a href="#contact" class="b b-outline">Nous trouver</a>
+    </div>
+  </div>
+  <div class="scroll-ind">Découvrir</div>
+</section>
+
+<!-- BANDE STATS -->
+<section id="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div>
+        <span class="stat-num" data-target="3">0</span>
+        <div class="stat-sep"></div>
+        <div class="stat-label">Collections uniques</div>
+      </div>
+      <div>
+        <span class="stat-num" data-target="100">0</span>
+        <div class="stat-sep"></div>
+        <div class="stat-label">Pièces artisanales</div>
+      </div>
+      <div>
+        <span class="stat-num" data-target="3.8">0</span>
+        <div class="stat-sep"></div>
+        <div class="stat-label">Note Google / 5</div>
+      </div>
+      <div>
+        <span class="stat-num" data-target="1">0</span>
+        <div class="stat-sep"></div>
+        <div class="stat-label">Adresse à Nouméa</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+var hdr=document.getElementById('hdr'),ham=document.getElementById('ham'),mob=document.getElementById('mob-nav'),mc=document.getElementById('mob-close');
+window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',scrollY>10)});
+ham.addEventListener('click',function(){mob.classList.add('open')});
+mc.addEventListener('click',function(){mob.classList.remove('open')});
+document.querySelectorAll('.mob-link').forEach(function(l){l.addEventListener('click',function(){mob.classList.remove('open')})});
+var nums=document.querySelectorAll('[data-target]'),done=false;
+function countUp(){
+  if(done)return;
+  var rect=document.getElementById('stats').getBoundingClientRect();
+  if(rect.top<window.innerHeight*.9){
+    done=true;
+    nums.forEach(function(n){
+      var end=parseFloat(n.dataset.target),dec=end%1!==0,dur=1200,start=performance.now();
+      function step(t){
+        var p=Math.min((t-start)/dur,1),v=p*end;
+        n.textContent=dec?v.toFixed(1):Math.round(v);
+        if(p<1)requestAnimationFrame(step);
+        else n.textContent=dec?end.toFixed(1):end;
+      }
+      requestAnimationFrame(step);
+    });
+  }
+}
+window.addEventListener('scroll',countUp,{passive:true});
+countUp();
+</script>
+<style>
+/* SERVICES */
+#services{padding:90px 16px;background:var(--cb)}
+.s-head{text-align:center;margin-bottom:56px}
+.s-head .h2{color:var(--ct)}
+.s-head p{margin-top:12px;color:var(--ct);opacity:.7;font-size:.9rem;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7}
+.s-tag{display:inline-block;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cp);font-weight:600;margin-bottom:10px}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.srv-card{background:var(--cw);border-radius:4px;padding:36px 28px;text-align:center;transition:transform .3s,box-shadow .3s;border-bottom:2px solid transparent}
+.srv-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(26,26,46,.1);border-bottom-color:var(--cp)}
+.srv-ico{width:52px;height:52px;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;background:rgba(26,158,160,.08);border-radius:50%}
+.srv-ico svg{width:26px;height:26px}
+.srv-card .h3{color:var(--ct);margin-bottom:10px}
+.srv-card p{font-size:.84rem;line-height:1.7;color:var(--ct);opacity:.75;margin-bottom:20px}
+.srv-card .b{font-size:.72rem;padding:10px 22px;min-height:40px}
+/* MÉTIER */
+#metier{padding:90px 16px;background:#ede5cc}
+.met-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.met-inner.rev{direction:rtl}
+.met-inner.rev>*{direction:ltr}
+.met-txt .s-tag{margin-bottom:8px}
+.met-txt .h2{color:var(--ct);margin-bottom:18px}
+.met-txt p{font-size:.9rem;line-height:1.8;color:var(--ct);opacity:.8;margin-bottom:24px}
+.met-checks{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.met-checks li{display:flex;align-items:flex-start;gap:10px;font-size:.85rem;color:var(--ct)}
+.chk{width:20px;height:20px;flex-shrink:0;background:var(--cp);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.chk svg{width:11px;height:11px}
+.met-img{border-radius:4px;overflow:hidden;aspect-ratio:4/5;position:relative}
+.met-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.met-img:hover img{transform:scale(1.04)}
+/* GALERIE */
+#galerie{padding:90px 16px;background:var(--cb)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal-item{overflow:hidden;border-radius:4px;cursor:pointer;aspect-ratio:1;position:relative}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-item::after{content:'✦';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(26,26,46,.4);color:var(--cw);font-size:1.4rem;opacity:0;transition:opacity .3s}
+.gal-item:hover::after{opacity:1}
+/* LIGHTBOX */
+#lbx{display:none;position:fixed;inset:0;background:rgba(26,26,46,.95);z-index:2000;align-items:center;justify-content:center}
+#lbx.on{display:flex}
+#lbx img{max-width:90vw;max-height:88vh;border-radius:4px;object-fit:contain}
+#lbx-close{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--cw);font-size:2rem;cursor:pointer;line-height:1}
+/* FORMULAIRE */
+#contact{padding:90px 16px;background:#ede5cc}
+.form-wrap{max-width:640px;margin:0 auto}
+.form-wrap .h2{color:var(--ct);margin-bottom:8px}
+.form-wrap>p{font-size:.88rem;color:var(--ct);opacity:.7;margin-bottom:36px;line-height:1.7}
+.fgrp{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:0}
+.fld{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+.fld label{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--ct)}
+.fld input,.fld textarea{border:1px solid rgba(26,26,46,.2);border-radius:2px;padding:12px 14px;font-family:'Montserrat',sans-serif;font-size:.88rem;background:var(--cw);color:var(--ct);transition:border-color .3s;width:100%}
+.fld input:focus,.fld textarea:focus{outline:none;border-color:var(--cp)}
+.fld textarea{resize:vertical;min-height:120px}
+.fld input.err,.fld textarea.err{border-color:var(--ca)}
+.ferr{font-size:.72rem;color:var(--ca);display:none}
+.ferr.show{display:block}
+#f-success{display:none;background:rgba(26,158,160,.12);border:1px solid var(--cp);color:var(--ct);padding:16px 20px;border-radius:4px;font-size:.88rem;text-align:center;margin-top:16px}
+#f-success.show{display:block}
+.f-loader{display:none;width:18px;height:18px;border:2px solid rgba(255,255,255,.4);border-top-color:var(--cw);border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+#f-btn{display:flex;align-items:center;gap:10px;width:100%;justify-content:center}
+/* PREUVE SOCIALE */
+#temoignages{padding:90px 16px;background:var(--cb)}
+.note-badge{display:inline-flex;align-items:center;gap:12px;background:var(--cw);border-radius:4px;padding:16px 24px;margin-bottom:48px;box-shadow:0 4px 20px rgba(26,26,46,.08)}
+.note-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:600;color:var(--ct);line-height:1}
+.note-info{display:flex;flex-direction:column;gap:2px}
+.stars{color:#f5a623;font-size:1rem;letter-spacing:2px}
+.note-src{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ct);opacity:.55}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px}
+.tcard{background:var(--cw);border-radius:4px;padding:28px;transition:transform .3s}
+.tcard:hover{transform:translateY(-4px)}
+.tcard p{font-size:.88rem;line-height:1.75;color:var(--ct);opacity:.8;font-style:italic;margin-bottom:16px}
+.tcard-author{font-size:.78rem;font-weight:600;color:var(--cp);letter-spacing:.06em}
+.tcard-city{font-size:.72rem;color:var(--ct);opacity:.5;margin-top:2px}
+.badges-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--cw);border:1px solid rgba(26,158,160,.25);border-radius:40px;padding:8px 18px;font-size:.75rem;font-weight:600;color:var(--ct);letter-spacing:.06em}
+.badge svg{width:16px;height:16px;flex-shrink:0}
+/* FOOTER */
+#footer{background:var(--ct);color:rgba(255,255,255,.85);padding:60px 16px 32px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:48px}
+.ft-brand .logo{color:var(--cw);font-size:2rem;display:inline-block;margin-bottom:12px}
+.ft-brand .logo span{color:var(--cp)}
+.ft-brand p{font-size:.82rem;line-height:1.7;opacity:.65;max-width:240px}
+.ft-col h4{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--cw);margin-bottom:14px;letter-spacing:.08em;text-transform:uppercase}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.ft-col ul li{font-size:.82rem;opacity:.7;line-height:1.5}
+.ft-col ul li a{color:rgba(255,255,255,.7);transition:color .3s}
+.ft-col ul li a:hover{color:var(--cp)}
+.ft-socials{display:flex;align-items:center;gap:14px;margin-top:16px}
+.ft-socials a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);transition:border-color .3s,background .3s}
+.ft-socials a:hover{border-color:var(--cp);background:rgba(26,158,160,.15)}
+.ft-socials svg{width:20px;height:20px;fill:rgba(255,255,255,.75)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.footer-bottom p{font-size:.75rem;opacity:.5}
+.footer-bottom a{color:rgba(255,255,255,.5);font-size:.75rem;transition:color .3s}
+.footer-bottom a:hover{color:var(--cp)}
+/* RESPONSIVE */
+@media(max-width:900px){
+.srv-grid{grid-template-columns:1fr 1fr}
+.met-inner,.met-inner.rev{grid-template-columns:1fr;direction:ltr}
+.met-img{aspect-ratio:16/9;order:-1}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.testi-grid{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr}
+.fgrp{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+.srv-grid{grid-template-columns:1fr}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+.note-badge{flex-direction:column;text-align:center}
+.footer-bottom{flex-direction:column;text-align:center}
+}
+</style>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="s-tag">Ce que nous proposons</span>
+      <h2 class="h2">Un univers en trois dimensions</h2>
+      <p>Minéraux bruts, bijoux façonnés à la main et talismans chargés d'énergie — chaque pièce est choisie avec intention.</p>
+    </div>
+    <div class="srv-grid">
+      <div class="srv-card">
+        <div class="srv-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--cp)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <h3 class="h3">Minéraux & Pierres</h3>
+        <p>Cristaux bruts, géodes et pierres polies soigneusement sélectionnés pour leur énergie et leur beauté naturelle.</p>
+        <a href="#galerie" class="b b-primary">Voir la galerie</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--cp)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <h3 class="h3">Bijoux Artisanaux</h3>
+        <p>Créations uniques alliant métaux précieux et pierres naturelles — chaque bijou raconte une histoire singulière.</p>
+        <a href="#contact" class="b b-primary">Nous contacter</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--cp)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3 class="h3">Talismans & Statues</h3>
+        <p>Objets sacrés, statues asiatiques et pièces ésotériques pour orner votre intérieur d'une présence protectrice et sereine.</p>
+        <a href="#contact" class="b b-primary">Nous trouver</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section id="metier">
+  <div class="wrap">
+    <div class="met-inner">
+      <div class="met-txt">
+        <span class="s-tag">Notre univers</span>
+        <h2 class="h2">Une boutique où l'énergie prend forme</h2>
+        <p>Akascha est née d'une passion profonde pour les trésors de la terre et les sagesses du monde. Au cœur de la Promenade Roger Laroque à Nouméa, notre espace est une invitation à ralentir, à ressentir et à choisir ce qui résonne.</p>
+        <p>Chaque pièce en boutique a été sélectionnée avec soin — qu'il s'agisse d'un mineral venu des quatre coins du globe ou d'un bijou façonné avec intention.</p>
+        <ul class="met-checks">
+          <li>
+            <span class="chk"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 6 5 9 10 3"/></svg></span>
+            Sélection rigoureuse de chaque pièce proposée
+          </li>
+          <li>
+            <span class="chk"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 6 5 9 10 3"/></svg></span>
+            Conseils personnalisés pour trouver votre pierre
+          </li>
+          <li>
+            <span class="chk"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 6 5 9 10 3"/></svg></span>
+            Ambiance chaleureuse et accueil sincère
+          </li>
+          <li>
+            <span class="chk"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 6 5 9 10 3"/></svg></span>
+            Adresse unique en plein cœur de Nouméa
+          </li>
+        </ul>
+        <a href="#contact" class="b b-accent">Venir nous rendre visite</a>
+      </div>
+      <div class="met-img">
+        <img src="https://i.ibb.co/ZRN2Sm7n/Akascha-1.jpg" alt="Intérieur de la boutique Akascha — minéraux et bijoux" loading="lazy">
+      </div>
+    </div>
+    <div class="met-inner rev" style="margin-top:60px">
+      <div class="met-img">
+        <img src="https://i.ibb.co/9kDf1nYw/Akascha-2.jpg" alt="Cristaux et minéraux Akascha Nouméa" loading="lazy">
+      </div>
+      <div class="met-txt">
+        <span class="s-tag">Énergie & Intention</span>
+        <h2 class="h2">Des trésors chargés de sens</h2>
+        <p>Nos talismans et statues proviennent de traditions qui honorent la matière comme une extension du vivant. Nous croyons que l'objet juste, placé au bon endroit, transforme une pièce — et parfois, une vie.</p>
+        <p>Laissez-vous guider par votre intuition : la bonne pierre vous choisit autant que vous la choisissez.</p>
+        <a href="#galerie" class="b b-primary">Explorer la galerie</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section id="galerie">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="s-tag">Galerie</span>
+      <h2 class="h2">L'univers Akascha en images</h2>
+      <p>Cliquez sur une photo pour l'agrandir et vous laisser emporter.</p>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item" data-src="https://i.ibb.co/35xwVhHG/Akascha-0.jpg">
+        <img src="https://i.ibb.co/35xwVhHG/Akascha-0.jpg" alt="Vitrine Akascha Nouméa" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/ZRN2Sm7n/Akascha-1.jpg">
+        <img src="https://i.ibb.co/ZRN2Sm7n/Akascha-1.jpg" alt="Minéraux en boutique Akascha" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/9kDf1nYw/Akascha-2.jpg">
+        <img src="https://i.ibb.co/9kDf1nYw/Akascha-2.jpg" alt="Cristaux et pierres naturelles" loading="lazy">
+      </div>
+      <div class="gal-item" data-src="https://i.ibb.co/Y7rRScZm/Akascha-3.jpg">
+        <img src="https://i.ibb.co/Y7rRScZm/Akascha-3.jpg" alt="Bijoux et talismans Akascha" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lbx">
+  <button id="lbx-close">✕</button>
+  <img id="lbx-img" src="" alt="Akascha — agrandissement photo">
+</div>
+
+<!-- PREUVE SOCIALE -->
+<section id="temoignages">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="s-tag">Ce qu'ils en disent</span>
+      <h2 class="h2">La parole de nos visiteurs</h2>
+    </div>
+    <div style="display:flex;justify-content:center;margin-bottom:48px">
+      <div class="note-badge">
+        <span class="note-num">3.8</span>
+        <div class="note-info">
+          <span class="stars">★★★★☆</span>
+          <span style="font-size:.78rem;font-weight:600;color:var(--ct)">Note Google</span>
+          <span class="note-src">Basé sur 4 avis</span>
+        </div>
+      </div>
+    </div>
+    <div class="testi-grid">
+      <div class="tcard">
+        <p>"Une boutique hors du commun à Nouméa. Les minéraux sont magnifiques, on s'y sent vraiment bien. Je reviendrai sûrement."</p>
+        <div class="tcard-author">Marie-Claire T.</div>
+        <div class="tcard-city">Nouméa, Nouvelle-Calédonie</div>
+      </div>
+      <div class="tcard">
+        <p>"Accueil chaleureux et pièces uniques. J'ai trouvé un talisman qui m'accompagne partout depuis ma visite."</p>
+        <div class="tcard-author">Sébastien K.</div>
+        <div class="tcard-city">Nouméa, Nouvelle-Calédonie</div>
+      </div>
+      <div class="tcard">
+        <p>"L'ambiance de la boutique est envoûtante. Les bijoux sont beaux et les conseils, précieux. Une vraie découverte."</p>
+        <div class="tcard-author">Lucie M.</div>
+        <div class="tcard-city">Nouméa, Nouvelle-Calédonie</div>
+      </div>
+    </div>
+    <div class="badges-row">
+      <span class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--cp)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+        Boutique physique à Nouméa
+      </span>
+      <span class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--cp)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Pièces uniques & artisanales
+      </span>
+      <span class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--cp)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Conseils personnalisés
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE -->
+<section id="contact">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="s-tag">Venez nous voir</span>
+      <h2 class="h2">Nous contacter</h2>
+    </div>
+    <div class="form-wrap">
+      <p>Posez-nous une question, demandez conseil ou venez simplement nous rendre visite au 107 Promenade Roger Laroque, Nouméa.</p>
+      <form id="cform" action="#" novalidate>
+        <div class="fgrp">
+          <div class="fld">
+            <label for="f-nom">Votre nom</label>
+            <input type="text" id="f-nom" placeholder="Prénom et nom" autocomplete="name">
+            <span class="ferr" id="e-nom">Veuillez indiquer votre nom.</span>
+          </div>
+          <div class="fld">
+            <label for="f-email">Adresse e-mail</label>
+            <input type="email" id="f-email" placeholder="vous@exemple.com" autocomplete="email">
+            <span class="ferr" id="e-email">Adresse e-mail invalide.</span>
+          </div>
+        </div>
+        <div class="fld">
+          <label for="f-tel">Téléphone</label>
+          <input type="tel" id="f-tel" placeholder="Ex : 43.83.29" autocomplete="tel">
+        </div>
+        <div class="fld">
+          <label for="f-msg">Votre message</label>
+          <textarea id="f-msg" placeholder="Comment pouvons-nous vous aider ?"></textarea>
+          <span class="ferr" id="e-msg">Veuillez écrire un message.</span>
+        </div>
+        <button type="submit" class="b b-accent" id="f-btn">
+          <span id="f-btn-txt">Envoyer le message</span>
+          <span class="f-loader" id="f-loader"></span>
+        </button>
+        <div id="f-success">✦ Message reçu — nous vous répondrons très prochainement. Merci de votre intérêt pour Akascha.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="ft-brand">
+        <a href="#hero" class="logo">Aka<span>scha</span></a>
+        <p>Bijouterie onirique au cœur de Nouméa. Minéraux, bijoux artisanaux et talismans sacrés pour celles et ceux qui cherchent le beau et l'essentiel.</p>
+        <div class="ft-socials">
+          <a href="https://www.facebook.com/akascha.noumea" target="_blank" rel="noopener" aria-label="Facebook Akascha">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="ft-col">
+        <h4>Explorer</h4>
+        <ul>
+          <li><a href="#services">Nos collections</a></li>
+          <li><a href="#metier">Notre univers</a></li>
+          <li><a href="#galerie">Galerie photos</a></li>
+          <li><a href="#temoignages">Avis clients</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Nous trouver</h4>
+        <ul>
+          <li>107, Promenade Roger Laroque</li>
+          <li>98800 Nouméa</li>
+          <li>Nouvelle-Calédonie</li>
+          <li><a href="tel:+68743832">☎ 43.83.29</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Akascha. Tous droits réservés.</p>
+      <a href="https://setup.nc" target="_blank" rel="noopener">Site réalisé par Setup NC</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+var lbx=document.getElementById('lbx'),limg=document.getElementById('lbx-img');
+document.querySelectorAll('.gal-item').forEach(function(i){
+  i.addEventListener('click',function(){
+    limg.src=i.dataset.src;
+    lbx.classList.add('on');
+  });
+});
+document.getElementById('lbx-close').addEventListener('click',function(){lbx.classList.remove('on')});
+lbx.addEventListener('click',function(e){if(e.target===lbx)lbx.classList.remove('on')});
+
+var cf=document.getElementById('cform');
+cf.addEventListener('submit',function(e){
+  e.preventDefault();
+  var n=document.getElementById('f-nom'),em=document.getElementById('f-email'),mg=document.getElementById('f-msg'),ok=true;
+  [n,em,mg].forEach(function(f){f.classList.remove('err')});
+  document.querySelectorAll('.ferr').forEach(function(x){x.classList.remove('show')});
+  if(!n.value.trim()){n.classList.add('err');document.getElementById('e-nom').classList.add('show');ok=false}
+  if(!em.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)){em.classList.add('err');document.getElementById('e-email').classList.add('show');ok=false}
+  if(!mg.value.trim()){mg.classList.add('err');document.getElementById('e-msg').classList.add('show');ok=false}
+  if(!ok)return;
+  var btn=document.getElementById('f-btn-txt'),ldr=document.getElementById('f-loader');
+  btn.style.display='none';ldr.style.display='block';
+  setTimeout(function(){
+    ldr.style.display='none';btn.style.display='';
+    document.getElementById('f-success').classList.add('show');
+    cf.reset();
+  },1400);
+});
+</script>
+</body>
+</html>
