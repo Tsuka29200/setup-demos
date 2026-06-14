@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Villa Thaï Bijoutier — Nouméa</title>
+<meta name="description" content="Villa Thaï Bijoutier, bijouterie d'exception au cœur de Nouméa. Artisanat thaï raffiné, créations uniques et pierres précieuses en Nouvelle-Calédonie.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+--cp:#C9A84C;
+--cs:#7B1D2E;
+--ca:#E8D9A0;
+--cb:#F5F0E8;
+--ct:#2C1A0E;
+--cw:#fff;
+--ff:"Cormorant Garamond",Georgia,serif;
+--fs:"Inter",sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--fs);background:var(--cb);color:var(--ct);overflow-x:hidden;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* BANDEAU PROMO */
+.promo{background:var(--cs);color:var(--cw);text-align:center;padding:10px 16px;font-family:var(--ff);font-size:.95rem;letter-spacing:.04em;position:relative;z-index:1100}
+.promo span{color:var(--ca)}
+
+/* HEADER */
+.hdr{position:sticky;top:0;z-index:1000;background:rgba(245,240,232,.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--cp);padding:0 24px}
+.hdr-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:var(--ff);font-size:1.5rem;font-weight:600;color:var(--ct);letter-spacing:.03em;line-height:1.1}
+.logo span{color:var(--cp)}
+.nav{display:flex;align-items:center;gap:32px}
+.nav a{font-family:var(--ff);font-size:1.05rem;color:var(--ct);letter-spacing:.03em;position:relative;padding-bottom:2px;transition:color .3s}
+.nav a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--cp);transition:width .3s}
+.nav a:hover{color:var(--cp)}
+.nav a:hover::after{width:100%}
+.hdr-tel{font-family:var(--ff);font-size:1rem;color:var(--cp);letter-spacing:.04em;margin-right:16px}
+.b{display:inline-flex;align-items:center;justify-content:center;font-family:var(--ff);font-size:1rem;font-weight:600;letter-spacing:.06em;padding:10px 24px;border:2px solid var(--cp);background:var(--cs);color:var(--cw);cursor:pointer;transition:background .3s,color .3s,border-color .3s;min-height:44px}
+.b:hover{background:var(--cp);color:var(--ct);border-color:var(--cs)}
+.b-outline{background:transparent;color:var(--cs);border:2px solid var(--cs)}
+.b-outline:hover{background:var(--cs);color:var(--cw);border-color:var(--cs)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.burger span{display:block;width:24px;height:2px;background:var(--ct);transition:transform .3s,opacity .3s}
+.mob-nav{display:none;flex-direction:column;background:var(--cb);border-top:1px solid var(--ca);padding:16px 24px 24px}
+.mob-nav a{font-family:var(--ff);font-size:1.2rem;padding:10px 0;border-bottom:1px solid var(--ca);color:var(--ct)}
+.mob-nav .b{margin-top:16px;width:100%}
+.mob-nav.open{display:flex}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;background:url('https://i.ibb.co/BH0zyGtC/Villa-Tha-Bijoutier-0.jpg') center center/cover no-repeat}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(44,26,14,.78) 0%,rgba(123,29,46,.45) 60%,rgba(201,168,76,.18) 100%)}
+.hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 24px;width:100%}
+.hero-eyebrow{font-family:var(--ff);font-size:1rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ca);margin-bottom:18px;font-style:italic}
+.h1{font-family:var(--ff);font-size:clamp(2.6rem,6vw,5rem);font-weight:300;color:var(--cw);line-height:1.1;margin-bottom:20px;max-width:720px}
+.h1 em{font-style:italic;color:var(--ca)}
+.hero-sub{font-family:var(--ff);font-size:clamp(1.1rem,2vw,1.4rem);color:rgba(255,255,255,.85);max-width:540px;margin-bottom:36px;font-weight:300;line-height:1.55}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:60px}
+.hero-ctas .b{font-size:1.05rem;padding:14px 32px;min-height:52px}
+.hero-divider{position:absolute;bottom:0;left:0;width:100%;overflow:hidden;line-height:0}
+.scroll-ind{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.scroll-ind span{font-family:var(--ff);font-size:.85rem;letter-spacing:.12em;color:rgba(255,255,255,.6);text-transform:uppercase}
+.scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,var(--ca),transparent);animation:scrollpulse 2s ease-in-out infinite}
+@keyframes scrollpulse{0%,100%{opacity:.4;transform:scaleY(.8)}50%{opacity:1;transform:scaleY(1)}}
+
+/* ORNEMENT SVG */
+.orn{display:flex;justify-content:center;align-items:center;gap:12px;margin:0 auto}
+.orn-line{flex:1;height:1px;background:linear-gradient(to right,transparent,var(--cp),transparent);max-width:180px}
+
+/* BANDE STATS */
+.stats{background:var(--cs);padding:64px 24px;border-top:3px solid var(--cp);border-bottom:3px solid var(--cp)}
+.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
+.stat-item{padding:16px 8px}
+.stat-num{font-family:var(--ff);font-size:clamp(2.4rem,4vw,3.6rem);font-weight:600;color:var(--ca);line-height:1;margin-bottom:8px}
+.stat-label{font-family:var(--ff);font-size:1rem;color:rgba(255,255,255,.8);letter-spacing:.06em;font-style:italic}
+.stat-divider{width:1px;background:rgba(201,168,76,.3);align-self:stretch;margin:auto}
+
+/* FALLBACK REVEAL */
+.reveal,.fade,.animate,.scroll-reveal{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+.stat-divider{display:none}
+}
+@media(max-width:768px){
+.nav,.hdr-tel,.hdr .b{display:none}
+.burger{display:flex}
+.hero-ctas{flex-direction:column;align-items:flex-start}
+.hero-ctas .b{width:100%;max-width:340px}
+}
+@media(max-width:480px){
+.hdr-inner{height:60px}
+.logo{font-size:1.2rem}
+.h1{font-size:2.2rem}
+.stats-inner{grid-template-columns:1fr 1fr;gap:24px}
+.stats{padding:48px 16px}
+.hero-content{padding:0 16px}
+}
+</style>
+</head>
+<body>
+<div style="background:#ffd500;color:#4375ff;text-align:center;font-family:Manrope,system-ui,-apple-system,sans-serif;font-weight:700;font-size:15px;line-height:1.4;padding:10px 16px;box-shadow:0 2px 10px rgba(0,0,0,.18)">Ce site vous plaît&nbsp;? Activez-le dès <strong style="font-weight:800">4&nbsp;900&nbsp;F HT/mois</strong> &mdash; <a href="https://demo.setup.nc/activer/index.html" target="_blank" rel="noopener" style="color:#0d1f3c;text-decoration:underline">Prenez rendez-vous</a></div>
+
+<!-- BANDEAU PROMO -->
+<div class="promo">
+  ✦ Bijouterie d'exception à Nouméa — <span>Créations artisanales thaï &amp; pierres précieuses</span> — Venez nous rendre visite au 18 Rue Anatole France ✦
+</div>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-inner">
+    <a href="#accueil" class="logo">Villa Thaï <span>Bijoutier</span></a>
+    <nav class="nav">
+      <a href="#services">Savoir-faire</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#avis">Avis</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:12px">
+      <a href="tel:263727" class="hdr-tel">☎ 26.37.27</a>
+      <a href="#contact" class="b">Nous contacter</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mob-nav" id="mob-nav">
+    <a href="#services" onclick="closeMob()">Savoir-faire</a>
+    <a href="#galerie" onclick="closeMob()">Galerie</a>
+    <a href="#avis" onclick="closeMob()">Avis</a>
+    <a href="#contact" onclick="closeMob()">Contact</a>
+    <a href="tel:263727" style="color:var(--cp);font-style:italic">☎ 26.37.27</a>
+    <a href="#contact" class="b" onclick="closeMob()">Prendre contact</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">✦ Nouméa, Nouvelle-Calédonie ✦</p>
+    <h1 class="h1">L'Art du Bijou,<br><em>L'Âme de la Thaïlande</em></h1>
+    <p class="hero-sub">Au cœur de Nouméa, Villa Thaï Bijoutier vous invite dans un écrin d'élégance où l'artisanat thaï ancestral rencontre la lumière dorée du Pacifique.</p>
+    <div class="hero-ctas">
+      <a href="#galerie" class="b">Découvrir nos créations</a>
+      <a href="#contact" class="b b-outline" style="color:var(--ca);border-color:var(--ca)">Nous rendre visite</a>
+    </div>
+    <div class="scroll-ind">
+      <span>Découvrir</span>
+      <div class="scroll-line"></div>
+    </div>
+  </div>
+</section>
+
+<!-- BANDE STATS -->
+<section class="stats">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num" data-target="20" data-suffix="+">0+</div>
+      <div class="stat-label">Années d'expertise</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="500" data-suffix="+">0+</div>
+      <div class="stat-label">Créations réalisées</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="100" data-suffix="%">0%</div>
+      <div class="stat-label">Artisanat authentique</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="1" data-suffix="" data-prefix="N°">N°0</div>
+      <div class="stat-label">Bijouterie thaï à Nouméa</div>
+    </div>
+  </div>
+</section>
+
+<script>
+var b=document.getElementById('burger'),mn=document.getElementById('mob-nav');
+function closeMob(){mn.classList.remove('open')}
+b.addEventListener('click',function(){mn.classList.toggle('open')});
+
+var nums=document.querySelectorAll('[data-target]'),started=false;
+function animNums(){
+  if(started)return;started=true;
+  nums.forEach(function(el){
+    var t=+el.dataset.target,suf=el.dataset.suffix||'',pre=el.dataset.prefix||'',d=1200,s=Date.now();
+    var r=function(){
+      var p=Math.min((Date.now()-s)/d,1),v=Math.round(p*t);
+      el.textContent=pre+v+suf;
+      if(p<1)requestAnimationFrame(r);
+    };
+    requestAnimationFrame(r);
+  });
+}
+var so=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)animNums()})},{threshold:.3});
+so.observe(document.querySelector('.stats'));
+</script>
+<style>
+.s{padding:96px 24px;max-width:1200px;margin:0 auto}
+.s-full{padding:96px 24px}
+.s-title{font-family:var(--ff);font-size:clamp(2rem,4vw,3rem);font-weight:300;color:var(--ct);text-align:center;margin-bottom:12px}
+.s-sub{font-family:var(--ff);font-size:1.15rem;color:var(--cs);text-align:center;font-style:italic;margin-bottom:56px;letter-spacing:.04em}
+.sep{display:flex;justify-content:center;align-items:center;gap:12px;margin-bottom:20px}
+.sep-line{width:80px;height:1px;background:linear-gradient(to right,transparent,var(--cp))}
+.sep-line.r{background:linear-gradient(to left,transparent,var(--cp))}
+.sep-ico{color:var(--cp);font-size:1.1rem}
+
+/* SERVICES */
+.srv-bg{background:var(--cb);border-top:1px solid var(--cp)}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.c{background:var(--cw);border:1px solid var(--ca);padding:36px 28px;display:flex;flex-direction:column;align-items:flex-start;gap:14px;transition:box-shadow .3s,transform .3s}
+.c:hover{box-shadow:0 8px 40px rgba(201,168,76,.22);transform:translateY(-4px)}
+.c-ico{width:52px;height:52px;color:var(--cp)}
+.c-title{font-family:var(--ff);font-size:1.4rem;font-weight:600;color:var(--ct)}
+.c-text{font-size:.97rem;color:var(--ct);opacity:.85;line-height:1.65;flex:1}
+.c .b{margin-top:8px;font-size:.9rem;padding:9px 20px;min-height:42px}
+
+/* METIER */
+.met-bg{background:linear-gradient(135deg,var(--cb) 60%,rgba(232,217,160,.18))}
+.met-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.met-grid.rev{direction:rtl}
+.met-grid.rev>*{direction:ltr}
+.met-img{position:relative;overflow:hidden}
+.met-img img{width:100%;height:420px;object-fit:cover;transition:transform .5s}
+.met-img:hover img{transform:scale(1.05)}
+.met-img::after{content:'';position:absolute;inset:0;box-shadow:inset 0 0 40px rgba(232,217,160,.25);pointer-events:none}
+.met-label{font-family:var(--ff);font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cp);margin-bottom:12px}
+.met-h{font-family:var(--ff);font-size:clamp(1.8rem,3vw,2.5rem);font-weight:300;color:var(--ct);margin-bottom:16px;line-height:1.2}
+.met-h em{font-style:italic;color:var(--cs)}
+.met-p{font-size:.97rem;color:var(--ct);opacity:.88;line-height:1.7;margin-bottom:24px}
+.checks{display:flex;flex-direction:column;gap:10px}
+.chk{display:flex;align-items:flex-start;gap:10px;font-size:.95rem;color:var(--ct)}
+.chk-ico{color:var(--cp);font-size:1.1rem;flex-shrink:0;margin-top:2px}
+
+/* GALERIE */
+.gal-bg{background:var(--ct);border-top:3px solid var(--cp);border-bottom:3px solid var(--cp)}
+.gal-bg .s-title{color:var(--ca)}
+.gal-bg .s-sub{color:rgba(232,217,160,.7)}
+.gal-bg .sep-line,.gal-bg .sep-line.r{background:linear-gradient(to right,transparent,var(--ca));opacity:.5}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;max-width:1200px;margin:0 auto}
+.gal-item{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:1}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.gal-item:hover img{transform:scale(1.08)}
+.gal-overlay{position:absolute;inset:0;background:rgba(44,26,14,.0);display:flex;align-items:center;justify-content:center;transition:background .3s}
+.gal-item:hover .gal-overlay{background:rgba(44,26,14,.35)}
+.gal-overlay svg{opacity:0;transition:opacity .3s;color:var(--ca)}
+.gal-item:hover .gal-overlay svg{opacity:1}
+.lb{display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.92);align-items:center;justify-content:center;padding:24px}
+.lb.open{display:flex}
+.lb-img{max-width:90vw;max-height:85vh;object-fit:contain;border:2px solid var(--cp);box-shadow:0 0 60px rgba(201,168,76,.3)}
+.lb-close{position:absolute;top:20px;right:24px;font-size:2rem;color:var(--ca);cursor:pointer;line-height:1;background:none;border:none}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);font-size:2rem;color:var(--ca);cursor:pointer;background:none;border:none;padding:12px;opacity:.7;transition:opacity .2s}
+.lb-prev:hover,.lb-next:hover{opacity:1}
+.lb-prev{left:16px}
+.lb-next{right:16px}
+
+/* FORMULAIRE */
+.form-bg{background:var(--cb);border-top:1px solid var(--cp)}
+.form-wrap{max-width:680px;margin:0 auto;background:var(--cw);border:1px solid var(--ca);padding:48px 44px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
+.fg label{font-family:var(--ff);font-size:1rem;color:var(--ct);letter-spacing:.03em}
+.fg input,.fg textarea{font-family:var(--fs);font-size:.96rem;color:var(--ct);background:var(--cb);border:1px solid var(--ca);padding:12px 16px;outline:none;transition:border-color .3s;width:100%}
+.fg input:focus,.fg textarea:focus{border-color:var(--cp)}
+.fg textarea{resize:vertical;min-height:120px}
+.f-err{font-size:.82rem;color:var(--cs);display:none;margin-top:2px}
+.fg.err input,.fg.err textarea{border-color:var(--cs)}
+.fg.err .f-err{display:block}
+.f-success{display:none;background:rgba(201,168,76,.12);border:1px solid var(--cp);padding:20px 24px;text-align:center;font-family:var(--ff);font-size:1.15rem;color:var(--ct);margin-top:24px}
+.f-success.show{display:block}
+.f-loader{display:none;width:20px;height:20px;border:2px solid var(--ca);border-top-color:var(--ct);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* PREUVE SOCIALE */
+.avis-bg{background:linear-gradient(180deg,var(--cs) 0%,rgba(123,29,46,.88) 100%);border-top:3px solid var(--cp)}
+.avis-bg .s-title{color:var(--cw)}
+.avis-bg .s-sub{color:var(--ca)}
+.stars{color:var(--ca);font-size:1.6rem;letter-spacing:4px}
+.rating-block{text-align:center;margin-bottom:56px}
+.rating-num{font-family:var(--ff);font-size:4rem;font-weight:600;color:var(--ca);line-height:1}
+.rating-txt{font-family:var(--ff);font-size:1rem;color:rgba(255,255,255,.7);margin-top:6px;font-style:italic}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px}
+.testi{background:rgba(255,255,255,.07);border:1px solid rgba(201,168,76,.25);padding:28px 24px}
+.testi-stars{color:var(--ca);font-size:1rem;margin-bottom:10px}
+.testi-txt{font-family:var(--ff);font-size:1.05rem;color:rgba(255,255,255,.88);font-style:italic;line-height:1.6;margin-bottom:14px}
+.testi-name{font-size:.85rem;color:var(--ca);letter-spacing:.06em;text-transform:uppercase}
+.badges{display:flex;flex-wrap:wrap;justify-content:center;gap:20px}
+.badge{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);border:1px solid rgba(201,168,76,.3);padding:14px 22px}
+.badge-ico{color:var(--ca);flex-shrink:0}
+.badge-txt{font-family:var(--ff);font-size:.95rem;color:rgba(255,255,255,.85)}
+
+/* FOOTER */
+.ftr{background:var(--ct);border-top:3px solid var(--cp);padding:64px 24px 0}
+.ftr-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;padding-bottom:48px}
+.ftr-brand{display:flex;flex-direction:column;gap:14px}
+.ftr-logo{font-family:var(--ff);font-size:1.6rem;font-weight:600;color:var(--cw)}
+.ftr-logo span{color:var(--cp)}
+.ftr-desc{font-size:.92rem;color:rgba(255,255,255,.65);line-height:1.65;max-width:280px}
+.ftr-h{font-family:var(--ff);font-size:1.05rem;letter-spacing:.06em;color:var(--ca);margin-bottom:16px;text-transform:uppercase}
+.ftr-list{display:flex;flex-direction:column;gap:8px}
+.ftr-list a{font-size:.92rem;color:rgba(255,255,255,.65);transition:color .3s}
+.ftr-list a:hover{color:var(--ca)}
+.ftr-addr{font-size:.92rem;color:rgba(255,255,255,.65);line-height:1.7}
+.ftr-tel{display:inline-block;margin-top:8px;font-family:var(--ff);font-size:1.1rem;color:var(--ca);letter-spacing:.04em}
+.ftr-bottom{border-top:1px solid rgba(201,168,76,.2);padding:20px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;max-width:1200px;margin:0 auto}
+.ftr-copy{font-size:.85rem;color:rgba(255,255,255,.45)}
+.ftr-setup{font-size:.85rem;color:rgba(255,255,255,.45)}
+.ftr-setup a{color:var(--ca)}
+
+/* RESPONSIVE PART 2 */
+@media(max-width:900px){
+.srv-grid{grid-template-columns:1fr 1fr}
+.met-grid,.met-grid.rev{grid-template-columns:1fr;direction:ltr;gap:32px}
+.testi-grid{grid-template-columns:1fr}
+.ftr-inner{grid-template-columns:1fr;gap:32px}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+.s{padding:64px 16px}
+.s-full{padding:64px 16px}
+.srv-grid{grid-template-columns:1fr}
+.form-wrap{padding:32px 20px}
+.f-row{grid-template-columns:1fr}
+.met-img img{height:260px}
+.ftr{padding:48px 16px 0}
+.ftr-bottom{flex-direction:column;align-items:flex-start}
+.gal-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+
+<!-- SERVICES -->
+<section class="s-full srv-bg" id="services">
+<div class="s">
+  <div class="sep"><div class="sep-line"></div><div class="sep-ico">✦</div><div class="sep-line r"></div></div>
+  <h2 class="s-title">Notre Savoir-Faire</h2>
+  <p class="s-sub">Chaque pièce, une promesse d'excellence thaïe</p>
+  <div class="srv-grid">
+    <div class="c">
+      <svg class="c-ico" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="26" cy="20" r="10"/><path d="M14 38c0-6.627 5.373-12 12-12s12 5.373 12 12"/><path d="M26 10V6M18 14l-3-3M34 14l3-3"/></svg>
+      <div class="c-title">Bijoux Artisanaux Thaï</div>
+      <p class="c-text">Des créations façonnées selon les techniques ancestrales de l'orfèvrerie thaïlandaise, alliant finesse du trait et richesse des motifs floraux traditionnels.</p>
+      <a href="#contact" class="b">En savoir plus</a>
+    </div>
+    <div class="c">
+      <svg class="c-ico" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="26,6 32,18 46,20 36,30 38,44 26,37 14,44 16,30 6,20 20,18"/></svg>
+      <div class="c-title">Pierres Précieuses</div>
+      <p class="c-text">Une sélection rigoureuse de pierres gemmes — rubis, saphirs, émeraudes, diamants — serties avec soin pour sublimer chaque parure d'un éclat intemporel.</p>
+      <a href="#contact" class="b">En savoir plus</a>
+    </div>
+    <div class="c">
+      <svg class="c-ico" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 26c0-8.837 7.163-16 16-16s16 7.163 16 16-7.163 16-16 16"/><path d="M26 10v16l8 8"/><circle cx="26" cy="26" r="3"/></svg>
+      <div class="c-title">Créations Sur Mesure</div>
+      <p class="c-text">De l'esquisse au bijou fini, notre atelier conçoit vos pièces uniques : alliances, colliers, pendentifs — réalisés selon vos désirs et votre histoire personnelle.</p>
+      <a href="#contact" class="b">Nous consulter</a>
+    </div>
+    <div class="c">
+      <svg class="c-ico" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="10" y="16" width="32" height="24" rx="2"/><path d="M18 16v-4a8 8 0 0116 0v4"/><circle cx="26" cy="28" r="3"/></svg>
+      <div class="c-title">Restauration & Entretien</div>
+      <p class="c-text">Redonnez vie à vos bijoux de famille ou vos pièces précieuses. Notre expertise garantit un soin méticuleux pour préserver leur beauté et leur valeur sentimentale.</p>
+      <a href="#contact" class="b">Déposer un bijou</a>
+    </div>
+    <div class="c">
+      <svg class="c-ico" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M26 8l4 12h12l-10 7 4 12-10-7-10 7 4-12L10 20h12z"/></svg>
+      <div class="c-title">Or & Métaux Nobles</div>
+      <p class="c-text">Or jaune, or blanc, or rose, argent et platine travaillés avec une maîtrise irréprochable. Chaque alliage choisi pour magnifier la pièce dans la durée.</p>
+      <a href="#contact" class="b">Découvrir</a>
+    </div>
+    <div class="c">
+      <svg class="c-ico" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 36l20-20M20 16h12v12"/><rect x="8" y="8" width="36" height="36" rx="2"/></svg>
+      <div class="c-title">Conseil & Expertise</div>
+      <p class="c-text">Nos spécialistes vous accompagnent dans vos choix : certification des pierres, estimation de valeur, conseils personnalisés pour chaque occasion précieuse.</p>
+      <a href="#contact" class="b">Prendre rendez-vous</a>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SECTION MÉTIER -->
+<section class="s-full met-bg" id="metier">
+<div class="s">
+  <div class="sep"><div class="sep-line"></div><div class="sep-ico">✦</div><div class="sep-line r"></div></div>
+  <h2 class="s-title">L'Art de la Bijouterie Thaïe</h2>
+  <p class="s-sub">Une tradition vivante, au cœur du Pacifique</p>
+
+  <div class="met-grid" style="margin-bottom:72px">
+    <div class="met-img">
+      <img src="https://i.ibb.co/rRWpwYRv/Villa-Tha-Bijoutier-1.jpg" alt="Atelier bijouterie Villa Thaï Nouméa" loading="lazy">
+    </div>
+    <div>
+      <p class="met-label">Notre identité</p>
+      <h3 class="met-h">Un héritage thaï<br><em>implanté à Nouméa</em></h3>
+      <p class="met-p">Villa Thaï Bijoutier est née d'une passion profonde pour l'orfèvrerie thaïlandaise et d'un ancrage sincère en Nouvelle-Calédonie. Depuis notre écrin du 18 Rue Anatole France, nous vous proposons des bijoux qui portent en eux l'âme d'une tradition millénaire.</p>
+      <div class="checks">
+        <div class="chk"><span class="chk-ico">✦</span><span>Techniques d'orfèvrerie thaïe authentiques</span></div>
+        <div class="chk"><span class="chk-ico">✦</span><span>Matériaux nobles sélectionnés avec rigueur</span></div>
+        <div class="chk"><span class="chk-ico">✦</span><span>Chaque pièce conçue comme une œuvre unique</span></div>
+        <div class="chk"><span class="chk-ico">✦</span><span>Accueil chaleureux et conseil personnalisé</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="met-grid rev">
+    <div class="met-img">
+      <img src="https://i.ibb.co/6RTHB6kc/Villa-Tha-Bijoutier-3.jpg" alt="Bijoux précieux Villa Thaï Nouméa" loading="lazy">
+    </div>
+    <div>
+      <p class="met-label">Notre promesse</p>
+      <h3 class="met-h">La lumière du lagon<br><em>dans chaque pierre</em></h3>
+      <p class="met-p">Implantée au cœur de Nouméa, notre boutique est un voyage sensoriel où les reflets dorés du Pacifique semblent habiter chaque création. Nous sélectionnons des pierres et des matières qui résonnent avec la beauté singulière de la Nouvelle-Calédonie.</p>
+      <div class="checks">
+        <div class="chk"><span class="chk-ico">✦</span><span>Pierres certifiées et traçables</span></div>
+        <div class="chk"><span class="chk-ico">✦</span><span>Conseil en création sur mesure</span></div>
+        <div class="chk"><span class="chk-ico">✦</span><span>Service de restauration expert</span></div>
+        <div class="chk"><span class="chk-ico">✦</span><span>Écrins et emballages d'exception</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- GALERIE -->
+<section class="s-full gal-bg" id="galerie">
+  <div class="s" style="max-width:1200px">
+    <div class="sep"><div class="sep-line"></div><div class="sep-ico" style="color:var(--ca)">✦</div><div class="sep-line r"></div></div>
+    <h2 class="s-title">Notre Galerie</h2>
+    <p class="s-sub">Chaque image, un fragment d'excellence</p>
+  </div>
+  <div class="gal-grid">
+    <div class="gal-item" data-idx="0">
+      <img src="https://i.ibb.co/BH0zyGtC/Villa-Tha-Bijoutier-0.jpg" alt="Villa Thaï Bijoutier création 1" loading="lazy">
+      <div class="gal-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg></div>
+    </div>
+    <div class="gal-item" data-idx="1">
+      <img src="https://i.ibb.co/rRWpwYRv/Villa-Tha-Bijoutier-1.jpg" alt="Villa Thaï Bijoutier création 2" loading="lazy">
+      <div class="gal-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg></div>
+    </div>
+    <div class="gal-item" data-idx="2">
+      <img src="https://i.ibb.co/jxTJGzb/Villa-Tha-Bijoutier-2.jpg" alt="Villa Thaï Bijoutier création 3" loading="lazy">
+      <div class="gal-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg></div>
+    </div>
+    <div class="gal-item" data-idx="3">
+      <img src="https://i.ibb.co/6RTHB6kc/Villa-Tha-Bijoutier-3.jpg" alt="Villa Thaï Bijoutier création 4" loading="lazy">
+      <div class="gal-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true">
+  <button class="lb-close" id="lb-close" aria-label="Fermer">✕</button>
+  <button class="lb-prev" id="lb-prev" aria-label="Précédent">&#8592;</button>
+  <img class="lb-img" id="lb-img" src="" alt="Bijou Villa Thaï">
+  <button class="lb-next" id="lb-next" aria-label="Suivant">&#8594;</button>
+</div>
+
+<!-- FORMULAIRE -->
+<section class="s-full form-bg" id="contact">
+<div class="s">
+  <div class="sep"><div class="sep-line"></div><div class="sep-ico">✦</div><div class="sep-line r"></div></div>
+  <h2 class="s-title">Nous Contacter</h2>
+  <p class="s-sub">Votre bijou de rêve commence par un échange</p>
+  <div class="form-wrap">
+    <form id="cform" action="#" novalidate>
+      <div class="f-row">
+        <div class="fg" id="fg-nom">
+          <label for="f-nom">Nom complet</label>
+          <input type="text" id="f-nom" name="nom" placeholder="Votre nom" autocomplete="name">
+          <span class="f-err">Ce champ est requis</span>
+        </div>
+        <div class="fg" id="fg-email">
+          <label for="f-email">Adresse e-mail</label>
+          <input type="email" id="f-email" name="email" placeholder="votre@email.com" autocomplete="email">
+          <span class="f-err">E-mail invalide</span>
+        </div>
+      </div>
+      <div class="fg" id="fg-tel">
+        <label for="f-tel">Téléphone</label>
+        <input type="tel" id="f-tel" name="tel" placeholder="Ex : 26 37 27" autocomplete="tel">
+        <span class="f-err">Ce champ est requis</span>
+      </div>
+      <div class="fg" id="fg-msg">
+        <label for="f-msg">Votre message</label>
+        <textarea id="f-msg" name="message" placeholder="Décrivez votre projet, votre bijou de rêve…"></textarea>
+        <span class="f-err">Ce champ est requis</span>
+      </div>
+      <button type="submit" class="b" style="width:100%;font-size:1.05rem;min-height:52px">Envoyer ma demande</button>
+      <div class="f-loader" id="f-loader"></div>
+      <div class="f-success" id="f-success">
+        ✦ Merci ! Votre message a bien été envoyé.<br>Nous vous répondrons dans les plus brefs délais.
+      </div>
+    </form>
+  </div>
+</div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="s-full avis-bg" id="avis">
+<div class="s">
+  <div class="sep"><div class="sep-line" style="background:linear-gradient(to right,transparent,var(--ca));opacity:.5"></div><div class="sep-ico" style="color:var(--ca)">✦</div><div class="sep-line r" style="background:linear-gradient(to left,transparent,var(--ca));opacity:.5"></div></div>
+  <h2 class="s-title">Notre Réputation</h2>
+  <p class="s-sub">La confiance de nos clients, notre plus belle parure</p>
+  <div class="rating-block">
+    <div class="rating-num">5.0</div>
+    <div class="stars">★★★★★</div>
+    <div class="rating-txt">Note Google — Excellence reconnue à Nouméa</div>
+  </div>
+  <div class="testi-grid">
+    <div class="testi">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-txt">« Un accueil d'une rare bienveillance, des bijoux d'une finesse exceptionnelle. Villa Thaï est une véritable pépite de Nouméa. »</p>
+      <div class="testi-name">— Cliente fidèle, Nouméa</div>
+    </div>
+    <div class="testi">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-txt">« J'ai fait réaliser mon alliance sur mesure ici. Le résultat est au-delà de mes espérances — une pièce unique, d'une beauté absolue. »</p>
+      <div class="testi-name">— Client, Nouvelle-Calédonie</div>
+    </div>
+    <div class="testi">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-txt">« La restauration de mon collier de famille a été réalisée avec un soin et une précision remarquables. Je recommande sans hésiter. »</p>
+      <div class="testi-name">— Cliente, Nouméa</div>
+    </div>
+  </div>
+  <div class="badges">
+    <div class="badge">
+      <svg class="badge-ico" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <span class="badge-txt">Artisanat Thaï Authentique</span>
+    </div>
+    <div class="badge">
+      <svg class="badge-ico" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9S3 16.97 3 12 7.03 3 12 3s9 4.03 9 9z"/></svg>
+      <span class="badge-txt">Pierres Certifiées</span>
+    </div>
+    <div class="badge">
+      <svg class="badge-ico" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+      <span class="badge-txt">Confiance & Discrétion</span>
+    </div>
+    <div class="badge">
+      <svg class="badge-ico" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/></svg>
+      <span class="badge-txt">Boutique à Nouméa</span>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ftr">
+  <div class="ftr-inner">
+    <div class="ftr-brand">
+      <div class="ftr-logo">Villa Thaï <span>Bijoutier</span></div>
+      <p class="ftr-desc">Bijouterie d'exception au cœur de Nouméa, alliant l'héritage de l'orfèvrerie thaïlandaise à la chaleur dorée de la Nouvelle-Calédonie.</p>
+    </div>
+    <div>
+      <div class="ftr-h">Navigation</div>
+      <div class="ftr-list">
+        <a href="#services">Notre savoir-faire</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#avis">Avis clients</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div>
+      <div class="ftr-h">Nous Trouver</div>
+      <address class="ftr-addr" style="font-style:normal">
+        Villa Thaï Bijoutier<br>
+        18 Rue Anatole France<br>
+        Nouméa 98800<br>
+        Nouvelle-Calédonie
+      </address>
+      <a href="tel:263727" class="ftr-tel">☎ 26.37.27</a>
+    </div>
+  </div>
+  <div class="ftr-bottom">
+    <span class="ftr-copy">© 2026 Villa Thaï Bijoutier. Tous droits réservés.</span>
+    <span class="ftr-setup">Site réalisé par <a href="https://setup.nc" target="_blank" rel="noopener">Setup NC</a></span>
+  </div>
+</footer>
+
+<script>
+var imgs=["https://i.ibb.co/BH0zyGtC/Villa-Tha-Bijoutier-0.jpg","https://i.ibb.co/rRWpwYRv/Villa-Tha-Bijoutier-1.jpg","https://i.ibb.co/jxTJGzb/Villa-Tha-Bijoutier-2.jpg","https://i.ibb.co/6RTHB6kc/Villa-Tha-Bijoutier-3.jpg"];
+var lb=document.getElementById('lb'),lbi=document.getElementById('lb-img'),ci=0;
+document.querySelectorAll('.gal-item').forEach(function(el){
+  el.addEventListener('click',function(){ci=+el.dataset.idx;lbi.src=imgs[ci];lb.classList.add('open')});
+});
+document.getElementById('lb-close').addEventListener('click',function(){lb.classList.remove('open')});
+document.getElementById('lb-prev').addEventListener('click',function(){ci=(ci-1+imgs.length)%imgs.length;lbi.src=imgs[ci]});
+document.getElementById('lb-next').addEventListener('click',function(){ci=(ci+1)%imgs.length;lbi.src=imgs[ci]});
+lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('open')});
+document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')lb.classList.remove('open');if(e.key==='ArrowLeft'){ci=(ci-1+imgs.length)%imgs.length;lbi.src=imgs[ci]}if(e.key==='ArrowRight'){ci=(ci+1)%imgs.length;lbi.src=imgs[ci]}});
+
+var form=document.getElementById('cform');
+form.addEventListener('submit',function(e){
+  e.preventDefault();
+  var ok=true;
+  [['fg-nom','f-nom',false],['fg-email','f-email',true],['fg-tel','f-tel',false],['fg-msg','f-msg',false]].forEach(function(f){
+    var g=document.getElementById(f[0]),v=document.getElementById(f[1]).value.trim();
+    var invalid=f[2]?(!v||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)):!v;
+    g.classList.toggle('err',invalid);
+    if(invalid)ok=false;
+  });
+  if(!ok)return;
+  var btn=form.querySelector('button[type=submit]'),ld=document.getElementById('f-loader'),sc=document.getElementById('f-success');
+  btn.style.display='none';ld.style.display='block';
+  setTimeout(function(){ld.style.display='none';sc.classList.add('show')},1200);
+});
+</script>
+
+</body>
+</html>
